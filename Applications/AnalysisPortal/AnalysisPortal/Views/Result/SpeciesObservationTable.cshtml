@@ -1,0 +1,140 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.ViewResult.ViewTableViewModel
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationTable;
+    ViewBag.Description = Resource.ResultViewSpeciesObservationTableDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button type="button" id="btnExcel" class="btn action-button"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</button>                
+    </div> 
+</div>
+
+
+@* this is the div where the selected taxa Grid will be rendered *@
+<div id="obsTableDiv"></div>
+
+@if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+{
+    @Html.Partial("QueryComplexityDialog", Model.ComplexityEstimate)   
+}
+  
+<script type="text/javascript">
+    var observationsStore;
+    var pageSize = 25;
+
+    $(document).ready(function() {
+        AnalysisPortal.Models.defineObservationDarwinCoreViewModel();
+        observationsStore = AnalysisPortal.createJsonStore(
+            'ObservationDarwinCoreViewModel', 
+            '@Html.Raw(Url.Action("GetPagedObservationListAsJSON", "Result"))', {
+                pageSize: pageSize
+            });
+
+        var observationDarwinCoreGrid = Ext.create('Ext.grid.Panel', {
+            id: 'observationDarwinCoreGrid',
+            store: observationsStore,
+            title: AnalysisPortal.Resources.PresentationTableGridTitle,
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 500,
+            plugins: 'bufferedrenderer',
+            frame: false,
+            columnLines: true,
+            sortableColumns: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }                
+            },            
+            renderTo: 'obsTableDiv',
+            columns: [
+                { text: AnalysisPortal.Resources.PresentationTableDetails, width: 30, dataIndex: 'ObservationId', cls: 'mousepointer', renderer: function (value, meta, record) {
+                //    return Ext.String.format('<i class="icon-info-sign mousepointer" style="color:#0088CC;" onclick="showObservationDetailDialog({0}); return false;"></i>', value);                    
+                    return Ext.String.format('<img class="mousepointer observationDetailInfo" src="/Content/images/information-white.png" data-id="{0}" data-title="{1}" title="{1}" />', value, record.data.@Model.TableFields[0].DataField);
+                }},                               
+                @for (int i = 0; i < Model.TableFields.Count; i++)
+                {
+                    var field = Model.TableFields[i];
+                    if (i < Model.TableFields.Count - 1)
+                    {
+                        
+                        @:{ text: '@field.GetHeader()', width: @field.Width, dataIndex: '@field.DataField' },
+                    }
+                    else
+                    {
+                        @:{ text: '@field.GetHeader()', width: @field.Width, dataIndex: '@field.DataField' }
+                    }
+                }            
+            ],            
+            // paging bar on the bottom
+            bbar: Ext.create('Ext.PagingToolbar', {
+                itemId: 'pagingToolbar',
+                store: observationsStore,
+                displayInfo: true,
+                displayMsg: '@Resource.SharedPagingSpeciesObservationDisplayMsg',                
+                emptyMsg: "@Resource.SharedPagingEmptyMsg",
+                plugins: [new Ext.ux.grid.PageSize()]
+            })           
+        });
+        var pagingToolbar = observationDarwinCoreGrid.getComponent('pagingToolbar');
+        pagingToolbar.getComponent('last').hide();
+        initQueryComplexityDialog();   
+        
+        $('#obsTableDiv').on('click', 'img.observationDetailInfo', function() {
+            var observationId = $(this).data('id');
+            var title = $(this).data('title');
+
+            var url = Ext.String.format('@Url.Action("ObservationDetailPartial", "Details")?id={0}&dialog=true', observationId);  
+            AnalysisPortal.showDialog({
+                title: title,
+                url: url
+            });
+        });
+        
+        $.post('@Url.Action("AllowObservationsExport", "Result")', function( result ) {
+            if (result.allowExport) {
+                $('#btnExcel')
+                    .on('click',
+                        function() {
+                            AnalysisPortal.showDialog({
+                                title: AnalysisPortal.Resources.ExcelExportTitle,
+                                url: AnalysisPortal.ApplicationPath + '/Result/ExcelExportDialog',
+                                data: null,
+                                sizeClass: 'modal-sm',
+                                afterLoadCallback: function() {
+                                    excelExport.Init();
+                                }
+                            });
+                        });
+            } else {
+                $('#btnExcel').attr({ disabled: 'disabled', title: result.message });
+            }
+        });
+    });
+
+    function loadData() {
+        observationsStore.load();        
+    }
+
+    function initQueryComplexityDialog() {
+        @if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+        {
+        <text>
+        AnalysisPortal.showQueryComplexityDialog(function() {
+            loadData();
+        });       
+        </text>
+        }
+        else
+        {        
+        @:loadData();        
+        }        
+    }
+</script>   

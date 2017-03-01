@@ -1,0 +1,204 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxonFromIdsViewModel
+
+@{
+    ViewBag.Title = @Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)        
+    <div class="btn-toolbar page-toolbar">
+        <button id="addSelectedTaxaButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedAddFilter</text> }</button>
+        @*<button id="addSelectedTaxaButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.FilterTaxonFromIdsAddSelectedTaxa</text> } else { <text>@Resource.FilterTaxonFromIdsAddSelectedTaxaWhenFilterNotEmpty</text> }</button>*@    
+    @*<button id="toolbarButtonReset" @if (Model.IsSettingsDefault) { <text>disabled="disabled"</text> } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>*@
+    </div>
+</div>    
+
+<div class="clipBoardContent">
+    <div class="editor-label">
+        @Html.LabelFor(m => m.ClipBoard)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(m => m.ClipBoard, new { id = "clipBoardTextArea", @class = "test", placeholder = Resources.Resource.TaxonFromIdsPasteHint })               
+        @Html.ValidationMessageFor(m => m.ClipBoard)
+    </div>
+</div>
+
+ <div class="inlineInput">
+    <div class="editor-label">
+        @Html.LabelFor(m => m.RowDelimiter)
+    </div>
+    <div class="editor-field">
+        @Html.DropDownList("RowDelimiter")
+        @Html.ValidationMessageFor(m => m.RowDelimiter)
+    </div>
+
+     <button id="btnTaxaListSearch" class="btn action-button" style="display: inline-block; margin-top: 4px;" title="@Model.Labels.SearchLabelTooltip" data-placement="top" type="button"><i class="icon-search icon-white"></i> &nbsp; @Model.Labels.SearchLabel</button>&nbsp;
+     @* A button to Dyntaxa application *@
+     <div style="margin-top: 16px;">
+         <a href="@AppSettings.Default.UrlToDyntaxa/Match/Settings/0" title="@Resource.SharedDyntaxaMatchLinkTooltip" data-placement="top" target="_blank">
+             @Resource.SharedDyntaxaMatchLinkText
+         </a>
+     </div>
+
+ </div>
+
+    
+@* this is the div where the search result Grid will be rendered *@
+<div id="searchTaxaDiv" class="gridMarginTop"></div>
+<br/>
+
+
+
+<span @if (Model.IsSettingsDefault)
+      { <text>style="display:none;"</text> }>
+    @Html.Action("SelectedTaxaPartial", new { showTaxaSelectionCheckboxes = false })
+</span>
+
+@* Form used to add selected taxa to MySettings. Always triggered by Javascript*@
+@using (Html.BeginForm("AddTaxaToFilter", "Filter", FormMethod.Post, new { @id = "addTaxaToFilterForm", @name = "addTaxaToFilterForm" }))
+{
+    @Html.Hidden("strTaxonIds") 
+    @Html.Hidden("returnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery)        
+}    
+    
+<script type="text/javascript">
+    var searchGrid;
+    var searchTaxaStore;
+    var showSaveSettingsMessageOnLeave = true;
+    
+    $(document).ready(function () {
+        createGrid();
+        initToolbar();
+        
+        $('#addSelectedTaxaButton').click(addSelectedTaxa);  
+        $('#btnTaxaListSearch').click(function() {
+            var text = $("#clipBoardTextArea").val();
+            var rowDelimiter = $("#RowDelimiter").val();            
+            searchTaxaStore.load({
+                params: {
+                    text: text,
+                    rowDelimiter: rowDelimiter
+                },
+                callback: function (records, operation, success) {              
+                    searchGrid.getSelectionModel().selectAll(true);
+                    enableDisableButtons();
+                }
+
+            });
+        });
+
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTaxa", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+    }
+
+    // Adds the selected taxa in search grid to the MySettings object on server
+    function addSelectedTaxa() {
+        var selected = [];
+        var s = searchGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+
+        var frm = document.addTaxaToFilterForm;
+        frm.strTaxonIds.value = Ext.encode(selected);
+        frm.submit();
+    }
+
+
+    function createGrid() {        
+        AnalysisPortal.Models.defineTaxonViewModel();
+
+        searchTaxaStore = AnalysisPortal.createJsonStore("TaxonViewModel", '@Html.Raw(Url.Action("GetMatchingTaxa", "Filter"))', {
+            method: 'POST'
+        });
+
+        searchGrid = Ext.create('Ext.grid.Panel', {
+            id: 'searchTaxaGrid',
+            store: searchTaxaStore,
+            title: AnalysisPortal.Resources.FilterTaxonFromIdsSearchTaxaGridTitle,
+            width: AnalysisPortal.DefaultContentWidth,
+            minHeight: 20,
+            maxHeight: 500,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedSearching
+                }
+            },            
+            renderTo: 'searchTaxaDiv',
+            columns: [
+                    { text: AnalysisPortal.Resources.LabelTaxon, flex: 1, dataIndex: 'ScientificName', sortable: true },
+                    { text: AnalysisPortal.Resources.LabelAuthor, width: 170, dataIndex: 'Author', sortable: true },
+                    { text: AnalysisPortal.Resources.LabelSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+                    { text: AnalysisPortal.Resources.LabelCategory, width: 100, dataIndex: 'Category', sortable: true },
+                    { text: AnalysisPortal.Resources.LabelTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true },
+                    {
+                        width: 30,
+                        resizable: false,
+                        dataIndex: 'TaxonStatus',
+                        sortable: false,
+                        align: 'center',
+                        xtype: 'actioncolumn',
+                        menuDisabled: true,
+                        hideable: false,
+                        getClass: AnalysisPortal.getAlertStatusClassInGrid
+                        ,
+                        handler: function (grid, rowIndex, colindex) {
+                            var record = grid.getStore().getAt(rowIndex);
+                            var url = '@Url.Action("TaxonSummaryDialog", "Details")';
+                            url += "?id=" + record.data.TaxonId;
+                            AnalysisPortal.showDialog({
+                                url: url
+                            });
+                        }
+                    },
+                    {
+                        dataIndex: 'SpeciesProtectionLevel',
+                        width: 30,
+                        align: 'center',
+                        menuDisabled: true,
+                        hideable: false,
+                        resizable: false,
+                        sortable: false,
+                        renderer: function (value) {
+                            if (value == 1) {
+                                return '';
+                            } else {
+                                return Ext.String.format('<img title="{0}" src="/Content/images/taxon-protection-level-protected1.png" />', AnalysisPortal.Resources.TaxonSharedProtectionLevel1);
+                            }
+                        }
+                    }
+            ],
+            columnLines: true,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        enableDisableButtons();                        
+                    }
+                }
+            })
+        });
+
+    }
+
+    function enableDisableButtons() {
+        var selections = searchGrid.getSelectionModel().getSelection();
+        if (selections.length == 0) {
+            $('#addSelectedTaxaButton').attr("disabled", true).removeClass("btn-primary");
+        } else {
+            $('#addSelectedTaxaButton').attr("disabled", false).addClass("btn-primary");
+        }
+    }
+
+</script>
+    

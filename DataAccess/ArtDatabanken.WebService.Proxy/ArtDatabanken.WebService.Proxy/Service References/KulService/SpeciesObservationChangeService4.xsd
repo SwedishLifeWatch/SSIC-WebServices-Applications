@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+  <xs:import schemaLocation="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/LifeWatchInterfaceAPI" />
+  <xs:element name="GetSpeciesObservationChangeAsSpecies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="changedFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isChangedFromSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="changedTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isChangedToSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="changeId" type="xs:long" />
+        <xs:element minOccurs="0" name="isChangedIdSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="maxReturnedChanges" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeciesObservationChangeAsSpeciesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetSpeciesObservationChangeAsSpeciesResult" nillable="true" type="q1:WebSpeciesObservationChange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeciesObservationChangeAsGbif">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="changedFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isChangedFromSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="changedTo" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isChangedToSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="changeId" type="xs:long" />
+        <xs:element minOccurs="0" name="isChangedIdSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="maxReturnedChanges" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpeciesObservationChangeAsGbifResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/LifeWatchInterfaceAPI" minOccurs="0" name="GetSpeciesObservationChangeAsGbifResult" nillable="true" type="q2:WebGbifObservationChange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreYouThere">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AreYouThereResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AreYouThereResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceVersion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServiceVersionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceVersionAPI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetServiceVersionAPIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetServiceVersionAPIResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

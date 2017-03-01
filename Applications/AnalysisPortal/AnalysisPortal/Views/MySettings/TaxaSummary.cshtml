@@ -1,0 +1,23 @@
+﻿@model List<ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Taxon.TaxonViewModel>
+
+<div style="max-height: 400px; overflow: auto;">
+<table class="table table-condensed table-bordered" style="width: 350px;">
+    <thead>
+        <tr>
+            <th style="width: 100px;">@Resources.Resource.TaxonSharedTaxonId</th>
+            <th style="width: 250px;">@Resources.Resource.TaxonSharedScientificName</th>            
+            <th style="width: 200px;">@Resources.Resource.TaxonSharedSwedishName</th>
+        </tr>        
+    </thead>
+    <tbody>
+        @foreach (var taxon in Model)
+        {
+            <tr>
+                <td>@taxon.TaxonId</td>
+                <td>@taxon.ScientificName</td>
+                <td>@taxon.CommonName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>

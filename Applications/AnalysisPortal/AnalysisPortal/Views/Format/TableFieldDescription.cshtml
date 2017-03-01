@@ -1,0 +1,87 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Table.TableFieldDescriptionViewModel
+
+
+<table class="table table-condensed table-bordered" style="table-layout: fixed;">
+    <tr>
+        <td class="tablelabel" style="width: 150px;">Id</td>
+        <td class="breakable">@Model.Id</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Guid</td>
+        <td class="breakable">@Model.Guid</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Name</td>
+        <td class="breakable">@Model.Name</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Label</td>
+        <td class="breakable">@Model.Label</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Class</td>
+        <td class="breakable">@Model.Class</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Type</td>
+        <td class="breakable">@Model.Type</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Importance</td>
+        <td class="breakable">@Model.Importance</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Definition</td>
+        <td class="breakable">@Model.Definition</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Definition URL</td>
+        <td class="breakable">@Model.DefinitionUrl</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Documentation</td>
+        <td class="breakable">@Model.Documentation</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Documentation URL</td>
+        <td class="breakable">@Model.DocumentationUrl</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Remarks</td>
+        <td class="breakable">@Model.Remarks</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is mandatory</td>
+        <td class="breakable">@Model.IsMandatory</td>
+    </tr>
+
+    <tr>
+        <td class="tablelabel">IsAcceptedByTdwg</td>
+        <td class="breakable">@Model.IsAcceptedByTdwg</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is class name</td>
+        <td class="breakable">@Model.IsClassName</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is implemented</td>
+        <td class="breakable">@Model.IsImplemented</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is mandatory from provider</td>
+        <td class="breakable">@Model.IsMandatoryFromProvider</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is obtained from provider</td>
+        <td class="breakable">@Model.IsObtainedFromProvider</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Is planned</td>
+        <td class="breakable">@Model.IsPlanned</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">Sort order</td>
+        <td class="breakable">@Model.SortOrder</td>
+    </tr>
+</table>

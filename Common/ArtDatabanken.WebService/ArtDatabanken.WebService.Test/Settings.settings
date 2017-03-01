@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestPasswordHash" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">420B9B97AC94BD17353E71D4B6227563AF829A41</Value>
+    </Setting>
+    <Setting Name="TestClientApplicationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebServiceTest</Value>
+    </Setting>
+    <Setting Name="TestClientApplicationVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.2.3.4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,1027 @@
+﻿/* Colors */
+h5.sluBlue, .sluBlue {
+    color: #2c95b5;
+}
+
+p.intro {
+    color: #414141;
+    font-weight: bold;
+}
+
+ul {
+    padding-left: 10px;
+}
+
+.white-bg {
+    background-color: #FFF;
+}
+
+article h3 {
+    margin-top: 15px;
+}
+
+article, hgroup {
+    max-width: 640px;    
+}
+
+.article > .more h2 {
+    color: #000000;
+    background: none;
+    margin: 0 0 5px 0;
+    padding: 0 0 0 0;
+    font-size: 16px!important;
+}
+
+.article div.intro-image {
+    float: right;
+    margin: 10px;
+}
+
+.tutorial_header {
+    background: #28495A;    
+}
+
+div.tutorial_header {
+    border-radius: 4px 4px 4px 4px;
+    border: 1px solid #cecece;
+    border: 1px solid rgba(0, 0, 0, 0.15);    
+    padding: 4px 10px;
+    background: aliceblue;
+    margin-top: 10px;
+}
+
+div.main-nav, div.foot-nav {
+    border: 0 solid;
+    margin: 0;
+}
+
+div.foot-nav 
+{
+    background: transparent !important;    
+    margin-top: 20px;
+    margin-bottom: 0;
+    border-top: #ccc 1px dotted;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px 10px 0 0;
+} 
+
+
+#mainContent {
+    /*border-color: #E5E6E7;*/
+    border-color: #C0C0C0;
+    width: 1080px;
+    margin: 0 auto;
+    text-align: left;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-top-width: 0;
+    border-style: solid;
+    background-color: white;
+    border-radius: 0 0 1px 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*box-shadow: 2px 2px 2px #EEEEEE;*/
+    box-shadow: 5px 5px 5px #EEEEEE;
+}
+
+#footerWrapper {
+    /*border: 1px solid silver;*/
+    /*border: 2px solid #C0C0C0;*/
+    border: 2px solid #E5E6E7;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 0;
+    margin-top: 20px;
+    background-repeat: no-repeat;
+    width: 1080px;
+    background-color: #F3F3F4;    
+    clear: both;
+    min-width: 1080px;
+    /*border-radius: 0 0 6px 6px;*/
+    /*border-radius: 6px 6px 6px 6px;*/
+}
+
+div.leftContent {
+    /*border-color: silver;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px 2px 2px 2px;
+    box-shadow: 5px 5px 5px #EEEEEE;*/
+    padding-left: 10px;
+    padding-right: 5px;    
+    margin-top: 10px;
+    margin-left: 0 !important;
+}
+
+div.rightContent {    
+    margin-left: 10px !important;
+    margin-top: 10px;
+}
+
+
+.mousepointer {
+    cursor:pointer !important;
+}
+
+img#swedishLifeWatchLogo {
+    position: absolute;
+    left: 818px;
+    top: 24px;
+    width: 247px;
+}
+
+
+/* Login box */
+div#logindisplay {
+    /*background: none repeat scroll 0 0 #1D3741;*/
+    border-radius: 0 0 5px 5px;
+    color: #FFFFFF;
+    float: right;
+    font-size: 0.9em;
+    /*margin: 0 0 0 700px;*/
+    padding: 1px 5px 5px;
+    position: absolute;
+    /*white-space: nowrap;*/
+    width: 253px;
+    position: absolute; 
+    left:818px; 
+    top: 0;
+}
+
+div#logindisplay ul {
+    line-height: 18px;
+    margin: 0;
+}
+
+div#logindisplay li {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div#logindisplay a, div#logindisplay a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;    
+}
+div#logindisplay a:hover, div#logindisplay a:focus {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;    
+}
+
+/* Change user role */
+div#changeUserRoleDisplay {
+    /*background: none repeat scroll 0 0 #1D3741;*/
+    border-radius: 0 0 5px 5px;
+    color: #FFFFFF;
+    float: right;
+    font-size: 0.9em;
+    /*margin: 0 0 0 700px;*/
+    padding: 0px 5px 5px;
+    position: absolute;
+    /*white-space: nowrap;*/
+    width: 253px;
+    position: absolute; 
+    left:558px; 
+    top: 0;
+}
+
+div#changeUserRoleDisplay ul {
+    line-height: 18px;
+    margin: 0;
+}
+
+div#changeUserRoleDisplay li {
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div#changeUserRoleDisplay a, div#changeUserRoleDisplay a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;    
+}
+div#changeUserRoleDisplay a:hover, div#changeUserRoleDisplay a:focus {
+    font-weight: bold;
+    text-decoration: underline;
+    color: white;    
+}
+
+div#changeUserRoleDisplay li.changeRoles {
+    background: none repeat scroll 0 0 lightgray;
+    border-radius: 0;
+    color: #333333;
+    margin-top: 0;
+    padding: 0 5px;
+    white-space: normal;
+    font-size: 0.9em;
+}
+
+div#changeUserRoleDisplay li.changeRoles a {
+    color: #0088CC;    
+}
+
+
+
+.IconFlag-sv {
+    /*background: url("../Content/images/sv.png") no-repeat scroll 0 0 transparent;*/
+    background: url("../Content/images/SE_flag_ON_29x15.png") no-repeat scroll 0 0 transparent;
+}
+.IconFlag-en {
+    /*background: url("../Content/images/en.png") no-repeat scroll 0 0 transparent;*/
+    background: url("../Content/images/UK_flag_ON_29x15.png") no-repeat scroll 0 0 transparent;
+}
+.IconFlag {
+    cursor: pointer;
+    display: block;
+    /*height: 11px !important;*/
+    height: 15px !important;
+    margin: 4px 0 0;
+    /*width: 16px !important;*/
+    width: 29px !important;
+    z-index: 500;
+}
+
+div#logindisplay li.changeRoles {
+    background: none repeat scroll 0 0 #E4BB66;
+    border-radius: 0 0 2px 2px;
+    color: #333333;
+    margin-top: 1px;
+    padding: 0 5px;
+    white-space: normal;
+    font-size: 0.9em;
+}
+
+div#logindisplay li.changeRoles a {
+    color: #0088CC;    
+}
+
+.loginFieldset {
+    box-shadow: 0 0 0 #EEEEEE;
+    display: inline;
+    margin: 15px 20px 20px;
+    width: 230px;    
+}
+
+legend {
+    font-size: 15px;
+    font-weight: 600;
+    padding: 2px 4px 8px;
+}
+
+
+
+/* add icon */
+.x-btn-icon.add {
+    background-image: url("/Content/images/add.gif") !important;
+}
+
+/* remove icon */
+.x-btn-icon.remove {
+    background-image: url("/Content/images/delete.gif") !important;
+}
+
+/* style Ext JS rows on mouseover */
+/*.x-grid-row-over .x-grid-cell-inner {
+    font-weight: bold;
+}*/
+
+/* shared styles for the ActionColumn icons */
+.x-action-col-cell img {
+    height: 16px;
+    width: 16px;    
+    background-size: cover;
+}
+
+/* custom icon for Taxon.AlertLevel == Green */
+.x-action-col-cell img.taxon-alert-status-green {
+    background-image: url(/Content/images/taxon-alert-status-green.png);
+    cursor: pointer;
+}
+
+/* custom icon for Taxon.AlertLevel == Yellow */
+.x-action-col-cell img.taxon-alert-status-yellow {
+    background-image: url(/Content/images/taxon-alert-status-yellow.png);
+    cursor: pointer;
+} 
+
+/* custom icon for Taxon.AlertLevel == Red */
+.x-action-col-cell img.taxon-alert-status-red {
+    background-image: url(/Content/images/taxon-alert-status-red.png);
+    cursor: pointer;
+}
+
+#clipBoardTextArea {
+    width: 290px; 
+    height: 100px;
+}
+
+div.clipBoardContent {
+    display: inline-block;
+    width: 300px; 
+    vertical-align: top;                  
+}
+
+div.inlineInput {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.gridMarginTop {
+    margin-top: 20px;
+}
+
+
+div#footerContent {
+    display: block;
+    font-size: 11px;
+    margin: 0;
+    padding-top: 10px;
+    width: 100%;
+    /*width: 800px;*/
+}
+div#footerContent ul {
+    line-height: 1.5em;
+    margin-bottom: 2px;
+}
+div#footerContent div.footerColumn {
+    margin: 0 6px 5px 6px;
+}
+div#footerContent div.rightSeparator {
+    border-right: 1px dotted #999999;
+    padding-right: 15px;
+    text-align: right;
+}
+#footerContent h4 {
+    color: #555555;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 2px;    
+}
+#footerContent a {
+    text-decoration: none;
+    /*color: #fff;*/
+    color: #777777;    
+}
+#footerContent .footerColumn a:hover {
+    text-decoration: underline;
+    /*color: #fff;*/
+    color: black;
+}
+
+img.footerADbImg {
+    margin-top: 14px;
+}
+img.footerSvApImg {
+    margin-bottom: 12px;
+    margin-top: 6px;
+    padding-left: 5px;
+}
+img.footerSLWImg {
+    margin-top: 20px;
+}
+
+.right {
+    float: right;
+}
+.left {
+    float: left;
+}
+
+
+.partialViewErrorDiv {
+    height: 100%;
+    background: peachpuff;    
+}
+
+img.center {
+    display: block;   
+    margin-left: auto;   
+    margin-right: auto;
+}
+
+.vcenter {
+    min-height: 10em;   
+    display: table-cell;   
+    vertical-align: middle;
+}
+
+.detailsEmptyCells {
+    background-color: #ddd;
+}
+
+.btn-toolbar-vertical {
+    display: inline-block;    
+}
+
+h2.subMenuHeader {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.subMenuDiv {
+    /*border-style: solid;
+    border-width: 0 1px 1px 1px;
+    border-color: #666;*/
+    margin-left: 10px;
+    margin-bottom: 6px;
+    
+    /*background-color: #fff;*/    
+}
+
+.map img { max-width:none; }
+
+div.infobox {
+    background-color: lightyellow;
+    border: 1px solid #cecece;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px 4px 4px 4px;
+    margin-top: 2px;
+    padding: 5px 10px 2px 10px;
+    width: 1080px;
+}
+
+p.infotext {
+    background-color: transparent;
+    padding: 1px;
+    width: 800px;
+    margin: 2px;    
+}
+
+.codebox {
+    background-color: transparent;
+    border-style: dashed;
+    margin-top: 2px;
+    padding: 2px;
+}
+
+table td.tablelabel {
+    background-color: #FAFAFA;
+    border-right: 1px solid #E6E6E6;
+    border-top: 1px solid #E6E6E6;
+    color: #666666;
+    font-weight: bold;
+    padding: 3px 4px 3px 8px;
+    text-align: left;
+    vertical-align: top;
+}   
+
+.datapanel {
+        margin-bottom: 5px;
+    } 
+    
+.ellipseList {
+    list-style-type: disc;    
+    margin-left: 20px;
+}   
+
+.ellipseList li { 
+    list-style-type: disc; 
+}
+
+.popover-content ul {
+    margin-left: 15px;    
+}
+
+/* Temporal filter layout */
+
+div.temporalFilterDiv, div.accuracyFilterDiv {    
+    border: 1px solid #C0C0C0;
+    padding: 4px 10px;
+    margin-top: 10px;
+}
+
+div.temporalFilterDiv label, div.accuracyFilterDiv label {
+    font-weight: bold;
+    display: inline;
+    cursor: pointer;
+}
+
+div.temporalFilterDiv .inputLabel, div.accuracyFilterDiv .inputLabel {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.inlineLabel {
+    display: inline;
+    vertical-align: middle;
+}
+
+.multipleLineLabel {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 3px;
+}
+
+div.content-box {
+    background-color: white;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-width: 1px;
+    border-color: #C0C0C0;
+    border-style: solid;
+}
+
+.grid-statistics-table {
+    border: 3px solid #000000;
+    border-collapse: collapse;        
+}
+
+.grid-statistics-table th, .grid-statistics-table td {
+    border: 3px solid #000000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.submenuButton {
+    margin-bottom: 4px;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.toolbarButton img {
+    vertical-align: top;
+}
+
+img.toolbarButtonImage {
+    vertical-align: top;
+}
+
+.gridColorCell {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    height: 16px;
+    width: 24px;
+    margin-left: 6px;
+    margin-right: 6px;    
+} 
+
+.fivePxPad {
+    margin: 5px 0;
+}
+
+/* Introduktion on report form */
+    .report-instruktion-wrapper { display:none; background-color: #F8FDEC; -moz-border-radius: 5px; border: 1px solid #ccc; border-color: #ccc #eee #f6f6f6 #ccc; margin-bottom: 10px; padding: 6px; }
+    .report-instruktion-wrapper { background: -moz-linear-gradient(top, #f6f6f6 0, #fafafa 50%, #fefefe 100%); box-shadow: 2px 2px 2px #EEEEEE inset; }
+    .report-instruction-box { padding:5px; border:1px solid #eee; border-color:#eee #aaa #aaa #eee; background-color:#fff; min-height:6em; margin-right:10px; }
+    .report-instruction-box-last { margin-right:0; }
+    .boxshadow .report-instruction-box { box-shadow: 1px 1px 3px #dcdcdc; box-shadow: 1px 1px 3px rgba(0,0,0,0.1); border-radius:5px; }
+    .report-instruction-box h3 { margin:0px; font-size:18px; font-weight:bold; padding: 2px 4px; background-color:#eee; border-bottom:1px solid #ccc; }
+    .report-instruction-list { margin:0; padding:0; }
+    .report-instruction-list li.listbox { width:25%; float:left; list-style-type:none; }
+    .report-instruction-list ol li { border-bottom:1px dotted #ccc; padding:4px 0; }
+    .report-instruction-list ol li:last-child { border-bottom:none; }
+    /*.report-instructions-infobox { margin-top:10px;padding:3px;border:1px dotted #cccc99;font-size:10px;color:#333;background: #ffffe6 url(../Images/Icons/light-bulb.png) no-repeat 3px 5px; padding-left:23px; }*/
+    .report-instructions-infobox { margin-top:10px;padding:3px;border:1px dotted #cccc99;font-size:10px;color:#333;background: #ffffe6 no-repeat 3px 5px; padding-left:23px; }
+
+    a.instructions-off { background: url("/Content/images/link-arrow-down.gif") no-repeat scroll left center transparent; padding-left:14px; }
+    a.instructions-on { background: url("/Content/images/link-arrow-up.gif") no-repeat scroll left center transparent; padding-left:14px; }        
+
+
+.jquery-accordion h3 {
+  margin: 0;
+  margin-top: 5px;
+  background-color: rgb(230,230,230);
+  background-image: linear-gradient(to top, rgb(230,230,230) 14%, rgb(250,250,250) 57%);
+  background-image: -o-linear-gradient(bottom, rgb(230,230,230) 14%, rgb(250,250,250) 57%);
+  background-image: -moz-linear-gradient(bottom, rgb(230,230,230) 14%, rgb(250,250,250) 57%);
+  background-image: -webkit-linear-gradient(bottom, rgb(230,230,230) 14%, rgb(250,250,250) 57%);
+  background-image: -ms-linear-gradient(bottom, rgb(230,230,230) 14%, rgb(250,250,250) 57%);
+
+  border: 1px solid #E5E5E5;
+  border-radius: 4px 4px 4px 4px;
+  /*background-color: rgb(228,10,85);
+  background-image: linear-gradient(to top, rgb(228,10,85) 14%, rgb(255,36,111) 57%);
+  background-image: -o-linear-gradient(bottom, rgb(228,10,85) 14%, rgb(255,36,111) 57%);
+  background-image: -moz-linear-gradient(bottom, rgb(228,10,85) 14%, rgb(255,36,111) 57%);
+  background-image: -webkit-linear-gradient(bottom, rgb(228,10,85) 14%, rgb(255,36,111) 57%);
+  background-image: -ms-linear-gradient(bottom, rgb(228,10,85) 14%, rgb(255,36,111) 57%);*/
+}
+
+.jquery-accordion h3 a {
+    /*background: url("sprite.png") 15px 13px no-repeat;*/    
+    background: url('/Content/images/arrows/bullet-arrow-right-icon_24.png') 5px 13px no-repeat;
+    display: block;
+    padding: 10px;
+    padding-left: 32px;
+    margin: 0;
+    color: #000; /*color: #fff;*/
+    text-decoration: none;
+    font-weight: normal;
+    
+    font-size: 16px;
+    /*border-bottom: 1px solid rgba(100, 200, 200, 0.5);*/ /*border-bottom: 1px solid rgba(128, 10, 85, 0.5);*/ /*text-shadow: 1px 1px 1px rgb(128,10,85);*/
+}
+.jquery-accordion h3:hover {
+     background: rgb(230,230,230);
+      background-image: linear-gradient(to top, rgb(220,220,220) 14%, rgb(240,240,240) 57%);
+      background-image: -o-linear-gradient(bottom, rgb(220,220,220) 14%, rgb(240,240,240) 57%);
+      background-image: -moz-linear-gradient(bottom, rgb(220,220,220) 14%, rgb(240,240,240) 57%);
+      background-image: -webkit-linear-gradient(bottom, rgb(220,220,220) 14%, rgb(240,240,240) 57%);
+      background-image: -ms-linear-gradient(bottom, rgb(220,220,220) 14%, rgb(240,240,240) 57%);
+
+}
+/*.jquery-accordion h3.accordionopen  { background: rgb(240,240,240); }*/
+.jquery-accordion h3.accordionopen {
+    border-radius: 4px 4px 0 0;
+}
+
+.jquery-accordion h3.accordionopen a {
+    background: url('/Content/images/arrows/bullet-arrow-down-icon_24.png') 5px 13px no-repeat;     
+}
+.jquery-accordion h3 + div { padding: 10px; }
+
+div.accordiondiv {
+    border: 1px dotted #E5E5E5;
+    border-radius: 0 0 4px 4px;
+}
+
+em {
+    font-weight: inherit;
+}
+
+/* Classes made to remove style-tags from code*/
+
+.calculationInputDiv {
+    width:250px; height: 100%; 
+    margin-left: 10px;
+}
+
+.noMargin {
+    margin:0px;
+}
+
+.checkboxRightMargin {
+    margin-right: 5px;
+}
+
+.inputLabel {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.headerLabel {
+    font-weight: bold; 
+    margin-bottom: 0px;
+}
+
+h3.page-title {
+    background: none repeat scroll 0 0 #1D3741;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 10px 8px;    
+}
+
+div.page-presentation-content {
+    margin-top: 10px;
+}
+
+p.page-hierarchy {
+    margin-left: 15px;
+    font-size: 14px; 
+    margin-top: 6px;
+}
+
+div.breadcrumb-title-div {
+    margin: 0;     
+    padding: 10px 8px;    
+    font-size: 12px;     
+    background: none repeat scroll 0 0 #1D3741;     
+    color: whitesmoke;     
+}
+
+a.breadcrumb-link, a.breadcrumb-link:link, a.breadcrumb-link:hover, a.breadcrumb-link:visited {
+    color: whitesmoke; 
+    font-size: 12px;    
+}
+
+span.breadcrumb-span {
+    color: whitesmoke;
+    font-size: 12px !important; 
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+span.breadcrumb-title {
+    font-size: 18px !important; font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 700;
+}
+
+span.divider {
+    color: whitesmoke; 
+    padding: 0 2px;     
+    font-size: 16px;    
+}
+
+.data-panel-content {
+    margin: 3px 0 0 3px;
+}
+
+input.full-length {
+    width: 100%;
+}
+
+.right-aligned-text, td.right-aligned-text {
+    text-align: right;
+}
+
+h3.underlined-title {
+    text-decoration: underline; 
+    margin-bottom: 15px;
+}
+
+div.report-content {
+    background-color: white;
+    border-width: 1px;
+    border-color: silver;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+#pageHeader {
+    width: 100%;
+    height: 140px;
+    margin: 0 auto auto;
+    background-image: url('/content/images/banner-SLW3TopLine2.png');    
+}
+
+#pageTopLine {
+    background-color: #616265;
+    height: 24px;
+}
+
+#container {
+    margin-top:0px;
+}
+
+div.content-wrapper {
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.horizontal-ruler {
+    background-color: silver;
+    color: #FFF;
+    height: 1px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#footerContent {
+    padding-left: 8px;
+}
+
+#footerContent div.text {
+    color: #555555;
+}
+
+select.coordinate-system {
+    visibility: hidden;
+    margin-left: 5px;
+    font-size: 10px;
+    height: 24px;
+    line-height: 20px;
+    margin-left: 3px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-top: 3px;
+    width: auto;
+}
+
+div.settings-summary-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-left: 5px;
+}
+
+div.state-button-group {
+    border-bottom-color: silver;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-left: 4px;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+div.state-buttons {
+    display:inline-block; 
+    float: left; 
+    width: 738px;
+}
+
+.main-content h2 {
+    background: none repeat scroll 0 0 #1D3741;
+    color: #FFFFFF;
+    /*margin: 0 0 20px;*/
+    margin: 0 0 0 0;
+    padding: 3px 8px;
+}
+
+.main-content {
+    margin-bottom: 10px;
+}
+
+.btn-toolbar-top {
+    padding: 4px 10px; 
+    /*border: 1px solid #333;
+    border-radius: 2px;
+    box-shadow: 5px 5px 5px #EEEEEE;*/
+    background: #fff;
+    margin: 0 4px 4px 4px;
+}
+
+div.infoBtn 
+{
+    vertical-align: top;
+    padding: 0 5px 0 5px;
+    display: inline-block;    
+    float: left; 
+    width: 40px;
+}
+
+div.infoBtn a {
+    text-decoration: none;
+}
+
+div.infoBtn a i {
+    font-size: 28px;
+    color: #33618D;    
+}
+
+div.infoBtn.active a i {
+    font-size: 28px;
+    color: #D28E00;    
+}
+
+div.subOverviewBtn {
+    padding: 0 5px;
+    display: inline-block;
+    float: left; 
+    width: 39px;
+}
+
+a#infoBtn, a#infoBtn i {
+    font-size: 16px;     
+    padding-top: 4px;
+}
+
+button.histogramBinSettingsButton {
+    margin-top: 10px;
+}
+
+input[type=checkbox].checkboxInput {
+    margin-right: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.progress-bar {
+    background-image: linear-gradient(to bottom, #428BCA 0px, #3071A9 100%);
+    background-repeat: repeat-x;
+}
+
+.progress-bar {
+    background-color: #428BCA;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+    color: #FFFFFF;
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+}
+
+.highlight-image img{
+     -ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=75);
+     -moz-opacity: 0.75;
+     opacity: 0.75;
+ }
+
+ .highlight-image:hover img{
+     -ms-filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+     -moz-opacity: 1;
+     opacity: 1;     
+ }
+
+ DIV#loader {
+  border: 1px solid #ccc;
+  width: 245px;
+  height: 500px;
+}
+
+/** 
+ * While we're having the loading class set.
+ * Removig it, will remove the loading message
+ */
+DIV#loader.loading {
+  background: url(/Content/images/ajax-loader.gif) no-repeat center center;
+}    
+
+td.breakable {
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for webkit */
+     word-break: break-word;
+
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+div.buttonToolbar {
+    margin: 10px;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.dangerdanger {
+    background: #bb3333!Important;
+    color: #ffffff;
+}
+
+ol.OrderedList {
+    padding-left: 20px;
+}
+
+ol.OrderedList li {
+    list-style-type: decimal!important;
+}
+
+.error {
+    color: #ff0000;
+}
+
+fieldset.temporalFilterGroup {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.25em;
+    padding: .125em;
+    border: 1px solid silver;
+}
+
+fieldset.temporalFilterGroup legend {
+    margin: 0;
+    margin-left: 2px;   
+    padding: 0;
+    padding-right: 5px; 
+    width: initial; 
+    font-weight: bold;             
+    font-size: 14px;
+    color: black;        
+    border-bottom: none;         
+}
+
+fieldset.temporalFilterGroup legend input[type=checkbox] {
+    margin-left: 2px; 
+    vertical-align: baseline; 
+    width: 16px; 
+    height: 16px;   
+}
+
+fieldset.temporalFilterGroup div.disabled {
+    z-index: 1000;
+    -ms-opacity: 0.4;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+fieldset.temporalFilterGroup div.inputLabel {
+    margin-left: 5px;
+}
+    
+fieldset.temporalFilterGroup p.inputLabel {
+    margin-bottom: 0px;
+}    
+
+fieldset.temporalFilterGroup input[type=text] {
+    width: 100px; 
+    height: 22px;
+}

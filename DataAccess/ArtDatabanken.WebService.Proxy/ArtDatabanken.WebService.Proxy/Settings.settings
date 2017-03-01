@@ -1,0 +1,165 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.Proxy" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserServiceClientTokenKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserServiceClientToken</Value>
+    </Setting>
+    <Setting Name="MaxOpenWebServiceConnections" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="DefaultTransactionTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="UserServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:1479/UserService/UserService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/UserService/UserService.svc</Value>
+    </Setting>
+    <Setting Name="GeoReferenceServiceSilurus2Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">silurus2-1.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="GeoReferenceServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/GeoReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="GeoReferenceServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationSOAPServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationSOAPServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/SwedishSpeciesObservationSOAPService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationSOAPServiceSilurus2Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">silurus2-1.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/TaxonService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc</Value>
+    </Setting>
+    <Setting Name="DyntaxaInternalServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/DyntaxaInternalService.svc</Value>
+    </Setting>
+    <Setting Name="DyntaxaInternalServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc</Value>
+    </Setting>
+    <Setting Name="DyntaxaInternalServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Taxon.ArtDatabankenSOA.se/DyntaxaInternalService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceAndrenaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">andrena2-1.artdatadb.slu.se/UserService/UserService.svc</Value>
+    </Setting>
+    <Setting Name="NorwayTaxonServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">webtjenester.artsdatabanken.no/Artsnavnebase.asmx</Value>
+    </Setting>
+    <Setting Name="UserServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">User.ArtDatabankenSOA.se/UserService.svc</Value>
+    </Setting>
+    <Setting Name="GeoReferenceServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GeoReference.ArtDatabankenSOA.se/GeoReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/SwedishSpeciesObservationService.svc</Value>
+    </Setting>
+    <Setting Name="SwedishSpeciesObservationServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SwedishSpeciesObservation.ArtDatabankenSOA.se/SwedishSpeciesObservationService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Taxon.ArtDatabankenSOA.se/TaxonService.svc</Value>
+    </Setting>
+    <Setting Name="PesiNameServiceEmailRecipient" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">maria.ripa@slu.se</Value>
+    </Setting>
+    <Setting Name="PesiNameServiceEmailSender" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dyntaxa@slu.se</Value>
+    </Setting>
+    <Setting Name="AnalysisServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc</Value>
+    </Setting>
+    <Setting Name="AnalysisServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/AnalysisService.svc</Value>
+    </Setting>
+    <Setting Name="AnalysisServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Analysis.ArtDatabankenSOA.se/AnalysisService.svc</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationHarvestServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationHarvestServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/SpeciesObservationHarvestService.svc</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationHarvestServiceSilurus2Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">silurus2-1.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc</Value>
+    </Setting>
+    <Setting Name="MvmServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc</Value>
+    </Setting>
+    <Setting Name="NorsServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">aquasupport.slu.se/Nors/SpeciesObservationChangeService.svc</Value>
+    </Setting>
+    <Setting Name="SersServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">aquasupport.slu.se/Sers/SpeciesObservationChangeService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonAttributeServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">taxonattribute.artdatabankensoa.se/TaxonAttributeService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonAttributeServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonAttributeServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/TaxonAttributeService.svc</Value>
+    </Setting>
+    <Setting Name="PictureServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Picture.artdatabankensoa.se/PictureService.svc</Value>
+    </Setting>
+    <Setting Name="PictureServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/PictureService/PictureService.svc</Value>
+    </Setting>
+    <Setting Name="PictureServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/PictureService.svc</Value>
+    </Setting>
+    <Setting Name="ReferenceServiceArtDatabankenSoaAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">reference.artdatabankensoa.se/ReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="ReferenceServiceMonesesAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="ReferenceServiceLocalAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost:50058/ReferenceService.svc</Value>
+    </Setting>
+    <Setting Name="KulServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceSpeciesFactTestAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">artfakta-dev.artdata.slu.se/UserService/UserService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceSystemTestAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserService-st.artdata.slu.se/UserService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceTwoBlueberriesTestAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserService-slw-dev.artdata.slu.se/UserService.svc</Value>
+    </Setting>
+    <Setting Name="TaxonServiceImplementation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonService.svc</Value>
+    </Setting>
+    <Setting Name="DyntaxaInternalServiceImplementation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaInternalService.svc</Value>
+    </Setting>
+    <Setting Name="WramServiceAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">130.239.46.17:82/WramSpeciesDataChangeService.svc</Value>
+    </Setting>
+    <Setting Name="MvmServiceAddressTest" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">spodosol.slu.se/DV/mvm_QA/ws/SpeciesObservationChangeService.svc</Value>
+    </Setting>
+    <Setting Name="UserServiceArtportalenTestAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Userservice-ap-st.artdata.slu.se/UserService.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

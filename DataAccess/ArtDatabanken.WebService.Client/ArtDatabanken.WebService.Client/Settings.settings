@@ -1,0 +1,60 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.Client" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefaultTransactionTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="TransactionTimeoutMargin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="ClientTokenKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebServiceClientToken</Value>
+    </Setting>
+    <Setting Name="ScientificTaxonNameCategoryNorway" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Vitenskaplig navn</Value>
+    </Setting>
+    <Setting Name="FirstPreferredCommonNameNorway" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Bokmål</Value>
+    </Setting>
+    <Setting Name="SecondPreferredCommonNameNorway" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Nynorsk</Value>
+    </Setting>
+    <Setting Name="TaxonNameVersionField" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Version</Value>
+    </Setting>
+    <Setting Name="GetTaxonNamesByTaxaLimit" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="WebDataModifiedByPerson" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ModifiedByPerson</Value>
+    </Setting>
+    <Setting Name="WebDataNameUsageId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">NameUsageId</Value>
+    </Setting>
+    <Setting Name="WebDataTaxonRevisionId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonRevisionId</Value>
+    </Setting>
+    <Setting Name="WebDataChildrenCircularTaxonIds" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ChildrenCircularTaxonIds</Value>
+    </Setting>
+    <Setting Name="WebDataPropertyIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PropertyIdentifier</Value>
+    </Setting>
+    <Setting Name="WebDataProjectParameter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProjectParameter</Value>
+    </Setting>
+    <Setting Name="WebDataGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">GUID</Value>
+    </Setting>
+    <Setting Name="WebDataProjectId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProjectId</Value>
+    </Setting>
+    <Setting Name="WebDataProjectName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProjectName</Value>
+    </Setting>
+    <Setting Name="WebDataUnit" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Unit</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

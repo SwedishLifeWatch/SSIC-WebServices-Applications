@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" elementFormDefault="qualified" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="ClearCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q1:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearCacheResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q2:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitiesByNameSearchString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q3:WebClientInformation" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q4:WebStringSearchCriteria" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="coordinateSystem" nillable="true" type="q5:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCitiesByNameSearchStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetCitiesByNameSearchStringResult" nillable="true" type="q6:ArrayOfWebCityInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedBoundingBox">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q7:WebClientInformation" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="boundingBox" nillable="true" type="q8:WebBoundingBox" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="fromCoordinateSystem" nillable="true" type="q9:WebCoordinateSystem" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="toCoordinateSystem" nillable="true" type="q10:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedBoundingBoxResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetConvertedBoundingBoxResult" nillable="true" type="q11:WebPolygon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedLinearRings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q12:WebClientInformation" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="linearRings" nillable="true" type="q13:ArrayOfWebLinearRing" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="fromCoordinateSystem" nillable="true" type="q14:WebCoordinateSystem" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="toCoordinateSystem" nillable="true" type="q15:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedLinearRingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetConvertedLinearRingsResult" nillable="true" type="q16:ArrayOfWebLinearRing" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedMultiPolygons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q17:WebClientInformation" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="multiPolygons" nillable="true" type="q18:ArrayOfWebMultiPolygon" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="fromCoordinateSystem" nillable="true" type="q19:WebCoordinateSystem" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="toCoordinateSystem" nillable="true" type="q20:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedMultiPolygonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetConvertedMultiPolygonsResult" nillable="true" type="q21:ArrayOfWebMultiPolygon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedPoints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q22:WebClientInformation" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="points" nillable="true" type="q23:ArrayOfWebPoint" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="fromCoordinateSystem" nillable="true" type="q24:WebCoordinateSystem" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="toCoordinateSystem" nillable="true" type="q25:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedPointsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetConvertedPointsResult" nillable="true" type="q26:ArrayOfWebPoint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedPolygons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q27:WebClientInformation" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="polygons" nillable="true" type="q28:ArrayOfWebPolygon" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="fromCoordinateSystem" nillable="true" type="q29:WebCoordinateSystem" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="toCoordinateSystem" nillable="true" type="q30:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConvertedPolygonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetConvertedPolygonsResult" nillable="true" type="q31:ArrayOfWebPolygon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q32:WebClientInformation" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="type" type="q33:LogType" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rowCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLogResult" nillable="true" type="q34:ArrayOfWebLogRow" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q35:WebClientInformation" />
+        <xs:element minOccurs="0" name="isCountryIsoCodeSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="countryIsoCode" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionCategoriesResult" nillable="true" type="q36:ArrayOfWebRegionCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q37:WebClientInformation" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="regionCategories" nillable="true" type="q38:ArrayOfWebRegionCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsByCategoriesResult" nillable="true" type="q39:ArrayOfWebRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByGUIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q40:WebClientInformation" />
+        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GUIDs" nillable="true" type="q41:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByGUIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsByGUIDsResult" nillable="true" type="q42:ArrayOfWebRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q43:WebClientInformation" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="regionIds" nillable="true" type="q44:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsByIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsByIdsResult" nillable="true" type="q45:ArrayOfWebRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q46:WebClientInformation" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q47:WebRegionSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsBySearchCriteriaResult" nillable="true" type="q48:ArrayOfWebRegion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsGeographyByGUIDs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q49:WebClientInformation" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GUIDs" nillable="true" type="q50:ArrayOfstring" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="coordinateSystem" nillable="true" type="q51:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsGeographyByGUIDsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsGeographyByGUIDsResult" nillable="true" type="q52:ArrayOfWebRegionGeography" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsGeographyByIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q53:WebClientInformation" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="regionIds" nillable="true" type="q54:ArrayOfint" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="coordinateSystem" nillable="true" type="q55:WebCoordinateSystem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionsGeographyByIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionsGeographyByIdsResult" nillable="true" type="q56:ArrayOfWebRegionGeography" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q57:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRegionTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetRegionTypesResult" nillable="true" type="q58:ArrayOfWebRegionType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q59:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetStatusResult" nillable="true" type="q60:ArrayOfWebResourceStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationIdentifier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isActivationRequired" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="LoginResult" nillable="true" type="q61:WebLoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q62:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q63:WebClientInformation" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q64:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,289 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.MySettings.Calculation
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map
+@using Resources
+@model GridStatisticsViewModel
+
+@{
+    ViewBag.Title = Resource.GridStatisticsTitle;    
+}
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">        
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>        
+    </div>
+</div>
+
+<div id="gridParametersPanel" class="datapanel"></div>
+<div id="gridCellsPanel" class="datapanel"></div>
+<div id="gridCalculationsPanel" class="datapanel"></div>
+<div id="gridEnvironmentDataPanel" class="datapanel"></div>
+
+<div id="gridSizeDiv" class="calculationInputDiv">
+    <h5>@Resource.GridStatisticsGridSize (m)</h5>
+    <p>
+        <select id="gridSizeSelectList" style="width: 200px">
+            <option value="1000">1 000</option>
+            <option value="5000">5 000</option>
+            <option value="10000">10 000</option>
+        </select>
+    </p>
+</div>
+<div id="coordinateSystemDiv" class="calculationInputDiv">
+<h5>@Resource.GridStatisticsSelectCoordinateSystem</h5>
+<select id="coordinateSystemSelectList" style="width:200px">
+    <option value="-1" @if(!Model.CoordinateSystemId.HasValue) { <text>selected="selected"</text> } >@Resource.GridStatisticsSelectCoordinateSystem</option>
+    @foreach (CoordinateSystemViewModel coordinateSystem in Model.CoordinateSystems)
+    {
+        <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected) { <text>selected="selected"</text> }>@coordinateSystem.Name</option>    
+    }    
+</select>
+</div>
+
+<div id="gridCellsDiv" class="calculationInputDiv">
+    <ul class="noMargin">
+        <li class="noMargin">
+            <input id="generateAllGridCellsCheckBox" type="checkbox" class="checkboxRightMargin" @if(Model.GenerateAllGridCells) { <text>checked="checked" </text> }  />
+            <label class="inlineLabel" for="generateAllGridCellsCheckBox">@Resource.GridStatisticsGenerateAllGridCells</label>
+        </li>
+        
+    </ul>
+</div>
+
+<div id="gridCalculationsDiv" class="calculationInputDiv">
+    <ul class="noMargin">
+        <li class="noMargin">
+            <input id="numberOfObservationsCheckBox" type="checkbox" class="checkboxRightMargin" @if(Model.CalculateNumberOfObservations) { <text>checked="checked" </text> }  />
+            <label class="inlineLabel" for="numberOfObservationsCheckBox">@Resource.GridStatisticsNumberOfObservations</label>
+        </li>
+        <li class="noMargin">
+            <input id="numberOfTaxaCheckBox" type="checkbox"  @if(Model.CalculateNumberOfTaxa) { <text>checked="checked" </text> }  />
+            <label class="inlineLabel" for="numberOfTaxaCheckBox">@Resource.GridStatisticsNumberOfTaxa</label>
+        </li>
+    </ul>
+</div>
+
+<div id="environmentalDataSettingsDiv" class="data-panel-content">
+    <table>
+        <tr>
+            <td>@Resource.SharedLayer</td>
+            <td>
+                <select id="wfsGridStatisticsLayerIdSelectBox" style="margin: 5px; width: 200px;">
+                    <option @if(Model.WfsGridStatisticsLayerId == null || Model.WfsLayers.Count == 0) { <text>selected="selected"</text> } value="-1">@Resource.SharedSelectLayer</option>
+                    @foreach (WfsLayerViewModel layer in Model.WfsLayers)
+                    {
+                        <option @if(Model.WfsGridStatisticsLayerId == layer.Id) { <text>selected="selected"</text> } value="@layer.Id">@layer.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>@Resource.SharedCalculate</td>
+            <td>
+                <select id="wfsGridStatisticsCalculationModeSelectBox" style="margin: 5px; width: 200px;">                    
+                    <option @if(Model.WfsGridStatisticsCalculationMode == WfsGridStatisticsCalculationMode.Count) { <text> selected="selected" </text> } value="@((int)WfsGridStatisticsCalculationMode.Count)">@Resource.GridStatisticsCalculationModeCount</option>
+                    <option @if(Model.WfsGridStatisticsCalculationMode == WfsGridStatisticsCalculationMode.Area) { <text> selected="selected" </text> }value="@((int)WfsGridStatisticsCalculationMode.Area)">@Resource.GridStatisticsCalculationModeArea</option>
+                    <option @if(Model.WfsGridStatisticsCalculationMode == WfsGridStatisticsCalculationMode.Length) { <text> selected="selected" </text> } value="@((int)WfsGridStatisticsCalculationMode.Length)">@Resource.GridStatisticsCalculationModeLength</option>                    
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+   
+    $(document).ready(function () {
+        initGridSizeSelectList();        
+        createLayout();
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetGridStatistics", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();        
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var strData = getPageSettingsJsonString();
+
+            if (strPageSettingsOnLoad != strData) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var coordinateSystemId = $('#coordinateSystemSelectList').val();
+        if (coordinateSystemId < 0) {
+            coordinateSystemId = null;
+        }
+        var generateAllGridCells = $('#generateAllGridCellsCheckBox').is(':checked');
+        var calculateNumberOfObservations = $('#numberOfObservationsCheckBox').is(':checked');
+        var calculateNumberOfTaxa = $('#numberOfTaxaCheckBox').is(':checked');
+        var gridSize = $('#gridSizeSelectList').val();
+        var wfsGridStatisticsCalculationMode = $('#wfsGridStatisticsCalculationModeSelectBox').val();
+        var wfsGridStatisticsLayerId = $('#wfsGridStatisticsLayerIdSelectBox').val();
+        if (wfsGridStatisticsLayerId == -1)
+            wfsGridStatisticsLayerId = null;
+        
+        if (isNaN(gridSize))
+            gridSize = null;
+        var data = {
+            CoordinateSystemId: coordinateSystemId,
+            GenerateAllGridCells: generateAllGridCells,
+            CalculateNumberOfObservations: calculateNumberOfObservations,
+            CalculateNumberOfTaxa: calculateNumberOfTaxa,
+            GridSize: gridSize,
+            WfsGridStatisticsCalculationMode: wfsGridStatisticsCalculationMode,
+            WfsGridStatisticsLayerId: wfsGridStatisticsLayerId
+        };
+        return data;
+    }
+
+    function initGridSizeSelectList() {
+        var selectedValue = @Model.GridSize;
+        var $gridSizeSelectList = $('#gridSizeSelectList');
+        $gridSizeSelectList.data('value', selectedValue);
+        
+        var tags = [ { id: selectedValue, text:AnalysisPortal.integerWithThousandSeparator(selectedValue)} ];
+        if (selectedValue) {
+            if ($('option[value=' + selectedValue + ']', $gridSizeSelectList).length) {
+                tags = [];
+                $gridSizeSelectList.val(selectedValue)
+            }
+        }
+        
+        var sizeSelectControl = $gridSizeSelectList.select2({
+            placeholder: '@Html.Raw(Resource.GridStatisticsSelectGridSize)',
+            tags: tags,
+            initSelection: function (element, callback) {
+                var num = parseInt(element.data('value'));
+
+                if (isNaN(num)) {
+                    return;
+                }
+                var strNum = AnalysisPortal.integerWithThousandSeparator(num);
+                callback({ id: num, text: strNum });
+            },
+            createTag: function (tag) {
+                var str = tag.term.replace(/\s/g, ''); // remove white space
+                var num = parseInt(str);
+                if (isNaN(num)) {
+                    return null;
+                }
+                var strNum = AnalysisPortal.integerWithThousandSeparator(num);
+
+                return { id: num, text: strNum, tag: true };
+            }
+        });
+
+        sizeSelectControl.val([ selectedValue ]).trigger("change");
+    }
+
+    function createLayout() {
+        var gridSizeControl = AnalysisPortal.createHtmlPanel('gridSizeDiv', {
+            title: "",
+            region: 'west'
+        });
+
+        var coordinateSystemControl = AnalysisPortal.createHtmlPanel('coordinateSystemDiv', {
+            title: "",
+            region: 'east'
+        });
+        
+        var containerPanel = AnalysisPortal.createLayoutContainer([gridSizeControl, coordinateSystemControl], {
+            layout: {
+                type: 'hbox',
+                align: 'stretchmax',
+                pack: 'center'
+            },   
+            collapsible: false
+        });
+
+        AnalysisPortal.createMainPanel('gridParametersPanel', {
+            title: '@Resource.GridStatisticsParameters',
+            width: 500,            
+            items: [containerPanel],
+            collapsible: false
+        });
+
+
+        var gridCalculationsControl = AnalysisPortal.createHtmlPanel('gridCalculationsDiv', {
+            title: "",
+            region: 'east'
+        });        
+
+        AnalysisPortal.createMainPanel('gridCalculationsPanel', {
+            title: '@Resource.GridStatisticsCalculations',
+            width: 500,
+            items: [gridCalculationsControl],
+            collapsible: false
+        });
+        
+
+        var gridCellsControl = AnalysisPortal.createHtmlPanel('gridCellsDiv', {
+            title: "",
+            region: 'east'
+        });
+
+        AnalysisPortal.createMainPanel('gridCellsPanel', {
+            title: '@Resource.GridStatisticsGridCells',
+            width: 500,
+            items: [gridCellsControl],
+            collapsible: false
+        });
+
+        var environmentalDataSettingsControl = AnalysisPortal.createHtmlPanel('environmentalDataSettingsDiv', {
+            title: "",
+            region: 'east'
+        });
+
+        AnalysisPortal.createMainPanel('gridEnvironmentDataPanel', {
+            title: '@Resource.GridStatisticsEnvironmentalData',
+            width: 500,
+            items: [environmentalDataSettingsControl],
+            collapsible: false
+        });
+      
+    }
+
+</script>

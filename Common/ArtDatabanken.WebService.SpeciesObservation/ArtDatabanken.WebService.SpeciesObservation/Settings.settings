@@ -1,0 +1,75 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.SpeciesObservation" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SpeciesObservationTypeNameElasticsearch" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">species_observation</Value>
+    </Setting>
+    <Setting Name="IndexNameElasticsearch" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">swedish_species_observation</Value>
+    </Setting>
+    <Setting Name="RefreshIntervalElasticsearch" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationFieldMappingCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationFieldMappingCache</Value>
+    </Setting>
+    <Setting Name="MinActiveActionPlanId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MaxActiveActionPlanId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="TaxonInformationCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonInformation</Value>
+    </Setting>
+    <Setting Name="ContinentName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Europe</Value>
+    </Setting>
+    <Setting Name="CoordinateXRt90FieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CoordinateXRt90</Value>
+    </Setting>
+    <Setting Name="CoordinateXSweref99FieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CoordinateXSweref99</Value>
+    </Setting>
+    <Setting Name="CoordinateYRt90FieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CoordinateYRt90</Value>
+    </Setting>
+    <Setting Name="CoordinateYSweref99FieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CoordinateYSweref99</Value>
+    </Setting>
+    <Setting Name="CountryCodeSweden" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SE</Value>
+    </Setting>
+    <Setting Name="CountryNameSweden" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sweden</Value>
+    </Setting>
+    <Setting Name="CountryNameUnknownCountry" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Not known</Value>
+    </Setting>
+    <Setting Name="DisturbanceRadiusFieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DisturbanceRadius</Value>
+    </Setting>
+    <Setting Name="MaxCoordinateUncertaintyInMetersOrDisturbanceRadiusFieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MaxCoordinateUncertaintyInMetersOrDisturbanceRadius</Value>
+    </Setting>
+    <Setting Name="BirdNestActivityIdFieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BirdNestActivityId</Value>
+    </Setting>
+    <Setting Name="DefaultBirdNestActivityId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SpeciesActivityIdFieldName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesActivityId</Value>
+    </Setting>
+    <Setting Name="TaxonInformationUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.dyntaxa.se/Taxon/Info/</Value>
+    </Setting>
+    <Setting Name="RedlistedTaxaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RedlistedTaxaKey</Value>
+    </Setting>
+    <Setting Name="WebDataUnit" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Unit</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

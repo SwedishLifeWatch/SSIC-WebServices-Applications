@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPictureService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureFilename_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureFilename" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureFilename_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureFilenameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictures_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePictures" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictures_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePicturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureFilename_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureFilename" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureFilename_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureFilenameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureMetaData_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureMetaData" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureMetaData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictureMetaData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePictureMetaData" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictureMetaData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePictureMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureMetaData_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureMetaData" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureMetaData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureRelations" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_CreatePictureRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePictureRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictureRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePictureRelations" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_UpdatePictureRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePictureRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureRelations" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_DeletePictureRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePictureRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureById" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureByPictureFilename_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureByPictureFilename" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureByPictureFilename_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureByPictureFilenameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureByPictureStringId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureByPictureStringId" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureByPictureStringId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureByPictureStringIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureInformationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureInformationById" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureInformationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureInformationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPicturesInformationBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPicturesInformationBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPicturesInformationBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPicturesInformationBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataById" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetAllRecommendedPicturesMetaData_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRecommendedPicturesMetaData" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetAllRecommendedPicturesMetaData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRecommendedPicturesMetaDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataDescriptionsByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataDescriptionsByIds" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureMetaDataDescriptionsByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureMetaDataDescriptionsByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationDataTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationDataTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationDataTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationDataTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationsByObjectGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationsByObjectGuid" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationsByObjectGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationsByObjectGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationsByPictureId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationsByPictureId" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationsByPictureId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationsByPictureIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureRelationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureRelationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPicturesByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPicturesByIds" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPicturesByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPicturesByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetPictureBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPictureBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetRecommendedPictureIdsByObjectGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendedPictureIdsByObjectGuid" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetRecommendedPictureIdsByObjectGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecommendedPictureIdsByObjectGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetAllRecommendedPictureIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRecommendedPictureIds" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetAllRecommendedPictureIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllRecommendedPictureIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IPictureService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IPictureService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/ClearCache" message="tns:IPictureService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/ClearCacheResponse" message="tns:IPictureService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CommitTransaction" message="tns:IPictureService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CommitTransactionResponse" message="tns:IPictureService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeleteTrace" message="tns:IPictureService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeleteTraceResponse" message="tns:IPictureService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetLog" message="tns:IPictureService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetLogResponse" message="tns:IPictureService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureFilename">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureFilename" message="tns:IPictureService_CreatePictureFilename_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureFilenameResponse" message="tns:IPictureService_CreatePictureFilename_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictures">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictures" message="tns:IPictureService_UpdatePictures_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePicturesResponse" message="tns:IPictureService_UpdatePictures_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureFilename">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureFilename" message="tns:IPictureService_DeletePictureFilename_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureFilenameResponse" message="tns:IPictureService_DeletePictureFilename_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureMetaData">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureMetaData" message="tns:IPictureService_CreatePictureMetaData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureMetaDataResponse" message="tns:IPictureService_CreatePictureMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureMetaData">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureMetaData" message="tns:IPictureService_UpdatePictureMetaData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureMetaDataResponse" message="tns:IPictureService_UpdatePictureMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureMetaData">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureMetaData" message="tns:IPictureService_DeletePictureMetaData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureMetaDataResponse" message="tns:IPictureService_DeletePictureMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureRelations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureRelations" message="tns:IPictureService_CreatePictureRelations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureRelationsResponse" message="tns:IPictureService_CreatePictureRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureRelations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureRelations" message="tns:IPictureService_UpdatePictureRelations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureRelationsResponse" message="tns:IPictureService_UpdatePictureRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureRelations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureRelations" message="tns:IPictureService_DeletePictureRelations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureRelationsResponse" message="tns:IPictureService_DeletePictureRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureById" message="tns:IPictureService_GetPictureById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByIdResponse" message="tns:IPictureService_GetPictureById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureFilename">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureFilename" message="tns:IPictureService_GetPictureByPictureFilename_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureFilenameResponse" message="tns:IPictureService_GetPictureByPictureFilename_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureStringId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureStringId" message="tns:IPictureService_GetPictureByPictureStringId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureStringIdResponse" message="tns:IPictureService_GetPictureByPictureStringId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureInformationById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureInformationById" message="tns:IPictureService_GetPictureInformationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureInformationByIdResponse" message="tns:IPictureService_GetPictureInformationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesInformationBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesInformationBySearchCriteria" message="tns:IPictureService_GetPicturesInformationBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesInformationBySearchCriteriaResponse" message="tns:IPictureService_GetPicturesInformationBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataById" message="tns:IPictureService_GetPictureMetaDataById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataByIdResponse" message="tns:IPictureService_GetPictureMetaDataById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPicturesMetaData">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPicturesMetaData" message="tns:IPictureService_GetAllRecommendedPicturesMetaData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPicturesMetaDataResponse" message="tns:IPictureService_GetAllRecommendedPicturesMetaData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptions" message="tns:IPictureService_GetPictureMetaDataDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsResponse" message="tns:IPictureService_GetPictureMetaDataDescriptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptionsByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsByIds" message="tns:IPictureService_GetPictureMetaDataDescriptionsByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsByIdsResponse" message="tns:IPictureService_GetPictureMetaDataDescriptionsByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationDataTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationDataTypes" message="tns:IPictureService_GetPictureRelationDataTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationDataTypesResponse" message="tns:IPictureService_GetPictureRelationDataTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByObjectGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByObjectGuid" message="tns:IPictureService_GetPictureRelationsByObjectGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByObjectGuidResponse" message="tns:IPictureService_GetPictureRelationsByObjectGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByPictureId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByPictureId" message="tns:IPictureService_GetPictureRelationsByPictureId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByPictureIdResponse" message="tns:IPictureService_GetPictureRelationsByPictureId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationTypes" message="tns:IPictureService_GetPictureRelationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationTypesResponse" message="tns:IPictureService_GetPictureRelationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesByIds" message="tns:IPictureService_GetPicturesByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesByIdsResponse" message="tns:IPictureService_GetPicturesByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureBySearchCriteria" message="tns:IPictureService_GetPictureBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureBySearchCriteriaResponse" message="tns:IPictureService_GetPictureBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendedPictureIdsByObjectGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetRecommendedPictureIdsByObjectGuid" message="tns:IPictureService_GetRecommendedPictureIdsByObjectGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetRecommendedPictureIdsByObjectGuidResponse" message="tns:IPictureService_GetRecommendedPictureIdsByObjectGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPictureIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPictureIds" message="tns:IPictureService_GetAllRecommendedPictureIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPictureIdsResponse" message="tns:IPictureService_GetAllRecommendedPictureIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetStatus" message="tns:IPictureService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetStatusResponse" message="tns:IPictureService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Login" message="tns:IPictureService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/LoginResponse" message="tns:IPictureService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Logout" message="tns:IPictureService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/LogoutResponse" message="tns:IPictureService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Ping" message="tns:IPictureService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/PingResponse" message="tns:IPictureService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/RollbackTransaction" message="tns:IPictureService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/RollbackTransactionResponse" message="tns:IPictureService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTrace" message="tns:IPictureService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTraceResponse" message="tns:IPictureService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTransaction" message="tns:IPictureService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTransactionResponse" message="tns:IPictureService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StopTrace" message="tns:IPictureService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StopTraceResponse" message="tns:IPictureService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,10 @@
+﻿@model List<ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.DataProviders.DataProviderViewModel>
+<ul class="ellipseList">
+@foreach (var dataProvider in Model)
+{
+    if (!dataProvider.IsSelected) { continue; }
+    <li>
+        @dataProvider.NameAndOrganization
+    </li>
+}    
+</ul>

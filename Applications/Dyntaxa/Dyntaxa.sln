@@ -1,0 +1,249 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9B5D7B9D-4CDD-48EC-8160-2FF736D4CE6B}"
+	ProjectSection(SolutionItems) = preProject
+		DyntaxaBuild.runsettings = DyntaxaBuild.runsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyntaxa", "Dyntaxa\Dyntaxa.csproj", "{3C16D150-7895-436D-84D2-2C5A11299BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyntaxa.Test", "Dyntaxa.Test\Dyntaxa.Test.csproj", "{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{82D7B4F1-9FCB-4A01-90E3-84C6F37C3AB1}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken", "..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj", "{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.Data", "..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj", "{B1493059-6445-4DA5-B58D-8876BEA79DD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebApplication", "..\..\Common\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj", "{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.IO", "..\..\Common\ArtDatabanken.IO\ArtDatabanken.IO\ArtDatabanken.IO.csproj", "{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebService.Client", "..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj", "{54AE5807-085D-4D93-85D2-1694C2ECD22D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebService.Data", "..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj", "{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebService.Proxy", "..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj", "{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebApplication.Dyntaxa", "ArtDatabanken.WebApplication.Dyntaxa\ArtDatabanken.WebApplication.Dyntaxa.csproj", "{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebApplication.Dyntaxa.Test", "ArtDatabanken.WebApplication.Dyntaxa.Test\ArtDatabanken.WebApplication.Dyntaxa.Test.csproj", "{53C78FE4-E0A3-4536-ABE1-DB797476972D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyntaxa.CoypuTest", "Dyntaxa.CoypuTest\Dyntaxa.CoypuTest.csproj", "{DAE05A6D-05FA-4344-B25B-BAA17B278C92}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release 32|Any CPU = Release 32|Any CPU
+		Release 32|x64 = Release 32|x64
+		Release 64|Any CPU = Release 64|Any CPU
+		Release 64|x64 = Release 64|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C16D150-7895-436D-84D2-2C5A11299BCF}.Release|x64.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0A9C3A3-D7B8-4ADA-BF4B-AEBBBC8D0BDD}.Release|x64.ActiveCfg = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.ActiveCfg = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.Build.0 = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.ActiveCfg = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.Build.0 = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.ActiveCfg = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.Build.0 = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.ActiveCfg = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.Build.0 = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.ActiveCfg = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.Build.0 = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.ActiveCfg = Release|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.Build.0 = Release|x64
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1493059-6445-4DA5-B58D-8876BEA79DD0}.Release|x64.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}.Release|x64.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54AE5807-085D-4D93-85D2-1694C2ECD22D}.Release|x64.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}.Release|x64.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}.Release|x64.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}.Release|x64.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53C78FE4-E0A3-4536-ABE1-DB797476972D}.Release|x64.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Debug|x64.Build.0 = Debug|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 32|x64.Build.0 = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release 64|x64.Build.0 = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release|x64.ActiveCfg = Release|Any CPU
+		{DAE05A6D-05FA-4344-B25B-BAA17B278C92}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 13
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://artdata-tfs.artdata.slu.se:8080/tfs/dev
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken\\ArtDatabanken.csproj
+		SccProjectName1 = ../../DataAccess/ArtDatabanken/ArtDatabanken
+		SccLocalPath1 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken
+		SccProjectUniqueName2 = ..\\..\\DataAccess\\ArtDatabanken.Data\\ArtDatabanken.Data\\ArtDatabanken.Data.csproj
+		SccProjectName2 = ../../DataAccess/ArtDatabanken.Data/ArtDatabanken.Data
+		SccLocalPath2 = ..\\..\\DataAccess\\ArtDatabanken.Data\\ArtDatabanken.Data
+		SccProjectUniqueName3 = ..\\..\\Common\\ArtDatabanken.WebApplication\\ArtDatabanken.WebApplication\\ArtDatabanken.WebApplication.csproj
+		SccProjectName3 = ../../Common/ArtDatabanken.WebApplication/ArtDatabanken.WebApplication
+		SccLocalPath3 = ..\\..\\Common\\ArtDatabanken.WebApplication\\ArtDatabanken.WebApplication
+		SccProjectUniqueName4 = ..\\..\\Common\\ArtDatabanken.IO\\ArtDatabanken.IO\\ArtDatabanken.IO.csproj
+		SccProjectName4 = ../../Common/ArtDatabanken.IO/ArtDatabanken.IO
+		SccLocalPath4 = ..\\..\\Common\\ArtDatabanken.IO\\ArtDatabanken.IO
+		SccProjectUniqueName5 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Client\\ArtDatabanken.WebService.Client\\ArtDatabanken.WebService.Client.csproj
+		SccProjectName5 = ../../DataAccess/ArtDatabanken.WebService.Client/ArtDatabanken.WebService.Client
+		SccLocalPath5 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Client\\ArtDatabanken.WebService.Client
+		SccProjectUniqueName6 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Data\\ArtDatabanken.WebService.Data\\ArtDatabanken.WebService.Data.csproj
+		SccProjectName6 = ../../DataAccess/ArtDatabanken.WebService.Data/ArtDatabanken.WebService.Data
+		SccLocalPath6 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Data\\ArtDatabanken.WebService.Data
+		SccProjectUniqueName7 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Proxy\\ArtDatabanken.WebService.Proxy\\ArtDatabanken.WebService.Proxy.csproj
+		SccProjectName7 = ../../DataAccess/ArtDatabanken.WebService.Proxy/ArtDatabanken.WebService.Proxy
+		SccLocalPath7 = ..\\..\\DataAccess\\ArtDatabanken.WebService.Proxy\\ArtDatabanken.WebService.Proxy
+		SccProjectUniqueName8 = ArtDatabanken.WebApplication.Dyntaxa.Test\\ArtDatabanken.WebApplication.Dyntaxa.Test.csproj
+		SccProjectName8 = ArtDatabanken.WebApplication.Dyntaxa.Test
+		SccLocalPath8 = ArtDatabanken.WebApplication.Dyntaxa.Test
+		SccProjectUniqueName9 = ArtDatabanken.WebApplication.Dyntaxa\\ArtDatabanken.WebApplication.Dyntaxa.csproj
+		SccProjectName9 = ArtDatabanken.WebApplication.Dyntaxa
+		SccLocalPath9 = ArtDatabanken.WebApplication.Dyntaxa
+		SccProjectUniqueName10 = Dyntaxa.Test\\Dyntaxa.Test.csproj
+		SccProjectName10 = Dyntaxa.Test
+		SccLocalPath10 = Dyntaxa.Test
+		SccProjectUniqueName11 = Dyntaxa\\Dyntaxa.csproj
+		SccProjectName11 = Dyntaxa
+		SccLocalPath11 = Dyntaxa
+		SccProjectUniqueName12 = Dyntaxa.CoypuTest\\Dyntaxa.CoypuTest.csproj
+		SccProjectName12 = Dyntaxa.CoypuTest
+		SccLocalPath12 = Dyntaxa.CoypuTest
+	EndGlobalSection
+EndGlobal

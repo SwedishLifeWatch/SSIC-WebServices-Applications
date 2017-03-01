@@ -1,0 +1,57 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Account.LogInModel
+@{
+    ViewBag.Title = Resources.Resource.AccountLogInText;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+<hgroup>    
+    <h4 class="sluBlue">@Resources.Resource.AccountLogInDescription</h4>
+</hgroup>
+
+@using (Html.BeginForm())
+{
+    if (!ViewData.ModelState.IsValid)
+    {              
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>@Html.ValidationSummary(false, Resources.Resource.SharedErrorHeader)</h4>
+    </div>
+    }
+
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">   
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName, new {placeholder = Resources.Resource.SharedUserNameLabel, @class = "form-control"})
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new {placeholder = Resources.Resource.SharedPasswordLabel, @class = "form-control"})
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+
+        <button type="submit" class="btn action-button" title="@Resources.Resource.AccountLogInText"><i class="icon-signin icon-white"></i> &nbsp; @Resources.Resource.AccountLogInText</button>
+    </div>
+        
+    <div class="col-xs-12" style="margin-top: 20px;">
+        @if (ViewBag.Debug != null && ViewBag.Debug)
+        {
+            <a href="@Resources.AppSettings.Default.UrlToUserAdminMoneses" class="btn btn-info btn-mini" title="@Resources.Resource.AccountUserAdminLinkText" target="_blank">
+                <i class="icon-user icon-white"></i> &nbsp;
+                @Resources.Resource.AccountUserAdminLinkText
+            </a>
+        }
+        else
+        {
+            <a href="@Resources.AppSettings.Default.UrlToUserAdminLampetra" class="btn btn-info btn-mini" title="@Resources.Resource.AccountUserAdminLinkText" target="_blank">
+                <i class="icon-user icon-white"></i> &nbsp;
+                @Resources.Resource.AccountUserAdminLinkText
+            </a>
+        }
+
+    </div>
+
+    <br class="clear"/>   
+}
+            

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<string>
+
+<div class="settings-summary-list">
+    <ul class="ellipseList">
+        @if (Model != null)
+        {
+            foreach (var str in Model)
+            {
+                <li>@str</li>
+            }
+        }  
+    </ul>
+</div>

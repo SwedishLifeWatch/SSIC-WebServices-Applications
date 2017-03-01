@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.SwedishSpeciesObservationService.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestCountryISOCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">752</Value>
+    </Setting>
+    <Setting Name="TwiteId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">102124</Value>
+    </Setting>
+    <Setting Name="UpplandId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">6519</Value>
+    </Setting>
+    <Setting Name="BlekingeId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">6508</Value>
+    </Setting>
+    <Setting Name="VastmanlandCountyGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet21Feature19</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

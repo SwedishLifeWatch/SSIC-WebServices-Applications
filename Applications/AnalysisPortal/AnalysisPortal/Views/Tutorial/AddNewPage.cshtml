@@ -1,0 +1,377 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Add new page";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<style type="text/css">
+    div.textDiv {
+        width: 700px;
+    }
+
+    h4 {
+        margin-top: 15px;
+    }
+
+    h4.first {
+        margin-top: 0px;
+    }
+</style>
+
+<h2>Lägg till en ny sida</h2>
+<span>I följande exempel skapar vi upp sidan för grid statistics.</span>
+<div class="accordion" id="accordion2" style="margin-top: 15px;">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                1. Skapa upp ny Get-Action (grid statistics)
+            </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                Skapa upp en ny Action i den Controller där sidan ska finnas. Märk actionen med attributet [HttpGet]. Skapa även upp vyn (.cshtml).
+                <img src="~/Content/images/Tutorial/AddNewPage/GetGridStatisticsAction.PNG" />                
+                
+                <h4>PageInfoManager</h4>
+                Lägg till sidan i PageInfoManager.cs
+                <img src="~/Content/images/Tutorial/AddNewPage/PageInfoManager.PNG" />
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                2. Skapa ny klass i MySettings (GridStatisticsSetting)
+            </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    Skapa ny klass i MySettings som sparar inställningar för sidan du skapar. I detta fall skapar vi upp klassen GridStatisticsSetting
+                </div>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsSettingClass.PNG" />
+                
+                
+                <h4>Märk properties med [DataMember]</h4>
+                Lägg till de properties som ska sparas och märk dem med attributet [DataMember]<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridSizeProperty.PNG" />
+                
+                
+                <h4>Implementera följande funktioner</h4>
+                <ul class="ellipseList">
+                    <li>HasSettings()</li>     
+                    <li>IsSettingsDefault()</li>     
+                    <li>ResetSettings()</li>                                        
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse3">
+                3. Lägg till GridStatisticsSetting i CalculationSetting.
+            </a>
+        </div>
+        <div id="collapse3" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                Lägg till GridStatisticsSetting som en property i CalculationSetting.<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsPropertyInCalculationSettings.PNG" />
+                                
+            </div>
+        </div>
+    </div>    
+    
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse4">
+                4. Implementera läsläget av vyn (GridStatistics.cshtml)
+            </a>
+        </div>
+        <div id="collapse4" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    Börja med att implementera läsläget av vyn, dvs att sidan kan visa upp vad som just nu är inställt i GridStatisticsSetting.
+                </div>                    
+                <h4>Skapa vymodell</h4>
+                Skapa en vymodell som täcker in de properties som finns i GridStatisticsSetting.<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsViewModel.PNG" />
+                
+                <h4>Skapa vy-manager</h4>
+                <div class="textDiv">
+                    Skapa en ViewManager som t.ex. ärver från MySettingsViewManagerBase. I detta fall skapar vi upp MySettingsGridStatisticsViewManager
+                </div>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsViewManager.PNG" />
+                
+                <h4>Skapa funktion i vy-managerns som skapar upp en vymodell</h4>
+                Funktionen ska läsa av inställningarna i MySettings, i detta fall GridStatisticsSetting.<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/CreateViewModel.PNG" />
+                
+                <h4>Läs av värden från vymodellen</h4>
+                Läs av inställningarna från Model när sidan skapas upp i GridStatistics.cshtml.<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/ReadFromModelInView.PNG" />
+
+            </div>
+        </div>
+    </div>      
+    
+ <div class="accordion-group">
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse5">
+            5. Skapa Post-action (grid statistics).             
+        </a>
+    </div>
+    <div id="collapse5" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <h4 class="first">Intro</h4>
+            <div class="textDiv">
+                Skapa upp den action som anropas när användaren klickar på Spara på sidan.
+                Märk actionen med attributet [HttpPost].                
+            </div>                
+            <img src="~/Content/images/Tutorial/AddNewPage/PostGridStatisticsAction.PNG" />
+            
+            <h4>Funktionsbeskrivning</h4>
+            <div class="textDiv">
+            <ul class="ellipseList">
+                <li>Funktionen kan lämpligtvis ta in en sträng som vi i detta fall namnger till data
+                    (du kan ändra till vilket namn du vill bara du ser till att ändra namnet på fältet i formuläret i vyn).</li>    
+                <li>Vi vill göra om strängen till ett objekt eftersom det är lättare att arbeta med. 
+                    Detta görs genom att köra funktionen DeSerialize() på ett JavaScriptSerializer-objekt.</li>
+                <li>Vi vill att strängen ska konverteras till vymodellen som vi använde som modell för sidan. 
+                    Därför säger vi åt funktionen att deserialisera till GridStatisticsViewModel.</li>
+                <li>Vi skapar en funktion i vymanagern som ser till att uppdatera
+                    inställningarna i MySettings (GridStatisticsSetting).
+                </li>
+                <li>Lägg till ett meddelande att visa för användaren nästa gång en sida laddas.</li>
+            </ul>
+            </div>                        
+        </div>
+    </div>
+</div>      
+
+
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse6">
+            6. Skapa JSON-sträng av inställningar i vyn.
+        </a>
+    </div>
+    <div id="collapse6" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <h4 class="first">Intro</h4>
+            <div class="textDiv">
+            Att skapa en JSON-sträng av inställningar i vyn underlättar för att hantera att se om det har
+            skett några förändringar på sidan. JSON-strängen används också för att skicka till webservern
+            när användaren klickar på spara-knappen.
+            </div>
+            
+            <h4>Skapa Javascriptobjekt med inställningar</h4>
+            <div class="textDiv">
+                Skapa en funktion som heter getPageSettingsObject(). 
+                Den funktionen ska returnera ett JavaScript-objekt som har samma namn 
+                på fälten som de properties som finns i vymodellen (GridStatisticsViewModel).
+                <ul class="ellipseList">
+                    <li>Först plockar man ut de inställningar användaren har gjort. Detta görs mha jQuery.</li>
+                    <li>Sedan skapas ett JavaScriptobjekt som har samma namn på fälten som de properties i 
+                        vymodellen (GridStatisticsViewModel).</li>                    
+                </ul>
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/getPageSettingsObject.PNG" />
+            </div>                
+            
+            
+            <h4>Skapa funktion getPageSettingsJsonString()</h4>
+            <div class="textDiv">
+                Skapa en funktion getPageSettingsJsonString() som anropar getPageSettingsObject()
+                och returnerar en JSON-sträng.
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/getPageSettingsJsonString.PNG" />
+            </div>
+            
+
+      @*      <img src="~/Content/images/Tutorial/AddNewPage/createJsonStringJavaScript.PNG" />                           
+            <img src="~/Content/images/Tutorial/AddNewPage/EncodeJsonJavaScript.PNG" />            
+            
+
+            
+            <h4>updateMySettingsOnServer()</h4>
+            <div class="textDiv">
+                JavaScript-funktionen som gör anropet till servern och uppdaterar MySettings ska heta
+                updateMySettingsOnServer(). Detta för att andra JavaScript försöker anropa denna funktion
+                vid vissa tillfällen och då förutsätter att funktionen heter på ett visst sätt. 
+                Ett tillfälle är då man för muspekaren över en info-ikon.
+
+                <img src="~/Content/images/Tutorial/AddNewPage/updateMySettingsOnServerJavaScript.PNG" />
+            </div>    
+
+          
+            
+            <h4>När sidan laddat klart</h4>
+            <div class="textDiv">
+                När sidan laddat klart ska man spara Json-strängen i en variabel.
+                Denna används sedan när vi lämnar sidan för att avgöra om användaren
+                har ändrat något på sidan. Om användaren inte ändrat något så behövs ju
+                inget anrop till servern göras för att uppdatera inställningar.
+            </div>    
+            <img src="~/Content/images/Tutorial/AddNewPage/DocumentReadyJson.PNG" />*@
+
+            <h4>Firebug</h4>
+            <div class="textDiv">
+                När man skapar funktionen för att skapa JavaScript-objekt med inställningar har man stor nytta 
+                av att använda konsolfönstret i Firebug där man direkt kan skriva in kommandon
+                och se om de kommandon man tänkt använda för att plocka fram inställningarna
+                på sidan är korrekta.
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/ConsoleInFireBug.PNG" />
+            </div>                
+        </div>
+    </div>
+</div>      
+
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse7">
+            7. Skapa Toolbar och kringfunktioner
+        </a>
+    </div>
+    <div id="collapse7" class="accordion-body collapse">
+        <div class="accordion-inner">
+            <h4 class="first">Intro</h4>
+            <div class="textDiv">
+                För att skapa ett verktygsfält uppe i vyn ska man först lägga till HTML enligt nedan. 
+                I detta exempel finns en spara-knapp och en återställ-knapp. På vissa sidor ska inte 
+                spara-knapp finnas, men återställ-knappen ska finnas på de flesta sidor.
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/toolbar1.PNG" />
+            </div>
+            
+            <h4>Initiera toolbar</h4>
+            <div class="textDiv">
+                Skapa en funktion som heter initToolbar() där vi kopplar på event på verktygsknapparna.
+                Anropa initToolbar inifrån $(document).ready(function() {
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/initToolbar.PNG" />
+            </div>            
+
+            <h4>Skapa formulär</h4>
+            <div class="textDiv">
+                Skapa ett formulär som du namnger till saveSettingsForm innehållande ett fält som heter "data".
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/saveSettingsForm.PNG" />
+            </div>
+
+            <h4>Deklarera variabler</h4>
+            <div class="textDiv">
+                Följande globala variabler ska definieras i början av Javascriptet:
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/javascriptVariables1.PNG" />
+            </div>
+                        
+            <h4>Skapa funktion saveChanges()</h4>
+            <div class="textDiv">
+                Skapa en funktion som heter saveChanges(). Den funktionen anropas när användaren klickar
+                på spara-knappen. Funktionen hämtar nuvarande inställningar på sidan som en Json-sträng och
+                sätter värdet på fältet data i saveSettingsForm-formuläret. Ser till att inget meddelande visas
+                när sidan skickas. Och till sist gör en POST av sidan.
+                <br/><img src="~/Content/images/Tutorial/AddNewPage/saveChanges.PNG" />
+            </div>
+            
+            <h4>Event när man lämnar sidan</h4>
+            <div class="textDiv">
+                När man lämnar en sida så ska vi visa ett varningsmeddelande om användaren har ändrat data
+                utan att spara. 
+                <ul class="ellipseList">
+                    <li>Fånga 'beforeunload'-eventet.</li>
+                    <li>Skapa en Json-sträng med inställningarna genom att anropa getPageSettingsJsonString().</li>
+                    <li>Visa ett meddelande om det skiljer sig från inställningarna som fanns när sidan laddades in.</li>                     
+                </ul>
+                <img src="~/Content/images/Tutorial/AddNewPage/beforeUnloadShowMessage.PNG" />
+            </div>            
+            
+            <h4>Skapa funktion enableDisableButtons()</h4>
+            <div class="textDiv">
+                Skapa en funktion som heter enableDisableButtons(). Den funktionen kollar och sätter 
+                vilka knappar som ska vara enabled/disabled. Detta kan göras genom att hämta nuvarande
+                inställningar som JSON-sträng och jämföra med inställningarna som fanns när sidan laddades in.
+                Den här funktionen kan anropas på två olika sätt:
+                <ul class="ellipseList">
+                    <li>Antingen genom att göra en timer som ser till att anropa funktionen 2 ggr/sekund. Ex:<br/>
+                        setInterval(enableDisableButtons, 500);
+                    </li>
+                    <li>Eller genom att anropa funktionen när användaren har ändrat något. Ex:<br/>
+                        $('#dataProvidersTable :checkbox').change(enableDisableButtons);<br/>
+                        Detta är att föredra av de två metoderna.
+                    </li>                    
+                </ul>
+                <img src="~/Content/images/Tutorial/AddNewPage/enableDisableButtons.PNG" />                               
+            </div>            
+
+        </div>    
+    </div>
+</div>
+    
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse8">
+                8. Visa inställningar i My settings summary
+            </a>
+        </div>
+        <div id="collapse8" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    <ul class="ellipseList">
+                        <li>Lägg till ett enumvärde i MySettingsSummaryItemIdentifier</li>
+                        <li>Skapa upp en klass för inställningen som ärver från MySettingsSummaryItemBase.
+                            I detta fall skapar vi upp GridStatisticsSettingSummary.
+                        </li>
+                        <li>Lägg till klassen till MySettingsSummaryItemManager</li>
+                        <li>Lägg till klassen till den grupp den tillhör. I detta fall blir det CalculationSummaryGroup.</li>
+                        <li>Lägg till en Partial View i MySettingsController som visas då man klickar på info-ikonen.
+                            I detta fall skapar vi vyn GridStatisticsSummary()
+                        </li>
+                        <li>Lägg till ett anrop till din nyss skapade partial view i vyn MySettingsController.GetSummaryItemSettings()</li>
+                    </ul>
+                </div>                    
+                <img src="~/Content/images/Tutorial/AddNewPage/MySettingsSummaryGridStatistics.PNG" />
+            </div>
+        </div>
+    </div>      
+    
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse9">
+                9. Lägg till inställningen till MySettings Report summary
+            </a>
+        </div>
+        <div id="collapse9" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    Öppna filen Views/MySettings/Report.cshtml och lägg till ett
+                    anrop till vyn du skapade i föregående steg (GridStatisticsSummary)         
+                </div>                    
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsReport.PNG" />
+            </div>
+        </div>
+    </div>       
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse10">
+                10. Lägg till sökkriterier i SpeciesObservationSearchCriteriaManager
+            </a>
+        </div>
+        <div id="collapse10" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    Om inställningarna påverkar sökvillkoren så ska de läggas in i 
+                    SpeciesObservationSearchCriteriaManager.CreateSearchCriteria()
+                </div>                    
+                
+            </div>
+        </div>
+    </div>   
+    
+</div>

@@ -1,0 +1,298 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.RedList.RedListViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="useAsCurrentSelectionButton" class="btn toolbarButton" title="@Resource.FilterRedListUseAsCurrentTaxaListTooltip">@Resource.FilterRedListUseAsCurrentTaxaList</button>
+        <button id="addToCurrentSelectionButton" @if (Model.IsSettingsDefault) { <text> disabled="disabled" </text>  } class="btn toolbarButton" title="@Resource.FilterRedListAddToCurrentTaxaListTooltip">@Resource.FilterRedListAddToCurrentTaxaList</button>
+        <button id="filterCurrentSelectionButton" @if (Model.IsSettingsDefault) { <text> disabled="disabled" </text>  } class="btn toolbarButton" title="@Resource.FilterRedListFilterCurrentTaxaListTooltip">@Resource.FilterRedListFilterCurrentTaxaList</button>
+        <button id="toolbarButtonReset" @if (Model.IsSettingsDefault) { <text> disabled="disabled" </text>   } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>
+    </div>
+</div>
+
+<div>
+    <div class="col-xs-12">
+        <form id="redListForm" method="POST">
+            <table id="redListCategoryTable" class="table">
+                <thead>
+                    <!-- <tr>
+                        <th></th>
+                        <th></th>
+                        <th><input id="checkAll" type="checkbox"></th>
+                    </tr>-->
+                </thead>
+                <tbody>
+                    <!--
+                    <tr class="danger">
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input id="checkAllRedListed" type="checkbox"> @Model.Labels.GroupRedlistedTaxa</td>
+                        <td><input type="checkbox" name="categories" class="redlisted" value="@RedListCategory.EX"@(@Model.Categories[RedListCategory.EX].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.EX].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" class="redlisted" value="@RedListCategory.RE"@(@Model.Categories[RedListCategory.RE].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.RE].Text</td>
+                    </tr>
+                    -->
+                    <tr class="danger">
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input id="checkAllRedListed" type="checkbox"> @Model.Labels.GroupRedlistedTaxa</td>
+                        <td><input type="checkbox" name="categories" class="redlisted" value="@RedListCategory.RE" @(@Model.Categories[RedListCategory.RE].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.RE].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td class="dangerdanger"><input id="checkAllThreatened" type="checkbox"> @Model.Labels.GroupThreatenedTaxa</td>
+                        <td class="dangerdanger"><input name="categories" type="checkbox" class="redlisted threatened" value="@RedListCategory.CR" @(@Model.Categories[RedListCategory.CR].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.CR].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td class="dangerdanger"></td>
+                        <td class="dangerdanger"><input name="categories" type="checkbox" class="redlisted threatened" value="@RedListCategory.EN" @(@Model.Categories[RedListCategory.EN].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.EN].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td class="dangerdanger"></td>
+                        <td class="dangerdanger"><input name="categories" type="checkbox" class="redlisted threatened" value="@RedListCategory.VU" @(@Model.Categories[RedListCategory.VU].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.VU].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" class="redlisted" value="@RedListCategory.NT" @(@Model.Categories[RedListCategory.NT].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.NT].Text</td>
+                    </tr>
+                    <tr class="danger">
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" class="redlisted" value="@RedListCategory.DD" @(@Model.Categories[RedListCategory.DD].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.DD].Text</td>
+                    </tr>
+                    <!--
+                    <tr class="success">
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" value="@RedListCategory.LC"@(@Model.Categories[RedListCategory.LC].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.LC].Text</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" value="@RedListCategory.NE"@(@Model.Categories[RedListCategory.NE].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.NE].Text</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><input type="checkbox" name="categories" value="@RedListCategory.NA"@(@Model.Categories[RedListCategory.NA].Selected ? " checked=\"checked\"" : "")> @Model.Categories[RedListCategory.NA].Text</td>
+                    </tr>-->
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+@*<div class="btn-toolbar page-toolbar">*@
+@*<div style="margin-top: 10px; padding-top: 10px;">
+        <button id="useAsCurrentSelectionButton" class="btn toolbarButton">Use as current selection</button>
+        <button id="addToCurrentSelectionButton" class="btn toolbarButton">Add to current selection</button>
+        <button id="filterCurrentSelectionButton" class="btn toolbarButton">Filter current selection</button>
+    </div>*@
+
+<script type="text/javascript">
+    var abcd;
+    $(document).ready(function () {
+        var $toolbarButtonSave = $('#toolbarButtonSave');
+        var $toolbarButtonReset = $('#toolbarButtonReset');
+        var $redListCategoryTable = $('#redListCategoryTable');
+        var $checkAll = $('#checkAll', $redListCategoryTable);
+        var $checkAllRedListed = $('#checkAllRedListed', $redListCategoryTable);
+        var $checkAllThreatened = $('#checkAllThreatened', $redListCategoryTable);
+        var isDirty = false;
+
+        function save() {
+            isDirty = false;
+            $('#redListForm').submit();
+        }
+
+        function getCheckedRedlistCategoriesAsStringArray() {
+            var arr = [];
+            $("#redListForm input:checkbox[name=categories]:checked").each(function () {
+                arr.push($(this).val());
+            });
+
+            return arr;
+        }
+
+        $('#useAsCurrentSelectionButton').click(function () {
+            var categories = getCheckedRedlistCategoriesAsStringArray();
+            if (categories.length === 0) {
+                AnalysisPortal.showMsg('No category checked. Check at least one.');
+                return;
+            }
+
+            AnalysisPortal.makeAjaxCall({
+                url: AnalysisPortal.ApplicationPath + "/Filter/FilterRedListUseAsCurrentSelection",
+                params: {
+                    categories: categories
+                },
+                showWaitMessage: true,
+                waitMessage: AnalysisPortal.Resources.SharedLoadingData
+            },
+            function (result) {
+                enableDisableRedListButtons(result.extra.IsTaxaListEmpty);
+                AnalysisPortal.updateMySettingsSummary();
+                AnalysisPortal.showMsg(result.msg);
+                //AnalysisPortal.showMsg('Use as current selection resulted in: ' + result.msg);
+            });
+        });
+
+        $('#addToCurrentSelectionButton').click(function () {
+            var categories = getCheckedRedlistCategoriesAsStringArray();
+            if (categories.length === 0) {
+                AnalysisPortal.showMsg('No category checked. Check at least one.');
+                return;
+            }
+
+                AnalysisPortal.makeAjaxCall({
+                url: AnalysisPortal.ApplicationPath + "/Filter/FilterRedListAddToCurrentSelection",
+                params: {
+                    categories: categories
+                },
+                showWaitMessage: true,
+                waitMessage: AnalysisPortal.Resources.SharedLoadingData//,
+                //waitMessageDivId: settings.waitMessageDivId // map.div.parentElement.id // 'mapControl'
+            },
+            function (result) {                                
+                enableDisableRedListButtons(result.extra.IsTaxaListEmpty);
+                AnalysisPortal.updateMySettingsSummary();
+                AnalysisPortal.showMsg(result.msg);
+            });
+
+            //alert('addToCurrentSelectionButton');
+        });
+
+        $('#filterCurrentSelectionButton').click(function() {
+            var categories = getCheckedRedlistCategoriesAsStringArray();
+            if (categories.length === 0) {
+                AnalysisPortal.showMsg('No category checked. Check at least one.');
+                return;
+            }
+
+            AnalysisPortal.makeAjaxCall({
+                url: AnalysisPortal.ApplicationPath + "/Filter/FilterRedListFilterCurrentSelection",
+                params: {
+                    categories: categories
+                },
+                showWaitMessage: true,
+                waitMessage: AnalysisPortal.Resources.SharedLoadingData
+            },
+            function (result) {
+                enableDisableRedListButtons(result.extra.IsTaxaListEmpty);
+                AnalysisPortal.updateMySettingsSummary();
+                AnalysisPortal.showMsg(result.msg);
+            });
+        });
+
+        function checkChecked() {
+            if ($('input:checkbox.redlisted:checked', $redListCategoryTable).length == $('input:checkbox.redlisted', $redListCategoryTable).length) {
+                $checkAllRedListed.prop('checked', true);
+            } else {
+                $checkAllRedListed.prop('checked', false);
+            }
+
+            if ($('input:checkbox.threatened:checked', $redListCategoryTable).length == $('input:checkbox.threatened', $redListCategoryTable).length) {
+                $checkAllThreatened.prop('checked', true);
+            } else {
+                $checkAllThreatened.prop('checked', false);
+            }
+
+            if ($('tbody tr td:last-child input:checkbox:checked', $redListCategoryTable).length == $('tbody tr td:last-child input:checkbox', $redListCategoryTable).length) {
+                $checkAll.prop('checked', true);
+            } else {
+                $checkAll.prop('checked', false);
+            }
+        };
+
+        function enableDisableSave() {
+            if (isDirty) {
+                $toolbarButtonSave.attr("disabled", false);
+            } else {
+                $toolbarButtonSave.attr("disabled", true);
+            }
+        }
+
+        function enableDisableRedListButtons(isTaxaListEmpty) {
+
+            $('#addToCurrentSelectionButton, #filterCurrentSelectionButton, #toolbarButtonReset')
+                .attr("disabled", isTaxaListEmpty);
+        }
+
+        //$(window).on('beforeunload', function () {
+        //    if (isDirty) {
+        //        return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+        //    }
+        //});
+
+        $toolbarButtonSave.on('click', save);
+
+        $toolbarButtonReset.on('click', function () {
+            window.location = "@Url.Action("ResetTaxa", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";            
+        });
+
+        //Event when check all is clicked
+        $checkAll.on('click', function () {
+            if ($(this).prop('checked')) {
+                $('input:checkbox', $redListCategoryTable).prop('checked', true);
+            } else {
+                $('input:checkbox', $redListCategoryTable).prop('checked', false);
+            }
+
+            isDirty = true;
+            enableDisableSave();
+        });
+
+        //Event when check red listed is clicked
+        $checkAllRedListed.on('click', function () {
+            if ($(this).prop('checked')) {
+                $('input:checkbox.redlisted', $redListCategoryTable).prop('checked', true);
+            } else {
+                $('input:checkbox.redlisted', $redListCategoryTable).prop('checked', false);
+            }
+
+            checkChecked();
+            isDirty = true;
+            enableDisableSave();
+        });
+
+        //Event when check all threatned is clicked
+        $checkAllThreatened.on('click', function () {
+            if ($(this).prop('checked')) {
+                $('input:checkbox.threatened', $redListCategoryTable).prop('checked', true);
+            } else {
+                $('input:checkbox.threatened', $redListCategoryTable).prop('checked', false);
+            }
+
+            checkChecked();
+            isDirty = true;
+            enableDisableSave();
+        });
+
+        //Event when a category checkbox is changed
+        $('tbody tr td:last-child input:checkbox', $redListCategoryTable).on('click', function () {
+            checkChecked();
+            isDirty = true;
+            enableDisableSave();
+        });
+
+        checkChecked();
+        isDirty = false;
+
+        //if ($('tbody tr td:last-child input:checkbox:checked', $redListCategoryTable).length != 0) {
+        //    $toolbarButtonReset.attr("disabled", false);
+        //} else {
+        //    $toolbarButtonReset.attr("disabled", true);
+        //}
+    });
+</script>

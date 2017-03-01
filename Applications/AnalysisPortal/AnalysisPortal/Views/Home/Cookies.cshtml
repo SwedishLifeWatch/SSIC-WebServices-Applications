@@ -1,0 +1,17 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model object
+
+@{
+    ViewBag.Title = Resource.SharedAboutCookiesHeader;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+<h4>@Resource.SharedAboutCookiesSubHeader</h4>
+<p>
+    @Html.Raw(Resource.HomeCookieInformationText)        
+    <br/> <br/>
+    <a href="@Html.Raw(Resource.SharedCookiesReadMoreLink)" target="_blank">@Resource.SharedCookiesReadMoreText</a><br/>        
+    <br/> 
+</p>
+        

@@ -1,0 +1,843 @@
+﻿@using System.Web.Mvc.Html
+@using ArtDatabanken.GIS.WFS.DescribeFeature
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map
+@using Resources
+@model WfsLayerEditorViewModel
+
+@{
+    ViewBag.Title = Model.Labels.Title;
+    
+}
+
+<style type="text/css">
+    .row {
+        margin-left: 0px;
+    }     
+    
+    table td.tableinput input {
+        width: 100%
+    }
+        
+</style>
+
+@*Start Main Layout*@
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">        
+        @if(Model.Mode == WfsLayerEditorMode.Edit)
+        {
+        <button class="btn toolbarButton" type="button" id="btnSaveChanges"><i class="icon-save icon-white"></i> &nbsp; @Model.Labels.SaveChanges</button>                
+        }
+        else if (Model.Mode == WfsLayerEditorMode.New)
+        {
+        <button class="btn toolbarButton" type="button" id="btnCreateNew"><i class="icon-save icon-white"></i> &nbsp; @Model.Labels.CreateNewLayer</button>                            
+        }
+    </div>
+</div>
+@*<span><strong> - @Model.FeatureType.Title</strong></span>*@
+
+<div id="wfsBasicInfoPanel" class="datapanel"></div>
+<div id="wfsLayerDataPanel" class="datapanel"></div>
+<div id="wfsFilterPanel" class="datapanel"></div>
+<div id="wfsResultPanel" class="datapanel"></div>
+<div id="wfsUrlPanel" class="datapanel"></div>
+@*End Main Layout*@
+
+<table id="wfsBasicInformationTable" class="table table-condensed white-bg">
+    <tr>
+        <td class="tablelabel">
+            @Resource.DataSourcesWfsLayerEditorHeaderName
+        </td>
+        <td class="tableinput">
+            <input id="txtWfsLayerName" type="text" value="@Model.WfsLayerSetting.Name"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tablelabel">
+            @Resource.DataSourcesWfsLayerEditorHeaderColor
+        </td>
+        <td>
+            <input type="text" id="txtColor" style="width:100px;" value="@Model.WfsLayerSetting.Color" />            
+        </td>
+    </tr>
+</table>
+@if (!Model.WfsLayerSetting.IsFile)
+{
+    <table id="wfsLayerDataTable" class="table table-condensed white-bg">
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderTitle            
+            </td>
+            <td>
+                @Model.FeatureType.Title
+            </td>
+        </tr>    
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderServerUrl            
+            </td>
+            <td>
+                @Model.ServerUrl
+            </td>
+        </tr>    
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderName
+            </td>
+            <td>
+                @Model.FeatureType.Name
+            </td>
+        </tr>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderAbstract            
+            </td>
+            <td>
+                @Model.FeatureType.Abstract
+            </td>
+        </tr>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderKeywords            
+            </td>
+            <td>
+                @String.Join(", ", Model.FeatureType.Keywords)
+            </td>
+        </tr>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderMetadataUrl            
+            </td>
+            <td>
+                @Model.FeatureType.MetadataURL                
+            </td>
+        </tr>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderSrs            
+            </td>
+            <td>
+                @Model.FeatureType.SRS
+            </td>
+        </tr>                               
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.HeaderFormats            
+            </td>
+            <td>
+                @String.Join(", ", Model.WfsCapabilities.Capability.Requests.GetFeaturesRequest.Formats)                
+            </td>
+        </tr>    
+    </table>
+
+    <div id="filterDiv">
+        <div class="row" style="width: 783px;  border: 1px solid #DDDDDD; padding-bottom: 5px; padding-left: 5px; padding-top: 1px;">
+            <h4>@Model.Labels.Filter</h4>
+            <div id="formulaText" style="min-height: 12px;">
+        
+            </div>    
+        </div>
+        <div class="row" style="width: 783px; border-style: solid; border-color: #DDDDDD; border-width: 0px 1px 1px 1px; padding: 5px;">
+            <div class="row">
+                <div class="col-xs-3" >
+                    <div class="row">
+                        @Model.Labels.LeftOperand<br/>                           
+                        <select name="leftFieldValue" id="leftFieldValueSelectBox" style="width:100%;">
+                            @foreach(Field field in Model.FeatureType.DescribeFeatureType.Fields)
+                            {
+                                @:<option value="@Html.Raw(field.Name)">@field.Name (@field.DataType)</option>    
+                            }
+                        </select>
+                
+                    </div>
+                </div>    
+                <div class="col-xs-3">
+                    @Model.Labels.Operator<br/>
+                    <select name="comparisionOperator" id="comparisionOperatorSelectBox" style="width: 100%">
+                        <option value="GreaterThan">@Model.Labels.GreaterThanOperator</option>
+                        <option value="LessThan">@Model.Labels.LessThanOperator</option>
+                        <option value="GreaterOrEqualTo">@Model.Labels.GreatorOrEqualToOperator</option>
+                        <option value="LessOrEqualTo">@Model.Labels.LessOrEqualToOperator</option>
+                        <option value="NotEqualTo">@Model.Labels.NotEqualToOperator</option>
+                        <option value="EqualTo">@Model.Labels.EqualToOperator</option>
+                        <option value="Like">@Model.Labels.LikeOperator</option>
+                        <option value="IsNull">@Model.Labels.IsNullOperator</option>
+                    </select>
+                </div>
+                <div class="col-xs-6" >
+                    <div class="row">
+                        @Model.Labels.RightOperand
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3" >
+                            <input type="radio" id="rightOperandTypeConstantRadioButton" name="rightOperandType" value="constant" checked="checked" style="vertical-align: bottom;"/>@Model.Labels.Constant   
+                        </div>
+                        <div class="col-xs-9" >
+                            <input type="text" id="constantValueTextBox" name="constantValue" value="" style="vertical-align: middle; width: 90%;"/>  
+                            <button class="btn" type="button" id="constantValueButton" style="width: 11px">...</button>
+                        </div>            
+                    </div>
+            
+                    <div class="row">
+                        <div class="col-xs-3" >
+                            <input type="radio" id="rightOperandTypeFieldRadioButton" name="rightOperandType" value="field" style="vertical-align: bottom;"/>@Model.Labels.Field  
+                        </div>
+                        <div class="col-xs-9" >
+                            <select name="rightFieldValue" id="rightFieldValueSelectBox" style="width: 100%;">
+                                @foreach(Field field in Model.FeatureType.DescribeFeatureType.Fields)
+                                {                    
+                                    @:<option value="@Html.Raw(field.Name)">@field.Name (@field.DataType)</option>    
+                                }                
+                            </select>                    
+                        </div>            
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+  
+        <div class="row" style="margin: 5px;">
+            <button id="addButton" type="button" class="btn action-button"><i class="icon-plus"></i> &nbsp;@Model.Labels.AddOperation</button>
+            <button id="andButton" type="button" class="btn action-button">@Model.Labels.AndOperation</button>
+            <button id="orButton" type="button" class="btn action-button">@Model.Labels.OrOperation</button>
+            <button id="notButton" type="button" class="btn action-button">@Model.Labels.NotOperation</button>
+            <button id="undoButton" type="button" class="btn action-button" style="margin-left: 50px;"><i class="icon-undo"></i> &nbsp;@Model.Labels.Undo</button>
+            <button id="resetButton" type="button" class="btn action-button"><i class="icon-trash"></i> &nbsp;@Model.Labels.Reset</button>
+        </div>
+    </div>
+
+    <div id="wfsResultDataPanel" style="margin-top: 10px;">
+        <div style="margin-left: 10px;">
+            <span>@Model.Labels.MaxNumberOfFeatures: </span>
+            <input type="text" id="maxNumberOfFeaturesTextBox" name="maxNumberOfFeaturesField" value="1000" style="width: 60px;" />        
+            <button id="showOnMapButton" type="button" class="btn action-button" style="margin-left: 10px; vertical-align: top;"><i class="icon-play"></i> &nbsp;@Model.Labels.RunQuery</button>
+        </div>           
+        <div style="margin-left: 10px;">
+            <input type="checkbox" id="useCurrentExtentAsBboxCheckBox" @if(Model.WfsLayerSetting.UseSpatialFilterExtentAsBoundingBox) { <text>checked="checked"</text> }  /><label class="multipleLineLabel" style="width: 320px;" for="useCurrentExtentAsBboxCheckBox">@Resource.DataSourcesWfsLayerEditorUseSpatialFilterAsBoundingBox</label>
+        </div>
+    </div>
+
+    <div id="wfsUrlDataPanel" style="margin-top: 0px;">
+        <textarea id="txtFilterUrl" style="width: 100%; height: 100px; overflow-y: scroll; resize: none; margin-bottom: 0px;"></textarea>
+    </div>
+
+    <table id="wfsNumberOfFeaturesResultTable" class="table table-condensed white-bg">
+        <colgroup>
+            <col span="1" style="width: 50%;" />
+            <col span="1" style="width: 50%;" />                
+        </colgroup>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.NumberOfFeaturedFeatures            
+            </td>
+            <td id="filterCount">
+                    
+            </td>
+        </tr>
+        <tr>
+            <td class="tablelabel">
+                @Model.Labels.TotalNumberOfFeatures            
+            </td>
+            <td id="totalCount">
+                    
+            </td>
+        </tr>            
+    </table>
+}
+<div id="mapControl" class="clearfix map" style="width: 515px; height:340px;">
+    <div id="mapNavDiv" class="olControlPanel"></div>
+    <div class="clearfix" id="mapDiv"></div>
+</div>
+
+
+@if (Model.Mode == WfsLayerEditorMode.Edit)
+{
+    <text>
+    @using (Html.BeginForm("WfsLayerEditorSaveChanges", "Data", FormMethod.Post, new { @id = "saveChangesForm", @name = "saveChangesForm" }))
+    {
+        @Html.Hidden("id", Model.Id)    
+        @Html.Hidden("name")  
+        @Html.Hidden("filter")
+        @Html.Hidden("color")
+        @Html.Hidden("useBbox")
+    }                
+    </text>
+}
+else if (Model.Mode == WfsLayerEditorMode.New)
+{
+    <text>
+    @using (Html.BeginForm("WfsLayerEditorCreateNewLayer", "Data", FormMethod.Post, new { @id = "createNewForm", @name = "createNewForm" }))
+    {
+        @Html.Hidden("name")
+        @Html.Hidden("filter")
+        @Html.Hidden("serverUrl", Model.ServerUrl)
+        @Html.Hidden("typeName", Model.FeatureType.Name.FullName)        
+        @Html.Hidden("color")
+        @Html.Hidden("useBbox")
+    }        
+    </text>
+}
+
+<div id="constantValueModalDlg" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="constantValueModalDlgLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">@Model.Labels.EnterConstant</h4>
+      </div>
+      <div class="modal-body">
+        <textarea id="constantValueModalDlgTextArea" style="width: 100%; height: 300px;" cols="1" rows="1"></textarea>   
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">@Model.SharedLabels.CancelButtonText</button>
+        <button class="btn action-button" id="constantValueModalDlgOkButton">@Model.SharedLabels.OkButtonText</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">
+    var map;
+    var wfsProtocol;
+    var wfsVersion = AnalysisPortal.WFS.Base.wfsVersion;
+    var wfsFilter = new AnalysisPortal.WFS.Formula.WFSFilter();
+    var typeName = '@(Model.WfsLayerSetting.IsFile ? "File" : Model.FeatureType.Name.FullName)';
+    var featureType = '@(Model.WfsLayerSetting.IsFile ? Model.WfsLayerSetting.TypeName : Model.FeatureType.Name.Name)';
+    var featurePrefix = '@(Model.WfsLayerSetting.IsFile ? "SLW" : Model.FeatureType.Name.Namespace)';
+    var featureNS = 'www.slw.se';
+    var geometryName = '@(Model.WfsLayerSetting.IsFile ? Model.WfsLayerSetting.GeometryType.ToString() : Model.FeatureType.DescribeFeatureType.GeometryField.Name)';
+    var serverUrl = '@(Model.WfsLayerSetting.IsFile ? Model.ServerUrl : Model.WfsCapabilities.Capability.Requests.GetFeaturesRequest.GetUrlBase)';
+    var mode = '@Model.Mode';
+    var wfsLayerTitle = '@Model.FeatureType.Title';
+    var layerName = '@Model.WfsLayerSetting.Name';
+    var filterCount = -1;
+    var totalCount = -1;
+    // panel variables
+    var basicInformationPanel;
+    var resultPanel;
+    var filterPanel;
+    var _fileMode = @(Model.WfsLayerSetting.IsFile ? "true" : "false");
+
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+
+    $(document).ready(function () {
+        initPage();
+
+        $("#btnSaveChanges").click(function() {
+            var frm = document.saveChangesForm;
+            frm.filter.value = wfsFilter.WFSRepresentation();
+            frm.color.value = $('#txtColor').val();
+            frm.useBbox.value = $('#useCurrentExtentAsBboxCheckBox').is(':checked');
+            var theName = $('#txtWfsLayerName').val();
+            if (AnalysisPortal.isStringNullOrEmpty(theName)) {
+                AnalysisPortal.showMsg('@Model.Labels.ErrorEnterLayerName');
+                return;
+            }
+            frm.name.value = theName;
+            $(frm).submit();
+        });
+
+        $("#btnCreateNew").click(function() {
+            var frm = document.createNewForm;
+            frm.filter.value = wfsFilter.WFSRepresentation();
+            frm.color.value = $('#txtColor').val();
+            frm.useBbox.value = $('#useCurrentExtentAsBboxCheckBox').is(':checked');
+            var theName = $('#txtWfsLayerName').val();
+            if (AnalysisPortal.isStringNullOrEmpty(theName)) {
+                AnalysisPortal.showMsg('@Model.Labels.ErrorEnterLayerName');
+                return;
+            }
+            frm.name.value = theName;
+            $(frm).submit();
+        });
+
+        $("#addButton").click(function () {
+            var operation = getComparisionOperation();
+            wfsFilter.AddComparisionOperation(operation);
+            refreshFormulaText();
+            refreshButtons();
+            resetSettings();
+        });
+
+        $("#andButton").click(function () {
+            var operation = getComparisionOperation();
+            wfsFilter.AddLogicalOperation(AnalysisPortal.WFS.Formula.WFSLogicalOperator.And, operation);
+            refreshFormulaText();
+            refreshButtons();
+            resetSettings();
+        });
+
+        $("#orButton").click(function () {
+            var operation = getComparisionOperation();
+            wfsFilter.AddLogicalOperation(AnalysisPortal.WFS.Formula.WFSLogicalOperator.Or, operation);
+            refreshFormulaText();
+            refreshButtons();
+            resetSettings();
+        });
+
+        $("#notButton").click(function () {
+            wfsFilter.AddUnaryLogicalOperation(AnalysisPortal.WFS.Formula.WFSUnaryLogicalOperator.Not);
+            refreshFormulaText();
+            refreshButtons();
+            resetSettings();
+        });
+
+        $("#undoButton").click(function () {
+            wfsFilter.Undo();
+            refreshFormulaText();
+            refreshButtons();
+        });
+
+        $("#resetButton").click(function () {
+            wfsFilter.Formula = null;
+            refreshFormulaText();
+            refreshButtons();
+            resetSettings();
+        });
+
+        $('input[name="rightOperandType"]').change(function () {
+            refreshRightOperandDOM();
+        });
+
+        $('#showOnMapButton').click(function () {
+            runQuery();
+        });
+
+
+        $('#constantValueButton').click(function() {
+            var val = $('#constantValueTextBox').val();
+            $('#constantValueModalDlgTextArea').val(val);
+            $('#constantValueModalDlg').modal({backdrop: false});
+            $('#constantValueModalDlgTextArea').focus();
+        });
+
+        $('#constantValueModalDlgOkButton').click(function() {
+            var val = $('#constantValueModalDlgTextArea').val();
+            $('#constantValueTextBox').val(val);
+            $('#constantValueModalDlg').modal('hide');
+        });
+
+        createColorPicker();
+
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+        });
+
+        initCoordinateSelectBox();
+    });
+
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+    function initPage() {
+        @if (Model.Mode == WfsLayerEditorMode.Edit)
+        {
+        <text>
+        var strFilter = '@Html.Raw(Model.WfsLayerSetting.Filter)';
+        wfsFilter = AnalysisPortal.WFS.Base.parseFilterFromXmlString(strFilter);
+        </text>
+        }
+        refreshButtons();
+        refreshFormulaText();
+        refreshRightOperandDOM();
+        createMap();
+        wfsProtocol = AnalysisPortal.WFS.Base.createWFSProtocol(wfsVersion, serverUrl, featurePrefix, featureType, geometryName, map.projection);
+        AnalysisPortal.WFS.Base.makeWFSGetFeaturesTotalCountRequest(map, wfsProtocol, function (count) {
+            totalCount = count;
+            $('#totalCount').text(count);
+        });
+
+        resultPanel = createResultPanelLayout();
+        runQuery();
+
+
+        if (!_fileMode) {
+            createWfsLayerDataPanelLayout();
+            createFilterPanelLayout(); // ^
+            createUrlPanelLayout();
+        }
+
+        basicInformationPanel = createwfsBasicInfoPanelLayout();
+        AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+    }
+
+
+    function createColorPicker() {
+        // Attach callbacks
+        $('#txtColor').miniColors({
+            change: function(hex, rgba) {
+                //$(this).css('background-color', hex);
+                //background-color: yellowgreen;
+                //$('#console').prepend('change: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            },
+            open: function(hex, rgba) {
+                //$('#console').prepend('open: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            },
+            close: function(hex, rgba) {
+                //$('#console').prepend('close: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            }
+        });
+        //$('.color-picker').miniColors('readonly', true);
+        //        $('.color-picker, .color-picker').miniColors('disabled', true);
+
+        //        Ext.create('Ext.picker.Color', {
+        //            value: '993300',  // initial selected color
+        //            renderTo: 'myColorDiv',
+        //            listeners: {
+        //                select: function(picker, selColor) {
+        //                    alert(selColor);
+        //                }
+        //            }
+        //          });
+    }
+
+    function createFilterPanelLayout() {
+        var filterInnerPanel = AnalysisPortal.createHtmlPanel('filterDiv');
+        filterPanel = AnalysisPortal.createMainPanel('wfsFilterPanel', {
+            title: '@Model.Labels.Filter' + ' (' + wfsFilter.FormulaRepresentation() + ')',
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [filterInnerPanel],
+            collapsed: true,
+            listeners: {
+                collapse: function(p, eOpts) {
+                    var strFormula = wfsFilter.FormulaRepresentation();
+                    p.setTitle('@Model.Labels.Filter' + ' (' + strFormula + ')');
+                },
+                expand: function(p, eOpts) {
+                    p.setTitle('@Model.Labels.Filter');
+                }
+            }
+        });
+
+    }
+
+
+    function createWfsLayerDataPanelLayout() {
+        var layerDataInnerPanel = AnalysisPortal.createHtmlPanel('wfsLayerDataTable');
+        var layerDataPanel = AnalysisPortal.createMainPanel('wfsLayerDataPanel', {
+            title: "@Model.Labels.LayerData" + " (" + wfsLayerTitle + ")",
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [layerDataInnerPanel],
+            collapsed: true,
+            listeners: {
+                collapse: function(p, eOpts) {
+                    p.setTitle("@Model.Labels.LayerData" + " (" + wfsLayerTitle + ")");
+                },
+                expand: function(p, eOpts) {
+                    p.setTitle('@Model.Labels.LayerData');
+                }
+            }
+        });
+    }
+
+    function updateResultPanelTitleText() {
+        try {
+            var strPanelTitle = "@Model.Labels.Result";
+            if (filterCount > -1 && totalCount > -1) {
+                strPanelTitle += ' (' + filterCount + ' of ' + totalCount + ')';
+            }
+            else if (filterCount > -1) {
+                strPanelTitle += ' (' + filterCount + ' of ?' + ')';
+            }
+            else if (totalCount > -1) {
+                strPanelTitle += ' (' + '? of ' + totalCount + ')';
+            }
+            resultPanel.setTitle(strPanelTitle);
+        }
+        catch(err) {
+            resultPanel.setTitle("@Model.Labels.Result");
+        }
+    }
+
+    function updateBasicInfoPanelTitleText() {
+        var name = $('#txtWfsLayerName').val();
+        var strPanelTitle = "";
+        if (AnalysisPortal.isStringNullOrEmpty(name)) {
+            strPanelTitle = "@Model.Labels.BasicInformation";
+        }
+        else {
+            strPanelTitle = "@Model.Labels.BasicInformation" + " (" + name + ")";
+        }
+        basicInformationPanel.setTitle(strPanelTitle);
+    }
+
+    function createwfsBasicInfoPanelLayout() {
+        var basicInformationInnerPanel = AnalysisPortal.createHtmlPanel('wfsBasicInformationTable');
+        var basicInformationPanel = AnalysisPortal.createMainPanel('wfsBasicInfoPanel', {
+            title: "@Model.Labels.BasicInformation",
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [basicInformationInnerPanel],
+            listeners: {
+                collapse: function(p, eOpts) {
+                    updateBasicInfoPanelTitleText();
+                },
+                expand: function(p, eOpts) {
+                    p.setTitle('@Model.Labels.BasicInformation');
+                }
+            }
+        });
+        return basicInformationPanel;
+    }
+
+
+    function runQuery() {
+        try {
+            AnalysisPortal.GIS.showWaitMsg(AnalysisPortal.Resources.SharedLoadingData);
+            $('#filterCount').text("?");
+            var filter = AnalysisPortal.WFS.Base.createWFSFilter(wfsFilter.WFSRepresentation(), wfsVersion);
+            var maxNrFeatures = parseInt($("#maxNumberOfFeaturesTextBox").val());
+            if (isNaN(maxNrFeatures)) {
+                $("#maxNumberOfFeaturesTextBox").val(100);
+                maxNrFeatures = 100;
+            }
+            var strColor = $('#txtColor').val();
+            AnalysisPortal.GIS.setWfsLayerStyle(map.wfsLayer, strColor);
+            var mapExtent = null;
+            if ($('#useCurrentExtentAsBboxCheckBox').is(':checked')) {
+                mapExtent = map.getExtent();
+            }
+            map.wfsLayer.destroyFeatures();
+            AnalysisPortal.WFS.Base.makeWFSGetFeaturesRequest(wfsProtocol, filter, maxNrFeatures, mapExtent, function(features, count) {
+                AnalysisPortal.GIS.hideWaitMsg();
+                map.wfsLayer.addFeatures(features);
+                filterCount = count;
+                $('#filterCount').text(count);
+                AnalysisPortal.GIS.zoomToFeaturesInVisibleVectorLayers(map);
+            });
+        }
+        catch(err) {
+            AnalysisPortal.GIS.hideWaitMsg();
+        }
+    }
+
+    function getComparisionOperation() {
+        var leftFieldValue = $('#leftFieldValueSelectBox').val();
+        var leftOperand = new AnalysisPortal.WFS.Formula.FieldValue(leftFieldValue);
+
+        var rightOperandType = $('input[name="rightOperandType"]:checked').val(); // 'field' or 'constant'
+        var rightOperand = null;
+        if (rightOperandType == 'field') {
+            var rightFieldValue = $('#rightFieldValueSelectBox').val();
+            rightOperand = new AnalysisPortal.WFS.Formula.FieldValue(rightFieldValue);
+        }
+        else if (rightOperandType == 'constant') {
+            var rightConstantValue = $('#constantValueTextBox').val();
+            rightOperand = new AnalysisPortal.WFS.Formula.ConstantValue(rightConstantValue);
+        }
+
+        var comparisionOperator = $('#comparisionOperatorSelectBox').val();
+        var operation = null;
+
+        if (comparisionOperator == AnalysisPortal.WFS.Formula.WFSComparisionOperator.IsNull) {
+            operation = new AnalysisPortal.WFS.Formula.UnaryComparisionOperation(
+            leftOperand,
+            comparisionOperator);
+        } else {
+            operation = new AnalysisPortal.WFS.Formula.BinaryComparisionOperation(
+                leftOperand,
+                rightOperand,
+                comparisionOperator);
+        }
+        return operation;
+    }
+
+    function refreshButtons() {
+        if (wfsFilter.get_CanUndo()) {
+            $("#undoButton").removeAttr("disabled");
+            $("#resetButton").removeAttr("disabled");
+        } else {
+            $('#undoButton').attr("disabled", true);
+            $("#resetButton").attr("disabled", true);
+        }
+
+        if (wfsFilter.get_CanAddComparisionOperation()) {
+            $("#addButton").removeAttr("disabled");
+        } else {
+            $('#addButton').attr("disabled", true);
+        }
+
+        if (wfsFilter.get_CanAddLogicalOperation()) {
+            $("#andButton").removeAttr("disabled");
+            $("#orButton").removeAttr("disabled");
+            $("#notButton").removeAttr("disabled");
+        } else {
+            $('#andButton').attr("disabled", true);
+            $('#orButton').attr("disabled", true);
+            $('#notButton').attr("disabled", true);
+        }
+    }
+
+    function refreshFormulaText() {
+        var formulaRepresentation = wfsFilter.FormulaRepresentation();
+        $("#formulaText").html(formulaRepresentation);
+        if (filterPanel)
+            filterPanel.doLayout();
+
+        var strFilter = wfsFilter.WFSRepresentation();
+        var strUrl = AnalysisPortal.WFS.Formula.WFSFilterUtils.GetResultingUrl(serverUrl, typeName, wfsVersion, strFilter); //, outputFormat, maxFeatures);
+        $("#txtFilterUrl").val(strUrl);
+    }
+
+    function refreshRightOperandDOM() {
+        var rightOperandType = $('input[name="rightOperandType"]:checked').val();
+        if (rightOperandType == 'field') {
+            $("#rightFieldValueSelectBox").removeAttr("disabled");
+            $('#constantValueTextBox').attr("disabled", true);
+            $('#constantValueButton').attr("disabled", true);
+        }
+        else if (rightOperandType == 'constant') {
+            $('#rightFieldValueSelectBox').attr("disabled", true);
+            $("#constantValueTextBox").removeAttr("disabled");
+            $('#constantValueButton').removeAttr("disabled");
+        }
+    }
+
+    function resetSettings() {
+        //$('#constantValueTextBox').val("");
+    }
+
+    function createMap() {
+
+        var toolsOptions = {
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: false,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [{
+            id: VectorLayers.WFS,
+            visible: true
+        }
+        ];
+
+        map = AnalysisPortal.GIS.initMap({
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });
+    }
+
+
+    function createUrlPanelLayout() {
+        var urlInnerPanel = AnalysisPortal.createHtmlPanel('wfsUrlDataPanel');
+        var urlPanel = AnalysisPortal.createMainPanel('wfsUrlPanel', {
+            title: "Resulting URL",
+            width: AnalysisPortal.DefaultContentWidth,
+            collapsed: true,
+            items: [urlInnerPanel]
+        });
+        return urlPanel;
+    }
+
+    function createResultPanelLayout() {
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        var layerFields = @Html.Raw(Model.GetLayerFieldsAsJsonString());
+
+        if (layerFields) {
+            map.selectedFeatureStore = Ext.create('Ext.data.Store', {
+                autoLoad: true,
+                model: 'KeyValuePair',
+                data: layerFields,
+                proxy: {
+                    type: 'memory',
+                    reader: {
+                        type: 'json'
+                    }
+                }
+            });
+        }
+
+        // create grid panel configured with feature store
+        var gridPanel = new Ext.grid.GridPanel({
+            //title: "Properties",
+            //region: "east",
+            store: map.selectedFeatureStore,
+            width: 270,
+            height: 450,
+            columns: [{
+                header: "Name",
+                width: 140,
+                dataIndex: "Key"
+            }, {
+                header: "Value",
+                width: 100,
+                dataIndex: "Value"
+            }]
+        });
+        map.selectedFeatureGrid = gridPanel;
+        var mapPanel = AnalysisPortal.createHtmlPanel('mapControl', {
+            //height: 450,
+            ////width: 550,
+            //region: 'west'
+        });
+        //var mapPanel = AnalysisPortal.createHtmlContainer('mapControl');
+
+        var mapAndPropertiesContainer = AnalysisPortal.createLayoutContainer([mapPanel, gridPanel], {
+            //layout: "border"//,
+            layout: {
+                type: 'hbox',
+                align: 'stretchmax',
+                pack: 'center'
+            }
+        });
+
+        if (!_fileMode) {
+            var makeRequestPanel = AnalysisPortal.createHtmlPanel('wfsResultDataPanel');
+            makeRequestPanel.width = 400;
+
+            var numberOfFeaturesResultPanel = AnalysisPortal.createHtmlPanel('wfsNumberOfFeaturesResultTable');
+            numberOfFeaturesResultPanel.width = 400;
+        }
+        
+
+        var resultContainer = AnalysisPortal.createLayoutContainer([numberOfFeaturesResultPanel, makeRequestPanel], {
+            layout: {
+                type: 'hbox',
+                align: 'stretchmax',
+                pack: 'center'
+            }
+        });
+
+        var mainPanel = AnalysisPortal.createMainPanel('wfsResultPanel', {
+            title: '@Model.Labels.Result',
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [mapAndPropertiesContainer, resultContainer],
+            layout: {
+                type: 'vbox',
+                align: 'fit'//,
+                //padding: 10
+            },
+            listeners: {
+                collapse: function(p, eOpts) {
+                    updateResultPanelTitleText();
+                },
+                expand: function(p, eOpts) {
+                    p.setTitle('Result');
+                }
+            }
+        });
+
+        return mainPanel;
+    }
+
+</script>

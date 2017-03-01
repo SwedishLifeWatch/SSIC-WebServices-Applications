@@ -1,0 +1,295 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "MakeAjaxRequest";    
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+ <h2>Make Ajax request sample</h2>
+<p class="infoText">            
+    When we make an Ajax request there can be 4 different outcome:                                                
+</p>
+<ol>
+    <li>Success</li>
+    <li>Failure - one or more parameters with wrong values.</li>
+    <li>Failure - unexpected error on server (Exception).</li>
+    <li>Failure - Timeout.</li>
+</ol>
+
+<h4>C#</h4>
+<p class="infoText">
+    By returning the result as JSON in the following format, 
+    you can communicate when there were an error on the server and show a message with what went wrong.
+</p>
+<pre><code class="cs">
+public class JsonModel
+{
+    [JsonProperty(PropertyName = "total")]
+    public int Total { get; set; }
+
+    [JsonProperty(PropertyName = "success")]
+    public bool Success { get; set; }
+
+    [JsonProperty(PropertyName = "data")]
+    public object Data { get; set; }
+
+    [JsonProperty(PropertyName = "msg")]
+    public string Msg { get; set; }
+}
+</code>
+</pre>   
+<pre><code class="cs">
+public JsonNetResult GetJSON(param1, param2, ...)
+{            
+    JsonModel jsonModel;
+    try
+    {
+        ...
+        jsonModel = JsonModel.CreateFromObject(result);
+    }
+    catch (Exception ex)
+    {
+        jsonModel = JsonModel.CreateFailure(ex.Message);
+    }
+    return new JsonNetResult(jsonModel);            
+}
+</code></pre>  
+
+
+<h4>JavaScript</h4>
+<p class="infoText">
+    Ajax Request using Ext JS
+</p>
+<pre><code class="javascript">       
+if (ajaxRequest != null) {
+    Ext.Ajax.abort(ajaxRequest);
+}
+    
+// Show wait msg
+AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoadingData);
+        
+// Make Ajax request
+ajaxRequest = Ext.Ajax.request({
+    url: "@Url.Action("GetJSONExample"),        
+    params: { // the parameters
+        number: number,
+        company: company
+    },
+    callback: function(options, success, response) {
+        ajaxRequest = null;
+        AnalysisPortal.hideWaitMsg();
+                                        
+        if (success) {
+            // The server responded
+            var result = Ext.JSON.decode(response.responseText); // deserialize the JSON response from server
+            if (result.success) {
+                ajaxRequestComplete(result.data);
+            } else {
+                AnalysisPortal.showErrorMsg(result.msg);
+            }                        
+        } else { 
+            // No response from server (timout) or the request was aborted by user
+            if (!response.aborted) {
+                AnalysisPortal.showTimeoutMsg();
+            }                        
+        }                    
+    }                
+});    
+</code></pre>   
+<button id="btnAjax1" type="button">Make Ajax request with valid parameter values</button> Parameters: { number: 1, company: 'Volvo' } <br/>
+<button id="btnAjax2" type="button">Make Ajax request with invalid parameter value</button> Parameters: { number: 1, company: 'Saab' } <br/>
+<button id="btnAjax3" type="button">Make Ajax request with parameter values that generates an exception on server</button> Parameters: { number: 0, company: 'Volvo' } <br/>
+<button id="btnAjax4" type="button">Make Ajax request that will timeout</button> Timeout: 1sec, Parameters: { number: 1, company: 'Volvo' } <br/>
+
+<br/><br/>
+
+
+<h4>JavaScript</h4>
+<p class="infoText">
+    Ajax Request using jQuery
+</p>
+<pre>
+    <code class="javascript">       
+        if (ajaxRequest != null) {
+            ajaxRequest.abort();            
+        }
+        
+        // Show wait msg
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoadingData);
+        
+        // Make Ajax request
+        ajaxRequest = $.ajax({ 
+            type: "POST", 
+            url: "@Url.Action("GetJsonExample")",
+            data: { // the parameters
+                number: number,
+                company: company
+            }            
+        })
+        .always(function(result, textStatus) {
+            ajaxRequest = null;
+            AnalysisPortal.hideWaitMsg();     
+            
+            if (textStatus == "success") {
+                if (result.success) {
+                    ajaxRequestComplete(result.data);
+                } else {
+                    AnalysisPortal.showErrorMsg(result.msg);
+                }                        
+            } else if (textStatus == "timeout") {
+                AnalysisPortal.showTimeoutMsg();                
+            }                               
+        });
+    </code>
+</pre>
+
+<button id="btnAjax5" type="button">Make Ajax request with valid parameter values</button> Parameters: { number: 1, company: 'Volvo' } <br/>
+<button id="btnAjax6" type="button">Make Ajax request with invalid parameter value</button> Parameters: { number: 1, company: 'Saab' } <br/>
+<button id="btnAjax7" type="button">Make Ajax request with parameter values that generates an exception on server</button> Parameters: { number: 0, company: 'Volvo' } <br/>
+<button id="btnAjax8" type="button">Make Ajax request that will timeout</button> Timeout: 1sec, Parameters: { number: 1, company: 'Volvo' } <br/>
+
+<br/>
+<h3>Code files used in this example</h3>
+<ul>            
+    <li>Controllers/TutorialController.cs</li>
+    <li>Views/Tutorial/MakeAjaxRequest.cshtml</li>
+    <li>JsonModel.cs</li>
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnAjax1").click(function () {
+            makeAjaxRequest(1, 'Volvo');
+        });
+
+        $("#btnAjax2").click(function () {
+            makeAjaxRequest(1, 'Saab');
+        });
+
+        $("#btnAjax3").click(function () {
+            makeAjaxRequest(0, 'Volvo');
+        });
+
+        $("#btnAjax4").click(function () {
+            Ext.Ajax.timeout = 1000; // 1sec timeout                    
+            makeAjaxRequest(1, 'Volvo');
+            Ext.Ajax.timeout = 30000; // restore to 30sec
+        });
+
+        $("#btnAjax5").click(function () {
+            makeAjaxRequestUsingJQuery(1, 'Volvo');
+        });
+
+        $("#btnAjax6").click(function () {
+            makeAjaxRequestUsingJQuery(1, 'Saab');
+        });
+
+        $("#btnAjax7").click(function () {
+            makeAjaxRequestUsingJQuery(0, 'Volvo');
+        });
+
+        $("#btnAjax8").click(function () {
+            $.ajaxSetup({
+                timeout: 1000
+            });
+            makeAjaxRequestUsingJQuery(1, 'Volvo');
+            $.ajaxSetup({
+                timeout: 30000
+            });
+        });
+    });
+
+
+
+    var ajaxRequest = null;
+
+    makeAjaxRequest = function (number, company) {
+
+        // If we have started an ajax request to /DevExamples/GetJSONExample and it hasn't finished
+        // when we make a new call, the following code will abort the first request.
+        // But often we want to be able to make multiple calls to the same server function. If that
+        // is the case, then the code below has to be removed.
+        if (ajaxRequest != null) {
+            Ext.Ajax.abort(ajaxRequest);
+        }
+
+        // Show wait msg
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoadingData);
+
+        // Make Ajax request
+        ajaxRequest = Ext.Ajax.request({
+            url: "@Url.Action("GetJsonExample")", // The url on our server to call
+            params: { // the parameters
+                number: number,
+                company: company
+            },
+            callback: function (options, success, response) {
+                ajaxRequest = null;
+                AnalysisPortal.hideWaitMsg();
+
+                if (success) {
+                    // The server responded
+                    var result = Ext.JSON.decode(response.responseText); // deserialize the JSON response from server
+                    if (result.success) {
+                        ajaxRequestComplete(result.data);
+                    } else {
+                        AnalysisPortal.showErrorMsg(result.msg);
+                    }
+                } else {
+                    // No response from server (timout) or the request was aborted by user
+                    if (!response.aborted) {
+                        AnalysisPortal.showTimeoutMsg();
+                    }
+                }
+            }
+        });
+    };
+
+
+    function ajaxRequestComplete(data) {
+        var str = "Result from server was\n";
+        str += "Id: " + data.Id + " WorkPlace: " + data.WorkPlace;
+        AnalysisPortal.showMsg(str);
+    }
+
+    makeAjaxRequestUsingJQuery = function (number, company) {
+
+        // If we have started an ajax request to /DevExamples/GetJSONExample and it hasn't finished
+        // when we make a new call, the following code will abort the first request.
+        // But often we want to be able to make multiple calls to the same server function. If that
+        // is the case, then the code below has to be removed.
+        if (ajaxRequest != null) {
+            ajaxRequest.abort();
+        }
+
+        // Show wait msg
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoadingData);
+
+        // Make Ajax request
+        ajaxRequest = $.ajax({
+            type: "POST",
+            url: "@Url.Action("GetJSONExample")", // The url on our server to call
+            data: { // the parameters
+                number: number,
+                company: company
+            }
+        })
+        .always(function (result, textStatus) {
+            ajaxRequest = null;
+            AnalysisPortal.hideWaitMsg();
+
+            if (textStatus == "success") {
+                if (result.success) {
+                    ajaxRequestComplete(result.data);
+                } else {
+                    AnalysisPortal.showErrorMsg(result.msg);
+                }
+            } else if (textStatus == "timeout") {
+                AnalysisPortal.showTimeoutMsg();
+            }
+        });
+
+    };       
+
+        
+</script>

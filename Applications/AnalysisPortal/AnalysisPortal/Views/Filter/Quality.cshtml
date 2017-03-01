@@ -1,0 +1,10 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Quality.QualityFilterViewModel
+@{
+    ViewBag.Title = Resources.Resource.FilterQualityTitle;
+}
+
+@Html.Partial("StateButtonGroup_Partial", ButtonGroupManager.FilterButtonGroup)
+
+<h2 class="subMenuHeader">@Resources.Resource.FilterQuality</h2>
+

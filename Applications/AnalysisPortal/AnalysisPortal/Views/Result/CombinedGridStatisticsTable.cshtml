@@ -1,0 +1,72 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = "Combined grid statistics";
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+
+<div class="btn-toolbar page-toolbar">
+    @*<button id="toolbarButtonDownload" disabled="disabled" class="btn toolbarButton"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</button>*@
+</div> 
+
+<h2>@Resource.ResultViewTaxonGridTable</h2>
+<div id="gridCellCountTableDiv"></div>
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        AnalysisPortal.Models.defineCombinedGridStatisticsResult();
+        AnalysisPortal.Models.defineCombinedGridStatisticsCellResult();
+        var combinedStatisticsStore = AnalysisPortal.createJsonStore(
+            'CombinedGridStatisticsCellResult',
+            '@Html.Raw(Url.Action("GetCombinedGridStatisticsAsJSON", "Result"))', {
+                root : 'data.Cells'
+            });
+
+        var combinedStatisticsGrid = Ext.create('Ext.grid.Panel', {
+            id: 'combinedStatisticsGrid',
+            store: combinedStatisticsStore,
+            title: "Combined grid statistics",
+            width: 780,
+            height: 500,
+            frame: false,
+            columnLines: true,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'gridCellCountTableDiv',
+            columns: [                
+               { text: '@Resource.GridStatisticsTaxaCount', flex: 1, dataIndex: 'SpeciesCount', sortable: true },
+               { text: '@Resource.GridStatisticsObservationCount', flex: 1, dataIndex: 'ObservationCount', sortable: true },
+               { text: 'Feature count', flex: 1, dataIndex: 'FeatureCount', sortable: true },
+               { text: 'Feature length', flex: 1, dataIndex: 'FeatureLength', sortable: true },
+               { text: 'Feature area', flex: 1, dataIndex: 'FeatureArea', sortable: true },               
+               { text: '@string.Format(Model.CentreCoordinateName  + " X ({0})", Model.OriginalCoordinateSystemName)', flex: 1, dataIndex: 'OriginalCentreCoordinateX', sortable: true },
+               { text: '@string.Format(Model.CentreCoordinateName  + " Y ({0})", Model.OriginalCoordinateSystemName)', flex: 1, dataIndex: 'OriginalCentreCoordinateY', sortable: true },
+               { text: '@string.Format(Model.CentreCoordinateName  + " X ({0})", Model.CoordinateSystemName)', flex: 1, dataIndex: 'CentreCoordinateX', sortable: true },
+               { text: '@string.Format(Model.CentreCoordinateName  + " Y ({0})", Model.CoordinateSystemName)', flex: 1, dataIndex: 'CentreCoordinateY', sortable: true }
+            ]
+        });
+        
+        combinedStatisticsStore.load({
+            callback: function (records, operation, success) {
+                var obj = Ext.decode(operation.response.responseText);                
+                var gridCellCoordinateSystem = obj.data.GridCellCoordinateSystem;
+                var gridCellCoordinateSystemId = obj.data.GridCellCoordinateSystemId;
+                var gridCellSize = obj.data.GridCellSize;
+                console.log(gridCellCoordinateSystem);
+                console.log(gridCellCoordinateSystemId);
+                console.log(gridCellSize);                
+            }
+
+        });
+                        
+    });
+    
+</script>

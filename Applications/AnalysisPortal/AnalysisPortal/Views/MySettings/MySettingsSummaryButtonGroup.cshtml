@@ -1,0 +1,7 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.MySettingsSummary.MySettingsButtonGroupViewModel
+
+<div id="mySettingsButtonBar">
+    <a title="@Resource.MySettingsResetTooltip" class="btn action-button" onclick="return confirm('@Resource.ResetSettingsQuestion')" @if (!Model.IsResetButtonEnabled) { <text>disabled="disabled"</text> } href="@Url.Action("ResetMySettings")">@Resource.SharedResetButtonText</a>
+    <div class="clearfix"></div>
+</div>

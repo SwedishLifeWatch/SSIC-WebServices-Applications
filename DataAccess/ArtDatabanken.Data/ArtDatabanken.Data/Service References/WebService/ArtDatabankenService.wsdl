@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.ArtDatabankenService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IArtDatabankenService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_CreateReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReference" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_CreateReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetBirdNestActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivities" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetBirdNestActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetCitiesBySearchString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesBySearchString" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetCitiesBySearchString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesBySearchStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetCounties_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCounties" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetCounties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetDatabases_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabases" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetDatabases_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabasesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetDatabaseUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetDatabaseUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDatabaseUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetEndangeredLists_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndangeredLists" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetEndangeredLists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEndangeredListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorDataTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorDataTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorDataTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorDataTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorFieldEnums_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorFieldEnums" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorFieldEnums_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorFieldEnumsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorFieldTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorFieldTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorFieldTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorFieldTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorOrigins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorOrigins" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorOrigins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorOriginsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactors" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorTrees_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorTrees" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorTrees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorTreesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorTreesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorTreesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorTreesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorTreesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorUpdateModes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorUpdateModes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetFactorUpdateModes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFactorUpdateModesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetHostTaxa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostTaxa" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetHostTaxa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostTaxaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetHostTaxaByTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostTaxaByTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetHostTaxaByTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostTaxaByTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetIndividualCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndividualCategories" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetIndividualCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIndividualCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetPeriods_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriods" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetPeriods_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetPeriodTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetPeriodTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPeriodTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetProvinces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinces" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetProvinces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvincesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferences" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetReferencesBySearchString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesBySearchString" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetReferencesBySearchString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesBySearchStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactQualities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactQualities" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactQualities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactQualitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsById" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsByIdentifier_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsByIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsByIdentifier_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsByIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsByUserParameterSelection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsByUserParameterSelection" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesFactsByUserParameterSelection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesFactsByUserParameterSelectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationChange" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationCountBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationCountBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationsById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsById" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationsById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetSpeciesObservationsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByHostTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByHostTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByHostTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByHostTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaById" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByOrganismOrRedlist_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByOrganismOrRedlist" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByOrganismOrRedlist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByOrganismOrRedlistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByQuery" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaByQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByQueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaBySpeciesObservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesObservations" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaBySpeciesObservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesObservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaCountBySpeciesObservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaCountBySpeciesObservations" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxaCountBySpeciesObservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaCountBySpeciesObservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonById" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonCountyOccurence_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCountyOccurence" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonCountyOccurence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCountyOccurenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNames" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNamesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNamesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNameTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNameTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNameUseTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameUseTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonNameUseTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameUseTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonTreesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTreesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonTreesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTreesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTypes" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetTaxonTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReference" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateSpeciesFacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeciesFacts" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateSpeciesFacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeciesFactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateDyntaxaSpeciesFacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDyntaxaSpeciesFacts" />
+  </wsdl:message>
+  <wsdl:message name="IArtDatabankenService_UpdateDyntaxaSpeciesFacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDyntaxaSpeciesFactsResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IArtDatabankenService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/ClearCache" message="tns:IArtDatabankenService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/ClearCacheResponse" message="tns:IArtDatabankenService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/CommitTransaction" message="tns:IArtDatabankenService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/CommitTransactionResponse" message="tns:IArtDatabankenService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReference">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/CreateReference" message="tns:IArtDatabankenService_CreateReference_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/CreateReferenceResponse" message="tns:IArtDatabankenService_CreateReference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/DeleteTrace" message="tns:IArtDatabankenService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/DeleteTraceResponse" message="tns:IArtDatabankenService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetBirdNestActivities" message="tns:IArtDatabankenService_GetBirdNestActivities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetBirdNestActivitiesResponse" message="tns:IArtDatabankenService_GetBirdNestActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesBySearchString">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetCitiesBySearchString" message="tns:IArtDatabankenService_GetCitiesBySearchString_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetCitiesBySearchStringResponse" message="tns:IArtDatabankenService_GetCitiesBySearchString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounties">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetCounties" message="tns:IArtDatabankenService_GetCounties_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetCountiesResponse" message="tns:IArtDatabankenService_GetCounties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatabases">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetDatabases" message="tns:IArtDatabankenService_GetDatabases_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetDatabasesResponse" message="tns:IArtDatabankenService_GetDatabases_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDatabaseUpdate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetDatabaseUpdate" message="tns:IArtDatabankenService_GetDatabaseUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetDatabaseUpdateResponse" message="tns:IArtDatabankenService_GetDatabaseUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEndangeredLists">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetEndangeredLists" message="tns:IArtDatabankenService_GetEndangeredLists_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetEndangeredListsResponse" message="tns:IArtDatabankenService_GetEndangeredLists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorDataTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorDataTypes" message="tns:IArtDatabankenService_GetFactorDataTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorDataTypesResponse" message="tns:IArtDatabankenService_GetFactorDataTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorFieldEnums">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorFieldEnums" message="tns:IArtDatabankenService_GetFactorFieldEnums_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorFieldEnumsResponse" message="tns:IArtDatabankenService_GetFactorFieldEnums_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorFieldTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorFieldTypes" message="tns:IArtDatabankenService_GetFactorFieldTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorFieldTypesResponse" message="tns:IArtDatabankenService_GetFactorFieldTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorOrigins">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorOrigins" message="tns:IArtDatabankenService_GetFactorOrigins_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorOriginsResponse" message="tns:IArtDatabankenService_GetFactorOrigins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactors">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactors" message="tns:IArtDatabankenService_GetFactors_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorsResponse" message="tns:IArtDatabankenService_GetFactors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorsBySearchCriteria" message="tns:IArtDatabankenService_GetFactorsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorsBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetFactorsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorTrees">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorTrees" message="tns:IArtDatabankenService_GetFactorTrees_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorTreesResponse" message="tns:IArtDatabankenService_GetFactorTrees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorTreesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorTreesBySearchCriteria" message="tns:IArtDatabankenService_GetFactorTreesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorTreesBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetFactorTreesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFactorUpdateModes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorUpdateModes" message="tns:IArtDatabankenService_GetFactorUpdateModes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetFactorUpdateModesResponse" message="tns:IArtDatabankenService_GetFactorUpdateModes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHostTaxa">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetHostTaxa" message="tns:IArtDatabankenService_GetHostTaxa_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetHostTaxaResponse" message="tns:IArtDatabankenService_GetHostTaxa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHostTaxaByTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetHostTaxaByTaxonId" message="tns:IArtDatabankenService_GetHostTaxaByTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetHostTaxaByTaxonIdResponse" message="tns:IArtDatabankenService_GetHostTaxaByTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIndividualCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetIndividualCategories" message="tns:IArtDatabankenService_GetIndividualCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetIndividualCategoriesResponse" message="tns:IArtDatabankenService_GetIndividualCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetLog" message="tns:IArtDatabankenService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetLogResponse" message="tns:IArtDatabankenService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriods">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetPeriods" message="tns:IArtDatabankenService_GetPeriods_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetPeriodsResponse" message="tns:IArtDatabankenService_GetPeriods_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPeriodTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetPeriodTypes" message="tns:IArtDatabankenService_GetPeriodTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetPeriodTypesResponse" message="tns:IArtDatabankenService_GetPeriodTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinces">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetProvinces" message="tns:IArtDatabankenService_GetProvinces_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetProvincesResponse" message="tns:IArtDatabankenService_GetProvinces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferences">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetReferences" message="tns:IArtDatabankenService_GetReferences_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetReferencesResponse" message="tns:IArtDatabankenService_GetReferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferencesBySearchString">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetReferencesBySearchString" message="tns:IArtDatabankenService_GetReferencesBySearchString_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetReferencesBySearchStringResponse" message="tns:IArtDatabankenService_GetReferencesBySearchString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesFactQualities">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactQualities" message="tns:IArtDatabankenService_GetSpeciesFactQualities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactQualitiesResponse" message="tns:IArtDatabankenService_GetSpeciesFactQualities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesFactsById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsById" message="tns:IArtDatabankenService_GetSpeciesFactsById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsByIdResponse" message="tns:IArtDatabankenService_GetSpeciesFactsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesFactsByIdentifier">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsByIdentifier" message="tns:IArtDatabankenService_GetSpeciesFactsByIdentifier_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsByIdentifierResponse" message="tns:IArtDatabankenService_GetSpeciesFactsByIdentifier_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesFactsByUserParameterSelection">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsByUserParameterSelection" message="tns:IArtDatabankenService_GetSpeciesFactsByUserParameterSelection_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesFactsByUserParameterSelectionResponse" message="tns:IArtDatabankenService_GetSpeciesFactsByUserParameterSelection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChange">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationChange" message="tns:IArtDatabankenService_GetSpeciesObservationChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationChangeResponse" message="tns:IArtDatabankenService_GetSpeciesObservationChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationCountBySearchCriteria" message="tns:IArtDatabankenService_GetSpeciesObservationCountBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationCountBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetSpeciesObservationCountBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationsById" message="tns:IArtDatabankenService_GetSpeciesObservationsById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationsByIdResponse" message="tns:IArtDatabankenService_GetSpeciesObservationsById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationsBySearchCriteria" message="tns:IArtDatabankenService_GetSpeciesObservationsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetSpeciesObservationsBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetSpeciesObservationsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetStatus" message="tns:IArtDatabankenService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetStatusResponse" message="tns:IArtDatabankenService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByHostTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByHostTaxonId" message="tns:IArtDatabankenService_GetTaxaByHostTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByHostTaxonIdResponse" message="tns:IArtDatabankenService_GetTaxaByHostTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaById" message="tns:IArtDatabankenService_GetTaxaById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByIdResponse" message="tns:IArtDatabankenService_GetTaxaById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByOrganismOrRedlist">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByOrganismOrRedlist" message="tns:IArtDatabankenService_GetTaxaByOrganismOrRedlist_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByOrganismOrRedlistResponse" message="tns:IArtDatabankenService_GetTaxaByOrganismOrRedlist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByQuery">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByQuery" message="tns:IArtDatabankenService_GetTaxaByQuery_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaByQueryResponse" message="tns:IArtDatabankenService_GetTaxaByQuery_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaBySearchCriteria" message="tns:IArtDatabankenService_GetTaxaBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetTaxaBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesObservations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaBySpeciesObservations" message="tns:IArtDatabankenService_GetTaxaBySpeciesObservations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaBySpeciesObservationsResponse" message="tns:IArtDatabankenService_GetTaxaBySpeciesObservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaCountBySpeciesObservations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaCountBySpeciesObservations" message="tns:IArtDatabankenService_GetTaxaCountBySpeciesObservations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxaCountBySpeciesObservationsResponse" message="tns:IArtDatabankenService_GetTaxaCountBySpeciesObservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonById" message="tns:IArtDatabankenService_GetTaxonById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonByIdResponse" message="tns:IArtDatabankenService_GetTaxonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCountyOccurence">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonCountyOccurence" message="tns:IArtDatabankenService_GetTaxonCountyOccurence_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonCountyOccurenceResponse" message="tns:IArtDatabankenService_GetTaxonCountyOccurence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNames">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNames" message="tns:IArtDatabankenService_GetTaxonNames_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNamesResponse" message="tns:IArtDatabankenService_GetTaxonNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNamesBySearchCriteria" message="tns:IArtDatabankenService_GetTaxonNamesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNamesBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetTaxonNamesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNameTypes" message="tns:IArtDatabankenService_GetTaxonNameTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNameTypesResponse" message="tns:IArtDatabankenService_GetTaxonNameTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameUseTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNameUseTypes" message="tns:IArtDatabankenService_GetTaxonNameUseTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonNameUseTypesResponse" message="tns:IArtDatabankenService_GetTaxonNameUseTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTreesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonTreesBySearchCriteria" message="tns:IArtDatabankenService_GetTaxonTreesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonTreesBySearchCriteriaResponse" message="tns:IArtDatabankenService_GetTaxonTreesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonTypes" message="tns:IArtDatabankenService_GetTaxonTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetTaxonTypesResponse" message="tns:IArtDatabankenService_GetTaxonTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetUser" message="tns:IArtDatabankenService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/GetUserResponse" message="tns:IArtDatabankenService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/Login" message="tns:IArtDatabankenService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/LoginResponse" message="tns:IArtDatabankenService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/Logout" message="tns:IArtDatabankenService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/LogoutResponse" message="tns:IArtDatabankenService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/Ping" message="tns:IArtDatabankenService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/PingResponse" message="tns:IArtDatabankenService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/RollbackTransaction" message="tns:IArtDatabankenService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/RollbackTransactionResponse" message="tns:IArtDatabankenService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StartTrace" message="tns:IArtDatabankenService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StartTraceResponse" message="tns:IArtDatabankenService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StartTransaction" message="tns:IArtDatabankenService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StartTransactionResponse" message="tns:IArtDatabankenService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StopTrace" message="tns:IArtDatabankenService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/StopTraceResponse" message="tns:IArtDatabankenService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReference">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateReference" message="tns:IArtDatabankenService_UpdateReference_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateReferenceResponse" message="tns:IArtDatabankenService_UpdateReference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeciesFacts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateSpeciesFacts" message="tns:IArtDatabankenService_UpdateSpeciesFacts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateSpeciesFactsResponse" message="tns:IArtDatabankenService_UpdateSpeciesFacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDyntaxaSpeciesFacts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateDyntaxaSpeciesFacts" message="tns:IArtDatabankenService_UpdateDyntaxaSpeciesFacts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IArtDatabankenService/UpdateDyntaxaSpeciesFactsResponse" message="tns:IArtDatabankenService_UpdateDyntaxaSpeciesFacts_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

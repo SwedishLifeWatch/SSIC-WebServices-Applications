@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{64D96756-D6FF-4EFA-AFB5-ACC856A8E2CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebService.SpeciesObservationHarvestService</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebService.SpeciesObservationHarvestService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\ArtDatabanken.Build\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenWarnings.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Web\AnalysisPortal\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataProvider\Gbif\BirdRingingCentre\BirdRingingCentreConnector.cs" />
+    <Compile Include="DataProvider\Gbif\BirdRingingCentre\BirdRingingCentreProcess.cs" />
+    <Compile Include="DataProvider\Gbif\EntomologicalCollections\EntomologicalCollectionsConnector.cs" />
+    <Compile Include="DataProvider\Gbif\EntomologicalCollections\EntomologicalCollectionsProcess.cs" />
+    <Compile Include="DataProvider\Gbif\GbifConnector.cs" />
+    <Compile Include="DataProvider\Gbif\GbifDataSetsJson.cs" />
+    <Compile Include="DataProvider\Gbif\GbifProcess.cs" />
+    <Compile Include="DataProvider\Gbif\HerbariumOfOskarshamn\HerbariumOfOskarshamnConnector.cs" />
+    <Compile Include="DataProvider\Gbif\HerbariumOfOskarshamn\HerbariumOfOskarshamnProcess.cs" />
+    <Compile Include="DataProvider\Gbif\HerbariumOfUmeaUniversity\HerbariumOfUmeaUniversityConnector.cs" />
+    <Compile Include="DataProvider\Gbif\HerbariumOfUmeaUniversity\HerbariumOfUmeaUniversityProcess.cs" />
+    <Compile Include="DataProvider\Gbif\LundBotanicalMuseum\LundBotanicalMuseumConnector.cs" />
+    <Compile Include="DataProvider\Gbif\LundBotanicalMuseum\LundBotanicalMuseumProcess.cs" />
+    <Compile Include="DataProvider\Gbif\LundMuseumOfZoology\LundMuseumOfZoologyConnector.cs" />
+    <Compile Include="DataProvider\Gbif\LundMuseumOfZoology\LundMuseumOfZoologyProcess.cs" />
+    <Compile Include="DataProvider\Gbif\Porpoises\PorpoisesConnector.cs" />
+    <Compile Include="DataProvider\Gbif\Porpoises\PorpoisesProcess.cs" />
+    <Compile Include="DataProvider\Gbif\SwedishMalaiseTrapProject\SwedishMalaiseTrapProjectConnector.cs" />
+    <Compile Include="DataProvider\Gbif\SwedishMalaiseTrapProject\SwedishMalaiseTrapProjectProcess.cs" />
+    <Compile Include="DataProvider\Kul\KulConnector.cs" />
+    <Compile Include="DataProvider\Kul\KulProcess.cs" />
+    <Compile Include="DataProvider\Sers\SersConnector.cs" />
+    <Compile Include="DataProvider\Sers\SersProcess.cs" />
+    <Compile Include="DataProvider\Shark\SharkConnector.cs" />
+    <Compile Include="DataProvider\Shark\SharkDataSetsJson.cs" />
+    <Compile Include="DataProvider\Shark\SharkProcess.cs" />
+    <Compile Include="DataProvider\Wram\WramConnector.cs" />
+    <Compile Include="DataProvider\Wram\WramProcess.cs" />
+    <Compile Include="Data\HarvestJob.cs" />
+    <Compile Include="Data\HarvestJobManager.cs" />
+    <Compile Include="Data\HarvestStatusEnum.cs" />
+    <Compile Include="Data\ListWebSpeciesObservationDataProviderExtension.cs" />
+    <Compile Include="Data\LogManager.cs" />
+    <Compile Include="Data\SpeciesObservationManager.cs" />
+    <Compile Include="Data\TaxonInformationListDictionaryExtension.cs" />
+    <Compile Include="Data\TaxonInformationListExtension.cs" />
+    <Compile Include="Data\TaxonManager.cs" />
+    <Compile Include="Data\TaxonNameDictionaries.cs" />
+    <Compile Include="DocumentExtensions.cs" />
+    <Compile Include="Database\Constants.cs" />
+    <Compile Include="Database\HarvestBaseServer.cs" />
+    <Compile Include="DataProvider\Artportalen\ArtportalenServer.cs" />
+    <Compile Include="Database\SpeciesObservationHarvestServer.cs" />
+    <Compile Include="DataProvider\Artportalen\ArtportalenConnector.cs" />
+    <Compile Include="DataProvider\Artportalen\ArtportalenProcess.cs" />
+    <Compile Include="DataProvider\Artportalen\Constants.cs" />
+    <Compile Include="DataProvider\BaseProcess.cs" />
+    <Compile Include="DataProvider\ConnectorServer.cs" />
+    <Compile Include="DataProvider\Nors\NorsConnector.cs" />
+    <Compile Include="DataProvider\Nors\NorsProcess.cs" />
+    <Compile Include="DataProvider\Mvm\MvmConnector.cs" />
+    <Compile Include="DataProvider\Mvm\MvmProcess.cs" />
+    <Compile Include="DataProvider\HarvestMapping.cs" />
+    <Compile Include="DataProvider\IConnectorServer.cs" />
+    <Compile Include="DataProvider\IDataProviderConnector.cs" />
+    <Compile Include="DataProvider\Observationsdatabasen\ObservationsdatabasenProcess.cs" />
+    <Compile Include="DataProvider\Observationsdatabasen\Constants.cs" />
+    <Compile Include="DataProvider\Observationsdatabasen\ObservationsdatabasenConnector.cs" />
+    <Compile Include="DataProvider\Observationsdatabasen\ObservationsdatabasenServer.cs" />
+    <Compile Include="DataProvider\SpeciesObservationChange.cs" />
+    <Compile Include="Data\DatabaseManager.cs" />
+    <Compile Include="Data\HarvestManager.cs" />
+    <Compile Include="Data\HarvestManager_DarwinCore.cs" />
+    <Compile Include="Data\HarvestManager_TaxonArtFakta.cs" />
+    <Compile Include="Data\HarvestManager_TestMethods.cs" />
+    <Compile Include="Data\SpeciesObservation.cs" />
+    <Compile Include="Data\SpeciesObservationField.cs" />
+    <Compile Include="Data\TaxonTreeInformation.cs" />
+    <Compile Include="Data\WebServiceManager.cs" />
+    <Compile Include="Data\WebSpeciesObservationFieldDescriptionMapping.cs" />
+    <Compile Include="Data\WebTaxonList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StringExtension.cs" />
+    <Compile Include="WebDataFieldExtension.cs" />
+    <Compile Include="WebServiceContextCached.cs" />
+    <Compile Include="WebServiceContextExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.Database\ArtDatabanken.Database\ArtDatabanken.Database.csproj">
+      <Project>{f1d2aebe-07b5-4f94-8093-2ebda4c1618d}</Project>
+      <Name>ArtDatabanken.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebService.SpeciesObservation\ArtDatabanken.WebService.SpeciesObservation\ArtDatabanken.WebService.SpeciesObservation.csproj">
+      <Project>{a1e04507-8b0d-4e41-8b48-44b27f029ffd}</Project>
+      <Name>ArtDatabanken.WebService.SpeciesObservation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebService\ArtDatabanken.WebService\ArtDatabanken.WebService.csproj">
+      <Project>{a52f0653-e130-476f-9745-ffca032248f0}</Project>
+      <Name>ArtDatabanken.WebService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{b1493059-6445-4da5-b58d-8876bea79dd0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

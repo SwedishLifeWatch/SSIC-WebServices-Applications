@@ -1,0 +1,71 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultSpeciesObservationGridTableViewModel
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationGridTable;
+    ViewBag.Description = Resource.ResultGridStatisticsTableOnSpeciesObservationCountsDescription;
+}
+ 
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <a class="btn action-button" href="@Url.Action("GridStatisticsOnSpeciesObservationCountsAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownloadExcel</a>
+        <a class="btn action-button" href="@Url.Action("GridStatisticsOnSpeciesObservationCountsAsGeoJson", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownloadGeoJson</a>
+    </div> 
+</div>
+
+<div id="gridCellCountTableDiv"></div>
+    
+<script type="text/javascript">
+    $(document).ready(function() {        
+        AnalysisPortal.Models.defineSpeciesObservationGridResult();
+        AnalysisPortal.Models.defineSpeciesObservationGridCellResult();
+        var observationsGridCountStore = AnalysisPortal.createJsonStore(
+            'SpeciesObservationGridCellResult',
+            '@Html.Raw(Url.Action("GetObservationsGridCountAsJSON", "Result"))', {
+                root : 'data.Cells'
+            });
+
+        var observationsGridCountGrid = Ext.create('Ext.grid.Panel', {
+            id: 'observationsGridCountGrid',
+            store: observationsGridCountStore,
+            title: "@Resource.ResultViewSpeciesObservationGridTable",
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 500,
+            plugins: 'bufferedrenderer',
+            frame: false,
+            columnLines: true,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'gridCellCountTableDiv',
+            columns: [
+                { text: '@Resource.GridStatisticsObservationCount', flex: 1, dataIndex: 'ObservationCount', sortable: true, xtype: 'numbercolumn', format: '#,#' },
+                { text: '@string.Format(Model.CentreCoordinateName  + " X ({0})", Model.OriginalCoordinateSystemName)', flex: 1, dataIndex: 'OriginalCentreCoordinateX', sortable: true },
+                { text: '@string.Format(Model.CentreCoordinateName  + " Y ({0})", Model.OriginalCoordinateSystemName)', flex: 1, dataIndex: 'OriginalCentreCoordinateY', sortable: true },
+                { text: '@string.Format(Model.CentreCoordinateName  + " X ({0})", Model.CoordinateSystemName)', flex: 1, dataIndex: 'CentreCoordinateX', sortable: true },
+                { text: '@string.Format(Model.CentreCoordinateName  + " Y ({0})", Model.CoordinateSystemName)', flex: 1, dataIndex: 'CentreCoordinateY', sortable: true }
+                
+            ]
+        });
+        
+        observationsGridCountStore.load({
+            callback: function (records, operation, success) {
+                var obj = Ext.decode(operation.response.responseText);                
+                var gridCellCoordinateSystem = obj.data.GridCellCoordinateSystem;
+                var gridCellCoordinateSystemId = obj.data.GridCellCoordinateSystemId;
+                var gridCellSize = obj.data.GridCellSize;
+                console.log(gridCellCoordinateSystem);
+                console.log(gridCellCoordinateSystemId);
+                console.log(gridCellSize);
+            }
+        });
+        
+    });
+    
+</script>

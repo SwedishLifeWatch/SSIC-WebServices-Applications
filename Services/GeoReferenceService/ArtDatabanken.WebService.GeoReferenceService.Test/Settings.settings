@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.GeoReferenceService.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserAdminApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdmin</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="SwedenCountryISOCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">752</Value>
+    </Setting>
+    <Setting Name="RegionCategoryProvinceId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="RegionCategoryCountyId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="ProvinceSkaneGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature1</Value>
+    </Setting>
+    <Setting Name="ProvinceBlekingeGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature2</Value>
+    </Setting>
+    <Setting Name="RegionTypePolicticalBoundaryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PrintObsApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PrintObs</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

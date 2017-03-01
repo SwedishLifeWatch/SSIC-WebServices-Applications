@@ -1,0 +1,54 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.Data.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserServiceMonesesFastAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://moneses-dev.artdata.slu.se/UserService/UserService.svc/Fast</Value>
+    </Setting>
+    <Setting Name="UserServiceName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserService</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleISOCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sv-SE</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">581</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Swedish (Sweden)</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleNativeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">svenska (Sverige)</Value>
+    </Setting>
+    <Setting Name="SwedishCountryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">199</Value>
+    </Setting>
+    <Setting Name="SwedishCountryISOCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SE</Value>
+    </Setting>
+    <Setting Name="SwedishCountryISOName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SWEDEN</Value>
+    </Setting>
+    <Setting Name="SwedishCountryName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sweden</Value>
+    </Setting>
+    <Setting Name="SwedishCountryNativeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sverige</Value>
+    </Setting>
+    <Setting Name="SwedishCountryPhoneNumberPrefix" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">46</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jakfjalkf43</Value>
+    </Setting>
+    <Setting Name="TestEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">fkdsf.fsdff@ffd.se</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

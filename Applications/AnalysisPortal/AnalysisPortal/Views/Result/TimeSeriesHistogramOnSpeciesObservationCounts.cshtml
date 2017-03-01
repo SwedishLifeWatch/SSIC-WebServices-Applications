@@ -1,0 +1,244 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultTimeSeriesOnSpeciesObservationCountsViewModel
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationDiagram;
+    ViewBag.Description = Resource.ResultTimeSeriesHistogramOnSpeciesObservationCountsDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">        
+        <div id="opacityPanel" style="padding:5px;">
+            @Resource.ResultTimeSeriesPeriodicityTitle
+            <select id="timeSeriesPeriodicitySelectList" style="width: 300px;">
+                 @foreach (Periodicity value in Enum.GetValues(typeof(Periodicity)))
+                 {
+                     string title = "";
+                     switch (value)
+                     {
+                         case Periodicity.MonthOfTheYear:
+                             title = Resource.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+                             break;
+                         case Periodicity.WeekOfTheYear:
+                             title = Resource.ResultTimeSeriesPeriodicityWeekOfTheYearLabel;
+                             break;
+                         case Periodicity.DayOfTheYear:
+                             title = Resource.ResultTimeSeriesPeriodicityDayOfTheYearLabel;
+                             break;
+                         case Periodicity.Yearly:
+                             title = Resource.ResultTimeSeriesPeriodicityYearlyLabel;
+                             break;                     
+                         case Periodicity.Monthly:
+                             title = Resource.ResultTimeSeriesPeriodicityMonthlyLabel;
+                             break;
+                         case Periodicity.Weekly:
+                             title = Resource.ResultTimeSeriesPeriodicityWeeklyLabel;
+                             break;
+                         case Periodicity.Daily:
+                             title = Resource.ResultTimeSeriesPeriodicityDailyLabel;
+                             break;
+                     }
+                     <option value="@((int)value)" @if(SessionHandler.MySettings.Calculation.TimeSeries.DefaultPeriodicityIndex==(int)value) {<text>selected="selected"</text> }>@title</option>
+                 }    
+                </select>
+        </div>            
+    </div>
+</div>
+
+@* this is the div where the diagram will be rendered *@
+<div id="obsDiagramDiv"></div>
+
+@if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+{
+    @Html.Partial("QueryComplexityDialog", Model.ComplexityEstimate)   
+}
+    
+<script type="text/javascript">
+   
+    var observationsStore;
+    var periodicity = '@((int)Periodicity.MonthOfTheYear)';
+    var pageSize = 25;
+    var chart;
+    var defaultChartWidth = AnalysisPortal.DefaultContentWidth - 10;
+    var chartWidth = defaultChartWidth;
+    var observationData;
+    var xAxsisName = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+   
+    
+    $(document).ready(function () {
+        AnalysisPortal.Models.defineKeyValueDiagramPairModel();       
+        observationsStore = AnalysisPortal.createJsonStore('KeyValueDiagramPair', '@Html.Raw(Url.Action("GetObservationsDiagramAsJSON", "Result"))');
+       
+         chart = Ext.create('Ext.chart.Chart', {
+            style: 'background:#fff',
+            animate: false,
+            shadow: true,
+            store: observationsStore,
+            width: chartWidth,
+            height: 330,
+            frame: false,
+            title: 'Column Chart',
+            autoShow: true,
+            //autoScroll: true,
+            //layout: 'fit',
+            viewConfig: {                
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            axes: [{
+                type: 'Numeric',
+                position: 'left',
+                fields: ['Value'],
+                label: {
+                    renderer: Ext.util.Format.numberRenderer('0,0')
+                },
+                title: AnalysisPortal.Resources.ResultDiagramTimeSeriesNoOfObservationsTitle,
+                grid: true,
+                minimum: 0,
+            }, {
+                type: 'Category',
+                position: 'bottom',
+                fields: ['Key'],             
+                title: xAxsisName
+            }],
+            series: [{
+                type: 'column',
+                axis: 'left',
+                //style: { size: 150 },
+                highlight: true,
+                tips: {
+                    trackMouse: true,
+                    width: 140,
+                    height: 28,
+                    renderer: function (storeItem, item) {
+                        this.setTitle(storeItem.get('Key') + ': ' + storeItem.get('Value'));
+                    }
+                },
+                label: {
+                    display: 'insideEnd',
+                    'text-anchor': 'middle',
+                    field: 'Value',
+                    renderer: Ext.util.Format.numberRenderer('0'),
+                    orientation: 'vertical',
+                    color: '#333',
+                    
+                },
+                xField: 'Key',
+                yField: 'Value',
+                style: {
+                         size: 150,
+                },
+              
+            }]
+         });
+        
+         Ext.create('Ext.Panel', {
+             renderTo: 'obsDiagramDiv',
+             width: AnalysisPortal.DefaultContentWidth,
+             height: 360,
+             autoDestroy: false,
+             collapsible: false,
+             items: [chart],
+             //layout: "fit",             
+             autoScroll: true,
+         });
+         initQueryComplexityDialog();
+        
+    });
+    
+  
+    $("#timeSeriesPeriodicitySelectList").change(function () {
+        loadData();
+    });
+    
+    function loadData() {
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoading, 'obsDiagramDiv');
+        periodicity = $('#timeSeriesPeriodicitySelectList').val();
+        observationsStore.load({
+            params: {
+                periodicityId: periodicity
+            },            
+            callback: function (records, operation, success) {
+                AnalysisPortal.hideWaitMsg('obsDiagramDiv');
+                if ($.isArray(records) && records.length > 1000) {
+                    AnalysisPortal.showMsg("Too many records...");
+                    return;
+                }
+
+                var str = " ";
+                if (('@Model.NoOfTaxa') > 0)
+                    str = AnalysisPortal.Resources.ResultDiagramTimeSeriesNoOfSelectedTaxaTitle + ": " + @Model.NoOfTaxa + "";
+                $('#taxaCountDiv').html(str);
+                if ($.isArray(records)) {
+                    var chartSize = records.length * 30;
+                    if(chartSize > defaultChartWidth)
+                        chart.setWidth(records.length * 30);
+                    else 
+                        chart.setWidth(defaultChartWidth);
+                }
+                if (periodicity == '@((int)Periodicity.MonthOfTheYear)') {
+                    var ba1 = chart.axes.get('bottom');
+                    ba1.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthOfTheYearLabel);
+                  
+                } else if (periodicity == '@((int)Periodicity.WeekOfTheYear)') {
+                    var ba2 = chart.axes.get('bottom');
+                    ba2.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityWeekOfTheYearLabel);
+
+                } else if (periodicity == '@((int)Periodicity.DayOfTheYear)') {
+                    var ba2 = chart.axes.get('bottom');
+                    ba2.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityDayOfTheYearLabel);
+  
+                } else if (periodicity == '@((int)Periodicity.Yearly)') {
+                    var ba = chart.axes.get('bottom');
+                    ba.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityYearlyLabel);
+
+                } else if (periodicity == '@((int)Periodicity.Monthly)') {
+                    var ba = chart.axes.get('bottom');
+                    ba.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthlyLabel);
+
+                } else if (periodicity == '@((int)Periodicity.Weekly)') {
+                    var ba = chart.axes.get('bottom');
+                    ba.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityWeeklyLabel);
+
+                } else if (periodicity == '@((int)Periodicity.Daily)') {
+                    var ba = chart.axes.get('bottom');
+                    ba.setTitle(AnalysisPortal.Resources.ResultTimeSeriesPeriodicityDailyLabel);
+                }
+
+            }
+            
+        });
+       
+
+    }
+
+    function initQueryComplexityDialog() {
+        @if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+        {
+        <text>
+        AnalysisPortal.showQueryComplexityDialog(function() {
+            loadData();
+        });       
+        </text>
+        }
+        else
+        {        
+        @:loadData();        
+    };
+        
+        /**
+  * Called when wrapper scrolls
+  */
+        function handleScroll(scrollerObject, offsetObject) {
+            // Do your stuff here
+        }
+       
+    }
+    
+  
+</script>

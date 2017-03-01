@@ -1,0 +1,17 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Account.AccessIsNotAllowedViewModel
+
+@{
+    ViewBag.Title = Model.Labels.Title;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)                    
+@Model.Labels.AccessIsNotAllowed:<br/><br/>                
+<em>@Model.Url</em>
+        
+    
+
+
+
+    
+

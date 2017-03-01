@@ -1,0 +1,16 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Home.VersionNumberViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+   
+<div>
+    <ul>
+        <li>Server: @Model.ServerName</li>
+        <li>@Model.Labels.VersionLabel: @Model.Version</li>
+        <li>@Model.Labels.DateLabel: @Model.CreationDate</li>
+    </ul>    
+</div>

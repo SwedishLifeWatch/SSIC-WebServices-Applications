@@ -1,0 +1,499 @@
+﻿@using ArtDatabanken.GIS.WFS.Capabilities
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map.AddWfsLayerViewModel
+
+@{    
+    ViewBag.Title = Model.Labels.Title;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    </div>
+@if(!this.ViewData.ModelState.IsValid)
+{
+    <text>
+    <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <h4>@Html.ValidationSummary(false, Resource.SharedErrorHeader)</h4>
+    </div>                
+    </text>
+}
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading collapsed" role="tab" id="headingWfs" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWfs" aria-expanded="true" aria-controls="collapseWfs">
+            <h4 class="panel-title">
+                @Resource.DataAddWfsLayerFromService &nbsp;<img src="/Content/images/AddWfsLayer.png"/>
+            </h4>
+        </div>
+        <div id="collapseWfs" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingWfs">
+            <div class="panel-body" style="padding-top: 10px; padding-bottom: 0px;">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <label class="control-label" for="selectUrl" style="margin-bottom: 0px;">@Model.Labels.SampleUrls</label><br/>
+                        <select id="selectUrl" name="selectUrl" class="form-control">
+                            <option value="">@Model.Labels.SelectBoxDefault</option>
+                            <option value="http://inspire2-1.slu.se/geoserver/ows">@Resource.DataProvidesSearchWfsLayerSelectSLUGeo</option>
+                            <option value="http://slwgeo.artdata.slu.se:8080/geoserver/INSPIRE/wfs">@Resource.DataProvidesSearchWfsInspireLayerSelectDefault</option>
+                            <option value="http://slwgeo.artdata.slu.se:8080/geoserver/SLW/wfs">@Resource.DataProvidesSearchWfsLayerSelectADbGeo</option>
+                            <option value="http://geodata.havochvatten.se/geoservices/ows">@Resource.DataProvidesSearchWfsLayerSelectSwedishMarine</option>
+                            <option value="http://sedac.ciesin.columbia.edu/geoserver/ows">@Resource.DataProvidesSearchWfsLayerSelectGlobalDataOnHumanImpact</option>
+                            <option value="http://epub.sjv.se/inspire/inspire/ows">@Resource.DataProvidesSearchWfsLayerSelectSwedishBoardOfAgriculture</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 10px; margin-bottom: 10px;">
+                    <form method="POST" id="searchWfsLayersForm" action="@Url.Action("AddWfsLayer")">
+                        <div class="col-xs-9" style="padding-right: 5px;">
+                            <label class="control-label" style="margin-bottom: 0px;" for="url">@Model.Labels.ServerUrl:</label>
+                            <input type="text" id="url" name="url" value="@Model.ServerUrl" class="form-control"/>
+                            @Html.Hidden("WFSVersion", "Ver110")
+                        </div>
+                        <div class="col-xs-3" style="padding-left: 5px;">
+                            <br/>
+                            <button id="btnTaxaListSearch" class="btn btn-primary" type="submit" style="vertical-align: bottom;"><i class="icon-search icon-white"></i> &nbsp; @Model.Labels.Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <table id="wfsBasicInformationTable" class="table table-condensed white-bg">
+                    <tr>
+                        <td class="tablelabel">
+                            @Resource.DataSourcesWfsLayerEditorHeaderName
+                        </td>
+                        <td class="tableinput">
+                            <input id="txtWfsLayerName" type="text" value="" class="full-length form-control"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <div id="wfsGridDiv"></div>
+
+                <div id="mainPanel" class="datapanel"></div>
+
+                <div class="row">
+                    <div class="btn-toolbar page-toolbar">
+                        <button id="SaveWfsLayerButton" class="btn toolbarButton" disabled="disabled" type="button"><i class="icon-plus"></i> &nbsp;@Resource.SharedCreateLayer</button>
+                        <a href="@Url.Action("WfsLayers")" class="btn btn-default" role="button">@Resource.SharedCancelButtonText</a>
+                    </div>
+                </div>
+
+                <form method="POST" id="createWfsLayerForm" action="@Url.Action("CreateWfsLayer")">
+                    @Html.Hidden("url")
+                    @Html.Hidden("name")
+                    @Html.Hidden("typeName")
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading collapsed" role="tab" id="headingUploadFile" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseUploadFile" title="@(Model.ShowFile ? "" : Resource.SharedYouHaveToLogOn)" aria-expanded="true" aria-controls="collapseUploadFile">
+            <h4 class="panel-title">
+                @Resource.DataAddWfsLayerNewFile &nbsp;<img src="/Content/images/Upload.png"/>
+            </h4>
+        </div>
+        <div id="collapseUploadFile" class="panel-collapse collapse @(Model.ShowFile ? "" : "disabled")" role="tabpanel" aria-labelledby="headingUploadFile">
+            <div class="panel-body">
+                @Html.Partial("_UploadGeoJson", Model.UploadGeoJsonViewModel)
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading collapsed" role="tab" id="headingExistingFile" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseExistingFile" title="@(Model.ShowFile ? "" : Resource.SharedYouHaveToLogOn)" aria-expanded="true" aria-controls="collapseExistingFile">
+            <h4 class="panel-title">
+                @Resource.DataAddWfsLayerExistingFile &nbsp;<img src="/Content/images/OpenFile.png"/>
+            </h4>
+        </div>
+        <div id="collapseExistingFile" class="panel-collapse collapse @(Model.ShowFile ? "" : "disabled")" role="tabpanel" aria-labelledby="headingExistingFile">
+            <div class="panel-body" style="padding-top: 10px; padding-bottom: 0px;">
+                <div id="uploadedGisLayersDiv"></div>
+                <div class="row">
+                    <div class="btn-toolbar page-toolbar">
+                        <button id="AddUploadedGisFileButton" class="btn toolbarButton" disabled="disabled" type="button"><i class="icon-plus"></i> &nbsp;@Resource.SharedAddButtonText</button>
+                        <button id="DeleteUploadedGisFileButton" class="btn toolbarButton" disabled="disabled" type="button"><i class="icon-trash"></i> &nbsp;@Resource.SharedDeleteButtonText</button>
+                        <a href="@Url.Action("WfsLayers")" class="btn btn-default" role="button">@Resource.SharedCancelButtonText</a>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>    
+</div>
+
+
+<script type="text/javascript">
+    var wfsLayersStore;
+    var wfsLayersGrid;
+    var wfsInitilized = false;
+    var uploadedGisFilesInitilized = false;
+
+    $(document).ready(function () {
+        $("select[name='selectUrl']").change(function () {
+            $("input[name='url']").val(this.value);
+            $("#searchWfsLayersForm").submit();
+        });
+
+        $('#SaveWfsLayerButton').click(function () {
+            saveWfsLayer();
+        });
+
+        $('#txtWfsLayerName').keyup(function (event) {
+            enableDisableCreateButton();
+        });
+
+        $('#userFiles tbody tr td:first-child a').on('click', addFile);
+        $('#userFiles tbody tr td:last-child img.delete').on('click', deleteFile);
+
+        $('#collapseWfs').on('show.bs.collapse', function() {
+            if (!wfsInitilized) {
+                createWfsLayersGridDiv();
+                initWfsStore();
+                createLayout();
+                wfsInitilized = true;
+            }
+        });
+
+        $('#collapseExistingFile').on('show.bs.collapse', function() {
+            if (!uploadedGisFilesInitilized) {
+                createUploadedLayersGrid();                
+                uploadedGisFilesInitilized = true;
+            }
+        });
+
+        //Show wfs on post back
+        @if (Request.UrlReferrer != null && Request.UrlReferrer.ToString().IndexOf("AddWfsLayer") != -1)
+        {
+            <text>
+                $('#headingWfs').click();
+            </text>
+        }
+
+        $('.collapse').on('show.bs.collapse', function (e) {
+            if ($(this).hasClass('disabled')) {
+                e.preventDefault();
+            }
+        });
+
+        $('#DeleteUploadedGisFileButton')
+            .click(function() {
+                uploadedGisLayersDeleteSelectedLayers();
+            });
+
+        $('#AddUploadedGisFileButton')
+            .click(function() {
+                uploadedGisLayersAddSelectedLayers();
+            });
+        
+        enableDisableUpload();
+    });
+
+    function enableDisableCreateButton() {
+        var name = $.trim($('#txtWfsLayerName').val());
+        var selections = wfsLayersGrid.getSelectionModel().getSelection();
+
+            if (selections.length == 0 || name == "") {
+            $('#SaveWfsLayerButton').attr("disabled", true).removeClass("btn-primary");
+        } else {
+            $('#SaveWfsLayerButton').attr("disabled", false).addClass("btn-primary");
+        }
+    }
+
+    function createWfsLayersGridDiv() {
+        AnalysisPortal.Models.defineWfsLayerInfoModel();
+
+        wfsLayersStore = Ext.create('Ext.data.Store', {
+            autoLoad: false,
+            model: 'WfsLayerInfoModel',
+            proxy: {
+                type: 'memory',
+                reader: {
+                    type: 'json'
+                }
+            }
+        });
+        wfsLayersStore.sort('Title', 'ASC');
+
+        wfsLayersGrid = Ext.create('Ext.grid.Panel', {
+            id: 'wfsLayersGrid',
+            store: wfsLayersStore,
+            title: '@Resource.SharedLayers',
+            height: 140,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            iconCls: 'icon-grid',
+            region: "center",
+            columns: [
+                { text: '@Resource.SharedTitle', width: 300, dataIndex: 'Title', sortable: true },
+                { text: '@Resource.SharedNamespace', width: 150, dataIndex: 'Namespace', sortable: true },
+                { text: '@Resource.SharedName', flex: 1, dataIndex: 'Name', sortable: true }
+            ],
+            columnLines: true,//,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                showHeaderCheckbox: false,
+                mode: "SINGLE", //"SIMPLE"
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        if (selections.length == 1) {
+                            $('#txtWfsLayerName').val(Ext.String.htmlDecode(selections[0].data.Title));
+                        }
+                        enableDisableCreateButton();
+                    }
+                }
+            })
+        });
+
+    }
+
+    function createLayout() {
+
+        var wfsBasicInformationControl = AnalysisPortal.createHtmlPanel('wfsBasicInformationTable', {
+            title: "@Resource.DataProvidersWmsLayerEditorBasicInformation",
+            region: 'north'
+        });
+
+        var containerPanel = AnalysisPortal.createLayoutContainer([wfsBasicInformationControl, wfsLayersGrid], {
+            layout: "border",
+            collapsible: false
+        });
+
+        thePanel = AnalysisPortal.createMainPanel('mainPanel', {
+            width: AnalysisPortal.DefaultContentWidth-40,
+            height: 260,
+            items: [containerPanel],
+            collapsible: false
+        });
+
+    }
+
+    var thePanel;
+
+    function initWfsStore() {
+        var layers = [];
+        @if (Model.WfsCapabilities != null)
+        {
+            foreach (WfsFeatureType featureType in Model.WfsCapabilities.FeatureTypes)
+            {
+                <text>
+        layers.push({
+            Title: '@featureType.Title',
+            Url: '@Model.WfsCapabilities.Capability.Requests.DescribeFeatureTypeRequest.GetUrl',
+            Namespace: '@featureType.Name.Namespace',
+            Name: '@featureType.Name.Name',
+            FullName: '@featureType.Name.FullName'
+        });
+            </text>
+            }
+        }
+
+        wfsLayersStore.removeAll();
+        wfsLayersStore.add(layers);
+    }
+
+
+    function saveWfsLayer() {
+        var name = $.trim($('#txtWfsLayerName').val());
+        var typeName = "";
+        var url = "@Html.Raw(Model.ServerUrl)";
+        var selections = wfsLayersGrid.getSelectionModel().getSelection();
+        if (selections.length == 1) {
+            typeName = selections[0].data.FullName;
+        }
+
+        if (AnalysisPortal.isStringNullOrEmpty(name)) {
+            AnalysisPortal.showToasterMsg("You must enter a Name for your WFS layer", "Error", {
+                messageType: "error",
+                timeout: 6000
+            });
+            return;
+        }
+        else if (AnalysisPortal.isStringNullOrEmpty(typeName)) {
+            AnalysisPortal.showToasterMsg("You must select a WFS layer", "Error", {
+                messageType: "error",
+                timeout: 6000
+            });
+            return;
+        }
+        else if (AnalysisPortal.isStringNullOrEmpty(url)) {
+            AnalysisPortal.showToasterMsg("You must enter an URL", "Error", {
+                messageType: "error",
+                timeout: 6000
+            });
+            return;
+        }
+
+        var $frm = $('#createWfsLayerForm');
+        $frm.find('input[name=url]').val(url);
+        $frm.find('input[name=name]').val(name);
+        $frm.find('input[name=typeName]').val(typeName);
+        $frm.submit();
+        }
+
+        function deleteFile(e) {
+            AnalysisPortal.showMessageBox({
+                title: '@Resource.SharedDeleteButtonText',
+                msg: '@Resource.DataAddWfslayerDeleteFile',
+                buttons: Ext.Msg.YESNO,
+                icon: Ext.MessageBox.INFO
+            }, function (buttonId) {
+                if (buttonId == 'yes') {
+                    var $tr = $(e.target).closest('tr');
+
+                    $.post('@Url.Action("DeleteMapDataFile")', { fileName: $tr.data('filename') }, function( result ) {
+                        if (result.success) {
+                            $tr.remove();
+                            enableDisableUpload();
+                            return;
+                        }
+
+                        AnalysisPortal.showToasterMsg(result.msg, 'Error', {
+                            messageType: "error",
+                            timeout: 6000
+                        });
+                    });
+                }
+            });
+        }
+
+        function addFile(e) {
+            var $tr = $(e.target).closest('tr');
+
+            $.post('@Url.Action("AddMapDataFileLayer")', { fileName: $tr.data('filename') }, function( result ) {
+                if (result.success) {
+                    window.location.href = '@Url.Action("WfsLayers")';
+                }
+
+                AnalysisPortal.showToasterMsg(result.msg, 'Error', {
+                    messageType: "error",
+                    timeout: 6000
+                });
+            });
+        }
+
+        function enableDisableUpload() {
+            var showFile = @Model.ShowFile.ToString().ToLower();
+
+            if (showFile) {
+                if ($('#userFiles tbody tr').length <= 10) {
+                    $('#headingUploadFile').attr('data-original-title', '').tooltip('destroy');
+                    $('#collapseUploadFile').removeClass('disabled');
+                } else {
+                    $('#headingUploadFile').attr('data-original-title', '@Resource.DataAddWfsLayerMaxFilesReached')
+                    .tooltip();;
+                $('#collapseUploadFile').addClass('disabled');
+            }
+        }
+    }
+
+    function enableDisableUploadedGisLayersButtons() {
+        var selections = uploadedGisLayersGrid.getSelectionModel().getSelection();
+        console.log(selections.length);
+        if (selections.length === 0) {
+            $('#DeleteUploadedGisFileButton,#AddUploadedGisFileButton').attr("disabled", true);
+        } else {
+            $('#DeleteUploadedGisFileButton,#AddUploadedGisFileButton').attr("disabled", false);
+        }
+    }
+
+    var uploadedGisLayersStore;
+    var uploadedGisLayersGrid;
+
+    function createUploadedLayersGrid() {
+        AnalysisPortal.Models.defineUploadedGisLayersViewModel();        
+        uploadedGisLayersStore = AnalysisPortal
+            .createJsonStore('UploadedGisLayersViewModel', '@Html.Raw(Url.Action("GetAllUploadedGisLayers", "Data"))');        
+
+        uploadedGisLayersGrid = Ext.create('Ext.grid.Panel',
+        {
+            id: 'uploadedGisLayersGrid',
+            store: uploadedGisLayersStore,
+            title: '@Resource.WfsLayersUploadedFiles',
+            height: 160,
+            width: AnalysisPortal.DefaultContentWidth - 40,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            selModel: Ext.create('Ext.selection.CheckboxModel',
+            {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function(sm, selections) {
+                        enableDisableUploadedGisLayersButtons();
+                    }
+                }
+            }),
+            renderTo: 'uploadedGisLayersDiv',
+            columns: [                
+                { text: '@Resource.SharedFilename', flex: 1, dataIndex: 'Name', sortable: true }
+            ],
+            columnLines: true
+            });
+
+            uploadedGisLayersStore.load();
+            setTimeout(function() {
+                uploadedGisLayersGrid.doLayout();
+            }, 2000);
+        }
+
+    function uploadedGisLayersAddSelectedLayers() {
+        var selected = [];
+        var s = uploadedGisLayersGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.FileName);
+        });
+
+        $.post(
+            '/Data/AddUploadedGisLayers',
+            { filenames: selected },
+            function (result) {
+                console.log(result);
+                if (result.success) {
+                    window.location.replace('@Url.Action("WfsLayers")');
+                } else {
+                    AnalysisPortal.showToasterMsg(result.msg, 'Error', {
+                        messageType: "error",
+                        timeout: 6000
+                    });
+                }
+            }
+        );
+    }
+
+    function uploadedGisLayersDeleteSelectedLayers() {
+        var selected = [];
+        var s = uploadedGisLayersGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.FileName);
+        });
+
+        $.post(
+            '/Data/DeleteUploadedGisLayers',
+            { filenames: selected },
+            function (result) {
+                console.log(result);
+                if (result.success) {
+                    window.location.replace('@Url.Action("WfsLayers")');                    
+                } else {
+                    AnalysisPortal.showToasterMsg(result.msg, 'Error', {
+                        messageType: "error",
+                        timeout: 6000
+                    });
+                }
+            }
+        );
+    }
+</script>

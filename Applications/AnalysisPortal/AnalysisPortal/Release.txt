@@ -1,0 +1,168 @@
+﻿Web addresses to the application:
+
+(Public)
+https://www.analysisportal.se/
+	server paths:	\\Silurus2-1.artdata.slu.se\c$\inetpub\analysisportal
+					\\Silurus2-2.artdata.slu.se\c$\inetpub\analysisportal
+
+(Public test / development)
+https://test.analysisportal.se/
+	server paths:	\\Silurus2-1.artdata.slu.se\c$\inetpub\test_analysisportal
+					\\Silurus2-2.artdata.slu.se\c$\inetpub\test_analysisportal
+
+--------------------------------------------
+
+MVC4 framework needs manual installation on server (only first time)
+Installation files can be found at: http://www.asp.net/mvc/mvc4
+
+----------------------------------------------------------------
+
+--------------------------------------------
+
+GDAL needs manual installation on server (only first time)
+Installation files can be found at: http://www.gisinternals.com/
+Download "Generic installer for the GDAL core components" (x64) and install it on server.
+http://download.gisinternals.com/sdk/downloads/release-1800-x64-gdal-2-1-2-mapserver-7-0-2/gdal-201-1800-x64-core.msi
+
+
+Add/Change Environment variables:
+1. Press WinLogoKey+Pause/Break
+2. On the left panel, press 'Advanced System Settings'
+3. On the 'Advanced' tab, click 'Environment Variables'
+4. Add a new Environment variable: Name: GDAL_DATA, Value: C:\Program Files\GDAL\gdal-data
+5. Update Environment variable "Path", Add: C:\Program Files\GDAL;C:\Program Files\GDAL\csharp;
+6. Restart IIS after changes are made
+
+----------------------------------------------------------------
+
+QGIS needs manual installation on server (only first time)
+Download "QGIS Long term release - Standalone installer" (x64) and install it on server.
+QGIS 2.14.9 is currently used:
+http://qgis.org/downloads/QGIS-OSGeo4W-2.14.9-2-Setup-x86_64.exe
+Install 2.14.9 version (QGIS Essen) to the following directory: C:\Program Files\QGIS Essen\
+
+
+Add/Change Environment variables:
+1. Press WinLogoKey+Pause/Break
+2. On the left panel, press 'Advanced System Settings'
+3. On the 'Advanced' tab, click 'Environment Variables'
+4. Add a new Environment variable: Name: PYTHONHOME, Value: C:\Program Files\QGIS Essen\apps\Python27
+5. Add a new Environment variable: Name: PYTHONPATH, Depending on QGIS installation (ltr or latest) the Value is one of:
+   Value: C:\Program Files\QGIS Essen\apps\qgis\python
+   Value: C:\Program Files\QGIS Essen\apps\qgis-ltr\python
+6. Update Environment variable "Path", Depending on QGIS installation (ltr or latest) Add one of:
+    Add: %PYTHONPATH%;C:\Program Files\QGIS Essen\apps\qgis\bin
+	Add: %PYTHONPATH%;C:\Program Files\QGIS Essen\apps\qgis-ltr\bin
+7. Make sure path to python.exe exist in web.config. PythonExePath: C:\Progra~1\QGISEs~1\bin
+8. Make sure path to QGIS exist in web.config. Depending on QGIS installation (ltr or latest) Add one of:
+	QGISPath: C:\Program Files\QGIS Essen\apps\qgis
+	QGISPath: C:\Program Files\QGIS Essen\apps\qgis-ltr
+9. Restart IIS after changes are made
+10. On Windows 10 the environmental variables search order is different than Windows 7.
+    You may need to copy all files in C:\Program Files\QGIS Essen\bin to C:\Program Files\QGIS Essen\apps\qgis\python\qgis
+
+----------------------------------------------------------------
+
+Configuration in IIS.
+
+Configuration that differs from default in IIS.
+
+Application pool configuration:
+".Net Framework Version" => V4.0
+"Load User Profile" => False
+"Specific Times" => TimeSpan[] Array
+Configuration in IIS.
+On servers with 64-bit Windows "Enable 32-Bit Applications" => True
+
+
+Application configuration:
+"Session State Mode Settings" => In process
+"Cookie Settings" => 
+	Mode: "Use Cookies" 
+	Name: "ASP.NET_SessionID"
+	Time-out: "20min" ?
+
+----------------------------------------------------------------
+
+File system configuration:
+
+The following directories must be manually created on web server:
+.\Temp
+.\Cache
+.\Logs
+
+IIS user IIS_IUSRS must have full access rights to following directories:
+.\Temp
+.\Cache
+.\Logs
+.\Content\News
+
+----------------------------------------------------------------
+
+General information about release steps:
+
+When change build configuration from ”Debug” to “Release”, this will happen:
+Changes ”<compilation debug="true">” to ”<compilation debug="false">” in file Web.config.
+
+When change build configuration from “Release” to ”Debug”, this will happen:
+Changes ”<compilation debug="false">” to ”<compilation debug="true">” in file Web.config.
+
+----------------------------------------------------------------
+
+Release on production server Silurus (www.analysisportal.se): 
+
+1. Change build configuration from ”Debug” to “Release”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Silurus2-1.artdata.slu.se\c$\inetpub\analysisPortal  and 
+\\Silurus2-2.artdata.slu.se\c$\inetpub\analysisPortal
+IMPORTANT - Choose option ”Replace matching files with local copies” 
+otherwise privilegies on server directory are lost.
+
+4. Change build configuration from “Release” to ”Debug” again. 
+
+5. Check application works proparly and check communication with webservices
+
+(If application don't work after publish, check below)
+
+----------------------------------------------------------------
+
+Release on test server Silurus (test.analysisportal.se): 
+
+1. Check that build configuration is set to ”Debug”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Silurus2-1.artdata.slu.se\c$\inetpub\test_analysisportal
+IMPORTANT - Choose option ”Replace matching files with local copies” 
+otherwise privilegies on server directory are lost.
+IMPORTANT - choose Debug - Any CPU in publish settings.
+
+4. Check application works proparly and check communication with webservices
+
+(If application don't work after publish, check below)
+
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+
+Error handling: (If publishing don't work)
+
+Turn custom errors off before publishing, if not already done, error meassage from
+server will inform.
+
+In Web.config add the following line under element <system.web> :
+
+	<customErrors mode="Off" defaultRedirect="~/ErrorPages/Oops.aspx">
+		  <error statusCode="404" redirect="~/ErrorPages/404.aspx" />
+		</customErrors>
+		.....
+
+
+* If any service fails, check: chiperstrings, dns lookup, firewall settings
+
+
+* If icons don't work in explorer - MIME-TYPE: .woff (applicatin/octetstream) must be added to IIS

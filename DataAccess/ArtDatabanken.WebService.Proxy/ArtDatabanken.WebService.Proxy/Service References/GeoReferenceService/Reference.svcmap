@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="25ad0d46-ab9b-4066-a5e9-b8eb1d945660" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ArtDatabanken" />
+      <ReferencedAssembly AssemblyName="ArtDatabanken.WebService.Data" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GeoReferenceService.wsdl" MetadataType="Wsdl" ID="9df5632c-56f7-4c48-bb67-56ba34d0aacf" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="GeoReferenceService4.xsd" MetadataType="Schema" ID="c01767f3-42ae-4950-84c8-49b7bac5bd35" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GeoReferenceService.xsd" MetadataType="Schema" ID="c4eba71e-e6c6-423b-8f40-247a2ec6b04d" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GeoReferenceService1.wsdl" MetadataType="Wsdl" ID="0e096aa2-bc1d-47be-ade5-5ca5ec5b31f8" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?wsdl" />
+    <MetadataFile FileName="GeoReferenceService1.xsd" MetadataType="Schema" ID="2b74885f-fc28-451f-96bd-ec176ca57443" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GeoReferenceService2.xsd" MetadataType="Schema" ID="89d3938c-1b7a-4efd-92d1-4e020f3d8e2c" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd4" />
+    <MetadataFile FileName="GeoReferenceService.disco" MetadataType="Disco" ID="d1e29466-61e0-445e-9a64-574df7fdbe9e" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?disco" />
+    <MetadataFile FileName="GeoReferenceService3.xsd" MetadataType="Schema" ID="3ed3adfe-8c0a-440b-a651-7d6385c4e459" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

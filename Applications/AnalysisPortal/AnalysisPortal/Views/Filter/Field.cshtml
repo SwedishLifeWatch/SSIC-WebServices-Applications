@@ -1,0 +1,188 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Field.FieldViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial(
+        "BreadCrumbTitle_Partial", 
+        SessionHandler.CurrentPage, 
+        new ViewDataDictionary { { "OverridePageTitle", Resource.FilterFieldSummary } }
+    )
+    <div class="btn-toolbar page-toolbar">        
+        <button id="toolbarButtonReset" @if (Model.IsSettingsDefault)
+                                        { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>        
+    </div>
+</div>
+ 
+<div id="searchSection">
+    <div class="row" style="padding-bottom: 5px; padding-left: 25px; padding-top: 1px;">
+        <h4>@Model.Labels.FilterLable</h4>
+    </div>
+    <div class="row" style="padding-left:25px">
+        <div class="col-xs-3">
+            @Model.Labels.ClassLabel<br/>                           
+            <select name="classValue" id="classValueSelectBox" style="width:100%;">
+                <option value="">@Model.Labels.AllClassesLabel</option>
+                @foreach (var fieldClassName in Model.FieldDescriptionTypes.GetClasses())
+                {
+                    @:<option value="@Html.Raw(fieldClassName)">@fieldClassName</option>    
+                }
+            </select>
+        </div>
+    </div>
+    <div class="row" style="padding-left:25px">
+        <div class="col-xs-3">
+            @Model.Labels.LeftOperandLabel<br/>
+            <select name="leftFieldValue" id="propertyValueSelectBox" class="autocomplete" style="width:100%;">
+            </select>
+        </div>    
+        <div class="col-xs-3">
+            @Model.Labels.OperatorLabel<br/>
+            <select name="comparisionOperator" id="comparisionOperatorSelectBox" style="width: 100%">
+                <option value="BeginsWith">@Model.Labels.BeginsWithOperatorLabel</option>
+                <option value="Contains">@Model.Labels.ContainsOperatorLabel</option>
+                <option value="EndsWith">@Model.Labels.EndsWithOperatorLabel</option>
+                <option value="Equal">@Model.Labels.EqualToOperatorLabel</option>
+                <option value="Greater">@Model.Labels.GreaterLabel</option>
+                <option value="GreaterOrEqual">@Model.Labels.GreaterOrEqualLabel</option>
+                <option value="Less">@Model.Labels.LessLabel</option>
+                <option value="LessOrEqual">@Model.Labels.LessOrEqualLabel</option>
+                <option value="Like">@Model.Labels.LikeOperatorLabel</option>
+                <option value="NotEqual">@Model.Labels.NotEqualToOperatorLabel</option>
+            </select>
+        </div>
+        <div class="col-xs-3">
+            @Model.Labels.RightOperandLabel<br />
+            <input type="text" id="fieldValueTextBox" name="constantValue" value="" style="vertical-align: middle; width: 90%;" />
+        </div>
+        <div class="col-xs-3" style="padding-top:17px">
+            <button id="andButton" type="button" class="btn action-button"><i class="icon-plus"></i> &nbsp;@Model.Labels.AndOperationLabel</button>
+            <button id="orButton" type="button" class="btn action-button"><i class="icon-plus"></i> &nbsp;@Model.Labels.OrOperationLabel</button>
+        </div>
+    </div>
+    <div id="formulaText" style="min-height: 12px;"></div>
+</div>
+
+@* Form used to add selected field to MySettings. Always triggered by Javascript*@
+@using (Html.BeginForm("AddFieldToFilter", "Filter", FormMethod.Post, new { @id = "addFieldToFilterForm", @name = "addFieldToFilterForm" }))
+{
+    @Html.Hidden("strClassName")
+    @Html.Hidden("strFieldId")
+    @Html.Hidden("strFieldValue")
+    @Html.Hidden("strFieldName")
+    @Html.Hidden("strCompareOperator")
+    @Html.Hidden("strLogicalOperator")
+    @Html.Hidden("returnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery)
+}
+
+<script type='text/javascript'>
+    var showSaveSettingsMessageOnLeave = true;
+
+    $(document).ready(function () {
+        // Populate property list with all properties as default
+        $.getJSON("/Filter/GetFieldsByClassName/", { className: '' }, function (result) {
+            var html = '';
+            var len = result.data.length;
+            for (var i = 0; i < len; i++) {
+                html += '<option value="' + result.data[i].Id + '">' + result.data[i].Name + '</option>';
+            }
+            $('#propertyValueSelectBox').empty();
+            $('#propertyValueSelectBox').append(html);
+            // Clear selection
+            $('#propertyValueSelectBox').select2().val();
+        });
+
+        $("#classValueSelectBox").change(function () {
+            // Populate property list
+            $.getJSON("/Filter/GetFieldsByClassName/", { className: $(this).val() }, function (result) {
+                var html = '';
+                var len = result.data.length;
+                for (var i = 0; i < len; i++) {
+                    html += '<option value="' + result.data[i].Id + '">' + result.data[i].Name + '</option>';
+                }
+                $('#propertyValueSelectBox').empty();
+                $('#propertyValueSelectBox').append(html);
+                // Clear selection
+                $('#propertyValueSelectBox').select2().val();
+            });
+        });
+
+        $('#andButton').click(addAndFilterFieldExpression);
+        $('#orButton').click(addOrFilterFieldExpression);
+
+        var formulaTextText = getFormulaText();
+
+        toggleFieldLogicalOperatorButtons(formulaTextText);
+
+        initToolbar();
+
+        $(".autocomplete").select2();
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetFields", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+    }
+
+    function getFormulaText() {
+        return $.get("/Filter/GetFieldFilterExpression/", function (data) {
+            $('#formulaText').empty();
+            $("#formulaText").html(data);
+            return $("#formulaText").val();
+        });
+    }
+
+    function toggleFieldLogicalOperatorButtons(formulaTextText) {
+        $.get("/Filter/GetFieldLogicalOperatorString/", function (data) {
+            // If AND button is clicked, disable OR button
+            if (data == 'AND' && formulaTextText.responseText != undefined && formulaTextText.responseText != '') {
+                $('#orButton').prop('disabled', true);
+            }
+            // If OR button is clicked, Disable AND button
+            if (data == 'OR') {
+                $('#andButton').prop('disabled', true);
+            }
+        });
+    }
+
+    // Adds the selected filter field expression in formula text to the MySettings object on server
+    function addAndFilterFieldExpression() {
+        var fieldId = $('#propertyValueSelectBox').val();
+        var logicalOperator = "AND";
+
+        if (fieldId != null) {
+            var frm = document.addFieldToFilterForm;
+            frm.strClassName.value = $("#classValueSelectBox").val();
+            frm.strFieldId.value = fieldId;
+            frm.strFieldValue.value = $('#fieldValueTextBox').val();
+            frm.strFieldName.value = $("#propertyValueSelectBox option:selected").text();
+            frm.strCompareOperator.value = $('#comparisionOperatorSelectBox').val();
+            frm.strLogicalOperator.value = logicalOperator;
+            frm.submit();
+        }
+    }
+
+    // Adds the selected filter field expression in formula text to the MySettings object on server
+    function addOrFilterFieldExpression() {
+        var fieldId = $('#propertyValueSelectBox').val();
+        var logicalOperator = "OR";
+
+        if (fieldId != null) {
+            var frm = document.addFieldToFilterForm;
+            frm.strClassName.value = $("#classValueSelectBox").val();
+            frm.strFieldId.value = fieldId;
+            frm.strFieldValue.value = $('#fieldValueTextBox').val();
+            frm.strFieldName.value = $("#propertyValueSelectBox option:selected").text();
+            frm.strCompareOperator.value = $('#comparisionOperatorSelectBox').val();
+            frm.strLogicalOperator.value = logicalOperator;
+            frm.submit();
+        }
+    }
+
+</script>

@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.UserService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="UserNameRegularExpression" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">^[a-zåäöA-ZÅÄÖ0-9_]{3,40}$</Value>
+    </Setting>
+    <Setting Name="DefaultLocale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">en-GB</Value>
+    </Setting>
+    <Setting Name="LocaleCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebLocale</Value>
+    </Setting>
+    <Setting Name="CountryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebCountry</Value>
+    </Setting>
+    <Setting Name="AuthorityAttributeTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebAuthorityAttributeType</Value>
+    </Setting>
+    <Setting Name="RoleIdForSuperAdministrator" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="ErrorMessageIsNotSuperAdministrator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">User is not authorized to perform this action. It is only super administrators of the user administration system that are allowed to use this functionality.</Value>
+    </Setting>
+    <Setting Name="AuthorityIdentifierForUserGroupAdministration" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserGroupAdministration</Value>
+    </Setting>
+    <Setting Name="ErrorMessageIsNotUserGroupAdministrator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">User is not authorized to perform this action. Beside super administrators it is only user group administrators that are allowed to use this functionality.</Value>
+    </Setting>
+    <Setting Name="PasswordRegularExpression" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">^.*(?=.{8,40})(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$</Value>
+    </Setting>
+    <Setting Name="MaxLoginAttempt" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="MinFailedLoginWaitTime" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="ApplicationsInSoaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationsInSoaKey</Value>
+    </Setting>
+    <Setting Name="ApplicationActionCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebApplicationAction</Value>
+    </Setting>
+    <Setting Name="ApplicationCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebApplication</Value>
+    </Setting>
+    <Setting Name="ApplicationVersionCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebApplicationVersion</Value>
+    </Setting>
+    <Setting Name="AuthorityDataTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebAuthorityDataType</Value>
+    </Setting>
+    <Setting Name="ApplicationAuthorityDataTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationAuthorityDataType</Value>
+    </Setting>
+    <Setting Name="AuthorityAttributeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebAuthorityAttribute</Value>
+    </Setting>
+    <Setting Name="AuthorityCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebAuthority</Value>
+    </Setting>
+    <Setting Name="RoleCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebRole</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,64 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.MetadataSearch.MetadataSearchViewModel
+
+@{
+    ViewBag.Title = @Model.Labels.Title;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+
+<p>
+    @Model.Labels.PageDescription
+</p>
+<hr/>
+<div>
+    <a href="http://ecds.se" target="_blank">
+        <img src="../../Content/images/logos/logo_ecds_290x100.png" alt="ECDS" />
+    </a><br /><br />
+    
+    <a href="http://ecds.se" target="_blank">
+        <i class="icon-caret-right icon-white"></i> &nbsp;@Model.Labels.ECDSLink
+    </a>
+</div>
+<hr/>
+<div>
+    <a href="http://www.geodata.se/" target="_blank">
+        <img src="../../Content/images/logos/logo_geodata.jpg" alt="Geodata" />
+    </a><br/><br/>
+
+    <a href="http://www.geodata.se/" target="_blank">
+        <i class="icon-caret-right icon-white"></i> &nbsp;@Model.Labels.GeodataLink
+    </a>
+    <br />
+</div>
+<hr/>
+<div>
+    <a href="http://www.biodiversitycatalogue.org/" target="_blank">
+        <img src="../../Content/images/logos/logo_BioDivCat_380x65.png" alt="Biodiversitycatalogue" />
+    </a><br/><br/>
+
+    <a href="http://www.biodiversitycatalogue.org/" target="_blank">
+        <i class="icon-caret-right icon-white"></i> &nbsp;@Model.Labels.BioCatLink
+    </a>
+</div>
+<hr/>
+<div>
+    <a href="http://opendata-catalog.smhi.se/explore/" target="_blank">
+        <img src="../../Content/images/logos/logo_smhi.png" alt="SMHIOpenDataCatalogue" />
+    </a><br /><br />
+
+    <a href="http://opendata-catalog.smhi.se/explore/" target="_blank">
+        <i class="icon-caret-right icon-white"></i> &nbsp;@Model.Labels.SMHIOpenDataLink
+    </a>
+</div>
+<hr/>
+<div>
+    <a href="http://www.sgugeolagret.se/GeoLagret/" target="_blank">
+        <img src="../../Content/images/logos/logo_sgu.png" alt="SGUGeoServerCatalogue" />
+    </a><br /><br />
+
+    <a href="http://www.sgugeolagret.se/GeoLagret/" target="_blank">
+        <i class="icon-caret-right icon-white"></i> &nbsp;@Model.Labels.SGUGeoServerLink
+    </a>
+</div>
+  

@@ -1,0 +1,76 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bing maps sample</title>
+
+        <link href="~/Scripts/OpenLayers/theme/default/style.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+
+        <script src="~/Scripts/OpenLayers/OpenLayers.js" type="text/javascript"></script>
+        
+
+        <style type="text/css">            
+            .smallmap {
+                width: 612px;
+                height: 456px;
+                border: 1px solid #ccc;
+            }                     
+           .olControlAttribution {
+               bottom: 5px;
+            }
+        </style>
+
+
+        <script type="text/javascript">
+            var lon = 5;
+            var lat = 40;
+            var zoom = 5;
+            var map, layer;
+            var apiKey = "AqTGBsziZHIJYYxgivLBf0hVdrAk9mWO5cQcb8Yux8sW5M8c8opEC2lZqKR1ZZXf";            
+            
+            $(document).ready(function () {
+                map = new OpenLayers.Map("map");
+
+                map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+                var road = new OpenLayers.Layer.Bing({
+                    name: "Road",
+                    key: apiKey,
+                    type: "Road"
+                });
+                var hybrid = new OpenLayers.Layer.Bing({
+                    name: "Hybrid",
+                    key: apiKey,
+                    type: "AerialWithLabels"
+                });
+                var aerial = new OpenLayers.Layer.Bing({
+                    name: "Aerial",
+                    key: apiKey,
+                    type: "Aerial"
+                });
+
+                map.addLayers([road, hybrid, aerial]);
+
+                map.setCenter(new OpenLayers.LonLat(-110, 45), 3);
+            });
+            
+        </script>
+    </head>
+    <body>
+
+        <h3>Bing maps</h3>
+        
+        <div id="map" class="smallmap"></div>
+
+    </body>
+</html>

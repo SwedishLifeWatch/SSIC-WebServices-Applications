@@ -1,0 +1,67 @@
+﻿ <div id="pageFooter" style="width: 100%; background-color: #101A42; clear:both; height: 160px; margin-bottom: 0px; margin-top:0px; min-width: 1080px;">
+            <div class="row-fluid footer" style="width: 1080px; margin-left: auto; margin-right: auto;"> @*Footer Start*@
+                <div id="footerContent">
+                    <div class="text" style="color: white;">
+                        <p>
+                            Analysportalen är kärnan i Svenska LifeWatch – här kan man söka, filtrera, visualisera och ladda hem data från alla de datakällor som ingår i forskningsinfrastrukturen. Analysportalen är under utveckling och kommer att kompletteras successivt med nya funktioner.                            
+                        </p>
+                    </div>
+                    <div style="background-color: #3A3B3C; height: 1px; width: 100%; margin-bottom: 10px;"></div>
+                         
+                     <div class="footerColumn left rightSeparator">
+                        <h4>@Resources.Resource.SharedFooterInfoHeader</h4>
+                        <ul>                                
+                            <li><a href=@Resources.Resource.SharedAboutAnalysisPortalUrl target="_blank">@Resources.Resource.SharedAboutAnalysisPortal</a></li>                    
+                            <li>@Html.ActionLink(Resources.Resource.SharedAboutCookiesHeader, "Cookies", "Home")</li>
+                            <li>@Html.ActionLink(Resources.Resource.SharedVersionNumberText, "VersionNumber", "Home")</li>                    
+                        </ul>   
+                    </div>               
+                    <div class="footerColumn left rightSeparator">
+                        <h4>@Resources.Resource.SharedSupportHeaderText</h4>
+                        <ul> @* TODO: correct email and link, put in settings resorces file *@
+                            <li><a href="mailto:analysisportalAdmin@artdata.slu.se">@Resources.Resource.SharedContactMailLinkText</a></li>
+                            <li><a href="http://www.slu.se/sv/centrumbildningar-och-projekt/artdatabanken/vara-data/driftstatus1/" target="_blank">@Resources.Resource.SharedCurrentServiceStatusLinkText</a></li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>                        
+                   
+                </div>                
+            </div> @*End Footer*@        
+        </div>
+
+
+
+
+
+<div id="footerWrapper" style="padding-top: 0px; margin-top: 5px; background-image: url('/Content/Images/content-bgsprite.png'); background-position: 0 -273px; background-repeat: no-repeat;">
+                <div class="row-fluid footer" style="width: 1080px; padding-left: 8px; margin-top: 0px; margin-left: auto; margin-right: auto;"> @*Footer Start*@
+                    <div id="footerContent">
+                        <div class="text" style="color: #555555;">
+                            <p>
+                                Analysportalen är kärnan i Svenska LifeWatch – här kan man söka, filtrera, visualisera och ladda hem data från alla de datakällor som ingår i forskningsinfrastrukturen. Analysportalen är under utveckling och kommer att kompletteras successivt med nya funktioner.                            
+                            </p>
+                        </div>
+                        @*<div style="background-color: #3A3B3C; color: #FFF; height: 1px; width: 100%; margin-bottom: 0px;">  </div>*@
+                        <div style="background-color: #808183; color: #FFF; height: 1px; width: 100%; margin-bottom: 10px;">  </div>
+                         
+                        <div class="footerColumn left rightSeparator">
+                            <h4 style="color: #555555;">@Resources.Resource.SharedFooterInfoHeader</h4>
+                            <ul>                                
+                                <li><a href=@Resources.Resource.SharedAboutAnalysisPortalUrl target="_blank">@Resources.Resource.SharedAboutAnalysisPortal</a></li>                    
+                                <li>@Html.ActionLink(Resources.Resource.SharedAboutCookiesHeader, "Cookies", "Home")</li>
+                                <li>@Html.ActionLink(Resources.Resource.SharedVersionNumberText, "VersionNumber", "Home")</li>                    
+                            </ul>   
+                        </div>               
+                        <div class="footerColumn left rightSeparator">
+                            <h4 style="color: #555555;">@Resources.Resource.SharedSupportHeaderText</h4>
+                            <ul> @* TODO: correct email and link, put in settings resorces file *@
+                                <li><a href="mailto:analysisportalAdmin@artdata.slu.se">@Resources.Resource.SharedContactMailLinkText</a></li>
+                                <li><a href="http://www.slu.se/sv/centrumbildningar-och-projekt/artdatabanken/vara-data/driftstatus1/" target="_blank">@Resources.Resource.SharedCurrentServiceStatusLinkText</a></li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </div>                        
+                   
+                    </div>                
+                </div> @*End Footer*@    
+            </div>
+            <div id="contentwrapper_bottom" style=" background-position: 0 -615px; height: 15px; background-image: url('/Content/Images/content-bgsprite.png'); background-repeat: no-repeat;"></div>

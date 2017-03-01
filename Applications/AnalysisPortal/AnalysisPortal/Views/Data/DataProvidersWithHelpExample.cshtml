@@ -1,0 +1,166 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.DataProviders
+@using Resources
+@model DataProvidersViewModel
+
+@{
+    ViewBag.Title = Resource.DataProvidersDataProvidersTitle;
+    ViewBag.Description = Resource.DataDataProvidersDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">    
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>                
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>   
+        <a class="btn action-button" href="@Url.Action("DataProviderStatisticsAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>
+        <button id="toolbarButtonHelp" data-toggle="button" class="btn toolbarButton" data-content="Help information..."><img src="@Url.Content("~/Content/images/question-octagon.png")"/>&nbsp;@Resource.SharedHelp</button>        
+    </div>
+</div>
+
+<div class="report-instruktion-wrapper clear clearfix">
+    <div>
+        <div style="float:left; width: 24px;">
+            <img src="@Url.Content("~/Content/images/question-octagon.png")"/>    
+        </div>        
+        @*<button class="close" type="button">×</button>*@
+        @*<img src="@Url.Content("~/Content/images/question-octagon.png")"/>*@
+        <div style="display: inline-block; float: left; width: 745px;">
+            <h4>Hjälptextrubrik</h4>
+            <p>
+                Här kan man skriva en kort introduktion till hur datakällor i Analysportalen fungerar.
+            </p>
+            <a class="instructions-on" id="toggle-instructions" href="#">Dölj hjälp
+        @*<span class="UI-Icon-16 UI-Icon-16-Right UI-Icon-16-NoRightMargin UI-Icon-16-NoInfo"></span>*@
+    </a>
+        </div>
+        <div style="clear: both;"></div>
+    </div>        
+    
+</div>
+
+@Html.ValidationSummary(false,"")
+
+<table id="dataProvidersTable" class="table table-bordered data-table">
+    <thead>
+        <tr class="table-column-header">
+            <th style="width: 50px;"></th>
+            <th style="width: 500px;">@Resources.Resource.DataProvidersDataProvidersDataProvider</th>
+            <th style="width: 150px;">@Resources.Resource.DataProvidersDataProvidersNumberOfObservations</th>
+            <th style="width: 150px;">@Resources.Resource.DataProvidersDataProvidersNumberOfPublicObservations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataProviderViewModel dataProvider in Model.DataProviders)
+        {
+            <tr>
+                <td><input type="checkbox" name="dataProvider" data-id="@dataProvider.Id" data-guid="@dataProvider.Guid" @if(dataProvider.IsSelected) { <text>checked="checked"</text> }/></td>
+                <td>@dataProvider.NameAndOrganization</td>
+                <td style="text-align: right;">@dataProvider.NumberOfObservationsFormatted</td>
+                <td style="text-align: right;">@dataProvider.NumberOfPublicObservationsFormatted</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td style="text-align: right;"><strong>@Resources.Resource.SharedSum</strong></td>
+            <td style="text-align: right;"><strong>@Model.SpeciesObservationsSumFormatted</strong></td>
+            <td style="text-align: right;"><strong>@Model.PublicSpeciesObservationsSumFormatted</strong></td>
+        </tr>
+    </tbody>
+</table>
+<em>@Resources.Resource.DataProvidersDataProvidersAtLeastOneProviderMustBeSelected</em>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">    
+    var strPageSettingsOnLoad = "";
+    var showSaveSettingsMessageOnLeave = true;
+
+    $(document).ready(function () {
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        $('#dataProvidersTable :checkbox').change(enableDisableButtons);
+        initToolbar();
+        //initHelpPopOver();
+    });
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function() {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetDataProviders", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+        $('#toolbarButtonHelp').click(function () {
+            toggleHelp();
+        });
+
+        $("#toggle-instructions").click(function (e) {
+            toggleHelp();
+        });
+
+        $('#toolbarButtonDownload').click(function () {
+            saveDataAsExcel();
+        });
+        $('#toolbarButtonDownload').attr("disabled", false);
+    }
+
+    function toggleHelp() {
+        var strSpeed = 'slow';
+        if ($('#toolbarButtonHelp').hasClass('active')) {
+            strSpeed = 'fast';
+        }        
+        $("div.report-instruktion-wrapper:first").fadeToggle(strSpeed, function () {
+            $('#toolbarButtonHelp').removeClass('active');            
+        });
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function saveDataAsExcel() {
+        window.location.href = '@Url.Action("DataProviderStatisticsAsExcel", "Download")';
+    }
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var data = Ext.encode(pageSettings);
+        return data;
+    }
+
+    function getPageSettingsObject() {
+        var $checkedCheckboxes = $('#dataProvidersTable :checkbox:checked');
+        var selectedDataProviders = [];
+        $checkedCheckboxes.each(function (index, value) {
+            var guid = $(value).data('guid');
+            selectedDataProviders.push(guid);
+        });
+        return selectedDataProviders;
+    }
+    
+</script>

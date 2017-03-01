@@ -1,0 +1,769 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+  <xs:complexType name="WebClientInformation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Locale" nillable="true" type="tns:WebLocale" />
+          <xs:element minOccurs="0" name="Role" nillable="true" type="tns:WebRole" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebClientInformation" nillable="true" type="tns:WebClientInformation" />
+  <xs:complexType name="WebData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFields" nillable="true" type="tns:ArrayOfWebDataField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebData" nillable="true" type="tns:WebData" />
+  <xs:complexType name="ArrayOfWebDataField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebDataField" nillable="true" type="tns:WebDataField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebDataField" nillable="true" type="tns:ArrayOfWebDataField" />
+  <xs:complexType name="WebDataField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:WebDataType" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebDataField" nillable="true" type="tns:WebDataField" />
+  <xs:simpleType name="WebDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Boolean" />
+      <xs:enumeration value="DateTime" />
+      <xs:enumeration value="Float64" />
+      <xs:enumeration value="Int32" />
+      <xs:enumeration value="Int64" />
+      <xs:enumeration value="String" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WebDataType" nillable="true" type="tns:WebDataType" />
+  <xs:complexType name="WebLocale">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ISOCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NativeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebLocale" nillable="true" type="tns:WebLocale" />
+  <xs:complexType name="WebRole">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AdministrationRoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="Authorities" nillable="true" type="tns:ArrayOfWebAuthority" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsActivationRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAdministrationRoleIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsOrganizationIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsUserAdministrationRole" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsUserAdministrationRoleIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MessageTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OrganizationId" type="xs:int" />
+          <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="UserAdministrationRoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidFromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidToDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebRole" nillable="true" type="tns:WebRole" />
+  <xs:complexType name="ArrayOfWebAuthority">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebAuthority" nillable="true" type="tns:WebAuthority" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebAuthority" nillable="true" type="tns:ArrayOfWebAuthority" />
+  <xs:complexType name="WebAuthority">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ActionGUIDs" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="AdministrationRoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+          <xs:element minOccurs="0" name="AuthorityDataType" nillable="true" type="tns:WebAuthorityDataType" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="AuthorityType" type="q2:AuthorityType" />
+          <xs:element minOccurs="0" name="CreatePermission" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DeletePermission" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorGUIDs" nillable="true" type="q3:ArrayOfstring" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsAdministrationRoleIdSpecified" type="xs:boolean" />
+          <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="LocalityGUIDs" nillable="true" type="q4:ArrayOfstring" />
+          <xs:element minOccurs="0" name="MaxProtectionLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Obligation" nillable="true" type="xs:string" />
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProjectGUIDs" nillable="true" type="q5:ArrayOfstring" />
+          <xs:element minOccurs="0" name="ReadPermission" type="xs:boolean" />
+          <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RegionGUIDs" nillable="true" type="q6:ArrayOfstring" />
+          <xs:element minOccurs="0" name="RoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="ShowNonPublicData" type="xs:boolean" />
+          <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TaxonGUIDs" nillable="true" type="q7:ArrayOfstring" />
+          <xs:element minOccurs="0" name="UpdatePermission" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ValidFromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidToDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebAuthority" nillable="true" type="tns:WebAuthority" />
+  <xs:complexType name="WebAuthorityDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebAuthorityDataType" nillable="true" type="tns:WebAuthorityDataType" />
+  <xs:complexType name="ArrayOfWebSpeciesFact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebSpeciesFact" nillable="true" type="tns:WebSpeciesFact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebSpeciesFact" nillable="true" type="tns:ArrayOfWebSpeciesFact" />
+  <xs:complexType name="WebSpeciesFact">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FactorId" type="xs:int" />
+          <xs:element minOccurs="0" name="FieldValue1" type="xs:double" />
+          <xs:element minOccurs="0" name="FieldValue2" type="xs:double" />
+          <xs:element minOccurs="0" name="FieldValue3" type="xs:double" />
+          <xs:element minOccurs="0" name="FieldValue4" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FieldValue5" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HostId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IndividualCategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="IsFieldValue1Specified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFieldValue2Specified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFieldValue3Specified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFieldValue4Specified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsFieldValue5Specified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsHostSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPeriodSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PeriodId" type="xs:int" />
+          <xs:element minOccurs="0" name="QualityId" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferenceId" type="xs:int" />
+          <xs:element minOccurs="0" name="TaxonId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesFact" nillable="true" type="tns:WebSpeciesFact" />
+  <xs:complexType name="ArrayOfWebFactorDataType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorDataType" nillable="true" type="tns:WebFactorDataType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorDataType" nillable="true" type="tns:ArrayOfWebFactorDataType" />
+  <xs:complexType name="WebFactorDataType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfWebFactorField" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorDataType" nillable="true" type="tns:WebFactorDataType" />
+  <xs:complexType name="ArrayOfWebFactorField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorField" nillable="true" type="tns:WebFactorField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorField" nillable="true" type="tns:ArrayOfWebFactorField" />
+  <xs:complexType name="WebFactorField">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DatabaseFieldName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="EnumId" type="xs:int" />
+          <xs:element minOccurs="0" name="FactorDataTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsEnumField" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMain" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSubstantial" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Size" type="xs:int" />
+          <xs:element minOccurs="0" name="TypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorField" nillable="true" type="tns:WebFactorField" />
+  <xs:complexType name="ArrayOfWebFactorFieldEnum">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorFieldEnum" nillable="true" type="tns:WebFactorFieldEnum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorFieldEnum" nillable="true" type="tns:ArrayOfWebFactorFieldEnum" />
+  <xs:complexType name="WebFactorFieldEnum">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Values" nillable="true" type="tns:ArrayOfWebFactorFieldEnumValue" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorFieldEnum" nillable="true" type="tns:WebFactorFieldEnum" />
+  <xs:complexType name="ArrayOfWebFactorFieldEnumValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorFieldEnumValue" nillable="true" type="tns:WebFactorFieldEnumValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorFieldEnumValue" nillable="true" type="tns:ArrayOfWebFactorFieldEnumValue" />
+  <xs:complexType name="WebFactorFieldEnumValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EnumId" type="xs:int" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsKeyIntegerSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="KeyInteger" type="xs:int" />
+          <xs:element minOccurs="0" name="KeyText" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ShouldBeSaved" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorFieldEnumValue" nillable="true" type="tns:WebFactorFieldEnumValue" />
+  <xs:complexType name="ArrayOfWebFactorFieldType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorFieldType" nillable="true" type="tns:WebFactorFieldType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorFieldType" nillable="true" type="tns:ArrayOfWebFactorFieldType" />
+  <xs:complexType name="WebFactorFieldType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorFieldType" nillable="true" type="tns:WebFactorFieldType" />
+  <xs:complexType name="ArrayOfWebFactorOrigin">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorOrigin" nillable="true" type="tns:WebFactorOrigin" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorOrigin" nillable="true" type="tns:ArrayOfWebFactorOrigin" />
+  <xs:complexType name="WebFactorOrigin">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorOrigin" nillable="true" type="tns:WebFactorOrigin" />
+  <xs:complexType name="ArrayOfWebFactor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactor" nillable="true" type="tns:WebFactor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactor" nillable="true" type="tns:ArrayOfWebFactor" />
+  <xs:complexType name="WebFactor">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DataTypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="DefaultHostParentTaxonId" type="xs:int" />
+          <xs:element minOccurs="0" name="HostLabel" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDataTypeIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsLeaf" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPeriodic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTaxonomic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OriginId" type="xs:int" />
+          <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="TypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="UpdateModeId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactor" nillable="true" type="tns:WebFactor" />
+  <xs:complexType name="WebFactorSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorDataTypeIds" nillable="true" type="q8:ArrayOfint" />
+          <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorOriginIds" nillable="true" type="q9:ArrayOfint" />
+          <xs:element minOccurs="0" name="IsIdInNameSearchString" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIsPeriodicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIsPublicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIsTaxonomicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPeriodic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTaxonomic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="NameSearchString" nillable="true" type="tns:WebStringSearchCriteria" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="RestrictReturnToScope" type="q10:FactorSearchScope" />
+          <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RestrictSearchToFactorIds" nillable="true" type="q11:ArrayOfint" />
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="RestrictSearchToScope" type="q12:FactorSearchScope" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorSearchCriteria" nillable="true" type="tns:WebFactorSearchCriteria" />
+  <xs:complexType name="WebStringSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="CompareOperators" nillable="true" type="q13:ArrayOfStringCompareOperator" />
+          <xs:element minOccurs="0" name="SearchString" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebStringSearchCriteria" nillable="true" type="tns:WebStringSearchCriteria" />
+  <xs:complexType name="ArrayOfWebFactorTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorTreeNode" nillable="true" type="tns:WebFactorTreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorTreeNode" nillable="true" type="tns:ArrayOfWebFactorTreeNode" />
+  <xs:complexType name="WebFactorTreeNode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Children" nillable="true" type="tns:ArrayOfWebFactorTreeNode" />
+          <xs:element minOccurs="0" name="Factor" nillable="true" type="tns:WebFactor" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="RecursiveChildrenIds" nillable="true" type="q14:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorTreeNode" nillable="true" type="tns:WebFactorTreeNode" />
+  <xs:complexType name="WebFactorTreeSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorDataTypeIds" nillable="true" type="q15:ArrayOfint" />
+          <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorIds" nillable="true" type="q16:ArrayOfint" />
+          <xs:element minOccurs="0" name="IsMainRelationRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublicRequired" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorTreeSearchCriteria" nillable="true" type="tns:WebFactorTreeSearchCriteria" />
+  <xs:complexType name="ArrayOfWebFactorUpdateMode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebFactorUpdateMode" nillable="true" type="tns:WebFactorUpdateMode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebFactorUpdateMode" nillable="true" type="tns:ArrayOfWebFactorUpdateMode" />
+  <xs:complexType name="WebFactorUpdateMode">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsUpdateAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Type" type="q17:FactorUpdateModeType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebFactorUpdateMode" nillable="true" type="tns:WebFactorUpdateMode" />
+  <xs:complexType name="ArrayOfWebIndividualCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebIndividualCategory" nillable="true" type="tns:WebIndividualCategory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebIndividualCategory" nillable="true" type="tns:ArrayOfWebIndividualCategory" />
+  <xs:complexType name="WebIndividualCategory">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebIndividualCategory" nillable="true" type="tns:WebIndividualCategory" />
+  <xs:simpleType name="LogType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="Error" />
+      <xs:enumeration value="Information" />
+      <xs:enumeration value="Security" />
+      <xs:enumeration value="SpeciesObservationStatistic" />
+      <xs:enumeration value="SpeciesObservationUpdate" />
+      <xs:enumeration value="SpeciesObservationArtportalenUpdate" />
+      <xs:enumeration value="Trace" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogType" nillable="true" type="tns:LogType" />
+  <xs:complexType name="ArrayOfWebLogRow">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebLogRow" nillable="true" type="tns:WebLogRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebLogRow" nillable="true" type="tns:ArrayOfWebLogRow" />
+  <xs:complexType name="WebLogRow">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebLogRow" nillable="true" type="tns:WebLogRow" />
+  <xs:complexType name="ArrayOfWebPeriod">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebPeriod" nillable="true" type="tns:WebPeriod" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebPeriod" nillable="true" type="tns:ArrayOfWebPeriod" />
+  <xs:complexType name="WebPeriod">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="StopUpdates" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TypeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Year" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebPeriod" nillable="true" type="tns:WebPeriod" />
+  <xs:complexType name="ArrayOfWebPeriodType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebPeriodType" nillable="true" type="tns:WebPeriodType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebPeriodType" nillable="true" type="tns:ArrayOfWebPeriodType" />
+  <xs:complexType name="WebPeriodType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebPeriodType" nillable="true" type="tns:WebPeriodType" />
+  <xs:complexType name="ArrayOfWebSpeciesFactQuality">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebSpeciesFactQuality" nillable="true" type="tns:WebSpeciesFactQuality" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebSpeciesFactQuality" nillable="true" type="tns:ArrayOfWebSpeciesFactQuality" />
+  <xs:complexType name="WebSpeciesFactQuality">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Definition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesFactQuality" nillable="true" type="tns:WebSpeciesFactQuality" />
+  <xs:complexType name="WebSpeciesFactSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorDataTypeIds" nillable="true" type="q18:ArrayOfint" />
+          <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="FactorIds" nillable="true" type="q19:ArrayOfint" />
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="FieldLogicalOperator" type="q20:LogicalOperator" />
+          <xs:element minOccurs="0" name="FieldSearchCriteria" nillable="true" type="tns:ArrayOfWebSpeciesFactFieldSearchCriteria" />
+          <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="HostIds" nillable="true" type="q21:ArrayOfint" />
+          <xs:element minOccurs="0" name="IncludeNotValidHosts" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IncludeNotValidTaxa" type="xs:boolean" />
+          <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IndividualCategoryIds" nillable="true" type="q22:ArrayOfint" />
+          <xs:element minOccurs="0" name="IsIsPeriodicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIsPublicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsIsTaxonomicSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPeriodic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublic" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsTaxonomic" type="xs:boolean" />
+          <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PeriodIds" nillable="true" type="q23:ArrayOfint" />
+          <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="QualityIds" nillable="true" type="q24:ArrayOfint" />
+          <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ReferenceIds" nillable="true" type="q25:ArrayOfint" />
+          <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TaxonIds" nillable="true" type="q26:ArrayOfint" />
+          <xs:element minOccurs="0" name="UpdateDateSearchCriteria" nillable="true" type="tns:WebDateTimeSearchCriteria" />
+          <xs:element minOccurs="0" name="UpdatePersonSearchCriteria" nillable="true" type="tns:WebStringSearchCriteria" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesFactSearchCriteria" nillable="true" type="tns:WebSpeciesFactSearchCriteria" />
+  <xs:complexType name="ArrayOfWebSpeciesFactFieldSearchCriteria">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebSpeciesFactFieldSearchCriteria" nillable="true" type="tns:WebSpeciesFactFieldSearchCriteria" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebSpeciesFactFieldSearchCriteria" nillable="true" type="tns:ArrayOfWebSpeciesFactFieldSearchCriteria" />
+  <xs:complexType name="WebSpeciesFactFieldSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FactorField" nillable="true" type="tns:WebFactorField" />
+          <xs:element minOccurs="0" name="IncludeEmptyValues" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsEnumAsString" type="xs:boolean" />
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Operator" type="q27:CompareOperator" />
+          <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Values" nillable="true" type="q28:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesFactFieldSearchCriteria" nillable="true" type="tns:WebSpeciesFactFieldSearchCriteria" />
+  <xs:complexType name="WebDateTimeSearchCriteria">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Accuracy" nillable="true" type="tns:WebTimeSpan" />
+          <xs:element minOccurs="0" name="Begin" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Operator" type="q29:CompareOperator" />
+          <xs:element minOccurs="0" name="PartOfYear" nillable="true" type="tns:ArrayOfWebDateTimeInterval" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebDateTimeSearchCriteria" nillable="true" type="tns:WebDateTimeSearchCriteria" />
+  <xs:complexType name="WebTimeSpan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Days" type="xs:int" />
+          <xs:element minOccurs="0" name="Hours" type="xs:int" />
+          <xs:element minOccurs="0" name="IsDaysSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsHoursSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMinutesSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsNanoSecondsSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsSecondsSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Minutes" type="xs:int" />
+          <xs:element minOccurs="0" name="NanoSeconds" type="xs:long" />
+          <xs:element minOccurs="0" name="Seconds" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebTimeSpan" nillable="true" type="tns:WebTimeSpan" />
+  <xs:complexType name="ArrayOfWebDateTimeInterval">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebDateTimeInterval" nillable="true" type="tns:WebDateTimeInterval" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebDateTimeInterval" nillable="true" type="tns:ArrayOfWebDateTimeInterval" />
+  <xs:complexType name="WebDateTimeInterval">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Begin" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="End" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsDayOfYearSpecified" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebDateTimeInterval" nillable="true" type="tns:WebDateTimeInterval" />
+  <xs:complexType name="ArrayOfWebResourceStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebResourceStatus" nillable="true" type="tns:WebResourceStatus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebResourceStatus" nillable="true" type="tns:ArrayOfWebResourceStatus" />
+  <xs:complexType name="WebResourceStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccessType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResourceType" nillable="true" type="tns:WebResourceType" />
+          <xs:element minOccurs="0" name="Status" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebResourceStatus" nillable="true" type="tns:WebResourceStatus" />
+  <xs:complexType name="WebResourceType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebResourceType" nillable="true" type="tns:WebResourceType" />
+  <xs:complexType name="ArrayOfWebTaxon">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebTaxon" nillable="true" type="tns:WebTaxon" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebTaxon" nillable="true" type="tns:ArrayOfWebTaxon" />
+  <xs:complexType name="WebTaxon">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AlertStatusId" type="xs:int" />
+          <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CategoryId" type="xs:int" />
+          <xs:element minOccurs="0" name="ChangeStatusId" type="xs:int" />
+          <xs:element minOccurs="0" name="CommonName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ConceptDefinition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Guid" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsGraded" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsInRevision" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPublished" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsValid" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PartOfConceptDefinition" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ScientificName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SortOrder" type="xs:int" />
+          <xs:element minOccurs="0" name="ValidFromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidToDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebTaxon" nillable="true" type="tns:WebTaxon" />
+  <xs:complexType name="WebLoginResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Locale" nillable="true" type="tns:WebLocale" />
+          <xs:element minOccurs="0" name="Roles" nillable="true" type="tns:ArrayOfWebRole" />
+          <xs:element minOccurs="0" name="Token" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:WebUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebLoginResponse" nillable="true" type="tns:WebLoginResponse" />
+  <xs:complexType name="ArrayOfWebRole">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebRole" nillable="true" type="tns:WebRole" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebRole" nillable="true" type="tns:ArrayOfWebRole" />
+  <xs:complexType name="WebUser">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ActivationKey" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AdministrationRoleId" type="xs:int" />
+          <xs:element minOccurs="0" name="ApplicationId" type="xs:int" />
+          <xs:element minOccurs="0" name="AuthenticationType" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="CreatedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="GUID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="IsAccountActivated" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsAdministrationRoleIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsApplicationIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPersonIdSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ModifiedBy" type="xs:int" />
+          <xs:element minOccurs="0" name="ModifiedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="PersonId" type="xs:int" />
+          <xs:element minOccurs="0" name="ShowEmailAddress" type="xs:boolean" />
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Type" type="q30:UserType" />
+          <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ValidFromDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ValidToDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebUser" nillable="true" type="tns:WebUser" />
+</xs:schema>

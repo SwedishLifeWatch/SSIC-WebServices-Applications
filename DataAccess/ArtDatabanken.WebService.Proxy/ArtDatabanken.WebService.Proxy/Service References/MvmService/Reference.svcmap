@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2f8789ea-35cd-4392-9377-f7c61637de4f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SpeciesObservationChangeService22.wsdl" MetadataType="Wsdl" ID="ef4a08ec-f0a0-4ba1-a5b4-dfa664aff181" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?wsdl" />
+    <MetadataFile FileName="SpeciesObservationChangeService66.xsd" MetadataType="Schema" ID="eae3f3fb-80fc-47f6-98be-fdb02ca9d11b" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SpeciesObservationChangeService67.xsd" MetadataType="Schema" ID="63caaaf0-93a9-4dcf-8fc2-33b634a24d9e" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SpeciesObservationChangeService23.wsdl" MetadataType="Wsdl" ID="40ecab3e-0030-4f34-9c83-c0ff35a99c1a" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SpeciesObservationChangeService11.disco" MetadataType="Disco" ID="8f13fed1-e4bf-41d2-b740-367c1d47c2fc" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?disco" />
+    <MetadataFile FileName="SpeciesObservationChangeService68.xsd" MetadataType="Schema" ID="ca086be9-05a0-466f-835f-ee19dede7e8a" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SpeciesObservationChangeService69.xsd" MetadataType="Schema" ID="88b421bc-f85b-4155-a266-42476e4ab9f4" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SpeciesObservationChangeService610.xsd" MetadataType="Schema" ID="e70221b6-3412-4668-9a78-425083c2cbdc" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SpeciesObservationChangeService611.xsd" MetadataType="Schema" ID="7a19933c-0b12-4d00-b04a-64ae7b079a91" SourceId="1" SourceUrl="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

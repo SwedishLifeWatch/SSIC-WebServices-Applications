@@ -1,0 +1,128 @@
+﻿
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.LayerExportModel
+
+<form id="mapExportForm" method="POST" action="_MapExport">
+    <div>
+        <div class="form-group">
+            <label for="dpi">@Resource.MapExportDpi</label>
+            <input type="text" id="dpi" name="Dpi" class="slider" data-slider-min="200" data-slider-max="600" data-slider-step="100" data-slider-value="300" data-slider-tooltip="always" />
+        </div>
+        <div class="form-group">
+            <label for="occupancy">@Resource.MapExportOccupancy</label>
+            <input type="text" id="occupancy" name="Occupancy" class="slider" data-slider-min="1" data-slider-max="255" data-slider-step="1" data-slider-value="255" data-slider-tooltip="always" />
+        </div>
+    </div>
+    <input type="hidden" id ="jsonModel" name="jsonModel"/>
+    <div class="pull-right">
+        <button type="button" id="exportMap" class="btn btn-default">@Resource.StateButtonResultDownload</button>
+    </div>
+    <div class="clearfix"></div>
+</form>
+
+<script type="text/javascript">
+    var mapExport = function () {
+        var _map;
+        var _histograms;
+        var _$form;
+        var _$dpi;
+        var _$occupancy;
+
+        function onExportMapClick() {
+            AnalysisPortal.blockWhileServerWorking();
+
+            var occupancy = _$occupancy.val();
+
+            var layers = [];
+            $.each(_map.layers, function (i, layer) {
+                if (!layer.isBaseLayer && layer.displayInLayerSwitcher && layer.visibility && !layer.notExportable) {
+                    var legends = [];
+                    var attribute = null;
+                    var data = _histograms[layer.vectorLayerEnum];
+
+                    //if (layer.features == null || layer.features.length < 2 || /point/i.test(layer.features[0].geometry)) 
+                    if (data == null) {
+                        legends.push({
+                            Name: layer.name,
+                            Color: layer.styleMap.styles.default.defaultStyle.fillColor,
+                            MinValue: 0,
+                            MaxValue: 0
+                        });
+                    } else {
+                        attribute = data.attribute;
+                        var histogram = data.histogram;
+                        for (var i = 0; i < histogram.bins.length; i++) {
+                            var bin = histogram.bins[i];
+                            var binText = String(bin).trim();
+                            var min = binText;
+                            var max = binText;
+
+                            if (binText.indexOf('-') !== -1) {
+                                var minMax = binText.split('-');
+                                min = minMax[0].trim();
+                                max = minMax[1].trim();
+                            }
+
+                            var colorString = bin.color.toHexString();
+
+                            legends.push({
+                                Name: binText,
+                                Color: colorString,
+                                MinValue: min,
+                                MaxValue: max
+                            });
+                        }
+                    }
+
+                    layers.push({
+                        Id: layer.id,
+                        Name: layer.name,
+                        Zindex: _map.getLayerIndex(layer),
+                        Legends: legends,
+                        Attribute: attribute,
+                        AlphaValue: layer.alphaValue,
+                        UseCenterPoint: layer.useCenterPoint,
+                        Occupancy: occupancy,
+                        IsPointLayer: layer.id === SystemLayerIds.Observations || layer.id === SystemLayerIds.SpeciesObservationClusterPointMapLayer
+                });
+                };
+            });
+
+            var extent = _map.getExtent();
+
+            var model = {
+                Dpi: _$dpi.val(),
+                Layers: layers,
+                MapExtent: {
+                    Bottom: extent.bottom,
+                    Left: extent.left,
+                    Right: extent.right,
+                    Top: extent.top
+                }
+            };
+
+            $('#jsonModel').val(JSON.stringify(model));
+
+            _$form.submit();
+            _$form.closest('div.modal').modal('hide');
+                       
+            return;
+        };
+
+        function init(map, histograms) {
+            _map = map;
+            _histograms = histograms;
+            _$form = $('#mapExportForm');;
+            _$dpi = $('#dpi', _$form);
+            _$occupancy = $('#occupancy', _$form);
+
+            $('.slider').slider();
+            $('.icon-info', _$form).tooltip();
+
+            $('#exportMap').on('click', onExportMapClick);
+        };
+
+        return {
+            Init: init
+        };
+    }();
+</script>

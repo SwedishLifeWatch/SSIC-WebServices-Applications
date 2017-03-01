@@ -1,0 +1,205 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = Resource.ResultViewTimeSeriesOnSpeciesObservationCountsTable;
+    ViewBag.Description = Resource.ResultTimeSeriesTableOnSpeciesObservationCounts;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+   
+        @Resource.ResultTimeSeriesPeriodicityTitle
+        <select id="timeSeriesPeriodicitySelectList" style="width: 300px; margin-bottom: 0px;">
+             @foreach (Periodicity value in Enum.GetValues(typeof(Periodicity)))
+             {
+                 string title = "";
+                 switch (value)
+                 {
+                     case Periodicity.MonthOfTheYear:
+                         title = Resource.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+                         break;
+                     case Periodicity.WeekOfTheYear:
+                         title = Resource.ResultTimeSeriesPeriodicityWeekOfTheYearLabel;
+                         break;
+                     case Periodicity.DayOfTheYear:
+                         title = Resource.ResultTimeSeriesPeriodicityDayOfTheYearLabel;
+                         break;
+                     case Periodicity.Yearly:
+                         title = Resource.ResultTimeSeriesPeriodicityYearlyLabel;
+                         break;                     
+                     case Periodicity.Monthly:
+                         title = Resource.ResultTimeSeriesPeriodicityMonthlyLabel;
+                         break;
+                     case Periodicity.Weekly:
+                         title = Resource.ResultTimeSeriesPeriodicityWeeklyLabel;
+                         break;
+                     case Periodicity.Daily:
+                         title = Resource.ResultTimeSeriesPeriodicityDailyLabel;
+                         break;
+                 }
+                 <option value="@((int)value)" @if(SessionHandler.MySettings.Calculation.TimeSeries.DefaultPeriodicityIndex==(int)value) {<text>selected="selected"</text> }>@title</option>
+             }    
+        </select>    
+        <button id="toolbarButtonDownload" disabled="disabled" class="btn toolbarButton"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</button>        
+        <div style="font-style: italic" id="taxaCountDiv"></div>
+    </div> 
+</div>
+
+<br/>
+@* this is the div where the table will be rendered *@
+<div id="recordCountDiv"></div>
+
+    
+<script type="text/javascript">    
+    var timeSeriesStore;
+    var periodicity = '@((int)Periodicity.MonthOfTheYear)';
+    var timeSeriesTable;
+    var periodicityString = '@(Periodicity.MonthOfTheYear.ToString())';
+    var dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+
+    $(document).ready(function () {        
+
+        //First define KeyValuePairModel in Ext JS which is required when returning data from GetObservationsSummaryCountAsJSON as a List<KeyValuePair<string, string>>
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        // Then create store for collected data from GetObservationsSummaryCountAsJSON
+        timeSeriesStore = AnalysisPortal.createJsonStore('KeyValuePair', '@Html.Raw(Url.Action("GetObservationsDiagramAsJSON", "Result"))');
+         
+        // Then create a two coloum wide grid using summaryStatisticsStore which is defined as a List<KeyValuePair<string, string>> where CalucationType is the key and 
+        // Count is the value. Count with in grid is set and CalculationType is set to use all the rest of the table width. (flex:1)
+        timeSeriesTable = Ext.create('Ext.grid.Panel', {
+            title: AnalysisPortal.Resources.ResultViewTimeSeriesOnSpeciesObservationCountsTable,
+            width: 500,
+            frame: false,
+            columnLines: true,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'recordCountDiv',
+            store: timeSeriesStore,
+            columns: [
+                { text: AnalysisPortal.Resources.ResultViewSummaryStatisticsSpeciesObservationTableColumnCalculationHeader, dataIndex: 'Key', flex: 1 },
+                { text: AnalysisPortal.Resources.ResultDiagramTimeSeriesNoOfObservationsTitle, dataIndex: 'Value', width: 150, xtype: 'numbercolumn', format: '#,#' }
+            ]
+        });
+                
+        initQueryComplexityDialog();
+        initToolbar();
+        loadData();
+    });
+
+    function loadData() {
+        periodicity = $('#timeSeriesPeriodicitySelectList').val();
+        timeSeriesStore.load({
+            params: {
+                periodicityId: periodicity
+            },
+            callback: function (records, operation, success) {
+                AnalysisPortal.hideWaitMsg('recordCountDiv');
+                if ($.isArray(records) && records.length > 10000) {
+                    AnalysisPortal.showMsg("Too many records...");
+                    return;
+                }
+
+                var str = " ";
+                if (('@Model.NoOfTaxa') > 0)
+                    str = AnalysisPortal.Resources.ResultDiagramTimeSeriesNoOfSelectedTaxaTitle + ": " + @Model.NoOfTaxa + "";
+                $('#taxaCountDiv').html(str);
+
+            }
+
+        });
+
+        if (periodicity == '@((int)Periodicity.MonthOfTheYear)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+            periodicityString = '@(Periodicity.MonthOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.WeekOfTheYear)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityWeekOfTheYearLabel;
+            periodicityString = '@(Periodicity.WeekOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.DayOfTheYear)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityDayOfTheYearLabel;
+            periodicityString = '@(Periodicity.DayOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Yearly)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityYearlyLabel;
+            periodicityString = '@(Periodicity.Yearly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Monthly)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityMonthlyLabel;
+            periodicityString = '@(Periodicity.Monthly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Weekly)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityWeeklyLabel;
+            periodicityString = '@(Periodicity.Weekly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Daily)') {
+            dynamicColumnTitle = AnalysisPortal.Resources.ResultTimeSeriesPeriodicityDailyLabel;
+            periodicityString = '@(Periodicity.Daily.ToString())';
+        }
+        timeSeriesTable.columns[0].setText(dynamicColumnTitle);
+
+    }
+
+    function initToolbar() {
+        $("#timeSeriesPeriodicitySelectList").change(function () {
+            loadData();
+        });
+        $('#toolbarButtonDownload').click(function () {
+            saveDataAsExcel();
+        });
+        $('#toolbarButtonDownload').attr("disabled", false);
+    }
+
+    function saveDataAsExcel() {
+        periodicity = $('#timeSeriesPeriodicitySelectList').val();
+        if (periodicity == '@((int)Periodicity.MonthOfTheYear)') {
+            periodicityString = '@(Periodicity.MonthOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.WeekOfTheYear)') {
+            periodicityString = '@(Periodicity.WeekOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.DayOfTheYear)') {
+            periodicityString = '@(Periodicity.DayOfTheYear.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Yearly)') {
+            periodicityString = '@(Periodicity.Yearly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Monthly)') {
+            periodicityString = '@(Periodicity.Monthly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Weekly)') {
+            periodicityString = '@(Periodicity.Weekly.ToString())';
+
+        } else if (periodicity == '@((int)Periodicity.Daily)') {
+            periodicityString = '@(Periodicity.Daily.ToString())';
+        }
+
+        window.location.href = '@Url.Action("TimeSeriesOnSpeciesObservationCountsAsExcel", "Download")' + '?periodicity=' + periodicityString;
+    }
+
+    function initQueryComplexityDialog() {
+        @if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+        {
+        <text>
+        AnalysisPortal.showQueryComplexityDialog(function () {
+            loadData();
+        });
+        </text>
+        }
+        else
+        {        
+            @:loadData();
+        };
+    }
+
+</script>

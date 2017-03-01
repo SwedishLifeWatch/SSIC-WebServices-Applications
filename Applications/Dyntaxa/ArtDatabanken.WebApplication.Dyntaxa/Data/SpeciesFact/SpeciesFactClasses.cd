@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="DyntaxaSpeciesFact has a propery Fields contaning a IList&lt;DyntaxaFactorField&gt;">
+    <Position X="8.823" Y="0.656" Height="0.75" Width="3.419" />
+  </Comment>
+  <Comment CommentText="DyntaxaAllFactors containg all data from ArtdatabankenService for a Taxon required by Dyntaxa application.&#xD;&#xA;DyntaxaAllFactors has the following properties: &#xD;&#xA;IList&lt;DyntaxaSpeciesFact&gt; DyntaxaAllFactors&#xD;&#xA;IList&lt;DyntaxaFactor&gt; DyntaxaAllSpeciesFactsForATaxon&#xD;&#xA;IList&lt;DyntaxaHost&gt; HostList&#xD;&#xA;IList&lt;DyntaxaIndividualCategories&gt; IndividualCategoryList&#xD;&#xA;IList&lt;DyntaxaPeriod&gt; PeriodList&#xD;&#xA;string SwedishHistory&#xD;&#xA;String SwedishOccurance&#xD;&#xA;int TaxonId">
+    <Position X="0.5" Y="0.5" Height="1.854" Width="4.835" />
+  </Comment>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaSpeciesFact">
+    <Position X="8.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAAAFAAAABAAAQAAAAEAAAAAABAAAAAQAAAgAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaSpeciesFact.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Quality" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaAllFactorData">
+    <Position X="1" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAEQAAAhEAQAAIAEBACAAEAAABAAAAgQAAAAAEAAAAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaAllFactorData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaFactorUpdateMode">
+    <Position X="7.75" Y="6" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactorUpdateMode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaHost">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAwEAAAIBAAAAAAAAAAAAAAAAAAABAAAAAAAgA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaHost.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaIndividualCategory">
+    <Position X="4" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaIndividualCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaFactorField">
+    <Position X="11.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAEAIAABAAAAIAAAACBgAAAAMAAAABAAAABAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactorField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.DyntaxaFactorOrigin">
+    <Position X="6" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAIAAAAAAAAAAAEAAAIA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactorOrigin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.DyntaxaFactorQuality">
+    <Position X="10" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAIAAAACAAAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactorQuality.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.DyntaxaFactor">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <AssociationLine Name="FactorUpdateMode" Type="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaFactorUpdateMode" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="5.562" />
+        <Point X="7.375" Y="5.562" />
+        <Point X="7.375" Y="6.725" />
+        <Point X="7.75" Y="6.725" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACBAAAEAQAEBAAIBAgECAAAjAAAAIgAAAgAAAAAgA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactor.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FactorUpdateMode" />
+      <Property Name="FactorOrigin" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaPeriod">
+    <Position X="2.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaPeriod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ArtDatabanken.WebApplication.Dyntaxa.Data.DyntaxaFactorFieldDataTypeId">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAQQAAAAAAAAAACAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactorField.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ArtDatabanken.WebApplication.Dyntaxa.DyntaxaFactorHeaderType">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAABAAAAAA=</HashCode>
+      <FileName>Data\SpeciesFact\DyntaxaFactor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

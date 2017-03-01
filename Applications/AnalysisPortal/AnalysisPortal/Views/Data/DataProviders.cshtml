@@ -1,0 +1,136 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.DataProviders
+@using Resources
+@model DataProvidersViewModel
+
+@{
+    ViewBag.Title = Resource.DataProvidersDataProvidersTitle;
+    ViewBag.Description = Resource.DataDataProvidersDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">    
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>                
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>   
+        <a class="btn action-button" href="@Url.Action("DataProviderStatisticsAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>
+    </div>
+</div>
+
+@Html.ValidationSummary(false,"")
+
+<table id="dataProvidersTable" class="table table-bordered data-table">
+    <thead>
+        <tr class="table-column-header">
+            <th style="width: 50px;"><input type="checkbox" id="selectAllDataprovidersCheckbox" @if (Model.DataProviders.All(x => x.IsSelected)){ <text>checked="checked"</text> } /></th>
+            <th style="width: 500px;">@Resource.DataProvidersDataProvidersDataProvider</th>
+            <th style="width: 150px;">@Resource.DataProvidersDataProvidersNumberOfObservations</th>
+            <th style="width: 150px;">@Resource.DataProvidersDataProvidersNumberOfPublicObservations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (DataProviderViewModel dataProvider in Model.DataProviders)
+        {
+            <tr>
+                <td><input type="checkbox" name="dataProvider" data-id="@dataProvider.Id" data-guid="@dataProvider.Guid" @if (dataProvider.IsSelected)
+                                                                                                                         { <text>checked="checked"</text> }/></td>
+                <td>
+                    @dataProvider.NameAndOrganization                    
+                    <img alt="info" class="mousepointer providerInfo" src="~/Content/images/information-white.png" title="@dataProvider.Name" data-title="@dataProvider.Name" data-id="@dataProvider.Id" />
+                </td>
+                <td class="right-aligned-text">@dataProvider.NumberOfObservationsFormatted</td>
+                <td class="right-aligned-text">@dataProvider.NumberOfPublicObservationsFormatted</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td class="right-aligned-text"><strong>@Resource.SharedSum</strong></td>
+            <td class="right-aligned-text"><strong>@Model.SpeciesObservationsSumFormatted</strong></td>
+            <td class="right-aligned-text"><strong>@Model.PublicSpeciesObservationsSumFormatted</strong></td>
+        </tr>
+    </tbody>
+</table>
+<em>@Resource.DataProvidersDataProvidersAtLeastOneProviderMustBeSelected</em>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">    
+    var strPageSettingsOnLoad = "";
+    var showSaveSettingsMessageOnLeave = true;
+
+    $(document).ready(function () {
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        $('#dataProvidersTable :checkbox').change(enableDisableButtons);
+        initToolbar();
+        //$('#selectAllDataprovidersCheckbox').prop("indeterminate", true);
+        $('#selectAllDataprovidersCheckbox').click(function() {
+            $(this).closest('table').find(":checkbox[name='dataProvider']").prop('checked', this.checked);
+        });
+
+        $('#dataProvidersTable .providerInfo').on('click', function () {
+            var providerId = $(this).data('id');
+            var title = $(this).data('title');
+            var url = Ext.String.format('@Url.Action("DataProviderInfoDialog", "Data")?id={0}', providerId);
+
+            AnalysisPortal.showDialog({
+                title: title,
+                url: url
+            });
+        });
+    });
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function() {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetDataProviders", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+        
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+    
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var data = Ext.encode(pageSettings);
+        return data;
+    }
+
+    function getPageSettingsObject() {
+        var $checkedCheckboxes = $("#dataProvidersTable :checkbox[name='dataProvider']:checked");        
+        var selectedDataProviders = [];
+        $checkedCheckboxes.each(function (index, value) {
+            var guid = $(value).data('guid');
+            selectedDataProviders.push(guid);
+        });
+        return selectedDataProviders;
+    }
+</script>

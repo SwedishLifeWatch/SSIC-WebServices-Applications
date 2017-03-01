@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0ED6C7D1-52C0-44C7-B52C-43A7A56BC897}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.GIS</RootNamespace>
+    <AssemblyName>ArtDatabanken.GIS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\Applications\RedList\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\ArtDatabanken.GIS.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="gdal_csharp, Version=1.0.5803.36182, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\External Dependencies\GDAL\gdal_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\GeoAPI.1.7.4\lib\net40-client\GeoAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\packages\DotNetZip.1.9.8\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Spatial.6.15.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite">
+      <HintPath>..\..\..\packages\NetTopologySuite.1.14\lib\net40-client\NetTopologySuite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoJSON">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.GeoJSON.1.14\lib\net40-client\NetTopologySuite.IO.GeoJSON.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.GeoTools">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.GeoTools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.MsSqlSpatial">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.MsSqlSpatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.PostGis">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.PostGis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite.IO.ShapeFile.Extended">
+      <HintPath>..\..\..\packages\NetTopologySuite.IO.1.14.0.1\lib\net40-client\NetTopologySuite.IO.ShapeFile.Extended.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ogr_csharp, Version=1.0.5803.36182, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\External Dependencies\GDAL\ogr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="osr_csharp, Version=1.0.5803.36181, Culture=neutral, PublicKeyToken=db5a52b08dc5b321, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\External Dependencies\GDAL\osr_csharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerCollections">
+      <HintPath>..\..\..\packages\NetTopologySuite.1.14\lib\net40-client\PowerCollections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ProjNet">
+      <HintPath>..\..\..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CoordinateConversion\CoordinateConversionManager.cs" />
+    <Compile Include="CoordinateConversion\IPolygonExtension.cs" />
+    <Compile Include="CoordinateSystems\CoordinateSystemUtils.cs" />
+    <Compile Include="CoordinateSystems\Wgs84Util.cs" />
+    <Compile Include="Extensions\DoubleExtensions.cs" />
+    <Compile Include="Extensions\IGeometryExtensions.cs" />
+    <Compile Include="Extensions\IPolygonExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FormatConversion\GeometryExtensions.cs" />
+    <Compile Include="FormatConversion\ShapeConverter.cs" />
+    <Compile Include="FormatConversion\SqlGeometryExtensions.cs" />
+    <Compile Include="GDAL\GeoJsonManager.cs" />
+    <Compile Include="GDAL\ShapeManager.cs" />
+    <Compile Include="GeoJSON.Net\Converters\CoordinateReferenceSystemConverter.cs" />
+    <Compile Include="GeoJSON.Net\Converters\CoordinatesConverter.cs" />
+    <Compile Include="GeoJSON.Net\Converters\CRSTypeEnumConverter.cs" />
+    <Compile Include="GeoJSON.Net\Converters\GeometryConverter.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\CRSBase.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\CRSType.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\ICRSObject.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\LinkedCRS.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\EPSGCRS.cs" />
+    <Compile Include="GeoJSON.Net\CoordinateReferenceSystem\NamedCRS.cs" />
+    <Compile Include="GeoJSON.Net\CustomPropertySortContractResolver.cs" />
+    <Compile Include="GeoJSON.Net\Exceptions\ParsingException.cs" />
+    <Compile Include="GeoJSON.Net\Feature\Feature.cs" />
+    <Compile Include="GeoJSON.Net\Feature\FeatureCollection.cs" />
+    <Compile Include="GeoJSON.Net\GeoJSONObject.cs" />
+    <Compile Include="GeoJSON.Net\GeoJSONObjectType.cs" />
+    <Compile Include="GeoJSON.Net\GeoJsonUtils.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\GeographicPosition.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\GeometryCollection.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\IGeometryObject.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\IPosition.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\LineString.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\MultiLineString.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\MultiPoint.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\MultiPolygon.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\Point.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\Polygon.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\Position.cs" />
+    <Compile Include="GeoJSON.Net\Geometry\ProjectedPosition.cs" />
+    <Compile Include="GeoJSON.Net\IGeoJSONObject.cs" />
+    <Compile Include="GisUtils\GeometryConversionTool.cs" />
+    <Compile Include="GisUtils\GeometryTools.cs" />
+    <Compile Include="GisTools.cs" />
+    <Compile Include="GisUtils\GeometryValidationResult.cs" />
+    <Compile Include="GisUtils\GeometryValidationStatusId.cs" />
+    <Compile Include="Grid\GridCellBaseCenterPointComparer.cs" />
+    <Compile Include="Grid\GridCellManager.cs" />
+    <Compile Include="Helpers\CollectionExtensions.cs" />
+    <Compile Include="Helpers\HashCodeHelper.cs" />
+    <Compile Include="CoordinateConversion\IBoundingBoxExtension.cs" />
+    <Compile Include="CoordinateConversion\ICoordinateSystemExtension.cs" />
+    <Compile Include="Helpers\JsonNetExtensions.cs" />
+    <Compile Include="IO\SpeciesObservationPointMap.cs" />
+    <Compile Include="Extensions\WebGridCellSpeciesObservationExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwedenExtent\SwedenExtentManager.cs" />
+    <Compile Include="SwedenExtent\SwedenExtentCoordinates.cs" />
+    <Compile Include="WFS\Capabilities\Parsers\WFSCapabilitiesParserVer1_0_0.cs" />
+    <Compile Include="WFS\Capabilities\Parsers\WFSCapabilitiesParserVer1_1_0.cs" />
+    <Compile Include="WFS\Capabilities\Parsers\Ver1.0.0\WFS-capabilities.designer.cs" />
+    <Compile Include="WFS\Capabilities\Parsers\Ver1.1.0\wfs.designer.cs" />
+    <Compile Include="WFS\Capabilities\WFSCapabilities.cs" />
+    <Compile Include="WFS\DescribeFeature\Parsers\WFSDescribeFeatureParser.cs" />
+    <Compile Include="WFS\DescribeFeature\WFSClient.cs" />
+    <Compile Include="WFS\DescribeFeature\WFSDescribeFeatureType.cs" />
+    <Compile Include="WFS\Filter\Formula\FixedValue.cs" />
+    <Compile Include="WFS\Filter\Formula\FormulaOperation.cs" />
+    <Compile Include="WFS\Filter\Formula\ComparisionOperation.cs" />
+    <Compile Include="WFS\Filter\Formula\SpatialOperation.cs" />
+    <Compile Include="WFS\Filter\Formula\LogicalOperation.cs" />
+    <Compile Include="WFS\Filter\Formula\WFSFilter.cs" />
+    <Compile Include="WFS\Filter\Formula\WFSFilterUtils.cs" />
+    <Compile Include="WFS\Filter\Formula\WFSOperators.cs" />
+    <Compile Include="WFS\Filter\WfsFormulaParser.cs" />
+    <Compile Include="WFS\WfsBoundingBox.cs" />
+    <Compile Include="WFS\WFSManager.cs" />
+    <Compile Include="WMS\Capabilities\Parsers\Ver1.1.1\WmsCapabilitiesXsd_1_1_1.cs" />
+    <Compile Include="WMS\Capabilities\Parsers\Ver1.3.0\WmsCapabilitiesXsd_1_3_0.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--<None Include="packages.config" />-->
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="WFS\Capabilities\Parsers\Ver1.0.0\OGC-exception.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WFS\Capabilities\Parsers\Ver1.0.0\WFS-basic.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WFS\Capabilities\Parsers\Ver1.0.0\WFS-capabilities.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WFS\Capabilities\Parsers\Ver1.0.0\WFS-transaction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WFS\Capabilities\Parsers\Ver1.0.0\wfs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="WFS\Capabilities\Parsers\Ver1.1.0\wfs.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{b1493059-6445-4da5-b58d-8876bea79dd0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NetTopologySuite\" />
+    <Folder Include="OpenLayers-2.10\img\" />
+    <Folder Include="OpenLayers-2.10\theme\default\img\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\msvcr100.dll">
+      <Link>SqlServerTypes\x64\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x64\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\msvcr100.dll">
+      <Link>SqlServerTypes\x86\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x86\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,59 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = Resource.ResultViewSummaryStatisticsReportTitle;
+    ViewBag.Description = Resource.ResultSummaryStatisticsReportDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <div class="btn-group">
+            <a class="btn action-button" href="@Url.Action("SummaryStatisticsAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>            
+        </div>
+    </div> 
+</div>
+
+
+<br/>
+@* this is the div where the no of observations table will be rendered *@
+<div id="recordCountDiv"></div>
+
+    
+<script type="text/javascript">    
+    
+    $(document).ready(function () {        
+        //First define KeyValuePairModel in Ext JS which is required when returning data from GetObservationsSummaryCountAsJSON as a List<KeyValuePair<string, string>>
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        // Then create store for collected data from GetObservationsSummaryCountAsJSON
+        var summaryStatisticsStore = AnalysisPortal.createJsonStore('KeyValuePair', '@Html.Raw(Url.Action("GetObservationsSummaryCountAsJSON", "Result"))');
+         
+        // Then create a two coloum wide grid using summaryStatisticsStore which is defined as a List<KeyValuePair<string, string>> where CalucationType is the key and 
+        // Count is the value. Count with in grid is set and CalculationType is set to use all the rest of the table width. (flex:1)
+        var summaryStatisticsGrid = Ext.create('Ext.grid.Panel', {
+            title: AnalysisPortal.Resources.ResultViewSummaryStatisticsSpeciesObservationCountTitle,
+            width: 500,
+            height: 100,
+            frame: false,
+            columnLines: true,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'recordCountDiv',
+            store: summaryStatisticsStore,
+            columns: [
+                { text: AnalysisPortal.Resources.ResultViewSummaryStatisticsSpeciesObservationTableColumnCalculationHeader, dataIndex: 'Key', flex: 1 },
+                { text: AnalysisPortal.Resources.ResultViewSummaryStatisticsSpeciesObservationTableColumnCountHeader, dataIndex: 'Value', width: 100, xtype: 'numbercolumn', format: '#,#' }
+            ]
+        });
+                
+        summaryStatisticsStore.load();
+    });
+
+</script>

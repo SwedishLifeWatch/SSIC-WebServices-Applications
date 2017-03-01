@@ -1,0 +1,9 @@
+﻿@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.WorkflowViewModel
+@using Resources        
+
+@if (Model.IsUserLoggedIn && !Model.IsUserCurrentRolePrivatePerson)
+{
+    <text>
+        @Html.ActionLink(Resource.ResultWorkflowChangeUserRole + ".", "ChangeUserRole", "Account", new { url = Url.Action("Workflow")}, null)
+    </text>            
+}    

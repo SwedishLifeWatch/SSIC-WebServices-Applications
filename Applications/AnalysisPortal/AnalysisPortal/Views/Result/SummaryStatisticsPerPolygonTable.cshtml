@@ -1,0 +1,86 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model QueryComplexityEstimate
+@{
+    ViewBag.Title = Resource.ResultViewSummaryStatisticsPerPolygonTable;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+@if (!SessionHandler.MySettings.Calculation.SummaryStatistics.WfsSummaryStatisticsLayerId.HasValue)
+{
+    @* At least one layer MUST be selected *@
+    <div style="font-style: italic">@Resource.SummaryStatisticsNoWfsLayerSelected</div>
+}
+else
+{
+<div class="titled-toolbar">
+    <div class="btn-toolbar page-toolbar">
+        <div class="btn-group">
+            <a class="btn action-button" href="@Url.Action("SummaryStatisticsPerPolygonAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>            
+        </div>
+    </div>
+</div>
+@* table will be rendered here *@
+<div id="summaryStatisticsPerPolygonDiv"></div>
+
+if (Model.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+{
+    @Html.Partial("QueryComplexityDialog", Model)   
+}
+
+<script type="text/javascript">
+    var summaryStatisticsPerPolygonStore;
+    
+    $(document).ready(function () {
+        AnalysisPortal.Models.defineSummaryStatisticsPerPolygonModel();
+        summaryStatisticsPerPolygonStore = AnalysisPortal.createJsonStore('SummaryStatisticsPerPolygon', '@Html.Raw(Url.Action("GetSummaryStatisticsPerPolygonAsJSON", "Result"))');
+
+        // Create the grid that shows the statistics
+        var summaryStatisticsPerPolygonGrid = Ext.create('Ext.grid.Panel', {
+            id: 'summaryStatisticsPerPolygonGrid',
+            store: summaryStatisticsPerPolygonStore,
+            title: '@Resource.ResultViewSummaryStatisticsPerPolygonTable',
+            width: AnalysisPortal.DefaultContentWidth,            
+            height: 500,
+            plugins: 'bufferedrenderer',
+            columnLines: true,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            renderTo: 'summaryStatisticsPerPolygonDiv',
+            columns: [
+                { text: '@Resource.SummaryStatisticsObservationCount', dataIndex: 'SpeciesObservationsCount', sortable: true, width: 125, xtype: 'numbercolumn', format: '#,#' },
+                { text: '@Resource.SummaryStatisticsTaxaCount', dataIndex: 'SpeciesCount', sortable: true, width: 125, xtype: 'numbercolumn', format: '#,#' },
+                { text: '@Resource.SummaryStatisticsPolygon', flex: 1, dataIndex: 'Properties', sortable: true }
+            ]
+        });
+
+        initQueryComplexityDialog();
+    });
+
+    function initQueryComplexityDialog() {
+        @if (Model.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+    {
+    <text>
+    AnalysisPortal.showQueryComplexityDialog(function () {
+        loadData();
+    });
+    </text>
+    }
+    else
+    {        
+    @:loadData();        
+    }
+    }
+
+    function loadData() {
+        summaryStatisticsPerPolygonStore.load();
+    }
+</script>
+}

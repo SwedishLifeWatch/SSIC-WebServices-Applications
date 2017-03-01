@@ -1,0 +1,102 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Shared.UploadGeoJsonViewModel
+
+<div class="row">
+    <div class="col-xs-12">
+        <p>@Model.FileFormatDescription</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-3">
+        <span class="btn btn-success fileinput-button">
+            <i class="icon-plus"></i>
+            <span>@Resource.SharedSelectFile...</span>
+            <input id="fileupload" type="file" name="files[]">
+        </span>
+    </div>
+
+    <div class="col-xs-9">
+        <span style="font-weight: bold;">@Resource.SharedSelectedFile:</span>
+        <span class="file_name"></span>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-8">
+        <label for="coordinateSystemSelectList">@Resource.FilterSpatialCoordinateSystemUsedInFile</label>
+        <select id="coordinateSystemSelectList" class="form-control">
+            <option value="null" selected="selected">@Resource.FilterSpatialIdentifyCoordinateSystemFromFileContent</option>
+            @foreach (CoordinateSystemViewModel coordinateSystem in Model.CoordinateSystems)
+            {
+                <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected)
+                                                     {
+                                                         <text> selected="selected" </text>
+                                                     }>@coordinateSystem.Name</option>
+            }
+        </select>
+    </div>
+</div>
+<div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12">
+        <button id="uploadFileButton" class="btn btn-primary" type="button" disabled="disabled">@Resource.SharedUploadFile</button>
+        <a href="@Url.Action("WfsLayers", "Data")" class="btn btn-default" role="button">@Resource.SharedCancelButtonText</a>
+    </div>
+</div>
+
+
+    <script type="text/javascript">
+        var dataContext = null;
+
+        $(function () {
+            $('#progressBarDiv').hide();
+            $('#uploadFileButton').click(function () {
+                if (dataContext != null) {
+                    dataContext.submit();
+                } else {
+                    AnalysisPortal.showErrorMsg('@Resource.SharedNoFileSelected.');
+                }
+            });
+
+            $('#fileupload').fileupload({
+                dataType: 'json',
+                url: '@Model.UploadUrl',
+                autoUpload: false,
+                done: function (e, data) {
+                    $('#progressBarDiv').hide();
+                    if (data.result.success) {
+                        window.location.href = '@Model.SuccessUrl';
+                    } else {
+                        AnalysisPortal.showErrorMsg(data.result.msg);
+                    }
+                },
+                add: function (e, data) {
+                    $('#uploadFileButton').attr('disabled', 'disabled');
+
+                    showSaveSettingsMessageOnLeave = false;
+                    if (data.files.length > 0) {
+                        var fileName = data.files[0].name;
+                        if ((/\.(@Model.FileNameRegEx)/i).test(fileName)) {
+                            $('.file_name').html(fileName);
+                            $('#uploadFileButton').removeAttr('disabled');
+                        } else {
+                            AnalysisPortal.showErrorMsg('@Model.FileFormatDescription');
+                    }
+                }
+
+                    dataContext = data;
+        }
+        }).on('fileuploadprogressall', function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+            $('.progress .progress-bar').css('width', progress + '%');
+        });
+
+        $('#fileupload').bind('fileuploadsubmit', function (e, data) {
+            $('.progress .progress-bar').css('width', 0 + '%');
+            $('#progressBarDiv').show();
+            var coordinateSystemId = $('#coordinateSystemSelectList').val();
+            data.formData = {
+                coordinateSystemId: coordinateSystemId
+            };
+        });
+        });
+    </script>

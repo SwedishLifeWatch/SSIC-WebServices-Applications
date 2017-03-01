@@ -1,0 +1,114 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dyntaxa.Tests" GeneratedClassName="DyntaxaTestSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestDyntaxaApplicationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1600</Value>
+    </Setting>
+    <Setting Name="TestTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100049</Value>
+    </Setting>
+    <Setting Name="TestRevisionId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1876</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestUserEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test.dytaxa@slu.se</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaTestUser</Value>
+    </Setting>
+    <Setting Name="SwedishLocale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sv-SE</Value>
+    </Setting>
+    <Setting Name="TestRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1376</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="SwedishNameString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Swedish(Sweden)</Value>
+    </Setting>
+    <Setting Name="SvenskNameString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">svenska(Sverige)</Value>
+    </Setting>
+    <Setting Name="ComputerTimeDifference" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="FailingTestTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">77</Value>
+    </Setting>
+    <Setting Name="TestRevisionGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaRevisionTaxonEditor_urn:lsid:dyntaxa.se:Revision:1876</Value>
+    </Setting>
+    <Setting Name="TestRevisionOngoingId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2000</Value>
+    </Setting>
+    <Setting Name="TestRevisionPublishedId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3000</Value>
+    </Setting>
+    <Setting Name="TestRevisionOngoingGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaRevisionTaxonEditor_urn:lsid:dyntaxa.se:Revision:2000</Value>
+    </Setting>
+    <Setting Name="TestRevisionPublishedGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaRevisionTaxonEditor_urn:lsid:dyntaxa.se:Revision:3000</Value>
+    </Setting>
+    <Setting Name="TestTaxonNameId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">111</Value>
+    </Setting>
+    <Setting Name="TestRevisionEditorRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1396</Value>
+    </Setting>
+    <Setting Name="TestParentTaxonNameId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="TestParentTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100037</Value>
+    </Setting>
+    <Setting Name="TestApplicationUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="TestDummyUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestUserGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"urn:lsid:ArtData.slu.se:User:Id:TestUser"</Value>
+    </Setting>
+    <Setting Name="PESIReferenceId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">855</Value>
+    </Setting>
+    <Setting Name="PathToTempDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dev\ArtDatabanken\Web\Dyntaxa\Dyntaxa.Test</Value>
+    </Setting>
+    <Setting Name="PsophusStridulusTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">101656</Value>
+    </Setting>
+    <Setting Name="ParnassiusApolloId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">101509</Value>
+    </Setting>
+    <Setting Name="PathToExcelTestFiles" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Resources</Value>
+    </Setting>
+    <Setting Name="LanguageContextString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">language</Value>
+    </Setting>
+    <Setting Name="EnglishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">49</Value>
+    </Setting>
+    <Setting Name="EnglishLocale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">en-GB</Value>
+    </Setting>
+    <Setting Name="TestUserPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="EnglishNameString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">English (United Kingdom)</Value>
+    </Setting>
+    <Setting Name="LanguageContextIdString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">languageId</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

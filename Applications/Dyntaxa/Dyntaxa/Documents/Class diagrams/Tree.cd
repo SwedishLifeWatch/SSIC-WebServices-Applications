@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.Navigation.TaxonTreeViewModel">
+    <Position X="13.25" Y="5.75" Width="3.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.Navigation.TaxonTreeViewItem">
+    <Position X="6.5" Y="6" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.Navigation.TaxonTreeViewTaxon">
+    <Position X="0.5" Y="4.75" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.Navigation.TreeNavigationManager">
+    <Position X="12.75" Y="4" Width="3.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ArtDatabanken.WebApplication.Dyntaxa.Data.Navigation.NavigateData">
+    <Position X="14.25" Y="1" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Dyntaxa.Controllers.NavigationController">
+    <Position X="7" Y="3.75" Width="4" />
+    <Members>
+      <Method Name="MainMenu" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAABAAAAAAAAAQAAAAAAAAAAAADAAAAAA=</HashCode>
+      <FileName>Controllers\NavigationController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dyntaxa.Controllers.DyntaxaBaseController">
+    <Position X="6.5" Y="0.5" Width="5" />
+    <Members>
+      <Field Name="_sessionHelper" Hidden="true" />
+      <Method Name="CheckDyntaxaApplicationUserContextValidity" Hidden="true" />
+      <Method Name="CheckRevisionValidity" Hidden="true" />
+      <Method Name="CheckTaxonVaildity" Hidden="true" />
+      <Method Name="CheckUserContextValidity" Hidden="true" />
+      <Property Name="CurrentAction" Hidden="true" />
+      <Property Name="CurrentController" Hidden="true" />
+      <Method Name="DecodeRouteQueryString" Hidden="true" />
+      <Method Name="DyntaxaBaseController" Hidden="true" />
+      <Method Name="EncodeRouteQueryString" Hidden="true" />
+      <Method Name="GetApplicationUser" Hidden="true" />
+      <Method Name="GetCurrentUser" Hidden="true" />
+      <Method Name="GetLoggedInUser" Hidden="true" />
+      <Method Name="GetTempDataTaxon" Hidden="true" />
+      <Method Name="IsTaxonInRevision" Hidden="true" />
+      <Property Name="LumpTaxonIdList" Hidden="true" />
+      <Method Name="OnActionExecuted" Hidden="true" />
+      <Method Name="OnActionExecuting" Hidden="true" />
+      <Method Name="RedirectToActionWithPreservedQuery" Hidden="true" />
+      <Method Name="RedirectToSearch" Hidden="true" />
+      <Method Name="RemoveCookie" Hidden="true" />
+      <Property Name="ReplaceTaxonId" Hidden="true" />
+      <Property Name="ReplaceTaxonIdList" Hidden="true" />
+      <Method Name="ResetAllLumpSplitData" Hidden="true" />
+      <Property Name="Revision" Hidden="true" />
+      <Property Name="RevisionHandlingId" Hidden="true" />
+      <Property Name="RevisionId" Hidden="true" />
+      <Property Name="RevisionListSettings" Hidden="true" />
+      <Property Name="RevisionTaxonCategorySortOrder" Hidden="true" />
+      <Property Name="RevisionTaxonId" Hidden="true" />
+      <Method Name="SetLanguage" Hidden="true" />
+      <Method Name="SetTempDataTaxon" Hidden="true" />
+      <Property Name="SplitTaxonId" Hidden="true" />
+      <Property Name="TaxonSearchManager" Hidden="true" />
+      <Method Name="ValidateTaxon" Hidden="true" />
+      <Method Name="View" Hidden="true" />
+    </Members>
+    <NestedTypes>
+      <Class Name="Dyntaxa.Controllers.DyntaxaBaseController.ReflectionUtility" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\DyntaxaBaseController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAgKBAAEwBAyAEAMQqBCCIAUBBAAEEQAAIAQFATAA=</HashCode>
+      <FileName>Controllers\DyntaxaBaseController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

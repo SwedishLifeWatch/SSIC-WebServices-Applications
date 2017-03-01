@@ -1,0 +1,489 @@
+﻿
+/* SLU secondary colors*/
+.pantone7441C { background: #9961c3 !important; } /* Purple */
+.pantone7441Cp60 { background: #c2a0db !important; } /* Purple 60% */
+.pantone397C { background: #c1bb00 !important; } /* Lime */
+.pantone397Cp60 { background: #dad666 !important; } /* Lime 60% */
+.pantone397Cp40 { background: #e6e499 !important; } /* Lime 40% */
+.pantone7479C { background: #2c95b5 !important; } /* Blue */
+.pantone7479Cp60 { background: #80bfd3 !important; } /* Blue 60% */
+.pantone131C { background: #d28e00 !important; } /* Orange */
+.pantone131Cp60 { background: #e4bb66 !important; } /* Orange 60% */
+.pantone10C { background: #616265 !important; } /* Cool Gray */
+.pantone10Cp60 { background: #a0a1a3 !important; } /* Cool Gray 60% */
+.pantone400C { background: #ccc7c0 !important; } /* Warm Gray */
+.pantone400Cp60 { background: #e0ddd9 !important; } /* Warm Gray 60% */
+
+/* UA Blue */
+.userAdminBlue { color: #28495a; } 
+.ap2DarkBlue { color: #1d3741; }
+
+
+table#qualityChartLegends 
+{
+    /* width: 243px; */
+    padding: 0px;
+    margin: 0 auto 10px auto;
+    border: none;
+}
+
+table#qualityChartLegends tr td {
+    padding: 2px 10px;
+    border: 2px solid #fff;
+}
+
+div#navigateParentDiv {
+    margin: 5px 10px 10px;
+    width: 90%;    
+}
+
+
+div#navigateParentDiv label {
+    font-weight: bold;
+}
+
+
+.twoPxMargin {
+    margin: 2px !important;
+    clear: both;
+ }
+ 
+ .fieldsetDivMargin {
+     margin: 0 10px 10px 10px;
+ }
+ 
+ div.fieldsetContent {
+     margin: 0;
+ }
+ 
+/* From Rest.master */
+.MoverBox 
+{
+    margin-top: 5px; 
+    width: 300px;
+    padding: 5px;
+}
+        
+#info 
+{
+    width:700px;
+    border:solid 1px #000;
+}
+#info tr td, #info tr th
+{
+    border:solid 1px #000;
+}        
+.MoverBox-label{
+    display:block;
+    font-weight:bold;
+}
+
+div#footerContent
+{
+    font-size: 11px;
+    display:block;
+    width: 934px;
+    margin: 0;
+    padding-top: 5px;
+}
+
+div#footerContent ul
+{
+    line-height: 1.5em;
+    margin-bottom: 2px;
+}
+
+div#footerContent div.footerColumn
+{
+    margin: 0 6px;
+}
+
+div#footerContent div.rightSeparator 
+{
+    border-right: dotted 1px #999;
+    text-align: right;
+    padding-right: 15px;
+}
+
+#footerContent h4 
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.25;
+    margin-bottom: 0.5em;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+#footerContent a
+{
+    text-decoration: none;   
+} 
+#footerContent a:hover
+{
+    text-decoration: underline;   
+}
+
+img.footerADbImg {
+    margin-top: 14px;    
+}
+
+img.footerSvApImg {
+    margin-top: 6px;
+    margin-bottom: 12px;
+    padding-left: 5px;
+}
+
+img.footerSLWImg {
+    margin-top: 20px;
+}
+
+img.headerSLUImg {
+    
+}
+
+/* Temporary class for development info*/
+div#DevTempInfo {
+    color: #666;
+    float: right;
+    font-size: 0.9em;
+    margin: 4px 10px 10px 390px;
+    padding: 0;
+    text-align: right;
+    position: absolute;
+    width: 300px;
+}
+
+div#logindisplay {
+    color: #fff;
+    background: #1d3741;
+    white-space: nowrap;
+    float: right;
+    font-size: 0.9em;
+    margin: 0 0 0 700px;
+    padding: 1px 5px 5px 5px;
+    position: absolute;
+    width: 200px;    
+    border-radius: 0px 0px 5px 5px;
+    -moz-border-radius:  0px 0px 5px 5px; 
+}
+
+div#logindisplay ul
+{
+    margin: 0;
+    line-height: 18px;
+}
+
+div#logindisplay li
+{
+    white-space: nowrap;
+    /*color: #2c95b5;*/
+    text-decoration: none;
+    /*min-width: 190px;*/
+}
+
+div#logindisplay a, div#logindisplay a:link, div#logindisplay a:hover {
+    /*position: relative;*/
+    text-decoration: none;
+    font-weight: bold; 
+}
+
+div#logindisplay li.revisionHeaderInfo a, div#logindisplay li.revisionHeaderInfo a:link, div#logindisplay li.revisionHeaderInfo a:hover 
+{
+    color: #2c95b5;
+    text-decoration: none;
+}
+
+li.revisionHeaderInfo 
+{
+    background: #e4bb66;
+    padding: 0px 5px;
+    margin-top: 1px; 
+    color: #333;
+    border-radius: 0px 0px 2px 2px;
+    -moz-border-radius:  0px 0px 2px 2px; 
+}
+
+.IconFlag {
+    display: block;
+    /*float: left;*/
+    height: 11px !important;
+    margin: 4px 0 0;
+    width: 16px !important;
+    cursor: pointer;
+    z-index: 2000;
+}
+.IconFlag-sv {
+    background: url("../Images/flags/sv.png") no-repeat scroll 0 0 transparent;
+}
+.IconFlag-en {
+    background: url("../Images/flags/en.png") no-repeat scroll 0 0 transparent;
+}
+
+a.languageChangeLink {
+    float: right;
+    position: absolute;    
+}
+
+#LoginDiv {
+    width: 220px;
+    margin: 15px 20px 20px 20px;
+}
+
+div#leftContainer .loginFieldset 
+{
+    width: 230px;
+    margin: 15px 20px 20px 20px;
+    display: inline;
+    -moz-box-shadow: 0 0 0 #eee;
+    -webkit-box-shadow: 0 0 0 #eee;
+    box-shadow: 0 0 0 #eee;
+}
+
+#usernavigation_wrapper 
+{
+    /*
+    background: url("../Images/ap/ui-content-bgsprite.png") no-repeat scroll 0 -724px transparent;
+    float: right;
+    padding-left: 8px;
+    position: relative;
+    right: -15px;
+    z-index: 7650;
+    */
+}
+
+/* Test: CSS3 classes (works in Opera, Chrome, Firefox and IE 9.0) */
+
+fieldset h2, h1.readHeader, h1.readRevisionHeader { 
+    
+    border-radius: 5px 5px 2px 2px;
+    -moz-border-radius:  5px 5px 2px 2px; 
+    
+    box-shadow:
+    0px 1px 1px #ccc,
+    inset 5px 5px 8px rgba(255,255,255,0.5);
+    -o-box-shadow: 
+    0px 1px 1px #ccc,
+    inset 5px 5px 8px rgba(255,255,255,0.5);
+    -webkit-box-shadow:
+    0px 1px 1px #ccc,
+    inset 5px 5px 8px rgba(255,255,255,0.5);
+    -moz-box-shadow: 
+    0px 1px 1px #ccc,
+    inset 5px 5px 8px rgba(255,255,255,0.5);
+} 
+
+h1.taxonSummaryHeader {
+    
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    
+   box-shadow:
+   inset -5px -5px 15px rgba(50,50,50,0.3);
+   -o-box-shadow: 
+   inset -5px -5px 15px rgba(50,50,50,0.3);
+   -webkit-box-shadow:
+   inset -5px -5px 15px rgba(50,50,50,0.3);
+   -moz-box-shadow: 
+   inset -5px -5px 15px rgba(50,50,50,0.3);    
+}
+ 
+fieldset {
+    border-radius: 5px;
+    -moz-border-radius:  5px;   
+   
+    -moz-box-shadow: 5px 5px 5px #eee;
+    -webkit-box-shadow: 5px 5px 5px #eee;
+    box-shadow: 5px 5px 5px #eee;
+    
+    /*
+    box-shadow: 5px 5px 5px #eee,
+    inset 0px -5px 100px rgba(200,200,200,0.20);
+    -o-box-shadow: 5px 5px 5px #eee,
+    inset 0px -5px 100px rgba(200,200,200,0.20);
+    -webkit-box-shadow: 5px 5px 5px #eee,
+    inset 0px -5px 100px rgba(200,200,200,0.20);
+    -moz-box-shadow: 5px 5px 5px #eee,
+    inset 0px -5px 100px rgba(200,200,200,0.20);
+    */
+} 
+
+
+fieldset h2 {
+   /*background: #96cada;*/
+   background: #cbe5ed;
+   color: #333;   
+   /*background: rgba(0,0,0,0.25);
+   box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -o-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+   -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
+*/
+   box-shadow:
+   inset 5px 5px 5px rgba(255,255,255,0.75);
+   -o-box-shadow: 
+   inset 5px 5px 5px rgba(255,255,255,0.75);
+   -webkit-box-shadow:
+   inset 5px 5px 5px rgba(255,255,255,0.75);
+   -moz-box-shadow: 
+   inset 5px 5px 5px rgba(255,255,255,0.75);
+   
+}
+
+fieldset h2.validationSummaryHeader ul, fieldset h2.validationSummaryHeader ul li {
+    margin: 0;
+    padding: 0;     
+}
+
+fieldset h2.validationSummaryHeader ul li 
+{
+    line-height: normal;
+    font-weight: normal;
+    color: #333;    
+}
+
+
+/*
+button, input[type="submit"]{
+   border: 1px solid #8ec1da;
+   background-color: #ddeef6;
+   border-radius: 4px;
+   box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+   -o-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+   -webkit-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+   -moz-box-shadow: inset 0 1px 3px #fff, inset 0 -15px #cbe6f2, 0 0 3px #8ec1da;
+   color: #3985a8;
+   text-shadow: 0 1px #fff;
+   padding: 5px 30px;
+}
+*/
+
+div.referenceTableWrapper 
+{
+    margin: 10px; 
+    width: 940px;
+}
+
+table.referenceTable {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 930px;
+    table-layout: fixed;
+    overflow-x: hidden;
+} 
+
+table.referenceTableAutoWidth {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    width: 930px;
+    table-layout: auto;
+    overflow-x: hidden;
+} 
+
+tr.selected {
+    font-weight: bold;
+}
+
+table.revisionTable 
+{
+    margin: 15px 5px;    
+}
+
+div.group {
+    /* margin: 5px 10px 10px 10px; */
+    margin: 0;
+}
+
+span.referenceIcon 
+{
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    display: inline-block;
+    vertical-align:text-bottom;
+    margin: 0 5px;
+    background:  url("../Images/icons/book-open-text.png") no-repeat scroll 0 0 transparent;
+    
+}
+
+span.referenceTooltip
+{
+    cursor: pointer;
+}
+
+span.referenceTooltipWarning
+{
+    cursor: pointer;
+    color: red;
+}
+
+.taxonNameListTableColumn1 { width: 15%;}
+.taxonNameListTableColumn2 { width: 15%;}
+.taxonNameListTableColumn3 { width: 5%;}
+.taxonNameListTableColumn4 { width: 10%;}
+.taxonNameListTableColumn5 { width: 45%;}
+.taxonNameListTableColumn6 { width: 5%;}
+.taxonNameListTableColumn7 { width: 5%;}
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	background:transparent url(../Images/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+
+div#NoScriptDiv {
+    background-color: #E4BB66;
+    border-width: 2px;
+    border-style: solid;
+}
+
+form.changed {
+    
+}
+
+div.fieldsetContent div.editor-field select 
+{
+    margin-top: 5px;
+    width: 320px;
+}
+
+div#resultsArea table tr {
+    cursor: pointer;
+}
+
+div#resultsArea table th {
+    cursor:default;
+}
+
+/*
+.clickable {
+    cursor: pointer;
+    background: #dad666 !important;
+}
+
+li.dynatree-lastsib 
+{
+    margin-bottom: 7px !important;    
+}
+*/
+
+ul.dynatree-container > li {
+    margin-bottom: 10px !important;
+}
+
+.sf-menu li.current {
+    background: none repeat scroll 0 0 #96CADA;
+}
+
+/*
+div#navigateTaxonTree > ul.dynatree-container {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+*/

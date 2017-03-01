@@ -1,0 +1,731 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EACBE4E2-57FB-4DB3-9119-0E93F8037412}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebApplication.AnalysisPortal</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebApplication.AnalysisPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\Web\AnalysisPortal\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CsvHelper.2.13.2.0\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GeoAPI, Version=1.7.4.0, Culture=neutral, PublicKeyToken=a1a0da7def465678, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\GeoAPI.1.7.4\lib\net45\GeoAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Log4Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Log4Slack.1.1.5\lib\net40\Log4Slack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NetTopologySuite, Version=1.14.0.0, Culture=neutral, PublicKeyToken=f580a05016ebada1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NetTopologySuite.1.14\lib\net45\NetTopologySuite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PowerCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2573bf8a1bdddcd5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\NetTopologySuite.1.14\lib\net45\PowerCollections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="ProjNet, Version=1.2.4455.27045, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Utils\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>AppSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Buttons\ButtonGroups\SettingsButtonGroupModel.cs" />
+    <Compile Include="Buttons\IButtonInfo.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTaxaTaxonByTaxonAttributesButton.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTaxaRedListButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterFieldsButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationFileFormatButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterAccuracyButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\DiagramResultViewButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ReportResultButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\TableResultButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\MapResultButtonModel.cs" />
+    <Compile Include="Buttons\DataSectionButtons\DataProvidersWmsLayersButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationHeatMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationClusterPointMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationProvenanceButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterSpatialLocalityButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSummaryStatisticsPerPolygonTableButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultTaxonWithSpeciesObservationCountsTableButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationAbundanceIndexDiagramButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultWfsGridMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSettingsSummaryButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationDiagramButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationTaxonTableButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultTaxonGridMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultTaxonGridTableButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultTimeSeriesOnSpeciesObservationCountsTableButtonModel.cs" />
+    <Compile Include="Buttons\IButtonGroupInfo.cs" />
+    <Compile Include="Exceptions\ImportGisFileException.cs" />
+    <Compile Include="Extensions\JsonExtensions.cs" />
+    <Compile Include="Extensions\XmlExtensions.cs" />
+    <Compile Include="Factories\DependencyFactory.cs" />
+    <Compile Include="IO\AooEooExcelFormatter.cs" />
+    <Compile Include="IO\CombinedGridStatisticsExcelXml.cs" />
+    <Compile Include="IO\CombinedGridStatisticsExcelXlsx.cs" />
+    <Compile Include="IO\ExcelXlsxBase.cs" />
+    <Compile Include="IO\QuotationExcelXlsx.cs" />
+    <Compile Include="IO\FilenameGenerator.cs" />
+    <Compile Include="IO\FileType.cs" />
+    <Compile Include="IO\QuotationExcelXml.cs" />
+    <Compile Include="IO\SettingsReportExcelXlsx.cs" />
+    <Compile Include="IO\SpeciesObservationProvenanceExcelXlsx.cs" />
+    <Compile Include="IO\SpeciesAOOEOOExcelXlsx.cs" />
+    <Compile Include="IO\SpeciesAOOEOOExcelXml.cs" />
+    <Compile Include="IO\SummaryStatisticsExcelXlsx.cs" />
+    <Compile Include="IO\TaxonSpecificSpeciesObservationCountPerPolygonExcelXlsx.cs" />
+    <Compile Include="IO\SummaryStatisticsPerPolygonExcelXlsx.cs" />
+    <Compile Include="IO\TimeSeriesOnSpeciesObservationAbundanceIndexExcelXlsx.cs" />
+    <Compile Include="IO\TimeSeriesOnSpeciesObservationCountsExcelXlsx.cs" />
+    <Compile Include="IO\TaxonSpecificGridStatisticsOnSpeciesObservationCountsExcelXlsx.cs" />
+    <Compile Include="IO\GridStatisticsOnSpeciesCountExcelXlsx.cs" />
+    <Compile Include="IO\GridStatisticsOnSpeciesObservationCountExcelXlsx.cs" />
+    <Compile Include="IO\ObservedTaxonCountListAsExcelXlsx.cs" />
+    <Compile Include="IO\ObservedTaxonListAsExcelXlsx.cs" />
+    <Compile Include="IO\DataProviderListExcelXlsx.cs" />
+    <Compile Include="IO\SpeciesObservationsExcelXlsx.cs" />
+    <Compile Include="IO\ObservedTaxonCountListAsExcelXml.cs" />
+    <Compile Include="IO\TaxonSpecificSpeciesObservationCountPerPolygonExcelXml.cs" />
+    <Compile Include="IO\TaxonSpecificSpeciesObservationCountGridCsv.cs" />
+    <Compile Include="IO\TaxonSpecificGridStatisticsOnSpeciesObservationCountsExcelXml.cs" />
+    <Compile Include="IO\SpeciesObservationProvenanceExcelXml.cs" />
+    <Compile Include="IO\SpeciesObservationsCsv.cs" />
+    <Compile Include="IO\SpeciesObservationGridCsv.cs" />
+    <Compile Include="IO\TimeSeriesOnSpeciesObservationAbundanceIndexExcelXml.cs" />
+    <Compile Include="IO\DataProviderListExcelXml.cs" />
+    <Compile Include="IO\ExcelXmlBase.cs" />
+    <Compile Include="IO\GridStatisticsOnSpeciesCountExcelXml.cs" />
+    <Compile Include="IO\GridStatisticsOnSpeciesObservationCountExcelXml.cs" />
+    <Compile Include="IO\SettingsReportExcelXml.cs" />
+    <Compile Include="IO\ShapeFile.cs" />
+    <Compile Include="IO\MapImage.cs" />
+    <Compile Include="IO\SpeciesObservationsExcelXml.cs" />
+    <Compile Include="IO\SummarySatisticsExcelXml.cs" />
+    <Compile Include="IO\ObservedTaxonListAsExcelXml.cs" />
+    <Compile Include="IO\SummaryStatisticsPerPolygonExcelXml.cs" />
+    <Compile Include="IO\TimeSeriesOnSpeciesObservationCountsExcelXml.cs" />
+    <Compile Include="Managers\DataProviderManager.cs" />
+    <Compile Include="Managers\FileSystemManager.cs" />
+    <Compile Include="Managers\MapLayerManager.cs" />
+    <Compile Include="Managers\SpeciesFactManager.cs" />
+    <Compile Include="MySettingsSummary\Calculation\SettingsSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\Calculation\TimeSeriesSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\DataProviders\MapLayersSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\DataProviders\WfsLayersSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\RedListSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\FieldSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\LocalitySettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Improved2\ImprovedMySettingsSummaryItemBase2.cs" />
+    <Compile Include="MySettingsSummary\Improved\Calculation\ImprovedGridStatisticsSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Improved\DataProviders\ImprovedDataProvidersSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\Improved\DataProviders\ImprovedDataProvidersSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsItem.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsSummaryItemBase.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsListSummaryItem.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsSummaryManager.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsSummaryGroupBase.cs" />
+    <Compile Include="MySettingsSummary\MySettingsListSummaryItem.cs" />
+    <Compile Include="MySettingsSummary\MySettingsReportViewModel.cs" />
+    <Compile Include="MySettingsSummary\Presentation\FileFormatSettingSummary.cs" />
+    <Compile Include="MySettings\Filter\RedListSetting.cs" />
+    <Compile Include="MySettings\Filter\FieldSetting.cs" />
+    <Compile Include="MySettings\Filter\LocalitySetting.cs" />
+    <Compile Include="MySettings\Presentation\FileFormat\ExcelFileType.cs" />
+    <Compile Include="MySettings\Presentation\FileFormat\ExcelFileFormat.cs" />
+    <Compile Include="MySettings\Presentation\FileFormat\CsvFileFormatSetting.cs" />
+    <Compile Include="MySettings\Presentation\FileFormat\CsvSeparator.cs" />
+    <Compile Include="MySettings\Presentation\PresentationFileFormatSetting.cs" />
+    <Compile Include="MySettings\Presentation\Table\SpeciesObservationTableType.cs" />
+    <Compile Include="Result\GIS\CompareMapLayerResult.cs" />
+    <Compile Include="Result\Grid\TaxonSpecificGridSpeciesObservationCountResult.cs" />
+    <Compile Include="Result\Observations\SpeciesObservationsCountPerPolygon.cs" />
+    <Compile Include="Result\Observations\TaxonSpecificSpeciesObservationCountPerPolygonResult.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\TaxonGridCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservationProvenanceResult\SpeciesObservationProvenanceResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\PagedSpeciesObsResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationAbundanceIndexDiagramResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationTaxonSpeciesObservationCountTableResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SummaryStatistics\SummaryStatisticsPerPolygonResultCalculator.cs" />
+    <Compile Include="Result\ResultModels\AbundanceIndexData.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utils\Converters\FieldFilterExpressionConverter.cs" />
+    <Compile Include="Utils\Extensions\EnumExtensions.cs" />
+    <Compile Include="Managers\DefaultResultsManager.cs" />
+    <Compile Include="Managers\FileExportManager.cs" />
+    <Compile Include="Managers\QueryComplexity\QueryComplexityEstimate.cs" />
+    <Compile Include="Managers\QueryComplexity\QueryComplexityExecutionTime.cs" />
+    <Compile Include="Managers\QueryComplexity\QueryComplexityManager.cs" />
+    <Compile Include="Managers\CalculatedDataItemCacheManager.cs" />
+    <Compile Include="Managers\ScheduledTasksManager.cs" />
+    <Compile Include="Managers\LastUserSessionIdManager.cs" />
+    <Compile Include="Managers\Tasks\CalculateDefaultGridCellObservationsTask.cs" />
+    <Compile Include="Managers\Tasks\CalculateDefaultSummaryStatisticsTask.cs" />
+    <Compile Include="Managers\Tasks\CalculateDefaultTaxonGridTask.cs" />
+    <Compile Include="Managers\Tasks\RefreshSpeciesObservationDataProvidersTask.cs" />
+    <Compile Include="Managers\Tasks\ScheduledTaskBase.cs" />
+    <Compile Include="Managers\Tasks\ScheduledTaskType.cs" />
+    <Compile Include="MySettingsSummary\Filter\AccuracySettingSummary.cs" />
+    <Compile Include="MySettings\Calculation\TimeSeriesSetting.cs" />
+    <Compile Include="MySettings\Calculation\WfsGridStatisticsCalculationMode.cs" />
+    <Compile Include="MySettings\Filter\AccuracySetting.cs" />
+    <Compile Include="MySettings\General\GeneralSettings.cs" />
+    <Compile Include="MySettings\Presentation\Table\SpeciesObservationTaxonTableSetting.cs" />
+    <Compile Include="Result\Grid\CombinedGridStatisticsCellResult.cs" />
+    <Compile Include="Result\Grid\CombinedGridStatisticsResult.cs" />
+    <Compile Include="Result\Grid\GridCellResultBase.cs" />
+    <Compile Include="Result\Grid\WfsStatisticsGridCellResult.cs" />
+    <Compile Include="Result\Grid\WfsStatisticsGridResult.cs" />
+    <Compile Include="Result\CalculatedData\CalculatedDataItemCacheKey.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\CombinedGridStatisticsCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\ResultCalculatorBase.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\SpeciesObservationGridCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\WfsGridCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationDiagramResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationTaxonTableResultCalculator.cs" />
+    <Compile Include="Result\ResultCalculation\SummaryStatistics\SummaryStatisticsResultCalculator.cs" />
+    <Compile Include="Result\ResultType.cs" />
+    <Compile Include="MySettings\DataProviders\MapLayers\WmsLayerSetting.cs" />
+    <Compile Include="Result\Grid\TaxonGridCellResult.cs" />
+    <Compile Include="Result\Grid\TaxonGridResult.cs" />
+    <Compile Include="Result\CalculatedData\CalculatedDataItemType.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationDataManager.cs" />
+    <Compile Include="Utils\Extensions\StringExtensions.cs" />
+    <Compile Include="Utils\Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Utils\Helpers\ConfigurationHelper.cs" />
+    <Compile Include="Utils\Helpers\CoordinateSystemHelper.cs" />
+    <Compile Include="Utils\Helpers\ExcelHelper.cs" />
+    <Compile Include="Utils\Helpers\UserMessage.cs" />
+    <Compile Include="Utils\SpeciesFactHelper.cs" />
+    <Compile Include="ViewManagers\Calculation\TimeSeriesSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\DataProviders\WmsLayersViewManager.cs" />
+    <Compile Include="ViewManagers\Details\ObservationDetailViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\AccuracyFilterViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\RedListFilterViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\FieldsFilterViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\LocalityViewManager.cs" />
+    <Compile Include="ViewManagers\General\TaxonTreeViewManager.cs" />
+    <Compile Include="ViewManagers\Presentation\MapSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\Presentation\FileFormatSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\Result\MapExportViewManager.cs" />
+    <Compile Include="ViewManagers\Result\WfsGridStatisticsViewManager.cs" />
+    <Compile Include="ViewManagers\Result\SpeciesObservationResultViewManager.cs" />
+    <Compile Include="ViewManagers\Result\SpeciesObservationTaxonTableViewManager.cs" />
+    <Compile Include="ViewModels\About\AboutItem.cs" />
+    <Compile Include="Managers\AboutManager.cs" />
+    <Compile Include="ViewModels\About\AboutViewModel.cs" />
+    <Compile Include="ViewModels\Account\AccessIsNotAllowedViewModel.cs" />
+    <Compile Include="Managers\Authorization\AccountMembershipService.cs" />
+    <Compile Include="Managers\Authorization\AuthorizationManager.cs" />
+    <Compile Include="Managers\Authorization\AnalysisPortalAuthorizeAttribute.cs" />
+    <Compile Include="ViewModels\Account\UserRoleDropDownModelHelper.cs" />
+    <Compile Include="ViewModels\Account\UserRoleModel.cs" />
+    <Compile Include="Managers\Authorization\FormsAuthenticationService.cs" />
+    <Compile Include="ViewModels\Account\LogInModel.cs" />
+    <Compile Include="Buttons\ButtonGroups\ButtonGroupManager.cs" />
+    <Compile Include="Buttons\ButtonGroups\ButtonGroupModelBase.cs" />
+    <Compile Include="Buttons\ButtonGroups\CalculationButtonGroupModel.cs" />
+    <Compile Include="Buttons\ButtonGroups\FilterButtonGroupModel.cs" />
+    <Compile Include="Buttons\ButtonGroups\PresentationButtonGroupModel.cs" />
+    <Compile Include="Buttons\ButtonGroups\DataProvidersButtonGroupModel.cs" />
+    <Compile Include="Buttons\ButtonGroups\ButtonGroupIdentifier.cs" />
+    <Compile Include="Buttons\ButtonGroups\ResultButtonGroupModel.cs" />
+    <Compile Include="Buttons\ButtonModelBase.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationSummaryStatisticsButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSummaryStatisticsButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationGridTableButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationSpeciesObservationTableButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationGridMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationMapButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultSpeciesObservationTableButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterSpatialMapLayersButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterSpatialDrawPolygonButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterSpatialCommonRegionsButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTaxaTaxonFromSearchButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTaxaTaxonFromIdsButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterOccurrenceButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultDownloadButtonModel.cs" />
+    <Compile Include="Buttons\ResultSectionButtons\ResultViewButtonModel.cs" />
+    <Compile Include="Buttons\StateButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\CalculationSummaryStatisticsButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\CalculationGridStatisticsButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\CalculationTimeSeriesButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationReportButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationDiagramButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterQualityButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTemporalButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterSpatialButtonModel.cs" />
+    <Compile Include="Buttons\DataSectionButtons\DataProvidersMetadataSearchButtonModel.cs" />
+    <Compile Include="Buttons\DataSectionButtons\DataProvidersWfsLayersButtonModel.cs" />
+    <Compile Include="Buttons\DataSectionButtons\DataProvidersSpeciesObservationButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationMapButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationTableButtonModel.cs" />
+    <Compile Include="Buttons\FilterSectionButtons\FilterTaxaButtonModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationReportSubmenuModel.cs" />
+    <Compile Include="Buttons\SettingsSectionButtons\PresentationTableSubmenuModel.cs" />
+    <Compile Include="ViewModels\Calculation\TimeSeriesSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Calculation\GridStatisticsViewModel.cs" />
+    <Compile Include="MySettingsSummary\Calculation\SummaryStatisticsSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\OccurrenceSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Presentation\ReportSettingSummary.cs" />
+    <Compile Include="MySettings\Calculation\SummaryStatisticsSetting.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="MySettings\Filter\TemporalDateSetting.cs" />
+    <Compile Include="MySettings\Presentation\PresentationReportSetting.cs" />
+    <Compile Include="MySettings\Presentation\Report\PresentationReportType.cs" />
+    <Compile Include="MySettings\Presentation\Report\SummaryStatisticsReportSetting.cs" />
+    <Compile Include="MySettings\Result\ResultSettings.cs" />
+    <Compile Include="ViewManagers\Filters\OccurrenceFilterViewManager.cs" />
+    <Compile Include="ViewManagers\Presentation\ReportSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\Calculation\SummaryStatisticsViewManager.cs" />
+    <Compile Include="ViewModels\Calculation\SummaryStatisticsViewModel.cs" />
+    <Compile Include="Managers\ColorManager.cs" />
+    <Compile Include="Utils\Converters\DataPolygonConverter.cs" />
+    <Compile Include="Utils\Converters\GeoJSONConverter.cs" />
+    <Compile Include="ViewModels\DataProviders\DataProviders\DataProvidersViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\WfsLayersViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\AddWfsLayerViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\WfsLayerEditorViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\WfsLayerViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\WmsLayersViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\Map\WmsLayerViewModel.cs" />
+    <Compile Include="ViewModels\DataProviders\MetadataSearch\MetadataSearchViewModel.cs" />
+    <Compile Include="Utils\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="ViewModels\Details\ObservationDetailFieldViewModel.cs" />
+    <Compile Include="ViewModels\Details\ObservationDetailViewModel.cs" />
+    <Compile Include="ViewModels\Fields\FieldListItemViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Accuracy\AccuracyFilterViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Field\FieldViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Occurrence\OccurrenceFilterViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Quality\QualityFilterViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\CommonRegionsViewModel.cs" />
+    <Compile Include="ViewManagers\Filters\CommonRegionsViewManager.cs" />
+    <Compile Include="Enums\RegionCategoryId.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\LocalityViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\PolygonFromMapLayerViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\FilterSpatialViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\RegionViewModel.cs" />
+    <Compile Include="ViewModels\Filter\RedList\RedListViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\FactorFieldSearchOptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Filter\Taxa\SelectedTaxaPartialViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxaFilterFromFactorViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonByTaxonAttributesViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxaViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonSearchFactorFieldViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Filter\Temporal\TemporalFilterViewModel.cs" />
+    <Compile Include="MySettingsSummary\Calculation\CalculationSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\Calculation\GridStatisticsSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\DataProviders\DataProvidersSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\DataProviders\DataProvidersSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\TemporalSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\TaxaSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\RegionSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Filter\FilterSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\Filter\PolygonSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\MySettingsSummaryItemIdentifier.cs" />
+    <Compile Include="MySettingsSummary\MySettingsSummaryItemBase.cs" />
+    <Compile Include="MySettingsSummary\MySettingsSummaryGroupBase.cs" />
+    <Compile Include="MySettingsSummary\MySettingsSummaryItemManager.cs" />
+    <Compile Include="MySettingsSummary\MySettingsSummaryViewModel.cs" />
+    <Compile Include="MySettingsSummary\Presentation\MapSettingSummary.cs" />
+    <Compile Include="MySettingsSummary\Presentation\PresentationSummaryGroup.cs" />
+    <Compile Include="MySettingsSummary\Presentation\TableSettingSummary.cs" />
+    <Compile Include="MySettings\Calculation\CalculationSettings.cs" />
+    <Compile Include="MySettings\Calculation\GridStatisticsSetting.cs" />
+    <Compile Include="MySettings\DataProviders\DataProvidersSetting.cs" />
+    <Compile Include="MySettings\DataProviders\MapLayers\MapLayersSetting.cs" />
+    <Compile Include="MySettings\DataProviders\MapLayers\WfsLayerSetting.cs" />
+    <Compile Include="ViewManagers\DataProviders\WfsLayersViewManager.cs" />
+    <Compile Include="MySettings\Filter\OccurrenceSetting.cs" />
+    <Compile Include="MySettings\Filter\QualitySetting.cs" />
+    <Compile Include="MySettings\Filter\TemporalSetting.cs" />
+    <Compile Include="MySettings\Presentation\Table\PresentationTableType.cs" />
+    <Compile Include="MySettings\Presentation\Table\SpeciesObservationTableSetting.cs" />
+    <Compile Include="MySettings\Presentation\Table\UserDefinedTable.cs" />
+    <Compile Include="MySettings\SettingBase.cs" />
+    <Compile Include="ViewManagers\Presentation\TableSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\Calculation\GridStatisticsViewManager.cs" />
+    <Compile Include="ViewManagers\Presentation\SpeciesObservationTableSettingsViewManager.cs" />
+    <Compile Include="ViewManagers\DataProviders\DataProvidersViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\SpatialFilterViewManager.cs" />
+    <Compile Include="ViewManagers\Filters\TemporalFilterViewManager.cs" />
+    <Compile Include="ViewManagers\ViewManagerBase.cs" />
+    <Compile Include="Utils\Helpers\ObjectCopier.cs" />
+    <Compile Include="Managers\PageInfo\PageInfo.cs" />
+    <Compile Include="Managers\PageInfo\PageInfoManager.cs" />
+    <Compile Include="ViewModels\Debug\DebugSessionVariablesViewModel.cs" />
+    <Compile Include="Enums\AnalysisPortalEnums.cs" />
+    <Compile Include="Utils\Extensions\GISExtensions.cs" />
+    <Compile Include="Utils\Extensions\ISpeciesObservationExtension.cs" />
+    <Compile Include="Utils\Extensions\GeneralExtensions.cs" />
+    <Compile Include="ViewModels\Filter\Spatial\SpatialDrawPolygonViewModel.cs" />
+    <Compile Include="Managers\TaxonSearchManager.cs" />
+    <Compile Include="ViewManagers\Filters\TaxaFilterViewManager.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonFromIdsViewModel.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonFromSearchViewModel.cs" />
+    <Compile Include="Managers\TaxonMatchManager.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonSearchOptions.cs" />
+    <Compile Include="ViewModels\Filter\Taxa\TaxonSearchResultItemViewModel.cs" />
+    <Compile Include="ViewManagers\Home\HomeViewManager.cs" />
+    <Compile Include="ViewModels\Home\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Home\VersionNumberViewModel.cs" />
+    <Compile Include="Json\HtmlUpdate.cs" />
+    <Compile Include="Json\JsonHelper.cs" />
+    <Compile Include="Json\JsonModel.cs" />
+    <Compile Include="Utils\Localization\LocalizedDisplayNameAttribute.cs" />
+    <Compile Include="Utils\Localization\LocalizedEnumAttribute.cs" />
+    <Compile Include="ViewModels\Map\PresentationMapViewModel.cs" />
+    <Compile Include="MySettings\DataModels\DataLinearRing.cs" />
+    <Compile Include="MySettings\DataModels\DataPoint.cs" />
+    <Compile Include="MySettings\DataModels\DataPolygon.cs" />
+    <Compile Include="MySettings\Filter\SpatialSetting.cs" />
+    <Compile Include="MySettings\Presentation\PresentationMapSetting.cs" />
+    <Compile Include="MySettings\Presentation\PresentationSettings.cs" />
+    <Compile Include="MySettings\Presentation\PresentationTableSetting.cs" />
+    <Compile Include="MySettings\Filter\FilterSettings.cs" />
+    <Compile Include="MySettings\Filter\TaxaSetting.cs" />
+    <Compile Include="MySettings\DataProviders\SpeciesGatewayDataSourceSetting.cs" />
+    <Compile Include="MySettings\DataProviders\DataProviderSettings.cs" />
+    <Compile Include="MySettings\DataProviders\SpeciesObservationDataSourceSetting.cs" />
+    <Compile Include="ViewModels\MySettingsSummary\MySettingsButtonGroupViewModel.cs" />
+    <Compile Include="MySettings\MySettingsManager.cs" />
+    <Compile Include="ViewManagers\MySettings\MySettingsViewManager.cs" />
+    <Compile Include="ViewModels\Presentation\FileFormatViewModel.cs" />
+    <Compile Include="ViewModels\Presentation\PresentationTableViewModel.cs" />
+    <Compile Include="Result\Grid\GridStatisticsTestData.cs" />
+    <Compile Include="ViewModels\RedList\AnalysisCache.cs" />
+    <Compile Include="ViewModels\RedList\AnalysisManagerExtension.cs" />
+    <Compile Include="ViewModels\RedList\AnalysisSearchCriteria.cs" />
+    <Compile Include="ViewModels\RedList\AnalysisSearchCriteriaExtension.cs" />
+    <Compile Include="ViewModels\RedList\FactorManagerExtension.cs" />
+    <Compile Include="ViewModels\RedList\IRedListSearchManager.cs" />
+    <Compile Include="ViewModels\RedList\ITaxonId.cs" />
+    <Compile Include="ViewModels\RedList\LandscapeTypeManager.cs" />
+    <Compile Include="ViewModels\RedList\RedListBiotopeItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListCategoryCache.cs" />
+    <Compile Include="ViewModels\RedList\RedListCategoryItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListCountyOccurrenceItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListedHelper.cs" />
+    <Compile Include="ViewModels\RedList\RedListHostItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListImpactItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListLandscapeTypeItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListLifeFormItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListOrganismGroupItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListSearchManager.cs" />
+    <Compile Include="ViewModels\RedList\RedListSpeciesFactDataSource.cs" />
+    <Compile Include="ViewModels\RedList\RedListSubstrateItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListSwedishOccurrenceItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListTaxonSearchResultItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListTaxonTypeItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\RedListThematicListItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\ResultViewType.cs" />
+    <Compile Include="ViewModels\RedList\SearchViewModel.cs" />
+    <Compile Include="ViewModels\RedList\SearchViewModelExtension.cs" />
+    <Compile Include="ViewModels\RedList\SpeciesFactCacheManager.cs" />
+    <Compile Include="ViewModels\RedList\SpeciesFactExtension.cs" />
+    <Compile Include="ViewModels\RedList\TaxonIdImplementation.cs" />
+    <Compile Include="ViewModels\RedList\TaxonIdList.cs" />
+    <Compile Include="ViewModels\RedList\TaxonInformationCache.cs" />
+    <Compile Include="ViewModels\RedList\TaxonListInformation.cs" />
+    <Compile Include="ViewModels\RedList\TaxonListInformationManager.cs" />
+    <Compile Include="ViewModels\RedList\TaxonLookupResultViewModel.cs" />
+    <Compile Include="ViewModels\RedList\TaxonScopeItemViewModel.cs" />
+    <Compile Include="ViewModels\RedList\TaxonSpeciesFactManager.cs" />
+    <Compile Include="ViewModels\RedList\TaxonSpeciesFactViewModel.cs" />
+    <Compile Include="ViewModels\Result\MapExportModel.cs" />
+    <Compile Include="ViewModels\Result\LayerExportModel.cs" />
+    <Compile Include="ViewModels\Result\ResultObservationsListItem.cs" />
+    <Compile Include="ViewModels\Result\ResultsDownloadViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultTimeSeriesOnSpeciesObservationCountsViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultTaxonMapViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultSpeciesObservationMapViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultTaxonGridTableViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultSpeciesObservationGridTableViewModel.cs" />
+    <Compile Include="Result\Grid\SpeciesObservationGridCellResult.cs" />
+    <Compile Include="Result\Grid\SpeciesObservationGridResult.cs" />
+    <Compile Include="ViewModels\Report\PresentationReportViewModel.cs" />
+    <Compile Include="Result\Observations\SpeciesObservationsData.cs" />
+    <Compile Include="Result\CalculatedData\CalculatedDataItem.cs" />
+    <Compile Include="ViewModels\Result\FilterSettingsStatus.cs" />
+    <Compile Include="Result\GIS\ObservationsResult.cs" />
+    <Compile Include="Result\CalculatedData\CalculatedDataItemCollection.cs" />
+    <Compile Include="ViewModels\Result\ResultsViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Diagrams\DiagramsResultGroup.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Diagrams\SpeciesObservationAbundanceIndexDiagramResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Diagrams\SpeciesObservationDiagramResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\SpeciesObservationHeatMapResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\WfsGridMapResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\TaxonGridMapResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\SpeciesObservationGridMapResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\SpeciesObservationMapResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Reports\ReportProvenanceResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Reports\ReportSettingsSummaryResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Reports\ReportsResultGroup.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Reports\ReportSummaryStatisticsResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\ResultGroupBase.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Maps\MapsResultGroup.cs" />
+    <Compile Include="Result\CalculationState.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\ResultGroupType.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\ResultViewBase.cs" />
+    <Compile Include="ViewModels\Result\ResultGridTableViewModel.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\GridTablesResultGroup.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\SpeciesObservationTaxonTableResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\SpeciesObservationTaxonWithObservationCountTableResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\SummaryStatisticsPerPolygonTableResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\TaxonGridTableResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\SpeciesObservationGridTableResultView.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\TablesResultGroup.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\SpeciesObservationTableResultView.cs" />
+    <Compile Include="Managers\SpeciesObservationSearchCriteriaManager.cs" />
+    <Compile Include="ViewModels\Details\ObservationDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Observations\SpeciesObservationViewModel.cs" />
+    <Compile Include="ViewManagers\General\ErrorViewManager.cs" />
+    <Compile Include="ViewModels\Filter\Error\ErrorViewModel.cs" />
+    <Compile Include="Buttons\StateButtonIdentifier.cs" />
+    <Compile Include="Buttons\StateButtonManager.cs" />
+    <Compile Include="ViewModels\Observations\SpeciesObservationModelHelper.cs" />
+    <Compile Include="ViewModels\Result\ResultViews\Tables\TimeSeriesOnSpeciesObservationCountsTableResultView.cs" />
+    <Compile Include="ViewModels\Result\WfsGridStatisticsMapViewModel.cs" />
+    <Compile Include="ViewModels\Result\WorkflowViewModel.cs" />
+    <Compile Include="ViewModels\Shared\UploadGeoJsonViewModel.cs" />
+    <Compile Include="ViewModels\Table\SpeciesObservationFieldDescriptionsViewModel.cs" />
+    <Compile Include="ViewManagers\Presentation\SpeciesObservationFieldDescriptionViewManager.cs" />
+    <Compile Include="ViewModels\Table\TableFieldDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Table\SpeciesObservationTableTypeViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\CategoryTaxaViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\TaxonSpeciesObservationCountViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\RelatedTaxonViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\TaxonNameAuthorViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\TaxonNameViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\TaxonSummaryViewModel.cs" />
+    <Compile Include="ViewModels\Taxon\TaxonViewModel.cs" />
+    <Compile Include="ViewModels\Observations\ObservationViewModel.cs" />
+    <Compile Include="ViewModels\ViewResult\ViewDarwinCoreTableViewModel.cs" />
+    <Compile Include="ViewModels\ViewResult\ViewTableField.cs" />
+    <Compile Include="ViewModels\ViewResult\ViewTableViewModel.cs" />
+    <Compile Include="ViewManagers\Result\SpeciesObservationTableViewManager.cs" />
+    <Compile Include="ViewModels\Presentation\SpeciesObservationTableSettingsViewModel.cs" />
+    <Compile Include="Utils\Extensions\ListExtension.cs" />
+    <Compile Include="Utils\Helpers\CacheHandler.cs" />
+    <Compile Include="Utils\Helpers\DictionaryCacheHelper.cs" />
+    <Compile Include="Utils\Helpers\DictionarySessionHelper.cs" />
+    <Compile Include="Utils\Helpers\HashCodeHelper.cs" />
+    <Compile Include="Utils\Helpers\HttpContextCacheHelper.cs" />
+    <Compile Include="MySettings\MySettings.cs" />
+    <Compile Include="Utils\Labels\SharedRegionLabels.cs" />
+    <Compile Include="Utils\Labels\WfsLabels.cs" />
+    <Compile Include="Utils\Labels\SharedLabels.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Resource.sv.Designer.cs">
+      <DependentUpon>Resource.sv.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Utils\Extensions\ITaxonExtension.cs" />
+    <Compile Include="Utils\Extensions\IUserContextExtension.cs" />
+    <Compile Include="Utils\Extensions\IUserManagerExtension.cs" />
+    <Compile Include="Utils\Logging\Logger.cs" />
+    <Compile Include="Utils\Helpers\HttpContextSessionHelper.cs" />
+    <Compile Include="Utils\Logging\LogEventHistory.cs" />
+    <Compile Include="Utils\Helpers\SessionHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj">
+      <Project>{c61f2f90-2345-4099-b8c8-da5e414bfb2f}</Project>
+      <Name>ArtDatabanken.WebApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.GIS\ArtDatabanken.GIS\ArtDatabanken.GIS.csproj">
+      <Project>{0ED6C7D1-52C0-44C7-B52C-43A7A56BC897}</Project>
+      <Name>ArtDatabanken.GIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj">
+      <Project>{54ae5807-085d-4d93-85d2-1694c2ecd22d}</Project>
+      <Name>ArtDatabanken.WebService.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AppSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AppSettings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MySettings\MySettingsManager.cd" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.sv.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.sv.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewManagers\Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\msvcr100.dll">
+      <Link>SqlServerTypes\x64\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x64\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\msvcr100.dll">
+      <Link>SqlServerTypes\x86\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x86\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

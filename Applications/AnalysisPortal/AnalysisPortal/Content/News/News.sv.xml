@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<news>
+  <Article>
+    <Published><![CDATA[Publicerad: 07 december 2016]]></Published>
+    <Title><![CDATA[SHARK-data från SMHI uppdateras]]></Title>
+    <Introduction><![CDATA[SHARK-data fr&#229;n SMHI blir tillf&#228;lligt o&#229;tkomliga i Analysportalen under en uppdatering under jul- och ny&#229;rshelgerna.]]></Introduction>
+    <Text><![CDATA[
+    <p>Under jul- och nyårshelgerna kommer ArtDatabanken att uppdatera alla observationer från datakällan SHARK (Svenskt HavsmiljöARKiv vid SMHI) i Svenska LifeWatch.&nbsp;</p>
+<p>Under tiden som arbetet pågår (20 dec - 8 jan) kommer observationer från Shark att vara oåtkomliga i Analysportalen.&nbsp;</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 05 december 2016]]></Published>
+    <Title><![CDATA[Ny release av Analysportalen]]></Title>
+    <Introduction><![CDATA[En ny version av Analysportalen publicerades den 5 december. Bland nya funktioner finns bl.a. visning av projektparametrar och n&#229;gra efterl&#228;ngtade f&#246;rb&#228;ttringar i filtrering.]]></Introduction>
+    <Text><![CDATA[
+    <p><b>Nya funktioner</b></p>
+<ul>
+<li>Projektparametrar visas nu i observationsdetaljer (om det finns). Det går ännu inte att göra sökningar på projektparametrar.</li>
+<li>Rödlistefiltret arbetar nu på taxalistan och är subtraktivt till skillnad från det föregående rödlistefiltret som var additativt.&nbsp;</li>
+<li>Härkomst av artobservationer är nu ikryssat som default att komma med som flik vid nedladdning till Excel.</li>
+</ul>
+<p><b>Buggfixar</b></p>
+<ul>
+<li>Buggfix av: Fel vid nedladdning av artobservationer då egna GIS-filer används och man byter koordinatsystem i nedladdningsdialog</li>
+<li>Buggfix av: AOO + EOO för en taxalista blev fel om något taxa i listan inte hade några observationer.</li>
+</ul>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 01 december 2016]]></Published>
+    <Title><![CDATA[LifeWatch börjar utveckla en svensk ”ekosystem-avatar”]]></Title>
+    <Introduction><![CDATA[De stora m&#228;ngder data som nu blir tillg&#228;ngliga via LifeWatch g&#246;r det m&#246;jligt att modellera f&#246;r&#228;ndringar i biodiversitet p&#229; ekosystemniv&#229;. Nu tar G&#246;teborgs universitet det f&#246;rsta steget mot att utveckla en svensk ”ekosystem-avatar”.]]></Introduction>
+    <Text><![CDATA[
+    <p>Begreppet avatar kopplar till det initiativ som tagits av forskare på den ön Moorea i Franska Polynesien, där hela ön tack vare noggrann övervakning och datainsamling utgör en modellorganism för forskare (Island Digital Ecosystem Avatars, <a href="http://mooreaidea.org">mooreaidea.org</a><span>).&nbsp;</span></p>
+<p>Projektet vid Göteborgs universitet kommer att ledas av Dawn Field som innehar en gästprofessur vid Institutionen för marina vetenskaper vid Göteborgs universitet under 2017. Dawn Field kommer att arbeta med att utveckla en modell av marina ekosystem baserat på data från bland annat Svenska LifeWatch.</p>
+<p>Dawn Field är professor vid Oxfords universitet och känd som grundare av projekt som the Genomic Observatories Network and Ocean Sampling Day.</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 30 november 2016]]></Published>
+    <Title><![CDATA[Anrikt pris till initiativrika kunskapsspridare]]></Title>
+    <Introduction><![CDATA[Tv&#229; av f&#246;rgrundsgestalterna inom Svenska LifeWatch, Ulf G&#228;rdenfors och Fredrik Ronqvist, tilldelas Ros&#233;ns Linn&#233;pris i zoologi f&#246;r sina g&#228;rningar som artforskare och kunskapsspridare.]]></Introduction>
+    <Text><![CDATA[
+    <p>Professorerna Ulf Gärdenfors vid ArtDatabanken SLU och Fredrik Ronquist vid Naturhistoriska riksmuseet har tilldelats Roséns Linnépris i zoologi 2016. De får priset för "sina banbrytande vetenskapliga studier inom zoologisk systematik, för många års insatser för bevarandet och uppmärksammandet av biologisk mångfald, och för att de på ett lysande sätt förmedlat kunskap om arter och deras utbredning i Sverige."</p>
+<p>– Jag är mycket glad att få detta fina pris och att därmed mitt och Fredriks arbete med att lyfta statusen för taxonomi och systematik uppmärksammas, säger en lätt omskakad Ulf Gärdenfors.</p>
+<p>– Det är naturligtvis väldigt roligt att få det här priset, säger Fredrik Ronqvist, som också tillägger att han är lite generad:<br>– Vi har så många duktiga biologer i Sverige, framhåller han respektfullt.</p>
+<p>Både Ulf Gärdenfors och Fredrik Ronqvist har varit centrala i mycket av arbetet med att bevara och sprida kunskap om Sveriges flora och fauna genom Svenska artprojektet, som de gemensamt tog initiativet till. De har sedan fortsatt samarbetet inom Svenska LifeWatch, där både ArtDatabanken och Naturhistoriska riksmuseet medverkar i konsortiet.</p>
+<p>Priset om vardera 425 000 kr delas ut den 2 december av Kungl. Fysiografiska Sällskapet i Lund.&nbsp;Roséns priser i botanik och zoologi delades ut första gången 1935.</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 14 november 2016]]></Published>
+    <Title><![CDATA[Prisbelönt verktyg identifierar kunskapsluckor i stora datamängder]]></Title>
+    <Introduction><![CDATA[Alejandro Ruete, forskare vid SLU, har vunnit f&#246;rsta pris i en internationell t&#228;vling med en webbapplikation som illustrerar tidsm&#228;ssiga och geografiska luckor i stora datam&#228;ngder fr&#229;n LifeWatch och GBIF.]]></Introduction>
+    <Text><![CDATA[<div class="intro-image">
+        <!--eri-desc-->
+
+
+
+    <img src="http://www.slu.se/globalassets/ew/org/inst/ekol/nyheter/alejandro-ruete.jpg?width=480&amp;height=480&amp;mode=crop" alt='Alejandro Ruete.jpg' title="Alejandro Ruete.jpg">
+
+        <!--/eri-desc-->
+
+    </div>
+    <p><br>Stora artdatabaser är en tillgång i forskning och naturvård, men för att ge tillförlitliga analyser behövs ett underlag med tillräckligt stor mängd data. Det kan vara svårt att veta om det finns tillräckligt med data eller om det saknas data om en art. Alejandro Ruete, forskare vid SLU, har tagit fram ett verktyg som identifierar dessa kunskapsgap. Nu har han fått pris av Global Biodiversity Information Facility för verktyget som kan användas på alla typer av organismer och alla delar av världen.</p>
+<p>Global Biodiversity Information Facility (GBIF) är en global databas för biologiska fynddata från hela världen. Varje år anordnar GBIF "Ebbe Nielsen Challenge" för att förbättra användningen av data. Alejandro Ruete vann första pris för sitt verktyg som kan identifiera luckor i data både i tid och rum.</p>
+<p>Som en del av sitt bidrag i tävlingen utvecklade Alejandro två webbapplikationer som demonstrerar hur verktyget kan användas. Den ena, <a href="https://aleruete.shinyapps.io/SLWapp/">SLWapp</a>, använder data från Svenska LifeWatch och visar var kunskap saknas för sju grupper av arter (groddjur fåglar, fjärilar, landlevande däggdjur, lockespindlar, sländor, och kärlväxter) i Sverige. Den andra, <a href="https://aleruete.shinyapps.io/GBIFapp/">GBIFapp</a>, använder data från GBIF och undersöker var data saknas för groddjur i Europa – tidsmässigt och geografiskt.<br>Alejandro får förstapriset på 20,000 euro och hans bidrag valdes ut av en expertjury bland totalt 16 bidrag.</p>
+<p>– Det som gjorde det vinnande bidraget så attraktivt var att det är så enkelt och användbart. Det bygger på enkla data om förekomst av en art och kan användas på alla geografiska regioner och taxonomiska grupper, säger Roderic Page, professor vid universitet i Glasgow och ordförande i juryn.</p>
+<p><img alt="" src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/nyhetsbilder/webb-bild_ruetes_app.jpg" height="553" width="1000"></p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 07 september 2016]]></Published>
+    <Title><![CDATA[Gridbaserad artobservationskarta]]></Title>
+    <Introduction><![CDATA[Nu finns funktionen &quot;Gridbaserad artobservationskarta&quot; i Analysportalen. Den nya funktionen g&#246;r det l&#228;ttare att se i vilka omr&#229;den det finns t&#228;tt med observationer och g&#246;r det ocks&#229; m&#246;jligt att visa alla tr&#228;ffar fr&#229;n en s&#246;kning i en och samma karta.]]></Introduction>
+    <Text><![CDATA[
+    <p><img alt="" src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/gridbaserad-artobskarta.jpg" height="400" width="550"></p>
+<p>Genom att göra en sökning och välja att visa sökresultatet i en gridbaserad artobservationskarta, kan man se sökresultetet som ackumulerade artobservationer (blåa prickar), med möjlighet att zooma in i kartan och dela upp ackumulerade observationer i enskilda fynd (gula prickar).</p>
+<p>Den nya funktionen gör det möjligt att se alla observationer i en och samma karta, även vid sökningar som genererar ett stort antal datapunkter. </p>
+<p>l</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 07 september 2016]]></Published>
+    <Title><![CDATA[AOO och EOO för en taxalista]]></Title>
+    <Introduction><![CDATA[Funktioner f&#246;r att ber&#228;kna AOO och EOO kom i Analysportalen redan i v&#229;ras, men har nu kompletterats med m&#246;jligheten att ladda hem uppgifter om AOO och EOO f&#246;r en hel taxalista. ]]></Introduction>
+    <Text><![CDATA[
+    <p><img alt="" src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/aoo-eoo-taxalista.jpg" height="306" width="565"></p>
+<p>Så här gör du: Filtrera din sökning på taxa och eventuellt andra parametrar. Välj därefter att visa resultatet som ’Frekvenskarta över antal artobservationer’. I rutan till vänster kan du klicka i och ur visning av Förekomstarea (AOO) och Utbredningsområde (EOO). Klicka på knappen Ladda ner ovanför kartan. I excel-filen som laddas ner finns uppgifter om AOO och EOO för varje art som ingår i taxafiltret.</p>
+<p>Dessutom finns en ny funktion som gör det möjligt att välja om en gridcells mittpunkt eller hörnpunkter ska användas vid beräkning av EOO (konkav).</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Publicerad: 10 juni 2016]]></Published>
+    <Title><![CDATA[Älgdata från WRAM sökbart i Analysportalen]]></Title>
+    <Introduction><![CDATA[Nu finns data fr&#229;n WRAM (Wireless Remote Animal Monitoring) tillg&#228;ngligt i Svenska LifeWatch och Analysportalen f&#246;r biodiversitetsdata.]]></Introduction>
+    <Text><![CDATA[<div class="intro-image">
+        <!--eri-desc-->
+
+
+
+    <img src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/wram-moose.jpg?width=480&amp;height=480&amp;mode=crop" alt='wram-moose.jpg' title="wram-moose.jpg">
+
+        <!--/eri-desc-->
+
+    </div>
+    <p><br>WRAM är en nationell e-infrastruktur som hanterar, lagrar och tillhandahåller biotelemetridata från vilda djur - bl.a. älg, björn, lax, ren och rådjur. WRAM samordnas av Umeå Center for Wireless Remote Animal Monitoring (UC-WRAM) vid SLU i Umeå.</p>
+<p>UC-WRAM och Svenska LifeWatch har länge haft ett nära samarbete och nu är webbtjänsterna som levererar WRAM-data till LifeWatch i drift.</p>
+<p>Gemensamt för alla data i WRAM är att de har samlats in automatiskt via olika typer av sensorer (t.ex. GPS eller satellit). Exempel på datatyper som finns i WRAM är bl.a. GPS-positioner, kroppsacceleration, kroppstemperatur, avstånd till andra djur och hjärtfrekvens.</p>
+<p>Eftersom varje individ genererar så många datapunkter, återfinns i Analysportalen enbart rumsliga data i förenklad, aggregerad form. Inledningsvis skördar LifeWatch data om älg. För närvarande finns över 7000 dataposter med rumsliga data från totalt 596 älgar från 2003 och framåt tillgängliga i Analysportalen. För access till rådata av positioner eller andra sensorer hänvisas till respektive dataägare.</p>
+<h2>Aggregerat data</h2>
+<p>När WRAM-data skördas av LifeWatch, aggregeras rumsliga data (GPS-position) till en datapost per individ och månad. Den observation som rapporteras till LifeWatch baseras på mittpunkten av maximum och minimum latitud och longitud för djuret den aktuella månaden. Värdet 'coordinateUncertaintyInMeters' beräknas som avståndet i meter mellan mittpunkten och maximum latitud- och longitudposition.</p>
+<p>Uttryckt på ett annat sätt så kan man tänka sig att maximum och minimum latitud och longitud för varje individs rörelser den månaden bildar en rektangulär ruta på kartan. Rutans mittpunkt blir den position som rapporteras till LifeWatch. "Osäkerheten" är då helt enkelt avståndet mellan rutans mittpunkt och det övre högra hörnet av rutan.</p>
+]]></Text>
+  </Article>
+</news>

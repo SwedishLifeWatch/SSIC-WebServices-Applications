@@ -1,0 +1,66 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Result
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Extensions
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultViews
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultsViewModel
+@{
+    ViewBag.Title = Resource.ResultIndexTitle;
+    ViewBag.Description = Resource.ResultIndexDescription;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+<div class="content-box">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        @foreach (ResultGroupBase resultGroup in Model.ResultGroups)
+        {
+            var iconUrl = "";
+            var headingId = string.Format("heading{0}", resultGroup.ResultGroupType);
+            var collapseId = string.Format("collapse{0}", resultGroup.ResultGroupType);
+
+            switch (resultGroup.ResultGroupType)
+            {
+                case ResultGroupType.Maps:
+                    iconUrl = Url.Content("~/Content/images/map_24.png");
+                    break;
+                case ResultGroupType.Tables:
+                    iconUrl = Url.Content("~/Content/images/table-multiple-icon_24.png");
+                    break;
+                case ResultGroupType.Diagrams:
+                    iconUrl = Url.Content("~/Content/images/Actions-office-chart-pie-icon_24.png");
+
+                    break;
+                case ResultGroupType.Report:
+                    iconUrl = Url.Content("~/Content/images/document-text-image_24.png");
+                    break;
+            }
+            
+            
+            <div class="panel panel-default">
+                <div class="panel-heading@(resultGroup.IsExpanded ? "" : " collapsed")" role="tab " id="@headingId" data-toggle="collapse" data-parent="#accordion" href="#@collapseId" aria-expanded="true" aria-controls="@collapseId">
+                    <h4 class="panel-title">
+                        @resultGroup.Title
+                        <img src="@iconUrl"/>
+                    </h4>
+                </div>
+                <div id="@collapseId" class="panel-collapse collapse@(resultGroup.IsExpanded ? " in" : "")" role="tabpanel" aria-labelledby="@headingId">
+                    <div class="panel-body">
+                        <ul>
+                            @foreach (var resultView in resultGroup.Items)
+                            {
+                                <li>
+                                    <a class="btn btn-success fivePxPad"
+                                   href="@Url.Action(resultView.StaticPageInfo.Action, resultView.StaticPageInfo.Controller)"
+                                   @(resultView.IsActive ? "" : " disabled=\"disabled\"")>
+                                        @resultView.Title
+                                    </a>                                
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

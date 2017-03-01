@@ -1,0 +1,86 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Long running ajax sample";
+}
+<h2>Session timeout sample</h2>
+
+<div id="messageDiv"></div>
+
+<button id="addTimeButton">Add 20 seconds</button>
+
+<script type="text/javascript">
+    var lastCheck = 0;
+    
+    function sleepCheck() {
+        var now = new Date().getTime();
+        var diff = now - lastCheck;
+        if (diff > 3000) {
+            alert('woke up session timeout2');
+            //alert('took ' + diff + 'ms');
+        }
+        lastCheck = new Date().getTime();
+    }
+
+    var sessionTimeoutDate;
+    //var sessionTimeoutDate = 0;
+    var checkSessionTimeOutIntervalId = 0;
+
+    function initSessionTimeoutInterval(sessionTimeoutInSeconds) {
+        var t = new Date();
+        t.setSeconds(t.getSeconds() + sessionTimeoutInSeconds);
+        sessionTimeoutDate = t;
+
+        checkSessionTimeOutIntervalId = setInterval(checkSessionTimeout, 1000);
+
+
+        //var t = new Date();
+        //t.setSeconds(t.getSeconds() + sessionTimeoutInSeconds);
+        //sessionTimeoutDate = t.getTime();
+
+        //checkSessionTimeOutIntervalId = setInterval(checkSessionTimeout, 1000);
+        
+
+
+        //context.SessionTimeoutInSeconds = sessionTimeoutInSeconds;
+        //context.SessionTimeoutTimerId = setTimeout(context.showSessionTimeoutDialog, context.SessionTimeoutInSeconds * 1000);
+    };
+
+
+    function checkSessionTimeout() {
+        var now = new Date();
+        if (now > sessionTimeoutDate) {
+            alert('Session timeout');
+            clearInterval(checkSessionTimeOutIntervalId);
+        }
+
+
+        //var now = new Date().getTime();
+        //if (now > sessionTimeoutDate) {
+        //    alert('Session timeout');
+        //    clearInterval(checkSessionTimeOutIntervalId);
+        //}
+    }
+
+    //function restartSessionTimeoutTimer() {
+    //    clearTimeout(context.SessionTimeoutTimerId);
+    //    context.SessionTimeoutTimerId = setTimeout(context.showSessionTimeoutDialog, context.SessionTimeoutInSeconds * 1000);
+    //};
+
+
+
+    $(document).ready(function () {        
+        //lastCheck = new Date().getTime();
+        //setInterval(sleepCheck, 1000);
+
+        initSessionTimeoutInterval(20);
+        $('#addTimeButton').click(function() {
+            var t = new Date();
+            t.setSeconds(t.getSeconds() + 20);
+            sessionTimeoutDate = t;
+        });
+    });
+
+    
+
+</script>

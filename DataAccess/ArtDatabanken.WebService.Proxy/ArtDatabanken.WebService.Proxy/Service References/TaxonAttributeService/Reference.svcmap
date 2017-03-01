@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="36616cee-df92-48fb-af7b-ded52da90ba1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ArtDatabanken" />
+      <ReferencedAssembly AssemblyName="ArtDatabanken.WebService.Data" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TaxonAttributeService.xsd" MetadataType="Schema" ID="ad1bd1fa-a073-4eeb-9a56-ba53ac159cf2" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TaxonAttributeService.wsdl" MetadataType="Wsdl" ID="5526357e-76e8-45ba-8f1d-987f0769d9a9" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="TaxonAttributeService1.xsd" MetadataType="Schema" ID="f66a9267-b40b-471c-9894-66a9d1853a78" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="TaxonAttributeService1.wsdl" MetadataType="Wsdl" ID="22ace6dd-4b0d-4d91-8eb7-f1092686906b" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?wsdl" />
+    <MetadataFile FileName="TaxonAttributeService2.xsd" MetadataType="Schema" ID="86e477e7-5ae4-4fd4-b0fc-7804ac98786b" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="TaxonAttributeService3.xsd" MetadataType="Schema" ID="b6a1ef1e-d104-4466-b492-79bce77f7a92" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="TaxonAttributeService4.xsd" MetadataType="Schema" ID="93afe6de-cfdb-4443-8c33-f1356f8c5dc5" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TaxonAttributeService.disco" MetadataType="Disco" ID="20987ff6-a3b0-4f00-848e-a8ffea80d6eb" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

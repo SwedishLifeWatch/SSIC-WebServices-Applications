@@ -1,0 +1,15 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultViews.Maps
+@using Resources
+@model MapsResultGroup
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Resource.ResultMapsDescription;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+@*<h3 class="page-title">
+    @Resource.ResultGroupMaps&nbsp;<img src="@Url.Content("~/Content/images/map_24.png")"/>
+</h3>*@
+@Html.Partial("ResultGroup_Partial", Model)

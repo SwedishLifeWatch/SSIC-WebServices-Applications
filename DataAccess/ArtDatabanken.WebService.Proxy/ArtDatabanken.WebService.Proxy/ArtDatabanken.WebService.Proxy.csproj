@@ -1,0 +1,1311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebService.Proxy</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebService.Proxy</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ArtDatabanken.WebService.Proxy.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisServiceProxy.cs" />
+    <Compile Include="DyntaxaInternalServiceProxy.cs" />
+    <Compile Include="KulServiceProxy.cs" />
+    <Compile Include="NorsServiceProxy.cs" />
+    <Compile Include="PictureServiceProxy.cs" />
+    <Compile Include="ReferenceServiceProxy.cs" />
+    <Compile Include="SersServiceProxy.cs" />
+    <Compile Include="Service References\DyntaxaInternalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\KulService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PictureService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ReferenceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SersService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TaxonAttributeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TaxonAttributeServiceProxy.cs" />
+    <Compile Include="WramServiceProxy.cs" />
+    <Compile Include="IWebService.cs" />
+    <Compile Include="MvmServiceProxy.cs" />
+    <Compile Include="NorwayTaxonServiceProxy.cs" />
+    <Compile Include="PESINameServiceProxy.cs" />
+    <Compile Include="Service References\AnalysisService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NorsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\MvmService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\NorwayTaxonService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\PESINameService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SpeciesObservationHarvestService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SwedishSpeciesObservationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TaxonService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\WramService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SpeciesObservationHarvestServiceProxy.cs" />
+    <Compile Include="SwedishSpeciesObservationServiceProxy.cs" />
+    <Compile Include="TaxonServiceProxy.cs" />
+    <Compile Include="GeoReferenceServiceProxy.cs" />
+    <Compile Include="ITransactionProxy.cs" />
+    <Compile Include="IWebServiceTransaction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\GeoReferenceService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\SwedishSpeciesObservationSOAPService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UserService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SwedishSpeciesObservationSOAPServiceProxy.cs" />
+    <Compile Include="UserServiceProxy.cs" />
+    <Compile Include="WebServiceConfiguration.cs" />
+    <Compile Include="WebServiceList.cs" />
+    <Compile Include="WebServiceProxy.cs" />
+    <Compile Include="WebServiceProxyBase.cs" />
+    <Compile Include="WebServiceTransaction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebAddressType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebApplication.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebApplicationAction.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebApplicationVersion.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebAuthority.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebAuthorityDataType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebAuthorityType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebBirdNestActivity.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebBoundingBox.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebCityInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebCountry.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebDarwinCore.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebDarwinCoreChange.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebDarwinCoreInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebDyntaxaRevisionReferenceRelation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebDyntaxaRevisionSpeciesFact.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactor.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorDataType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorFieldEnum.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorFieldType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorOrigin.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorTreeNode.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebFactorUpdateMode.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebGridCellCombinedStatistics.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebGridCellFeatureStatistics.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebGridCellSpeciesCount.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebGridCellSpeciesObservationCount.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebIndividualCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLinearRing.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLocale.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLockedUserInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLoginResponse.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLogRow.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLumpSplitEvent.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebLumpSplitEventType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebMessageType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebMultiPolygon.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebOrganization.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebOrganizationCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPasswordInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPeriod.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPeriodType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPerson.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPersonGender.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPhoneNumberType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPicture.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureFilename.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureGuid.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureMetaData.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureMetaDataDescription.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureMetaDataInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureRelation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureRelationDataType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureRelationType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPictureResponse.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPoint.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebPolygon.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebReference.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebReferenceRelation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebReferenceRelationType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRegion.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRegion2.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRegionCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRegionGeography.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRegionType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebResourceStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRevision.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRevisionEvent.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRole.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebRoleMember.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesActivity.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesActivityCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesFact.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesFactQuality.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationChange.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationDataProvider.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationDataSource.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationFieldDescription.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationHarvestStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationInformation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationProvenance2.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebSpeciesObservationUpdateStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxon.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonAlertStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonCategory2.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonChange.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonChangeStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonChildQualityStatistics.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonChildStatistics.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonName.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonNameCategory.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonNameCategoryType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonNameStatus.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonNameUsage.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonProperties.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonQualitySummary.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonRelation.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonRevision.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonRevisionEvent.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonRevisionEventType.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonRevisionState.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonSpeciesObservationCount.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonStatistics.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTaxonTreeNode.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebTimeStepSpeciesObservationCount.datasource" />
+    <None Include="Properties\DataSources\ArtDatabanken.WebService.Data.WebUser.datasource" />
+    <None Include="Service References\AnalysisService\AnalysisService.wsdl" />
+    <None Include="Service References\AnalysisService\AnalysisService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AnalysisService\AnalysisService1.wsdl" />
+    <None Include="Service References\AnalysisService\AnalysisService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AnalysisService\AnalysisService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AnalysisService\AnalysisService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AnalysisService\AnalysisService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebGridCellCombinedStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebGridCellFeatureStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebGridCellSpeciesCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebGridCellSpeciesObservationCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebSpeciesObservationProvenance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebTaxon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebTaxonSpeciesObservationCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AnalysisService\ArtDatabanken.WebService.Proxy.AnalysisService.WebTimeStepSpeciesObservationCount.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService.wsdl" />
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService1.wsdl" />
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebLinearRing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebMultiPolygon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebPoint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebPolygon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebRegion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebRegionCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebRegionGeography.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebRegionType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GeoReferenceService\ArtDatabanken.WebService.Proxy.GeoReferenceService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KulService\ArtDatabanken.WebService.Proxy.KulService.WebGbifObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KulService\ArtDatabanken.WebService.Proxy.KulService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService.wsdl" />
+    <None Include="Service References\KulService\SpeciesObservationChangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\KulService\SpeciesObservationChangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\ArtDatabanken.WebService.Proxy.NorsService.WebGbifObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorsService\ArtDatabanken.WebService.Proxy.NorsService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService.wsdl" />
+    <None Include="Service References\NorsService\SpeciesObservationChangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService.wsdl" />
+    <None Include="Service References\GeoReferenceService\GeoReferenceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService1.wsdl" />
+    <None Include="Service References\GeoReferenceService\GeoReferenceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\ArtDatabanken.WebService.Proxy.MvmService.WebGbifObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MvmService\ArtDatabanken.WebService.Proxy.MvmService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService22.wsdl" />
+    <None Include="Service References\MvmService\SpeciesObservationChangeService23.wsdl" />
+    <None Include="Service References\MvmService\SpeciesObservationChangeService610.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService611.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService66.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService67.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService68.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService69.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\NorwayTaxonService\ArtDatabanken.WebService.Proxy.NorwayTaxonService.ArtsnavnType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\NorwayTaxonService\Artsnavnebase.wsdl" />
+    <None Include="Service References\PESINameService\ArtDatabanken.WebService.Proxy.PESINameService.PESIRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PESINameService\ArtDatabanken.WebService.Proxy.PESINameService.Vernacular.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PESINameService\soap.wsdl" />
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPicture.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureMetaData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureMetaDataDescription.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureRelationDataType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureRelationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebPictureResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\ArtDatabanken.WebService.Proxy.PictureService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PictureService\PictureService.wsdl" />
+    <None Include="Service References\PictureService\PictureService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PictureService\PictureService1.wsdl" />
+    <None Include="Service References\PictureService\PictureService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PictureService\PictureService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PictureService\PictureService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\PictureService\PictureService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebReference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebReferenceRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebReferenceRelationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ArtDatabanken.WebService.Proxy.ReferenceService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReferenceService\ReferenceService.wsdl" />
+    <None Include="Service References\ReferenceService\ReferenceService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReferenceService\ReferenceService1.wsdl" />
+    <None Include="Service References\ReferenceService\ReferenceService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReferenceService\ReferenceService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReferenceService\ReferenceService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReferenceService\ReferenceService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\ArtDatabanken.WebService.Proxy.SersService.WebGbifObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SersService\ArtDatabanken.WebService.Proxy.SersService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService.wsdl" />
+    <None Include="Service References\SersService\SpeciesObservationChangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SersService\SpeciesObservationChangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\ArtDatabanken.WebService.Proxy.SpeciesObservationHarvestService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\ArtDatabanken.WebService.Proxy.SpeciesObservationHarvestService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\ArtDatabanken.WebService.Proxy.SpeciesObservationHarvestService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\ArtDatabanken.WebService.Proxy.SpeciesObservationHarvestService.WebSpeciesObservationHarvestStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService.wsdl" />
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService1.wsdl" />
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebDarwinCore.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebDarwinCoreChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebDarwinCoreInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesActivity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesObservation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesObservationDataProvider.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesObservationFieldDescription.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationService.WebSpeciesObservationInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService.wsdl" />
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService1.wsdl" />
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebBirdNestActivity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebDarwinCoreChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebDarwinCoreInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\ArtDatabanken.WebService.Proxy.SwedishSpeciesObservationSOAPService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService.wsdl" />
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService1.wsdl" />
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorDataType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorFieldEnum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorFieldType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorOrigin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorTreeNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebFactorUpdateMode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebIndividualCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebPeriod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebPeriodType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebSpeciesFact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebSpeciesFactQuality.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\ArtDatabanken.WebService.Proxy.TaxonAttributeService.WebTaxon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService.wsdl" />
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService1.wsdl" />
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebLumpSplitEvent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebLumpSplitEventType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebReferenceRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebReferenceRelationType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonAlertStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonChangeStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonChildQualityStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonChildStatistics.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonNameCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonNameCategoryType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonNameStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonNameUsage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonProperties.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonRelation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonRevision.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonRevisionEvent.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonRevisionEventType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonRevisionState.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\ArtDatabanken.WebService.Proxy.TaxonService.WebTaxonTreeNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TaxonService\TaxonService.wsdl" />
+    <None Include="Service References\TaxonService\TaxonService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonService\TaxonService1.wsdl" />
+    <None Include="Service References\TaxonService\TaxonService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonService\TaxonService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonService\TaxonService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TaxonService\TaxonService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebAddressType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebApplication.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebApplicationAction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebApplicationVersion.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebAuthority.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebAuthorityDataType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebCountry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebLocale.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebLockedUserInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebLoginResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebMessageType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebOrganization.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebOrganizationCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebPasswordInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebPerson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebPersonGender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebPhoneNumberType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebRole.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebRoleMember.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\ArtDatabanken.WebService.Proxy.UserService.WebUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UserService\UserService2.wsdl" />
+    <None Include="Service References\UserService\UserService21.wsdl" />
+    <None Include="Service References\UserService\UserService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService51.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService52.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService53.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService54.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\ArtDatabanken.WebService.Proxy.WramService.WebGbifObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WramService\ArtDatabanken.WebService.Proxy.WramService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WramService\WramSpeciesObservationChangeService.wsdl" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AnalysisService\" />
+    <WCFMetadataStorage Include="Service References\DyntaxaInternalService\" />
+    <WCFMetadataStorage Include="Service References\KulService\" />
+    <WCFMetadataStorage Include="Service References\NorsService\" />
+    <WCFMetadataStorage Include="Service References\GeoReferenceService\" />
+    <WCFMetadataStorage Include="Service References\MvmService\" />
+    <WCFMetadataStorage Include="Service References\NorwayTaxonService\" />
+    <WCFMetadataStorage Include="Service References\PESINameService\" />
+    <WCFMetadataStorage Include="Service References\PictureService\" />
+    <WCFMetadataStorage Include="Service References\ReferenceService\" />
+    <WCFMetadataStorage Include="Service References\SersService\" />
+    <WCFMetadataStorage Include="Service References\SpeciesObservationHarvestService\" />
+    <WCFMetadataStorage Include="Service References\SwedishSpeciesObservationService\" />
+    <WCFMetadataStorage Include="Service References\SwedishSpeciesObservationSOAPService\" />
+    <WCFMetadataStorage Include="Service References\TaxonAttributeService\" />
+    <WCFMetadataStorage Include="Service References\TaxonService\" />
+    <WCFMetadataStorage Include="Service References\UserService\" />
+    <WCFMetadataStorage Include="Service References\WramService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\UserService\UserService1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GeoReferenceService\GeoReferenceService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GeoReferenceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GeoReferenceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\GeoReferenceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\SwedishSpeciesObservationSOAPService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationSOAPService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PESINameService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PESINameService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PESINameService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorwayTaxonService\Artsnavnebase.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorwayTaxonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorwayTaxonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorwayTaxonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationService\SwedishSpeciesObservationService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SwedishSpeciesObservationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonService\TaxonService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SpeciesObservationHarvestService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SpeciesObservationHarvestService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SpeciesObservationHarvestService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AnalysisService\AnalysisService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AnalysisService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AnalysisService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AnalysisService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MvmService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MvmService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MvmService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\MvmService\SpeciesObservationChangeService11.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorsService\SpeciesObservationChangeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorsService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorsService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\NorsService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WramService\WramSpeciesDataChangeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WramService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WramService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WramService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SersService\SpeciesObservationChangeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SersService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SersService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SersService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonAttributeService\TaxonAttributeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonAttributeService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonAttributeService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TaxonAttributeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SpeciesObservationHarvestService\SpeciesObservationHarvestService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReferenceService\ReferenceService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReferenceService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReferenceService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReferenceService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PictureService\PictureService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PictureService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PictureService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\PictureService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KulService\SpeciesObservationChangeService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KulService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KulService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\KulService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DyntaxaInternalService\DyntaxaInternalService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DyntaxaInternalService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DyntaxaInternalService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DyntaxaInternalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+<Target Name="XamlGeneratedCodeWarningRemoved" AfterTargets="MarkupCompilePass2">
+<Exec Command="for %%f in (@(_GeneratedCodeFiles)) do echo #pragma warning disable 1591 > %%f.temp" />
+<Exec Command="for %%f in (@(_GeneratedCodeFiles)) do type %%f >> %%f.temp" />
+<Exec Command="for %%f in (@(_GeneratedCodeFiles)) do echo #pragma warning restore 1591 >> %%f.temp" />
+<Exec Command="for %%f in (@(_GeneratedCodeFiles)) do move /y %%f.temp %%f" />
+<Message Text="Xaml Generated Code Warnings Removed: @(_GeneratedCodeFiles)" />
+</Target>
+  -->
+</Project>

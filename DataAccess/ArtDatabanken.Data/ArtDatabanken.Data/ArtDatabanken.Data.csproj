@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.Data</RootNamespace>
+    <AssemblyName>ArtDatabanken.Data</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ArtDatabanken.Data.XML</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="AddressList.cs" />
+    <Compile Include="AddressType.cs" />
+    <Compile Include="AddressTypeList.cs" />
+    <Compile Include="ArtDatabankenService\BirdNestActivity.cs" />
+    <Compile Include="ArtDatabankenService\BirdNestActivityList.cs" />
+    <Compile Include="ArtDatabankenService\City.cs" />
+    <Compile Include="ArtDatabankenService\CityList.cs" />
+    <Compile Include="ArtDatabankenService\County.cs" />
+    <Compile Include="ArtDatabankenService\CountyList.cs" />
+    <Compile Include="ArtDatabankenService\DataAndCondition.cs" />
+    <Compile Include="ArtDatabankenService\Database.cs" />
+    <Compile Include="ArtDatabankenService\DatabaseList.cs" />
+    <Compile Include="ArtDatabankenService\DatabaseManager.cs" />
+    <Compile Include="ArtDatabankenService\DataFieldList.cs" />
+    <Compile Include="ArtDatabankenService\DataId.cs" />
+    <Compile Include="ArtDatabankenService\DataIdentifier.cs" />
+    <Compile Include="ArtDatabankenService\DataIdentifierList.cs" />
+    <Compile Include="ArtDatabankenService\DataIdList.cs" />
+    <Compile Include="ArtDatabankenService\DataNotCondition.cs" />
+    <Compile Include="ArtDatabankenService\DataOrCondition.cs" />
+    <Compile Include="ArtDatabankenService\DataQuery.cs" />
+    <Compile Include="ArtDatabankenService\DataQueryList.cs" />
+    <Compile Include="ArtDatabankenService\DataQueryManager.cs" />
+    <Compile Include="ArtDatabankenService\DataSortOrder.cs" />
+    <Compile Include="ArtDatabankenService\Factor.cs" />
+    <Compile Include="ArtDatabankenService\FactorDataType.cs" />
+    <Compile Include="ArtDatabankenService\FactorDataTypeList.cs" />
+    <Compile Include="ArtDatabankenService\FactorField.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnum.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumList.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumValue.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumValueList.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldList.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldType.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldTypeList.cs" />
+    <Compile Include="ArtDatabankenService\FactorList.cs" />
+    <Compile Include="ArtDatabankenService\FactorManager.cs" />
+    <Compile Include="ArtDatabankenService\FactorOrigin.cs" />
+    <Compile Include="ArtDatabankenService\FactorOriginList.cs" />
+    <Compile Include="ArtDatabankenService\FactorSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeNode.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeNodeList.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\FactorUpdateMode.cs" />
+    <Compile Include="ArtDatabankenService\FactorUpdateModeList.cs" />
+    <Compile Include="ArtDatabankenService\GeographicManager.cs" />
+    <Compile Include="ArtDatabankenService\IDataQuery.cs" />
+    <Compile Include="ArtDatabankenService\IListableItem.cs" />
+    <Compile Include="ArtDatabankenService\IndividualCategory.cs" />
+    <Compile Include="ArtDatabankenService\IndividualCategoryList.cs" />
+    <Compile Include="ArtDatabankenService\IndividualCategoryManager.cs" />
+    <Compile Include="ArtDatabankenService\ManagerBase.cs" />
+    <Compile Include="ArtDatabankenService\OrganismGroup.cs" />
+    <Compile Include="ArtDatabankenService\OrganismGroupList.cs" />
+    <Compile Include="ArtDatabankenService\Period.cs" />
+    <Compile Include="ArtDatabankenService\PeriodList.cs" />
+    <Compile Include="ArtDatabankenService\PeriodManager.cs" />
+    <Compile Include="ArtDatabankenService\PeriodType.cs" />
+    <Compile Include="ArtDatabankenService\PeriodTypeList.cs" />
+    <Compile Include="ArtDatabankenService\Province.cs" />
+    <Compile Include="ArtDatabankenService\ProvinceList.cs" />
+    <Compile Include="ArtDatabankenService\RedListCalculation.cs" />
+    <Compile Include="ArtDatabankenService\RedListCalculator.cs" />
+    <Compile Include="ArtDatabankenService\RedListCriteriaBuilder.cs" />
+    <Compile Include="ArtDatabankenService\RedListCriteriaDocumentationCalculator.cs" />
+    <Compile Include="ArtDatabankenService\Reference.cs" />
+    <Compile Include="ArtDatabankenService\ReferenceList.cs" />
+    <Compile Include="ArtDatabankenService\ReferenceManager.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesEncyclopediaArticle.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFact.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactCondition.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactField.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactFieldCondition.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactFieldList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactManager.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactQuality.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactQualityList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactRedList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactRedListCategory.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactRedListCriteria.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactRedListCriteriaDocumentation.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactTaxonNameSummary.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesInformationDocument.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservation.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationArea.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationAreaList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationChange.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationInformation.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationList.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationManager.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\Taxon.cs" />
+    <Compile Include="ArtDatabankenService\TaxonCountyOccurrence.cs" />
+    <Compile Include="ArtDatabankenService\TaxonCountyOccurrenceList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonManager.cs" />
+    <Compile Include="ArtDatabankenService\TaxonName.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameType.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameTypeList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameUseType.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameUseTypeList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonPrintObs.cs" />
+    <Compile Include="ArtDatabankenService\TaxonSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeNode.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeNodeList.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeSearchCriteria.cs" />
+    <Compile Include="ArtDatabankenService\TaxonType.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTypeList.cs" />
+    <Compile Include="ArtDatabankenService\User.cs" />
+    <Compile Include="ArtDatabankenService\UserDataSet.cs" />
+    <Compile Include="ArtDatabankenService\UserManager.cs" />
+    <Compile Include="ArtDatabankenService\UserParameterSelection.cs" />
+    <Compile Include="ArtDatabankenService\UserRole.cs" />
+    <Compile Include="ArtDatabankenService\UserRoleList.cs" />
+    <Compile Include="ArtDatabankenService\WebServiceClient.cs" />
+    <Compile Include="ArtDatabankenService\WebTransaction.cs" />
+    <Compile Include="BoundingBox.cs" />
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="ApplicationVersion.cs" />
+    <Compile Include="ApplicationAction.cs" />
+    <Compile Include="ApplicationActionList.cs" />
+    <Compile Include="ApplicationVersionList.cs" />
+    <Compile Include="Authority.cs" />
+    <Compile Include="ApplicationList.cs" />
+    <Compile Include="AuthorityList.cs" />
+    <Compile Include="CityInformation.cs" />
+    <Compile Include="CityInformationList.cs" />
+    <Compile Include="CoordinateSystem.cs" />
+    <Compile Include="AuthorityDataType.cs" />
+    <Compile Include="AuthorityDataTypeList.cs" />
+    <Compile Include="AuthoritySearchCriteria.cs" />
+    <Compile Include="AnalysisManager.cs" />
+    <Compile Include="CoordinateSystemsExtension.cs" />
+    <Compile Include="DataField.cs" />
+    <Compile Include="DataFieldList.cs" />
+    <Compile Include="DataSource\IGeoReferenceDataSource.cs" />
+    <Compile Include="DyntaxaRevisionReferenceRelation.cs" />
+    <Compile Include="DyntaxaRevisionSpeciesFact.cs" />
+    <Compile Include="DataSource\IDyntaxaInternalDataSource.cs" />
+    <Compile Include="GeoReferenceManager.cs" />
+    <Compile Include="ICityInformation.cs" />
+    <Compile Include="IDataField.cs" />
+    <Compile Include="IGeoReferenceManager.cs" />
+    <Compile Include="IPictureGuid.cs" />
+    <Compile Include="IPictureMetaDataInformation.cs" />
+    <Compile Include="IPictureRelationDataType.cs" />
+    <Compile Include="ISpeciesObservationProjectParameter.cs" />
+    <Compile Include="ITaxonRelationsTreeEdge.cs" />
+    <Compile Include="ITaxonRelationsTreeNode.cs" />
+    <Compile Include="PictureLifeCycleStatusTypeList.cs" />
+    <Compile Include="PictureLifeCycleStatusType.cs" />
+    <Compile Include="IPictureLifeCycleStatusType.cs" />
+    <Compile Include="PictureGuid.cs" />
+    <Compile Include="PictureMetaDataInformation.cs" />
+    <Compile Include="PictureMetaDataInformationList .cs" />
+    <Compile Include="PictureRelationDataType.cs" />
+    <Compile Include="PictureRelationDataTypeList.cs" />
+    <Compile Include="PictureGuidList.cs" />
+    <Compile Include="PictureResponse.cs" />
+    <Compile Include="IPictureResponse.cs" />
+    <Compile Include="SpeciesFactListExtension.cs" />
+    <Compile Include="SpeciesObservationArea.cs" />
+    <Compile Include="SpeciesObservationAreaList.cs" />
+    <Compile Include="SpeciesObservationProjectParameter.cs" />
+    <Compile Include="SpeciesObservationProjectParameterList.cs" />
+    <Compile Include="TaxonRelationsTree.cs" />
+    <Compile Include="TaxonRelationsTreeEdge.cs" />
+    <Compile Include="TaxonRelationsTreeExtension.cs" />
+    <Compile Include="TaxonRelationsTreeManager.cs" />
+    <Compile Include="TaxonRelationsTreeNode.cs" />
+    <Compile Include="UsageTermType.cs" />
+    <Compile Include="PictureMetaDataDescriptionId.cs" />
+    <Compile Include="ITaxonNameStatusExtension.cs" />
+    <Compile Include="TaxonNameUsageList.cs" />
+    <Compile Include="TaxonNameUsage.cs" />
+    <Compile Include="ITaxonNameUsage.cs" />
+    <Compile Include="DataSource\IReferenceDataSource.cs" />
+    <Compile Include="IOrganismGroup.cs" />
+    <Compile Include="IPicturesSearchCriteria.cs" />
+    <Compile Include="IReferenceSearchCriteria.cs" />
+    <Compile Include="ISpeciesFactDataSet.cs" />
+    <Compile Include="ISpeciesFactDataSetSelection.cs" />
+    <Compile Include="OrganismGroup.cs" />
+    <Compile Include="OrganismGroupList.cs" />
+    <Compile Include="PicturesSearchCriteria.cs" />
+    <Compile Include="RedListCalculation.cs" />
+    <Compile Include="RedListCalculator.cs" />
+    <Compile Include="RedListCriteriaBuilder.cs" />
+    <Compile Include="RedListCriteriaDocumentationCalculator.cs" />
+    <Compile Include="ReferenceList.cs" />
+    <Compile Include="ReferenceSearchCriteria.cs" />
+    <Compile Include="SpeciesFactDataSet.cs" />
+    <Compile Include="SpeciesFactDataSetSelection.cs" />
+    <Compile Include="SpeciesFactRedList.cs" />
+    <Compile Include="SpeciesFactRedListCategory.cs" />
+    <Compile Include="SpeciesFactRedListCriteria.cs" />
+    <Compile Include="SpeciesFactRedListCriteriaDocumentation.cs" />
+    <Compile Include="SpeciesObservationProvenanceList.cs" />
+    <Compile Include="DataSource\IFactorDataSource.cs" />
+    <Compile Include="DataSource\IPictureDataSource.cs" />
+    <Compile Include="DataSource\ISpeciesFactDataSource.cs" />
+    <Compile Include="Factor.cs" />
+    <Compile Include="FactorDataType.cs" />
+    <Compile Include="FactorDataTypeList.cs" />
+    <Compile Include="FactorField.cs" />
+    <Compile Include="FactorFieldEnum.cs" />
+    <Compile Include="FactorFieldEnumList.cs" />
+    <Compile Include="FactorFieldEnumValue.cs" />
+    <Compile Include="FactorFieldEnumValueList.cs" />
+    <Compile Include="FactorFieldList.cs" />
+    <Compile Include="FactorFieldType.cs" />
+    <Compile Include="FactorFieldTypeList.cs" />
+    <Compile Include="FactorList.cs" />
+    <Compile Include="FactorManager.cs" />
+    <Compile Include="FactorManagerMultiThreadCache.cs" />
+    <Compile Include="FactorOrigin.cs" />
+    <Compile Include="FactorOriginList.cs" />
+    <Compile Include="FactorSearchCriteria.cs" />
+    <Compile Include="FactorTreeNode.cs" />
+    <Compile Include="FactorTreeNodeList.cs" />
+    <Compile Include="FactorTreeSearchCriteria.cs" />
+    <Compile Include="FactorUpdateMode.cs" />
+    <Compile Include="FactorUpdateModeList.cs" />
+    <Compile Include="FactorManagerSingleThreadCache.cs" />
+    <Compile Include="GridCellCombinedStatistics.cs" />
+    <Compile Include="IFactor.cs" />
+    <Compile Include="IFactorDataType.cs" />
+    <Compile Include="IFactorField.cs" />
+    <Compile Include="IFactorFieldEnum.cs" />
+    <Compile Include="IFactorFieldEnumValue.cs" />
+    <Compile Include="IFactorFieldType.cs" />
+    <Compile Include="IFactorManager.cs" />
+    <Compile Include="IFactorOrigin.cs" />
+    <Compile Include="IFactorSearchCriteria.cs" />
+    <Compile Include="IFactorTreeNode.cs" />
+    <Compile Include="IFactorTreeSearchCriteria.cs" />
+    <Compile Include="IFactorUpdateMode.cs" />
+    <Compile Include="IGridCellCombinedStatistics.cs" />
+    <Compile Include="IIndividualCategory.cs" />
+    <Compile Include="IndividualCategory.cs" />
+    <Compile Include="IndividualCategoryList.cs" />
+    <Compile Include="IPeriod.cs" />
+    <Compile Include="IPeriodType.cs" />
+    <Compile Include="IPicture.cs" />
+    <Compile Include="IPictureInformation.cs" />
+    <Compile Include="IPictureManager.cs" />
+    <Compile Include="IPictureMetaData.cs" />
+    <Compile Include="IPictureMetaDataDescription.cs" />
+    <Compile Include="IPictureRelation.cs" />
+    <Compile Include="IPictureRelationType.cs" />
+    <Compile Include="ISpeciesFact.cs" />
+    <Compile Include="ISpeciesFactField.cs" />
+    <Compile Include="ISpeciesFactFieldSearchCriteria.cs" />
+    <Compile Include="ISpeciesFactManager.cs" />
+    <Compile Include="ISpeciesFactQuality.cs" />
+    <Compile Include="ISpeciesFactSearchCriteria.cs" />
+    <Compile Include="ISpeciesObservationChange.cs" />
+    <Compile Include="ISpeciesObservationHarvestStatistic.cs" />
+    <Compile Include="ISpeciesObservationFieldSpecification.cs" />
+    <Compile Include="ISpeciesObservationProvenance.cs" />
+    <Compile Include="ISpeciesObservationProvenanceValue.cs" />
+    <Compile Include="ISpeciesObservationSpecification.cs" />
+    <Compile Include="ITaxonSpeciesObservationCount.cs" />
+    <Compile Include="Period.cs" />
+    <Compile Include="PeriodList.cs" />
+    <Compile Include="PeriodType.cs" />
+    <Compile Include="PeriodTypeList.cs" />
+    <Compile Include="GeometryExtension.cs" />
+    <Compile Include="Picture.cs" />
+    <Compile Include="PictureInformation.cs" />
+    <Compile Include="PictureList.cs" />
+    <Compile Include="PictureManager.cs" />
+    <Compile Include="PictureManagerMultiThreadCache.cs" />
+    <Compile Include="PictureManagerSingleThreadCache.cs" />
+    <Compile Include="PictureMetaData.cs" />
+    <Compile Include="PictureMetaDataDescription.cs" />
+    <Compile Include="PictureMetaDataDescriptionList.cs" />
+    <Compile Include="PictureMetaDataList.cs" />
+    <Compile Include="PictureRelation.cs" />
+    <Compile Include="PictureRelationList.cs" />
+    <Compile Include="PictureRelationType.cs" />
+    <Compile Include="PictureRelationTypeList.cs" />
+    <Compile Include="SpeciesFact.cs" />
+    <Compile Include="SpeciesFactField.cs" />
+    <Compile Include="SpeciesFactFieldList.cs" />
+    <Compile Include="SpeciesFactFieldSearchCriteria.cs" />
+    <Compile Include="SpeciesObservationFieldSearchCriteriaList.cs" />
+    <Compile Include="SpeciesFactList.cs" />
+    <Compile Include="SpeciesFactManager.cs" />
+    <Compile Include="SpeciesFactManagerMultiThreadCache.cs" />
+    <Compile Include="SpeciesFactManagerSingleThreadCache.cs" />
+    <Compile Include="SpeciesFactQuality.cs" />
+    <Compile Include="SpeciesFactQualityList.cs" />
+    <Compile Include="SpeciesFactSearchCriteria.cs" />
+    <Compile Include="SpeciesObservationChange.cs" />
+    <Compile Include="SpeciesObservationHarvestStatistic.cs" />
+    <Compile Include="SpeciesObservationFieldSortOrderList.cs" />
+    <Compile Include="ISpeciesObservationFieldSortOrder.cs" />
+    <Compile Include="ISpeciesObservationPageSpecification.cs" />
+    <Compile Include="SpeciesActivityCategoryList.cs" />
+    <Compile Include="SpeciesActivityList.cs" />
+    <Compile Include="SpeciesActivityCategory.cs" />
+    <Compile Include="SpeciesActivity.cs" />
+    <Compile Include="ISpeciesActivityCategory.cs" />
+    <Compile Include="ISpeciesActivity.cs" />
+    <Compile Include="IGridCellFeatureStatistics.cs" />
+    <Compile Include="IGridCellBase.cs" />
+    <Compile Include="GridCellBase.cs" />
+    <Compile Include="IGridCellSpeciesCount.cs" />
+    <Compile Include="GridCellSpeciesCount.cs" />
+    <Compile Include="ILinearRing.cs" />
+    <Compile Include="ITimeStepBase.cs" />
+    <Compile Include="ITimeStepSpeciesObservationCount.cs" />
+    <Compile Include="MetadataManagerMultiThreadCache.cs" />
+    <Compile Include="MetadataManagerSingleThreadCache.cs" />
+    <Compile Include="DataSource\IAnalysisDataSource.cs" />
+    <Compile Include="FeatureStatisticsSummary.cs" />
+    <Compile Include="GridCellFeatureStatistics.cs" />
+    <Compile Include="IAnalysisManager.cs" />
+    <Compile Include="IGridCellSpeciesObservationCount.cs" />
+    <Compile Include="IGridSpecification.cs" />
+    <Compile Include="IMetadataManager.cs" />
+    <Compile Include="IReferenceManager.cs" />
+    <Compile Include="IRoleMemberSearchCriteria.cs" />
+    <Compile Include="ISpeciesObservationDataProvider.cs" />
+    <Compile Include="ISpeciesObservationFieldDescription.cs" />
+    <Compile Include="ISpeciesObservationFieldMapping.cs" />
+    <Compile Include="ITaxonAlertStatus.cs" />
+    <Compile Include="ITaxonChangeStatus.cs" />
+    <Compile Include="ITaxonNameCategoryType.cs" />
+    <Compile Include="ITaxonNameSearchCriteria.cs" />
+    <Compile Include="LumpSplitEventList.cs" />
+    <Compile Include="MetadataManager.cs" />
+    <Compile Include="ReferenceManager.cs" />
+    <Compile Include="ReferenceManagerMultiThreadCache.cs" />
+    <Compile Include="ReferenceManagerSingleThreadCache.cs" />
+    <Compile Include="ResourceAdresse.cs" />
+    <Compile Include="RoleMemberSearchCriteria.cs" />
+    <Compile Include="RoleMember.cs" />
+    <Compile Include="ILumpSplitEventType.cs" />
+    <Compile Include="ITaxonRelationSearchCriteria.cs" />
+    <Compile Include="LumpSplitEventType.cs" />
+    <Compile Include="LumpSplitEventTypeList.cs" />
+    <Compile Include="ReferenceRelationList.cs" />
+    <Compile Include="ReferenceRelationTypeList.cs" />
+    <Compile Include="SpeciesObservationDataProvider.cs" />
+    <Compile Include="SpeciesObservationDataProviderList.cs" />
+    <Compile Include="SpeciesObservationFieldDescription.cs" />
+    <Compile Include="SpeciesObservationFieldDescriptionList.cs" />
+    <Compile Include="SpeciesObservationFieldMapping.cs" />
+    <Compile Include="SpeciesObservationFieldMappingList.cs" />
+    <Compile Include="SpeciesObservationFieldSortOrder.cs" />
+    <Compile Include="SpeciesObservationFieldSpecification.cs" />
+    <Compile Include="SpeciesObservationFieldSpecificationList.cs" />
+    <Compile Include="SpeciesObservationManagerMultiThreadCache.cs" />
+    <Compile Include="SpeciesObservationManagerSingleThreadCache.cs" />
+    <Compile Include="SpeciesObservationPageSpecification.cs" />
+    <Compile Include="SpeciesObservationSpecification.cs" />
+    <Compile Include="TaxonAlertStatus.cs" />
+    <Compile Include="TaxonAlertStatusList.cs" />
+    <Compile Include="TaxonChange.cs" />
+    <Compile Include="ITaxonChange.cs" />
+    <Compile Include="DarwinCore.cs" />
+    <Compile Include="DarwinCoreChange.cs" />
+    <Compile Include="DarwinCoreConservation.cs" />
+    <Compile Include="DarwinCoreEvent.cs" />
+    <Compile Include="DarwinCoreGeologicalContext.cs" />
+    <Compile Include="DarwinCoreIdentification.cs" />
+    <Compile Include="DarwinCoreList.cs" />
+    <Compile Include="DarwinCoreLocation.cs" />
+    <Compile Include="DarwinCoreMeasurementOrFact.cs" />
+    <Compile Include="DarwinCoreOccurrence.cs" />
+    <Compile Include="DarwinCoreProject.cs" />
+    <Compile Include="DarwinCoreResourceRelationship.cs" />
+    <Compile Include="DarwinCoreTaxon.cs" />
+    <Compile Include="DataSource\ISpeciesObservationDataSource.cs" />
+    <Compile Include="DateTimeInterval.cs" />
+    <Compile Include="DateTimeSearchCriteria.cs" />
+    <Compile Include="IDarwinCore.cs" />
+    <Compile Include="IDarwinCoreChange.cs" />
+    <Compile Include="IDarwinCoreConservation.cs" />
+    <Compile Include="IDarwinCoreEvent.cs" />
+    <Compile Include="IDarwinCoreGeologicalContext.cs" />
+    <Compile Include="IDarwinCoreIdentification.cs" />
+    <Compile Include="IDarwinCoreLocation.cs" />
+    <Compile Include="IDarwinCoreMeasurementOrFact.cs" />
+    <Compile Include="IDarwinCoreOccurrence.cs" />
+    <Compile Include="IDarwinCoreProject.cs" />
+    <Compile Include="IDarwinCoreResourceRelationship.cs" />
+    <Compile Include="IDarwinCoreTaxon.cs" />
+    <Compile Include="IDateTimeInterval.cs" />
+    <Compile Include="IDateTimeSearchCriteria.cs" />
+    <Compile Include="ILockedUserInformation.cs" />
+    <Compile Include="IPolygon.cs" />
+    <Compile Include="IReferenceRelationType.cs" />
+    <Compile Include="ISpeciesObservation.cs" />
+    <Compile Include="ISpeciesObservationClass.cs" />
+    <Compile Include="ISpeciesObservationConservation.cs" />
+    <Compile Include="ISpeciesObservationEvent.cs" />
+    <Compile Include="ISpeciesObservationField.cs" />
+    <Compile Include="ISpeciesObservationFieldSearchCriteria.cs" />
+    <Compile Include="ISpeciesObservationGeologicalContext.cs" />
+    <Compile Include="ISpeciesObservationIdentification.cs" />
+    <Compile Include="ISpeciesObservationLocation.cs" />
+    <Compile Include="ISpeciesObservationManager.cs" />
+    <Compile Include="ISpeciesObservationMeasurementOrFact.cs" />
+    <Compile Include="ISpeciesObservationProject.cs" />
+    <Compile Include="ISpeciesObservationProperty.cs" />
+    <Compile Include="ISpeciesObservationResourceRelationship.cs" />
+    <Compile Include="ISpeciesObservationSearchCriteria.cs" />
+    <Compile Include="ISpeciesObservationTaxon.cs" />
+    <Compile Include="ISpeciesObservationOccurrence.cs" />
+    <Compile Include="IStringSearchCriteria.cs" />
+    <Compile Include="ITaxonNameStatus.cs" />
+    <Compile Include="ITaxonTreeNode.cs" />
+    <Compile Include="ITaxonTreeSearchCriteria.cs" />
+    <Compile Include="LinearRing.cs" />
+    <Compile Include="LockedUserInformation.cs" />
+    <Compile Include="LockedUserInformationList.cs" />
+    <Compile Include="Polygon.cs" />
+    <Compile Include="ReferenceRelationType.cs" />
+    <Compile Include="ITaxonChildQualityStatistics.cs" />
+    <Compile Include="SpeciesObservation.cs" />
+    <Compile Include="SpeciesObservationClass.cs" />
+    <Compile Include="SpeciesObservationConservation.cs" />
+    <Compile Include="SpeciesObservationEvent.cs" />
+    <Compile Include="SpeciesObservationField.cs" />
+    <Compile Include="SpeciesObservationFieldList.cs" />
+    <Compile Include="SpeciesObservationFieldSearchCriteria.cs" />
+    <Compile Include="SpeciesFactFieldSearchCriteriaList.cs" />
+    <Compile Include="SpeciesObservationGeologicalContext.cs" />
+    <Compile Include="SpeciesObservationIdentification.cs" />
+    <Compile Include="SpeciesObservationList.cs" />
+    <Compile Include="SpeciesObservationLocation.cs" />
+    <Compile Include="SpeciesObservationManager.cs" />
+    <Compile Include="SpeciesObservationMeasurementOrFact.cs" />
+    <Compile Include="SpeciesObservationOccurrence.cs" />
+    <Compile Include="SpeciesObservationProject.cs" />
+    <Compile Include="SpeciesObservationProperty.cs" />
+    <Compile Include="SpeciesObservationResourceRelationship.cs" />
+    <Compile Include="SpeciesObservationSearchCriteria.cs" />
+    <Compile Include="SpeciesObservationTaxon.cs" />
+    <Compile Include="TaxonChangeList.cs" />
+    <Compile Include="TaxonChangeStatus.cs" />
+    <Compile Include="TaxonChangeStatusList.cs" />
+    <Compile Include="TaxonChildQualityStatisticsList.cs" />
+    <Compile Include="TaxonChildStatisticsList.cs" />
+    <Compile Include="TaxonNameCategoryType.cs" />
+    <Compile Include="TaxonNameCategoryTypeList.cs" />
+    <Compile Include="TaxonNameStatus.cs" />
+    <Compile Include="TaxonNameStatusList.cs" />
+    <Compile Include="TaxonChildQualityStatistics.cs" />
+    <Compile Include="ITaxonChildStatistics.cs" />
+    <Compile Include="DataSource\IPesiNameDataSource.cs" />
+    <Compile Include="IReference.cs" />
+    <Compile Include="ITaxonRevisionSearchCriteria.cs" />
+    <Compile Include="Reference.cs" />
+    <Compile Include="ITrackable.cs" />
+    <Compile Include="TaxonPropertiesList.cs" />
+    <Compile Include="TaxonRevisionSearchCriteria.cs" />
+    <Compile Include="TaxonRevisionEventList.cs" />
+    <Compile Include="TaxonRevisionList.cs" />
+    <Compile Include="ITaxonRevision.cs" />
+    <Compile Include="ITaxonRevisionEvent.cs" />
+    <Compile Include="ITaxonRevisionEventType.cs" />
+    <Compile Include="ITaxonRevisionState.cs" />
+    <Compile Include="TaxonRevision.cs" />
+    <Compile Include="TaxonRevisionEvent.cs" />
+    <Compile Include="TaxonRevisionEventType.cs" />
+    <Compile Include="TaxonRevisionState.cs" />
+    <Compile Include="TaxonRelation.cs" />
+    <Compile Include="TaxonRelationList.cs" />
+    <Compile Include="TaxonRelationSearchCriteria.cs" />
+    <Compile Include="TaxonRevisionEventTypeList.cs" />
+    <Compile Include="TaxonRevisionStateList.cs" />
+    <Compile Include="TaxonSearchCriteria.cs" />
+    <Compile Include="ITaxonSearchCriteria.cs" />
+    <Compile Include="TaxonNameCategoryList.cs" />
+    <Compile Include="TaxonCategoryList.cs" />
+    <Compile Include="ILumpSplitEvent.cs" />
+    <Compile Include="IMessageType.cs" />
+    <Compile Include="IReferenceRelation.cs" />
+    <Compile Include="ITaxonManager.cs" />
+    <Compile Include="ITaxonRelation.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="MessageTypeList.cs" />
+    <Compile Include="ReferenceRelation.cs" />
+    <Compile Include="TaxonList.cs" />
+    <Compile Include="TaxonManagerMultiThreadCache.cs" />
+    <Compile Include="TaxonManagerSingleThreadCache.cs" />
+    <Compile Include="TaxonManager.cs" />
+    <Compile Include="DataSource\ITaxonDataSource.cs" />
+    <Compile Include="ITaxon.cs" />
+    <Compile Include="ITaxonCategory.cs" />
+    <Compile Include="ITaxonName.cs" />
+    <Compile Include="ITaxonNameCategory.cs" />
+    <Compile Include="ITaxonProperties.cs" />
+    <Compile Include="LumpSplitEvent.cs" />
+    <Compile Include="TaxonNameList.cs" />
+    <Compile Include="Taxon.cs" />
+    <Compile Include="IAuthoritySearchCriteria.cs" />
+    <Compile Include="IAuthorityDataType.cs" />
+    <Compile Include="ICoordinateSystem.cs" />
+    <Compile Include="IRegionSearchCriteria.cs" />
+    <Compile Include="RegionList.cs" />
+    <Compile Include="IBoundingBox.cs" />
+    <Compile Include="IPoint.cs" />
+    <Compile Include="IRegion.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="RegionCategoryList.cs" />
+    <Compile Include="IRegionCategory.cs" />
+    <Compile Include="RegionCategory.cs" />
+    <Compile Include="DataSource\IRegionDataSource.cs" />
+    <Compile Include="IRegionManager.cs" />
+    <Compile Include="IRegionType.cs" />
+    <Compile Include="OrganizationSearchCriteria.cs" />
+    <Compile Include="IOrganizationSearchCriteria.cs" />
+    <Compile Include="DataSource\IApplicationDataSource.cs" />
+    <Compile Include="ITransactionExtension.cs" />
+    <Compile Include="OrganizationList.cs" />
+    <Compile Include="IPersonSearchCriteria.cs" />
+    <Compile Include="IPersonUserSearchCriteria.cs" />
+    <Compile Include="IRoleSearchCriteria.cs" />
+    <Compile Include="PersonUserSearchCriteria.cs" />
+    <Compile Include="RegionManager.cs" />
+    <Compile Include="RegionManagerMultiThreadCache.cs" />
+    <Compile Include="RegionManagerSingleThreadCache.cs" />
+    <Compile Include="RegionSearchCriteria.cs" />
+    <Compile Include="RegionType.cs" />
+    <Compile Include="RegionTypeList.cs" />
+    <Compile Include="RoleSearchCriteria.cs" />
+    <Compile Include="IAuthority.cs" />
+    <Compile Include="IApplicationAction.cs" />
+    <Compile Include="IApplicationVersion.cs" />
+    <Compile Include="IApplication.cs" />
+    <Compile Include="IApplicationManager.cs" />
+    <Compile Include="OrganizationCategoryList.cs" />
+    <Compile Include="PersonSearchCriteria.cs" />
+    <Compile Include="RoleList.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="IRole.cs" />
+    <Compile Include="IOrganizationCategory.cs" />
+    <Compile Include="OrganizationCategory.cs" />
+    <Compile Include="Organization.cs" />
+    <Compile Include="IOrganization.cs" />
+    <Compile Include="OrganizationManager.cs" />
+    <Compile Include="IOrganizationManager.cs" />
+    <Compile Include="CoreData.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="CountryList.cs" />
+    <Compile Include="CountryManager.cs" />
+    <Compile Include="CountryManagerMultiThreadCache.cs" />
+    <Compile Include="CountryManagerSingleThreadCache.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="DataSourceInformation.cs" />
+    <Compile Include="DataSource\ICountryDataSource.cs" />
+    <Compile Include="DataSource\IDataSource.cs" />
+    <Compile Include="DataSource\ILocaleDataSource.cs" />
+    <Compile Include="DataSource\IUserDataSource.cs" />
+    <Compile Include="IAddress.cs" />
+    <Compile Include="IAddressType.cs" />
+    <Compile Include="ICountry.cs" />
+    <Compile Include="ICountryManager.cs" />
+    <Compile Include="IDataContext.cs" />
+    <Compile Include="IDataSourceInformation.cs" />
+    <Compile Include="ILocale.cs" />
+    <Compile Include="ILocaleManager.cs" />
+    <Compile Include="IManager.cs" />
+    <Compile Include="IPasswordInformation.cs" />
+    <Compile Include="IPerson.cs" />
+    <Compile Include="IPersonGender.cs" />
+    <Compile Include="IPhoneNumber.cs" />
+    <Compile Include="IPhoneNumberType.cs" />
+    <Compile Include="ITransaction.cs" />
+    <Compile Include="IUpdateInformation.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="IUserContext.cs" />
+    <Compile Include="IUserManager.cs" />
+    <Compile Include="Locale.cs" />
+    <Compile Include="LocaleList.cs" />
+    <Compile Include="LocaleManager.cs" />
+    <Compile Include="LocaleManagerMultiThreadCache.cs" />
+    <Compile Include="LocaleManagerSingleThreadCache.cs" />
+    <Compile Include="PasswordInformation.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="PersonGender.cs" />
+    <Compile Include="PersonGenderList.cs" />
+    <Compile Include="PersonList.cs" />
+    <Compile Include="PhoneNumber.cs" />
+    <Compile Include="PhoneNumberList.cs" />
+    <Compile Include="PhoneNumberType.cs" />
+    <Compile Include="PhoneNumberTypeList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\WebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StringSearchCriteria.cs" />
+    <Compile Include="TaxonCategory.cs" />
+    <Compile Include="TaxonName.cs" />
+    <Compile Include="TaxonNameCategory.cs" />
+    <Compile Include="TaxonNameSearchCriteria.cs" />
+    <Compile Include="TaxonProperties.cs" />
+    <Compile Include="TaxonChildStatistics.cs" />
+    <Compile Include="TaxonSpeciesObservationCount.cs" />
+    <Compile Include="TaxonSpeciesObservationCountList.cs" />
+    <Compile Include="TaxonTreeNode.cs" />
+    <Compile Include="TaxonTreeNodeList.cs" />
+    <Compile Include="TaxonTreeSearchCriteria.cs" />
+    <Compile Include="TimeStepBase.cs" />
+    <Compile Include="TimeStepSpeciesObservationCount.cs" />
+    <Compile Include="TimeStepSpeciesObservationCountList.cs" />
+    <Compile Include="Trackable.cs" />
+    <Compile Include="Transaction.cs" />
+    <Compile Include="TransactionList.cs" />
+    <Compile Include="UpdateInformation.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserContext.cs" />
+    <Compile Include="UserList.cs" />
+    <Compile Include="UserManager.cs" />
+    <Compile Include="UserManagerMultiThreadCache.cs" />
+    <Compile Include="UserManagerSingleThreadCache.cs" />
+    <Compile Include="GridSpecification.cs" />
+    <Compile Include="GridCellSpeciesObservationCount.cs" />
+    <Compile Include="SpeciesObservationHarvestStatus.cs" />
+    <Compile Include="SpeciesObservationProvenance.cs" />
+    <Compile Include="SpeciesObservationProvenanceValue.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebBirdNestActivity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebCity.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebCounty.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebDatabase.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebDatabaseUpdate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebEndangeredList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorDataType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorFieldEnum.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorFieldType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorOrigin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorTreeNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebFactorUpdateMode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebIndividualCategory.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebLogRow.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebPeriod.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebPeriodType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebProvince.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebReference.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebResourceStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebSpeciesFact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebSpeciesFactQuality.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebSpeciesObservationChange.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebSpeciesObservationInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxon.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonCountyOccurrence.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonName.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonNameType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonNameUseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonTreeNode.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebTaxonType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabanken.Data.WebService.WebUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\WebService\ArtDatabankenService.wsdl">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\ArtDatabankenService1.wsdl" />
+    <None Include="Service References\WebService\ArtDatabankenService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\ArtDatabankenService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\ArtDatabankenService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\WebService\ArtDatabankenService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\WebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebService\ArtDatabankenService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\WebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

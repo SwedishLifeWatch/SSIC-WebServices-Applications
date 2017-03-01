@@ -1,0 +1,24 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Taxon.TaxonSummaryViewModel
+
+<p>
+    <h3>        
+        <img src="@Url.Content(Model.AlertImageUrl)" alt="Status" />     
+        <span style="vertical-align: text-top;">
+        <strong>@Model.Category:</strong>
+        @if (Model.ScientificName != null)
+        {
+            <text>@Html.RenderScientificName(Model.ScientificName.Name, null, Model.CategorySortOrder)</text>        
+        }
+        else
+        {
+            @:-
+        }
+        @(Model.CommonName != null ? string.Format(" - {0}", Model.CommonName.Name) : "")    
+        </span>
+    </h3>       
+</p>
+   
+<a id="TaxonDetails_TaxonLink" target="_blank" href="@string.Format("https://www.dyntaxa.se/taxon/info/{0}",Model.Id)">@Resource.TaxonSummaryReadMoreInDyntaxa</a>      
+@Html.Partial("TaxonSummary", Model)    
+    

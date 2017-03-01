@@ -1,0 +1,54 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity.QueryComplexityEstimate
+
+<div class="modal fade" id="queryComplexityModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@Model.ComplexityDescription.Title</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+            @Resource.QueryComplexityIntro:
+            <ul class="ellipseList">                
+                <li>@Model.ComplexityDescription.Text</li>
+            </ul>
+        </div>        
+        @if (Model.ComplexityDescription.SuggestedResultViews.Count > 0)
+        {
+            <div style="margin-top: 20px;">
+                @Resource.QueryComplexityFasterViewsSuggestion:
+                <ul class="ellipseList">
+                    @foreach (var item in Model.ComplexityDescription.SuggestedResultViews)
+                    {
+                        <li>@Html.ActionLink(item.Title, item.StaticPageInfo.Action, item.StaticPageInfo.Controller)</li>
+                    }
+                </ul>
+            </div>
+        }
+        <span style="font-size: 14px; font-weight: bold; float:right;">@Resource.QueryComplexityDoYouWantToRun</span>
+      </div>
+      <div class="modal-footer">
+        <button id="queryComplexityModalYesButton" class="btn btn-primary" type="button" data-dismiss="modal">@Resource.SharedDialogButtonTextYes</button>    
+        <button id="queryComplexityModalNoButton" class="btn btn-primary" type="button" data-dismiss="modal">@Resource.SharedDialogButtonTextNo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {        
+        $('#queryComplexityModalYesButton').click(function () {            
+            if (AnalysisPortal.QueryComplexityDialog.continueCallback
+                 && typeof (AnalysisPortal.QueryComplexityDialog.continueCallback) === "function") {
+                AnalysisPortal.QueryComplexityDialog.continueCallback();
+            }            
+        });
+        $('#queryComplexityModalNoButton').click(function () {
+            
+        });
+    });
+</script>

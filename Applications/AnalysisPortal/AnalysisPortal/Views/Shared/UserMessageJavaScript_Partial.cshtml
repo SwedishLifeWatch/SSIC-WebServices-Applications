@@ -1,0 +1,23 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+ <script type="text/javascript">
+    $(document).ready(function () {
+        setTimeout(function () {
+            var messages = [];
+            @foreach (UserMessage userMessage in ViewBag.UserMessages)
+            {
+                <text>
+            messages.push({
+                Message: '@userMessage.Message',
+                MessageType: '@userMessage.MessageType.ToString().ToLower()'
+            });
+            </text>
+            }
+            for (var i = 0; i < messages.length; i++) {
+                AnalysisPortal.showToasterMsg(messages[i].Message, null, {
+                    messageType: messages[i].MessageType
+                });
+            }                        
+        }, 500);
+
+    });                
+</script>   

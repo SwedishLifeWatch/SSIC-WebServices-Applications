@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="dd1c001b-b7ee-4de8-a6d0-7182d501ed8b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ArtDatabanken" />
+      <ReferencedAssembly AssemblyName="ArtDatabanken.WebService.Data" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SpeciesObservationHarvestService.wsdl" MetadataType="Wsdl" ID="d375c978-b151-4169-8b61-62f9e957ff8e" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SpeciesObservationHarvestService.xsd" MetadataType="Schema" ID="bf7d0e7b-79d2-49c6-8fcd-8923a351704d" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SpeciesObservationHarvestService1.xsd" MetadataType="Schema" ID="21ec3d89-8da2-444a-90cc-90edd058d386" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SpeciesObservationHarvestService2.xsd" MetadataType="Schema" ID="63d67ee5-399c-430e-a4de-648e61f982be" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SpeciesObservationHarvestService3.xsd" MetadataType="Schema" ID="dae2683f-498b-4f84-9072-aa6787633ece" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SpeciesObservationHarvestService4.xsd" MetadataType="Schema" ID="7b686fde-3606-4080-91a0-36819d89aed5" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SpeciesObservationHarvestService1.wsdl" MetadataType="Wsdl" ID="e3856f1a-a978-4acd-8af1-de37d2fa03fe" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?wsdl" />
+    <MetadataFile FileName="SpeciesObservationHarvestService.disco" MetadataType="Disco" ID="099cb2ec-f18e-4f24-a35d-c4ce93eecf30" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

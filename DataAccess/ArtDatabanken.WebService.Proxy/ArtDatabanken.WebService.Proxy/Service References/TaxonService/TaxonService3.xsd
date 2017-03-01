@@ -1,0 +1,1032 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" elementFormDefault="qualified" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="CheckInTaxonRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q1:WebClientInformation" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevision" nillable="true" type="q2:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckInTaxonRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CheckInTaxonRevisionResult" nillable="true" type="q3:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOutTaxonRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q4:WebClientInformation" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevision" nillable="true" type="q5:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckOutTaxonRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CheckOutTaxonRevisionResult" nillable="true" type="q6:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearCache">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q7:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearCacheResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q8:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CommitTransactionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLumpSplitEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q9:WebClientInformation" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="lumpSplitEvent" nillable="true" type="q10:WebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateLumpSplitEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateLumpSplitEventResult" nillable="true" type="q11:WebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q12:WebClientInformation" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxon" nillable="true" type="q13:WebTaxon" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevisionEvent" nillable="true" type="q14:WebTaxonRevisionEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonResult" nillable="true" type="q15:WebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q16:WebClientInformation" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonName" nillable="true" type="q17:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonNameResult" nillable="true" type="q18:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q19:WebClientInformation" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonProperties" nillable="true" type="q20:WebTaxonProperties" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonPropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonPropertiesResult" nillable="true" type="q21:WebTaxonProperties" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRelation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q22:WebClientInformation" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRelation" nillable="true" type="q23:WebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRelationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonRelationResult" nillable="true" type="q24:WebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q25:WebClientInformation" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevision" nillable="true" type="q26:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonRevisionResult" nillable="true" type="q27:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRevisionEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q28:WebClientInformation" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevisionEvent" nillable="true" type="q29:WebTaxonRevisionEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaxonRevisionEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="CreateTaxonRevisionEventResult" nillable="true" type="q30:WebTaxonRevisionEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaxonRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q31:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaxonRevisionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaxonRevisionEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q32:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionEventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaxonRevisionEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q33:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q34:WebClientInformation" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="type" type="q35:LogType" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rowCount" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLogResult" nillable="true" type="q36:ArrayOfWebLogRow" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q37:WebClientInformation" />
+        <xs:element minOccurs="0" name="lumpSplitEventGuid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLumpSplitEventByGuidResult" nillable="true" type="q38:WebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q39:WebClientInformation" />
+        <xs:element minOccurs="0" name="lumpSplitEventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLumpSplitEventByIdResult" nillable="true" type="q40:WebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventsByNewReplacingTaxon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q41:WebClientInformation" />
+        <xs:element minOccurs="0" name="newReplacingTaxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventsByNewReplacingTaxonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLumpSplitEventsByNewReplacingTaxonResult" nillable="true" type="q42:ArrayOfWebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventsByOldReplacedTaxon">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q43:WebClientInformation" />
+        <xs:element minOccurs="0" name="oldReplacedTaxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventsByOldReplacedTaxonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLumpSplitEventsByOldReplacedTaxonResult" nillable="true" type="q44:ArrayOfWebLumpSplitEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q45:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLumpSplitEventTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetLumpSplitEventTypesResult" nillable="true" type="q46:ArrayOfWebLumpSplitEventType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q47:WebClientInformation" />
+        <xs:element minOccurs="0" name="referenceRelationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetReferenceRelationByIdResult" nillable="true" type="q48:WebReferenceRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationsByRelatedObjectGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q49:WebClientInformation" />
+        <xs:element minOccurs="0" name="relatedObjectGuid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationsByRelatedObjectGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetReferenceRelationsByRelatedObjectGuidResult" nillable="true" type="q50:ArrayOfWebReferenceRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q51:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReferenceRelationTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetReferenceRelationTypesResult" nillable="true" type="q52:ArrayOfWebReferenceRelationType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q53:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetStatusResult" nillable="true" type="q54:ArrayOfWebResourceStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxaByIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q55:WebClientInformation" />
+        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="taxonIds" nillable="true" type="q56:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxaByIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxaByIdsResult" nillable="true" type="q57:ArrayOfWebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxaBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q58:WebClientInformation" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q59:WebTaxonSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxaBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxaBySearchCriteriaResult" nillable="true" type="q60:ArrayOfWebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonAlertStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q61:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonAlertStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonAlertStatusesResult" nillable="true" type="q62:ArrayOfWebTaxonAlertStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q63:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonGuid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonByGuidResult" nillable="true" type="q64:WebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q65:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonByIdResult" nillable="true" type="q66:WebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q67:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonCategoriesResult" nillable="true" type="q68:ArrayOfWebTaxonCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonCategoriesByTaxonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q69:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonCategoriesByTaxonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonCategoriesByTaxonIdResult" nillable="true" type="q70:ArrayOfWebTaxonCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChange">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q71:WebClientInformation" />
+        <xs:element minOccurs="0" name="rootTaxonId" type="xs:int" />
+        <xs:element minOccurs="0" name="isRootTaxonIdSpecified" type="xs:boolean" />
+        <xs:element minOccurs="0" name="dateFrom" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="dateTo" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChangeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonChangeResult" nillable="true" type="q72:ArrayOfWebTaxonChange" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChangeStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q73:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChangeStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonChangeStatusesResult" nillable="true" type="q74:ArrayOfWebTaxonChangeStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChildQualityStatistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q75:WebClientInformation" />
+        <xs:element minOccurs="0" name="rootTaxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChildQualityStatisticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonChildQualityStatisticsResult" nillable="true" type="q76:ArrayOfWebTaxonChildQualityStatistics" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChildStatistics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q77:WebClientInformation" />
+        <xs:element minOccurs="0" name="rootTaxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonChildStatisticsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonChildStatisticsResult" nillable="true" type="q78:ArrayOfWebTaxonChildStatistics" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonConceptDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q79:WebClientInformation" />
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxon" nillable="true" type="q80:WebTaxon" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonConceptDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaxonConceptDefinitionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q81:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonNameGuid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameByGuidResult" nillable="true" type="q82:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q83:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonNameId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameByIdResult" nillable="true" type="q84:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q85:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameCategoriesResult" nillable="true" type="q86:ArrayOfWebTaxonNameCategory" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameCategoryTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q87:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameCategoryTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameCategoryTypesResult" nillable="true" type="q88:ArrayOfWebTaxonNameCategoryType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q89:WebClientInformation" />
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q90:WebTaxonNameSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNamesBySearchCriteriaResult" nillable="true" type="q91:ArrayOfWebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesByTaxonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q92:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesByTaxonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNamesByTaxonIdResult" nillable="true" type="q93:ArrayOfWebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesByTaxonIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q94:WebClientInformation" />
+        <xs:element xmlns:q95="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="taxonIds" nillable="true" type="q95:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNamesByTaxonIdsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNamesByTaxonIdsResult" nillable="true" type="q96:ArrayOfArrayOfWebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameStatuses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q97:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameStatusesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameStatusesResult" nillable="true" type="q98:ArrayOfWebTaxonNameStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameUsages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q99:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonNameUsagesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonNameUsagesResult" nillable="true" type="q100:ArrayOfWebTaxonNameUsage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonPropertiesByTaxonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q101:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonPropertiesByTaxonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonPropertiesByTaxonIdResult" nillable="true" type="q102:ArrayOfWebTaxonProperties" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRelationById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q103:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRelationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRelationByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRelationByIdResult" nillable="true" type="q104:WebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRelationsBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q105:WebClientInformation" />
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q106:WebTaxonRelationSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRelationsBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRelationsBySearchCriteriaResult" nillable="true" type="q107:ArrayOfWebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q108:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionGuid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionByGuidResult" nillable="true" type="q109:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q110:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionByIdResult" nillable="true" type="q111:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q112:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionEventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionEventByIdResult" nillable="true" type="q113:WebTaxonRevisionEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventsByTaxonRevisionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q114:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventsByTaxonRevisionIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionEventsByTaxonRevisionIdResult" nillable="true" type="q115:ArrayOfWebTaxonRevisionEvent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q116:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionEventTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionEventTypesResult" nillable="true" type="q117:ArrayOfWebTaxonRevisionEventType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionsBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q118:WebClientInformation" />
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q119:WebTaxonRevisionSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionsBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionsBySearchCriteriaResult" nillable="true" type="q120:ArrayOfWebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionsByTaxonId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q121:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionsByTaxonIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionsByTaxonIdResult" nillable="true" type="q122:ArrayOfWebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionStates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q123:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonRevisionStatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonRevisionStatesResult" nillable="true" type="q124:ArrayOfWebTaxonRevisionState" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonTreesBySearchCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q125:WebClientInformation" />
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="searchCriteria" nillable="true" type="q126:WebTaxonTreeSearchCriteria" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaxonTreesBySearchCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="GetTaxonTreesBySearchCriteriaResult" nillable="true" type="q127:ArrayOfWebTaxonTreeNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="applicationIdentifier" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="isActivationRequired" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="LoginResult" nillable="true" type="q128:WebLoginResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q129:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="PingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RollbackTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q130:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RollbackTransactionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q131:WebClientInformation" />
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q132:WebClientInformation" />
+        <xs:element minOccurs="0" name="timeout" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartTransactionResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopTrace">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q133:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StopTraceResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q134:WebClientInformation" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonName" nillable="true" type="q135:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="UpdateTaxonNameResult" nillable="true" type="q136:WebTaxonName" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonProperties">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q137:WebClientInformation" />
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonProperties" nillable="true" type="q138:WebTaxonProperties" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonPropertiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="UpdateTaxonPropertiesResult" nillable="true" type="q139:WebTaxonProperties" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRelation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q140:WebClientInformation" />
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRelation" nillable="true" type="q141:WebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRelationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="UpdateTaxonRelationResult" nillable="true" type="q142:WebTaxonRelation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRevision">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q143:WebClientInformation" />
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="taxonRevision" nillable="true" type="q144:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRevisionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="UpdateTaxonRevisionResult" nillable="true" type="q145:WebTaxonRevision" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRevisionEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q146:WebClientInformation" />
+        <xs:element minOccurs="0" name="taxonRevisionEventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonRevisionEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonSpeciesFacts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q147:WebClientInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonSpeciesFactsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonTreeSortOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" minOccurs="0" name="clientInformation" nillable="true" type="q148:WebClientInformation" />
+        <xs:element minOccurs="0" name="parentTaxonId" type="xs:int" />
+        <xs:element xmlns:q149="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="childTaxonIds" nillable="true" type="q149:ArrayOfint" />
+        <xs:element minOccurs="0" name="taxonRevisionEventId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaxonTreeSortOrderResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

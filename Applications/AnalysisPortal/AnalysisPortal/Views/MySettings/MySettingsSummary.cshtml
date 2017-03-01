@@ -1,0 +1,44 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.MySettingsSummary
+@model MySettingsSummaryViewModel
+
+<h3>@Resource.MySettingsCurrentSettingsHeader</h3>
+
+@foreach (var settingGroup in Model.SettingGroups)
+{
+    if (!settingGroup.HideInMySettings)
+    {
+       <ul>
+           <li>
+               <h4><i class="icon-white @settingGroup.IconClass" style="margin-right: 0px; color: gray;"></i> @settingGroup.Title</h4>               
+               <ul>
+                   @foreach (var item in settingGroup.Items)
+                   {
+                       if (item.HasSettings && !string.IsNullOrEmpty(item.Title))
+                       {
+                           <li>
+                               @if (item.SupportDeactivation)
+                               {
+                                   @Html.CheckBox(item.Identifier.ToString(), item.IsActive, item.HasSettings && item.Identifier != MySettingsSummaryItemIdentifier.DataProviders ? new Dictionary<string, object>() {{"class", "toggleSetting"}, {"data-identifier", (int) item.Identifier}} : new Dictionary<string, object>() {{"class", "toggleSetting"}, {"data-identifier", (int) item.Identifier}, {"disabled", "disabled"}})
+                               }
+                               else
+                               {
+                                   <span style="margin-left: 16px;"></span>
+                               }
+
+                               <a class="bold" href="@Url.Action(item.PageInfo.Action, item.PageInfo.Controller)" data-identifier="@((int) item.Identifier)">@Html.Raw(item.Title)</a>
+                               @if (item.HasSettings && item.HasSettingsSummary)
+                               {
+                                   <span>&nbsp;&nbsp;</span>
+                                   <img alt="info" class="mousepointer noTooltip" src="~/Content/images/information.png" title="@item.Title" data-toggle="popover" data-identifier="@((int) item.Identifier)" data-type="summaryitem" data-placement="auto right" data-trigger="hover" data-delay='{"show":"0", "hide":"250"}'/>
+                               }
+                               <br/>
+                           </li>
+                       }
+                   }
+               </ul>
+           </li>
+        </ul> 
+    }
+}
+
+@Html.Action("MySettingsSummaryButtonGroup", "MySettings")

@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITaxonService_CheckInTaxonRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInTaxonRevision" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CheckInTaxonRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckInTaxonRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CheckOutTaxonRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOutTaxonRevision" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CheckOutTaxonRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckOutTaxonRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateLumpSplitEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLumpSplitEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateLumpSplitEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateLumpSplitEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxon_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxon" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonName_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonName" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonProperties" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRelation" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRevision" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRevisionEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRevisionEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_CreateTaxonRevisionEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaxonRevisionEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTaxonRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaxonRevision" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTaxonRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaxonRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTaxonRevisionEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaxonRevisionEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTaxonRevisionEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaxonRevisionEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventByGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventByGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventsByNewReplacingTaxon_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventsByNewReplacingTaxon" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventsByNewReplacingTaxon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventsByNewReplacingTaxonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventsByOldReplacedTaxon_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventsByOldReplacedTaxon" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventsByOldReplacedTaxon_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventsByOldReplacedTaxonResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetLumpSplitEventTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLumpSplitEventTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationsByRelatedObjectGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationsByRelatedObjectGuid" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationsByRelatedObjectGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationsByRelatedObjectGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetReferenceRelationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxaByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByIds" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxaByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxaBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxaBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonAlertStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonAlertStatuses" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonAlertStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonAlertStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonByGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonByGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCategories" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonCategoriesByTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCategoriesByTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonCategoriesByTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonCategoriesByTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChange" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChangeStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChangeStatuses" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChangeStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChangeStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChildQualityStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChildQualityStatistics" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChildQualityStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChildQualityStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChildStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChildStatistics" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonChildStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonChildStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonConceptDefinition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonConceptDefinition" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonConceptDefinition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonConceptDefinitionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameByGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameByGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameCategories" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameCategoryTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameCategoryTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameCategoryTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameCategoryTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesByTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesByTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesByTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesByTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesByTaxonIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesByTaxonIds" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNamesByTaxonIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNamesByTaxonIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameStatuses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameStatuses" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameStatuses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameUsages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameUsages" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonNameUsages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonNameUsagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonPropertiesByTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonPropertiesByTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonPropertiesByTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonPropertiesByTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRelationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRelationById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRelationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRelationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRelationsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRelationsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRelationsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRelationsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionByGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionByGuid" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionByGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionByGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventById" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventsByTaxonRevisionId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventsByTaxonRevisionId" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventsByTaxonRevisionId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventsByTaxonRevisionIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventTypes" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionEventTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionEventTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionsByTaxonId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionsByTaxonId" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionsByTaxonId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionsByTaxonIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionStates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionStates" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonRevisionStates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonRevisionStatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonTreesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTreesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_GetTaxonTreesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxonTreesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonName_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonName" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonProperties_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonProperties" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonProperties_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonPropertiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRelation" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRevision_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRevision" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRevision_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRevisionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRevisionEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRevisionEvent" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonRevisionEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonRevisionEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonSpeciesFacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonSpeciesFacts" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonSpeciesFacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonSpeciesFactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonTreeSortOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonTreeSortOrder" />
+  </wsdl:message>
+  <wsdl:message name="ITaxonService_UpdateTaxonTreeSortOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaxonTreeSortOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="ITaxonService">
+    <wsdl:operation name="CheckInTaxonRevision">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckInTaxonRevision" message="tns:ITaxonService_CheckInTaxonRevision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckInTaxonRevisionResponse" message="tns:ITaxonService_CheckInTaxonRevision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTaxonRevision">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckOutTaxonRevision" message="tns:ITaxonService_CheckOutTaxonRevision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckOutTaxonRevisionResponse" message="tns:ITaxonService_CheckOutTaxonRevision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/ClearCache" message="tns:ITaxonService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/ClearCacheResponse" message="tns:ITaxonService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CommitTransaction" message="tns:ITaxonService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CommitTransactionResponse" message="tns:ITaxonService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateLumpSplitEvent">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateLumpSplitEvent" message="tns:ITaxonService_CreateLumpSplitEvent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateLumpSplitEventResponse" message="tns:ITaxonService_CreateLumpSplitEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxon">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxon" message="tns:ITaxonService_CreateTaxon_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonResponse" message="tns:ITaxonService_CreateTaxon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonName">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonName" message="tns:ITaxonService_CreateTaxonName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonNameResponse" message="tns:ITaxonService_CreateTaxonName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonProperties">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonProperties" message="tns:ITaxonService_CreateTaxonProperties_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonPropertiesResponse" message="tns:ITaxonService_CreateTaxonProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRelation" message="tns:ITaxonService_CreateTaxonRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRelationResponse" message="tns:ITaxonService_CreateTaxonRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevision">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevision" message="tns:ITaxonService_CreateTaxonRevision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionResponse" message="tns:ITaxonService_CreateTaxonRevision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevisionEvent">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionEvent" message="tns:ITaxonService_CreateTaxonRevisionEvent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionEventResponse" message="tns:ITaxonService_CreateTaxonRevisionEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevision">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevision" message="tns:ITaxonService_DeleteTaxonRevision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionResponse" message="tns:ITaxonService_DeleteTaxonRevision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevisionEvent">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionEvent" message="tns:ITaxonService_DeleteTaxonRevisionEvent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionEventResponse" message="tns:ITaxonService_DeleteTaxonRevisionEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTrace" message="tns:ITaxonService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTraceResponse" message="tns:ITaxonService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLog" message="tns:ITaxonService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLogResponse" message="tns:ITaxonService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventByGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByGuid" message="tns:ITaxonService_GetLumpSplitEventByGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByGuidResponse" message="tns:ITaxonService_GetLumpSplitEventByGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventById" message="tns:ITaxonService_GetLumpSplitEventById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByIdResponse" message="tns:ITaxonService_GetLumpSplitEventById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByNewReplacingTaxon">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByNewReplacingTaxon" message="tns:ITaxonService_GetLumpSplitEventsByNewReplacingTaxon_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByNewReplacingTaxonResponse" message="tns:ITaxonService_GetLumpSplitEventsByNewReplacingTaxon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByOldReplacedTaxon">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByOldReplacedTaxon" message="tns:ITaxonService_GetLumpSplitEventsByOldReplacedTaxon_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByOldReplacedTaxonResponse" message="tns:ITaxonService_GetLumpSplitEventsByOldReplacedTaxon_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventTypes" message="tns:ITaxonService_GetLumpSplitEventTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventTypesResponse" message="tns:ITaxonService_GetLumpSplitEventTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationById" message="tns:ITaxonService_GetReferenceRelationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationByIdResponse" message="tns:ITaxonService_GetReferenceRelationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationsByRelatedObjectGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationsByRelatedObjectGuid" message="tns:ITaxonService_GetReferenceRelationsByRelatedObjectGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationsByRelatedObjectGuidResponse" message="tns:ITaxonService_GetReferenceRelationsByRelatedObjectGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationTypes" message="tns:ITaxonService_GetReferenceRelationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationTypesResponse" message="tns:ITaxonService_GetReferenceRelationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetStatus" message="tns:ITaxonService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetStatusResponse" message="tns:ITaxonService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaByIds" message="tns:ITaxonService_GetTaxaByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaByIdsResponse" message="tns:ITaxonService_GetTaxaByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaBySearchCriteria" message="tns:ITaxonService_GetTaxaBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaBySearchCriteriaResponse" message="tns:ITaxonService_GetTaxaBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonAlertStatuses">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonAlertStatuses" message="tns:ITaxonService_GetTaxonAlertStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonAlertStatusesResponse" message="tns:ITaxonService_GetTaxonAlertStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonByGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByGuid" message="tns:ITaxonService_GetTaxonByGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByGuidResponse" message="tns:ITaxonService_GetTaxonByGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonById" message="tns:ITaxonService_GetTaxonById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByIdResponse" message="tns:ITaxonService_GetTaxonById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategories" message="tns:ITaxonService_GetTaxonCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesResponse" message="tns:ITaxonService_GetTaxonCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategoriesByTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesByTaxonId" message="tns:ITaxonService_GetTaxonCategoriesByTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesByTaxonIdResponse" message="tns:ITaxonService_GetTaxonCategoriesByTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChange">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChange" message="tns:ITaxonService_GetTaxonChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeResponse" message="tns:ITaxonService_GetTaxonChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChangeStatuses">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeStatuses" message="tns:ITaxonService_GetTaxonChangeStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeStatusesResponse" message="tns:ITaxonService_GetTaxonChangeStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildQualityStatistics">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildQualityStatistics" message="tns:ITaxonService_GetTaxonChildQualityStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildQualityStatisticsResponse" message="tns:ITaxonService_GetTaxonChildQualityStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildStatistics">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildStatistics" message="tns:ITaxonService_GetTaxonChildStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildStatisticsResponse" message="tns:ITaxonService_GetTaxonChildStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonConceptDefinition">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonConceptDefinition" message="tns:ITaxonService_GetTaxonConceptDefinition_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonConceptDefinitionResponse" message="tns:ITaxonService_GetTaxonConceptDefinition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameByGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByGuid" message="tns:ITaxonService_GetTaxonNameByGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByGuidResponse" message="tns:ITaxonService_GetTaxonNameByGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameById" message="tns:ITaxonService_GetTaxonNameById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByIdResponse" message="tns:ITaxonService_GetTaxonNameById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategories" message="tns:ITaxonService_GetTaxonNameCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoriesResponse" message="tns:ITaxonService_GetTaxonNameCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategoryTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoryTypes" message="tns:ITaxonService_GetTaxonNameCategoryTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoryTypesResponse" message="tns:ITaxonService_GetTaxonNameCategoryTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesBySearchCriteria" message="tns:ITaxonService_GetTaxonNamesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesBySearchCriteriaResponse" message="tns:ITaxonService_GetTaxonNamesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonId" message="tns:ITaxonService_GetTaxonNamesByTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIdResponse" message="tns:ITaxonService_GetTaxonNamesByTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIds" message="tns:ITaxonService_GetTaxonNamesByTaxonIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIdsResponse" message="tns:ITaxonService_GetTaxonNamesByTaxonIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameStatuses">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameStatuses" message="tns:ITaxonService_GetTaxonNameStatuses_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameStatusesResponse" message="tns:ITaxonService_GetTaxonNameStatuses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameUsages">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameUsages" message="tns:ITaxonService_GetTaxonNameUsages_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameUsagesResponse" message="tns:ITaxonService_GetTaxonNameUsages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonPropertiesByTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonPropertiesByTaxonId" message="tns:ITaxonService_GetTaxonPropertiesByTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonPropertiesByTaxonIdResponse" message="tns:ITaxonService_GetTaxonPropertiesByTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationById" message="tns:ITaxonService_GetTaxonRelationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationByIdResponse" message="tns:ITaxonService_GetTaxonRelationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationsBySearchCriteria" message="tns:ITaxonService_GetTaxonRelationsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationsBySearchCriteriaResponse" message="tns:ITaxonService_GetTaxonRelationsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionByGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByGuid" message="tns:ITaxonService_GetTaxonRevisionByGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByGuidResponse" message="tns:ITaxonService_GetTaxonRevisionByGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionById" message="tns:ITaxonService_GetTaxonRevisionById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByIdResponse" message="tns:ITaxonService_GetTaxonRevisionById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventById" message="tns:ITaxonService_GetTaxonRevisionEventById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventByIdResponse" message="tns:ITaxonService_GetTaxonRevisionEventById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventsByTaxonRevisionId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventsByTaxonRevisionId" message="tns:ITaxonService_GetTaxonRevisionEventsByTaxonRevisionId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventsByTaxonRevisionIdResponse" message="tns:ITaxonService_GetTaxonRevisionEventsByTaxonRevisionId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventTypes" message="tns:ITaxonService_GetTaxonRevisionEventTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventTypesResponse" message="tns:ITaxonService_GetTaxonRevisionEventTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsBySearchCriteria" message="tns:ITaxonService_GetTaxonRevisionsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsBySearchCriteriaResponse" message="tns:ITaxonService_GetTaxonRevisionsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsByTaxonId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsByTaxonId" message="tns:ITaxonService_GetTaxonRevisionsByTaxonId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsByTaxonIdResponse" message="tns:ITaxonService_GetTaxonRevisionsByTaxonId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionStates">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionStates" message="tns:ITaxonService_GetTaxonRevisionStates_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionStatesResponse" message="tns:ITaxonService_GetTaxonRevisionStates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTreesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonTreesBySearchCriteria" message="tns:ITaxonService_GetTaxonTreesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonTreesBySearchCriteriaResponse" message="tns:ITaxonService_GetTaxonTreesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Login" message="tns:ITaxonService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/LoginResponse" message="tns:ITaxonService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Logout" message="tns:ITaxonService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/LogoutResponse" message="tns:ITaxonService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Ping" message="tns:ITaxonService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/PingResponse" message="tns:ITaxonService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/RollbackTransaction" message="tns:ITaxonService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/RollbackTransactionResponse" message="tns:ITaxonService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTrace" message="tns:ITaxonService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTraceResponse" message="tns:ITaxonService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTransaction" message="tns:ITaxonService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTransactionResponse" message="tns:ITaxonService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StopTrace" message="tns:ITaxonService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StopTraceResponse" message="tns:ITaxonService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonName">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonName" message="tns:ITaxonService_UpdateTaxonName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonNameResponse" message="tns:ITaxonService_UpdateTaxonName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonProperties">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonProperties" message="tns:ITaxonService_UpdateTaxonProperties_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonPropertiesResponse" message="tns:ITaxonService_UpdateTaxonProperties_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRelation" message="tns:ITaxonService_UpdateTaxonRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRelationResponse" message="tns:ITaxonService_UpdateTaxonRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevision">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevision" message="tns:ITaxonService_UpdateTaxonRevision_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionResponse" message="tns:ITaxonService_UpdateTaxonRevision_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevisionEvent">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionEvent" message="tns:ITaxonService_UpdateTaxonRevisionEvent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionEventResponse" message="tns:ITaxonService_UpdateTaxonRevisionEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonSpeciesFacts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonSpeciesFacts" message="tns:ITaxonService_UpdateTaxonSpeciesFacts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonSpeciesFactsResponse" message="tns:ITaxonService_UpdateTaxonSpeciesFacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonTreeSortOrder">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonTreeSortOrder" message="tns:ITaxonService_UpdateTaxonTreeSortOrder_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonTreeSortOrderResponse" message="tns:ITaxonService_UpdateTaxonTreeSortOrder_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

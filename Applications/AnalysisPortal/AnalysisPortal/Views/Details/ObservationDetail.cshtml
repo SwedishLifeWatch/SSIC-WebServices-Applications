@@ -1,0 +1,9 @@
+﻿@using Resources
+@model dynamic
+
+@{  
+    string title = string.Format("{0} (ObsId: {1})", Resource.ObservationDetailsTitle, ViewBag.ObservationId);    
+    ViewBag.Title = title;   
+}
+<h3>@title</h3>
+@Html.Action("ObservationDetailPartial", "Details", new { id = ViewBag.ObservationId })

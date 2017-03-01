@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://miljodata.slu.se/mvm/webservices/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SpeciesObservationChangeService" targetNamespace="http://miljodata.slu.se/mvm/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://miljodata.slu.se/mvm/webservices/Imports">
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/LifeWatchInterfaceAPI" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISpeciesObservationChangeService_GetSpeciesObservationChangeAsSpecies_InputMessage">
+    <wsdl:part name="parameters" element="i0:GetSpeciesObservationChangeAsSpecies" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetSpeciesObservationChangeAsSpecies_OutputMessage">
+    <wsdl:part name="parameters" element="i0:GetSpeciesObservationChangeAsSpeciesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetSpeciesObservationChangeAsGbif_InputMessage">
+    <wsdl:part name="parameters" element="i0:GetSpeciesObservationChangeAsGbif" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetSpeciesObservationChangeAsGbif_OutputMessage">
+    <wsdl:part name="parameters" element="i0:GetSpeciesObservationChangeAsGbifResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_AreYouThere_InputMessage">
+    <wsdl:part name="parameters" element="i0:AreYouThere" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_AreYouThere_OutputMessage">
+    <wsdl:part name="parameters" element="i0:AreYouThereResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetServiceVersion_InputMessage">
+    <wsdl:part name="parameters" element="i0:GetServiceVersion" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetServiceVersion_OutputMessage">
+    <wsdl:part name="parameters" element="i0:GetServiceVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetServiceVersionAPI_InputMessage">
+    <wsdl:part name="parameters" element="i0:GetServiceVersionAPI" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetServiceVersionAPI_OutputMessage">
+    <wsdl:part name="parameters" element="i0:GetServiceVersionAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_IsReadyToUse_InputMessage">
+    <wsdl:part name="parameters" element="i0:IsReadyToUse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_IsReadyToUse_OutputMessage">
+    <wsdl:part name="parameters" element="i0:IsReadyToUseResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetOperatingHours_InputMessage">
+    <wsdl:part name="parameters" element="i0:GetOperatingHours" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationChangeService_GetOperatingHours_OutputMessage">
+    <wsdl:part name="parameters" element="i0:GetOperatingHoursResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISpeciesObservationChangeService">
+    <wsdl:operation name="GetSpeciesObservationChangeAsSpecies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetSpeciesObservationChangeAsSpecies" message="tns:ISpeciesObservationChangeService_GetSpeciesObservationChangeAsSpecies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetSpeciesObservationChangeAsSpeciesResponse" message="tns:ISpeciesObservationChangeService_GetSpeciesObservationChangeAsSpecies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChangeAsGbif">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetSpeciesObservationChangeAsGbif" message="tns:ISpeciesObservationChangeService_GetSpeciesObservationChangeAsGbif_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetSpeciesObservationChangeAsGbifResponse" message="tns:ISpeciesObservationChangeService_GetSpeciesObservationChangeAsGbif_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AreYouThere">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/AreYouThere" message="tns:ISpeciesObservationChangeService_AreYouThere_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/AreYouThereResponse" message="tns:ISpeciesObservationChangeService_AreYouThere_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceVersion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetServiceVersion" message="tns:ISpeciesObservationChangeService_GetServiceVersion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetServiceVersionResponse" message="tns:ISpeciesObservationChangeService_GetServiceVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServiceVersionAPI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetServiceVersionAPI" message="tns:ISpeciesObservationChangeService_GetServiceVersionAPI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetServiceVersionAPIResponse" message="tns:ISpeciesObservationChangeService_GetServiceVersionAPI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsReadyToUse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/IsReadyToUse" message="tns:ISpeciesObservationChangeService_IsReadyToUse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/IsReadyToUseResponse" message="tns:ISpeciesObservationChangeService_IsReadyToUse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOperatingHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetOperatingHours" message="tns:ISpeciesObservationChangeService_GetOperatingHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWebSpeciesObservation/GetOperatingHoursResponse" message="tns:ISpeciesObservationChangeService_GetOperatingHours_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="SpeciesObservationChangeService">
+    <wsdl:port name="BasicHttpBinding_ISpeciesObservationChangeService" binding="i0:BasicHttpBinding_ISpeciesObservationChangeService">
+      <soap:address location="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc/soap11" />
+    </wsdl:port>
+    <wsdl:port name="WSHttpBinding_ISpeciesObservationChangeService" binding="i0:WSHttpBinding_ISpeciesObservationChangeService">
+      <soap12:address location="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc/soap12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc/soap12</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DVPortal@ad.slu.se</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

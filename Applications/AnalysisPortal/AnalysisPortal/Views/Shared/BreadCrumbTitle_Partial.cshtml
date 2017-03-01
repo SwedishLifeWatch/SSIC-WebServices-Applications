@@ -1,0 +1,38 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.PageInfo
+@model PageInfo
+
+@{
+    List<PageInfo> parentPages = Model.GetParentPages();
+}
+
+<div class="breadcrumb-title-div">
+    @foreach (PageInfo pageInfo in parentPages)
+    {
+        if (pageInfo.IsAnalysisPortalStartPage)
+        {
+            continue;
+        }
+
+        if (pageInfo.BreadcrumbNavigation)
+        {            
+            <text><a class="breadcrumb-link" href="@Url.Action(pageInfo.Action, pageInfo.Controller)">@pageInfo.Title</a>&nbsp;<span class="divider" >›</span></text>
+        }
+        else
+        {
+            <text><span class="breadcrumb-span">@pageInfo.Title</span>&nbsp;<span class="divider">›</span></text>            
+        }
+    }
+    <span class="breadcrumb-title">
+        @{
+            string overridePageTitle = (string) ViewData["OverridePageTitle"];
+            if (!string.IsNullOrEmpty(overridePageTitle))
+            {
+                <text>@overridePageTitle</text>
+            }
+            else
+            {
+                <text>@Model.Title</text>
+            }
+        }
+    </span>
+</div>

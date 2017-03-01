@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAnalysisService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridFeatureStatistics_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridFeatureStatistics" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridFeatureStatistics_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridFeatureStatisticsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridFeatureStatisticsCombinedWithSpeciesObservationCountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridSpeciesCountsBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridSpeciesCountsBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridSpeciesCountsBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridSpeciesCountsBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetHostsBySpeciesFactSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostsBySpeciesFactSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetHostsBySpeciesFactSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHostsBySpeciesFactSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationProvenancesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationProvenancesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationProvenancesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationProvenancesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesCountBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesCountBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesCountBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesCountBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationCountBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationCountBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaBySpeciesFactSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesFactSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaBySpeciesFactSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesFactSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationAOOEOOAsGeoJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationAOOEOOAsGeoJson" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_GetSpeciesObservationAOOEOOAsGeoJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationAOOEOOAsGeoJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IAnalysisService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IAnalysisService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/ClearCache" message="tns:IAnalysisService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/ClearCacheResponse" message="tns:IAnalysisService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/DeleteTrace" message="tns:IAnalysisService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/DeleteTraceResponse" message="tns:IAnalysisService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatistics">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatistics" message="tns:IAnalysisService_GetGridFeatureStatistics_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsResponse" message="tns:IAnalysisService_GetGridFeatureStatistics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts" message="tns:IAnalysisService_GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCountsResponse" message="tns:IAnalysisService_GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts" message="tns:IAnalysisService_GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsCombinedWithSpeciesObservationCountsResponse" message="tns:IAnalysisService_GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesCountsBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesCountsBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetGridSpeciesCountsBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesCountsBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetGridSpeciesCountsBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsBySpeciesFactSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetHostsBySpeciesFactSearchCriteria" message="tns:IAnalysisService_GetHostsBySpeciesFactSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetHostsBySpeciesFactSearchCriteriaResponse" message="tns:IAnalysisService_GetHostsBySpeciesFactSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetLog" message="tns:IAnalysisService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetLogResponse" message="tns:IAnalysisService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationProvenancesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationProvenancesBySearchCriteria" message="tns:IAnalysisService_GetSpeciesObservationProvenancesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationProvenancesBySearchCriteriaResponse" message="tns:IAnalysisService_GetSpeciesObservationProvenancesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesCountBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesCountBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetSpeciesCountBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesCountBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetSpeciesCountBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationCountBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetSpeciesObservationCountBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationCountBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetSpeciesObservationCountBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetStatus" message="tns:IAnalysisService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetStatusResponse" message="tns:IAnalysisService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesFactSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesFactSearchCriteria" message="tns:IAnalysisService_GetTaxaBySpeciesFactSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesFactSearchCriteriaResponse" message="tns:IAnalysisService_GetTaxaBySpeciesFactSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetTaxaBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetTaxaBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria" message="tns:IAnalysisService_GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteriaResponse" message="tns:IAnalysisService_GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationAOOEOOAsGeoJson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationAOOEOOAsGeoJson" message="tns:IAnalysisService_GetSpeciesObservationAOOEOOAsGeoJson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationAOOEOOAsGeoJsonResponse" message="tns:IAnalysisService_GetSpeciesObservationAOOEOOAsGeoJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Login" message="tns:IAnalysisService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/LoginResponse" message="tns:IAnalysisService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Logout" message="tns:IAnalysisService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/LogoutResponse" message="tns:IAnalysisService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Ping" message="tns:IAnalysisService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/PingResponse" message="tns:IAnalysisService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StartTrace" message="tns:IAnalysisService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StartTraceResponse" message="tns:IAnalysisService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StopTrace" message="tns:IAnalysisService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StopTraceResponse" message="tns:IAnalysisService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

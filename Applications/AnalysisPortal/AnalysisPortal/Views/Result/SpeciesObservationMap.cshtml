@@ -1,0 +1,584 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Taxon
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultSpeciesObservationMapViewModel
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationMap;
+    ViewBag.Description = Resource.ResultSpeciesObservationMapDescription;    
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" id="btnExport" data-placement="top" data-toggle="dropdown" href="#">
+                <i class="icon-white icon-download" style="margin-right: 10px;"></i>
+                @Resource.SharedDownload
+                <i class="icon-caret-down icon-white" style="margin-left: 10px;"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li class="">
+                    <a id="downloadExcel" href="#">
+                        @Resource.ResultDownloadGroupExcel
+                    </a>
+                </li>
+                <li class="">
+                    <a id="downloadGIS" href="#">
+                        @Resource.ResultDownloadGroupGIS
+                    </a>
+                </li>
+                @*<li class="">
+                    <a id="downloadImage" href="#">
+                        @Resource.ResultDownloadGroupImage
+                    </a>
+                </li>*@
+            </ul>
+        </div>
+        <button id="btnExpand" class="btn toolbarButton" title="@Resource.FullScreenMapButtonTooltip"><i class="icon-fullscreen"></i> &nbsp;@Resources.Resource.SharedFullScreenMode</button>
+    </div>
+</div>
+
+<div style="font-style: italic" id="recordCountDiv"></div>
+<div id="mapControl" class="clearfix map" style="width: 480px; height: 460px;" >
+    <div id="mapNavDiv" class="olControlPanel"></div>
+    <div class="clearfix" id="mapDiv"></div>
+</div>
+<div id="mainPanel" class="datapanel"></div>
+
+
+<div id="taxonPanel" style="padding: 5px;">
+    @if (Model.CategoryTaxaList != null)
+    {
+        <select id="speciesObservationTaxaSelectList" style="width: 100%;">
+            <optgroup label="@Resource.SharedSpeciesObservationFilter">
+                <option value="-1">@Resource.SharedSpeciesObservationAllSelectedTaxa</option>
+            </optgroup>
+
+            @foreach (var categoryTaxa in Model.CategoryTaxaList)
+            {
+                <optgroup label="@categoryTaxa.CategoryName">
+                    @foreach (TaxonViewModel taxon in categoryTaxa.Taxa)
+                    {
+                        <option value="@taxon.TaxonId">@taxon.FullName</option>
+                    }
+                </optgroup>
+            }
+        </select>
+    }
+    else
+    {
+        <span>@Model.SelectedTaxaDescription</span>
+    }
+</div>
+
+<div id="ObservationDetailsSettingsDiv" style="border-style: solid; border-width: 2px; border-color: lightgray; width: 600px; padding:0px 4px 4px 4px;">
+    <div><input id="showOnlyFieldsWithDataCheckbox" type="checkbox" class="checkboxInput"/>@Resource.ObservationDetailsShowOnlyFieldsWithData</div>
+    <div><input id="showDwcAsFieldTitleCheckbox" type="checkbox" class="checkboxInput" />@Resource.ObservationDetailsShowDarwinCoreAsFieldName</div>
+    <div>
+        <select id="fieldImportanceSelectbox" style="min-width: 100px; margin-bottom: 0px;">
+            <option value="100">@Resource.ObservationDetailsFieldsByImportance5</option>
+            <option value="4">@Resource.ObservationDetailsFieldsByImportance4</option>
+            <option value="3">@Resource.ObservationDetailsFieldsByImportance3</option>
+            <option value="2">@Resource.ObservationDetailsFieldsByImportance2</option>
+            @*<option value="1" selected="selected">@Resource.ObservationDetailsFieldsByImportance1</option>*@
+        </select>
+    </div>  
+</div>
+
+
+@if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+{
+    @Html.Partial("QueryComplexityDialog", Model.ComplexityEstimate)   
+}
+
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarSelectBoxCoordinateSystem")
+
+<script type="text/javascript">    
+    var showOnlyObservationsWithData = false;
+    var showDarwinCoreAsTitle = false;
+    var importanceLimit = 100;
+    var allObservationDetailFields = [];
+    var dicFields = [];   
+
+
+    var map;
+    var propertyGrid;
+    var mainPanel;
+    var mapPanel;
+    var containerPanel;       
+    var observationsStore;
+    var selectedTaxonId = null;
+    var pagingToolbar;
+    var allowZoomIn = true; 
+
+    @Html.Raw(Html.DeclareWfsLayersJsArray("wfsLayers"))
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+    
+
+    $(document).ready(function () {
+        AnalysisPortal.GIS.GetFeatureDataByAjax = true;
+        createMap();        
+        createMainPanel(map);
+        AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+
+        $('#btnExpand').click(function() {
+            AnalysisPortal.fullScreen(mainPanel, containerPanel,
+                function() { // open
+                    $("#speciesObservationTaxaSelectList").select2('destroy');                 
+                },
+                function() { // close
+                    initSelectBox();
+                });         
+        });
+        
+        $.post('@Url.Action("AllowObservationsExport", "Result")', function( result ) {
+            if (result.allowExport) {
+                $('#downloadExcel')
+                    .on('click',
+                        function() {
+                            AnalysisPortal.showDialog({
+                                title: AnalysisPortal.Resources.ExcelExportTitle,
+                                url: AnalysisPortal.ApplicationPath + '/Result/ExcelExportDialog',
+                                data: null,
+                                sizeClass: 'modal-sm',
+                                afterLoadCallback: function() {
+                                    excelExport.Init();
+                                }
+                            });
+                        });
+
+                $('#downloadGIS')
+                    .on('click',
+                        function() {
+                            AnalysisPortal.showDialog({
+                                title: AnalysisPortal.Resources.LayerExportTitle,
+                                url: AnalysisPortal.ApplicationPath + '/Result/_LayerExport',
+                                data: null,
+                                sizeClass: 'modal-sm',
+                                afterLoadCallback: function() {
+                                    layerExport.Init(map);
+                                }
+                            });
+                        });
+
+                $('#downloadImage')
+                    .on('click',
+                        function() {
+                            AnalysisPortal.showDialog({
+                                title: AnalysisPortal.Resources.PrintExportTitle,
+                                url: AnalysisPortal.ApplicationPath + '/Result/_MapExport',
+                                data: null,
+                                sizeClass: 'modal-sm',
+                                afterLoadCallback: function() {
+                                    mapExport.Init(map, AnalysisPortal.GIS.getHistograms());
+                                }
+                            });
+                        });
+            } else {
+                $('#btnExport').attr({ disabled: 'disabled', title: result.message });
+            }
+        });
+
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+            saveObservationDetailsSettingsState(getObservationDetailsSettings());
+        });
+       
+
+        initSelectBox();
+        $("#speciesObservationTaxaSelectList").change(function () {
+            allowZoomIn = true;
+            selectedTaxonId = $(this).val();
+            if (selectedTaxonId == -1)
+                selectedTaxonId = null;
+            pagingToolbar.moveFirst();            
+        });
+
+        $('#AddTaxaLayerButton').click(function () {
+            var selectedItem = $("#speciesObservationTaxaSelectList").select2("data")[0];
+            var layer = new OpenLayers.Layer.Vector(selectedItem.text, { visibility: true });            
+            var features = [];
+            
+            for (var i = 0; i < map.theObservationsLayer.features.length; i++) {
+                var feature = map.theObservationsLayer.features[i];                
+                var newFeature = feature.clone();
+                features.push(newFeature);
+            }
+            
+            setStyleMap(layer);
+            layer.addFeatures(features, { silent: true });
+            map.addLayers([layer]);
+        });
+
+        $('#fieldImportanceSelectbox').change(function () {
+            populateObservationDetailsGrid();            
+        });
+        $('#showOnlyFieldsWithDataCheckbox').change(function() {
+            populateObservationDetailsGrid();            
+        });
+
+        $('#showDwcAsFieldTitleCheckbox').change(function () {
+            populateObservationDetailsGrid();            
+        });
+
+        restoreObservationDetailsSettingsState();
+        AnalysisPortal.ObservationDetailsSettings = getObservationDetailsSettings();
+        initCoordinateSelectBox();
+    });
+
+    function saveObservationDetailsSettingsState(settingsState) {
+        try {            
+            var options = { path: '/' }; // Session cookie when expires is omitted (expires: 90 // 90days)
+            $.subcookie('ObservationDetailsSettings', 'importance', settingsState.importance, options);
+            $.subcookie('ObservationDetailsSettings', 'showDwcTitle', settingsState.showDwcTitle, options);
+            $.subcookie('ObservationDetailsSettings', 'hideEmptyFields', settingsState.hideEmptyFields, options);
+        }
+        catch (err) {
+            console.log('Error! saveObservationDetailsSettingsState()');
+        }
+    }
+
+    function restoreObservationDetailsSettingsState() {        
+        try {
+            var exists = $.cookie('ObservationDetailsSettings') !== null;
+            if (!exists) {                
+                return false;
+            }
+
+            var importance = $.subcookie('ObservationDetailsSettings', 'importance');
+            $('#fieldImportanceSelectbox').val(importance);
+
+            var showDwcTitle = $.parseJSON($.subcookie('ObservationDetailsSettings', 'showDwcTitle'));
+            $('#showDwcAsFieldTitleCheckbox').attr("checked", showDwcTitle);            
+
+            var hideEmptyFields = $.parseJSON($.subcookie('ObservationDetailsSettings', 'hideEmptyFields'));
+            $('#showOnlyFieldsWithDataCheckbox').attr("checked", hideEmptyFields);
+
+            return true;
+        }
+        catch (err) {
+            console.log('Error! restoreObservationDetailsSettingsState()');
+            return false;
+        }
+    };
+
+
+    function populateObservationDetailsGrid() {
+        var settings = getObservationDetailsSettings();
+        AnalysisPortal.ObservationDetailsSettings = settings;
+        if (AnalysisPortal.CurrentSelectedObservationId == null)
+            return;
+        
+        AnalysisPortal.GIS.populateFeatureStoreByAjax(map, AnalysisPortal.CurrentSelectedObservationId, settings);
+    }
+
+    function getObservationDetailsSettings() {
+        var settings = {
+            importance: $('#fieldImportanceSelectbox').val(),
+            showDwcTitle: $('#showDwcAsFieldTitleCheckbox').is(":checked"),
+            hideEmptyFields: $('#showOnlyFieldsWithDataCheckbox').is(":checked")
+        };
+        return settings;
+    }
+
+    function initCoordinateSelectBox() {
+        $('#toolbarSelectBoxCoordinateSystem').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;           
+        });
+        $("#toolbarSelectBoxCoordinateSystem").appendTo("#mapNavDiv");
+        $("#toolbarSelectBoxCoordinateSystem").css('visibility', 'visible');
+    }
+
+    function initSelectBox() {
+        $("#speciesObservationTaxaSelectList").select2();                   
+    }
+
+    function setStyleMap(layer) {
+
+        var defaultStyle = new OpenLayers.Style({
+            pointRadius: 5,
+            fillColor: '#0EBFE9',
+            fillOpacity: 1,
+            strokeColor: "black",
+            strokeWidth: 1,
+        });
+
+        var hoverStyle = new OpenLayers.Style({
+            pointRadius: 6,
+            strokeColor: "black",
+            strokeWidth: 2,
+            fillColor: '#FFFF5A'
+        });
+
+        var selectStyle = new OpenLayers.Style({
+            pointRadius: 6,
+            strokeColor: "#D70404",
+            strokeWidth: 2
+        });
+
+        var observationsLayerStyleMap = new OpenLayers.StyleMap({ "default": defaultStyle, "temporary": hoverStyle, "select": selectStyle });
+        layer.styleMap = observationsLayerStyleMap;
+    }
+
+    
+
+    function initQueryComplexityDialog() {
+        @if (Model.ComplexityEstimate.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+        {
+        <text>
+        AnalysisPortal.showQueryComplexityDialog(function () {
+            getObservations();
+        });
+        </text>
+        }
+        else
+        {        
+        @:getObservations();        
+        }
+    }
+  
+    
+    function createMap() {        
+        var toolsOptions = getToolsOptions();                
+        var vectorLayers = [{
+                id: VectorLayers.Observations,
+                visible: true,
+                initVisibilityState: 1
+            }, {
+                id: VectorLayers.ObservationAccuracy,
+                visible: false
+            }
+        ];
+        
+        var addSpartialFilterLayer = @Model.AddSpartialFilterLayer.ToString().ToLower();
+
+        if (addSpartialFilterLayer) {
+            vectorLayers.push({
+                id: VectorLayers.SpatialFilter,
+                visible: false
+            });
+        }
+
+        vectorLayers = vectorLayers.concat(wfsLayers);
+        map = AnalysisPortal.GIS.initMap({
+            cookieName: 'SpeciesObservationMap',
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });        
+    }
+    
+
+    function getObservations() {
+        AnalysisPortal.GIS.getAllObservationsAsGeoJSON(map, function (featureCollection) {            
+            displayRecordCount(featureCollection);
+            if (map.theObservationsLayer.features.length == 0) {                    
+                map.removeLayer(map.theObservationsLayer);
+                map.removeLayer(map.thePrecisionLayer);                        
+            }
+        }); 
+    }
+
+    function getToolsOptions() {
+        var toolsOptions = {  
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: false,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            },
+            PrintExport: {
+                Visible: false
+            }
+        };
+        return toolsOptions;
+    }
+
+    function displayRecordCount(featureCollection) {
+        var count = 0;
+        if (featureCollection != null && $.isArray(featureCollection.features))
+            count = featureCollection.features.length;
+        var str = AnalysisPortal.Resources.RecordCountShowing + " " + count + " " +
+            AnalysisPortal.Resources.RecordCountOf + " " + count + " " +
+            AnalysisPortal.Resources.RecordCountObservations;
+        $('#recordCountDiv').html(str);
+    }
+
+    function createMainPanel(map) {
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        var dataObject = AnalysisPortal.GIS.getDefaultGeoJSONDataObjectKeyValuePairArray();
+                    
+        map.selectedFeatureStore = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            model: 'KeyValuePair',
+            data: dataObject,
+            proxy: {
+                type: 'memory',
+                reader: {
+                    type: 'json'                            
+                }
+            }
+        });
+        
+        Ext.suspendLayouts();
+        
+        mapPanel = AnalysisPortal.createHtmlPanel('mapControl', {
+                title: '@Resource.SharedMap',                
+                region: 'center'
+            }
+        );
+
+        var taxonPanel = AnalysisPortal.createHtmlPanel('taxonPanel', {
+            title: 'Taxa',
+            region: 'north'
+        });
+
+        var observationDetailsSettingsPanel = AnalysisPortal.createHtmlPanel('ObservationDetailsSettingsDiv', {
+            title: '@Resource.DetailsObservationDetailsSettings',
+            region: 'south'//,
+            //collapsible: true
+        });
+        
+
+        propertyGrid = new Ext.grid.GridPanel({
+            title: '@Resource.SharedData',
+            id: 'SpeciesObservationPropertyGrid',
+            region: 'center',            
+            store: map.selectedFeatureStore,
+            sortableColumns: false,
+            //plugins: "bufferedrenderer",
+            //collapsible: true,
+            //collapsed: true,
+            //animCollapse: true,
+            //titleCollapse: true,            
+            //floatable: false, // if true the panel will expand over the map and half the map won't be shown            
+            viewConfig: {                
+                enableTextSelection: true
+            },
+            
+            columns: [{
+                header: "@Resource.SharedField",
+                width: 140,
+                dataIndex: "Key"
+            }, {
+                header: "@Resource.SharedValue",
+                flex: 1,
+                dataIndex: "Value",
+                renderer: function (val, meta, record, rowIndex, colIndex, store) {
+                    if (val.lastIndexOf('http://', 0) === 0) {
+                        val = $('<span/>').append($('<a/>').attr({ href: val, target: '_blank' }).text(val)).html();
+                    }
+                    return '<div style="white-space:normal !important; word-wrap:break-word !important;">' + val + '</div>';                    
+                }
+            }],
+            listeners: {
+                collapse: function (p, eOpts) {                    
+                    
+                },
+                expand: function (p, eOpts) {                    
+                    
+                }
+            }
+        });
+        //forceFit: true,
+        //collapseFirst: true,
+        map.selectedFeatureGrid = propertyGrid;
+        AnalysisPortal.Models.defineObservationDarwinCoreViewModel();
+        AnalysisPortal.Models.defineGeoJsonFeature();
+
+        var eastContainer = AnalysisPortal.createLayoutPanel([propertyGrid, taxonPanel, observationDetailsSettingsPanel], {
+            width: 300,
+            //title: 'Inställningar',
+            layout: "border",
+            region: 'east',
+            //border: true,
+            //resizable: true,
+            resizable: {
+                //pinned: true,
+                handles: "w"
+            },
+            //collapsible: true,
+            collapsible: false,
+            collapsed: false,
+            animCollapse: true,
+            titleCollapse: false,
+            floatable: false // if true the panel will expand over the map and half the map won't be shown            
+        });
+      
+        observationsStore = AnalysisPortal.createJsonStore(
+            'GeoJsonFeature',
+            '@Html.Raw(Url.Action("GetPagedObservationsAsGeoJSON", "Result"))', {
+                pageSize: 500,
+                listeners: {
+                    load: function (store, records, successful, eOpts) {
+                        AnalysisPortal.GIS.hideWaitMsg();
+                        if (successful) {
+                            AnalysisPortal.GIS.clearSpeciesObservationPropertyGrid(map);
+                            AnalysisPortal.GIS.clearLayer(map.theObservationsLayer);
+                            AnalysisPortal.GIS.clearLayer(map.thePrecisionLayer);
+                            var features = [];
+                            if (records) {
+                                for (var i = 0; i < records.length; i++) {
+                                    var feature = records[i].raw;                       
+                                    features.push(feature);                                    
+                                }
+                                AnalysisPortal.GIS.addTheFeaturesToMap(map, { points: { type: 'FeatureCollection', bbox: null, features: features } }, map.theObservationsLayer);
+                                AnalysisPortal.GIS.zoomToFeaturesInVisibleVectorLayers(map, { allowZoomIn: allowZoomIn });
+                                allowZoomIn = false;
+                            }
+                        }
+                    },
+                    beforeload: function (store, operation, eOpts) {                        
+                        store.proxy.extraParams.taxonId = selectedTaxonId;
+                        var waitMessage = AnalysisPortal.Resources.SharedLoadingData;
+                        AnalysisPortal.GIS.showWaitMsg(waitMessage);                        
+                    }
+                }
+            });
+
+        
+        pagingToolbar = Ext.create('Ext.PagingToolbar', {
+            store: observationsStore,
+            region: 'south',
+            displayInfo: true,
+            displayMsg: '@Resource.SharedPagingSpeciesObservationDisplayMsg',
+            emptyMsg: "@Resource.SharedPagingEmptyMsg",
+               plugins: [new Ext.ux.grid.PageSize()],
+        });
+        pagingToolbar.getComponent('last').hide();        
+        observationsStore.load({
+            params: {
+                taxonId: selectedTaxonId
+            }
+        });
+
+        containerPanel = AnalysisPortal.createLayoutContainer([mapPanel, eastContainer, pagingToolbar], {
+            layout: "border",
+            collapsible: false
+        });
+
+        mainPanel = AnalysisPortal.createMainPanel('mainPanel', {
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 580,
+            autoDestroy: false,
+            //height: 460,            
+            collapsible: false,            
+            items: [containerPanel]
+        });
+
+        Ext.resumeLayouts(true);
+        
+        return mainPanel;
+    }
+ 
+</script>

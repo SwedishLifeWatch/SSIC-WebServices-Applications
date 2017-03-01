@@ -1,0 +1,84 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Handle Partial View error sample";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<style type="text/css">
+            
+    .largeDiv {
+        width: 400px;
+        height: 100px;
+        border-width: 1px;
+        border-style: solid;
+        margin: 10px;
+        padding: 6px;
+    }
+            
+    .smallDiv {
+        width: 80px;
+        height: 60px;
+        border-width: 1px;
+        border-style: solid;
+        margin: 10px;
+        padding: 2px;
+    }
+</style>
+
+<h1>Handle Partial View error sample</h1>
+<p class="infoText">            
+    When an error occurs in a partial view we need a way to show the user that an error occurred.<br/>
+    This can be done by writing code in the following way:                                           
+</p>
+<pre><code class="cs">
+    [ChildActionOnly]
+    public PartialViewResult MyPartialView()
+    {
+        try
+        {              
+            code...
+            ...
+            return PartialView();
+        }
+        catch (Exception ex)
+        {
+            return PartialView("PartialViewError", ex);
+        }     
+    }
+    </code></pre>    
+
+<h4>Note</h4>
+<p class="infoText">
+    Try to avoid writing C# code in a View (.cshtml) in such way that it could throw an Exception. 
+    In such case the error handling of partial views won't work.
+    The C# code that is dependent of various services that could give unexpected errors should be
+    coded in the Controller Partial View Action.
+</p>
+
+<h2>Large wrapper divs</h2>
+<div>
+    <h6>No error</h6>
+    <div id="correctDiv1" class="largeDiv">
+        @Html.Action("PartialViewWithoutError")
+    </div>
+
+    <h6>Div with error</h6>
+    <div id="errorDiv1" class="largeDiv">
+        @Html.Action("PartialViewWithError")
+    </div>
+</div>
+<br/>
+
+<h2>Small wrapper divs</h2>
+<div>
+    <h6>No error</h6>
+    <div id="correctDiv2" class="smallDiv">
+        @Html.Action("PartialViewWithoutError")
+    </div>
+
+    <h6>Div with error</h6>
+    <div id="errorDiv2" class="smallDiv">
+        @Html.Action("PartialViewWithError")
+    </div>
+</div>

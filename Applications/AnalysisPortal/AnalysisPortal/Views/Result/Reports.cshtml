@@ -1,0 +1,13 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultViews.Reports.ReportsResultGroup
+
+@{
+    ViewBag.Title = Model.Title;
+    ViewBag.Description = Resource.ResultReportsDescription;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+@*<h3 class="page-title">@Resource.ResultGroupReports&nbsp;<img src="@Url.Content("~/Content/images/document-text-image_24.png")"/></h3>*@
+@Html.Partial("ResultGroup_Partial", Model)
+

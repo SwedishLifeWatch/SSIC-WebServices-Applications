@@ -1,0 +1,43 @@
+﻿@model dynamic
+
+<div>
+    Select tutorial: 
+    <select id="SelectTutorial" style="width: 400px;">
+        <option value="null">Tutorials</option>
+        <option value="@Url.Action("AddNewPage")">1. Add new page</option>    
+        <option value="@Url.Action("MakeAjaxCallTutorial")">2. makeAjaxCall() JavaScript function</option>    
+        <option value="@Url.Action("SaveChangesBeforeLeavingPageTutorial")">3. Save changes before leaving page</option>            
+        <option value="@Url.Action("MakeAjaxRequest")">4. Make Ajax Request using ExtJS & jQuery</option>
+        <option value="@Url.Action("HandlePartialViewErrorSample")">5. Handle partial view error</option>        
+        <option value="@Url.Action("ExtJsGridSaveChangesTutorial")">6. Ext JS Grid - save changes</option>
+    </select>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        setSelected();
+        $("#SelectTutorial").change(function (e) {
+            console.log(this);
+            var $selItem = $("#SelectTutorial option:selected");
+            var selText = $selItem.text();
+            var selValue = $selItem.val();
+            console.log(selText);
+            console.log(selValue);
+
+            if (selValue == "null") {
+                return;
+            }
+            window.location = selValue;
+        });
+    });
+    
+
+    function setSelected() {
+        var loc = window.location.href;
+        $("#SelectTutorial").children("option").each(function () {
+            if (loc.indexOf($(this).val()) != -1) {                
+                $(this).attr("Selected", true);
+            }
+        });
+    }
+</script>

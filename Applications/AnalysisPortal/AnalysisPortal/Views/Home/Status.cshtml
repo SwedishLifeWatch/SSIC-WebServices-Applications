@@ -1,0 +1,65 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Managers
+@using ArtDatabanken.WebApplication.AnalysisPortal.Result.CalculatedData
+@using ArtDatabanken.WebApplication.AnalysisPortal.Result.Grid
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Extensions
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model dynamic
+
+@{
+    ViewBag.Title = "Status";
+    CalculatedDataItem<SpeciesObservationGridResult> gridCellObservations = DefaultResultsManager.GetGridCellObservations();
+    CalculatedDataItem<TaxonGridResult> gridCellTaxa = DefaultResultsManager.GetGridCellTaxa();
+    CalculatedDataItem<List<KeyValuePair<string, string>>> summaryStatisticsEnglish = DefaultResultsManager.GetSummaryStatistics("en-GB");
+    CalculatedDataItem<List<KeyValuePair<string, string>>> summaryStatisticsSwedish = DefaultResultsManager.GetSummaryStatistics("sv-SE");
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+
+<h4>Precalculated default data</h4>
+<table class="table table-bordered">
+    <tr>
+        <td>Grid map statistics on species observations</td>
+        @if (gridCellObservations.HasData)
+        {
+            <td>@gridCellObservations.LastUpdated</td>
+        }
+        else
+        {
+            <td>Not calculated</td>
+        }        
+    </tr>
+    <tr>
+        <td>Grid map statistics on number of species</td>
+        @if (gridCellTaxa.HasData)
+        {
+            <td>@gridCellTaxa.LastUpdated</td>
+        }
+        else
+        {
+            <td>Not calculated</td>
+        }        
+    </tr>
+    <tr>
+        <td>Summary statistics English</td>
+        @if (summaryStatisticsEnglish.HasData)
+        {
+            <td>@summaryStatisticsEnglish.LastUpdated</td>
+        }
+        else
+        {
+            <td>Not calculated</td>
+        }        
+    </tr>
+  <tr>
+        <td>Summary statistics Swedish</td>
+        @if (summaryStatisticsSwedish.HasData)
+        {
+            <td>@summaryStatisticsSwedish.LastUpdated</td>
+        }
+        else
+        {
+            <td>Not calculated</td>
+        }        
+    </tr>
+</table>

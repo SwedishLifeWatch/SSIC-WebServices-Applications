@@ -1,0 +1,39 @@
+﻿@using ArtDatabanken.Data
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation.TimeSeriesSettingsViewModel
+
+<ul class="ellipseList">
+    <li>
+        @switch ((Periodicity) Model.DefaultPeriodicityIndex)
+        {
+            case Periodicity.MonthOfTheYear:
+                @Resource.ResultTimeSeriesPeriodicityMonthOfTheYearLabel
+
+                break;
+            case Periodicity.WeekOfTheYear:
+                @Resource.ResultTimeSeriesPeriodicityWeekOfTheYearLabel
+
+                break;
+            case Periodicity.DayOfTheYear:
+                @Resource.ResultTimeSeriesPeriodicityDayOfTheYearLabel
+
+                break;
+            case Periodicity.Yearly:
+                @Resource.ResultTimeSeriesPeriodicityYearlyLabel
+
+                break;
+            case Periodicity.Monthly:
+                @Resource.ResultTimeSeriesPeriodicityMonthlyLabel
+
+                break;
+            case Periodicity.Weekly:
+                @Resource.ResultTimeSeriesPeriodicityWeeklyLabel
+
+                break;
+            case Periodicity.Daily:
+                @Resource.ResultTimeSeriesPeriodicityDailyLabel
+
+                break;
+        }
+    </li>
+</ul>

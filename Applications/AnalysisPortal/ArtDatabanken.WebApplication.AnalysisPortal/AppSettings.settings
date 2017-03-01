@@ -1,0 +1,66 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Resources" GeneratedClassName="AppSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AnalysisPortal</Value>
+    </Setting>
+    <Setting Name="TempDirectoryName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Temp</Value>
+    </Setting>
+    <Setting Name="ApplicationUser" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AnalysisPortalUser</Value>
+    </Setting>
+    <Setting Name="ApplicationUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AnalysisPortalUser</Value>
+    </Setting>
+    <Setting Name="PathToTempDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Temp/</Value>
+    </Setting>
+    <Setting Name="ApplicationContextCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationContext:</Value>
+    </Setting>
+    <Setting Name="UrlToUserAdminMoneses" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://moneses-dev.artdata.slu.se/UserAdmin/</Value>
+    </Setting>
+    <Setting Name="PathToSettingsDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Temp/Settings/</Value>
+    </Setting>
+    <Setting Name="UrlToDyntaxa" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.dyntaxa.se</Value>
+    </Setting>
+    <Setting Name="PrivatePersonRoleID" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="SwedenCountryIsoCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">752</Value>
+    </Setting>
+    <Setting Name="RedListPeriod" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="PrivatePersonRoleGuidRelease" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:artdata.slu.se:Role:2:2</Value>
+    </Setting>
+    <Setting Name="PrivatePersonRoleGuidDebug" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:artdata.slu.se:Role:2:5</Value>
+    </Setting>
+    <Setting Name="ExportUrlRelease" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://silurus2-1.artdata.slu.se/export_analysisportal/</Value>
+    </Setting>
+    <Setting Name="ExportUrlDebug" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://silurus2-1.artdata.slu.se/export_analysisportal_test/</Value>
+    </Setting>
+    <Setting Name="MaxBufferPoolSize" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SpeciesFactCacheObjectFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Cache\SpeciesFact\Object</Value>
+    </Setting>
+    <Setting Name="SpeciesFactCacheObservationFolder" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Cache\SpeciesFact\Observation</Value>
+    </Setting>
+    <Setting Name="UrlToUserAdminLampetra" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://UserAdmin.ArtDatabanken.se</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

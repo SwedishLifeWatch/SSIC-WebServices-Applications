@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DataType" />
+      <xs:enumeration value="Application" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorityType" nillable="true" type="tns:AuthorityType" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Person" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
+</xs:schema>

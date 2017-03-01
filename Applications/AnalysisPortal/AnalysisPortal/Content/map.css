@@ -1,0 +1,272 @@
+﻿    div.olControlMousePosition
+    {
+        font-family: Verdana;
+        font-weight: bold;
+        font-size: 0.2em;
+        color: black;
+    }
+    .panCoord
+    {
+        border: 2px solid #000000;
+        position: absolute;
+        height: 300px;
+        width: 380px;
+        background-color: #FFFFFF;
+    }
+    
+    .olControlPanel
+    {
+        border-top: 1px solid #999;
+        border-bottom: 1px solid #666;
+        height: 26px;
+        background: transparent url("/Content/images/map/ap2-ui-bgsprite-x.png") repeat-x 0 -201px;
+    }
+    .olControlPanel div
+    {
+        display: block;
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin: 0;
+        border-right:1px solid #ccc; /* border-right:1px dotted #aaa; */
+        background-image: url("/Content/images/map/map-toolbar-sprite.png") !important;
+    } 
+    .olControlPanel div:hover
+    {
+        background-color: #e6e6e6 !important;
+    } 
+    .olControlNavigationHistory,
+    .olControlNavigationHistoryNextItemActive { background-position: -200px 0 !important; }
+    .olControlNavigationHistoryNextItemInactive { background-position: -200px -25px !important; }
+    .olControlNavigationHistoryPreviousItemActive { background-position: -175px 0 !important; }
+    .olControlNavigationHistoryPreviousItemInactive { background-position: -175px -25px !important; }
+    
+    
+    .olControlZoomBoxItemActive { background-position: -25px -25px !important; }
+    .olControlZoomBoxItemInactive { background-position: -25px 0 !important; }    
+    .olControlZoomToMaxExtentItemInactive { background-image: url("/Content/images/map/toolbar-zoomfull.png"); border-right:1px solid #999 !important; }
+    .olControlDragFeatureItemActive { background-position: -75px -25px !important; }
+    .olControlDragFeatureItemInactive { background-position: -75px 0 !important; }
+    .olControlDrawFeaturePointItemActive { background-position: -150px -25px !important; }
+    .olControlDrawFeaturePointItemInactive { background-position: -150px 0 !important; }
+    .olControlDrawFeaturePointItemDisabled { background-position: -150px -50px !important; background-color: transparent !important; }
+    .olControlDrawFeatureLineItemActive { background-image: url("/Content/images/map/polyline_on.png"); }
+    .olControlDrawFeatureLineItemInactive { background-image: url("/Content/images/map/polyline.png"); }
+    .olControlDrawFeaturePolygonItemActive { background-position: -100px -25px !important; }
+    .olControlDrawFeaturePolygonItemInactive { background-position: -100px 0 !important; }
+    .olControlDrawFeaturePolygonItemDisabled { background-position: -100px -50px !important; background-color: transparent !important; }
+    div.olControlDrawFeatureRectangleItemActive {
+        background-image: url('/Content/images/map/layer-select-active.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlDrawFeatureRectangleItemInactive {
+        background-image: url('/Content/images/map/layer-select.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlDrawFeatureRectangleItemDisabled {
+        background-image: url('/Content/images/map/layer-shape-active.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }    
+    
+    div.olControlSelectManyFeatureItemActive {
+        background-image: url('/Content/images/map/selection_active.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+
+    div.olControlPrintExportItemActive{
+        background-image: url('/Content/images/map/export.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+
+    div.olControlPrintExportItemInactive{
+        background-image: url('/Content/images/map/export.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+
+    div.olControlPrintExportItemDisabled{
+        background-image: url('/Content/images/map/export.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+
+    div.olControlSelectManyFeatureItemInactive {
+        background-image: url('/Content/images/map/selection.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlSelectManyFeatureItemDisabled {
+        background-image: url('/Content/images/map/selection.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }        
+    
+    div.olControlDragPanItemActive {
+        background-image: url('/Content/images/map/arrow-move-active.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlDragPanItemInactive {
+        background-image: url('/Content/images/map/arrow-move.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlDragPanItemDisabled {
+        background-image: url('/Content/images/map/arrow-move.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }            
+    
+    
+    div.olControlZoomToSwedenExtentItemActive {
+        background-image: url('/Content/images/map/map.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlZoomToSwedenExtentItemInactive {
+        background-image: url('/Content/images/map/map.png') !important;
+        /*background-image: url('images/map/globe-green.png') !important;*/
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlZoomToSwedenExtentItemDisabled {
+        background-image: url('/Content/images/map/map.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }            
+
+
+    div.olControlZoomToFeaturesItemActive {
+        background-image: url('/Content/images/map/datamodel.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlZoomToFeaturesItemInactive {
+        /*background-image: url('images/map/document-resize-actual.png') !important;*/
+        background-image: url('/Content/images/map/zoom_layer.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }
+    div.olControlZoomToFeaturesItemDisabled {
+        background-image: url('/Content/images/map/datamodel.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center center;
+    }          
+    
+    .olControlModifyFeatureItemActive { background-position: -125px -25px !important; border-right: none; }
+    .olControlModifyFeatureItemInactive { background-position: -125px 0 !important; border-right: none; }
+    .olControlModifyFeatureItemDisabled { background-position: -125px -50px !important; background-color: transparent !important; border-right: none; }
+    .olControlSelectFeatureItemActive { background-position: -50px -25px !important; border-right:1px solid #999 !important; }
+    .olControlSelectFeatureItemInactive { background-position: -50px 0 !important; border-right:1px solid #999 !important; }
+    /*
+
+
+    .olControlPanel
+    {
+        padding-left: 50px;
+        width: 440px;
+        height: 24px;
+        left: 40px;
+        margin: 2px;
+    }
+    .olControlPanel div
+    {
+        display: block;
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin: 1px 0;
+    }
+    .olControlDragPanItemActive { background-image: url("images/map/pan_on.png"); }
+    .olControlDragPanItemInactive { background-image: url("images/map/pan.png"); }
+    .olControlZoomBoxItemInactive { background-image: url("images/map/zoomin.png"); }
+    .olControlZoomBoxItemActive { background-image: url("images/map/zoomin_on.png"); }
+    .olControlZoomToMaxExtentItemInactive { background-image: url("images/map/zoom-full.png"); }
+    .olControlDrawFeaturePointItemActive { background-image: url("images/map/newsite_on.png"); }
+    .olControlDrawFeaturePointItemInactive { background-image: url("images/map/newsite.png"); }
+    .olControlDrawFeaturePointItemDisabled { background-image: url("images/map/newsite_off.png"); }
+    .olControlDrawFeatureLineItemActive { background-image: url("images/map/polyline_on.png"); }
+    .olControlDrawFeatureLineItemInactive { background-image: url("images/map/polyline.png"); }
+    .olControlDrawFeaturePolygonItemActive { background-image: url("images/map/polygon_on.png"); }
+    .olControlDrawFeaturePolygonItemInactive { background-image: url("images/map/polygon.png"); }
+    .olControlDrawFeaturePolygonItemDisabled { background-image: url("images/map/polygon_off.png"); }
+    .olControlModifyFeatureItemActive { background-image: url("images/map/polyline_on.png"); }
+    .olControlModifyFeatureItemInactive { background-image: url("images/map/polyline.png"); }
+    .olControlSelectFeatureItemActive { background-image: url("images/map/selectsite_on.png"); }
+    .olControlSelectFeatureItemInactive { background-image: url("images/map/selectsite.png"); }
+*/
+
+    
+    .olPopupContent { font-size:11px; color:#333; }
+    
+.olLayerGoogleCopyright{right:3px;bottom:2px;left:auto;}
+.olLayerGoogleV3.olLayerGoogleCopyright{bottom:0;right:0!important;}
+.olLayerGooglePoweredBy{left:2px;bottom:2px;}
+.olLayerGoogleV3.olLayerGooglePoweredBy{bottom:0!important;}    
+
+.olControlLoadingPanel {
+    background-image: url("/Content/images/ajax-loader.gif");
+    background-color: transparent;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    right: 50%;
+    background-position:center;
+    background-repeat:no-repeat;
+    display: none;
+}
+
+.hslash {background-color:black;overflow:hidden;position:absolute;z-index:500;}
+.hslash0 {height:1px;opacity:0.15;width:100%;}
+.hslash1 {height:2px;opacity:0.1;width:100%;}
+.hslash2 {height:3px;opacity:0.08;width:100%;}
+.hslash3 {height:4px;opacity:0.06;width:100%;}
+.hslash4 {height:5px;opacity:0.04;width:100%;}
+.hslash5 {height:6px;opacity:0.02;width:100%;}
+      
+.vslash {background-color:black;overflow:hidden;position:absolute;left:0px;z-index:500;}
+.vslash0 {width:1px;opacity:0.15;height:100%;}
+.vslash1 {width:2px;opacity:0.1;height:100%;}
+.vslash2 {width:3px;opacity:0.08;height:100%;}
+.vslash3 {width:4px;opacity:0.06;height:100%;}
+.vslash4 {width:5px;opacity:0.04;height:100%;}
+.vslash5 {width:6px;opacity:0.02;height:100%;}
+        
+/* For IE */
+.vslash0, .hslash0 {filter: alpha(opacity = 15);}
+.vslash1, .hslash1 {filter: alpha(opacity = 10);}
+.vslash2, .hslash2 {filter: alpha(opacity = 8);}
+.vslash3, .hslash3 {filter: alpha(opacity = 6);}
+.vslash4, .hslash4 {filter: alpha(opacity = 4);}
+.vslash5, .hslash5 {filter: alpha(opacity = 2);}
+
+.mapborder { background-color:black;overflow:hidden;position:absolute;z-index:500; }
+.mapborder-top  {top:0px;height:1px;width:100%; }
+.mapborder-bottom { bottom:0px;height:1px;width:100%; }
+.mapborder-left {left:0px;width:1px;height:100%; }
+.mapborder-right {right:0px;width:1px;height:100%; }
+
+div.olLayerGoogleCopyright, div.olLayerGooglePoweredBy {
+    display: none !important;
+}
+
+#mapDiv {
+    width: 100%; 
+    height: 100%; 
+    position:relative;     
+}
+
+#mapDiv label {
+    display: inline;                
+}
+#mapDiv input[type="radio"], #mapDiv input[type="checkbox"] {
+    cursor: pointer;
+    line-height: normal;
+    margin: 3px 3px 4px 5px;
+} 

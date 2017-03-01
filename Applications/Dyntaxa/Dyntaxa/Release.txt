@@ -1,0 +1,162 @@
+
+Web addresses to the application:
+
+(Public)
+https://www.dyntaxa.se/
+	server paths:	\\Lampetra2-1.artdata.slu.se\c$\inetpub\wwwroot3_Dyntaxa
+					\\Lampetra2-2.artdata.slu.se\c$\inetpub\wwwroot3_Dyntaxa
+
+(Old test server)
+https://test.dyntaxa.se/
+	server path: \\Moneses-dev.artdata.slu.se\c$\inetpub\test_dyntaxa
+
+(Team Species Fact test server)
+https://test-dyntaxa-fakta.artdata.slu.se/
+	server path: \\Artfakta-dev.local.slu.se\c$\inetpub\test_dyntaxa
+
+(System test server)
+https://test-dyntaxa.artdata.slu.se/
+	server path: \\Moneses-st.artdata.slu.se\c$\inetpub\test_dyntaxa
+
+(Team Artportalen test server)
+https://dyntaxa-ap-st.artdata.slu.se/
+	server path: \\Artap-st\c$\inetpub\Artdatabanken\Dyntaxa
+
+(Team Two Bluberries test server)
+https://test-dyntaxa-slw.artdata.slu.se/
+	server path: \\Slw-dev.artdata.slu.se\c$\inetpub\test_dyntaxa
+
+--------------------------------------------
+
+MVC3 framework needs manual installation on server (only first time)
+Installation files can be found at: http://www.asp.net/mvc/mvc3
+
+----------------------------------------------------------------
+
+Configuration in IIS.
+
+Configuration that differs from default in IIS.
+
+Application pool configuration:
+".Net Framework Version" => V4.0
+"Load User Profile" => False
+"Specific Times" => TimeSpan[] Array
+Configuration in IIS.
+On servers with 64-bit Windows "Enable 32-Bit Applications" => True
+
+
+Application configuration:
+"Session State Mode Settings" => In process
+"Cookie Settings" => 
+	Mode: "Use Cookies" 
+	Name: "ASP.NET_SessionID"
+	Time-out: "20min" ?
+
+----------------------------------------------------------------
+
+File system configuration:
+
+The following directories must be manually created on web server:
+.\Temp
+.\Logs
+
+IIS user IIS_IUSRS must have full access rights to following directories:
+.\Temp
+.\Logs
+
+----------------------------------------------------------------
+
+Release on production server Lampetra2 (www.dyntaxa.se): 
+
+1. Change build configuration from ”Debug” to “Release”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Lampetra2-1.artdata.slu.se\c$\inetpub\wwwroot3_Dyntaxa
+\\Lampetra2-2.artdata.slu.se\c$\inetpub\wwwroot3_Dyntaxa
+IMPORTANT - Ensure that configuration is set to "Release - Any CPU"
+and check box "Delete all existing files prior to publish" is NOT checked
+in the "Settings" tab, otherwise privilegies on server directory are lost.
+
+4. Change build configuration from “Release” to ”Debug” again. 
+
+5. Check application works proparly and check communication with webservices
+
+
+--------------------------------------------
+
+Release on old test server Moneses (test.dyntaxa.se):
+
+1. Check that build configuration is set to ”Debug”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Lampetra2-1.artdata.slu.se\c$\inetpub\test_dyntaxa
+IMPORTANT - Ensure that configuration is set to "Debug - Any CPU"
+and check box "Delete all existing files prior to publish" is NOT checked
+in the "Settings" tab, otherwise privilegies on server directory are lost.
+
+4. Check application works proparly and check communication with webservices
+
+--------------------------------------------
+
+Release on team Species Fact test server: (test-dyntaxa.artdata.slu.se):
+
+1. Check that build configuration is set to ”Debug”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Artfakta-dev.local.slu.se\c$\inetpub\test_dyntaxa
+IMPORTANT - Ensure that configuration is set to "Debug - Any CPU"
+and check box "Delete all existing files prior to publish" is NOT checked
+in the "Settings" tab, otherwise privilegies on server directory are lost.
+
+4. Check application works proparly and check communication with webservices
+
+--------------------------------------------
+
+Release on system test server: (test-dyntaxa-fakta.artdata.slu.se):
+
+1. Check that build configuration is set to ”Debug”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Moneses-st.artdata.slu.se\c$\inetpub\test_dyntaxa
+IMPORTANT - Ensure that configuration is set to "Debug - Any CPU"
+and check box "Delete all existing files prior to publish" is NOT checked
+in the "Settings" tab, otherwise privilegies on server directory are lost.
+
+4. Check application works proparly and check communication with webservices
+
+--------------------------------------------
+
+Release on team Two Bluberries test server: (test-dyntaxa-slw.artdata.slu.se):
+
+1. Check that build configuration is set to ”Debug”.
+
+2. Rebuild solution and check that no errors where found.
+
+3. Publish web application to
+\\Slw-dev.artdata.slu.se\c$\inetpub\test_dyntaxa
+IMPORTANT - Ensure that configuration is set to "Debug - Any CPU"
+and check box "Delete all existing files prior to publish" is NOT checked
+in the "Settings" tab, otherwise privilegies on server directory are lost.
+
+4. Check application works proparly and check communication with webservices
+
+
+Release on Team Artportalen test server:
+1. Change build configuration from ”Release” to “Debug”.
+2. Open properties on project ArtDatabanken.
+Add conditional compilation symbol ARTPORTALEN_TEST. Save changes.
+3. Rebuild solution and check that no errors where found.
+4. Publish web service to
+\\Artap-st\c$\inetpub\Artdatabanken\Dyntaxa
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab. 
+5. Make undo checkout on project ArtDatabanken.

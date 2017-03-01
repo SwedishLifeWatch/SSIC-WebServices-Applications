@@ -1,0 +1,61 @@
+﻿Instruction
+
+A. Unit test all methods (that has any logic) etc implemented in helpers, controller and model helpers. (ViewModels is not required to be tested since 
+   there should be no logic in them (POCO style)
+
+B. The following steps is to take in consideration when testing controllers:
+
+1. It is recommended to test that model is not null and verify that some model properties is set to correct value..
+   var result = controller.Initialize(DyntaxaTestSettings.Default.TestTaxonId.ToString()) as ViewResult;
+   var model = (RevisionInitializeViewModel)result.ViewData.Model;
+   Assert.IsNotNull(result);
+   Assert.Equals(model.taxonId, XXX);
+   Assert.AreEqual("Green", model.AlertLevel);
+        
+2. It is also recommended to test that correct view is returned.
+   Assert.AreEqual("Initialize", result.ViewName);
+        
+3. If action contains any redirect is recommened to test them to..
+   var actionResult = (RedirectToRouteResult)controller.Initialize(DyntaxaTestSettings.Default.TestTaxonId.ToString());
+   Assert.AreEqual("Edit", actionResult.RouteValues["action"]);
+
+4. Test that correct view is returned when model state error occurs.
+   controller.ModelState.AddModelError("", "dummy error message");
+   var addResult = controller.Add(model) as ViewResult;
+   var addViewModel = addResult.ViewData.Model as TaxonAddViewModel;
+
+4. Testing routes using ShouldMapTo.
+   MvcApplication.RegisterRoutes(RouteTable.Routes);
+   "~/Revision/List/233146".ShouldMapTo<RevisionController>(x => x.List("233146", null, null));
+   "~/Revision/Add/1008669".ShouldMapTo<RevisionController>(x => x.Add("1008669"));
+
+5. Testing authorities on actions
+	var methodInfo = type.GetMethod("Add", new Type[] { typeof(string) });
+	var attributes = methodInfo.GetCustomAttributes(typeof(DyntaxaAuthorizeAttribute), true);
+    Assert.AreEqual(1, attributes.Length);
+    Assert.AreEqual(RequiredAuthorization.TaxonRevisionAdministrator, ((DyntaxaAuthorizeAttribute)attributes[0]).Order);
+
+C. Integration tests
+  TBD
+     
+Good thing to know when testing:
+	 
+In the Analysis Portal we are implementing two different types of tests.
+1. Tests using live data sources including live data from DB. These test classes is located in folder AnalysisPortal.Test\Controllers\LiveControllersTest
+and must inherit from class LiveControllerBaseTest. It is though needed that HTTPContext is mocked using Session helper and that is performed in LiveControllerBaseTest
+as follows:
+            ISessionHelper sessionHelper = new HttpContextSessionHelper(builder.HttpContext);
+            SessionHandler.SetSessionHelper(sessionHelper); 
+
+When working with Cookies the Response is also required to be mocked. Builder property in LiveControllerBaseTest creates the mocking class required. Code below must be implemented in 
+test method:
+		(TestControllerBuilder)Builder.InitializeController(controller);
+		(TestControllerBuilder)Builder.HttpContext.Response.Stub(x => x.Cookies).Return(new HttpCookieCollection());
+
+2. Test that will change data.  These test classes is located in folder AnalysisPortal.Test\Controllers\MockControllersTest
+and must inherit from class MockControllerBaseTest.ie Data Sources needs to be mocked by TestRepositoryClasses located at AnalysisPortal.Test\TestModels. HTTPContext and Response is of cause needed to be mocked see above. When calling controllers an additional constructor is required to set up the test repository (data source) (Se MySettingsController)
+
+If any Session parameters are required they can be set from test method as follows:
+	
+		sessionHelper.SetInSession("userContext", testUserContext);
+

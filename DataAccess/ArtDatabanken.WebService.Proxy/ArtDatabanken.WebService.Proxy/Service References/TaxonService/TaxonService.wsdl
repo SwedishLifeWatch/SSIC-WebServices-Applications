@@ -1,0 +1,2036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TaxonService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="TaxonServiceSOAP11Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="TaxonServiceBinaryEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="TaxonServiceSOAP12Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="urn:WebServices.ArtDatabanken.slu.se" location="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="TaxonServiceSOAP11Endpoint" type="i0:ITaxonService">
+    <wsp:PolicyReference URI="#TaxonServiceSOAP11Endpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckInTaxonRevision">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckInTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTaxonRevision">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckOutTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCache">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLumpSplitEvent">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateLumpSplitEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxon">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonName">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonProperties">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRelation">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevision">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevisionEvent">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevision">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevisionEvent">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventByGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByNewReplacingTaxon">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByNewReplacingTaxon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByOldReplacedTaxon">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByOldReplacedTaxon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationsByRelatedObjectGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationsByRelatedObjectGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaByIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonAlertStatuses">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonAlertStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonByGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategories">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategoriesByTaxonId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChange">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChangeStatuses">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildQualityStatistics">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildQualityStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildStatistics">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonConceptDefinition">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonConceptDefinition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameByGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategories">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategoryTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoryTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameStatuses">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameUsages">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameUsages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonPropertiesByTaxonId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonPropertiesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationsBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionByGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventsByTaxonRevisionId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventsByTaxonRevisionId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsByTaxonId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsByTaxonId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionStates">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionStates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTreesBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonTreesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonName">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonProperties">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRelation">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevision">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevisionEvent">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonSpeciesFacts">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonSpeciesFacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonTreeSortOrder">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonTreeSortOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaxonServiceBinaryEndpoint" type="i0:ITaxonService">
+    <wsp:PolicyReference URI="#TaxonServiceBinaryEndpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckInTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckInTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckOutTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLumpSplitEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateLumpSplitEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonName">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonProperties">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRelation">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByNewReplacingTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByNewReplacingTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByOldReplacedTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByOldReplacedTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationsByRelatedObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationsByRelatedObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonAlertStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonAlertStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategories">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategoriesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChangeStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildQualityStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildQualityStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonConceptDefinition">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonConceptDefinition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategories">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategoryTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoryTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameUsages">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameUsages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonPropertiesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonPropertiesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventsByTaxonRevisionId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventsByTaxonRevisionId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionStates">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTreesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonTreesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonName">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonProperties">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRelation">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonSpeciesFacts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonSpeciesFacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonTreeSortOrder">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonTreeSortOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TaxonServiceSOAP12Endpoint" type="i0:ITaxonService">
+    <wsp:PolicyReference URI="#TaxonServiceSOAP12Endpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckInTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckInTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckOutTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CheckOutTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateLumpSplitEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateLumpSplitEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonName">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonProperties">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRelation">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/CreateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByNewReplacingTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByNewReplacingTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventsByOldReplacedTaxon">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventsByOldReplacedTaxon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLumpSplitEventTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetLumpSplitEventTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationsByRelatedObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationsByRelatedObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetReferenceRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxaBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonAlertStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonAlertStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategories">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonCategoriesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonCategoriesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChangeStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChangeStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildQualityStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildQualityStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonChildStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonChildStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonConceptDefinition">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonConceptDefinition" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategories">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameCategoryTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameCategoryTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNamesByTaxonIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNamesByTaxonIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameStatuses">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonNameUsages">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonNameUsages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonPropertiesByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonPropertiesByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRelationsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRelationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionByGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionByGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventsByTaxonRevisionId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventsByTaxonRevisionId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionEventTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionEventTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionsByTaxonId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionsByTaxonId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonRevisionStates">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonRevisionStates" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxonTreesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/GetTaxonTreesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonName">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonProperties">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonProperties" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRelation">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRelation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevision">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevision" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonRevisionEvent">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonRevisionEvent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonSpeciesFacts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonSpeciesFacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaxonTreeSortOrder">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ITaxonService/UpdateTaxonTreeSortOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TaxonService">
+    <wsdl:port name="TaxonServiceSOAP11Endpoint" binding="tns:TaxonServiceSOAP11Endpoint">
+      <soap:address location="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc" />
+    </wsdl:port>
+    <wsdl:port name="TaxonServiceBinaryEndpoint" binding="tns:TaxonServiceBinaryEndpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc/Fast" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc/Fast</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="TaxonServiceSOAP12Endpoint" binding="tns:TaxonServiceSOAP12Endpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc/SOAP12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/TaxonService/TaxonService.svc/SOAP12</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

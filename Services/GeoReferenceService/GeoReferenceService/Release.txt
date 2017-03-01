@@ -1,0 +1,190 @@
+﻿Web addresses to the web service:
+ArtDatabankenSOA https://GeoReference.artdatabankensoa.se/GeoReferenceService.svc
+Silurus2-1 https://silurus2-1.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc
+Silurus2-2 https://silurus2-2.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc
+Old test server https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc
+Team Artportalen test https://Georeferenceservice-ap-st.artdata.slu.se/GeoReferenceService.svc
+Team Species Fact test https://Artfakta-dev.local.slu.se/GeoReferenceService/GeoReferenceService.svc
+System test https://GeoReferenceService-st.artdata.slu.se/GeoReferenceService.svc
+Team Two Blueberries test https://GeoReferenceService-slw-dev.artdata.slu.se/GeoReferenceService.svc
+
+
+GeoReferenceService uses 
+"Microsoft SQLServer System CLR Types" which must be installed
+on computers which runs the web service.
+"Microsoft SQLServer System CLR Types" in turn depends on
+"Microsoft Visual C++ 2008 Redistributable".
+"Microsoft SQLServer System CLR Types" can be downloaded from 
+http://www.softpedia.com/get/Internet/Servers/Server-Tools/SQL-Server-System-CLR-Types.shtml
+"Microsoft Visual C++ 2008 Redistributable" can be downloaded from 
+http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=29
+
+
+Configuration in IIS.
+
+Application pool configuration:
+".Net Framework Version" => 4.0
+"Enable 32-Bit Applications" => False
+"Identity" => ApplicationPoolIdentity
+Production only: "Idel Time-outs (minutes)" => 10000
+"Load User Profile" => False
+Production only: "Regular Time Intervals(minutes)" => 11000 (Recycling)
+"Specific Times" => TimeSpan[] Array
+
+Application configuration:
+".NET Globalization" - "Culture" => Invariant Language (Invariant Country)
+".NET Globalization" - "UI Culture" => Invariant Language (Invariant Country)
+"Session State" - "Session State Mode Settings" => Not enabled
+"SSL Settings" - "Require SSL" => Checked
+
+
+Release on new production server Artservice2:
+1. Change build configuration from ”Debug” to “Release”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Artservice2-1.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\GeoReferenceService\
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab.
+4. Publish web service to
+\\Artservice2-2.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\GeoReferenceService\
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab.
+
+Release on production server Silurus2:
+1. Change build configuration from ”Debug” to “Release”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Silurus2-1.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\GeoReference
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab.
+4. Publish web service to
+\\Silurus2-2.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\GeoReference
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab.
+
+Release on production server Silurus2 (old web service address):
+1. Change build configuration from ”Debug” to “Release”.
+2. Define compilation condition OLD_WEB_SERVICE_ADDRESS
+in project ArtDatabanken.WebService.
+3. Rebuild solution and check that no errors where found.
+4. Publish web service to
+\\Silurus2-1.artdata.slu.se\c$\inetpub\wwwroot\GeoReferenceService
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab.
+5. Publish web service to
+\\Silurus2-2.artdata.slu.se\c$\inetpub\wwwroot\GeoReferenceService
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab.
+
+
+
+Release on old test server Moneses:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\moneses-dev.artdata.slu.se\c$\inetpub\wwwroot\GeoReferenceService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on team Species Fact test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Artfakta-dev.local.slu.se\c$\inetpub\wwwroot\GeoReferenceService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on system test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Moneses-st.artdata.slu.se\c$\inetpub\Artdata\GeoReferenceService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on team Two Blueberries test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Slw-dev.artdata.slu.se\c$\inetpub\Artdata\GeoReferenceService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on Team Artportalen test server:
+1. Change build configuration from ”Release” to “Debug”.
+2. Open properties on project ArtDatabanken.
+Add conditional compilation symbol ARTPORTALEN_TEST. Save changes.
+3. Rebuild solution and check that no errors where found.
+4. Publish web service to
+\\Artap-st\c$\inetpub\Artdatabanken\GeoReferenceService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is not checked
+in the "Settings" tab. 
+5. Make undo checkout on project ArtDatabanken.
+
+
+Local test
+1. Change build configuration from ”Release” to “Debug”.
+2. Copy configuration below into file Web.config.
+3. Rebuild solution and check that no errors where found.
+4. Start web service and run tests.
+5. Make "Undo Checkout ..." on file Web.config.
+
+Web.config settings to use during local testing.
+
+  <system.serviceModel>
+    <client/>
+    <bindings>
+      <customBinding>
+        <binding name="GeoReferenceServiceBinding" closeTimeout="00:20:00"
+          openTimeout="00:20:00" receiveTimeout="00:20:00" sendTimeout="00:20:00">
+          <textMessageEncoding maxReadPoolSize="2000000000" maxWritePoolSize="2000000000"
+            messageVersion="Soap11">
+            <readerQuotas maxDepth="2000000000" maxStringContentLength="2000000000"
+              maxArrayLength="2000000000" maxBytesPerRead="2000000000" maxNameTableCharCount="2000000000" />
+          </textMessageEncoding>
+          <httpTransport maxBufferPoolSize="2000000000" maxReceivedMessageSize="2000000000"
+            allowCookies="false" maxBufferSize="2000000000" transferMode="Buffered"
+            useDefaultWebProxy="true" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true"/>
+    <services>
+      <service behaviorConfiguration="GeoReferenceServiceBehavior"
+        name="GeoReferenceService.GeoReferenceService">
+        <endpoint address="" behaviorConfiguration="GeoReferenceServiceEndpointBehavior"
+          binding="customBinding" bindingConfiguration="GeoReferenceServiceBinding"
+          name="GeoReferenceServiceEndpoint" contract="GeoReferenceService.IGeoReferenceService">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" name="GeoReferenceServiceMetadataExchangeEndpoint"
+          contract="IMetadataExchange" />
+      </service>
+    </services>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="GeoReferenceServiceEndpointBehavior">
+          <dataContractSerializer maxItemsInObjectGraph="2000000000" />
+        </behavior>
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="GeoReferenceServiceBehavior">
+          <serviceDebug includeExceptionDetailInFaults="true" />
+          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="false" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>

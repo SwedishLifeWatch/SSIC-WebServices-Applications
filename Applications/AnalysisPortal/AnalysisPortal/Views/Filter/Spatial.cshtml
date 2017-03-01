@@ -1,0 +1,337 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Enums
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial.FilterSpatialViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage, new ViewDataDictionary { { "OverridePageTitle", Model.Labels.TitleLabel }})
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if (Model.IsSettingsDefault)
+                                        {
+                                            <text>disabled="disabled"</text>
+                                        } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+        <button id="toolbarButtonUploadGeoJson" class="btn toolbarButton"><i class="icon-upload"></i> &nbsp;@Resource.FilterSpatialFromGeoJsonFile</button>
+    </div>
+</div>
+
+<div id="mainPanel" class="datapanel"></div>
+
+<div id="commonRegionsPanel" class="datapanel"></div>
+
+<div id="polygonPanel" class="datapanel"></div>
+
+<div id="mapControl" class="clearfix map" style="width: 480px; height: 520px;" >
+    <div id="mapNavDiv" class="olControlPanel"></div>    
+    <div class="clearfix" id="mapDiv"></div>
+</div>
+
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("strPolygons")
+    @Html.Hidden("strRegions")
+</form>
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">   
+    var regionCategoryIds = {
+        municipality: @Html.Raw((int)RegionCategoryId.Municipality),
+        county: @Html.Raw((int)RegionCategoryId.County),
+        province: @Html.Raw((int)RegionCategoryId.Province)
+    };
+
+    var regionCategoryNames = [];
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.Municipality)] = '@Model.RegionLabels.Municipality';
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.Province)] = '@Model.RegionLabels.Province';
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.County)] = '@Model.RegionLabels.County';
+
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";       
+    var regionGrid;
+    var regionStore;
+    var map;
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+    $(document).ready(function () {        
+        // common regions
+        regionStore = createRegionStore();        
+        createRegionGrid();        
+        
+        //polygons
+        createMap();        
+        //createPolygonsLayout();
+        AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+        AnalysisPortal.GIS.getSpatialFilterAsGeoJSON(map, null, function () {            
+            setSpatialFilterEvents();
+            strPageSettingsOnLoad = getPageSettingsJsonString();            
+        });
+        createLayout();        
+        initToolbar();
+        initCoordinateSelectBox();
+        $('#toolbarButtonUploadGeoJson').click(function() {
+            AnalysisPortal.showDialog({
+                title: '@Resource.FilterSpatialFromGeoJsonFile',
+                url: '@Url.Action("SetFilterFromGeoJsonDialog")'
+            });            
+        });
+    });
+
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;            
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetSpatialSettings", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });      
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        AnalysisPortal.GIS.saveMapState();        
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+
+    function saveChanges() {        
+        var data = getPageSettingsObject();        
+        var $frm = $('#saveSettingsForm');        
+        $frm.find('input[name=strPolygons]').val(data.Polygons);
+        $frm.find('input[name=strRegions]').val(Ext.encode(data.Regions));
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();                
+    }
+
+    
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        
+        // polygons
+        if (map.editFeatureControl)
+            map.editFeatureControl.deactivate();
+        var serializer = new OpenLayers.Format.GeoJSON();
+        var polygons = serializer.write(map.theEditLayer.features);
+        
+        // regions
+        var regionIds = [];
+        regionStore.data.each(function(item, index, totalItems ) {
+            regionIds.push(item.get("Id"));
+        });
+        
+        var data = {
+            Polygons : polygons,
+            Regions: regionIds
+        };
+        return data;
+    }
+
+
+    function createLayout() {
+        
+        var mapControl = AnalysisPortal.createHtmlPanel('mapControl', {
+            title: "@Model.SharedLabels.Polygons",
+            region: 'center'
+        });
+
+        var containerPanel = AnalysisPortal.createLayoutContainer([regionGrid, mapControl], {
+            layout: "border",
+            collapsible: false
+        });
+
+        AnalysisPortal.createMainPanel('mainPanel', {                        
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 520,
+            items: [containerPanel], 
+            collapsible: false            
+        });
+
+//        AnalysisPortal.createMainPanel('mainPanel', {            
+//            width: 800,
+//            items: [regionGrid, mapControl], 
+//            collapsible: false,
+//            layout: {
+//                type: 'hbox',
+//                align: 'stretchmax'//,
+//                //pack: 'center'
+//            }           
+//        });
+        
+    }
+
+
+    function isRegionStoreModified() {        
+        var removedRecords = regionStore.getRemovedRecords();        
+        if (removedRecords.length > 0)
+            return true;
+        var newRecords = regionStore.getNewRecords();        
+        if (newRecords.length > 0)
+            return true;
+        return false;
+    }
+
+    function getSelectedRegionIds() {
+        var regionIds = [];
+        regionStore.data.each(function(item, index, totalItems ) {
+            regionIds.push(item.get("Id"));
+        });
+        return regionIds;
+    }
+
+    function createRegionStore() {        
+        AnalysisPortal.Models.defineRegionViewModel();
+        var store = AnalysisPortal.createJsonStore('RegionViewModel', '@Html.Raw(Url.Action("GetAllRegions", "MySettings"))', {            
+            groupField: 'CategoryId'
+        });
+        return store;
+    }
+
+    function getRegionGroupHeader(categoryId) {
+        return regionCategoryNames[categoryId];        
+    }
+
+    function createRegionGrid() {        
+        var grouping = Ext.create('Ext.grid.feature.Grouping', {            
+            groupHeaderTpl: '{[getRegionGroupHeader(values.groupValue)]}',            
+            startCollapsed: false,
+            enableNoGroups: false            
+        });
+
+        
+        regionGrid = Ext.create('Ext.grid.Panel', {
+            id: 'regionGrid',
+            store: regionStore,
+            title: '@Model.SharedLabels.Regions',
+            region: 'west',
+            width: 280,
+            //height: 240,
+            frame: false,
+            features: [grouping],
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            emptyText: '@Model.SharedLabels.NoSelectedRegions',            
+            columns: [
+                { text: '@Model.SharedLabels.Name', flex: 1, dataIndex: 'Name', sortable: true },
+                {
+                    xtype: 'actioncolumn',
+                    tooltip: "@Model.SharedLabels.RemoveRegionTooltip",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/delete.gif")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var store = grid.getStore();
+                        var record = store.getAt(rowIndex);
+                        var index = store.data.indexOf(record);
+                        store.removeAt(index);   
+                        enableDisableButtons();
+                    }
+                }
+            ],
+            columnLines: true
+        });
+        
+        regionStore.load({
+            callback: function (records, operation, success) {
+                strPageSettingsOnLoad = getPageSettingsJsonString();
+            }
+        });
+    }
+
+
+    function createMap() {
+        var toolsOptions = {          
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: false,
+            ShowSelectManyControl: true,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [/*{
+                id: VectorLayers.Observations,
+                visible: false
+            }, {
+                id: VectorLayers.ObservationAccuracy,
+                visible: false
+            },*/ {
+                id: VectorLayers.EditLayer,
+                mainLayer: true,
+                visible: true,
+                initVisibilityState: 1
+            }
+        ];        
+        map = AnalysisPortal.GIS.initMap({
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });        
+    }    
+
+    
+    function setSpatialFilterEvents() {        
+        map.theEditLayer.isModified = false;
+        
+        map.theEditLayer.events.register('featuresremoved', this, function (features) {
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });        
+
+        map.theEditLayer.events.register('afterfeaturemodified', this, function (features) {
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });
+
+        map.theEditLayer.events.register('afterfeaturemodified', this, function (feature) {
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });        
+
+    }     
+
+
+
+</script>

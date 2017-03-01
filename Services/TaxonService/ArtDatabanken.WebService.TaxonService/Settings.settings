@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.TaxonService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TaxonNameCategoryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonNameCategory</Value>
+    </Setting>
+    <Setting Name="TaxonNameUsageCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonNameUsage</Value>
+    </Setting>
+    <Setting Name="TaxonCategoryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonCategory</Value>
+    </Setting>
+    <Setting Name="DefaultValidToDate" Type="System.DateTime" Scope="Application">
+      <Value Profile="(Default)">2444-08-01</Value>
+    </Setting>
+    <Setting Name="TaxonRevisionGuidPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:dyntaxa.se:Revision</Value>
+    </Setting>
+    <Setting Name="TaxonNameStatusCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonNameStatus</Value>
+    </Setting>
+    <Setting Name="TaxaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxon</Value>
+    </Setting>
+    <Setting Name="TaxonTreesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonTrees</Value>
+    </Setting>
+    <Setting Name="TaxonRevisionStateCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonRevisionState</Value>
+    </Setting>
+    <Setting Name="TaxonRevisionEventTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonRevisionEventType</Value>
+    </Setting>
+    <Setting Name="TaxonRelationsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonRelation</Value>
+    </Setting>
+    <Setting Name="TaxonTreeRootsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonTreeRoots</Value>
+    </Setting>
+    <Setting Name="LumpSplitEventTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebLumpSplitEventType</Value>
+    </Setting>
+    <Setting Name="TaxonAlertStatusCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonAlertStatus</Value>
+    </Setting>
+    <Setting Name="TaxonChangeStatusCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonChangeStatus</Value>
+    </Setting>
+    <Setting Name="TaxonNameCategoryTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebTaxonNameCategoryType</Value>
+    </Setting>
+    <Setting Name="DatabaseDefaultCommandTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="WebDataModifiedByPerson" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ModifiedByPerson</Value>
+    </Setting>
+    <Setting Name="WebDataCreatedByPerson" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">CreatedByPerson</Value>
+    </Setting>
+    <Setting Name="WebDataTaxonRevisionId" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonRevisionId</Value>
+    </Setting>
+    <Setting Name="WebDataChildrenCircularTaxonIds" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ChildrenCircularTaxonIds</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

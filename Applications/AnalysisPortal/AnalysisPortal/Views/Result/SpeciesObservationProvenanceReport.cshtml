@@ -1,0 +1,98 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = Resource.ResultViewProvenanceReportTitle;
+    ViewBag.Description = Resource.ResultSpeciesObservationProvenanceReportDescription;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <div class="btn-group">
+            <a class="btn action-button" href="@Url.Action("SpeciesObservationProvenancesAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>            
+        </div>
+    </div> 
+</div>
+
+<br/>
+@Resource.ResultViewProvenanceReportLimitDescription
+
+<p></p>
+@* this is the div where the observations provenance table will be rendered *@
+<div id="provenanceDiv"></div>
+
+    
+<script type="text/javascript">    
+    
+    $(document).ready(function () {        
+        //First define models in Ext JS which is required when returning data from GetSpeciesObservationProvenancesAsJSON as a list of lists
+        AnalysisPortal.Models.defineProvenanceModel();
+        AnalysisPortal.Models.defineProvenanceValueModel();
+        
+        // Then create store for collected data from GetSpeciesObservationProvenancesAsJSON
+        var provenanceStore = AnalysisPortal.createJsonStore('ProvenanceModel', '@Html.Raw(Url.Action("GetSpeciesObservationProvenancesAsJSON", "Result"))');
+
+        // TODO: how to show grids during load? or show at least some feedback that data is loading?
+        // Display some grid to show end user that data is loading
+        Ext.create('Ext.grid.Panel', {
+            title: AnalysisPortal.Resources.ResultViewProvenanceType,
+            width: 600,
+            height: 150,
+            frame: false,
+            columnLines: true,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            renderTo: 'provenanceDiv',
+            store: provenanceStore,
+            columns: [
+                    { text: AnalysisPortal.Resources.ResultViewSpeciesObservationProvenanceTableColumnNameHeader, dataIndex: 'Name', flex: 1 }
+            ]
+        });
+
+        provenanceStore.load({
+            scope: this,
+            callback: function () {
+
+                //iterate over the provenance types
+                provenanceStore.each(function (provenanceType) {
+
+                    var typeName = provenanceType.get('Name');
+
+                    Ext.create('Ext.grid.Panel', {
+                        title: typeName,
+                        width: 600,
+                        height: 200,
+                        frame: false,
+                        columnLines: true,
+                        viewConfig: {
+                            stripeRows: true,
+                            enableTextSelection: true,
+                            loadMask: {
+                                msg: AnalysisPortal.Resources.SharedLoading
+                            }
+                        },
+                        renderTo: 'provenanceDiv',
+                        store: provenanceType.Values(),
+                        columns: [
+                                { text: AnalysisPortal.Resources.ResultViewSpeciesObservationProvenanceTableColumnValueHeader, dataIndex: 'Value', flex: 1 },
+                                { text: AnalysisPortal.Resources.ResultViewSpeciesObservationProvenanceTableColumnSpeciesObservationCountHeader, dataIndex: 'SpeciesObservationCount', width: 150 }
+                        ]
+                    });
+
+                    ////iterate over the details for each provenance type
+                    //provenanceType.Values().each(function (value) {
+                    //    console.log("item value: " + value.get('Value') + ", SpeciesObservationCount: " + value.get('SpeciesObservationCount') + ", Id: " + value.get('Id'));
+                    //});
+                });
+            }
+        });
+    });
+
+</script>

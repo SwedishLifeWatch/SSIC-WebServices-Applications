@@ -1,0 +1,388 @@
+﻿@using Resources 
+
+<div id="dialogMainPanel" class="datapanel"></div>
+
+<table id="histogramColorsTable" class="table table-bordered table-condensed">
+    <tr>
+        <td class="tablelabel">@Resource.HistogramBinSettingsStartColor</td>
+        <td>
+            <input type="text" id="fromColor" style="width:100px;" value="#A1F1FC" />        
+        </td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.HistogramBinSettingsEndColor</td>
+        <td>
+            <input type="text" id="toColor" style="width:100px;" value="#333334" />
+        </td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.HistogramBinSettingsColorInterpolationMode</td>
+        <td>
+            <select id="colorInterpolationMode">
+                <option value="linear">Linear</option>
+                <option value="pow2">X^2</option>
+                <option value="pow3">X^3</option>
+                <option value="pow4">X^4</option>
+                <option value="pow5">X^5</option>
+                <option value="pow10">X^10</option>
+                <option value="log2">Log2</option>
+                <option value="log3">Log3</option>
+                <option value="log4">Log4</option>
+                <option value="log5">Log5</option>
+                <option value="log10">Log10</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<button class="btn action-button" id="addGridStatisticsHistogramBoxButton">@Resource.HistogramBinSettingsAddBin</button>
+<button class="btn action-button" id="moveUpGridStatisticsHistogramBoxButton">@Resource.HistogramBinSettingsMoveUp</button>
+<button class="btn action-button" id="moveDownGridStatisticsHistogramBoxButton">@Resource.HistogramBinSettingsMoveDown</button>
+
+<script type="text/javascript">
+    var gridStatisticsHistogramSettingsGrid;
+    var gridStatisticsHistogramSettingsStore;
+
+    $(function () {
+        initColorInterpolationModeSelectBox();
+        gridStatisticsHistogramSettingsStore = createGridStatisticsHistogramSettingsStore();
+        gridStatisticsHistogramSettingsGrid = createHistogramSettingsGrid();
+        createHistogramSettingsLayout();
+        $('#addGridStatisticsHistogramBoxButton').click(function() {
+            var pairs = [];
+            pairs.push({ FromValue: histogram.maxValue, ToValue: histogram.maxValue });
+            gridStatisticsHistogramSettingsStore.add(pairs);
+            calculateHistogramColors();
+        });
+
+        $('#moveUpGridStatisticsHistogramBoxButton').click(function() {            
+            var selections = gridStatisticsHistogramSettingsGrid.getSelectionModel().getSelection();
+
+            if (selections.length == 1) {
+                var record = selections[0];
+                var index = gridStatisticsHistogramSettingsStore.data.indexOf(record);
+                if (index > 0) {
+                    gridStatisticsHistogramSettingsStore.remove(record, true); // just moving
+                    gridStatisticsHistogramSettingsStore.insert(index - 1, record);
+                    calculateHistogramColors();
+                    //gridStatisticsHistogramSettingsGrid.getView().refresh();
+                }
+            }           
+        });
+        $('#moveDownGridStatisticsHistogramBoxButton').click(function () {
+            var selections = gridStatisticsHistogramSettingsGrid.getSelectionModel().getSelection();
+
+            if (selections.length == 1) {
+                var record = selections[0];
+                var index = gridStatisticsHistogramSettingsStore.data.indexOf(record);
+                if (index < gridStatisticsHistogramSettingsStore.data.length) {
+                    gridStatisticsHistogramSettingsStore.remove(record, true); // just moving
+                    gridStatisticsHistogramSettingsStore.insert(index + 1, record);
+                    calculateHistogramColors();
+                    //gridStatisticsHistogramSettingsGrid.getView().refresh();
+                }
+            }
+        });
+        $('#colorInterpolationMode').change(function() {
+            calculateHistogramColors();
+        });
+        initHistogramSettingsColors();
+        
+    });
+    
+    function initColorInterpolationModeSelectBox() {
+        if (typeof histogram !== 'undefined' && histogram != null) {            
+            if (typeof histogram.colorInterpolationMode !== "undefined") {                
+                $('#colorInterpolationMode').val(AnalysisPortal.Statistics.ColorInterpolationMode[histogram.colorInterpolationMode]);
+            }            
+        }
+    }
+  
+    function initHistogramSettingsColors() {
+        if (typeof histogram !== 'undefined' && histogram != null) {            
+
+            var startColor, endColor;
+            if (histogram.bins.length > 0) {
+                if (histogram.bins.length > 1) {
+                    startColor = histogram.bins[0].color;
+                    endColor = histogram.bins[histogram.bins.length - 1].color;
+                }
+                else {
+                    startColor = histogram.bins[0].color;
+                    endColor = histogram.bins[0].color;
+                }
+            }
+            $('#fromColor').val(startColor.toHexString());
+            $('#toColor').val(endColor.toHexString());
+        }
+        
+        $('#fromColor, #toColor').miniColors({
+            change: function (hex, rgba) {
+                calculateHistogramColors();
+                //$(this).css('background-color', hex);
+                //background-color: yellowgreen;
+                //$('#console').prepend('change: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            },
+            open: function (hex, rgba) {
+                //$('#console').prepend('open: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            },
+            close: function (hex, rgba) {
+                //$('#console').prepend('close: ' + hex + ', rgba(' + rgba.r + ', ' + rgba.g + ', ' + rgba.b + ', ' + rgba.a + ')<br>');
+            }
+        });
+    }
+
+
+    function validateHistogramBoxes() {
+        var store = gridStatisticsHistogramSettingsStore;
+        if (store.data.length == 0) {
+            return {
+                isValid: false,
+                message: 'Error! There are no bins created. You must have at least one.'
+            };
+        }        
+        for (var i = 0; i < store.data.length; i++) {
+            var item = store.data.items[i];
+            if (item.data.FromValue > item.data.ToValue) {                
+                return {
+                    isValid: false,
+                    message: Ext.String.format('Error! In Bin {0}, the [From value] is greater than [To value] ({1} > {2})', i + 1, item.data.FromValue, item.data.ToValue)
+                };
+            }
+            if (i > 0) {
+                var prevItem = store.data.items[i - 1];
+                if (item.data.FromValue == prevItem.data.ToValue) {                    
+                    return {
+                        isValid: false,
+                        message: Ext.String.format('Error! [Bin {0} From value] is equal to [Bin {1} To value] ({2} = {3})', i + 1, i, item.data.FromValue, prevItem.data.ToValue)
+                    };
+                }
+                if (item.data.FromValue < prevItem.data.ToValue) {
+                    return {
+                        isValid: false,
+                        message: Ext.String.format('Error! [Bin {0} From value] is less than [Bin {1} To value] ({2} < {3})', i + 1, i, item.data.FromValue, prevItem.data.ToValue)
+                    };
+                }
+                
+                //if (prevItem.data.ToValue != (item.data.FromValue - 1)) {
+                //    alert('Warning! Boxarna gränsar inte till varandra');
+                //}
+            }
+        }
+
+        return {
+            isValid: true,
+            message: ''
+        };
+    }
+
+    function createHistogramSettingsGrid() {
+        
+        var grid = new Ext.grid.Panel({
+            title: "@Resource.HistogramBinSettingsHistogramBins",
+            id: 'gridStatisticsHistogramSettingsGrid',
+            sortableColumns: false,
+            width: 400,
+            height: 224,                
+            store: gridStatisticsHistogramSettingsStore,
+            plugins: new Ext.grid.plugin.CellEditing({
+                clicksToEdit: 1
+            }),
+        
+            viewConfig: {
+                //enableTextSelection: true,
+                markDirty:false
+            },
+            columns: [                
+                {
+                    text: '@Resource.HistogramBinSettingsBin', width: 100, renderer: function (value, meta, record) {                        
+                        var index = grid.getStore().data.indexOf(record);
+                        var strTemplate = '@Resource.HistogramBinSettingsBin {0}';
+                        return Ext.String.format(strTemplate, index + 1);
+                    }
+                },
+                {
+                header: "@Resource.HistogramBinSettingsFrom",
+                    flex: 1,
+                    dataIndex: "FromValue",                    
+                    editor: {
+                        xtype: 'numberfield',
+                        allowBlank: false,
+                        minValue: histogram.minValue,
+                        maxValue: histogram.maxValue
+                    }                        
+            },
+            {
+                header: "@Resource.HistogramBinSettingsTo",
+                flex: 1,
+                dataIndex: "ToValue",
+                editor: {
+                    xtype: 'numberfield',
+                    allowBlank: false,
+                    minValue: histogram.minValue,
+                    maxValue: histogram.maxValue
+                }                
+            },
+            {
+                header: '@Resource.SharedColor', width: 50, dataIndex: 'Color', renderer: function (value, meta, record) {
+                    return Ext.String.format('<div class="gridColorCell" style="background-color: {0};"></div>', value);
+                }
+            },
+            {
+                xtype: 'actioncolumn',
+                tooltip: "@Resource.HistogramBinSettingsRemoveBin",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/delete.gif")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var record = grid.getStore().getAt(rowIndex);
+                        if (record) {
+                            var index = grid.getStore().data.indexOf(record);
+                            grid.getStore().removeAt(index);
+                            grid.getStore().sync();
+                            calculateHistogramColors();
+                        }
+                    }
+            }
+            ]
+            });
+        return grid;
+    }
+
+    function createGridStatisticsHistogramSettingsStore() {
+        AnalysisPortal.Models.defineHistogramBoxModel();
+        
+        var pairs = [];
+        if (typeof histogram !== 'undefined' && histogram != null) {
+            for (var i = 0; i < histogram.bins.length; i++) {
+                var bin = histogram.bins[i];
+                pairs.push({ FromValue: bin.lowerBound, ToValue: bin.upperBound, Color: bin.color.toHexString() });                
+            }
+        } else {
+            pairs.push({ Name: "Box 1", FromValue: 1, ToValue: 10 });
+            pairs.push({ Name: "Box 2", FromValue: 11, ToValue: 30 });        
+        }
+        
+        var store = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            model: 'HistogramBox',
+            data: pairs,
+            proxy: {
+                type: 'memory',
+                reader: {
+                    type: 'json'
+                }
+            }
+        });
+        return store;
+    }
+
+    function createHistogramSettingsLayout() {
+        var colorTable = AnalysisPortal.createHtmlPanel('histogramColorsTable', {
+            title: '@Resource.HistogramBinSettingsColors'//,
+            //width: 420
+        });
+
+        var mainPanel = AnalysisPortal.createMainPanel('dialogMainPanel', {
+            width: 400,
+            items: [colorTable, gridStatisticsHistogramSettingsGrid],
+            collapsible: false,
+            layout: {
+                type: 'vbox',
+                align: 'stretchmax',
+                pack: 'center'
+            }
+        });
+    }
+    
+
+    function getHistogramBinsFromStore() {
+        var store = gridStatisticsHistogramSettingsStore;
+        var histogramBins = new Array();
+        for (var i = 0; i < store.data.length; i++) {
+            var item = store.data.items[i];
+            var bin = new AnalysisPortal.Statistics.HistogramBin(item.data.FromValue, item.data.ToValue);            
+            bin.color = AnalysisPortal.Statistics.Color.colorFromHexString(item.data.Color);
+            histogramBins.push(bin);
+        }
+        return histogramBins;
+    }
+    
+    function calculateColor() {
+        var gradientColorCollection = AnalysisPortal.Statistics.GradientColorCollection.createGradientColorCollection(0, 1, colors); //0,1 is dummy values. Not used in this case when creating interpolated color.
+
+
+    }
+
+    function calcAllColors (colorCollection) {
+        var fracDelta = 1.0 / (this.bins.length - 1);
+        for (var i = 0; i < this.bins.length; i++) {
+            var bin = this.bins[i];
+            if (i == 0) {
+                bin.color = colorCollection.getColorFromGradient(0);
+            } else if (i == this.bins.length - 1) {
+                bin.color = colorCollection.getColorFromGradient(1);
+            } else {
+                bin.color = colorCollection.getColorFromGradient(i * fracDelta);
+            }
+        }
+    }
+
+    function applyHistogramBinSettingsChangesButtonHandler() {                        
+        var validateResult = validateHistogramBoxes();
+        if (!validateResult.isValid) {
+            AnalysisPortal.showMsg(validateResult.message);
+            return;
+        }
+        
+        $('#dialogMainPanel').closest('div.modal').modal('hide');
+        if (typeof applyHistogramBinSettingsChanges == 'function') {
+            var histogramBins = getHistogramBinsFromStore();
+            var startColor = AnalysisPortal.Statistics.Color.colorFromHexString($('#fromColor').val());
+            var endColor = AnalysisPortal.Statistics.Color.colorFromHexString($('#toColor').val());
+
+            applyHistogramBinSettingsChanges({
+                startColor: startColor,
+                endColor: endColor,
+                histogramBins: histogramBins,
+                colorInterpolationMode: AnalysisPortal.Statistics.ColorInterpolationMode[$('#colorInterpolationMode').val()]
+            });            
+        }
+    }
+    
+    function calculateHistogramColors() {
+        var interpolationMode = AnalysisPortal.Statistics.ColorInterpolationMode[$('#colorInterpolationMode').val()];
+        var startColor = AnalysisPortal.Statistics.Color.colorFromHexString($('#fromColor').val());
+        var endColor = AnalysisPortal.Statistics.Color.colorFromHexString($('#toColor').val());
+        var colors = new Array(startColor, endColor);
+        var colorCollection = AnalysisPortal.Statistics.GradientColorCollection.createGradientColorCollection(0, 1, colors); //0,1 is dummy values. Not used in this case when creating interpolated color.
+
+        //for (var i = 0; i < gridStatisticsHistogramSettingsStore.data.items.length; i++) {
+        //    var item = gridStatisticsHistogramSettingsStore.data.items[i];
+        //    item.data.Color = '#000000';
+        //}
+
+        //var interpolateFunction = getColorInterpolationFunction(interpolationMode);
+        //var count = gridStatisticsHistogramSettingsStore.getTotalCount();
+        var count = gridStatisticsHistogramSettingsStore.data.items.length;
+        gridStatisticsHistogramSettingsStore.each(function (record, idx) {
+            var val = 0;
+            if (count > 1)
+                val = idx / (count - 1);            
+            //val = interpolateFunction(val);
+            //var color = colorCollection.getColorFromGradient(val);
+            
+            var color = colorCollection.getInterpolatedColorFromGradient(val, interpolationMode);
+            record.set('Color', color.toHexString());
+        });
+        gridStatisticsHistogramSettingsStore.save(); // if we don't call save() a red icon, indicating that the record is edited but not saved, will appear to the left of each record in the grid
+        gridStatisticsHistogramSettingsGrid.getView().refresh();
+
+        //for (var i = 0; i < histogram.bins.length; i++) {
+        //    var bin = histogram.bins[i];
+        //    pairs.push({ FromValue: bin.lowerBound, ToValue: bin.upperBound, Color: bin.color.toHexString() });
+        //}
+    }
+
+</script>

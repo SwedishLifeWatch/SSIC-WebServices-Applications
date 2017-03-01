@@ -1,0 +1,25 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.About.AboutViewModel
+@{
+    ViewBag.Title = Resource.FilterIndexTitle;
+    ViewBag.Description = Resource.FilterIndexDescription;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+<div class="content-box">
+    <hgroup>
+        <p class="intro">@Model.Description</p>
+    </hgroup>
+
+
+    @foreach (var i in Model.Items) {
+        <article>
+            <h3>@i.Header</h3>
+            <p>
+                @i.Description<br/>
+                <a href="@i.ReadMoreLinkUrl" target="_blank"><i class="icon-info-sign"></i> &nbsp;@i.ReadMoreLinkLabel</a>
+            </p>
+        </article>
+    }
+</div>

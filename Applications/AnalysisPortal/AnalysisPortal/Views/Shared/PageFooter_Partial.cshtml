@@ -1,0 +1,76 @@
+﻿@using Resources
+
+
+<div class="row-fluid content-wrapper" >
+    <div id="footerContent" >
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="text col-xs-8">
+                <p>                
+                    @Resource.SharedAnalysisPortalSummary                
+                </p>
+            </div>
+            <div class="col-xs-4">
+                <a href="@Html.Raw(Resource.LinkUrlArtdatabanken)" target="_blank" class="pull-right highlight-image" title="@Resource.LinkTextArtdatabanken">
+                    <img width="240" src="~/Content/images/logos/ArtDatabanken.png" alt="@Resource.LinkTextArtdatabanken" />
+                </a>
+            </div>
+        </div>
+        <div class="horizontal-ruler" style="width: 1055px; margin-left: 2px; margin-right: auto;"></div>        
+                         
+        <div class="footerColumn left rightSeparator">
+            <h4>@Resource.SharedFooterInfoHeader</h4>
+            <ul>                                
+                <li><a href="@Resource.SharedAboutAnalysisPortalUrl" target="_blank">@Resource.SharedAboutAnalysisPortal</a></li>
+                <li>@Html.ActionLink(Resource.SharedAboutCookiesHeader, "Cookies", "Home")</li>
+                <li>@Html.ActionLink(Resource.SharedVersionNumberText, "VersionNumber", "Home")</li>                    
+            </ul>   
+        </div>               
+        <div class="footerColumn left rightSeparator">
+            <h4>@Resource.SharedSupportHeaderText</h4>
+            <ul> @* TODO: correct email and link, put in settings resorces file *@
+                <li><a href="mailto:analysisportalAdmin@slu.se">@Resource.SharedContactMailLinkText</a></li>
+                <li><a href="http://artdatabanken.se/vaara-tjaenster/driftstatus/" target="_blank">@Resource.SharedCurrentServiceStatusLinkText</a></li>
+                <li>&nbsp;</li>
+            </ul>
+        </div>           
+        <div class="pull-right" style="margin-top: 10px; margin-right: 5px;">
+            @{
+                string universityOfGothenburgImageUrl = "~/Content/images/logos/GU-sv.png";
+                string lundUniversityImageUrl = "~/Content/images/logos/LU-sv.png";
+                if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName != "sv")
+                {
+                    universityOfGothenburgImageUrl = "~/Content/images/logos/GU-en.png";
+                    lundUniversityImageUrl = "~/Content/images/logos/LU-en.png";
+                }
+            }
+            <a href="@Html.Raw(Resource.LinkUrlSLU)" target="_blank" class="highlight-image" title="@Resource.LinkTextSLU">
+                <img width="80" src="~/Content/images/logos/SLU.png" alt="Sveriges @Resource.LinkTextSLU"/>
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlNaturhistoriskaRiksmuseet)" target="_blank" class="highlight-image" title="@Resource.LinkTextNaturhistoriskaRiksmuseet">
+                <img width="70" src="~/Content/images/logos/NRM.png" alt="@Resource.LinkTextNaturhistoriskaRiksmuseet"/>
+            </a>
+            <a href="http://www.gbif.se/" target="_blank" title="GBIF" class="highlight-image">
+                <img width="70" src="~/Content/images/logos/GBIF.png" alt="GBIF" title="GBIF"/>
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlUniversityOfGothenburg)" target="_blank" class="highlight-image" title="@Resource.LinkTextUniversityOfGothenburg">
+                <img width="70" src="@Url.Content(universityOfGothenburgImageUrl)" alt="@Resource.LinkTextUniversityOfGothenburg" />
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlLundUniversity)" target="_blank" class="highlight-image" title="@Resource.LinkTextLundUniversity">
+                <img width="70" src="@Url.Content(lundUniversityImageUrl)" alt="@Resource.LinkTextLundUniversity" />
+            </a>            
+            <a href="@Html.Raw(Resource.LinkUrlUmeaUniversity)" target="_blank" class="highlight-image" title="@Resource.LinkTextUmeaUniversity">
+                <img width="50" src="~/Content/images/logos/UMU.png" alt="@Resource.LinkTextUmeaUniversity" />
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlSMHI)" target="_blank" class="highlight-image" title="SMHI">
+                <img width="80" src="~/Content/images/logos/SMHI.png" alt="SMHI" />
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlNaturvardsverket)" target="_blank" class="highlight-image" title="@Resource.LinkTextNaturvardsverket">
+                <img width="45" src="~/Content/images/logos/NV.png" alt="@Resource.LinkTextNaturvardsverket" />
+            </a>
+            <a href="@Html.Raw(Resource.LinkUrlSwedishResearchCouncil)" target="_blank" class="highlight-image" title="@Resource.LinkTextSwedishResearchCouncil">
+                <img width="75" src="~/Content/images/logos/VR.png" alt="@Resource.LinkTextSwedishResearchCouncil" />
+            </a>
+        </div>
+                   
+    </div>                
+</div>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a17fef1b-77e6-47ae-9e30-7e4b1512747d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ArtDatabanken" />
+      <ReferencedAssembly AssemblyName="ArtDatabanken.WebService.Data" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DyntaxaInternalService.xsd" MetadataType="Schema" ID="7c3cadcf-8b44-4575-8ac4-89c0c43d074b" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DyntaxaInternalService.disco" MetadataType="Disco" ID="eb7aea60-cf56-4e61-8889-70101a50e32b" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?disco" />
+    <MetadataFile FileName="DyntaxaInternalService1.xsd" MetadataType="Schema" ID="9a272ddf-221c-4971-8e0f-613837250824" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DyntaxaInternalService.wsdl" MetadataType="Wsdl" ID="875669f8-5010-430d-9399-628ad4a85390" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="DyntaxaInternalService1.wsdl" MetadataType="Wsdl" ID="1ee6a825-d1d2-4164-ad43-db4fc74246cf" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?wsdl" />
+    <MetadataFile FileName="DyntaxaInternalService2.xsd" MetadataType="Schema" ID="7327e08f-1993-4468-9668-fee7e00c2e97" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd3" />
+    <MetadataFile FileName="DyntaxaInternalService3.xsd" MetadataType="Schema" ID="57abb801-7b2f-4c5e-a8a7-3dd530fe0030" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="DyntaxaInternalService4.xsd" MetadataType="Schema" ID="2ac50e69-424a-40b5-9df4-50d1a39c2f31" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

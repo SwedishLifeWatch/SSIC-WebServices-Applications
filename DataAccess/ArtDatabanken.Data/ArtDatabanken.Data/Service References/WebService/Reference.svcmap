@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8921dba2-9177-4e57-a448-6d048dfeb4a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ArtDatabankenService.disco" MetadataType="Disco" ID="462f01d6-f325-4656-a97c-84a193e2f11c" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?disco" />
+    <MetadataFile FileName="ArtDatabankenService1.xsd" MetadataType="Schema" ID="d0d0e1fa-f074-4cf4-b0fe-889f60bb1aff" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ArtDatabankenService2.xsd" MetadataType="Schema" ID="861a196d-7d0d-439e-aa08-6fafe6f1eb29" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ArtDatabankenService3.xsd" MetadataType="Schema" ID="5a4a71b3-0281-416d-9488-51e7ae436724" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ArtDatabankenService4.xsd" MetadataType="Schema" ID="944f7cea-8bb5-4291-951f-43cf1d15c9dd" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ArtDatabankenService.wsdl" MetadataType="Wsdl" ID="3463828c-1993-4fa8-94c3-548027e4784e" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ArtDatabankenService1.wsdl" MetadataType="Wsdl" ID="20e33ddd-a684-4900-bfcb-1328385a45e1" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/ArtDatabankenService/ArtDatabankenService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

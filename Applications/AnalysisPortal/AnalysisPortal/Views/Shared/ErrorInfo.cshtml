@@ -1,0 +1,42 @@
+﻿@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Error.ErrorViewModel
+
+@{
+    ViewBag.Title = "ErrorInfo";
+}
+
+<fieldset id="validationSummaryContainer" class="validationSummaryFieldset">
+    <h2 class="validationSummaryHeader">
+        @Html.ValidationSummary(false, "")        
+    </h2>
+</fieldset>
+
+   
+<div id="fullContainer">
+    <fieldset>
+        <h1 class="readHeader">@string.Format("{0}{1}", Model.Labels.ErrorLabel, Model.ErrorMainHeader)</h1>            
+        <div class="fieldsetContent">   
+            <br/>
+            <p>
+                @Html.TextAreaFor(m => m.ErrorInformationText, new { rows = "10", style = "width:600px;" })                
+            </p>
+            <br/>   
+            @Html.HiddenFor(m => m.TaxonId)            
+        </div>
+    </fieldset>
+    @if ((ViewBag.Debug != null && ViewBag.Debug) || (ViewBag.IsLoggedIn != null && ViewBag.IsLoggedIn) && !string.IsNullOrEmpty(Model.AdditionalErrorInformationText))
+    {
+        <fieldset>
+            <h2>@Model.Labels.AdditionErrorLabel</h2>                
+            <div class="fieldsetContent">   
+                <br/>
+                    <div class="editor-field">
+                        <p>
+                            @Html.TextAreaFor(m => m.AdditionalErrorInformationText, new { style = "height: 500px;width:800px;" })                        
+                        </p>                                
+                    </div>
+                <br/>   
+            </div>
+        </fieldset>        
+    }
+    <p></p>          
+</div>

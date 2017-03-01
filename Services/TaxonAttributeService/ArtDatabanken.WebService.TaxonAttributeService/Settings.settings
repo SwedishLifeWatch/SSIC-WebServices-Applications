@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.TaxonAttributeService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FactorOriginCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebFactorOrigin</Value>
+    </Setting>
+    <Setting Name="FactorUpdateModeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebFactorUpdateMode</Value>
+    </Setting>
+    <Setting Name="FactorFieldTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebFactorFieldType</Value>
+    </Setting>
+    <Setting Name="PeriodTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebPeriodType</Value>
+    </Setting>
+    <Setting Name="PeriodCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebPeriod</Value>
+    </Setting>
+    <Setting Name="IndividualCategoryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebIndividualCategory</Value>
+    </Setting>
+    <Setting Name="SpeciesFactQualityCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebSpeciesFactQuality</Value>
+    </Setting>
+    <Setting Name="FactorFieldEnumCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebFactorFieldEnum</Value>
+    </Setting>
+    <Setting Name="FactorDataTypeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">WebFactorDataType</Value>
+    </Setting>
+    <Setting Name="FactorInformationCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FactorInformation</Value>
+    </Setting>
+    <Setting Name="MaxSpeciesFacts" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1000000</Value>
+    </Setting>
+    <Setting Name="FactorInformationFullAccessRight" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FullAccessRight</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/UserService/UserService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/UserService/UserService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/UserService/UserService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/UserService/UserService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/UserService/UserService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_ActivateRoleMembership_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateRoleMembership" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ActivateRoleMembership_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateRoleMembershipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ActivateUserAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUserAccount" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ActivateUserAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActivateUserAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddAuthorityDataTypeToApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthorityDataTypeToApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddAuthorityDataTypeToApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAuthorityDataTypeToApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserToRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_AddUserToRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserToRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CheckStringIsUnique_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStringIsUnique" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CheckStringIsUnique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStringIsUniqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplicationAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplicationAction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplicationAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplicationActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplicationVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplicationVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateApplicationVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplicationVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateOrganizationCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateOrganizationCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOrganizationCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreatePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreatePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeletePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeletePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAddressTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressTypes" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAddressTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationAction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActions" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActionsByGUIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionsByGUIDs" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActionsByGUIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionsByGUIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActionsByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionsByIds" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationActionsByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationActionsByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplications" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationsInSoa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsInSoa" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationsInSoa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationsInSoaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationVersions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationVersions" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetApplicationVersions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetApplicationVersionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthoritiesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthoritiesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthoritiesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthoritiesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthorityDataTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityDataTypes" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthorityDataTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityDataTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthorityDataTypesByApplicationId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityDataTypesByApplicationId" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAuthorityDataTypesByApplicationId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuthorityDataTypesByApplicationIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetCountries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountries" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetCountries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLocales_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocales" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLocales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLockedUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLockedUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLockedUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLockedUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetMessageTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageTypes" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetMessageTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessageTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetNonActivatedUsersByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonActivatedUsersByRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetNonActivatedUsersByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNonActivatedUsersByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCategories" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizations" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationsByOrganizationCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsByOrganizationCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetOrganizationsByOrganizationCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrganizationsByOrganizationCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonGenders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonGenders" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonGenders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonGendersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonsByModifiedDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonsByModifiedDate" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonsByModifiedDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonsByModifiedDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPersonsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPhoneNumberTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhoneNumberTypes" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPhoneNumberTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhoneNumberTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRoleMembersBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleMembersBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRoleMembersBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRoleMembersBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUserGroupAdministrationRoleId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserGroupAdministrationRoleId" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUserGroupAdministrationRoleId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserGroupAdministrationRoleIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUserGroupAdministratorUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserGroupAdministratorUserId" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetRolesByUserGroupAdministratorUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRolesByUserGroupAdministratorUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersByRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsApplicationVersionValid_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsApplicationVersionValid" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsApplicationVersionValid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsApplicationVersionValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistingPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistingPerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistingPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistingPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistingUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistingUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsExistingUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsExistingUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveAuthorityDataTypeFromApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAuthorityDataTypeFromApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveAuthorityDataTypeFromApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAuthorityDataTypeFromApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveUserFromRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RemoveUserFromRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserFromRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_ResetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplication" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplicationAction_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationAction" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplicationAction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplicationVersion_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationVersion" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateApplicationVersion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplicationVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateOrganizationCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateOrganizationCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrganizationCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdatePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdatePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdatePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePerson" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdatePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRole" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SupportUpdatePersonUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:SupportUpdatePersonUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SupportUpdatePersonUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SupportUpdatePersonUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserAdminSetPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserAdminSetPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserAdminSetPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserAdminSetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IUserService">
+    <wsdl:operation name="ActivateRoleMembership">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ActivateRoleMembership" message="tns:IUserService_ActivateRoleMembership_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ActivateRoleMembershipResponse" message="tns:IUserService_ActivateRoleMembership_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActivateUserAccount">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ActivateUserAccount" message="tns:IUserService_ActivateUserAccount_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ActivateUserAccountResponse" message="tns:IUserService_ActivateUserAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAuthorityDataTypeToApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/AddAuthorityDataTypeToApplication" message="tns:IUserService_AddAuthorityDataTypeToApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/AddAuthorityDataTypeToApplicationResponse" message="tns:IUserService_AddAuthorityDataTypeToApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserToRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/AddUserToRole" message="tns:IUserService_AddUserToRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/AddUserToRoleResponse" message="tns:IUserService_AddUserToRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStringIsUnique">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CheckStringIsUnique" message="tns:IUserService_CheckStringIsUnique_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CheckStringIsUniqueResponse" message="tns:IUserService_CheckStringIsUnique_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ClearCache" message="tns:IUserService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ClearCacheResponse" message="tns:IUserService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CommitTransaction" message="tns:IUserService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CommitTransactionResponse" message="tns:IUserService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplication" message="tns:IUserService_CreateApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplicationResponse" message="tns:IUserService_CreateApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplicationAction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplicationAction" message="tns:IUserService_CreateApplicationAction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplicationActionResponse" message="tns:IUserService_CreateApplicationAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplicationVersion">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplicationVersion" message="tns:IUserService_CreateApplicationVersion_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateApplicationVersionResponse" message="tns:IUserService_CreateApplicationVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAuthority">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateAuthority" message="tns:IUserService_CreateAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateAuthorityResponse" message="tns:IUserService_CreateAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganization">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateOrganization" message="tns:IUserService_CreateOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateOrganizationResponse" message="tns:IUserService_CreateOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOrganizationCategory">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateOrganizationCategory" message="tns:IUserService_CreateOrganizationCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateOrganizationCategoryResponse" message="tns:IUserService_CreateOrganizationCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePerson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreatePerson" message="tns:IUserService_CreatePerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreatePersonResponse" message="tns:IUserService_CreatePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateRole" message="tns:IUserService_CreateRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateRoleResponse" message="tns:IUserService_CreateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateUser" message="tns:IUserService_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/CreateUserResponse" message="tns:IUserService_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteApplication" message="tns:IUserService_DeleteApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteApplicationResponse" message="tns:IUserService_DeleteApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAuthority">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteAuthority" message="tns:IUserService_DeleteAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteAuthorityResponse" message="tns:IUserService_DeleteAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrganization">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteOrganization" message="tns:IUserService_DeleteOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteOrganizationResponse" message="tns:IUserService_DeleteOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePerson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeletePerson" message="tns:IUserService_DeletePerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeletePersonResponse" message="tns:IUserService_DeletePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteRole" message="tns:IUserService_DeleteRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteRoleResponse" message="tns:IUserService_DeleteRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteTrace" message="tns:IUserService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteTraceResponse" message="tns:IUserService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteUser" message="tns:IUserService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/DeleteUserResponse" message="tns:IUserService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAddressTypes" message="tns:IUserService_GetAddressTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAddressTypesResponse" message="tns:IUserService_GetAddressTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplication" message="tns:IUserService_GetApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationResponse" message="tns:IUserService_GetApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationAction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationAction" message="tns:IUserService_GetApplicationAction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionResponse" message="tns:IUserService_GetApplicationAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationActions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActions" message="tns:IUserService_GetApplicationActions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionsResponse" message="tns:IUserService_GetApplicationActions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationActionsByGUIDs">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionsByGUIDs" message="tns:IUserService_GetApplicationActionsByGUIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionsByGUIDsResponse" message="tns:IUserService_GetApplicationActionsByGUIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationActionsByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionsByIds" message="tns:IUserService_GetApplicationActionsByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationActionsByIdsResponse" message="tns:IUserService_GetApplicationActionsByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplications">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplications" message="tns:IUserService_GetApplications_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationsResponse" message="tns:IUserService_GetApplications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationsInSoa">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationsInSoa" message="tns:IUserService_GetApplicationsInSoa_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationsInSoaResponse" message="tns:IUserService_GetApplicationsInSoa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationUsers">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationUsers" message="tns:IUserService_GetApplicationUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationUsersResponse" message="tns:IUserService_GetApplicationUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationVersion">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationVersion" message="tns:IUserService_GetApplicationVersion_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationVersionResponse" message="tns:IUserService_GetApplicationVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationVersions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationVersions" message="tns:IUserService_GetApplicationVersions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetApplicationVersionsResponse" message="tns:IUserService_GetApplicationVersions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthoritiesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthoritiesBySearchCriteria" message="tns:IUserService_GetAuthoritiesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthoritiesBySearchCriteriaResponse" message="tns:IUserService_GetAuthoritiesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthority">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthority" message="tns:IUserService_GetAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthorityResponse" message="tns:IUserService_GetAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorityDataTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthorityDataTypes" message="tns:IUserService_GetAuthorityDataTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthorityDataTypesResponse" message="tns:IUserService_GetAuthorityDataTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorityDataTypesByApplicationId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthorityDataTypesByApplicationId" message="tns:IUserService_GetAuthorityDataTypesByApplicationId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetAuthorityDataTypesByApplicationIdResponse" message="tns:IUserService_GetAuthorityDataTypesByApplicationId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetCountries" message="tns:IUserService_GetCountries_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetCountriesResponse" message="tns:IUserService_GetCountries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocales">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLocales" message="tns:IUserService_GetLocales_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLocalesResponse" message="tns:IUserService_GetLocales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLockedUserInformation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLockedUserInformation" message="tns:IUserService_GetLockedUserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLockedUserInformationResponse" message="tns:IUserService_GetLockedUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLog" message="tns:IUserService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetLogResponse" message="tns:IUserService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessageTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetMessageTypes" message="tns:IUserService_GetMessageTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetMessageTypesResponse" message="tns:IUserService_GetMessageTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNonActivatedUsersByRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetNonActivatedUsersByRole" message="tns:IUserService_GetNonActivatedUsersByRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetNonActivatedUsersByRoleResponse" message="tns:IUserService_GetNonActivatedUsersByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganization">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganization" message="tns:IUserService_GetOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationResponse" message="tns:IUserService_GetOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationCategories" message="tns:IUserService_GetOrganizationCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationCategoriesResponse" message="tns:IUserService_GetOrganizationCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationCategory">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationCategory" message="tns:IUserService_GetOrganizationCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationCategoryResponse" message="tns:IUserService_GetOrganizationCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizations" message="tns:IUserService_GetOrganizations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationsResponse" message="tns:IUserService_GetOrganizations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationsBySearchCriteria" message="tns:IUserService_GetOrganizationsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationsBySearchCriteriaResponse" message="tns:IUserService_GetOrganizationsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganizationsByOrganizationCategory">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationsByOrganizationCategory" message="tns:IUserService_GetOrganizationsByOrganizationCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetOrganizationsByOrganizationCategoryResponse" message="tns:IUserService_GetOrganizationsByOrganizationCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPerson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPerson" message="tns:IUserService_GetPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonResponse" message="tns:IUserService_GetPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonGenders">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonGenders" message="tns:IUserService_GetPersonGenders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonGendersResponse" message="tns:IUserService_GetPersonGenders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonsByModifiedDate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonsByModifiedDate" message="tns:IUserService_GetPersonsByModifiedDate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonsByModifiedDateResponse" message="tns:IUserService_GetPersonsByModifiedDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonsBySearchCriteria" message="tns:IUserService_GetPersonsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPersonsBySearchCriteriaResponse" message="tns:IUserService_GetPersonsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhoneNumberTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPhoneNumberTypes" message="tns:IUserService_GetPhoneNumberTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetPhoneNumberTypesResponse" message="tns:IUserService_GetPhoneNumberTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRole" message="tns:IUserService_GetRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRoleResponse" message="tns:IUserService_GetRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByOrganization">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByOrganization" message="tns:IUserService_GetRolesByOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByOrganizationResponse" message="tns:IUserService_GetRolesByOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesBySearchCriteria" message="tns:IUserService_GetRolesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesBySearchCriteriaResponse" message="tns:IUserService_GetRolesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRoleMembersBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRoleMembersBySearchCriteria" message="tns:IUserService_GetRoleMembersBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRoleMembersBySearchCriteriaResponse" message="tns:IUserService_GetRoleMembersBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUser" message="tns:IUserService_GetRolesByUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUserResponse" message="tns:IUserService_GetRolesByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByUserGroupAdministrationRoleId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUserGroupAdministrationRoleId" message="tns:IUserService_GetRolesByUserGroupAdministrationRoleId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUserGroupAdministrationRoleIdResponse" message="tns:IUserService_GetRolesByUserGroupAdministrationRoleId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRolesByUserGroupAdministratorUserId">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUserGroupAdministratorUserId" message="tns:IUserService_GetRolesByUserGroupAdministratorUserId_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetRolesByUserGroupAdministratorUserIdResponse" message="tns:IUserService_GetRolesByUserGroupAdministratorUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetStatus" message="tns:IUserService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetStatusResponse" message="tns:IUserService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUser" message="tns:IUserService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUserResponse" message="tns:IUserService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUserById" message="tns:IUserService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUserByIdResponse" message="tns:IUserService_GetUserById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUserByName" message="tns:IUserService_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUserByNameResponse" message="tns:IUserService_GetUserByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUsersByRole" message="tns:IUserService_GetUsersByRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUsersByRoleResponse" message="tns:IUserService_GetUsersByRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUsersBySearchCriteria" message="tns:IUserService_GetUsersBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/GetUsersBySearchCriteriaResponse" message="tns:IUserService_GetUsersBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsApplicationVersionValid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsApplicationVersionValid" message="tns:IUserService_IsApplicationVersionValid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsApplicationVersionValidResponse" message="tns:IUserService_IsApplicationVersionValid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistingPerson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsExistingPerson" message="tns:IUserService_IsExistingPerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsExistingPersonResponse" message="tns:IUserService_IsExistingPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsExistingUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsExistingUser" message="tns:IUserService_IsExistingUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/IsExistingUserResponse" message="tns:IUserService_IsExistingUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/Login" message="tns:IUserService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/LoginResponse" message="tns:IUserService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/Logout" message="tns:IUserService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/LogoutResponse" message="tns:IUserService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/Ping" message="tns:IUserService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/PingResponse" message="tns:IUserService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveAuthorityDataTypeFromApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RemoveAuthorityDataTypeFromApplication" message="tns:IUserService_RemoveAuthorityDataTypeFromApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RemoveAuthorityDataTypeFromApplicationResponse" message="tns:IUserService_RemoveAuthorityDataTypeFromApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserFromRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RemoveUserFromRole" message="tns:IUserService_RemoveUserFromRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RemoveUserFromRoleResponse" message="tns:IUserService_RemoveUserFromRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPassword">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ResetPassword" message="tns:IUserService_ResetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/ResetPasswordResponse" message="tns:IUserService_ResetPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RollbackTransaction" message="tns:IUserService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/RollbackTransactionResponse" message="tns:IUserService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StartTrace" message="tns:IUserService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StartTraceResponse" message="tns:IUserService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StartTransaction" message="tns:IUserService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StartTransactionResponse" message="tns:IUserService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StopTrace" message="tns:IUserService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/StopTraceResponse" message="tns:IUserService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplication" message="tns:IUserService_UpdateApplication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplicationResponse" message="tns:IUserService_UpdateApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationAction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplicationAction" message="tns:IUserService_UpdateApplicationAction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplicationActionResponse" message="tns:IUserService_UpdateApplicationAction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplicationVersion">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplicationVersion" message="tns:IUserService_UpdateApplicationVersion_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateApplicationVersionResponse" message="tns:IUserService_UpdateApplicationVersion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAuthority">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateAuthority" message="tns:IUserService_UpdateAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateAuthorityResponse" message="tns:IUserService_UpdateAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganization">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateOrganization" message="tns:IUserService_UpdateOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateOrganizationResponse" message="tns:IUserService_UpdateOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrganizationCategory">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateOrganizationCategory" message="tns:IUserService_UpdateOrganizationCategory_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateOrganizationCategoryResponse" message="tns:IUserService_UpdateOrganizationCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePassword">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdatePassword" message="tns:IUserService_UpdatePassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdatePasswordResponse" message="tns:IUserService_UpdatePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePerson">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdatePerson" message="tns:IUserService_UpdatePerson_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdatePersonResponse" message="tns:IUserService_UpdatePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRole">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateRole" message="tns:IUserService_UpdateRole_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateRoleResponse" message="tns:IUserService_UpdateRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateUser" message="tns:IUserService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UpdateUserResponse" message="tns:IUserService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SupportUpdatePersonUser">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/SupportUpdatePersonUser" message="tns:IUserService_SupportUpdatePersonUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/SupportUpdatePersonUserResponse" message="tns:IUserService_SupportUpdatePersonUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UserAdminSetPassword">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UserAdminSetPassword" message="tns:IUserService_UserAdminSetPassword_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IUserService/UserAdminSetPasswordResponse" message="tns:IUserService_UserAdminSetPassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

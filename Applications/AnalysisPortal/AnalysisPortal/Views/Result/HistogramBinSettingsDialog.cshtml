@@ -1,0 +1,15 @@
+﻿@using Resources
+
+@Html.Action("HistogramBinSettingsPartial")
+ 
+<div class="buttonToolbar">    
+    <button id="applyHistogramSettingsButton" class="btn btn-primary" type="button">@Resource.SharedOkButtonText</button>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $('#applyHistogramSettingsButton').click(function () {
+            applyHistogramBinSettingsChangesButtonHandler();            
+        });
+    });
+</script>

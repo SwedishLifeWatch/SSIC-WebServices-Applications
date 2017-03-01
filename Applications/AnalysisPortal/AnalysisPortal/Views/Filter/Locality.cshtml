@@ -1,0 +1,121 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial.LocalityViewModel
+
+@{
+    ViewBag.Title = Resource.FilterLocalityTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedChangeFilter</text> } </button>        
+        <button id="toolbarButtonReset" @if (Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>
+    </div>
+</div>
+
+<div id="localitySettingsDiv" class="data-panel-content">       
+    <div>        
+        @Resource.FilterLocalitySearchString:&nbsp;
+        <input type="text" style="width: 600px;" id="txtLocalityName" value="@Model.LocalityName">
+    </div>
+
+    <div>
+        @Resource.FilterLocalitySearchMethod:&nbsp;
+        <select  id="LocalityNameCompareOperator">
+            <option value="@StringCompareOperator.BeginsWith" @if(Model.CompareOperator == StringCompareOperator.BeginsWith) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorBeginsWith</option>
+            <option value="@StringCompareOperator.Contains" @if(Model.CompareOperator == StringCompareOperator.Contains) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorContains</option>
+            <option value="@StringCompareOperator.EndsWith" @if(Model.CompareOperator == StringCompareOperator.EndsWith) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorEndsWith</option>
+            <option value="@StringCompareOperator.Equal" @if(Model.CompareOperator == StringCompareOperator.Equal) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorEqual</option>    
+            <option value="@StringCompareOperator.Like" @if(Model.CompareOperator == StringCompareOperator.Like) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorLike</option>
+            <option value="@StringCompareOperator.NotEqual" @if(Model.CompareOperator == StringCompareOperator.NotEqual) { <text>selected="selected"</text> }>@Resource.StringCompareOperatorNotEqual</option>    
+        </select>
+    </div>
+</div>    
+
+<div id="localityDataPanel" class="datapanel"></div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+
+<script type="text/javascript">    
+    var strPageSettingsOnLoad = "";
+    var showSaveSettingsMessageOnLeave = true;
+
+    $(document).ready(function () {
+        strPageSettingsOnLoad = getPageSettingsJsonString();        
+        $('#txtLocalityName').keyup(enableDisableButtons);
+        $('#LocalityNameCompareOperator').change(enableDisableButtons);
+        initToolbar();
+        createLayout();
+    });
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function() {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetLocality", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+        
+    }
+
+    function createLayout() {
+        var localitySettingsControl = AnalysisPortal.createHtmlPanel('localitySettingsDiv', {
+            title: ""//,
+            //region: 'east'
+        });
+
+        AnalysisPortal.createMainPanel('localityDataPanel', {
+            title: '@Resource.SharedSettings',
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [localitySettingsControl],
+            collapsible: false
+        });        
+    }
+   
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+    
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var data = Ext.encode(pageSettings);
+        return data;
+    }
+
+    function getPageSettingsObject() {
+        var localityName = $('#txtLocalityName').val();
+        var compareOperator = $('#LocalityNameCompareOperator').val();
+        return {            
+            LocalityName: localityName,
+            CompareOperator: compareOperator
+        };        
+    }   
+</script>

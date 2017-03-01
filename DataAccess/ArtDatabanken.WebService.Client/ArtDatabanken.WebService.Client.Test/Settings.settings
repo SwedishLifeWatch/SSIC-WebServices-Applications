@@ -1,0 +1,132 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.Client.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdmin</Value>
+    </Setting>
+    <Setting Name="TestApplicationVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="SwedishLocale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sv-SE</Value>
+    </Setting>
+    <Setting Name="TestEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HejHopp@artdata.slu.se</Value>
+    </Setting>
+    <Setting Name="ValidToDateYearIncrement" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="ComputerTimeDifference" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="TestRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestOrganizationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestRoleName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Anställd på ArtDatabanken</Value>
+    </Setting>
+    <Setting Name="TestApplicationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestOrganizationCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestApplicationActionIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdmin.AccountController.Edit</Value>
+    </Setting>
+    <Setting Name="DyntaxaApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dyntaxa</Value>
+    </Setting>
+    <Setting Name="TestTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2000446</Value>
+    </Setting>
+    <Setting Name="TestRevisionGUIDPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:dyntaxa.se:Revision</Value>
+    </Setting>
+    <Setting Name="DyntaxaWriterUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaWriter</Value>
+    </Setting>
+    <Setting Name="DyntaxaWriterPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DYNTAXAwriter123</Value>
+    </Setting>
+    <Setting Name="DrumGrasshopperId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">101656</Value>
+    </Setting>
+    <Setting Name="UpplandGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature13</Value>
+    </Setting>
+    <Setting Name="DalarnaGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature16</Value>
+    </Setting>
+    <Setting Name="BlekingeGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature2</Value>
+    </Setting>
+    <Setting Name="TwiteId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">102124</Value>
+    </Setting>
+    <Setting Name="MinNoOfDrumGrasshoppers" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">374</Value>
+    </Setting>
+    <Setting Name="MinNoOfBeavers" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">284</Value>
+    </Setting>
+    <Setting Name="AreaOfOccupancyTestMax" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">5000</Value>
+    </Setting>
+    <Setting Name="AreaOfOccupancyTestIncrease" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="ExtentOfOccurrenceTestMax" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">50000</Value>
+    </Setting>
+    <Setting Name="ExtentOfOccurrenceTestIncrease" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="MaxProportionLocalPopulationTestMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">85</Value>
+    </Setting>
+    <Setting Name="MaxSizeLocalPopulationTestMax" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">2100</Value>
+    </Setting>
+    <Setting Name="MaxSizeLocalPopulationTestIncrease" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="NumberOfLoactionsTestMax" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="PopulationReductionA1TestMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-10</Value>
+    </Setting>
+    <Setting Name="PopulationReductionA2TestMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-10</Value>
+    </Setting>
+    <Setting Name="PopulationReductionA3TestMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-10</Value>
+    </Setting>
+    <Setting Name="PopulationReductionA4TestMin" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">-10</Value>
+    </Setting>
+    <Setting Name="PopulationSizeTestMax" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="PopulationSizeTestIncrease" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,31 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+
+<div class="modal fade" id="sessionTimeoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">@Resource.SessionExpired</h4>
+      </div>
+      <div class="modal-body">
+        @Resource.SessionExpiredUseCurrentSettings
+      </div>
+      <div class="modal-footer">
+        <button id="sessionTimeoutModalYesButton" class="btn btn-primary" type="button" data-dismiss="modal">@Resource.SharedDialogButtonTextYes</button>    
+        <button id="sessionTimeoutModalNoButton" class="btn btn-primary" type="button" data-dismiss="modal">@Resource.SharedDialogButtonTextNo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {        
+        $('#sessionTimeoutModalYesButton').click(function () {
+            window.location = "@Html.Raw(@Url.Action("LoadAutoSavedSettings", "MySettings", new { userName=SessionHandler.UserContext.User.UserName,  returnUrl = Url.Action("LogIn", "Account", new { userName= SessionHandler.UserContext.User.UserName})}))";
+        });
+        $('#sessionTimeoutModalNoButton').click(function () {
+            window.location = "@Url.Action("Index", "Home")";
+        });
+    });
+</script>

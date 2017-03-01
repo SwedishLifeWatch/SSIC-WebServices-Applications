@@ -1,0 +1,13 @@
+﻿@model List<string>
+
+<ul class="ellipseList">
+    
+    @*<li>Map layer name</li>*@
+
+    @foreach (var value in Model)
+    {
+        <li>
+            @value
+        </li>
+    }
+</ul>

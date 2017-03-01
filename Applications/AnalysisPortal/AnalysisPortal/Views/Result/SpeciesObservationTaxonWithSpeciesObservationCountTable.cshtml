@@ -1,0 +1,81 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.QueryComplexity
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model QueryComplexityEstimate
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationTaxonSpeciesObservationCountTable;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <a class="btn action-button" href="@Url.Action("SpeciesObservationCountPerTaxonAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>        
+    </div> 
+</div>
+<div id="selectedTaxaDiv"></div>
+
+@if (Model.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+{
+    @Html.Partial("QueryComplexityDialog", Model)   
+}
+
+<script type="text/javascript">
+    var selectedTaxaStore;
+    
+    $(document).ready(function () {
+        AnalysisPortal.Models.defineTaxonSpeciesObservationCountViewModel();
+        
+        selectedTaxaStore = AnalysisPortal.createJsonStore('TaxonSpeciesObservationCountViewModel', '@Html.Raw(Url.Action("GetObservationTaxaWithSpeciesObservationCountListAsJSON", "Result"))');
+        
+        // Create grid that shows the current selected taxa
+        var selectedTaxaGrid = Ext.create('Ext.grid.Panel', {
+            id: 'selectedTaxaGrid',
+            store: selectedTaxaStore,
+            title: '@Resource.ResultViewSpeciesObservationTaxonSpeciesObservationCountTable',
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 440,            
+            plugins: 'bufferedrenderer',
+            columnLines: true,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'selectedTaxaDiv',
+            columns: [
+                { text: AnalysisPortal.Resources.LabelTaxon, flex: 1, dataIndex: 'ScientificName', sortable: true },
+                { text: AnalysisPortal.Resources.LabelAuthor, width: 170, dataIndex: 'Author', sortable: true },
+                { text: AnalysisPortal.Resources.LabelSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+                { text: AnalysisPortal.Resources.LabelCategory, width: 100, dataIndex: 'Category', sortable: true },
+                { text: AnalysisPortal.Resources.LabelTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true },
+                { text: AnalysisPortal.Resources.LabelSpeciesObservationCount, width: 75, dataIndex: 'SpeciesObservationCount', sortable: true, xtype: 'numbercolumn', format: '#,#'}
+            ]
+        });
+
+        initQueryComplexityDialog();
+    });
+    
+    function initQueryComplexityDialog() {
+        @if (Model.QueryComplexityExecutionTime != QueryComplexityExecutionTime.Fast)
+        {
+        <text>
+        AnalysisPortal.showQueryComplexityDialog(function () {
+            loadData();
+        });
+        </text>
+        }
+        else
+        {        
+        @:loadData();        
+        }
+    }
+    
+    function loadData() {
+        selectedTaxaStore.load();
+    }
+
+</script>

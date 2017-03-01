@@ -1,0 +1,201 @@
+﻿@using System.Web.Mvc.Html
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map.WmsLayersViewModel
+
+@{
+    ViewBag.Title = Resource.DataProvidersWmsLayers;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <a href="@Url.Action("AddWmsLayer")" class="btn btn-primary toolbarButton"><i class="icon-plus"></i> &nbsp;@Resource.DataProvidersCreateNewWmsLayer</a>
+        <button id="toolbarButtonRemoveSelectedWmsLayers" disabled="disabled" class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.DataProvidersRemoveSelectedWmsLayers</button>        
+    </div>
+</div>    
+
+<div id="wmsLayersGridDiv"></div>
+
+
+<script type="text/javascript">
+    var editUrlBase = '@Url.Action("EditWmsLayer")';
+
+    var editAction = Ext.create('Ext.Action', {
+        icon: '@Url.Content("~/Content/images/property16.png")', // Use a URL in the icon config
+        text: '@Resource.DataProvidersEditWmsLayer',
+        tooltip: '@Resource.DataProvidersEditWmsLayer',
+        disabled: true,
+        handler: function (widget, event) {
+            var rec = wmsLayersGrid.getSelectionModel().getSelection()[0];
+            if (rec) {
+                editLayer(rec.data.Id);
+            }
+        }
+    });
+
+    var removeAction = Ext.create('Ext.Action', {
+        icon: '@Url.Content("~/Content/images/delete.gif")',
+        text: '@Resource.DataProvidersRemoveWmsLayer',
+        tooltip: '@Resource.DataProvidersRemoveWmsLayer',
+        disabled: true,
+        handler: function (widget, event) {
+            var rec = wmsLayersGrid.getSelectionModel().getSelection()[0];
+            removeLayer(rec);
+        }
+    });
+    
+    var wmsLayersGrid;
+    var wmsLayerStore;
+    var wmsLayerGridContextMenu;    
+    $(document).ready(function () {        
+        $('#toolbarButtonRemoveSelectedWmsLayers').click(function () {
+            wmsLayersRemoveSelectedLayers();
+        });
+
+        createGrid();
+        setInterval(enableDisableButtons, 500);
+    });
+
+    function enableDisableButtons() {
+        if (wmsLayerStore == null || wmsLayerStore.data == null || wmsLayerStore.data.items == null)
+            return;
+        if (wmsLayerStore.data.items.length == 0)
+            $('#toolbarButtonReset').attr("disabled", true);
+        else
+            $('#toolbarButtonReset').attr("disabled", false);
+    }
+
+    function createGrid() {        
+        AnalysisPortal.Models.defineWmsLayerViewModel();
+        wmsLayerStore = AnalysisPortal.createJsonStore('WmsLayerViewModel', '@Html.Raw(Url.Action("GetWmsLayers", "Data"))', {
+            api: {
+                read: '@Html.Raw(Url.Action("GetWmsLayers", "Data"))',
+                create: 'myurl',
+                update: 'myurl',
+                destroy: '@Html.Raw(Url.Action("RemoveWmsLayer", "Data"))'
+            },
+            writer: {
+                type: 'json',
+                writeAllFields: false,
+                allowSingle: true,
+                root: 'data',
+                encode: true
+            }
+        });
+
+        wmsLayersGrid = Ext.create('Ext.grid.Panel', {
+            id: 'wmsLayersGrid',
+            store: wmsLayerStore,
+            title: '@Resource.DataProvidersWmsLayers',            
+            width: AnalysisPortal.DefaultContentWidth,
+            minHeight: 150,
+            maxHeight: 200,            
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,            
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        enableDisableWmsLayersButtons();
+                    }
+                }
+            }),
+            renderTo: 'wmsLayersGridDiv',            
+            columns: [                
+                {
+                    text: '@Resource.SharedName', flex: 1, dataIndex: 'Name', renderer: function (value, meta, record) {
+                        return Ext.String.format('<a href="@Url.Action("EditWmsLayer","Data")?Id={1}">{0}</a>', value, record.data.Id);
+                    }
+                },
+                {
+                    xtype: 'booleancolumn',
+                    text: '@Resource.DataProvidersWmsLayersBaseLayer',
+                    trueText: '@Resource.SharedBoolTrueText',
+                    falseText: '@Resource.SharedBoolFalseText',
+                    dataIndex: 'IsBaseLayer',
+                    width: 120,
+                    sortable: true
+                },
+                {
+                    xtype: 'actioncolumn',
+                    tooltip: "@Resource.DataProvidersEditWmsLayer",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/property16.png")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var record = grid.getStore().getAt(rowIndex);
+                        editLayer(record.data.Id);
+                    }
+                }                
+            ],
+            columnLines: true
+        });
+        
+
+        wmsLayerStore.load();
+    }
+
+
+    function editLayer(id) {        
+        var queryString = $.param({ mode: "Edit", Id: id });
+        var url = editUrlBase + "?" + queryString;
+        window.location.href = url;
+    }
+
+
+    function removeLayer(record) {
+        AnalysisPortal.showMessageBox({
+            title: "@Resource.DataProvidersWmsLayersDelete",
+            msg: "@Resource.DataProvidersWmsLayersDelete" + "?",
+            buttons: Ext.Msg.YESNOCANCEL,
+            icon: Ext.MessageBox.INFO
+        }, function (buttonId) {
+            if (buttonId == 'yes') {                
+                if (record) {                    
+                    var index = wmsLayerStore.data.indexOf(record);
+                    wmsLayerStore.removeAt(index);
+                    wmsLayerStore.sync();
+                    AnalysisPortal.updateMySettingsSummary();
+                }
+            }
+        });
+    }
+
+
+    function enableDisableWmsLayersButtons() {
+        var selections = wmsLayersGrid.getSelectionModel().getSelection();
+        if (selections.length === 0) {
+            $('#toolbarButtonRemoveSelectedWmsLayers').attr("disabled", true);
+        } else {
+            $('#toolbarButtonRemoveSelectedWmsLayers').attr("disabled", false);
+        }
+    }
+
+    function wmsLayersRemoveSelectedLayers() {
+        var selected = [];
+        var s = wmsLayersGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.Id);
+        });        
+
+        $.post(
+            '/Data/RemoveWmsLayers',
+            { wmsLayerIds: selected },
+            function (result) {
+                console.log(result);
+                if (result.success) {
+                    location.reload(true);
+                }
+            }
+        );
+    }
+   
+</script>

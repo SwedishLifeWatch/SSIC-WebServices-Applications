@@ -1,0 +1,95 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Lägg till en ny resultatsida";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<style type="text/css">
+    div.textDiv {
+        width: 700px;
+    }
+
+    h4 {
+        margin-top: 15px;
+    }
+
+    h4.first {
+        margin-top: 0px;
+    }
+</style>
+
+<h2>Lägg till en ny resultatsida</h2>
+<span>I följande exempel skapar vi upp sidan för Rapport på översiktlig statistik (/Result/SummaryStatisticsReport).</span>
+<div class="accordion" id="accordion2" style="margin-top: 15px;">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                1. Skapa upp ny Action i ResultController
+            </a>
+        </div>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                Skapa upp en ny Action i ResultController, i detta fall SummaryStatisticsReport. Skapa även upp vyn (.cshtml).
+                <img src="~/Content/images/Tutorial/AddNewPage/GetGridStatisticsAction.PNG" />                
+                
+                <h4>PageInfoManager</h4>
+                Lägg till sidan i PageInfoManager.cs
+                <img src="~/Content/images/Tutorial/AddNewPage/PageInfoManager.PNG" />
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                2. Skapa ResultCalculator
+            </a>
+        </div>
+        <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                <div class="textDiv">
+                    Skapa upp en ResultCalculator som ärver ifrån ResultCalculatorBase eller SingleResultCalculatorBase.
+                    Ifall resultatet ska kunna visas på mer än ett sätt, t.ex både i tabell & karta så ska man ärva ifrån ResultCalculatorBase.
+                    Ifall resultatet enbart ska visas på ett sätt t.ex. i en tabell så ska man ärva SingleResultCalculatorBase.
+                    
+                    I vårt fall vill vi enbart visa resultatet i en tabell och ärver därför SingleResultCalculatorBase.
+
+
+                </div>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsSettingClass.PNG" />
+                
+                
+                <h4>Märk properties med [DataMember]</h4>
+                Lägg till de properties som ska sparas och märk dem med attributet [DataMember]<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridSizeProperty.PNG" />
+                
+                
+                <h4>Implementera följande funktioner</h4>
+                <ul class="ellipseList">
+                    <li>HasSettings()</li>     
+                    <li>IsSettingsDefault()</li>     
+                    <li>ResetSettings()</li>                                        
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse3">
+                3. Lägg till GridStatisticsSetting i CalculationSetting.
+            </a>
+        </div>
+        <div id="collapse3" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <h4 class="first">Intro</h4>
+                Lägg till GridStatisticsSetting som en property i CalculationSetting.<br/>
+                <img src="~/Content/images/Tutorial/AddNewPage/GridStatisticsPropertyInCalculationSettings.PNG" />
+                                
+            </div>
+        </div>
+    </div>    
+</div>

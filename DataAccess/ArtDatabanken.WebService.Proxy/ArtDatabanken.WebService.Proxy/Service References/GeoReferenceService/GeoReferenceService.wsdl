@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGeoReferenceService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetCitiesByNameSearchString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesByNameSearchString" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetCitiesByNameSearchString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitiesByNameSearchStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedBoundingBox_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedBoundingBox" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedBoundingBox_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedBoundingBoxResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedLinearRings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedLinearRings" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedLinearRings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedLinearRingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedMultiPolygons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedMultiPolygons" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedMultiPolygons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedMultiPolygonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedPoints_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedPoints" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedPoints_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedPolygons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedPolygons" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetConvertedPolygons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConvertedPolygonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByCategories" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByGUIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByGUIDs" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByGUIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByGUIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByIds" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsGeographyByGUIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsGeographyByGUIDs" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsGeographyByGUIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsGeographyByGUIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsGeographyByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsGeographyByIds" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionsGeographyByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionsGeographyByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionTypes" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetRegionTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRegionTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IGeoReferenceService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IGeoReferenceService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/ClearCache" message="tns:IGeoReferenceService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/ClearCacheResponse" message="tns:IGeoReferenceService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/DeleteTrace" message="tns:IGeoReferenceService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/DeleteTraceResponse" message="tns:IGeoReferenceService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByNameSearchString">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetCitiesByNameSearchString" message="tns:IGeoReferenceService_GetCitiesByNameSearchString_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetCitiesByNameSearchStringResponse" message="tns:IGeoReferenceService_GetCitiesByNameSearchString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvertedBoundingBox">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedBoundingBox" message="tns:IGeoReferenceService_GetConvertedBoundingBox_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedBoundingBoxResponse" message="tns:IGeoReferenceService_GetConvertedBoundingBox_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvertedLinearRings">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedLinearRings" message="tns:IGeoReferenceService_GetConvertedLinearRings_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedLinearRingsResponse" message="tns:IGeoReferenceService_GetConvertedLinearRings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvertedMultiPolygons">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedMultiPolygons" message="tns:IGeoReferenceService_GetConvertedMultiPolygons_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedMultiPolygonsResponse" message="tns:IGeoReferenceService_GetConvertedMultiPolygons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvertedPoints">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedPoints" message="tns:IGeoReferenceService_GetConvertedPoints_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedPointsResponse" message="tns:IGeoReferenceService_GetConvertedPoints_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConvertedPolygons">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedPolygons" message="tns:IGeoReferenceService_GetConvertedPolygons_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetConvertedPolygonsResponse" message="tns:IGeoReferenceService_GetConvertedPolygons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetLog" message="tns:IGeoReferenceService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetLogResponse" message="tns:IGeoReferenceService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionCategories" message="tns:IGeoReferenceService_GetRegionCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionCategoriesResponse" message="tns:IGeoReferenceService_GetRegionCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsByCategories">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByCategories" message="tns:IGeoReferenceService_GetRegionsByCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByCategoriesResponse" message="tns:IGeoReferenceService_GetRegionsByCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsByGUIDs">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByGUIDs" message="tns:IGeoReferenceService_GetRegionsByGUIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByGUIDsResponse" message="tns:IGeoReferenceService_GetRegionsByGUIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByIds" message="tns:IGeoReferenceService_GetRegionsByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsByIdsResponse" message="tns:IGeoReferenceService_GetRegionsByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsBySearchCriteria" message="tns:IGeoReferenceService_GetRegionsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsBySearchCriteriaResponse" message="tns:IGeoReferenceService_GetRegionsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsGeographyByGUIDs">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsGeographyByGUIDs" message="tns:IGeoReferenceService_GetRegionsGeographyByGUIDs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsGeographyByGUIDsResponse" message="tns:IGeoReferenceService_GetRegionsGeographyByGUIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionsGeographyByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsGeographyByIds" message="tns:IGeoReferenceService_GetRegionsGeographyByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionsGeographyByIdsResponse" message="tns:IGeoReferenceService_GetRegionsGeographyByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRegionTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionTypes" message="tns:IGeoReferenceService_GetRegionTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetRegionTypesResponse" message="tns:IGeoReferenceService_GetRegionTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetStatus" message="tns:IGeoReferenceService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/GetStatusResponse" message="tns:IGeoReferenceService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/Login" message="tns:IGeoReferenceService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/LoginResponse" message="tns:IGeoReferenceService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/Logout" message="tns:IGeoReferenceService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/LogoutResponse" message="tns:IGeoReferenceService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/Ping" message="tns:IGeoReferenceService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/PingResponse" message="tns:IGeoReferenceService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/StartTrace" message="tns:IGeoReferenceService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/StartTraceResponse" message="tns:IGeoReferenceService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/StopTrace" message="tns:IGeoReferenceService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IGeoReferenceService/StopTraceResponse" message="tns:IGeoReferenceService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

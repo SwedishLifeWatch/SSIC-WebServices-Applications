@@ -1,0 +1,132 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Occurrence.OccurrenceFilterViewModel
+
+@{
+    ViewBag.Title = Resource.FilterOccurrenceTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>        
+    </div>
+</div>    
+
+<div id="occurrenceSettingsPanel" class="datapanel"></div>
+
+<div id="occurrenceSettingsDiv" class="data-panel-content"  style="margin-left: 10px; margin-bottom: 5px;">    
+    
+    <h3 class="groupHeader">@Resource.FilterOccurrencePresenceHeader</h3>
+    
+    <div>
+        <input id="isNaturalOccurrenceCheckbox" type="checkbox" class="checkboxRightMargin" @if(Model.IsNaturalOccurrence) { <text>checked="checked" </text> }  />
+        <label class="inlineLabel" for="isNaturalOccurrenceCheckbox">@Resource.FilterOccurrenceIsNaturalOccurrence</label>
+    </div>  
+    
+    <div>
+        <input id="isNotNaturalOccurrenceCheckbox" type="checkbox" class="checkboxRightMargin" @if(Model.IsNotNaturalOccurrence) { <text>checked="checked" </text> }  />
+        <label class="inlineLabel" for="isNotNaturalOccurrenceCheckbox">@Resource.FilterOccurrenceIsNotNaturalOccurrence</label>
+    </div> 
+
+    <h3 class="groupHeader">@Resource.FilterOccurrenceAbsenceHeader</h3>
+    
+    <div>
+        <input id="includeNeverFoundObservationsCheckbox" type="checkbox" class="checkboxRightMargin" @if(Model.IncludeNeverFoundObservations) { <text>checked="checked" </text> }  />
+        <label class="inlineLabel" for="includeNeverFoundObservationsCheckbox">@Resource.FilterOccurrenceIncludeNeverFoundObservations</label>
+    </div>        
+    
+    <div>
+        <input id="includeNotRediscoveredObservationsCheckbox" type="checkbox" class="checkboxRightMargin" @if(Model.IncludeNotRediscoveredObservations) { <text>checked="checked" </text> }  />
+        <label class="inlineLabel" for="includeNotRediscoveredObservationsCheckbox">@Resource.FilterOccurrenceIncludeNotRediscoveredObservations</label>
+    </div>        
+            
+</div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">    
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";    
+
+    $(document).ready(function() {
+        createLayout();        
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        $('#occurrenceSettingsDiv :checkbox').change(enableDisableButtons);        
+    });
+
+
+    function initToolbar() {        
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetOccurrence", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });      
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+   
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var includeNeverFoundObservations = $('#includeNeverFoundObservationsCheckbox').is(':checked');
+        var includeNotRediscoveredObservations = $('#includeNotRediscoveredObservationsCheckbox').is(':checked');
+        var isNaturalOccurrence = $('#isNaturalOccurrenceCheckbox').is(':checked');
+        var isNotNaturalOccurrence = $('#isNotNaturalOccurrenceCheckbox').is(':checked');
+        var data = {
+            IncludeNeverFoundObservations: includeNeverFoundObservations,
+            IncludeNotRediscoveredObservations: includeNotRediscoveredObservations,
+            IsNaturalOccurrence: isNaturalOccurrence,
+            IsNotNaturalOccurrence: isNotNaturalOccurrence
+        };
+        return data;
+    }
+
+
+    function createLayout() {
+        var occurrenceSettingsControl = AnalysisPortal.createHtmlPanel('occurrenceSettingsDiv', {
+            title: "",            
+        });
+
+        AnalysisPortal.createMainPanel('occurrenceSettingsPanel', {            
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [occurrenceSettingsControl],
+            collapsible: false
+        });
+    }
+</script>

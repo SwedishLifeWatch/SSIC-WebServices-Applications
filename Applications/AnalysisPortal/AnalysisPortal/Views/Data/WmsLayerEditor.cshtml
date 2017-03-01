@@ -1,0 +1,452 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map
+@model WmsLayerEditorViewModel
+
+@{
+    string pageTitle = Resource.DataProvidersWmsLayerEditorCreateNewWmsLayer;
+    if (Model.Mode == WmsLayerEditorMode.Edit)
+    {
+        pageTitle = Resource.DataProvidersWmsLayerEditorEditWmsLayer;        
+    }    
+    ViewBag.Title = pageTitle;
+    string saveButtonTitle = "";
+    saveButtonTitle = Model.Mode == WmsLayerEditorMode.New ? Resource.DataProvidersWmsLayerEditorCreateNewWmsLayer : Resource.SharedSaveButtonText;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">        
+        <button id="SaveWmsLayerButton" class="btn toolbarButton" disabled="disabled"  type="button"><i class="icon-save"></i> &nbsp;@saveButtonTitle</button>   
+    </div>
+</div>
+
+<div id="SampleUrlsDiv">
+    <h5>@Resource.DataProvidersWmsLayerEditorSampleUrls</h5>        
+    <select id="SampleUrlsSelectBox" name="selectUrl">
+        <option value="">@Resource.DataProvidersWmsLayerEditorChooseUrl</option>        
+        <option value="http://inspire2-1.slu.se/geoserver/ows">@Resource.DataProvidersWmsLayerEditorSelectSLUGeoServer</option>
+        <option value="http://opendata-view.smhi.se/met-obs/wms">@Resource.DataProvidersWmsLayerEditorSelectSMHIMetObs</option>
+        <option value="http://opendata-view.smhi.se/klim-stat_sno/ows">@Resource.DataProvidersWmsLayerEditorSelectSMHISnowStatistics</option>
+        <option value="http://opendata-view.smhi.se/klim-stat_avdunstning/ows">@Resource.DataProvidersWmsLayerEditorSelectSMHIPotentialEvaporation</option>
+        <option value="http://opendata-view.smhi.se/klim-stat_is/ows">@Resource.DataProvidersWmsLayerEditorSelectSMHIFrostAndIce</option>
+        <option value="http://opendata-view.smhi.se/klim-stat_moln/ows">@Resource.DataProvidersWmsLayerEditorSelectSMHICloudiness</option>
+        <option value="http://opendata-view.smhi.se/klim-stat_nederbord/ows">@Resource.DataProvidersWmsLayerEditorSelectSMHIPercipitation</option>
+        <option value="http://maps3.sgu.se/geoserver/ows">@Resource.DataProvidersWmsLayerEditorSelectSGU</option>
+        <option value="http://geodata.havochvatten.se/geoservices/ows">@Resource.DataProvidersWmsLayerEditorSelectSwedishMarineAndWater</option>
+        <option value="http://gis-services.metria.se/ArcGIS/services/InspireNV_N2K/MapServer/InspireViewService">@Resource.DataProvidersWmsLayerEditorSelectMetria</option>
+        <option value="http://sedac.ciesin.columbia.edu/geoserver/ows">@Resource.DataProvidersWmsLayerEditorSelectGlobalDataOnHumanImpact</option>
+        <option value="http://epub.sjv.se/inspire/inspire/ows">@Resource.DataProvidersWmsLayerEditorSelectSwedishBoardOfAgriculture</option>
+        <option value="http://data.bshc.pro/ogc/bsbd-latest">@Resource.DataProvidersWmsLayerEditorSelectBalticSeaBathymetryDatabase</option>
+        <option value="http://nvpub.vic-metria.nu/arcgis/services/Naturvardsregistret/MapServer/WMSServer/ows">@Resource.DataProvidersWmsLayerEditorSelectSwedishEnvironmentalProtectionAgency</option>
+    </select>
+</div>
+
+<div>            
+    @Resource.SharedServerUrl: <input type="text" id="WmsServerUrlTextBox" name="WmsServerUrl" style="width: 500px;"/>
+    <button id="GetWmsCapabilitiesButton" class="btn btn-primary" type="submit" style="vertical-align: top;"><i class="icon-search icon-white"></i> &nbsp; @Resource.DataProvidesSearchWmsLayerSearch</button> 
+</div>
+
+<div id="GetWmsCapabilitiesResult"></div>
+
+<table id="wmsBasicInformationTable" class="table table-condensed white-bg">
+    <tr>
+        <td class="tablelabel">
+            @Resource.SharedTitle
+        </td>
+        <td id="wmsBasicInformationTitle">
+            <input id="wmsBasicInformationTitleTextBox" type="text" class="full-length"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="tablelabel">
+            @Resource.DataProvidersWmsLayerEditorAbstract
+        </td>
+        <td id="wmsBasicInformationAbstract">
+            
+        </td>
+    </tr>
+    <tr>
+        <td class="tablelabel">
+            Coordinate systems
+        </td>
+        <td id="wmsBasicInformationCoordinateSystems">
+            
+        </td>
+    </tr>      
+    <tr>
+        <td class="tablelabel">
+            @Resource.DataProvidersWmsLayerEditorBaseLayer
+        </td>
+        <td id="wmsBasicInformationIsBaseLayer" class="tableinput">            
+            <input id="wmsBasicInformationIsBaseLayerCheckBox" checked="checked" type="checkbox"/>
+        </td>
+    </tr>   
+</table>
+
+<div id="mainPanel" class="datapanel"></div>
+
+<div id="wmsLayersGridDiv"></div>    
+
+<form method="POST" id="saveWmsForm">
+    @Html.Hidden("mode",Model.Mode)
+    @Html.Hidden("id", Model.WmsLayerViewModel != null ? Model.WmsLayerViewModel.Id : 0)
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var wmsLayersStore;
+    var wmsLayersGrid;
+    var wmsServerUrl;
+    var mainPanel;
+
+    $(function () {
+        createWmsLayersGridDiv();
+        createLayout();
+        $("#GetWmsCapabilitiesButton").click(function () {
+            getWmsCapabilities();
+        });
+        
+        $("select[name='selectUrl']").change(function () {
+            if (this.value == "")
+                return;
+            $("#WmsServerUrlTextBox").val(this.value);
+            $("#GetWmsCapabilitiesButton").click();
+        });
+
+        $('#SaveWmsLayerButton').click(function () {
+            saveWmsLayer();
+        });
+
+        $("#WmsServerUrlTextBox").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#GetWmsCapabilitiesButton").click();
+            }
+        });
+
+
+        @if (Model.Mode == WmsLayerEditorMode.Edit)
+        {
+        <text>
+        initEditMode();
+        </text>
+        }
+
+    });
+    
+
+    function getWmsServerUrl() {
+        var serverUrl = $("#WmsServerUrlTextBox").val();
+        var urlParts = $.url.parse(serverUrl);
+        serverUrl = $.url.build({
+            protocol: urlParts.protocol,
+            port: urlParts.port,
+            host: urlParts.host,
+            path: urlParts.path
+        });
+        return serverUrl;
+    }
+
+    function getWmsCapabilities() {
+        var serverUrl = getWmsServerUrl();
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedLoading);
+        AnalysisPortal.GIS.getWmsCapabilities(serverUrl, function (result) {
+            AnalysisPortal.hideWaitMsg();
+            if (result == null || result.capability == null) {
+                AnalysisPortal.showToasterMsg("Couldn't access WMS server " + serverUrl, "Error", {
+                    messageType: "error",
+                    timeout: 6000
+                });
+                return;
+            }            
+            
+            @if (Model.Mode == WmsLayerEditorMode.New)
+            {
+            @:displayCreateWmsCapabiltiesInfo(result);
+            }
+            else
+            {
+            @:displayEditWmsCapabiltiesInfo(result);
+            }       
+            mainPanel.doLayout();
+        });
+    }
+
+    function initEditMode() {
+        @if (Model.Mode == WmsLayerEditorMode.Edit && Model.WmsLayerViewModel != null)
+        {
+        <text>
+        var name = '@Html.Raw(Model.WmsLayerViewModel.Name)';
+        var serverUrl = '@Html.Raw(Model.WmsLayerViewModel.ServerUrl)';
+        var id = '@Html.Raw(Model.WmsLayerViewModel.Id)';
+        @if (Model.WmsLayerViewModel.IsBaseLayer)
+        {        
+        @:$('#wmsBasicInformationIsBaseLayerCheckBox').attr('checked', true);        
+        }
+        else
+        {
+        @:$('#wmsBasicInformationIsBaseLayerCheckBox').attr('checked', false);
+        }
+
+
+        $('#wmsBasicInformationTitleTextBox').val(name);
+        $('#WmsServerUrlTextBox').val(serverUrl);
+        $('#WmsServerUrlTextBox').attr('disabled', true);
+        $('#GetWmsCapabilitiesButton').attr("disabled", true).removeClass("btn-primary");
+        
+        $('#SampleUrlsDiv').remove();
+        getWmsCapabilities();
+        </text>
+        }
+
+    }
+
+    function saveWmsLayer() {
+        if (AnalysisPortal.isStringNullOrEmpty($('#wmsBasicInformationTitleTextBox').val())) {
+            AnalysisPortal.showToasterMsg("You must enter a Name for your WMS layer", "Error", {
+                messageType: "error",
+                timeout: 6000
+            });
+            return;
+        }
+
+        var data = createWmsLayerJsonString();        
+        var $frm = $('#saveWmsForm');
+        $frm.data = data;
+        
+        $frm.find('input[name=data]').val(data);        
+        $frm.submit();        
+    }
+
+    function createNewWmsLayer() {
+        var data = createWmsLayerJsonString();
+        
+        AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("CreateWmsLayer", "Data")',
+            params: {
+                data: data
+            }
+        }, function (result) {            
+            AnalysisPortal.showToasterMsg("WMS layer created");
+        });
+        
+    }
+
+    function createWmsLayerJsonString() {
+        var name = $('#wmsBasicInformationTitleTextBox').val();        
+        var isBaseLayer = $('#wmsBasicInformationIsBaseLayerCheckBox').is(':checked');        
+        
+        var layerNames = [];
+        var supportedCoordinateSystems = [];
+        var s = wmsLayersGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            layerNames.push(it.data.Name);
+        });
+        var serverUrl = getWmsServerUrl();
+        
+        var data = {
+            Name: name,
+            Layers: layerNames,
+            IsBaseLayer: isBaseLayer,
+            ServerUrl: serverUrl,
+            SupportedCoordinateSystems: compatibleSrsArray            
+        };        
+
+        var strData = Ext.encode(data);
+        return strData;
+    }
+
+
+    function displayCreateWmsCapabiltiesInfo(wmsCapabilities) {
+        displayWmsCapabiltiesInfo(wmsCapabilities);
+    }
+
+    @if (Model.Mode == WmsLayerEditorMode.Edit)
+    {
+    <text>
+    function displayEditWmsCapabiltiesInfo(wmsCapabilities) {
+        displayWmsCapabiltiesInfo(wmsCapabilities);
+        var name = '@Html.Raw(Model.WmsLayerViewModel.Name)';
+        $('#wmsBasicInformationTitleTextBox').val(name);
+        var layerNames = [];
+        @foreach (string layerName in Model.WmsLayerViewModel.Layers)
+        {        
+        @:layerNames.push('@Html.Raw(layerName)');    
+        }        
+
+        var selection = [];        
+        wmsLayersStore.data.each(function (it) {
+            for (var i = 0; i < layerNames.length; i++) {
+                if (it.get('Name') == layerNames[i]) {                    
+                  selection.push(it);
+                  break;
+              }
+            }            
+        });
+        wmsLayersGrid.getSelectionModel().select(selection);
+    }
+    </text>
+    }
+
+    var compatibleSrsArray = [];
+
+    function displayWmsCapabiltiesInfo(wmsCapabilities) {
+
+        var srsArray = [];        
+        var compatibleSrsArrayNames = [];
+        var name;
+        for (name in wmsCapabilities.capability.layers[0].srs) {
+            if (wmsCapabilities.capability.layers[0].srs[name]) {
+                srsArray.push(name);
+                if (AnalysisPortal.GIS.isCoordinateSystemSupported(name)) {
+                    compatibleSrsArray.push(name);
+                    compatibleSrsArrayNames.push(AnalysisPortal.GIS.getCoordinateSystemName(name));
+                }
+            }
+        }
+
+        wmsServerUrl = "";
+        if (wmsCapabilities.capability.request.getmap != null && wmsCapabilities.capability.request.getmap.get != null)
+            wmsServerUrl = wmsCapabilities.capability.request.getmap.get.href;
+        else if (wmsCapabilities.capability.request.getmap != null)
+            wmsServerUrl = wmsCapabilities.capability.request.getmap.href;
+        else if (wmsCapabilities.service != null)
+            wmsServerUrl = wmsCapabilities.service.href;
+
+
+        var wmsBasicInformation = {
+            Title: wmsCapabilities.service.title,
+            Abstract: wmsCapabilities.service.abstract,
+            ServerUrl: wmsServerUrl,
+            SrsArray: srsArray,
+            CompatibleSrsArray: compatibleSrsArray,
+            CompatibleSrsArrayNames: compatibleSrsArrayNames
+        };
+        $('#wmsBasicInformationTitleTextBox').val(wmsBasicInformation.Title);                
+        $('#wmsBasicInformationAbstract').text(wmsBasicInformation.Abstract);        
+        $('#wmsBasicInformationCoordinateSystems').text(wmsBasicInformation.CompatibleSrsArrayNames.join(", "));
+
+
+        var layers = [];
+        for (var i = 0; i < wmsCapabilities.capability.layers.length; i++) {
+            var layer = wmsCapabilities.capability.layers[i];
+            srsArray = [];            
+            for (name in layer.srs) {
+                if (layer.srs[name]) {
+                    srsArray.push(name);
+                }
+            }
+
+            var legendUrl = "";
+            var legendWidth = "";
+            var legendHeight = "";
+            var layerAbstract = "";
+            var layerTitle = "";
+            var layerName = "";            
+
+            if (layer.styles != null && layer.styles.length > 0) {
+                legendUrl = layer.styles[0].legend.href;
+                legendWidth = layer.styles[0].legend.width;
+                legendHeight = layer.styles[0].legend.height;
+                if (layer.styles[0].abstract != null)
+                    layerAbstract = layer.styles[0].abstract;
+                if (layer.styles[0].title != null)
+                    layerTitle = layer.styles[0].title;
+                if (layer.styles[0].name != null)
+                    layerName = layer.styles[0].name;                
+            }
+            
+            var layerObj = {
+                Title: layer.title,
+                Name: layer.name,
+                Abstract: layerAbstract,                
+                SrsString: srsArray.join(", "),
+                Opaque: layer.opaque,
+                LegendUrl: legendUrl,
+                LegendWidth: legendWidth,
+                LegendHeight: legendHeight
+            };
+            layers.push(layerObj);            
+        }
+        wmsLayersStore.removeAll();
+        wmsLayersStore.add(layers);
+     
+    }
+
+    
+    function createWmsLayersGridDiv() {
+        AnalysisPortal.Models.defineWmsCapabilitiesLayerModel();
+        
+        wmsLayersStore = Ext.create('Ext.data.Store', {
+            autoLoad: false,
+            model: 'WmsCapapabilitiesLayerModel',            
+            proxy: {
+                type: 'memory',
+                reader: {
+                    type: 'json'                    
+                }
+            }
+        });
+        wmsLayersStore.sort('Title', 'ASC');
+        
+        wmsLayersGrid = Ext.create('Ext.grid.Panel', {
+            id: 'wmsLayersGrid',
+            store: wmsLayersStore,
+            title: '@Resource.SharedLayers',
+            width: 800,
+            height: 240,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            region: "center",            
+            columns: [
+                { text: '@Resource.SharedTitle', width: 320, dataIndex: 'Title', sortable: true, name: 'Col1' },
+                { text: '@Resource.SharedName', width: 150, dataIndex: 'Name', sortable: true },                
+                { text: '@Resource.DataProvidersWmsLayerEditorAbstract', flex: 1, dataIndex: 'Abstract', sortable: true }                
+            ],
+            columnLines: true,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        if (selections.length == 0) {
+                            $('#SaveWmsLayerButton').attr("disabled", true).removeClass("btn-primary");
+                        } else {
+                            $('#SaveWmsLayerButton').attr("disabled", false).addClass("btn-primary");
+                            @if (Model.Mode == WmsLayerEditorMode.New)
+                            {
+                            @:$('#wmsBasicInformationTitleTextBox').val(Ext.String.htmlDecode(selections[selections.length - 1].data.Title));
+                            }
+                        }                        
+                    }
+                }
+            })            
+        });
+
+    }
+
+
+    function createLayout() {
+        var wmsBasicInformationControl = AnalysisPortal.createHtmlPanel('wmsBasicInformationTable', {
+            title: "@Resource.DataProvidersWmsLayerEditorBasicInformation",
+            region: 'north'
+        });
+
+        var containerPanel = AnalysisPortal.createLayoutContainer([wmsBasicInformationControl, wmsLayersGrid], {
+            layout: "border",
+            collapsible: false            
+        });
+
+        mainPanel = AnalysisPortal.createMainPanel('mainPanel', {            
+            height: 450,
+            items: [containerPanel],
+            collapsible: false
+        });        
+
+    }
+    
+</script>

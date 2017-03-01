@@ -1,0 +1,179 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "MakeAjaxCall JavaScript function";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<h2>makeAjaxCall() JavaScript function</h2>
+
+<div class="infobox">
+    <p class="infotext">
+        To make an Ajax call in AnalysisPortal you should in almost all cases use the 
+        JavaScript function makeAjaxCall() that is defined in AnalysisPortal.js.
+    </p>
+    <pre class="codebox"><code class="javascript">context.makeAjaxCall = function(options, callback) {
+    // Parameter 1: options. A settings object. The valid values are the following:        
+    //   url {String} A string containing the URL to which the request is sent.
+    //   method {String} HTTP method: 'GET' or 'POST'. Default is 'GET'.
+    //   params {Object} Data to be sent to the server.
+    //   showWaitMessage {Bool} Indicates if a wait message should be shown while the ajax request is made. Defaults to true.
+    //   waitMessage {String} The wait message to show if showWaitMessage is set to true.
+    //   waitMessageDivId {String} The div to center the wait message over.
+    //   allowMultipleRequests {Bool} If you only want one request to be active simultaneously set this to false. Defaults to true.
+    //   requestObject: {Object} If you set allowMultipleRequests to false you must use the requestObject.
+    //   async {Bool} If you need synchronous requests, set this option to false. Defaults to true.
+    //   errorCallback {Function} A function that will be called if the Ajax call fails.
+    //   test {String} A string that triggers an error or a wait in testing purpose. Possible values are: "timeout", "failure", "wait"    
+    // Parameter 2: callback. A function that will be called if the Ajax call is successful
+
+    ...
+}
+</code></pre>
+    
+    <p class="infotext">
+        This function ensures that Ajax calls and error handling is done in a similar way each time. 
+        The function assumes that the response from the server is returned as JSON formatted using 
+        the JsonModel class that is defined in C #.
+    </p>
+    <pre class="codebox"><code class="cs">public class JsonModel
+{
+    [JsonProperty(PropertyName = "total")]
+    public int Total { get; set; }
+
+    [JsonProperty(PropertyName = "success")]
+    public bool Success { get; set; }
+
+    [JsonProperty(PropertyName = "data")]
+    public object Data { get; set; }
+
+    [JsonProperty(PropertyName = "msg")]
+    public string Msg { get; set; }
+}
+</code></pre> 
+    
+
+<p class="infoText">
+    A JSON Ajax Action is written in a Controller like this:
+</p>        
+
+<pre class="codebox"><code class="cs">public JsonNetResult GetJSON(param1, param2, ...)
+{            
+    JsonModel jsonModel;
+    try
+    {
+        ...
+        jsonModel = JsonModel.CreateFromObject(result);
+    }
+    catch (Exception ex)
+    {
+        jsonModel = JsonModel.CreateFailure(ex.Message);
+    }
+    return new JsonNetResult(jsonModel);            
+}
+</code></pre> 
+    
+</div>
+
+<h2 style="margin-top: 20px;">Examples</h2>
+<div class="infobox">
+    <p class="infoText">
+        <strong>Example 1.</strong>
+        Make an Ajax call and show the result data.
+</p>    
+<pre class="codebox"><code class="javascript">AnalysisPortal.makeAjaxCall({
+    url: AnalysisPortal.ApplicationPath + "/Tutorial/GetMountains"
+},
+function (result) {
+    for (var key in result.data)
+        alert('Name: ' + key + ', Height: ' + result.data[key]);                              
+});    
+<button type="button" onclick="example1();">Run</button>
+</code></pre> 
+
+
+
+    <p class="infoText">
+    <strong>Example 2.</strong>
+    Show a wait message centered over the map control and add the retrieved polygons to a layer.
+</p>    
+<pre class="codebox"><code class="javascript">AnalysisPortal.makeAjaxCall({
+        url: AnalysisPortal.ApplicationPath + "/Filter/GetSpatialFilterAsGeoJSON",            
+        showWaitMessage: true,
+        waitMessage: AnalysisPortal.Resources.SharedLoadingData,
+        waitMessageDivId: 'mapControl'                
+    }, 
+    function(result) {
+        map.theEditLayer.addFeatures(result.data);                
+    }
+);
+</code></pre> 
+
+
+<p class="infoText">
+    <strong>Example 3.</strong>
+    Make an Ajax call where there can only exist one current request. If another request is made before the former request has finished, the former call will be aborted.
+</p>    
+<pre class="codebox"><code class="javascript">var myRequestObject;        
+myRequestObject = AnalysisPortal.makeAjaxCall({
+        url: AnalysisPortal.ApplicationPath + "/Filter/GetSpatialFilterAsGeoJSON",            
+        allowMultipleRequests: false,
+        requestObject: myRequestObject
+    }, 
+    function(result) {
+        console.log(result.data);                
+    }
+);
+</code></pre> 
+
+
+<p class="infoText">
+    <strong>Example 4.</strong>
+    Make a Ajax POST instead of Ajax GET.
+</p>    
+<pre class="codebox"><code class="javascript">AnalysisPortal.makeAjaxCall({
+        url: AnalysisPortal.ApplicationPath + "/Filter/ClearSpatialFilter",                
+        method: 'POST'
+    },
+    function(result) {
+        console.log(result.data);
+    }
+);
+</code></pre> 
+
+
+<p class="infoText">
+    <strong>Example 5.</strong>
+    Send parameters to server.
+</p>    
+    <pre class="codebox"><code class="javascript">var myButtonIdentifier = 3;
+AnalysisPortal.makeAjaxCall({
+        url: AnalysisPortal.ApplicationPath + '/MySettings/ChangeButtonCheckStateAjax',
+        params: {
+            identifier: myButtonIdentifier
+        }                
+    },
+    function(result) {
+        console.log(result.data.IsChecked);            
+    }
+);
+</code></pre> 
+
+
+</div>
+
+<script type="text/javascript">
+    
+    function example1() {
+        AnalysisPortal.makeAjaxCall({
+            url: AnalysisPortal.ApplicationPath + "/Tutorial/GetMountains"
+        },
+        function (result) {
+            for (var key in result.data)
+                alert('Name: ' + key + ', Height: ' + result.data[key]);                              
+        });    
+    }
+
+    
+
+</script>

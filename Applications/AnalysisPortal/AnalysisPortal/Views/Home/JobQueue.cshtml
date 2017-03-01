@@ -1,0 +1,61 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Job queue";    
+}
+
+<h2>Job queue</h2>
+
+<button id="process1Button" class="btn btn-success processButton" data-process="A">Start process A</button>
+<button id="process2Button" class="btn btn-info processButton" data-process="B">Start process B</button>
+<button id="process3Button" class="btn btn-warning processButton" data-process="C">Start process C</button>
+<button id="process4Button" class="btn btn-danger processButton" data-process="D">Start process D</button>
+<div id="availableWorkersDiv"></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.processButton').click(function () {
+            var $this = $(this);
+            $this.attr('disabled', true);
+            var id = $this.data('process');
+            AnalysisPortal.makeAjaxCall({
+                    url: '@Url.Action("Query1", "AsyncService")',
+                    params: {
+                        id: id
+                    }
+                },
+                function (result) {
+                    var messageType = "success";
+                    if (id == "B")
+                        messageType = "info";
+                    if (id == "C")
+                        messageType = "warning";
+                    if (id == "D")
+                        messageType = "error";
+                    AnalysisPortal.showToasterMsg(result.data, null, {
+                        messageType: messageType
+                    });
+                    $this.attr('disabled', false);
+                }
+            );
+        });
+        //setInterval(getAvailableWorkers, 200);
+    });
+    
+
+    var getAvailableWorkersRequest;
+
+    function getAvailableWorkers() {
+        getAvailableWorkersRequest = AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("GetAvailableWorkerThreads", "AsyncService")',
+            allowMultipleRequests: false,
+            requestObject: getAvailableWorkersRequest
+        },
+           function (result) {
+               var str = Ext.String.format("Available workers: {0}/{1}, Available IO: {2}/{3}", result.data.AvailableWorkers, result.data.MaxWorkers, result.data.AvailableIO, result.data.MaxIO);
+               $('#availableWorkersDiv').html(str);
+           }
+       );
+    }
+
+</script>

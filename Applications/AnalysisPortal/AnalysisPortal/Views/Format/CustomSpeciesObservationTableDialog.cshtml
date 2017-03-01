@@ -1,0 +1,214 @@
+﻿@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Table.SpeciesObservationTableTypeViewModel
+
+<label>@Resource.SharedName</label>
+<input id="customTableTypeNameTextBox" type="text" />
+
+
+<div id="customTableTypeFieldsGridDiv" style="margin-top: 10px;"></div>    
+
+<div style="clear: both;"></div>    
+
+<div class="buttonToolbar">    
+    <button class="btn action-button" id="btnSave">@Resource.SharedSaveButtonText</button>    
+</div>
+
+<script type="text/javascript">
+    var customTableFieldsStore;
+    var customTableFieldsGrid;
+    var customTableId = @(Model != null && Model.Id.HasValue ? Model.Id.Value : -1);
+    
+    $(document).ready(function () {
+        
+        createCustomTableFieldsGrid();
+        customTableFieldsStore.sort([
+            { property: 'Importance', direction: 'ASC' },
+            { property: 'ID', direction: 'ASC' }
+        ]);        
+
+        @if(Model == null) // In create new mode
+        {
+            @:loadTableFieldsInDialogGrid(0, false);    
+        }
+        else // In edit mode.       
+        {
+        <text>
+            var title = '@Model.Title';
+            var fieldIds = [];
+        @foreach (var id in Model.FieldIds)
+        {
+            @:fieldIds.push(@id);
+        }    
+        $('#customTableTypeNameTextBox').val(title);
+
+        loadTableFieldsInDialogGrid(0, false, function() {
+            // selection model
+            var sm = customTableFieldsGrid.getSelectionModel();
+
+            customTableFieldsStore.each(function(record,idx){
+                if(jQuery.inArray(record.get('Id'), fieldIds) !== -1) {
+                    sm.select(record.index, true, true);
+                }                
+            });    
+        });            
+        </text>        
+        }
+
+        $('#btnSave').click(function () {
+            var data = getDataModel();
+            if (checkIfDataModelIsOK(data)) {                
+                saveChangesAjax();
+                $('#customTableTypeNameTextBox').closest('div.modal').modal('hide');
+            }
+            else {
+                return;
+            }
+        });
+    });
+
+    function isCustomTableInEditMode() {
+        return customTableId >= 0;
+    }
+
+    function checkIfDataModelIsOK(data) {
+        if (!data.Title.match(/\S/)) {
+            AnalysisPortal.showErrorMsg('@Resource.PresentationTableUserDefinedTableErrorNoName');
+            return false;
+        }
+        if (data.FieldIds.length == 0) {
+            AnalysisPortal.showErrorMsg('@Resource.PresentationTableUserDefinedTableErrorNoColumnsSelected');            
+            return false;
+        }
+
+        return true;
+    }
+
+    function getDataModel() {
+        var title = $("#customTableTypeNameTextBox").val();
+        var selected = [];
+        var s = customTableFieldsGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.Id);
+        });
+
+        var model = {
+            Title: title,
+            FieldIds: selected
+        }
+
+        return model;
+    }
+
+
+    function saveChanges() {
+        var data = getPageSettingsObject();
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=strPolygons]').val(data.Polygons);
+        $frm.find('input[name=strRegions]').val(Ext.encode(data.Regions));
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function saveChangesAjax() {
+        var title = $("#customTableTypeNameTextBox").val();
+        var selected = [];
+        var s = customTableFieldsGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.Id);
+        });
+
+        var model = {
+            Title: title,
+            FieldIds: selected
+        }
+
+        showSaveSettingsMessageOnLeave = false;
+        if (isCustomTableInEditMode()) {
+            AnalysisPortal.makeAjaxCall({
+                url: '@Url.Action("EditUserDefinedTableTypeByAjax", "Format")',
+                params: {
+                    id: customTableId,
+                    data: JSON.stringify(model)
+                },
+                method: 'POST'
+            }, function (result) {
+                location.reload();                
+            });
+        } else {
+            AnalysisPortal.makeAjaxCall({
+                url: '@Url.Action("CreateNewCustomSpeciesObservationTableTypeByAjax", "Format")',
+                params: {
+                    data: JSON.stringify(model)
+                },
+                method: 'POST'
+            }, function (result) {
+                location.reload();                
+            });
+        }
+    }
+
+
+    function loadTableFieldsInDialogGrid(id, useUserDefinedTable, callback) {
+        customTableFieldsStore.load({
+            params: {
+                tableId: id,
+                useUserDefinedTable: useUserDefinedTable
+            },
+            callback: function (records, operation, success) {
+                if (callback && typeof(callback) === "function") {
+                    callback();
+                }
+            }
+        });
+    }
+
+
+    function editLoadTableFieldsInDialogGrid(id, useUserDefinedTable) {
+        customTableFieldsStore.load({
+            params: {
+                tableId: id,
+                useUserDefinedTable: useUserDefinedTable
+            }
+        });
+    }
+
+    function initCustomEditData() {
+
+    }
+
+    function createCustomTableFieldsGrid() {        
+        AnalysisPortal.Models.defineTableFieldDescriptionViewModel();
+        customTableFieldsStore = AnalysisPortal.createJsonStore('TableFieldDescriptionViewModel', '@Html.Raw(Url.Action("GetAllSelectableTableFields", "Format"))');
+
+        customTableFieldsGrid = Ext.create('Ext.grid.Panel', {
+            id: 'customTableTypeFieldsGrid',
+            store: customTableFieldsStore,
+            title: '@Resource.PresentationTableTableFields',
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 420,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: false,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            renderTo: 'customTableTypeFieldsGridDiv',
+            columns: [
+                { text: '@Resource.TableSettingsFieldId', width: 45, dataIndex: 'Id', sortable: true },
+                { text: '@Resource.TableSettingsFieldName', width: 120, dataIndex: 'Name', sortable: true },
+                { text: '@Resource.TableSettingsFieldLabel', width: 120, dataIndex: 'Label', sortable: true },
+                { text: '@Resource.TableSettingsFieldClass', width: 120, dataIndex: 'Class', sortable: true },
+                { text: '@Resource.TableSettingsFieldMandatory', width: 70, dataIndex: 'IsMandatory', sortable: true },
+                { text: '@Resource.TableSettingsFieldImplemented', width: 75, dataIndex: 'IsImplemented', sortable: true },
+                { text: '@Resource.TableSettingsFieldProvider', width: 80, dataIndex: 'IsObtainedFromProvider', sortable: true },
+                { text: '@Resource.TableSettingsFieldImportance', width: 75, dataIndex: 'Importance', sortable: true }                
+            ],
+            columnLines: true,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true                
+            })
+        });
+        
+    }
+</script>

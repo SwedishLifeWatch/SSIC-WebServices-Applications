@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0f5c33df-3a4f-49b4-ae6e-4aba6c0767cf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="ArtDatabanken" />
+      <ReferencedAssembly AssemblyName="ArtDatabanken.WebService.Data" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SwedishSpeciesObservationService.wsdl" MetadataType="Wsdl" ID="e9dab2f6-d249-4fa5-b675-f573248fe523" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="SwedishSpeciesObservationService1.wsdl" MetadataType="Wsdl" ID="8d3e0a18-9cc5-40dc-b19d-5644007af099" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?wsdl" />
+    <MetadataFile FileName="SwedishSpeciesObservationService.disco" MetadataType="Disco" ID="4a4d7317-b271-4127-974a-9c152404c0e4" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?disco" />
+    <MetadataFile FileName="SwedishSpeciesObservationService.xsd" MetadataType="Schema" ID="758c0fb2-ce3b-4e92-b743-cdab073e3ec0" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SwedishSpeciesObservationService1.xsd" MetadataType="Schema" ID="1d893e98-c3d7-4885-905d-1b56382224c7" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SwedishSpeciesObservationService2.xsd" MetadataType="Schema" ID="112f16d3-76ed-497e-8dc5-819e28c75b48" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SwedishSpeciesObservationService3.xsd" MetadataType="Schema" ID="fa84726c-ff0a-4656-b8c7-6f1cc2906842" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SwedishSpeciesObservationService4.xsd" MetadataType="Schema" ID="fac810f6-4541-4056-aa04-894d8571392b" SourceId="1" SourceUrl="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

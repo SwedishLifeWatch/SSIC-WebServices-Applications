@@ -1,0 +1,111 @@
+﻿@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Account.UserRoleModel
+@{
+    ViewBag.Title = Model.Labels.Title;
+}
+
+<div class="btn-toolbar">
+    <h3>@Model.Labels.Title</h3>
+</div>
+
+<br/>
+
+@using (Html.BeginForm("ChangeUserRole", "Account", FormMethod.Post, new { @id = "changeUserRoleForm", @name = "changeUserRoleForm" }))
+{
+  
+    @Html.HiddenFor(model => model.ReturnUrl) 
+    @Html.HiddenFor(model => model.UserRoleId) 
+    @Html.HiddenFor(model => model.UserRoleName) 
+    @Html.HiddenFor(model => model.UserRoleDescription) 
+    
+    @Html.Hidden("newRoleId") 
+
+    <div>
+          
+        <div class="alert alert-success">
+            <strong>@Model.Labels.CurrentRole: </strong>
+            @Model.UserRoleName
+        </div>                                  
+        <div class="editor-label">
+            @Html.LabelFor(model => model.UserRoleIndex) 
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.UserRoleIndex, new SelectList(Model.UserRoles, "Index", "Text"))             
+        </div>
+                       
+        <div class="alert alert-info">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserRoleDescription)
+            </div>
+
+            <div class="field2" id="roleDescription" >
+                @Html.DisplayTextFor(model => model.UserRoleDescription)
+            </div>
+                    
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserRoleId)
+            </div>
+            <div class="editor-field field3" id="roleId">
+                @Html.DisplayTextFor(model => model.UserRoleId)           
+            </div>
+        </div>
+        <p>
+            <button type="submit" class="btn btn-success" title="@Model.Labels.Update" id="changeUserRole">
+                @Model.Labels.Title
+                <i class="icon-random icon-white"></i>
+            </button>
+            &nbsp;<a href="@Url.Action("Index", "Home")" class="btn btn-danger">@Model.Labels.Cancel&nbsp; <i class="icon-ban-circle icon-white"></i></a>
+        </p>  
+       
+    </div>
+    <div>             
+            @if (ViewBag.Debug)
+            {
+                <a href="@Resources.AppSettings.Default.UrlToUserAdminMoneses" class="btn btn-info btn-mini" title="@Model.Labels.UserAdminLink" target="_blank">
+                    <i class="icon-user icon-white"></i> &nbsp; 
+                    @Model.Labels.UserAdminRoleLink
+                </a>                    
+            }
+            else
+            {
+                <a href="@Resources.AppSettings.Default.UrlToUserAdminLampetra" class="btn btn-info btn-mini" title="@Model.Labels.UserAdminLink" target="_blank">
+                    <i class="icon-user icon-white"></i> &nbsp; 
+                    @Model.Labels.UserAdminRoleLink
+                </a>                    
+            }
+    </div>  
+}
+
+<script type="text/javascript">
+
+  
+    $(document).ready(function () {
+      
+        var roleDecriptions = @Html.Raw(Json.Encode(Model.UserRoles.Select(p => p.Description)));
+        var roleIds = @Html.Raw(Json.Encode(Model.UserRoles.Select(p => p.Id)));
+        var selectedRoleIndex = @Model.UserRoleIndex;
+            
+        $('.field2').html(roleDecriptions[selectedRoleIndex]);
+  
+        $("#UserRoleIndex").change(function () {
+            var selectedIndex = $(this).val();
+            var selectedID = roleIds[selectedIndex];
+            $('.field2').html(roleDecriptions[selectedIndex]); 
+            $('.field3').html(selectedID); 
+            
+        });
+        
+        $('#changeUserRole').click(function () {
+                var theform = document.changeUserRoleForm;
+//     No need for validation yet!           if(validForm(theform)){
+             var selectedID = $('#roleId').text();
+              theform.newRoleId.value = selectedID; 
+              theform.submit();
+//                }
+        }); 
+        
+      
+    });
+    
+   
+</script>
+

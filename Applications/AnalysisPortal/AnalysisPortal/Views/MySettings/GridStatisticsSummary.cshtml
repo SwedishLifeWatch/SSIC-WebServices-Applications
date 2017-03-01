@@ -1,0 +1,28 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation.GridStatisticsViewModel
+
+<div style="max-height: 400px; overflow-y: auto;">
+    <strong>@Resource.GridStatisticsParameters</strong>
+    <ul class="ellipseList">    
+        <li>@Resource.GridStatisticsCoordinateSystem:  @Model.GetSelectedCoordinateSystemName()</li>
+        <li>@Resource.GridStatisticsGridSize: @Model.GetGridSizeFormatted()</li>        
+    </ul>
+    
+    <strong>@Resource.GridStatisticsGridCells</strong>
+    <ul class="ellipseList">
+        <li>@Resource.GridStatisticsGenerateAllGridCells: @if(Model.GenerateAllGridCells) {<text>@Resource.SharedDialogButtonTextYes</text>} else {<text>@Resource.SharedDialogButtonTextNo</text>}</li>        
+    </ul>
+
+    <strong>@Resource.GridStatisticsCalculations</strong>
+    <ul class="ellipseList">
+        @foreach (string str in Model.GetCalculateStrings())
+        {
+            <li>@str</li>
+        }        
+    </ul>
+    <strong>@Resource.GridStatisticsEnvironmentalData</strong>
+    <ul class="ellipseList">    
+        <li>@Resource.SharedLayer:  @Model.GetSelectedWfsLayerName()</li>
+        <li>@Resource.SharedCalculate: @Model.GetWfsCalculationModeText()</li>        
+    </ul>
+</div>

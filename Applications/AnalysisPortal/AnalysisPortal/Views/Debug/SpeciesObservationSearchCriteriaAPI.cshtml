@@ -1,0 +1,587 @@
+﻿@{
+    ViewBag.Title = "Rest API debug/test page";
+}
+
+<h2>Rest API debug/test page</h2>
+
+<div>
+    <table style="width: 100%;">
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Taxa</legend>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td colspan="2">
+                                Active: <input id="taxaIsActiveCheckBox" type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Taxon IDs:
+                            </td>
+                            <td>
+                                <input type="text" id="taxaTaxonIdsTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="taxaSaveButton" type="button">Set</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Temporal</legend>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td colspan="2">
+                                Active: <input id="temporalIsActiveCheckBox" type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Observation date:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Use setting: <input id="temporalObservationDateUseSettingCheckBox" type="checkbox" />
+                                <br/>
+                                Annually: <input id="temporalObservationDateAnnuallyCheckBox" type="checkbox" />
+                            </td>
+                            <td>
+                                Begin <input type="text" id="temporalObservationDateStartTextBox" /> - End <input type="text" id="temporalObservationDateEndTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Registration date:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Use setting: <input id="temporalRegistrationDateUseSettingCheckBox" type="checkbox" />
+                                <br/>
+                                Annually: <input id="temporalRegistrationDateAnnuallyCheckBox" type="checkbox" />
+                            </td>
+                            <td>
+                                Begin <input type="text" id="temporalRegistrationDateStartTextBox" /> - End <input type="text" id="temporalRegistrationDateEndTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Change date:
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Use setting: <input id="temporalChangeDateUseSettingCheckBox" type="checkbox" />
+                                <br/>
+                                Annually: <input id="temporalChangeDateAnnuallyCheckBox" type="checkbox" />
+                            </td>
+                            <td>
+                                Begin <input type="text" id="temporalChangeDateStartTextBox" /> - End <input type="text" id="temporalChangeDateEndTextBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="temporalSaveButton" type="button">Set</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Accuracy</legend>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td colspan="2">
+                                Active: <input id="accuracyIsActiveCheckBox" type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Accuracy: <input type="text" id="accuracyMaxCoordinateAccuracyTextBox" />
+                            </td>
+                            <td>
+                                Considered: <input id="accuracyInclusiveCheckBox" type="checkbox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="accuracySaveButton" type="button">Set</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <fieldset>
+                    <legend>Occurrence</legend>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                Include never found observations: <input type="checkbox" id="occurrenceIncludeNeverFoundObservationsCheckBox" />
+                            </td>
+                            <td>
+                                Include not rediscovered observations: <input type="checkbox" id="occurrenceIncludeNotRediscoveredObservationsCheckBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                Include positive observations: <input type="checkbox" id="occurrenceIncludePositiveObservationsCheckBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Natural occurrence: <input type="checkbox" id="occurrenceNaturalCheckBox" />
+                            </td>
+                            <td>
+                                Not natural occurrence: <input type="checkbox" id="occurrenceNotNaturalCheckBox" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button id="occurrenceSaveButton" type="button">Set</button>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="saveFull" type="button">Set all</button>
+            </td>
+            <td>
+                <button id="createNewButton" type="button">Create new instance</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript">
+    var uri = '/api/SpeciesObservationSearchCriteriaAPI';
+
+    $(document).ready(function () {
+        $('#taxaIsActiveCheckBox').click(function () {
+            $('#taxaTaxonIdsTextBox').attr('disabled', !$('#taxaIsActiveCheckBox').is(':checked'));
+        });
+
+        $('#taxaSaveButton').click(function () {
+            saveTaxa();
+        });
+
+        $('#temporalIsActiveCheckBox').click(function () {
+            var isChecked = $('#temporalIsActiveCheckBox').is(':checked');
+
+            $('#temporalObservationDateUseSettingCheckBox').attr('disabled', !isChecked);
+            $('#temporalObservationDateAnnuallyCheckBox').attr('disabled', !isChecked);
+            $('#temporalObservationDateStartTextBox').attr('disabled', !isChecked);
+            $('#temporalObservationDateEndTextBox').attr('disabled', !isChecked);
+            $('#temporalRegistrationDateUseSettingCheckBox').attr('disabled', !isChecked);
+            $('#temporalRegistrationDateAnnuallyCheckBox').attr('disabled', !isChecked);
+            $('#temporalRegistrationDateStartTextBox').attr('disabled', !isChecked);
+            $('#temporalRegistrationDateEndTextBox').attr('disabled', !isChecked);
+            $('#temporalChangeDateUseSettingCheckBox').attr('disabled', !isChecked);
+            $('#temporalChangeDateAnnuallyCheckBox').attr('disabled', !isChecked);
+            $('#temporalChangeDateStartTextBox').attr('disabled', !isChecked);
+            $('#temporalChangeDateEndTextBox').attr('disabled', !isChecked);
+        });
+
+        $('#temporalSaveButton').click(function () {
+            saveTemporal();
+        });
+
+        $('#accuracyIsActiveCheckBox').click(function () {
+            var isChecked = $('#accuracyIsActiveCheckBox').is(':checked');
+            
+            $('#accuracyMaxCoordinateAccuracyTextBox').attr('disabled', !isChecked);
+            $('#accuracyInclusiveCheckBox').attr('disabled', !isChecked);
+        });
+
+        $('#accuracySaveButton').click(function () {
+            saveAccuracy();
+        });
+
+        $('#occurrenceSaveButton').click(function () {
+            saveOccurrence();
+        });
+
+        $('#saveFull').click(function() {
+            saveFull();
+        });
+
+        $('#createNewButton').click(function () {
+            createNew();
+        });
+
+        $.getJSON(uri)
+            .done(function (response) {
+                formatData(response);
+            }
+        );
+    });
+
+    function formatData(response) {
+        var $temporalObservationDateStartTextBox = $('#temporalObservationDateStartTextBox');
+        var $temporalObservationDateEndTextBox = $('#temporalObservationDateEndTextBox');
+        var $temporalRegistrationDateStartTextBox = $('#temporalRegistrationDateStartTextBox');
+        var $temporalRegistrationDateEndTextBox = $('#temporalRegistrationDateEndTextBox');
+        var $temporalChangeDateStartTextBox = $('#temporalChangeDateStartTextBox');
+        var $temporalChangeDateEndTextBox = $('#temporalChangeDateEndTextBox');
+
+        $temporalObservationDateStartTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        $temporalObservationDateEndTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        $temporalRegistrationDateStartTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        $temporalRegistrationDateEndTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        $temporalChangeDateStartTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        $temporalChangeDateEndTextBox.datepicker({ format: 'yyyy-mm-dd' });
+        console.log(response);
+        if (response != null) {
+            var result = response.Filter;
+            var $taxaIsActiveCheckBox = $('#taxaIsActiveCheckBox');
+            var $taxaTaxonIdsTextBox = $('#taxaTaxonIdsTextBox');
+            var taxonIds = '';
+            var $temporalIsActiveCheckBox = $('#temporalIsActiveCheckBox');
+            var $temporalObservationDateUseSettingCheckBox = $('#temporalObservationDateUseSettingCheckBox');
+            var $temporalObservationDateAnnuallyCheckBox = $('#temporalObservationDateAnnuallyCheckBox');
+            var $temporalRegistrationDateUseSettingCheckBox = $('#temporalRegistrationDateUseSettingCheckBox');
+            var $temporalRegistrationDateAnnuallyCheckBox = $('#temporalRegistrationDateAnnuallyCheckBox');
+            var $temporalChangeDateUseSettingCheckBox = $('#temporalChangeDateUseSettingCheckBox');
+            var $temporalChangeDateAnnuallyCheckBox = $('#temporalChangeDateAnnuallyCheckBox');
+            var $accuracyIsActiveCheckBox = $('#accuracyIsActiveCheckBox');
+            var $accuracyMaxCoordinateAccuracyTextBox = $('#accuracyMaxCoordinateAccuracyTextBox');
+            var $accuracyInclusiveCheckBox = $('#accuracyInclusiveCheckBox');
+            var $occurrenceIncludeNeverFoundObservationsCheckBox = $('#occurrenceIncludeNeverFoundObservationsCheckBox');
+            var $occurrenceIncludeNotRediscoveredObservationsCheckBox = $('#occurrenceIncludeNotRediscoveredObservationsCheckBox');
+            var $occurrenceIncludePositiveObservationsCheckBox = $('#occurrenceIncludePositiveObservationsCheckBox');
+            var $occurrenceNaturalCheckBox = $('#occurrenceNaturalCheckBox');
+            var $occurrenceNotNaturalCheckBox = $('#occurrenceNotNaturalCheckBox');
+
+            $taxaIsActiveCheckBox.attr('checked', result.Taxa.IsActive);
+            $taxaTaxonIdsTextBox.attr('disabled', !(result.Taxa.IsActive || result.Taxa.HasSettings));
+            for (var i = 0; i < result.Taxa.TaxonIds.length; ++i) {
+                taxonIds += result.Taxa.TaxonIds[i];
+                if (i < result.Taxa.TaxonIds.length - 1) {
+                    taxonIds += ",";
+                }
+            }
+
+            $taxaTaxonIdsTextBox.val(taxonIds);
+            $temporalIsActiveCheckBox.attr('checked', result.Temporal.IsActive);
+            $temporalObservationDateUseSettingCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalObservationDateUseSettingCheckBox.attr('checked', result.Temporal.ObservationDate.UseSetting);
+            $temporalObservationDateAnnuallyCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalObservationDateAnnuallyCheckBox.attr('checked', result.Temporal.ObservationDate.Annually);
+            $temporalObservationDateStartTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalObservationDateStartTextBox.datepicker('setDate', new Date(result.Temporal.ObservationDate.StartDate));
+            $temporalObservationDateEndTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalObservationDateEndTextBox.datepicker('setDate', new Date(result.Temporal.ObservationDate.EndDate));
+            $temporalRegistrationDateUseSettingCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalRegistrationDateUseSettingCheckBox.attr('checked', result.Temporal.RegistrationDate.UseSetting);
+            $temporalRegistrationDateAnnuallyCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalRegistrationDateAnnuallyCheckBox.attr('checked', result.Temporal.ObservationDate.Annually);
+            $temporalRegistrationDateStartTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalRegistrationDateStartTextBox.datepicker('setDate', new Date(result.Temporal.RegistrationDate.StartDate));
+            $temporalRegistrationDateEndTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalRegistrationDateEndTextBox.datepicker('setDate', new Date(result.Temporal.RegistrationDate.EndDate));
+            $temporalChangeDateUseSettingCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalChangeDateUseSettingCheckBox.attr('checked', result.Temporal.ChangeDate.UseSetting);
+            $temporalChangeDateAnnuallyCheckBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalChangeDateAnnuallyCheckBox.attr('checked', result.Temporal.ObservationDate.Annually);
+            $temporalChangeDateStartTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalChangeDateStartTextBox.datepicker('setDate', new Date(result.Temporal.ChangeDate.StartDate));
+            $temporalChangeDateEndTextBox.attr('disabled', !result.Temporal.IsActive);
+            $temporalChangeDateEndTextBox.datepicker('setDate', new Date(result.Temporal.ChangeDate.EndDate));
+            $accuracyIsActiveCheckBox.attr('checked', result.Temporal.IsActive);
+            $accuracyMaxCoordinateAccuracyTextBox.attr('disabled', !result.Accuracy.IsActive);
+            $accuracyMaxCoordinateAccuracyTextBox.val(result.Accuracy.MaxCoordinateAccuracy);
+            $accuracyInclusiveCheckBox.attr('disabled', !result.Accuracy.IsActive);
+            $accuracyInclusiveCheckBox.attr('checked', result.Accuracy.Inclusive);
+            $occurrenceIncludeNeverFoundObservationsCheckBox.attr('disabled', !result.Occurrence.IsActive);
+            $occurrenceIncludeNeverFoundObservationsCheckBox.attr('checked', result.Occurrence.IncludeNeverFoundObservations);
+            $occurrenceIncludeNotRediscoveredObservationsCheckBox.attr('disabled', !result.Occurrence.IsActive);
+            $occurrenceIncludeNotRediscoveredObservationsCheckBox.attr('checked', result.Occurrence.IncludeNotRediscoveredObservations);
+            $occurrenceIncludePositiveObservationsCheckBox.attr('disabled', !result.Occurrence.IsActive);
+            $occurrenceIncludePositiveObservationsCheckBox.attr('checked', result.Occurrence.IncludePositiveObservations);
+            $occurrenceNaturalCheckBox.attr('disabled', !result.Occurrence.IsActive);
+            $occurrenceNaturalCheckBox.attr('checked', result.Occurrence.IsNaturalOccurrence);
+            $occurrenceNotNaturalCheckBox.attr('disabled', !result.Occurrence.IsActive);
+            $occurrenceNotNaturalCheckBox.attr('checked', result.Occurrence.IsNotNaturalOccurrence);
+        } else {
+            AnalysisPortal.showMsg("KO");
+        }
+    }
+
+    function putData(data) {
+        $.ajax({
+            url: uri,
+            type: 'PUT',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json'
+        })
+        .done(function (response) {
+            formatData(response);
+            AnalysisPortal.showMsg("OK");
+        });
+    }
+
+    function encodeElements(selector, splitter) {
+        var selected = [];
+        var elements = selector.val().split(splitter);
+
+        for (var i = 0; i < elements.length; ++i) {
+            selected.push(elements[i]);
+        }
+        if (selected[selected.length - 1] == null || selected[selected.length - 1] == undefined || selected[selected.length - 1] == "") {
+            selected.pop();
+        }
+        return selected;
+    }
+
+    function saveTaxa() {
+        var isActive = $('#taxaIsActiveCheckBox').is(':checked');
+        var $taxonIdsTextBox = $('#taxaTaxonIdsTextBox');
+
+        if (!isActive) {
+            $taxonIdsTextBox.val('');
+        }
+
+        var data = {
+            Filter: {
+                Taxa: {
+                    IsActive: isActive,
+                    TaxonIds: encodeElements($taxonIdsTextBox, ',')
+                }
+            }
+        };
+
+        putData(data);
+    }
+
+    function saveTemporal() {
+        var isActive = $('#temporalIsActiveCheckBox').is(':checked');
+        var $temporalObservationDateUseSettingCheckBox = $('#temporalObservationDateUseSettingCheckBox');
+        var $temporalObservationDateAnnuallyCheckBox = $('#temporalObservationDateAnnuallyCheckBox');
+        var $temporalObservationDateStartTextBox = $('#temporalObservationDateStartTextBox');
+        var $temporalObservationDateEndTextBox = $('#temporalObservationDateEndTextBox');
+        var $temporalRegistrationDateUseSettingCheckBox = $('#temporalRegistrationDateUseSettingCheckBox');
+        var $temporalRegistrationDateAnnuallyCheckBox = $('#temporalRegistrationDateAnnuallyCheckBox');
+        var $temporalRegistrationDateStartTextBox = $('#temporalRegistrationDateStartTextBox');
+        var $temporalRegistrationDateEndTextBox = $('#temporalRegistrationDateEndTextBox');
+        var $temporalChangeDateUseSettingCheckBox = $('#temporalChangeDateUseSettingCheckBox');
+        var $temporalChangeDateAnnuallyCheckBox = $('#temporalChangeDateAnnuallyCheckBox');
+        var $temporalChangeDateStartTextBox = $('#temporalChangeDateStartTextBox');
+        var $temporalChangeDateEndTextBox = $('#temporalChangeDateEndTextBox');
+
+        if (!isActive) {
+            $temporalObservationDateUseSettingCheckBox.attr('checked', false);
+            $temporalObservationDateAnnuallyCheckBox.attr('checked', false);
+            $temporalObservationDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalObservationDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+            $temporalRegistrationDateUseSettingCheckBox.attr('checked', false);
+            $temporalRegistrationDateAnnuallyCheckBox.attr('checked', false);
+            $temporalRegistrationDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalRegistrationDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+            $temporalChangeDateUseSettingCheckBox.attr('checked', false);
+            $temporalChangeDateAnnuallyCheckBox.attr('checked', false);
+            $temporalChangeDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalChangeDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+        }
+        
+        var data = {
+            Filter: {
+                Temporal: {
+                    IsActive: isActive,
+                    ObservationDate: {
+                        UseSetting: $temporalObservationDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalObservationDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalObservationDateStartTextBox.val(),
+                        EndDate: $temporalObservationDateEndTextBox.val()
+                    },
+                    RegistrationDate: {
+                        UseSetting: $temporalRegistrationDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalRegistrationDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalRegistrationDateStartTextBox.val(),
+                        EndDate: $temporalRegistrationDateEndTextBox.val()
+                    },
+                    ChangeDate: {
+                        UseSetting: $temporalChangeDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalChangeDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalChangeDateStartTextBox.val(),
+                        EndDate: $temporalChangeDateEndTextBox.val()
+                    }
+                }
+            }
+        };
+
+        putData(data);
+    }
+    
+    function saveAccuracy() {
+        var isActive = $('#accuracyIsActiveCheckBox').is(':checked');
+        var $accuracyMaxCoordinateAccuracyTextBox = $('#accuracyMaxCoordinateAccuracyTextBox');
+        var $accuracyInclusiveCheckBox = $('#accuracyInclusiveCheckBox');
+
+        if (!isActive) {
+            $accuracyMaxCoordinateAccuracyTextBox.val(0);
+            $accuracyInclusiveCheckBox.attr('checked', false);
+        }
+
+        var data = {
+            Filter: {
+                Accuracy: {
+                    IsActive: isActive,
+                    MaxCoordinateAccuracy: $accuracyMaxCoordinateAccuracyTextBox.val(),
+                    Inclusive: $accuracyInclusiveCheckBox.is(':checked')
+                }
+            }
+        };
+
+        putData(data);
+    }
+
+    function saveOccurrence() {
+        var $occurrenceIncludeNeverFoundObservationsCheckBox = $('#occurrenceIncludeNeverFoundObservationsCheckBox');
+        var $occurrenceIncludeNotRediscoveredObservationsCheckBox = $('#occurrenceIncludeNotRediscoveredObservationsCheckBox');
+        var $occurrenceIncludePositiveObservationsCheckBox = $('#occurrenceIncludePositiveObservationsCheckBox');
+        var $occurrenceNaturalCheckBox = $('#occurrenceNaturalCheckBox');
+        var $occurrenceNotNaturalCheckBox = $('#occurrenceNotNaturalCheckBox');
+
+        var data = {
+            Filter: {
+                Occurrence: {
+                    IncludeNeverFoundObservations: $occurrenceIncludeNeverFoundObservationsCheckBox.is(':checked'),
+                    IncludeNotRediscoveredObservations: $occurrenceIncludeNotRediscoveredObservationsCheckBox.is(':checked'),
+                    IncludePositiveObservations: $occurrenceIncludePositiveObservationsCheckBox.is(':checked'),
+                    IsNaturalOccurrence: $occurrenceNaturalCheckBox.is(':checked'),
+                    IsNotNaturalOccurrence: $occurrenceNotNaturalCheckBox.is(':checked')
+                }
+            }
+        };
+
+        putData(data);
+    }
+    
+    function saveFull() {
+        // Taxa
+        var taxaIsActive = $('#taxaIsActiveCheckBox').is(':checked');
+        var $taxonIdsTextBox = $('#taxaTaxonIdsTextBox');
+        
+        // Temporal
+        var temporalIsActive = $('#temporalIsActiveCheckBox').is(':checked');
+        var $temporalObservationDateUseSettingCheckBox = $('#temporalObservationDateUseSettingCheckBox');
+        var $temporalObservationDateAnnuallyCheckBox = $('#temporalObservationDateAnnuallyCheckBox');
+        var $temporalObservationDateStartTextBox = $('#temporalObservationDateStartTextBox');
+        var $temporalObservationDateEndTextBox = $('#temporalObservationDateEndTextBox');
+        var $temporalRegistrationDateUseSettingCheckBox = $('#temporalRegistrationDateUseSettingCheckBox');
+        var $temporalRegistrationDateAnnuallyCheckBox = $('#temporalRegistrationDateAnnuallyCheckBox');
+        var $temporalRegistrationDateStartTextBox = $('#temporalRegistrationDateStartTextBox');
+        var $temporalRegistrationDateEndTextBox = $('#temporalRegistrationDateEndTextBox');
+        var $temporalChangeDateUseSettingCheckBox = $('#temporalChangeDateUseSettingCheckBox');
+        var $temporalChangeDateAnnuallyCheckBox = $('#temporalChangeDateAnnuallyCheckBox');
+        var $temporalChangeDateStartTextBox = $('#temporalChangeDateStartTextBox');
+        var $temporalChangeDateEndTextBox = $('#temporalChangeDateEndTextBox');
+
+        // Accuracy
+        var accuracyIsActive = $('#accuracyIsActiveCheckBox').is(':checked');
+        var $accuracyMaxCoordinateAccuracyTextBox = $('#accuracyMaxCoordinateAccuracyTextBox');
+        var $accuracyInclusiveCheckBox = $('#accuracyInclusiveCheckBox');
+
+        // Occurrence
+        var $occurrenceIncludeNeverFoundObservationsCheckBox = $('#occurrenceIncludeNeverFoundObservationsCheckBox');
+        var $occurrenceIncludeNotRediscoveredObservationsCheckBox = $('#occurrenceIncludeNotRediscoveredObservationsCheckBox');
+        var $occurrenceIncludePositiveObservationsCheckBox = $('#occurrenceIncludePositiveObservationsCheckBox');
+        var $occurrenceNaturalCheckBox = $('#occurrenceNaturalCheckBox');
+        var $occurrenceNotNaturalCheckBox = $('#occurrenceNotNaturalCheckBox');
+
+        if (!taxaIsActive) {
+            $taxonIdsTextBox.val('');
+        }
+
+        if (!temporalIsActive) {
+            $temporalObservationDateUseSettingCheckBox.attr('checked', false);
+            $temporalObservationDateAnnuallyCheckBox.attr('checked', false);
+            $temporalObservationDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalObservationDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+            $temporalRegistrationDateUseSettingCheckBox.attr('checked', false);
+            $temporalRegistrationDateAnnuallyCheckBox.attr('checked', false);
+            $temporalRegistrationDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalRegistrationDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+            $temporalChangeDateUseSettingCheckBox.attr('checked', false);
+            $temporalChangeDateAnnuallyCheckBox.attr('checked', false);
+            $temporalChangeDateStartTextBox.val('@DateTime.Now.AddYears(-1).ToShortDateString()');
+            $temporalChangeDateEndTextBox.val('@DateTime.Now.ToShortDateString()');
+        }
+
+        if (!accuracyIsActive) {
+            $accuracyMaxCoordinateAccuracyTextBox.val(0);
+            $accuracyInclusiveCheckBox.attr('checked', false);
+        }
+
+        var data = {
+            FullUpdate: true,
+            Filter: {
+                Taxa: {
+                    IsActive: taxaIsActive,
+                    TaxonIds: encodeElements($taxonIdsTextBox, ',')
+                },
+                Temporal: {
+                    IsActive: temporalIsActive,
+                    ObservationDate: {
+                        UseSetting: $temporalObservationDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalObservationDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalObservationDateStartTextBox.val(),
+                        EndDate: $temporalObservationDateEndTextBox.val()
+                    },
+                    RegistrationDate: {
+                        UseSetting: $temporalRegistrationDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalRegistrationDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalRegistrationDateStartTextBox.val(),
+                        EndDate: $temporalRegistrationDateEndTextBox.val()
+                    },
+                    ChangeDate: {
+                        UseSetting: $temporalChangeDateUseSettingCheckBox.is(':checked'),
+                        Annually: $temporalChangeDateAnnuallyCheckBox.is(':checked'),
+                        StartDate: $temporalChangeDateStartTextBox.val(),
+                        EndDate: $temporalChangeDateEndTextBox.val()
+                    }
+                },
+                Accuracy: {
+                    IsActive: accuracyIsActive,
+                    MaxCoordinateAccuracy: $accuracyMaxCoordinateAccuracyTextBox.val(),
+                    Inclusive: $accuracyInclusiveCheckBox.is(':checked')
+                },
+                Occurrence: {
+                    IncludeNeverFoundObservations: $occurrenceIncludeNeverFoundObservationsCheckBox.is(':checked'),
+                    IncludeNotRediscoveredObservations: $occurrenceIncludeNotRediscoveredObservationsCheckBox.is(':checked'),
+                    IncludePositiveObservations: $occurrenceIncludePositiveObservationsCheckBox.is(':checked'),
+                    IsNaturalOccurrence: $occurrenceNaturalCheckBox.is(':checked'),
+                    IsNotNaturalOccurrence: $occurrenceNotNaturalCheckBox.is(':checked')
+                }
+            }
+        };
+
+        putData(data);
+    }
+
+    function createNew() {
+        $.post(uri, null, 'json')
+            .done(function (response) {
+            formatData(response);
+            AnalysisPortal.showMsg("Ok");
+        });
+    }
+</script>

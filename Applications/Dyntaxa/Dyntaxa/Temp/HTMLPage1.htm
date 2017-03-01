@@ -1,0 +1,816 @@
+﻿<!DOCTYPE html>
+<html>
+<head id="Head1"><title>
+	
+    Taxon&#160;information
+
+</title>    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery-1.5.1.min.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery-ui-1.8.11.min.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>    
+    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.ui.datepicker-en.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.ui.datepicker-sv.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.ui.nestedSortable.js" type="text/javascript"></script>
+
+    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/superfish-1.4.8/js/hoverIntent.js" type="text/javascript"></script>    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/superfish-1.4.8/js/superfish.js" type="text/javascript"></script> 
+    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.MoverBoxes.js" type="text/javascript"></script>
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/jquery.blockUI.js" type="text/javascript"></script>
+    
+    <link href="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/superfish-1.4.8/css/superfish.css" rel="stylesheet" type="text/css" />
+    <link href="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Css/SiteMaster.css" rel="stylesheet" type="text/css" />
+    
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/Dynatree/jquery/jquery-ui.custom.js" type="text/javascript"></script>
+
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/Dynatree/jquery/jquery.cookie.js" type="text/javascript"></script>
+
+    <link href="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/Dynatree/src/skin/ui.dynatree.css" rel="stylesheet" type="text/css" />
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/Dynatree/src/jquery.dynatree.js" type="text/javascript"></script>
+        
+    <link href="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/DataTables-1.8.2/media/css/demo_table.css" rel="stylesheet"type="text/css" />
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/DataTables-1.8.2/media/js/jquery.dataTables.js" type="text/javascript"></script>
+		
+
+
+    <script src="file:///C:/Dev/ArtDatabanken/Web/Dyntaxa/Dyntaxa/Scripts/dyntaxa.common.js" type="text/javascript"></script>
+
+    
+    
+
+ 
+</head>
+
+<body>    
+    <div id="masterPageDiv" class="page">
+       <div id="header">
+           <div id="headerSymbol" class="container"></div>
+           
+           <div id="headerimage" class="container">
+                <div id="title">
+                    <h1>Dyntaxa</h1>
+                </div>
+                <!--
+                <div id="subTitle">
+                    <p>Svensk Taxonomisk databas</p>
+                </div>                
+                -->
+
+                
+                <div id="logindisplay">
+                    
+
+
+
+<ul>
+
+    <li>
+        <a href="/Culture/SetCulture?culture=en-GB&returnUrl=%2FTaxon%2FInfo%2F2002063%3FchangeRoot%3DTrue">
+            <span title="English" class="IconFlag IconFlag-en"></span><strong>&nbsp; Switch to English</strong>
+        </a>
+    </li>
+    <li>
+        <p style="color:#dad666"><strong>Revision: 1 - <a href="/Culture/SetCulture?culture=en-GB&returnUrl=%2FTaxon%2FInfo%2F2002063%3FchangeRoot%3DTrue">Start / Stop</a></strong></p>
+    </li>
+
+
+</ul>
+
+
+                </div>
+                
+                <div id="DevTempInfo">
+                    (TaxonId: 2002063, RevisionId: 1)
+                </div>
+                
+            </div>                                  
+            
+            <div id="menucontainer">
+                 
+          
+              
+
+
+<script type="text/javascript">
+
+    // initialise plugins
+    jQuery(function () {
+        jQuery('ul.sf-menu').superfish({
+                delay: 10,
+                animation: { opacity: 'show' },
+                speed: 'fast',
+                autoArrows: true,
+                dropShadows: true
+            }
+        );
+    });
+
+</script>
+
+
+<ul class="sf-menu">
+
+
+       <li>
+            <a href="/?revisionId=1">Search</a>
+            
+       </li>
+       
+   
+       <li>
+            
+                <a href="#">Taxon name</a>
+
+                <ul>
+                                        
+                        <li><a href="/TaxonName/List/2002063">List</a></li>                                                            
+                                        
+                        <li><a href="/TaxonName/Add/2002063">Add name</a></li>                                                            
+                    
+                </ul>
+            
+                <ul>
+                                    
+                    <li><a href="/TaxonName/List/2002063">List</a></li>                                                            
+                                    
+                    <li><a href="/TaxonName/Add/2002063">Add name</a></li>                                                            
+                
+                </ul>
+            
+       </li>
+
+       
+   
+       <li>
+            
+                <a href="#">Taxon</a>
+                <ul>
+                                        
+                        <li><a href="/Taxon/Info/2002063">Info</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/Add?revisionId=1">New</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/Edit/2002063">Edit</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/SortChildTaxa/2002063">Sort child taxa</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/Move/2002063">Move</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/AddParent/2002063">Add parent</a></li>                                                            
+                                        
+                        <li><a href="/Taxon/DropParent/2002063">Remove parent</a></li>                                                            
+                    
+                </ul>
+
+            
+                <ul>
+                                    
+                    <li><a href="/Taxon/Info/2002063">Info</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/Add?revisionId=1">New</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/Edit/2002063">Edit</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/SortChildTaxa/2002063">Sort child taxa</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/Move/2002063">Move</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/AddParent/2002063">Add parent</a></li>                                                            
+                                    
+                    <li><a href="/Taxon/DropParent/2002063">Remove parent</a></li>                                                            
+                
+                </ul>
+
+            
+       </li>
+       
+   
+       <li>
+            
+                <a href="#">Revision</a>
+                <ul>
+                                        
+                        <li><a href="/Revision/Add/2002063">New revision (Taxon Id=2002063)</a></li>                                                            
+                                        
+                        <li><a href="/Revision/List">List revisions</a></li>                                                            
+                                        
+                        <li><a href="/Revision/StartEditing">Start editing</a></li>                                                            
+                                        
+                        <li><a href="/Revision/StopEditing/2002063">Stop editing (Revision Id=1)</a></li>                                                            
+                    
+                </ul>
+
+            
+                <ul>
+                                    
+                    <li><a href="/Revision/Add/2002063">New revision (Taxon Id=2002063)</a></li>                                                            
+                                    
+                    <li><a href="/Revision/List">List revisions</a></li>                                                            
+                                    
+                    <li><a href="/Revision/StartEditing">Start editing</a></li>                                                            
+                                    
+                    <li><a href="/Revision/StopEditing/2002063">Stop editing (Revision Id=1)</a></li>                                                            
+                
+                </ul>
+            
+       </li>
+       
+   
+       <li>
+            <a href="/Taxon/Lump/2002063">Lump</a>
+
+            
+       </li>
+       
+   
+       <li>
+            <a href="/Taxon/Split/2002063">Split</a>
+            
+       </li>
+       
+   
+       <li>
+            <a href="/Match/Options/2002063">Match</a>
+            
+       </li>
+       
+   
+       <li>
+
+            
+                <a href="#">Export</a>
+                <ul>
+                                        
+                        <li><a href="/List/Options/2002063">Export object 1</a></li>                                                            
+                                        
+                        <li><a href="/List/Options/2002063">Export object 2</a></li>                                                            
+                    
+                </ul>
+            
+                <ul>
+                                    
+                    <li><a href="/List/Options/2002063">Export object 1</a></li>                                                            
+                                    
+                    <li><a href="/List/Options/2002063">Export object 2</a></li>                                                            
+                
+                </ul>
+
+            
+       </li>
+       
+   
+</ul>
+  
+                
+            </div>
+            
+            
+
+        </div>
+
+        <div id="leftNavigation" class="resize">
+            
+
+            <form action="/Navigation/ChangeRootTaxon" id="changeRootTaxonForm" method="post">
+   <div style="margin-bottom: 10px; margin-left: 10px;">
+    <div class="group">
+
+           <label for="selectRootTaxon">Parents</label>                          
+        <select id="selectRootTaxon" name="selectRootTaxon" style="width: 100%">
+            
+                <option  value="0">Liv (rot)</option>               
+          
+                <option  value="5000001">Animalia</option>               
+          
+                <option  value="5000034">Chordata</option>               
+          
+                <option  value="4000099">Vertebrata</option>               
+          
+                <option  value="4000104">Aves</option>               
+          
+                <option  value="3000278">Ciconiiformes</option>               
+          
+                <option  selected="selected"  value="2002063">Threskiornithidae</option>               
+                          
+        </select>
+
+      </div>   
+    </div>
+    
+</form><form action="/Navigation/TaxonTreeNavigate" id="navigateTaxonForm" method="post"><input id="NavigateTaxonId" name="NavigateTaxonId" type="hidden" value="" />     
+        <input id="ExpandedNodes" name="ExpandedNodes" type="hidden" value="" />      
+    </form>
+	
+
+	<div id="navigateTaxonTree"> </div>	
+	
+	<script type="text/javascript">
+
+	    $(document).ready(function () {
+
+	        $("#selectRootTaxon").change(function () {
+	            //                var value = $(this).val();
+	            //                alert(value);
+	            var frm = document.changeRootTaxonForm;
+	            frm.submit();
+	        });
+
+	        $("#navigateTaxonTree").dynatree({
+	            onActivate: function (node) {
+	                // Use status functions to find out about the calling context        
+	                var isInitializing = node.tree.isInitializing(); // Tree loading phase        
+	                var isReloading = node.tree.isReloading(); // Loading phase, and reading status from cookies        
+	                var isUserEvent = node.tree.isUserEvent(); // Event was triggered by mouse or keyboard                            
+
+	                var frm = document.navigateTaxonForm;
+	                frm.NavigateTaxonId.value = node.data.key;
+
+	                var expandedNodes = [];
+	                this.visit(function (n) {
+	                    if (n.isExpanded())
+	                        expandedNodes.push(n.data.key);
+	                }, true);
+	                expandedNodes.shift(); // delete first node. Don't know why the element is there.
+	                frm.ExpandedNodes.value = JSON.stringify(expandedNodes);
+
+	                $.blockUI({ overlayCSS: { backgroundColor: 'transparent' }, message: '<h1><img src="/Images/Icons/ajax-loader.gif" /> Loading...</h1>' });
+	                frm.submit();
+	            },
+	            onLazyRead: function (node) {
+	                node.appendAjax({
+	                    url: '/Navigation/GetTreeData',
+	                    type: "GET",
+	                    data: { "taxonId": node.data.key },
+	                    dataType: "json",
+	                    success: function (node) {
+	                        // Called after nodes have been created and the waiting icon was removed.                               // 'this' is the options for this Ajax request                               },                           error: function(node, XMLHttpRequest, textStatus, errorThrown) {                               // Called on error, after error icon was created.             
+	                    },
+	                    cache: false // Append random '_' argument to url to prevent caching.                         
+	                });
+	            },
+	            persist: false,
+	            generateIds: true,
+	            fx: { height: "toggle", duration: 100 },
+	            selectMode: 1,
+	            clickFolderMode: 1,
+	            children: { "title": "Threskiornithidae (2002063)", "isLazy": false, "isFolder": true, "expand": true, "activate": true, "key": "2002063", "children": [{ "title": "Plegadis (1001440)", "isLazy": true, "isFolder": true, "expand": false, "activate": false, "key": "1001440", "children": null }, { "title": "Platalea (1001441)", "isLazy": true, "isFolder": true, "expand": false, "activate": false, "key": "1001441", "children": null}] }
+	        });
+
+	    });            
+                                   
+	</script>
+  
+        </div>
+        
+        <script type="text/javascript">
+            $(function () {
+                $("#leftNavigation").resizable({ alsoResize: '#masterPageDiv', handles: 'e' });
+                //$("#navigateTaxonTree").resizable({ alsoResize: '#masterPageDiv' });
+            });
+        </script>
+
+        <div id="main">            
+            
+    <h1 class="readHeader">
+        Taxon&#160;information
+    </h1>    
+    
+<fieldset class="taxonSummaryFieldset">
+
+    
+    
+       <h1 class="taxonSummaryHeader closed" style='background-image:  Url(/Images/Icons/info_right_green.png) ' >
+        
+        <strong>Familj:</strong>
+        Threskiornithidae
+         - ibisar         
+    </h1>
+
+    <div class="fieldsetContent">
+        <table>
+            <tr>
+                <td><strong>Dyntaxa&#160;taxon-id</strong></td>
+                <td><strong>2002063</strong></td>
+            </tr>
+
+            <tr>
+                <td><strong>GUID</strong></td>
+                <td>urn:lsid:artdata.slu.se:Taxon:2002063</td>
+            </tr>
+
+           <tr>
+                <td><strong>Giltighet</strong></td>
+                <td>Is valid</td>
+
+            </tr>      
+
+            <tr>
+                <td><strong>Konceptdefinition</strong></td>
+                <td>-</td>
+            </tr>
+
+            <tr>
+                <td><strong>Kategori&#160;(rang)</strong></td>
+
+                <td>Familj</td>
+            </tr>
+
+            <tr>
+                <td><strong>Vetenskapligt namn</strong></td>
+                <td>
+                    <strong>Threskiornithidae</strong>
+                </td>
+
+            </tr>   
+
+            <tr>
+                <td><strong>Synonymer</strong></td>
+                <td>
+                    -
+                    
+                </td>
+            </tr>           
+                     
+            <tr>            
+                <td><strong>Vanliga namn</strong></td>
+                <td>
+
+                    ibisar
+                    
+                </td>
+            </tr>       
+                         
+            <tr>
+                <td><strong>Klassificering</strong></td>
+                <td>
+                    Rot <strong>Liv (rot)</strong>, 
+                    Rike <strong>Animalia</strong>, 
+                    Stam <strong>Chordata</strong>, 
+                    Understam <strong>Vertebrata</strong>, 
+                    Klass <strong>Aves</strong>, 
+                    Ordning <strong>Ciconiiformes</strong>
+
+                    
+                </td>
+            </tr>  
+
+            <tr>
+                <td><strong>Svensk&#160;f&#246;rekomst</strong></td>
+                <td>-</td>
+            </tr>   
+                            
+            <tr>
+                <td><strong>Invandringshistoria</strong></td>
+
+                <td>-</td>
+            </tr>                   
+        </table>                
+    </div>
+</fieldset>
+
+
+<script type="text/javascript">
+
+    function OnTaxonSummaryLoaded() {
+        $('fieldset h1').click(function () {
+            $(this)
+                .toggleClass("closed")
+                .toggleClass("open")
+                .closest("fieldset").find("div.fieldsetContent").slideToggle('fast', function () {
+                    // Animation complete.
+                });
+        });
+        $('fieldset h1.closed').closest("fieldset").find("div.fieldsetContent").hide();
+    }
+
+    $(document).ready(function () {
+        OnTaxonSummaryLoaded();
+    });
+
+//    $('h1.taxonSummaryHeader').css("background-image","Url(/Images/Icons/info_red.png)" );
+</script>    
+
+<!-- Left container start -->
+    <div id="leftContainer">            
+        
+        <fieldset>
+            <h2 class="open">Rekommenderade&#160;namn</h2>
+
+            <div class="fieldsetContent">
+                <p><strong>Vetenskapligt:</strong> Threskiornithidae <a href="/Reference/Edit/[GUID]" title="References for [name]" alt="References for [name]"><span class="referenceIcon"></span></a></p>
+                
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        //$('#urn:lsid:artdata.slu.se:Taxon:2002063').click(function () {
+                        $('#blaj').click(function () {
+                        //$(".referenceIcon").click(function () {
+                            $(this).hide();
+                        });
+                    });
+                </script>
+
+                <p><strong>Svenskt:</strong>  ibisar</p>
+
+                <h3 class="open">Andra spr&#229;k</h3>
+
+                <div class="fieldsetSubContent fullWidth">                    
+                    <ul id="otherRecommendedNames">                    
+                    
+                    </ul>
+                                        
+                        <p class="noData">No data found</p>
+                    
+                </div>
+
+
+             
+
+                
+                
+                
+            </div>            
+        </fieldset>
+
+
+        
+        <fieldset>
+
+            <h2 class="open">Synonymer</h2>
+            <div class="fieldsetContent">            
+                                
+                <p class="noData">No data found</p>
+                           
+      
+            </div>
+        </fieldset>
+
+
+        
+        <fieldset>
+            <h2 class="open">Andra namn</h2>
+
+            <div class="fieldsetContent">            
+                                
+                <p class="noData">No data found</p>
+                           
+      
+            </div>
+        </fieldset>
+
+
+        
+        
+        
+        
+        <fieldset>
+            <h2 class="open">Taxonomisk&#160;hierarki</h2>
+            <div class="fieldsetContent">
+
+                <ul id="parentTaxonList">                   
+                   
+                        <li style='padding-left:0px'>Rot: <a href="/Taxon/Info/0">Liv (rot)</a>
+                         - saknas
+                        
+                        </li>
+                        
+                        <li style='padding-left:8px'>Rike: <a href="/Taxon/Info/5000001">Animalia</a>
+                         - djur
+                        
+                        </li>
+                        
+                        <li style='padding-left:16px'>Stam: <a href="/Taxon/Info/5000034">Chordata</a>
+
+                         - ryggstr&#228;ngsdjur
+                        
+                        </li>
+                        
+                        <li style='padding-left:24px'>Understam: <a href="/Taxon/Info/4000099">Vertebrata</a>
+                         - ryggradsdjur
+                        
+                        </li>
+                        
+                        <li style='padding-left:40px'>Klass: <a href="/Taxon/Info/4000104">Aves</a>
+                         - f&#229;glar
+                        
+                        </li>
+
+                        
+                        <li style='padding-left:96px'>Ordning: <a href="/Taxon/Info/3000278">Ciconiiformes</a>
+                         - storkartade f&#229;glar
+                        
+                        </li>
+                                           
+                   <li style='padding-left:136px'>Familj: Threskiornithidae
+                         - ibisar
+                        
+                   </li>              
+                </ul>
+
+                               
+            </div>
+        </fieldset>
+
+
+        
+        <fieldset>
+            <h2 class="open">N&#228;rmast underliggande taxa</h2>
+            <div class="fieldsetContent">
+                <ul id="childTaxonList">                
+                
+                        <li>Sl&#228;kte: <em><a href="/Taxon/Info/1001440?changeRoot=True">Plegadis</a></em>
+                        
+                        </li>
+
+                   
+                        <li>Sl&#228;kte: <em><a href="/Taxon/Info/1001441?changeRoot=True">Platalea</a></em>
+                        
+                        </li>
+                   
+                </ul>
+                 
+            </div>
+        </fieldset>
+
+
+        
+        <fieldset>
+
+            <h2 class="open">Antal underliggande taxa</h2>
+            
+            
+                    <div class="fieldsetContent">
+                        <div id="grid" >
+                          <table class="grid"><thead><tr class="head"><th scope="col">Taxonkategori</th><th scope="col">Antal&#160;taxa&#160;i&#160;Dyntaxa</th><th scope="col">Antal svenska&#160;taxa</th></tr></thead><tbody><tr><td>Sl&#228;kte</td><td>2</td><td>2</td></tr><tr class="alt"><td>Art</td><td>2</td><td>2</td></tr><tr><td>Underart</td><td>1</td><td>1</td></tr></tbody></table>
+
+                        </div>
+                    </div>
+                
+                </fieldset>
+
+
+        
+        <fieldset>
+            <h2 class="open">Identifierare</h2>
+            <div class="fieldsetContent">
+                <p>Dyntaxa&#160;taxon-id:  2002063</p>
+
+                <p>GUID: urn:lsid:artdata.slu.se:Taxon:2002063</p>
+                <ul id="guidList">                
+                
+                </ul>
+                
+            </div>
+        </fieldset>
+
+
+
+
+<!-- Left container end -->
+    </div>    
+        
+    
+
+
+
+<!-- Right container start -->
+    <div id="rightContainer">    
+
+        
+        <fieldset>
+            <h2 class="open">Mer info om&#160;taxon</h2>
+            <div id="recommendedLinks" class="fieldsetContent">
+                
+            </div>            
+        </fieldset>
+        
+        
+        
+        <fieldset>
+            <h2 class="closed">Kvalitet</h2>
+
+            <div id="qualityContent" class="fieldsetContent">
+                
+                 
+                 
+                 
+                 <img src="/Taxon/TaxonQualitySummaryChart/2002063" alt="Chart" />
+                 
+                 
+                 
+                 
+            </div>
+        </fieldset>
+
+        
+        <fieldset>
+            <h2 id="mapHeader" class="closed">Utbredningskarta</h2>
+                
+                <div id="mapContent" class="fieldsetContent">
+                    <img src="/Images/Temp/map101656.png" alt="Sample" height="406" />
+
+                </div>
+              
+        </fieldset>
+        
+        
+
+
+<!-- Right container end -->
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("div#mapContent").attr("style", "display:none");
+            //$("div#qualityContent").attr("style", "display:none");
+        });
+
+        function OnTaxonInfoLoaded() {
+            $('fieldset h2').click(function () {
+                $(this)
+                    .toggleClass("closed")
+                    .toggleClass("open")
+                    .closest("fieldset").find("div.fieldsetContent").slideToggle('fast', function () {
+                        // Animation complete.
+                    });
+            });
+
+            $('div.fieldsetContent h3').click(function () {
+                $(this)
+                    .toggleClass("closed")
+                    .toggleClass("open")
+                    .closest("div.fieldsetContent").find("div.fieldsetSubContent").slideToggle('fast', function () {
+                        // Animation complete.
+                    });
+            });
+
+            function getRecommendedLinks(taxonId) {
+                $("#recommendedLinks").empty().html('<img src="/Images/Icons/ajax-loader.gif" />');
+
+                $.get('/Taxon/TaxonRecommendedLinks',
+                    {
+                        taxonId: taxonId
+                    },
+                    function (data, textStatus, xhr) {
+                        $('#recommendedLinks').html(data);
+                    }
+                );
+            }
+
+            //recommendedLinks
+
+            getRecommendedLinks(2002063);
+
+
+        }
+
+
+        $(document).ready(function () {
+            OnTaxonInfoLoaded();
+        });
+
+    </script>
+
+
+            
+            <br class="clear" />
+
+           
+           
+           <fieldset>
+            
+                <div id="footerContent">
+                    
+                    <div class="footerColumn right">
+                        
+                        <a href="http://www.slu.se/sv/centrumbildningar-och-projekt/artdatabanken/" target="_blank"><img src="/Images/artdatabanken_logo_s.png" width="250" height="50" alt="The Swedish Species Information Centre" title="The Swedish Species Information Centre" /></a>   
+                    </div>
+
+                    <div class="footerColumn right rightSeparator">
+                        <h4>Support</h4>
+                        <ul>
+
+                            <li><a href="mailto:dthuvudadministrator@slu.se">Email to support</a></li>
+                            <li><a href="http://www.artdatabanken.se/vaara-tjaenster/driftstatus/?st=driftstatus" target="_blank">Current service status</a></li>               
+                        </ul>
+                    </div>
+
+                    
+
+                </div>
+
+            </fieldset>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
+

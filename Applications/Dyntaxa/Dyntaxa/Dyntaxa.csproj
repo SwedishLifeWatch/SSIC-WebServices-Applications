@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C16D150-7895-436D-84D2-2C5A11299BCF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dyntaxa</RootNamespace>
+    <AssemblyName>Dyntaxa</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>true</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\ArtDatabanken.Build\</SolutionDir>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <!--<CodeAnalysisAdditionalOptions>/assemblyCompareMode:StrongNameIgnoringVersion</CodeAnalysisAdditionalOptions>-->
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Log4Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Log4Slack.1.1.5\lib\net40\Log4Slack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\SubscriptionController.cs" />
+    <Compile Include="Controllers\SpeciesFactController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\CultureController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
+    <Compile Include="Controllers\ReferenceController.cs" />
+    <Compile Include="Controllers\DyntaxaBaseController.cs" />
+    <Compile Include="Controllers\MatchController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\RevisionController.cs" />
+    <Compile Include="Controllers\TaxonController.cs" />
+    <Compile Include="Controllers\TaxonNameController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ActionInfo.cs" />
+    <Compile Include="Helpers\DevelopmentHelper.cs" />
+    <Compile Include="Helpers\DictionaryHelper.cs" />
+    <Compile Include="Helpers\Extensions\HtmlExtensions.cs" />
+    <Compile Include="Helpers\JsonNetResult.cs" />
+    <Compile Include="Helpers\JsonpFilterAttribute.cs" />
+    <Compile Include="Helpers\JsonpResult.cs" />
+    <Compile Include="Helpers\UrlHelperExtensions.cs" />
+    <Compile Include="Helpers\XmlResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Css\Common.css" />
+    <Content Include="Css\Core.css" />
+    <Content Include="Css\JQueryUI.css" />
+    <Content Include="Css\Newlyadded.css" />
+    <Content Include="Css\Reset.css" />
+    <Content Include="Css\Rest.css" />
+    <Content Include="Css\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\bg_navigate.png" />
+    <Content Include="Images\bg_navigate2.png" />
+    <Content Include="Images\bg_navigate3.png" />
+    <Content Include="Images\header-symbol-revision.png" />
+    <Content Include="Images\Icons\DyntaxaFavicon.ico" />
+    <Content Include="Images\Icons\secondary_relation.png" />
+    <Content Include="Images\logo_artdatabanken_175x40.png" />
+    <Content Include="Images\logo_slu_112x112.png" />
+    <Content Include="Images\logo_sv_artprojektet_90x50.png" />
+    <Content Include="Images\logo_sv_artprojektet_en_118x50.png" />
+    <Content Include="Images\logo_sv_lifewatch_134x32.png" />
+    <Content Include="Images\logo_sv_lifewatch_en_146x32.png" />
+    <Content Include="Images\svenska_lifewatch_logo.png" />
+    <Content Include="Images\Temp\map_data_missing.png" />
+    <Content Include="Images\vertical_resize_bar_compact.png" />
+    <Content Include="Images\Flags\en.png" />
+    <Content Include="Images\Flags\sv.png" />
+    <Content Include="Images\header-symbol.png" />
+    <Content Include="Images\horisontall_resize_bar.png" />
+    <Content Include="Images\Icons\ajax-loader.gif" />
+    <Content Include="Images\Icons\book-open-list.png" />
+    <Content Include="Images\Icons\book-open-text.png" />
+    <Content Include="Images\Icons\book-open.png" />
+    <Content Include="Images\Icons\book-small-brown.png" />
+    <Content Include="Images\Icons\book-small.png" />
+    <Content Include="Images\Icons\books-brown.png" />
+    <Content Include="Images\Icons\books-stack.png" />
+    <Content Include="Images\Icons\delete.png" />
+    <Content Include="Images\Icons\delete_12x12.png" />
+    <Content Include="Images\Icons\info_green.png" />
+    <Content Include="Images\Icons\info_red.png" />
+    <Content Include="Images\Icons\info_right_green.png" />
+    <Content Include="Images\Icons\info_right_red.png" />
+    <Content Include="Images\Icons\info_right_yellow.png" />
+    <Content Include="Images\Icons\info_yellow.png" />
+    <Content Include="Images\Icons\minus-button_right.png" />
+    <Content Include="Images\Icons\minus-small_right.png" />
+    <Content Include="Images\Icons\minus_right.png" />
+    <Content Include="Images\Icons\plus-button_right.png" />
+    <Content Include="Images\Icons\plus-small_right.png" />
+    <Content Include="Images\Icons\plus_right.png" />
+    <Content Include="Images\Icons\recyclebin_empty_16.png" />
+    <Content Include="Images\Icons\recyclebin_empty_24.png" />
+    <Content Include="Images\Icons\Search.png" />
+    <Content Include="Images\Icons\search4.png" />
+    <Content Include="Images\jq-ui\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Images\jq-ui\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Images\jq-ui\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Images\jq-ui\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Images\jq-ui\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Images\jq-ui\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Images\jq-ui\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Images\jq-ui\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Images\jq-ui\ui-icons_1d5987_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_2c95b5_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_96cada_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Images\jq-ui\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Images\Maps\Sverigekarta med län.dbf" />
+    <Content Include="Images\Maps\Sverigekarta med län.shp" />
+    <Content Include="Images\Maps\Sverigekarta med län.shx" />
+    <None Include="Documents\Class diagrams\Menu.cd" />
+    <None Include="Documents\Class diagrams\Tree.cd" />
+    <None Include="Documents\System documentation.docx" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>    
+    <None Include="Release.txt" />
+    <Content Include="Images\ap\header_useradmin_950x112.jpg" />
+    <Content Include="Images\ap\ui-bgsprite-button.png" />
+    <Content Include="Images\ap\ui-content-background.png" />
+    <Content Include="Images\ap\ui-content-bgsprite.png" />
+    <Content Include="Images\ap\ui-header-sprite.png" />
+    <Content Include="Images\ap\ui-icon-sprite.png" />
+    <Content Include="Images\Icons\minus-button.png" />
+    <Content Include="Images\Icons\minus-small.png" />
+    <Content Include="Images\Icons\minus.png" />
+    <Content Include="Images\Icons\plus-button.png" />
+    <Content Include="Images\Icons\plus-small.png" />
+    <Content Include="Images\Icons\plus.png" />
+    <Content Include="Images\artdatabanken_logo_s.png" />
+    <Content Include="Images\bg_fade.png" />
+    <Content Include="Images\no_chart_en.png" />
+    <Content Include="Images\no_chart_sv.png" />
+    <Content Include="Images\Temp\chart_temp.png" />
+    <Content Include="Images\Temp\map101656.png" />
+    <Content Include="Images\Tooltip\black.png" />
+    <Content Include="Images\Tooltip\black_arrow.png" />
+    <Content Include="Images\Tooltip\black_arrow_big.png" />
+    <Content Include="Images\Tooltip\black_big.png" />
+    <Content Include="Images\Tooltip\white.png" />
+    <Content Include="Images\Tooltip\white_arrow.png" />
+    <Content Include="Images\Tooltip\white_arrow_big.png" />
+    <Content Include="Images\Tooltip\white_big.png" />
+    <Content Include="Images\vertical_resize_bar.png" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\DataTables-1.8.2\media\css\demo_page.css" />
+    <Content Include="Scripts\DataTables-1.8.2\media\css\demo_table.css" />
+    <Content Include="Scripts\DataTables-1.8.2\media\css\demo_table_jui.css" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\back_disabled.jpg" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\back_enabled.jpg" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\favicon.ico" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\forward_disabled.jpg" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\forward_enabled.jpg" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\sort_asc.png" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\sort_both.png" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\sort_desc.png" />
+    <Content Include="Scripts\DataTables-1.8.2\media\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\DataTables-1.8.2\media\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables-1.8.2\media\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables-1.8.2\media\js\jquery.js" />
+    <Content Include="Scripts\dropdown-check-list\css\ui.dropdownchecklist.standalone.css" />
+    <Content Include="Scripts\dropdown-check-list\css\ui.dropdownchecklist.themeroller.css" />
+    <Content Include="Scripts\dropdown-check-list\js\ui.dropdownchecklist-1.4-min.js" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\cut.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\door.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\page_white_copy.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\page_white_delete.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\page_white_edit.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\images\page_white_paste.png" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\jquery.contextMenu-custom.js" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\jquery.contextMenu-custom_bu.js" />
+    <Content Include="Scripts\Dynatree\doc\contextmenu\jquery.contextMenu.css" />
+    <Content Include="Scripts\Dynatree\doc\dynatree-doc.html" />
+    <Content Include="Scripts\Dynatree\doc\howto.css" />
+    <Content Include="Scripts\Dynatree\doc\howto.js" />
+    <Content Include="Scripts\Dynatree\doc\iconInfo_32x32.png" />
+    <Content Include="Scripts\Dynatree\doc\iconWarning_32x32.png" />
+    <Content Include="Scripts\Dynatree\doc\jquery.planize.js" />
+    <Content Include="Scripts\Dynatree\doc\nav_bg.png" />
+    <Content Include="Scripts\Dynatree\doc\prettify.css" />
+    <Content Include="Scripts\Dynatree\doc\prettify.js" />
+    <Content Include="Scripts\Dynatree\doc\sample-api.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-contextmenu.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-default.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-dnd.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-dnd2.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-dnd3.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-effects.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-events.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-form.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-iframe-1.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-iframe.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-init-lazy.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-inline-edit.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-lazy-persist.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-lazy.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-minexpand.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-multiline.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-persist.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-quick.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-select.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-theming.html" />
+    <Content Include="Scripts\Dynatree\doc\sample-ul.html" />
+    <Content Include="Scripts\Dynatree\doc\sample.css" />
+    <Content Include="Scripts\Dynatree\doc\sample.js" />
+    <Content Include="Scripts\Dynatree\doc\samples-nav.html" />
+    <Content Include="Scripts\Dynatree\doc\samples-top.html" />
+    <Content Include="Scripts\Dynatree\doc\samples-welcome.html" />
+    <Content Include="Scripts\Dynatree\doc\samples.html" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\custom.css" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\customDoc1.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\customDoc2.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\customFolder1.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\doc_with_children.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\folder_docs.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\folder_images.gif" />
+    <Content Include="Scripts\Dynatree\doc\skin-custom\folder_page.gif" />
+    <Content Include="Scripts\Dynatree\doc\test-0.4.html" />
+    <Content Include="Scripts\Dynatree\doc\test-1.html" />
+    <Content Include="Scripts\Dynatree\doc\test-bench.html" />
+    <Content Include="Scripts\Dynatree\doc\test-css.html" />
+    <Content Include="Scripts\Dynatree\doc\test-dtd-loose-absolute.html" />
+    <Content Include="Scripts\Dynatree\doc\test-dtd-loose.html" />
+    <Content Include="Scripts\Dynatree\doc\test-dtd-strict-absolute.html" />
+    <Content Include="Scripts\Dynatree\doc\test-persist.html" />
+    <Content Include="Scripts\Dynatree\doc\test-preload.html" />
+    <Content Include="Scripts\Dynatree\doc\test-release.html" />
+    <Content Include="Scripts\Dynatree\doc\test-table.html" />
+    <Content Include="Scripts\Dynatree\index.html" />
+    <Content Include="Scripts\Dynatree\jquery\jquery-ui.custom.js" />
+    <Content Include="Scripts\Dynatree\jquery\jquery-ui.custom.min.js" />
+    <Content Include="Scripts\Dynatree\jquery\jquery.cookie.js" />
+    <Content Include="Scripts\Dynatree\jquery\jquery.js" />
+    <Content Include="Scripts\Dynatree\jquery\jquery.min.js" />
+    <Content Include="Scripts\Dynatree\jquery\README.txt" />
+    <Content Include="Scripts\Dynatree\src\GPL-LICENSE.txt" />
+    <Content Include="Scripts\Dynatree\src\jquery.dynatree.js" />
+    <Content Include="Scripts\Dynatree\src\jquery.dynatree.min.js" />
+    <Content Include="Scripts\Dynatree\src\MIT-License.txt" />
+    <Content Include="Scripts\Dynatree\src\skin-vista\icons.gif" />
+    <Content Include="Scripts\Dynatree\src\skin-vista\loading.gif" />
+    <Content Include="Scripts\Dynatree\src\skin-vista\ui.dynatree.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Dynatree\src\skin\icons.gif" />
+    <Content Include="Scripts\Dynatree\src\skin\loading.gif" />
+    <Content Include="Scripts\Dynatree\src\skin\ui.dynatree.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\Dynatree\src\skin\vline.gif" />
+    <Content Include="Scripts\Dynatree\tests\qunit.css" />
+    <Content Include="Scripts\Dynatree\tests\qunit.js" />
+    <Content Include="Scripts\Dynatree\tests\test-adhoc.html" />
+    <Content Include="Scripts\Dynatree\tests\test-bench.html" />
+    <Content Include="Scripts\Dynatree\tests\test-dynatree.js" />
+    <Content Include="Scripts\Dynatree\tests\test.html" />
+    <Content Include="Scripts\dyntaxa.common.js" />
+    <Content Include="Scripts\dyntaxa.references.js" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <None Include="Scripts\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.3.js" />
+    <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.ba-resize.min.js" />
+    <Content Include="Scripts\jquery.blockUI.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.MoverBoxes.js" />
+    <Content Include="Scripts\jquery.subcookie.js" />
+    <Content Include="Scripts\jquery.tools.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-en.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-sv.js" />
+    <Content Include="Scripts\jquery.ui.nestedSortable.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\select2-3.4.2\select2-spinner.gif" />
+    <Content Include="Scripts\select2-3.4.2\select2.css" />
+    <Content Include="Scripts\select2-3.4.2\select2.js" />
+    <Content Include="Scripts\select2-3.4.2\select2.min.js" />
+    <Content Include="Scripts\select2-3.4.2\select2.png" />
+    <Content Include="Scripts\select2-3.4.2\select2x2.png" />
+    <Content Include="Scripts\select2-3.4.2\select2_locale_sv.js" />
+    <Content Include="Scripts\superfish-1.4.8\changelog.txt" />
+    <Content Include="Scripts\superfish-1.4.8\css\superfish-navbar.css" />
+    <Content Include="Scripts\superfish-1.4.8\css\superfish-vertical.css" />
+    <Content Include="Scripts\superfish-1.4.8\css\superfish.css" />
+    <Content Include="Scripts\superfish-1.4.8\example.html" />
+    <Content Include="Scripts\superfish-1.4.8\images\arrows-ffffff.png" />
+    <Content Include="Scripts\superfish-1.4.8\images\shadow.png" />
+    <Content Include="Scripts\superfish-1.4.8\js\hoverIntent.js" />
+    <Content Include="Scripts\superfish-1.4.8\js\jquery-1.2.6.min.js" />
+    <Content Include="Scripts\superfish-1.4.8\js\jquery.bgiframe.min.js" />
+    <Content Include="Scripts\superfish-1.4.8\js\superfish.js" />
+    <Content Include="Scripts\superfish-1.4.8\js\supersubs.js" />
+    <Content Include="Scripts\tablecloth\css\bootstrap-tables.css" />
+    <Content Include="Scripts\tablecloth\css\prettify.css" />
+    <Content Include="Scripts\tablecloth\css\tablecloth.css" />
+    <Content Include="Scripts\tablecloth\img\asc.gif" />
+    <Content Include="Scripts\tablecloth\img\asc_light.gif" />
+    <Content Include="Scripts\tablecloth\img\desc.gif" />
+    <Content Include="Scripts\tablecloth\img\desc_light.gif" />
+    <Content Include="Scripts\tablecloth\img\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\tablecloth\img\glyphicons-halflings.png" />
+    <Content Include="Scripts\tablecloth\js\jquery.metadata.js" />
+    <Content Include="Scripts\tablecloth\js\jquery.tablecloth.js" />
+    <Content Include="Temp\index.htm" />
+    <Content Include="Views\Account\AccessIsNotAllowed.aspx" />
+    <Content Include="Views\Account\LogIn.aspx" />
+    <Content Include="Views\Account\LogOut.aspx" />
+    <Content Include="Views\Errors\400.aspx" />
+    <Content Include="Views\Errors\500.aspx" />
+    <Content Include="Views\Export\GraphViz.aspx" />
+    <Content Include="Views\Export\DatabaseNew.aspx" />
+    <Content Include="Views\Home\Licensing.aspx" />
+    <Content Include="Views\Shared\RevisionInfoControl.ascx" />
+    <Content Include="Views\Shared\RevisionSelectionCheckBoxControl.ascx" />
+    <Content Include="Views\Shared\RevisionStatusCheckBoxControl.ascx" />
+    <Content Include="Views\SpeciesFact\HostQualityFactorDropDownValues.ascx" />
+    <Content Include="Views\SpeciesFact\FactorQualityDropDownValues.ascx" />
+    <Content Include="Views\SpeciesFact\EditHostFactorItem.ascx" />
+    <Content Include="Views\SpeciesFact\HostFactorDropDownValues.ascx" />
+    <Content Include="Views\SpeciesFact\HostFactorEnumValues.ascx" />
+    <Content Include="Views\SpeciesFact\EditHostFactors.ascx" />
+    <Content Include="Views\SpeciesFact\EditHostFactorItems.ascx" />
+    <Content Include="Views\SpeciesFact\FactorCheckboxValues.ascx" />
+    <Content Include="Views\SpeciesFact\EditHostFactorsForSubstrate.aspx" />
+    <Content Include="Views\SpeciesFact\FactorDropDownValues.ascx" />
+    <Content Include="Views\SpeciesFact\EditFactors.aspx" />
+    <Content Include="Views\SpeciesFact\EditFactorItem.ascx" />
+    <Content Include="Views\SpeciesFact\SpeciesFactList.aspx" />
+    <Content Include="Views\Home\Cookies.aspx" />
+    <Content Include="Views\Home\TermsOfUse.aspx" />
+    <Content Include="Views\Errors\403.aspx" />
+    <Content Include="Views\Errors\404.aspx" />
+    <Content Include="Views\Errors\Exception.aspx" />
+    <Content Include="Views\Export\Database.aspx" />
+    <Content Include="Views\Export\TaxonList.aspx" />
+    <Content Include="Views\Match\MatchItems.aspx" />
+    <Content Include="Views\Match\ResultTable.aspx" />
+    <Content Include="Views\Match\Settings.aspx" />
+    <Content Include="Views\Navigation\MainMenu.ascx" />
+    <Content Include="Views\Navigation\TaxonTree.ascx" />
+    <Content Include="Views\Reference\Add.aspx" />
+    <Content Include="Views\Reference\GuidObjectInfo.ascx" />
+    <Content Include="Views\Reference\Info.aspx" />
+    <Content Include="Views\Reference\List.aspx" />
+    <Content Include="Views\Reference\ListReferences.ascx" />
+    <Content Include="Views\Reference\New.ascx" />
+    <Content Include="Views\Revision\Start.aspx" />
+    <Content Include="Views\Revision\ListEvent.aspx" />
+    <Content Include="Views\Revision\CommonInfo.aspx" />
+    <Content Include="Views\Revision\Edit.aspx" />
+    <Content Include="Views\Revision\Add.aspx" />
+    <Content Include="Views\Revision\Finalize.aspx" />
+    <Content Include="Views\Revision\Initialize.aspx" />
+    <Content Include="Views\Revision\List.aspx" />
+    <Content Include="Views\Revision\RevisionInfo.aspx" />
+    <Content Include="Views\Revision\RevisionTaxonInfo.ascx" />
+    <Content Include="Views\Shared\ErrorInfo.aspx" />
+    <Content Include="Temp\HTMLPage1.htm" />
+    <Content Include="Views\Shared\ReferenceLink.ascx" />
+    <Content Include="Views\Shared\RenderTaxonName.ascx" />
+    <Content Include="Views\SpeciesFact\FactorEnumValues.ascx" />
+    <Content Include="Views\Subscription\Subscriptions.aspx" />
+    <Content Include="Views\TaxonName\Add.aspx" />
+    <Content Include="Views\TaxonName\Delete.aspx" />
+    <Content Include="Views\TaxonName\Edit.aspx" />
+    <Content Include="Views\TaxonName\Info.ascx" />
+    <Content Include="Views\TaxonName\List.aspx" />
+    <Content Include="Views\TaxonName\TaxonNameIsOkForObs.ascx" />
+    <Content Include="Views\TaxonName\TaxonNameRecommended.ascx" />
+    <Content Include="Views\TaxonName\TaxonNameReferences.ascx" />
+    <Content Include="Views\TaxonName\Test.aspx" />
+    <Content Include="Views\Taxon\Add.aspx" />
+    <Content Include="Views\Taxon\AddParent.aspx" />
+    <Content Include="Views\Taxon\TestSearchTaxon.aspx" />
+    <Content Include="Views\Taxon\DistributionInSwedenLinks.ascx" />
+    <Content Include="Views\Taxon\EditQuality.aspx" />
+    <Content Include="Views\Taxon\EditSwedishOccurance.aspx" />
+    <Content Include="Views\Taxon\DropParent.aspx" />
+    <Content Include="Views\Taxon\Delete.aspx" />
+    <Content Include="Views\Taxon\Edit.aspx" />
+    <Content Include="Views\Taxon\Info.aspx" />
+    <Content Include="Views\Taxon\Lump.aspx" />
+    <Content Include="Views\Taxon\Move.aspx" />
+    <Content Include="Views\Taxon\MoveChangeName.aspx" />
+    <Content Include="Views\Shared\SearchOptions.ascx" />
+    <Content Include="Views\Taxon\Split.aspx" />
+    <Content Include="Views\Taxon\SwedishOccurrenceSummary.ascx" />
+    <Content Include="Views\Taxon\TaxonRecommendedLinks.ascx" />
+    <Content Include="Views\Taxon\Search.aspx" />
+    <Content Include="Views\Taxon\SearchResult.aspx" />
+    <Content Include="Views\Taxon\SortChildTaxa.aspx" />
+    <Content Include="Views\Taxon\TaxonSummary.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Home\About.aspx" />
+    <Content Include="Views\Shared\LogOnUserControl.ascx" />
+    <Content Include="Views\Shared\Site.Master" />
+    <Content Include="Views\Web.config" />
+    <None Include="Scripts\DataTables-1.8.2\media\images\Sorting icons.psd" />
+    <None Include="Scripts\DataTables-1.8.2\media\js\jquery.dataTables.min.js.gz" />
+    <None Include="Scripts\Dynatree\doc\dynatree_server.py" />
+    <None Include="Scripts\Dynatree\doc\icons-vista.psp" />
+    <None Include="Scripts\Dynatree\doc\icons-xp.psp" />
+    <None Include="Scripts\Dynatree\doc\icons_layout.ods" />
+    <None Include="Scripts\Dynatree\doc\sample-data1.json" />
+    <None Include="Scripts\Dynatree\doc\sample-data2.json" />
+    <None Include="Scripts\Dynatree\doc\sample-data3.json" />
+    <None Include="Scripts\Dynatree\doc\sample-empty.json" />
+    <None Include="Scripts\Dynatree\doc\test-xhtml.xhtml" />
+    <None Include="Scripts\Dynatree\tests\sample-data1.json" />
+    <None Include="Scripts\Dynatree\tests\sample-data2.json" />
+    <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <None Include="Scripts\superfish-1.4.8\.DS_Store" />
+    <None Include="Scripts\superfish-1.4.8\css\.DS_Store" />
+    <None Include="Scripts\superfish-1.4.8\images\.DS_Store" />
+    <Content Include="Views\Taxon\SearchTaxonPartial.cshtml" />
+    <Content Include="Views\Shared\TaxonSearchOptions.cshtml" />
+    <Content Include="Views\Reference\ListSpeciesFactReference.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Fakes\" />
+    <Folder Include="Logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.IO\ArtDatabanken.IO\ArtDatabanken.IO.csproj">
+      <Project>{0584e0b4-5ac8-4b22-9ae7-96bbaf7b2a87}</Project>
+      <Name>ArtDatabanken.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj">
+      <Project>{c61f2f90-2345-4099-b8c8-da5e414bfb2f}</Project>
+      <Name>ArtDatabanken.WebApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{b1493059-6445-4da5-b58d-8876bea79dd0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj">
+      <Project>{54ae5807-085d-4d93-85d2-1694c2ecd22d}</Project>
+      <Name>ArtDatabanken.WebService.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtDatabanken.WebApplication.Dyntaxa\ArtDatabanken.WebApplication.Dyntaxa.csproj">
+      <Project>{ef7d0e89-87ec-40bc-89cc-60dd4642d4ce}</Project>
+      <Name>ArtDatabanken.WebApplication.Dyntaxa</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Rest.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4841</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>rd "$(ProjectDir)obj" /S /Q
+md "$(ProjectDir)obj"
+md "$(ProjectDir)obj\Debug"
+md "$(ProjectDir)obj\Release"</PreBuildEvent>
+  </PropertyGroup>
+</Project>

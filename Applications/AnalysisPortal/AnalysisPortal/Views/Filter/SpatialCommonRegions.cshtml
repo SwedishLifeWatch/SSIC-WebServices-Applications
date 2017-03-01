@@ -1,0 +1,335 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Enums
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial
+@using Resources
+@model CommonRegionsViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;    
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>        
+    </div>
+</div>
+
+
+<div id="mainPanel" class="datapanel"></div>
+
+<table id="addRegionTable" class="table table-condensed white-bg table-bordered" style="margin-top: 12px; margin-left: 12px; display: inline-block; vertical-align: top; width: 390px;">
+    
+    <tr>
+        <td class="tablelabel">
+            @Model.RegionLabels.GroupOfProvences
+        </td>
+        <td>
+            <select id="provinceGroupSelectList" class="autocomplete" style="width: 200px;" data-placeholder="@Model.SharedLabels.Select @Model.RegionLabels.GroupOfProvences.ToLower()">
+                <option></option>
+                @foreach (RegionViewModel provinceGroup in Model.ProvinceGroupList)
+                {
+                    @:<option value="@Html.Raw(provinceGroup.Id)">@provinceGroup.Name</option>
+                }
+            </select>
+            <button id="btnAddProvinceGroup" type="button" style="margin-left: 6px;">@Model.SharedLabels.AddButtonText</button>
+        </td>        
+    </tr>
+
+    <tr>
+        <td class="tablelabel">
+            @Model.RegionLabels.Province
+        </td>
+        <td>
+            <select id="provinceSelectList" class="autocomplete" style="width: 200px;" data-placeholder="@Model.SharedLabels.Select @Model.RegionLabels.Province.ToLower()">
+                <option></option>
+                @foreach (RegionViewModel province in Model.ProvinceList)
+                {
+                    @:<option value="@Html.Raw(province.Id)">@province.Name</option>
+                }
+            </select>                        
+            <button id="btnAddProvince" type="button" style="margin-left: 6px;">@Model.SharedLabels.AddButtonText</button>
+        </td>        
+    </tr>
+
+    <tr>
+        <td class="tablelabel">
+            @Model.RegionLabels.County
+        </td>
+        <td>
+            <select id="countySelectList" class="autocomplete" style="width: 200px;" data-placeholder="@Model.SharedLabels.Select @Model.RegionLabels.County.ToLower()">
+                <option></option>
+                @foreach (RegionViewModel county in Model.CountyList)
+                {
+                    @:<option value="@Html.Raw(county.Id)">@county.Name</option>
+                }
+            </select>
+            <button id="btnAddCounty" type="button" style="margin-left: 6px;">@Model.SharedLabels.AddButtonText</button>
+        </td>        
+    </tr> 
+     
+    <tr>
+        <td class="tablelabel" style="width: 100px;">
+            @Model.RegionLabels.Municipality
+        </td>        
+        <td>            
+            <select id="municipalitySelectList" class="autocomplete" style="width: 200px;" data-placeholder="@Model.SharedLabels.Select @Model.RegionLabels.Municipality.ToLower()">
+                <option></option>
+                @foreach (RegionViewModel municipality in Model.MunicipalityList)
+                {
+                    @:<option value="@Html.Raw(municipality.Id)">@municipality.Name</option>
+                }
+            </select>
+            <button id="btnAddMunicipality" type="button" style="margin-left: 6px;">@Model.SharedLabels.AddButtonText</button>
+        </td>        
+    </tr>  
+</table>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">   
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+
+    var regionCategoryIds = {
+        municipality: @Html.Raw((int)RegionCategoryId.Municipality),
+        county: @Html.Raw((int)RegionCategoryId.County),
+        province: @Html.Raw((int)RegionCategoryId.Province),
+        provinceGroup: @Html.Raw((int)RegionCategoryId.Landsdel)
+    };
+
+    var regionCategoryNames = [];
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.Municipality)] = '@Model.RegionLabels.Municipality';
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.Province)] = '@Model.RegionLabels.Province';
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.County)] = '@Model.RegionLabels.County';
+    regionCategoryNames[@Html.Raw((int)RegionCategoryId.Landsdel)] = '@Model.RegionLabels.GroupOfProvences';
+   
+    var regionGrid;
+    var regionStore;
+    $(document).ready(function () {
+        $(".autocomplete").select2();
+        regionStore = createStore();        
+        createGrid();
+        createLayout();        
+        
+        $("#btnAddMunicipality").click(function() {
+            var selectedItem = $("#municipalitySelectList").select2("data");
+            addRegion(selectedItem, regionCategoryIds.municipality);
+        });
+
+        $("#btnAddProvince").click(function() {
+            var selectedItem = $("#provinceSelectList").select2("data");
+            addRegion(selectedItem, regionCategoryIds.province);
+        });
+
+        $("#btnAddCounty").click(function() {
+            var selectedItem = $("#countySelectList").select2("data");
+            addRegion(selectedItem, regionCategoryIds.county);
+        });
+
+        $("#btnAddProvinceGroup").click(function() {
+            var selectedItem = $("#provinceGroupSelectList").select2("data");
+            addRegion(selectedItem, regionCategoryIds.county);
+        });
+        
+        initToolbar();
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetCommonRegions", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });      
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var regionIds = [];
+        regionStore.data.each(function(item, index, totalItems ) {
+            regionIds.push(item.get("Id"));
+        });
+        return regionIds;        
+    }
+
+    function createLayout() {                       
+        var addRegionTable = AnalysisPortal.createHtmlPanel('addRegionTable', {
+            title: '@Model.Labels.AddRegion',
+            width: 420
+        });
+        
+        var mainPanel = AnalysisPortal.createMainPanel('mainPanel', {            
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [regionGrid, addRegionTable], 
+            collapsible: false,
+            layout: {
+                type: 'hbox',
+                align: 'stretchmax',
+                pack: 'center'
+            }           
+        });
+    }
+
+    function isStoreModified() {        
+        var removedRecords = regionStore.getRemovedRecords();        
+        if (removedRecords.length > 0)
+            return true;
+        var newRecords = regionStore.getNewRecords();        
+        if (newRecords.length > 0)
+            return true;
+        return false;
+    }
+
+    function getSelectedRegionIds() {
+        var regionIds = [];
+        regionStore.data.each(function(item, index, totalItems ) {
+            regionIds.push(item.get("Id"));
+        });
+        return regionIds;
+    }
+  
+    function addRegion(items, categoryId) {
+        if (items == null || !items[0].id) {
+            return;
+        }
+
+        var item = items[0];
+        var id = parseInt(item.id);
+        var name = item.text;
+       
+        if (regionStore.getById(id)) {
+            AnalysisPortal.showMsg("Item already added");
+            return;
+        }
+        var region = Ext.create('RegionViewModel', {
+            Id: id,                        
+            Name: name,
+            CategoryId: categoryId
+        });
+        region.phantom = true;
+        regionStore.add(region);           
+        enableDisableButtons();
+    }
+
+
+    function createStore() {        
+        AnalysisPortal.Models.defineRegionViewModel();
+        var store = AnalysisPortal.createJsonStore('RegionViewModel', '@Html.Raw(Url.Action("GetAllRegions", "MySettings"))', {            
+            groupField: 'CategoryId'
+        });
+        return store;
+    }
+
+    function getGroupHeader(categoryId) {
+        return regionCategoryNames[categoryId];        
+    }
+
+    function createGrid() {        
+        var grouping = Ext.create('Ext.grid.feature.Grouping', {            
+            groupHeaderTpl: '{[getGroupHeader(values.groupValue)]}',            
+            startCollapsed: false,
+            enableNoGroups: false            
+        });
+
+        regionGrid = Ext.create('Ext.grid.Panel', {
+            id: 'regionGrid',
+            store: regionStore,
+            title: '@Model.SharedLabels.SelectedRegions',
+            width: 380,
+            height: 300,
+            frame: false,
+            features: [grouping],
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }                
+            },            
+            emptyText: '@Model.SharedLabels.NoSelectedRegions',
+            columns: [
+                { text: '@Model.SharedLabels.Name', flex: 1, dataIndex: 'Name', sortable: true },
+                {
+                    xtype: 'actioncolumn',
+                    tooltip: "@Model.SharedLabels.RemoveRegionTooltip",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/delete.gif")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var store = grid.getStore();
+                        var record = store.getAt(rowIndex);
+                        var index = store.data.indexOf(record);
+                        store.removeAt(index);
+                        enableDisableButtons();
+                    }
+                }
+            ],
+            columnLines: true
+        });
+        
+        regionStore.load({
+            callback: function (records, operation, success) {
+                strPageSettingsOnLoad = getPageSettingsJsonString();
+            }
+        });
+        
+    }
+
+</script>
+
+
+@*
+Församling: @Html.DropDownList("parishes", new SelectList(Model.ParishList, "Id", "Name"), "Välj församling")
+<br/>
+Församling: @Html.DropDownList("hav", new SelectList(Model.HavList, "Id", "Name"), "Välj hav")
+<br/>
+Församling: @Html.DropDownList("landsdel", new SelectList(Model.LandsdelList, "Id", "Name"), "Välj landsdel")
+<br/>
+Församling: @Html.DropDownList("naturtyp", new SelectList(Model.NaturtypList, "Id", "Name"), "Välj naturtyp")
+<br/>
+Församling: @Html.DropDownList("ramsar", new SelectList(Model.RamsarList, "Id", "Name"), "Välj ramsar")
+<br/>
+Församling: @Html.DropDownList("rrk", new SelectList(Model.RrkList, "Id", "Name"), "Välj rrk")
+<br/>
+Församling: @Html.DropDownList("socken", new SelectList(Model.SockenList, "Id", "Name"), "Välj socken")
+<br/>
+Församling: @Html.DropDownList("spa", new SelectList(Model.SpaList, "Id", "Name"), "Välj spa")
+<br/>*@
+                                        

@@ -1,0 +1,277 @@
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+body {
+    background: url("../Images/bg_fade.png") repeat-y scroll 0;
+}
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+div#masterPageDiv
+{
+    /*max-width: 984px;
+    max-width: 1244px;
+    min-width: 984px; */
+    margin: 0 0 0 0;    
+    min-width: 1244px;    
+}        
+ 
+
+#header {
+    background: url("../Images/ap/ui-header-sprite.png") repeat-x scroll 0 -560px #28495A;
+    /*width: 100%;*/
+    /*min-width: 984px;*/
+    height: 112px;
+    position: relative;
+    z-index: 1111;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+body.inRevision #header {
+    background: url("../Images/ap/ui-header-sprite.png") repeat-x scroll 0 -759px #28495A;    
+}
+
+#menuContainer {
+    margin: 76px 0 0 279px;
+    position: absolute;
+}
+
+#externalMenuContainer {
+    /* margin: 76px 0 0 1079px; */
+    margin: 76px 0 0 889px;
+    width: 300px;    
+    position: absolute;    
+}
+
+.externalMenu a:link, .externalMenu a:visited {
+    color: #FFFFFF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.externalMenu a {
+    border-left: 2px solid #28495A;
+    border-top: 1px solid #28495A;
+    padding: 0.75em 1em;
+    display: block;
+    position: relative;
+}
+
+.externalMenu, .externalMenu * {
+    list-style: none outside none;
+    margin: 0;
+}
+
+#headerSLULogo
+{
+    display: block;
+    width: 112px;
+    margin: 0 0 0 80px;
+    height: 112px;
+    position: absolute;
+}
+
+#headerSymbol
+{
+  display: block;
+  width: 279px;
+  margin: 0 0 0 700px;
+  height: 112px;
+  background-image: url("../Images/header-symbol.png");   
+  background-position: 20px 0px; 
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+body.inRevision #headerSymbol {
+    background-image: url("../Images/header-symbol-revision.png");   
+}
+
+#headerimage 
+{ 
+  margin: 0 0 0 279px;
+  height: 112px;
+  /*background-image: url("../Images/header-symbol.png");   */
+  background-position: -200px 0px; background-repeat: no-repeat;
+  position: absolute;
+}
+
+
+div#title {
+    display: block;
+    padding-top: 5px;
+    text-align: left;
+}
+div#subTitle 
+{
+    padding-top: 45px;    
+    display: block;    
+    text-align: left;
+    position: absolute;
+    min-width: 300px;
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    /* line-height: 2em; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px !important;
+}
+
+div#subTitle p
+{
+    font-weight: bold;
+    color: #ccc7c0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px !important;
+    
+}
+
+#leftNavigation
+{
+    /*display: inline-block;*/
+    float: left;
+    width: 257px;
+    min-width: 100px;
+    /* min-height: 498px;
+    overflow: auto; */
+    margin: 0 15px 0 0;
+    padding: 0 0 0 4px;
+           
+}
+/*
+div.resize {
+    resize:horizontal;
+}
+*/
+#main
+{    
+    /*background-color: #fff;*/
+    float: left;
+    margin-bottom: 30px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    width: 960px;
+    /*overflow: hidden;*/
+    
+}
+
+#footer
+{
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+}
+
+div#footerContent div.rightSeparator {
+    border-right: 1px dotted #999999;
+    padding-right: 15px;
+    text-align: right;
+}
+
+div#footerContent div.footerColumn {
+    margin: 0 5px;
+}
+
+/* Use this to create a horizontal ruler across a column. */
+hr {
+  background: #ddd; 
+  color: #ddd;
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: 1px;
+  margin: 5px 0;
+  border: none; 
+}
+
+div.checkbox-field label
+{
+    padding: 8px 0 4px 0;
+    display: inline;
+}
+
+div.editor-label span.field-required {
+    background: url("../Images/ap/ui-icon-sprite.png") no-repeat scroll -20px -114px transparent;
+    display: block;
+    float: left;
+    overflow: hidden;
+    vertical-align: bottom; 
+    text-indent: -1000px;
+    height: 17px;
+    width: 7px;
+    margin-right: 4px;
+}
+
+select#selectRootTaxon {
+    border-top: 1px solid #999;
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-collapse: separate;
+    background: #fff;
+    width: 100%;
+}
+
+div#mainWrapper 
+{
+    min-width: 1244px;
+    width: 1244px;
+    margin: 0 0 0 4px;
+}
+div.ui-resizable-e 
+{
+    background: url("../Images/vertical_resize_bar_compact.png") repeat-y scroll 0 30px transparent;
+    border-bottom: 1px solid #959695;
+    border-top: 1px solid #959695;
+    right: -3px;
+    top: -1px;
+    /*margin-top: 30px;
+    height: 480px;*/
+    
+}
+
+ul.dynatree-container {
+    
+}
+
+div#leftNavigation {
+    /* background: #fbf4e6; */
+}
+
+#navigateTaxonTree 
+{
+   /* background: url("../Images/bg_navigate.png") repeat-y scroll -175px 0 transparent;*/
+   background: #eaf5f8;
+   background: url("../Images/bg_navigate3.png") repeat-y scroll -150px 0 transparent;
+   border-radius: 0 0 0 5px;
+   -moz-border-radius:  0 0 0 5px;    
+}
+
+/* #navigateTaxonTree { */
+div#leftNavigation {
+    /*background: url("../Images/bg_navigate.png") repeat-y scroll -175px 0 transparent;*/
+    background: #f9f8e6;
+    background: url("../Images/bg_navigate3.png") repeat-y scroll -150px 0 transparent;
+    border: 1px solid #999;
+    padding: 2px;
+    /*margin: 0 6px 0 0;*/
+    
+    border-radius: 5px 0 0 5px;
+    -moz-border-radius:  5px 0 0 5px;
+   
+    
+
+}
+
+div#navigateTaxonTree span.non-taxonomic-label a {
+    color: red;
+}

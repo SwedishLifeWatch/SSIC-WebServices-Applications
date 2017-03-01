@@ -1,0 +1,227 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial.PolygonFromMapLayerViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;    
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonAddSelectedPolygons" disabled="disabled" class="btn toolbarButton"><i class="icon-plus"></i> &nbsp;@Resource.FilterPolygonFromMapLayerAddPolygons</button>
+        <button id="toolbarButtonUploadGeoJson" class="btn toolbarButton"><i class="icon-upload"></i> &nbsp;@Resource.FilterSpatialFromGeoJsonFile</button>
+    </div>
+</div>
+
+<div id="mapControl" class="clearfix map" style="margin-top:0; width: 480px; height: 410px;">
+    <div id="mapNavDiv" class="olControlPanel"></div>
+    <div class="clearfix" id="mapDiv"></div>
+</div>
+<div id="mainPanel" class="datapanel"></div>
+
+@using (Html.BeginForm("AddPolygonsFromMapLayer", "Filter", FormMethod.Post, new { @id = "addPolygonsForm", @name = "addPolygonsForm" }))
+{
+    @Html.Hidden("strGeoJson")        
+}
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">
+    var map;
+    var propertyGrid;
+    var mainPanel;
+    var mapPanel;
+    var containerPanel;
+    var viewName;
+    var wfsLayerStore;
+    var wfsLayersGrid;
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+
+    $(document).ready(function () {        
+        createMap();
+        createWfsLayersGrid();
+        createMainPanel();
+        updateMapSize();        
+        AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+        
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+        });
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+        initCoordinateSelectBox();
+        $('#toolbarButtonUploadGeoJson').click(function () {
+            AnalysisPortal.showDialog({
+                title: '@Resource.FilterSpatialFromGeoJsonFile',
+                url: '@Url.Action("SetFilterFromGeoJsonDialog")'
+            });
+        });
+    });
+
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;            
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+
+    function initToolbar() {
+        $('#toolbarButtonAddSelectedPolygons').click(function () {
+            submitForm();
+        });       
+    }
+
+    function enableDisableButtons() {        
+        var nrPolygonsSelected = map.theEditLayer.selectedFeatures.length;
+        if (nrPolygonsSelected == 0)
+            $('#toolbarButtonAddSelectedPolygons').attr("disabled", true);
+        else
+            $('#toolbarButtonAddSelectedPolygons').attr("disabled", false);
+    }
+  
+    function getWfsLayerPolygons(record) {        
+        var id = record.data.Id;        
+        map.theEditLayer.destroyFeatures();
+        AnalysisPortal.GIS.getWfsLayerFeaturesAndAddToLayer(id, map.theEditLayer, function () {
+            if (map.theEditLayer.features.length == 0) {
+                return;
+            }
+            else if (map.theEditLayer.features.length == 1) {
+                map.selectControl.select(map.theEditLayer.features[0]);
+                map.mapPanel.activateControl(map.selectControl);
+            }
+            else {
+                for (var i = 0; i < map.theEditLayer.features.length; i++) {
+                    var feature = map.theEditLayer.features[i];
+                    map.selectManyControl.select(feature);
+                }
+                map.mapPanel.activateControl(map.selectManyControl);
+            }
+            AnalysisPortal.GIS.zoomToFeaturesInVisibleVectorLayers(map);
+        });
+        
+    }    
+
+    function submitForm() {
+        var frm = document.addPolygonsForm;
+        
+        var geoJsonFormat = AnalysisPortal.GIS.createGeoJsonFormat();
+        var json = geoJsonFormat.write(map.theEditLayer.selectedFeatures);
+
+        frm.strGeoJson.value = json;        
+        $(frm).submit();        
+    }
+
+
+    function createMap() {        
+        
+        var toolsOptions = {            
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: false,
+            ShowSelectManyControl: true,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [
+            {
+                id: VectorLayers.EditLayer,
+                visible: true,
+                initVisibilityState: 1
+            }
+        ];
+        
+        map = AnalysisPortal.GIS.initMap({
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });
+    }
+
+    function updateMapSize() {
+        var $mapControl = $("#mapControl");
+        var width = $mapControl.parent().width();
+        var height = $mapControl.parent().height();
+        $mapControl.width(width);
+        $mapControl.height(height);
+        map.updateSize();
+    }
+    
+    function wordWrapRenderer(val, meta, record, rowIndex, colIndex, store) {
+        return '<div style="white-space:normal !important; word-wrap:break-word !important;">' + val + '</div>';
+    }
+
+    function createWfsLayersGrid() {
+        AnalysisPortal.Models.defineWfsLayerViewModel();        
+        wfsLayerStore = AnalysisPortal.createJsonStore('WfsLayerViewModel', '@Html.Raw(Url.Action("GetPolygonWfsLayer", "Data"))');
+        wfsLayersGrid = Ext.create('Ext.grid.Panel', {
+            id: 'wfsLayersGrid',
+            store: wfsLayerStore,
+            title: '@Resource.DataProvidesSearchWfsLayerWfsLayers',
+            width: 230,
+            region: "west",
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            columns: [
+                { text: '@Model.SharedLabels.Name', flex: 1, dataIndex: 'Name', sortable: true, renderer: wordWrapRenderer}//,
+            ],
+            columnLines: true
+        });
+
+        wfsLayersGrid.getSelectionModel().on({
+            selectionchange: function (sm, selections) {
+                if (selections.length) {
+                    getWfsLayerPolygons(selections[0]);                    
+                }
+            }
+        });
+        
+        wfsLayerStore.load();
+
+    }
+
+    function createMainPanel() {
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        var dataObject = AnalysisPortal.GIS.getDefaultGeoJSONDataObjectKeyValuePairArray();
+
+        mapPanel = AnalysisPortal.createHtmlPanel('mapControl', {
+            title: '@Model.SharedLabels.Map',
+            region: 'center'
+        });
+
+        containerPanel = AnalysisPortal.createLayoutContainer([mapPanel, wfsLayersGrid], {
+            layout: "border",
+            collapsible: false
+        });
+
+        mainPanel = AnalysisPortal.createMainPanel('mainPanel', {
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 520,
+            autoDestroy: false,
+            collapsible: false,
+            items: [containerPanel]
+        });
+
+        return mainPanel;
+    }
+
+</script>

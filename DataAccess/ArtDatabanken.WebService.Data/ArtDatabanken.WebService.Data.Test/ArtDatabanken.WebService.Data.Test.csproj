@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C65A0E4C-9888-4919-96A6-8960664B1482}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebService.Data.Test</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebService.Data.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WebCityInformationTest.cs" />
+    <Compile Include="WebSpeciesObservationFieldMappingTest.cs" />
+    <Compile Include="WebSpeciesObservationFieldDescriptionTest.cs" />
+    <Compile Include="WebRevisionSearchCriteriaTest.cs" />
+    <Compile Include="WebRevisionEventTest.cs" />
+    <Compile Include="WebRevisionStateTest.cs" />
+    <Compile Include="WebRevisionTest.cs" />
+    <Compile Include="WebSpeciesObservationProvenanceTest.cs" />
+    <Compile Include="WebTaxonRevisionEventTypeTest.cs" />
+    <Compile Include="WebTaxonSearchCriteriaTest.cs" />
+    <Compile Include="WebTaxonCategoryTest.cs" />
+    <Compile Include="WebDomainTestBaseT.cs" />
+    <Compile Include="WebLumpSplitEventTest.cs" />
+    <Compile Include="WebReferenceRelationTest.cs" />
+    <Compile Include="WebMessageTypeTest.cs" />
+    <Compile Include="WebTaxonNameCategoryTest.cs" />
+    <Compile Include="WebTaxonNameTest.cs" />
+    <Compile Include="WebTaxonPropertiesTest.cs" />
+    <Compile Include="WebTaxonRelationTest.cs" />
+    <Compile Include="WebTaxonSpeciesObservationCountTest.cs" />
+    <Compile Include="WebTaxonTest.cs" />
+    <Compile Include="WebAuthoritySearchCriteriaTest.cs" />
+    <Compile Include="WebAuthorityDataTypeTest.cs" />
+    <Compile Include="WebRegionCategoryTest.cs" />
+    <Compile Include="WebRegionTest.cs" />
+    <Compile Include="WebRegionTypeTest.cs" />
+    <Compile Include="WebRoleSearchCriteriaTest.cs" />
+    <Compile Include="WebPersonSearchCriteriaTest.cs" />
+    <Compile Include="WebRoleTest.cs" />
+    <Compile Include="WebAuthorityTest.cs" />
+    <Compile Include="WebApplicationVersionTest.cs" />
+    <Compile Include="WebApplicationTest.cs" />
+    <Compile Include="WebOrganizationCategoryTest.cs" />
+    <Compile Include="WebLocaleTest.cs" />
+    <Compile Include="WebOrganizationTest.cs" />
+    <Compile Include="WebCountryTest.cs" />
+    <Compile Include="WebPasswordInformationTest.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="WebPersonGenderTest.cs" />
+    <Compile Include="WebAddressTypeTest.cs" />
+    <Compile Include="WebLoginResponseTest.cs" />
+    <Compile Include="WebPhoneNumberTest.cs" />
+    <Compile Include="WebAddressTest.cs" />
+    <Compile Include="WebPersonTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebClientInformationTest.cs" />
+    <Compile Include="WebDataFieldListExtensionTest.cs" />
+    <Compile Include="WebDataFieldTest.cs" />
+    <Compile Include="WebDataTest.cs" />
+    <Compile Include="WebLogRowTest.cs" />
+    <Compile Include="WebPhoneNumberTypeTest.cs" />
+    <Compile Include="WebTimeStepSpeciesObservationCountTest.cs" />
+    <Compile Include="WebUserSearchCriteriaTest.cs" />
+    <Compile Include="WebUserTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

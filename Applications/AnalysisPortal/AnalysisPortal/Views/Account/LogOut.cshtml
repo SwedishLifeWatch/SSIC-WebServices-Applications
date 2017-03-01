@@ -1,0 +1,14 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@{
+    ViewBag.Title = Resources.Resource.AccountLogOutText;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+@using(Html.BeginForm("LogOut", "Account", new { returnUrl = Url.Action("LogIn") }))
+{                 
+    <h4>@Resources.Resource.SharedInfo</h4>            
+    @Resources.Resource.AccountLogOutInfoLine1<br/>
+    @Resources.Resource.AccountLogOutInfoLine2<br/>
+    <input id="btnPost" type="submit" value="@Resources.Resource.AccountLogOutText" class="ap-ui-button" />                        
+}
+        

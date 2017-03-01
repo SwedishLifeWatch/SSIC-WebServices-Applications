@@ -1,0 +1,6 @@
+$theme-name: 'slate';
+$color1: #abc; 
+$color2: #3e546b;
+$include-missing-images: true;
+$base-color: $color1;
+@import 'compass';

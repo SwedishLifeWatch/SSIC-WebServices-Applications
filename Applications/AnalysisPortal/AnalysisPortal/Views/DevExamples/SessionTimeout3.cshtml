@@ -1,0 +1,27 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Long running ajax sample";
+}
+<h2>Session timeout sample</h2>
+
+<div id="messageDiv"></div>
+
+
+<script type="text/javascript">
+    var intTime = 0;
+    var getTime = function () {
+        var intNow = new Date().getTime();
+        if (intNow - intTime > 1000) {
+            alert('woke up session timeout 3');
+        }
+        intTime = new Date().getTime();
+        setTimeout(getTime, 500);
+    };
+    
+    $(document).ready(function () {
+        intTime = new Date().getTime();
+        getTime();
+    });
+    
+</script>

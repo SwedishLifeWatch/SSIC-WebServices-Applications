@@ -1,0 +1,56 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Managers
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Extensions
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map
+
+<h4>Login</h4>
+<ul>    
+    <li>@Html.ActionLink("testuser autologin", "AutoLogIn", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, null)</li>    
+</ul>
+
+<h4>Settings</h4>
+<ul>
+    <li>@Html.ActionLink("Add taxonids 5, 7, 8, 11, 14, 16 to MySettings.Filter", "AddDefaultTaxa", "Debug", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery}, null)</li>
+    <li>@Html.ActionLink("Set project parameter filter", "SetProjectParameterFilter", "Debug", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, null)</li>
+    <li>@Html.ActionLink("Add default spatial filter", "AddDefaultSpatialFilter", "Debug", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, null)</li>
+</ul>
+
+<h4>Resources</h4>
+<ul>
+    <li>@Html.ActionLink("Create JavaScript Resources vsdoc file", "CreateVsDocJavaScript", "Resources")</li>
+</ul>
+
+<h4>Current development</h4>
+<ul>
+    <li>@Html.ActionLink("SpeciesObservationClusterPointMap", "SpeciesObservationClusterPointMap", "Result")</li>         
+    <li>@Html.ActionLink("SpeciesObservationClusterGridMap", "SpeciesObservationClusterGridMap", "Result")</li>         
+    <li>@Html.ActionLink("Download current spatial filter as GeoJson", "SpatialFilterAsGeoJson", "Download")</li> 
+    <li>@Html.ActionLink("Workflow", "Workflow", "Result")</li>        
+    <li>@Html.ActionLink("TimeSeriesSpeciesObservationAbundanceIndexAsExcel Download", "TimeSeriesOnSpeciesObservationAbundanceIndexAsExcel", "Download")</li>
+    <li>@Html.ActionLink("Species Observation grid Download", "GridStatisticsOnSpeciesObservationCountsAsGeoJson", "Download")</li>
+    <li>@Html.ActionLink("Locality filter", "Locality", "Filter")</li>    
+    <li>@Html.ActionLink("Combined Grid statistics Excel", "CombinedGridStatisticsAsExcel", "Download")</li>
+    <li>@Html.ActionLink("WFS grid statistics", "WfsGridStatisticsMap", "Result")</li>   
+    <li>@Html.ActionLink("Cancel Ajax requests", "LongRunningAjax", "DevExamples")</li>
+    <li>@Html.ActionLink("SpeciesObservationsAsExcel", "SpeciesObservationsAsExcel", "Download")</li>    
+    <li>@Html.ActionLink("Grid statistics", "HistogramBinSettings", "Result")</li>    
+    <li><button onclick="AnalysisPortal.showDialog({ url: '@Url.Action("HistogramBinSettingsDialog", "Result")' });">Grid statistics settings</button></li>
+</ul>
+
+<h4>Precalculated default data</h4>
+<ul>
+    @if (DefaultResultsManager.GetGridCellObservations().HasData)
+    {
+    <li>Grid map statistics on species observations</li>    
+    }
+    @if (DefaultResultsManager.GetSummaryStatistics(CoreData.UserManager.GetCurrentUser().Locale.ISOCode).HasData)
+    {
+    <li>Summary statistics</li>    
+    }
+    @if (DefaultResultsManager.GetGridCellTaxa().HasData)
+    {
+    <li>Grid map statistics on number of species</li>    
+    }
+
+</ul>

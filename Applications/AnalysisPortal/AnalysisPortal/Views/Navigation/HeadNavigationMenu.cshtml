@@ -1,0 +1,70 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups
+@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.PageInfo
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model object
+
+<div class="btn-toolbar main-nav">                  
+     @Html.TopMenuButton(
+        null,
+        Resources.Resource.SharedAboutAnalysisPortalUrl, 
+        "btn-info", 
+       Resources.Resource.HeadNavigationInfoButton, 
+        "icon-info-sign",
+        "infoBtn"
+    )
+
+    @Html.TopMenuButton(
+        Resources.Resource.HeadMenuHome,
+        "Home", 
+        "Index", 
+        SessionHandler.CurrentPage != null && SessionHandler.CurrentPage == PageInfoManager.GetPageInfo("Home", "Index") ? "btn-active" : "btn-primary", 
+        Resources.Resource.HeadMenuHomeTooltip, 
+        "icon-home",
+        ""
+    )
+
+    @Html.TopMenuButton(
+        Resources.Resource.HeadMenuDataProviders, 
+        "Data", 
+        "Index", 
+        ButtonGroupManager.DataProvidersGroup.IsCurrent ? "btn-active" : "btn-primary", 
+        Resources.Resource.HeadMenuDataProvidersTooltip, 
+        "icon-sitemap",
+        ButtonGroupManager.DataProvidersGroup,
+        null
+    )
+
+    @Html.TopMenuButton(
+        Resources.Resource.HeadMenuFilter, 
+        "Filter", 
+        "Index", 
+        ButtonGroupManager.FilterButtonGroup.IsCurrent ? "btn-active" : "btn-primary", 
+        Resources.Resource.HeadMenuFilterTooltip, 
+        "icon-filter",
+        ButtonGroupManager.FilterButtonGroup,
+        null
+    )
+
+    @Html.TopMenuButton(
+        Resources.Resource.HeadMenuSettings,
+        "Calculation",
+        "Index",
+        ButtonGroupManager.SettingsButtonGroup.IsCurrent ? "btn-active" : "btn-primary",
+        Resources.Resource.HeadMenuSettingsTooltip,
+        "icon-gears",
+        ButtonGroupManager.SettingsButtonGroup,
+        null
+    )
+
+    @Html.TopMenuButton(
+        Resources.Resource.HeadMenuResult, 
+        "Result", 
+        "Index", 
+        SessionHandler.CurrentPage != null && SessionHandler.CurrentPage.Controller == "Result" ? "btn-active" :
+            (SessionHandler.MySettings != null && SessionHandler.MySettings.HasSettings && (SessionHandler.MySettings.Presentation.Map.IsActive || SessionHandler.MySettings.Presentation.Table.IsActive)) ? "btn-success" : "btn-primary", 
+       Resources.Resource.HeadMenuResultTooltip, 
+       "icon-bar-chart",
+       ButtonGroupManager.ResultButtonGroup,
+       null
+   ) 
+</div>

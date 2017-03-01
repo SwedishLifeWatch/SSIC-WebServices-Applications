@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/GeoReferenceService/GeoReferenceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="AuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DataType" />
+      <xs:enumeration value="Application" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorityType" nillable="true" type="tns:AuthorityType" />
+  <xs:complexType name="ArrayOfStringCompareOperator">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringCompareOperator" type="tns:StringCompareOperator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStringCompareOperator" nillable="true" type="tns:ArrayOfStringCompareOperator" />
+  <xs:simpleType name="StringCompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeginsWith" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Like">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotEqual">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StringCompareOperator" nillable="true" type="tns:StringCompareOperator" />
+  <xs:simpleType name="CoordinateSystemId">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="GoogleMercator" />
+      <xs:enumeration value="Rt90_25_gon_v" />
+      <xs:enumeration value="SWEREF99" />
+      <xs:enumeration value="SWEREF99_TM" />
+      <xs:enumeration value="WGS84" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CoordinateSystemId" nillable="true" type="tns:CoordinateSystemId" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Person" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
+</xs:schema>

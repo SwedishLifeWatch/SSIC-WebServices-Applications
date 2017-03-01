@@ -1,0 +1,1307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WFS_Capabilities version="1.0.0" xmlns="http://www.opengis.net/wfs" xmlns:it.geosolutions="http://www.geo-solutions.it" xmlns:smhi="http://www.smhi.se/main" xmlns:SMHI_klimat_globalstralning="http://www.smhi.se/" xmlns:scenFolk="http://www.smhi.se" xmlns:tiger="http://www.census.gov" xmlns:test="www.smhi.se" xmlns:SMHI_klimatdata="http://www.smhi.se/klimatdata" xmlns:SMHI_klimat_nederbord="http://www.smhi.se" xmlns:topp="http://www.openplans.org/topp" xmlns:sf="http://www.openplans.org/spearfish" xmlns:smhi_geodata="http://www.smhi.se" xmlns:cite="http://www.opengeospatial.net/cite" xmlns:SMHI_vatten="SMHI_vatten" xmlns:SMHI_klimat_sistavarfrosten="http://www.smhi.se/" xmlns:sde="http://geoserver.sf.net" xmlns:SMHI_avrinningsomraden="http://www.smhi.se" xmlns:smhi_mo="http://www.smhi.se" xmlns:nurc="http://www.nurc.nato.int" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://map.smhi.se/geoserver/schemas/wfs/1.0.0/WFS-capabilities.xsd">
+	<Service>
+		<Name>My GeoServer WFS</Name>
+		<Title>My GeoServer WFS</Title>
+		<Abstract>This is a description of your Web Feature Server.&#13;
+&#13;
+The GeoServer is a full transactional Web Feature Server, you may wish to limit&#13;
+GeoServer to a Basic service level to prevent modificaiton of your geographic&#13;
+data.</Abstract>
+		<Keywords>WFS, WMS, GEOSERVER</Keywords>
+		<OnlineResource>http://map.smhi.se/geoserver/wfs</OnlineResource>
+		<Fees>NONE</Fees>
+		<AccessConstraints>NONE</AccessConstraints>
+	</Service>
+	<Capability>
+		<Request>
+			<GetCapabilities>
+				<DCPType>
+					<HTTP>
+						<Get onlineResource="http://map.smhi.se/geoserver/wfs?request=GetCapabilities"/>
+					</HTTP>
+				</DCPType>
+				<DCPType>
+					<HTTP>
+						<Post onlineResource="http://map.smhi.se/geoserver/wfs"/>
+					</HTTP>
+				</DCPType>
+			</GetCapabilities>
+			<DescribeFeatureType>
+				<SchemaDescriptionLanguage>
+					<XMLSCHEMA/>
+				</SchemaDescriptionLanguage>
+				<DCPType>
+					<HTTP>
+						<Get onlineResource="http://map.smhi.se/geoserver/wfs?request=DescribeFeatureType"/>
+					</HTTP>
+				</DCPType>
+				<DCPType>
+					<HTTP>
+						<Post onlineResource="http://map.smhi.se/geoserver/wfs"/>
+					</HTTP>
+				</DCPType>
+			</DescribeFeatureType>
+			<GetFeature>
+				<ResultFormat>
+					<GML2/>
+					<GML3/>
+					<SHAPE-ZIP/>
+					<GEOJSON/>
+					<CSV/>
+				</ResultFormat>
+				<DCPType>
+					<HTTP>
+						<Get onlineResource="http://map.smhi.se/geoserver/wfs?request=GetFeature"/>
+					</HTTP>
+				</DCPType>
+				<DCPType>
+					<HTTP>
+						<Post onlineResource="http://map.smhi.se/geoserver/wfs"/>
+					</HTTP>
+				</DCPType>
+			</GetFeature>
+		</Request>
+	</Capability>
+	<FeatureTypeList>
+		<Operations>
+			<Query/>
+		</Operations>
+		<FeatureType>
+			<Name>smhi:arohbvin2008</Name>
+			<Title>Avrinningsomr�den med utloppskoordinater</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, arohbvin2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.79003" miny="53.43303" maxx="26.53497" maxy="71.17797"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsoar2008</Name>
+			<Title>Havs�ar2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>havsoar2008, svar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.31691" miny="45.038410000000006" maxx="33.70209" maxy="74.42359"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:SMHI_havsomr2010</Name>
+			<Title>SMHI_havsomr2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="4.76856" miny="45.27855999999999" maxx="33.57744" maxy="74.08743999999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:SMHI_natverkVattendrag2010</Name>
+			<Title>SMHI_natverkVattendrag2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="4.59014" miny="51.433640000000004" maxx="25.99586" maxy="72.83936000000001"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:utloppspunkter_avrinningsomraden</Name>
+			<Title>Utloppspunkter avrinningsomr�den</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, utloppspunkter_avrinningsomraden</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.893991757782082" miny="53.82730303506317" maxx="25.574806655132498" maxy="70.50811793241358"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vattenforingsstationer</Name>
+			<Title>Vattenf�ringsstationer, fr�n SVAR f�r wq-web</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vattenforingsstationer</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.341354787448598" miny="54.089797566782984" maxx="25.061531480316656" maxy="69.80997425965106"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vattenytor2008</Name>
+			<Title>Vattenytor2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vattenytor2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.785467" miny="53.789466999999995" maxx="25.603533000000002" maxy="70.607533"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:alla_oar</Name>
+			<Title>alla_oar</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>alla_oar, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.834719361133821" miny="55.24215065126638" maxx="25.34868301377147" maxy="69.08386161699126"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:alla_vagar</Name>
+			<Title>alla_vagar_Type</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, alla_vagar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.879403043106851" miny="55.22236169937607" maxx="25.36292947666135" maxy="69.15651746329905"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:aro_y_2010_2</Name>
+			<Title>aro_y_2010_2</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="9.14973" miny="53.56473" maxx="26.61927" maxy="71.03427"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:arsmedelmolnighet_1_iso</Name>
+			<Title>arsmedelmolnighet_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, arsmedelmolnighet_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.423" miny="55.323" maxx="25.2" maxy="68.693"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:arsmedelmolnighet_2_yta</Name>
+			<Title>arsmedelmolnighet_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, arsmedelmolnighet_poly</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:arsmedeltemperatur_1_iso</Name>
+			<Title>arsmedeltemperatur_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, arsmedeltemperatur_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.05" miny="55.126" maxx="25.286" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:arsmedeltemperatur_2_yta</Name>
+			<Title>arsmedeltemperatur_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, arsmedeltemperatur_poly</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.288" maxy="69.113"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:askdagar_1_iso</Name>
+			<Title>askdagar_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, askdagar_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.088" miny="55.203" maxx="25.047" maxy="68.683"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:askdagar_2_yta</Name>
+			<Title>askdagar_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, askdagar_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:avrinningskartor</Name>
+			<Title>avrinningskartor</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.615540199999996" miny="53.2555402" maxx="26.717459800000004" maxy="71.3574598"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_baltic_hav_ruta</Name>
+			<Title>beta_baltic_hav_ruta</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_baltic_hav_ruta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-7.6" miny="50.7" maxx="47.0" maxy="71.5"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_fjall</Name>
+			<Title>beta_fjall</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_fjall</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.944" miny="60.996" maxx="23.067" maxy="69.118"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_glaciar</Name>
+			<Title>beta_glaciar</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>beta_glaciar, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="11.63" miny="62.9" maxx="18.922" maxy="68.592"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_land_baltic</Name>
+			<Title>beta_land_baltic</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_land_baltic</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.0" miny="55.0" maxx="25.0" maxy="69.0"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_skog</Name>
+			<Title>beta_skog</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_skog</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.877" miny="53.86" maxx="25.517" maxy="70.499"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_stora_oar_land</Name>
+			<Title>beta_stora_oar_land</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_stora_oar_land</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="12.299" miny="56.867" maxx="18.599" maxy="65.769"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:beta_tatort</Name>
+			<Title>beta_tatort</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, beta_tatort</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.245" miny="55.24" maxx="25.056" maxy="68.571"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:damm_p_2010_1</Name>
+			<Title>damm_p_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.59" miny="55.281" maxx="24.268" maxy="68.09"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:delavrinningsomraden2008</Name>
+			<Title>delavrinningsomraden2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, delavrinningsomraden2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.612549999999999" miny="53.25555" maxx="26.71245" maxy="71.35544999999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:delavrinningsomraden2008_2</Name>
+			<Title>delavrinningsomraden2008_2</Title>
+			<Abstract>Generated from svar_geodata</Abstract>
+			<Keywords>delavrinningsomraden2008_2, svar_geodata</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.79003" miny="53.43303" maxx="26.53497" maxy="71.17797"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:delavrinningsomraden2008_3</Name>
+			<Title>delavrinningsomraden2008_3</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, delavrinningsomraden2008_3</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.79003" miny="53.43303" maxx="26.53497" maxy="71.17797"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:geodata_aro_2010</Name>
+			<Title>delavrinningsomraden_2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="9.14676" miny="53.56526" maxx="26.61324" maxy="71.03174"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:eko_reg</Name>
+			<Title>eko_reg</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, eko_reg</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.3937" miny="53.4717" maxx="25.764300000000002" maxy="70.8423"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_coastline_shark</Name>
+			<Title>europa_coastline_shark</Title>
+			<Abstract>Generated from europa</Abstract>
+			<Keywords>europa_coastline_shark, europa</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-7.640607124370919" miny="50.7083864859079" maxx="46.95406861532274" maxy="71.44671649305866"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_extent_3021_1</Name>
+			<Title>europa_extent_3021_1_Type</Title>
+			<Abstract>Generated from sverige_03</Abstract>
+			<Keywords>sverige_03, europa_extent_3021_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-26.64920616834676" miny="31.894165736183304" maxx="58.299875846188485" maxy="69.12491959573951"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_extent_3021_2</Name>
+			<Title>europa_extent_3021_2_Type</Title>
+			<Abstract>Generated from sverige_03</Abstract>
+			<Keywords>sverige_03, europa_extent_3021_2</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-26.491630388009884" miny="32.32617888887924" maxx="58.127304367600736" maxy="71.58051319971742"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_extent_3021_3</Name>
+			<Title>europa_extent_3021_3_Type</Title>
+			<Abstract>Generated from sverige_03</Abstract>
+			<Keywords>sverige_03, europa_extent_3021_3</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-20.607107441118462" miny="48.833715537464066" maxx="37.96001517962241" maxy="71.50093371987066"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_land_3021</Name>
+			<Title>europa_land_3021_Type</Title>
+			<Abstract>Generated from sverige_03</Abstract>
+			<Keywords>sverige_03, europa_land_3021</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-137.1663038988344" miny="-89.99687973074218" maxx="172.21940763969855" maxy="84.9298344041427"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:europa_no_oar_baltic</Name>
+			<Title>europa_no_oar_baltic</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-141.361" miny="-82.002" maxx="67.064" maxy="83.103"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>test:europa_no_oar_baltic</Name>
+			<Title>europa_no_oar_baltic</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-141.436" miny="-82.065" maxx="67.063" maxy="83.103"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:floedesstatistik</Name>
+			<Title>floedesstat20081216_Type</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, floedesstat20081216</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.652730199999997" miny="53.6242302" maxx="25.766269800000007" maxy="70.73776980000001"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:forstahostfrost_1_iso</Name>
+			<Title>forstahostfrost_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, forstahostfrost_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.836" miny="55.197" maxx="25.37" maxy="69.107"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:forstahostfrost_2_yta</Name>
+			<Title>forstahostfrost_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, forstahostfrost_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:globalstralning_1_iso</Name>
+			<Title>globalstralning_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, globalstralning_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.078" miny="55.179" maxx="25.356" maxy="69.093"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:globalstralning_2_yta</Name>
+			<Title>globalstralning_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, globalstralning_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:haro_y</Name>
+			<Title>haro_y</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, haro_y</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.790361815406625" miny="53.43296616802038" maxx="26.535109310256896" maxy="71.17771366287064"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:haro_y_2010_2</Name>
+			<Title>haro_y_2010_2</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="9.14973" miny="53.56473" maxx="26.61927" maxy="71.03427"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:hav</Name>
+			<Title>hav</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-25.79294" miny="18.923560000000002" maxx="57.432939999999995" maxy="102.14944"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomr_no_havsoar2008</Name>
+			<Title>havsomr_no_havsoar2008</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.861" miny="53.298" maxx="33.173" maxy="66.091"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomr_no_oar2010</Name>
+			<Title>havsomr_no_oar2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.861" miny="53.298" maxx="33.173" maxy="66.091"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomraden2009</Name>
+			<Title>havsomr_y_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, havsomr_y_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.5738900000000005" miny="45.254889999999996" maxx="33.45111" maxy="74.13211"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomraden</Name>
+			<Title>havsomraden</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.861" miny="53.298" maxx="33.173" maxy="66.091"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomraden2008</Name>
+			<Title>havsomraden2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, havsomraden2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.285229999999999" miny="44.96623" maxx="33.73977" maxy="74.42077"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:havsomraden2008_2</Name>
+			<Title>havsomraden2008_2</Title>
+			<Abstract>Generated from svar_geodata</Abstract>
+			<Keywords>svar_geodata, havsomraden2008_2</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.5738900000000005" miny="45.254889999999996" maxx="33.45111" maxy="74.13211"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:havsomraden2010</Name>
+			<Title>havsomraden2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.288710000000004" miny="44.966210000000004" maxx="33.74529" maxy="74.42279"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:hbvsv</Name>
+			<Title>hbvsv</Title>
+			<Abstract>Generated from bok_KEPS</Abstract>
+			<Keywords>hbvsv, bok_KEPS</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.962724736015545" miny="55.18413686261587" maxx="26.361135962488483" maxy="69.42670619222024"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:huvudavrinningsomraden2008</Name>
+			<Title>huvudavrinningsomraden2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, huvudavrinningsomraden2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.6125806" miny="53.2555806" maxx="26.7124194" maxy="71.3554194"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:huvudavrinningsomraden2008_2</Name>
+			<Title>huvudavrinningsomraden2008_2</Title>
+			<Abstract>Generated from svar_geodata</Abstract>
+			<Keywords>huvudavrinningsomraden2008_2, svar_geodata</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.79003" miny="53.43303" maxx="26.53497" maxy="71.17797"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:geodata_haro_2010</Name>
+			<Title>huvudavrinningsomraden_2010</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3006</SRS>
+			<LatLongBoundingBox minx="9.14676" miny="53.56526" maxx="26.61324" maxy="71.03174"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:indikatoromraden</Name>
+			<Title>indikatoromraden</Title>
+			<Abstract>Generated from bok_KEPS</Abstract>
+			<Keywords>bok_KEPS, indikatoromraden</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.229065356886707" miny="55.32067747302821" maxx="25.271478056826506" maxy="69.42518950052398"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:keps_havsomraden</Name>
+			<Title>keps_havsomraden</Title>
+			<Abstract>Generated from bok_KEPS</Abstract>
+			<Keywords>bok_KEPS, keps_havsomraden</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="5.362578973011487" miny="52.99056391852766" maxx="33.06056060092451" maxy="66.04056099317836"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:keps_varningsdistrikt</Name>
+			<Title>keps_varningsdistrikt</Title>
+			<Abstract>Generated from bok_KEPS</Abstract>
+			<Keywords>bok_KEPS, keps_varningsdistrikt</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="-147.576" miny="-38.755" maxx="145.985" maxy="83.499"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:klara_dagar_1_iso</Name>
+			<Title>klara_dagar_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, klara_dagar_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.47" miny="55.158" maxx="25.016" maxy="68.877"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:klara_dagar_2_yta</Name>
+			<Title>klara_dagar_2_yta</Title>
+			<Abstract>Generated from klar</Abstract>
+			<Keywords>klar, klara_dagar_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:klara_dagar_2_yta</Name>
+			<Title>klara_dagar_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, klara_dagar_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:kommun_poly</Name>
+			<Title>kommun_poly</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>kommun_poly, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.266738405987413" miny="55.013028002236695" maxx="25.380373531997886" maxy="69.12236062148301"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:lansgranser</Name>
+			<Title>lan_poly</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>lan_poly, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.266738405987413" miny="55.013028002236695" maxx="25.380373531997886" maxy="69.12236062148301"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:mulna_dagar_1_iso</Name>
+			<Title>mulna_dagar_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, mulna_dagar_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.381" miny="55.265" maxx="25.323" maxy="69.002"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:mulna_dagar_2_yta</Name>
+			<Title>mulna_dagar_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, mulna_dagar_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049" miny="55.205" maxx="25.289" maxy="69.114"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:obsar_snow</Name>
+			<Title>obsar_snow</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.156" miny="55.573" maxx="25.001" maxy="68.431"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:orter_snow</Name>
+			<Title>orter_snow</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, orter_snow</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.147798957090364" miny="55.35388441336591" maxx="22.96687619407045" maxy="68.56953144013973"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:qstat_2009_1</Name>
+			<Title>qstat_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, qstat_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.817870000000001" miny="53.73237" maxx="25.71213" maxy="70.62662999999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:qstat_p</Name>
+			<Title>qstat_p</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.822992399999999" miny="53.733492399999996" maxx="25.7170076" maxy="70.62750759999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:qstngrund090331</Name>
+			<Title>qstngrund090331</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, qstngrund090331</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.18415302051991" miny="53.932595799854305" maxx="25.218733247245343" maxy="69.96717602657974"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:rcweb_area_rot</Name>
+			<Title>rcweb_area_rot</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, rcweb_area_rot</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="-21.8300018310547" miny="-20.7900009155273" maxx="15.5700006484985" maxy="21.0100002288818"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:rcweb_cells_rot</Name>
+			<Title>rcweb_cells_rot</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>rcweb_cells_rot, sverige</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="-21.8300018310547" miny="-20.7900009155273" maxx="15.5700006484985" maxy="21.0100002288818"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:rcweb_map_rot</Name>
+			<Title>rcweb_map_rot</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, rcweb_map_rot</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="-40.9369773864746" miny="-34.4758262634277" maxx="38.508415222168" maxy="44.9695663452148"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:rcweb_points_rot</Name>
+			<Title>rcweb_points_rot</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, rcweb_points_rot</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="-21.6100006103516" miny="-20.5700016021729" maxx="15.3500003814697" maxy="20.7900009155273"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:shark_web_coastline_wgs84</Name>
+			<Title>shark_web_coastline_wgs84</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, shark_web_coastline_wgs84</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="3.19277501106262" miny="50.7295532226562" maxx="46.2096710205078" maxy="71.1821899414062"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:sistavarfrost_1_iso</Name>
+			<Title>sistavarfrost_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, sistavarfrost_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.07874" miny="53.75624" maxx="25.11926" maxy="69.79675999999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:sistavarfrost_2_yta</Name>
+			<Title>sistavarfrost_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, sistavarfrost_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:sj_p_2009_1</Name>
+			<Title>sj_p_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, sj_p_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.85324" miny="53.50924" maxx="26.47476" maxy="71.13076"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:kbtest:testar</Name>
+			<Title>snow090424</Title>
+			<Abstract>Generated from klar</Abstract>
+			<Keywords>snow090424, klar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.955086133584317" miny="60.80401188913745" maxx="25.294189076181212" maxy="69.12176172604264"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:snow091106</Name>
+			<Title>snow091106</Title>
+			<Abstract>Generated from klar</Abstract>
+			<Keywords>snow091106, klar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049014100471645" miny="58.65387291850194" maxx="24.768684052924325" maxy="69.11596825007406"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:solskenstid_1_iso</Name>
+			<Title>solskenstid_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, solskenstid_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.10122" miny="53.85772" maxx="25.296780000000002" maxy="70.05328"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:solskenstid_2_yta</Name>
+			<Title>solskenstid_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, solskenstid_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:stora_oar</Name>
+			<Title>stora_oar</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>stora_oar, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.3546726648897" miny="55.78310074305857" maxx="24.49746759049161" maxy="67.3817689025483"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:stora_vagar</Name>
+			<Title>stora_vagar</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, stora_vagar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.3473533886377" miny="55.21716814197163" maxx="25.04223735252227" maxy="68.56931928403627"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:stora_vattendrag_vov</Name>
+			<Title>stora_vattendrag</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, stora_vattendrag_vov</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.759781" miny="53.531281" maxx="26.025219" maxy="70.796719"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:stora_vattenytor_vov</Name>
+			<Title>stora_vattenytor</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, stora_vattenytor_vov</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8855004" miny="55.5625004" maxx="22.096499599999998" maxy="68.7734996"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:stora_vattenytor</Name>
+			<Title>stora_vattenytor</Title>
+			<Abstract>Generated from svar_geodata</Abstract>
+			<Keywords>stora_vattenytor_vov, svar_geodata</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.014901960936843" miny="55.69214946131337" maxx="21.96710659491706" maxy="68.64435409529358"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:storsta_snodjup_medel_1_iso</Name>
+			<Title>storsta_snodjup_medel_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, storsta_snodjup_medel_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.88779" miny="54.014289999999995" maxx="25.53521" maxy="70.66171"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:storsta_snodjup_medel_2_yta</Name>
+			<Title>storsta_snodjup_medel_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, storsta_snodjup_medel_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:storsta_snodjup_uppmatt_1_iso</Name>
+			<Title>storsta_snodjup_uppmatt_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, storsta_snodjup_uppmatt_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.92262" miny="54.041619999999995" maxx="25.28138" maxy="70.40038"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:storsta_snodjup_uppmatt_2_yta</Name>
+			<Title>storsta_snodjup_uppmatt_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, storsta_snodjup_uppmatt_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:sna_poly</Name>
+			<Title>sverige_enkel</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige, sna_poly</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049012728700086" miny="55.205211176852956" maxx="25.2886732972841" maxy="69.11444203744499"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:sverige_hav_ruta</Name>
+			<Title>sverige_hav_ruta</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sverige_hav_ruta, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="4.109314021740848" miny="53.42010527287076" maxx="31.55669891497324" maxy="70.47512152819117"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:sverige_polygon</Name>
+			<Title>sverige_polygon</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>sveland, sverige</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.058733483006229" miny="55.214260512088515" maxx="25.300282068890066" maxy="69.12038755564286"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:tatorter</Name>
+			<Title>tatorter</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>tatorter, svar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.720208561975012" miny="53.56433340432287" maxx="25.37971300720033" maxy="70.22383784954819"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:tillrinn_bassang</Name>
+			<Title>tillrinn_bassang</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, tillrinn_bassang</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.395710399999993" miny="53.497710399999995" maxx="25.716289600000003" maxy="70.8182896"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:var_normal</Name>
+			<Title>var_normal</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.87" miny="55.169" maxx="25.162" maxy="68.771"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vattendistrikt</Name>
+			<Title>vattendistrikt</Title>
+			<Abstract>Generated from bok_KEPS</Abstract>
+			<Keywords>bok_KEPS, vattendistrikt</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.735649464640208" miny="55.195144163331946" maxx="25.380783610179456" maxy="69.12099831539922"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vattendragslinjer2008</Name>
+			<Title>vattendragslinjer2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vattendragslinjer2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.759781" miny="53.531281" maxx="26.025219" maxy="70.796719"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_vatten:vattendragslinjer2008</Name>
+			<Title>vattendragslinjer2008</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.93405" miny="53.70205" maxx="25.86095" maxy="70.62894999999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vattendragsytor2008</Name>
+			<Title>vattendragsytor2008</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vattendragsytor2008</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.18065" miny="54.263149999999996" maxx="25.43435" maxy="70.51685"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:vegperiodenslangd_1_iso</Name>
+			<Title>vegperiodenslangd_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, vegperiodenslangd_iso</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.88264" miny="54.287639999999996" maxx="24.729360000000003" maxy="70.13436"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:vegperiodenslangd_2_yta</Name>
+			<Title>vegperiodenslangd_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, vegperiodenslangd_yta</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.8866" miny="53.877100000000006" maxx="25.451400000000003" maxy="70.4419"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vegperiodenslangd_yta</Name>
+			<Title>vegperiodenslangd_yta</Title>
+			<Abstract>Generated from klar</Abstract>
+			<Keywords>vegperiodenslangd_yta, klar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.049014100471645" miny="55.205211176852956" maxx="25.28867138962239" maxy="69.11443755641358"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:verkligarsnederbord_1_iso</Name>
+			<Title>verkligarsnederbord_1_iso</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, verkligarsnederbord_iso, p118</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.81544" miny="53.964940000000006" maxx="25.19256" maxy="70.34206"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>SMHI_klimatdata:verkligarsnederbord_2_yta</Name>
+			<Title>verkligarsnederbord_2_yta</Title>
+			<Abstract>Generated from klar_geodata</Abstract>
+			<Keywords>klar_geodata, verkligarsnederbord_poly</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="8.886479999999999" miny="53.874480000000005" maxx="25.46352" maxy="70.45152"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_kf_2010_1</Name>
+			<Title>vf_kf_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.295130599999998" miny="53.007130599999996" maxx="24.5338694" maxy="68.24586939999999"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd1_2009_1</Name>
+			<Title>vf_vd1_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vd1_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.20726" miny="60.60426" maxx="25.40074" maxy="71.79774"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd1_2010_1</Name>
+			<Title>vf_vd1_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.12135" miny="60.55885" maxx="25.40765" maxy="71.84515"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd2_2009_1</Name>
+			<Title>vf_vd2_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vd2_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="11.580036406051562" miny="58.470435597982416" maxx="20.012611462903443" maxy="66.90301065483429"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd2_2010_1</Name>
+			<Title>vf_vd2_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="11.497945999999995" miny="58.384946" maxx="20.102054000000006" maxy="66.98905400000001"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd3_2009_1</Name>
+			<Title>vf_vd3_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vd3_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.331886049648556" miny="57.222722097685946" maxx="19.11010144426368" maxy="62.00093749230108"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd3_2010_1</Name>
+			<Title>vf_vd3_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.38307" miny="57.27057" maxx="19.067929999999997" maxy="61.95543"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd4_2009_1</Name>
+			<Title>vf_vd4_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vd4_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="12.41997619313497" miny="53.83514816707043" maxx="19.097602568483627" maxy="60.51277454241908"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd4_2010_1</Name>
+			<Title>vf_vd4_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="12.357750600000001" miny="53.7692506" maxx="19.1692494" maxy="60.5807494"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd5_2009_1</Name>
+			<Title>vf_vd5_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vd5_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.039447464398595" miny="55.66023113304035" maxx="15.748456076726104" maxy="61.36923974536786"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vd5_2010_1</Name>
+			<Title>vf_vd5_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.33166" miny="55.70416" maxx="16.25134" maxy="62.623839999999994"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy1_2010_1</Name>
+			<Title>vf_vy1_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.185289999999998" miny="60.812290000000004" maxx="25.17171" maxy="71.79871"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy2_2009_1</Name>
+			<Title>vf_vy2_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vy2_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="11.483440978196253" miny="58.4247182942918" maxx="20.11080805197818" maxy="67.05208536807373"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy2_2010_1</Name>
+			<Title>vf_vy2_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="11.504127799999994" miny="58.3916278" maxx="20.098872200000002" maxy="66.9863722"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy3_2009_1</Name>
+			<Title>vf_vy3_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vy3_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.358384664863735" miny="57.16319966268066" maxx="19.114737970447788" maxy="61.91955296826472"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy3_2010_1</Name>
+			<Title>vf_vy3_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="14.314787200000001" miny="57.1162872" maxx="19.1672128" maxy="61.9687128"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy4_2009_1</Name>
+			<Title>vf_vy4_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vy4_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="12.925236513835548" miny="54.127399146648855" maxx="19.106990154636396" maxy="60.309152787449705"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy4_2010_1</Name>
+			<Title>vf_vy4_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="12.8675678" miny="54.0665678" maxx="19.1734322" maxy="60.3724322"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy5_2009_1</Name>
+			<Title>vf_vy5_2009_1</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, vf_vy5_2009_1</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="10.128136559351184" miny="55.682083998252644" maxx="15.674169496934816" maxy="61.22811693583628"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:vf_vy5_2010_1</Name>
+			<Title>vf_vy5_2010_1</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.2641854" miny="55.6541854" maxx="16.310814600000004" maxy="62.700814599999994"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:waterbodies_eu_wgs84</Name>
+			<Title>waterbodies_eu_wgs84</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, waterbodies_eu_wgs84</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="7.31430339813232" miny="53.6830711364746" maxx="30.2796287536621" maxy="65.9150390625"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:waterdistricts_wgs84</Name>
+			<Title>waterdistricts_wgs84</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, waterdistricts_wgs84</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="10.8947629928589" miny="55.3201484680176" maxx="24.1822929382324" maxy="69.0616226196289"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:wavestations</Name>
+			<Title>wavestations</Title>
+			<Abstract/>
+			<Keywords/>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="10.56" miny="55.36" maxx="20.45" maxy="66.27"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:world_wgs84</Name>
+			<Title>world_wgs84</Title>
+			<Abstract>Generated from sverige</Abstract>
+			<Keywords>world_wgs84, sverige</Keywords>
+			<SRS>EPSG:4326</SRS>
+			<LatLongBoundingBox minx="-180.0" miny="-90.0" maxx="180.0" maxy="83.6236038208008"/>
+		</FeatureType>
+		<FeatureType>
+			<Name>smhi:oar</Name>
+			<Title>�ar</Title>
+			<Abstract>Generated from svar</Abstract>
+			<Keywords>svar, oar</Keywords>
+			<SRS>EPSG:3021</SRS>
+			<LatLongBoundingBox minx="9.14136" miny="54.088359999999994" maxx="25.42464" maxy="70.37164"/>
+		</FeatureType>
+	</FeatureTypeList>
+	<ogc:Filter_Capabilities>
+		<ogc:Spatial_Capabilities>
+			<ogc:Spatial_Operators>
+				<ogc:Disjoint/>
+				<ogc:Equals/>
+				<ogc:DWithin/>
+				<ogc:Beyond/>
+				<ogc:Intersect/>
+				<ogc:Touches/>
+				<ogc:Crosses/>
+				<ogc:Within/>
+				<ogc:Contains/>
+				<ogc:Overlaps/>
+				<ogc:BBOX/>
+			</ogc:Spatial_Operators>
+		</ogc:Spatial_Capabilities>
+		<ogc:Scalar_Capabilities>
+			<ogc:Logical_Operators/>
+			<ogc:Comparison_Operators>
+				<ogc:Simple_Comparisons/>
+				<ogc:Between/>
+				<ogc:Like/>
+				<ogc:NullCheck/>
+			</ogc:Comparison_Operators>
+			<ogc:Arithmetic_Operators>
+				<ogc:Simple_Arithmetic/>
+				<ogc:Functions>
+					<ogc:Function_Names>
+						<ogc:Function_Name nArgs="1">abs</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">abs_2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">abs_3</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">abs_4</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">acos</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Area</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">asin</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">atan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">atan2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">between</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">boundary</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">boundaryDimension</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">buffer</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">bufferWithSegments</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">ceil</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">centroid</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">classify</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Average</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Bounds</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Count</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Max</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Median</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Min</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Sum</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">Collection_Unique</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">contains</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">convert</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">convexHull</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">cos</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">crosses</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">dateFormat</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">dateParse</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">difference</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">dimension</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">disjoint</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">distance</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">double2bool</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">endPoint</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">env</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">envelope</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">EqualInterval</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">equalsExact</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">equalsExactTolerance</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">equalTo</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">exp</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">exteriorRing</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">floor</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">geometryType</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">geomFromWKT</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">geomLength</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">getGeometryN</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">getX</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">getY</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">getZ</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">greaterEqualThan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">greaterThan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="0">id</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">IEEEremainder</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">if_then_else</ogc:Function_Name>
+						<ogc:Function_Name nArgs="11">in10</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">in2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="4">in3</ogc:Function_Name>
+						<ogc:Function_Name nArgs="5">in4</ogc:Function_Name>
+						<ogc:Function_Name nArgs="6">in5</ogc:Function_Name>
+						<ogc:Function_Name nArgs="7">in6</ogc:Function_Name>
+						<ogc:Function_Name nArgs="8">in7</ogc:Function_Name>
+						<ogc:Function_Name nArgs="9">in8</ogc:Function_Name>
+						<ogc:Function_Name nArgs="10">in9</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">int2bbool</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">int2ddouble</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">interiorPoint</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">interiorRingN</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">intersection</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">intersects</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isClosed</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isEmpty</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">isLike</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isNull</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">isometric</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isRing</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isSimple</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">isValid</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">isWithinDistance</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">length</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">lessEqualThan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">lessThan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">log</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">max</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">max_2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">max_3</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">max_4</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">min</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">min_2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">min_3</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">min_4</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">not</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">notEqualTo</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">numberFormat</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">numGeometries</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">numInteriorRing</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">numPoints</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">offset</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">overlaps</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">parseBoolean</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">parseDouble</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">parseInt</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">parseLong</ogc:Function_Name>
+						<ogc:Function_Name nArgs="0">pi</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">pointN</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">pow</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">PropertyExists</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">Quantile</ogc:Function_Name>
+						<ogc:Function_Name nArgs="0">random</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">relate</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">relatePattern</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">rint</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">round</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">round_2</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">roundDouble</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">sin</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">sqrt</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">StandardDeviation</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">startPoint</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strConcat</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strEndsWith</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strEqualsIgnoreCase</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strIndexOf</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strLastIndexOf</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">strLength</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strMatches</ogc:Function_Name>
+						<ogc:Function_Name nArgs="4">strReplace</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strStartsWith</ogc:Function_Name>
+						<ogc:Function_Name nArgs="3">strSubstring</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">strSubstringStart</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">strToLowerCase</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">strToUpperCase</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">strTrim</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">symDifference</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">tan</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">toDegrees</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">toRadians</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">touches</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">toWKT</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">union</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">UniqueInterval</ogc:Function_Name>
+						<ogc:Function_Name nArgs="1">vertices</ogc:Function_Name>
+						<ogc:Function_Name nArgs="2">within</ogc:Function_Name>
+					</ogc:Function_Names>
+				</ogc:Functions>
+			</ogc:Arithmetic_Operators>
+		</ogc:Scalar_Capabilities>
+	</ogc:Filter_Capabilities>
+</WFS_Capabilities>

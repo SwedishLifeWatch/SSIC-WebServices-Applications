@@ -1,0 +1,195 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Ext JS grid - Save changes";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<h2>Ext JS grid - Save changes</h2>
+
+<strong>Denna sida är bara påbörjad och ska senare översättas till engelska.</strong>
+
+
+<div class="infobox">
+    <p class="infotext">
+        När man har gjort ändringar i en grid (lagt till ny rad, tagit bort ny rad, uppdaterat rad) och
+        vill föra över dessa ändringar till servern via Ajax så finns det några olika sätt att göra detta
+        på.        
+    </p>
+    <ul>
+        <li>1. Spara alla ändringar först när man lämnar sidan med eget Ajax-anrop</li>
+        <li>2. Spara alla ändringar först när man lämnar sidan med store.sync()???</li>
+        <li>3. Spara ändringar direkt när man gör en ändring med egna Ajax-anrop</li>
+        <li>4. Spara ändringar direkt när man gör en ändring med store.sync()</li>        
+    </ul>
+    
+    <p class="infotext">
+        Modellen bör definieras med en idProperty. I detta fall använder vi fältet Id
+        som nyckel.
+    </p>
+
+    <pre class="codebox"><code class="javascript">Ext.define("RegionViewModel", {
+    extend: 'Ext.data.Model',
+    idProperty: 'Id',
+    fields: [
+        { name: 'Id', type: 'int' },
+        { name: 'Name', type: 'string' },
+        { name: 'GUID', type: 'string' },
+        { name: 'CategoryId', type: 'int' }                
+    ]            
+});
+</code></pre>
+</div>
+
+
+<h3 style="margin-top: 20px;">1. Spara alla ändringar först när man lämnar sidan med eget Ajax-anrop</h3>
+
+<div class="infobox">
+    <p class="infotext">
+        I detta exempel så skickas ej förändringarna över. Istället skickar vi över alla Id-värden som alltså
+        definierar hur listan ska se ut. Detta går bra och smidigt så länge som listan inte blir för stor och
+        man bara skickar över listan när man lämnar sidan.
+    </p>
+    <p class="infotext">
+        Några saker att tänka på:        
+    </p>
+    <ul>
+        <li>Implementera en funktion som kollar ifall vi har förändrat något i griden (isStoreModified()).
+            Om inget är ändrat så behöver vi inte skicka någon lista till servern.
+        </li>
+        <li>Skapa upp en array med Id-värden och konvertera den sedan till en JSON-sträng.</li>
+        <li>Skicka listan som ett synkront Ajax-anrop när vi lämnar sidan.</li>
+    </ul>
+    
+    
+    
+
+    <pre class="codebox"><code class="javascript">
+// Ta bort en rad från grid görs på detta sätt:
+...
+var index = store.data.indexOf(record);
+store.removeAt(index);    
+
+// Lägga till en rad till griden görs på detta sätt:
+if (regionStore.getById(id)) {
+    AnalysisPortal.showMsg("Id already exists");                
+    return;
+}
+var region = Ext.create('RegionViewModel', {
+            Id: id,
+            Name: name,
+            CategoryId: 1
+        });
+// denna behövs sättas när man sätt Id till ett värde. Annars fattar inte Ext JS att raden är ändrad. 
+//Om vi hade satt Id till '' så hade det fungerat, men i detta fall hade vi ett fast Id i tjänsten som vi vill använda oss av.
+region.phantom = true; 
+regionStore.add(region);
+
+
+
+$(window).bind('beforeunload', saveRegions);
+    
+    function saveRegions() {
+        if (!isStoreModified())
+            return;
+        var regionIds = getSelectedRegionIds();
+        var json = Ext.encode(regionIds);        
+        AnalysisPortal.makeAjaxCall({
+                url: "mysettings/saveregions",
+                params: {
+                    data: json
+                },
+                async: false,
+                waitMessage: AnalysisPortal.Resources.SharedSaving,
+                showWaitMessage: true
+            }
+        );  
+    }    
+    
+    function isStoreModified() {        
+        var removedRecords = regionStore.getRemovedRecords();        
+        if (removedRecords.length > 0)
+            return true;
+        var newRecords = regionStore.getNewRecords();        
+        if (newRecords.length > 0)
+            return true;
+        return false;
+    }
+
+    function getSelectedRegionIds() {
+        var regionIds = [];
+        regionStore.data.each(function(item, index, totalItems ) {
+            regionIds.push(item.get("Id"));
+        });
+        return regionIds;
+    }
+</code></pre>
+       
+</div>
+
+<h3 style="margin-top: 20px;">3. Spara ändringar direkt när man gör en ändring med egna Ajax-anrop</h3>
+<div class="infobox">
+    <p class="infotext">
+        Man kan själv se till att sköta uppdateringarna genom att göra ett anrop till makeAjaxCall,
+        där man skickar med datan som behövs för att uppdatera servern. När servern har uppdaterats så
+        lägger man till samma data på klienten (webbläsaren), i detta fall genom regionStore.add().
+    </p>
+    
+    <pre class="codebox"><code class="javascript">AnalysisPortal.makeAjaxCall({
+        url: AnalysisPortal.ApplicationPath + "/MySettings/AddRegionById",
+        params: {
+            id: id
+        },
+        showWaitMessage: true
+    },
+    function() {                    
+        var region = Ext.create('RegionViewModel', {
+            Id: id,
+            Name: name,
+            CategoryId: 1
+        });
+        regionStore.add(region);
+    }
+);    
+</code></pre>
+</div>
+
+
+<h3 style="margin-top: 20px;">4. Spara ändringar direkt när man gör en ändring med store.sync()</h3>
+<div class="infobox">
+    <p class="infotext">
+        Man kan få de ändringar man gjort i Store att skickas till servern då man kör store.sync().
+        För att din Store ska kunna veta var ändringarna ska skickas måste man definiera en api och en writer
+        på följande sätt:
+    </p>
+
+    <pre class="codebox"><code class="javascript">var store = AnalysisPortal.createJsonStore('RegionViewModel', '@Html.Raw(Url.Action("GetAllRegions", "MySettings"))', {
+    api: {
+        read: '@Html.Raw(Url.Action("GetAllRegions", "MySettings"))',
+        create: '@Html.Raw(Url.Action("AddRegion", "MySettings"))',
+        update: 'myurl-update',
+        destroy: '@Html.Raw(Url.Action("RemoveRegion", "MySettings"))'
+    },
+    writer: {
+        type: 'json',
+        writeAllFields: false, // only send the fields that are changed
+        allowSingle: true,
+        root: 'data', // this will be the name sent to server
+        encode: true // encode as JSON
+    },
+    groupField: 'CategoryId'
+});
+</code></pre>
+
+
+    När man klickar på en ta-bort-ikon så kan man se till att ett anrop till servern sker genom att
+    först anropa store.removeAt() och sedan store.sync() 
+ <pre class="codebox"><code class="javascript">handler: function (grid, rowIndex, colindex) {
+    var store = grid.getStore();
+    var record = store.getAt(rowIndex);
+    var index = store.data.indexOf(record);
+    store.removeAt(index);
+    store.sync();
+}
+</code></pre>
+</div>

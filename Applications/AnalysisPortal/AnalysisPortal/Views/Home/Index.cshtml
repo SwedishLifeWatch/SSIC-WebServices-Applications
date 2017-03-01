@@ -1,0 +1,122 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Home.IndexViewModel
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var $newsContainer = $('#news');
+        $('div.more', $newsContainer).hide();
+
+        $('.showMore', $newsContainer).on('click', function () {
+            //Only one news shold be expaned at the time
+            $('div.more').hide('slow');
+            $('a.showMore').show('slow');
+
+            //Show clicked news
+            $(this).hide('slow');
+            $(this).next('div.more').show('slow');
+        });
+
+        $('.showLess', $newsContainer).on('click', function () {
+            $(this).closest('div.article').find('.showMore').show('slow');
+            $(this).closest('div.more').hide('slow');
+        });
+
+        if ($('#newsTicker').length != 0) {
+            $('#newsTicker').liScroll();
+        }
+    });
+</script>
+
+<div id="news">
+    <div id="newsPuffContainer" class="col-xs-12">
+        @if (Model.Puffs != null && Model.Puffs.Length != 0)
+        {
+            <ul id="newsTicker">
+                @foreach (var puff in Model.Puffs)
+                {
+                    <li><span class="published">@puff.Published</span><span class="text">@puff.Text</span></li>
+                }
+            </ul>
+        }
+    </div>
+    <div class="col-xs-12">
+        <div class="well">
+            @if (Model.News != null)
+            {
+                var newsCount = Model.News.Length;
+                newsCount = newsCount > 6 ? 6 : newsCount; // Show max 6 news
+
+                if (newsCount != 0)
+                {
+                    for (var i = 0; i < newsCount; i++)
+                    {
+                        var article = Model.News[i];
+
+                        if (i == 0)
+                        {
+                            <div class="article">
+                                <h3>@article.Title <small>@article.Published</small>
+                                </h3>
+                                <p>@Html.Raw(article.Introduction)</p>
+                                @if (!string.IsNullOrEmpty(article.Text))
+                                {
+                                    <a href="#" class="showMore"><span class="glyphicon glyphicon-plus"></span>&nbsp;@Resource.ShowMore</a>
+                                    <div class="more">
+                                        <p>
+                                            @Html.Raw(article.Text)
+                                            <br/><br/>
+                                            <a href="#" class="showLess"><span class="glyphicon glyphicon-minus"></span>&nbsp;@Resource.ShowLess</a>
+                                        </p>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                        else
+                        {
+                            if (i == 1)
+                            {
+                                <hr/>
+                            }
+                            <div class="article">
+                                <strong>@article.Title</strong>&nbsp;<small>@article.Published</small>&nbsp;&nbsp;
+                                <a href="#" class="showMore"><small><span class="glyphicon glyphicon-plus"></span>&nbsp;@Resource.ShowMore</small></a>
+                                <div class="more">
+                                    <p>@Html.Raw(article.Introduction)</p>
+                                    @if (!string.IsNullOrEmpty(article.Text))
+                                    {
+                                        <p>
+                                            @Html.Raw(article.Text)
+                                        </p>
+                                    }
+                                    <p>
+                                        <a href="#" class="showLess"><span class="glyphicon glyphicon-minus"></span>&nbsp;@Resource.ShowLess</a>
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+<div class="col-xs-12">
+    <div class="well">
+        <div class="pull-left" style="width: 300px">
+           @Html.Raw(Resource.IntroductionText)
+            <a href="http://biodiversitydatajournal.com/articles.php?id=7644">@Resource.SharedSoftwareDescription</a>
+        </div>
+        <div class="pull-right">
+            <iframe width="400" height="240" src="https://www.youtube.com/embed/WeOHDyMODmk?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            @Html.Raw(Resource.HomeIndexDocuments)
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class=col-xs-12>
+    <div class="well">
+        <h3>@Resource.TitleCitation</h3>
+        @Html.Raw(Resource.TextCitation)
+    </div>
+</div>

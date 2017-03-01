@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7FF712DA-7C82-4CC6-9E2D-BCE766D0644F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.Data.Test</RootNamespace>
+    <AssemblyName>ArtDatabanken.Data.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressListTest.cs" />
+    <Compile Include="AddressTest.cs" />
+    <Compile Include="AddressTypeListTest.cs" />
+    <Compile Include="AddressTypeTest.cs" />
+    <Compile Include="PictureManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\BirdNestActivityListTest.cs" />
+    <Compile Include="ArtDatabankenService\BirdNestActivityTest.cs" />
+    <Compile Include="ArtDatabankenService\CountyListTest.cs" />
+    <Compile Include="ArtDatabankenService\CountyTest.cs" />
+    <Compile Include="ArtDatabankenService\DatabaseListTest.cs" />
+    <Compile Include="ArtDatabankenService\DatabaseManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\DatabaseTest.cs" />
+    <Compile Include="ArtDatabankenService\DataFieldListTest.cs" />
+    <Compile Include="ArtDatabankenService\DataIdTest.cs" />
+    <Compile Include="ArtDatabankenService\DataSortOrderTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorDataTypeListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorDataTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumValueListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldEnumValueTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldTypeListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorFieldTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorOriginTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorSearchCriteriaTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeNodeListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeNodeTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorTreeSearchCriteriaTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorUpdateModeListTest.cs" />
+    <Compile Include="ArtDatabankenService\FactorUpdateModeTest.cs" />
+    <Compile Include="ArtDatabankenService\GeographicManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\IndividualCategoryManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\IndividualCategoryTest.cs" />
+    <Compile Include="ArtDatabankenService\OrganismGroupListTest.cs" />
+    <Compile Include="ArtDatabankenService\OrganismGroupTest.cs" />
+    <Compile Include="ArtDatabankenService\PeriodManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\PeriodTest.cs" />
+    <Compile Include="ArtDatabankenService\PeriodTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\ProvinceListTest.cs" />
+    <Compile Include="ArtDatabankenService\ProvinceTest.cs" />
+    <Compile Include="ArtDatabankenService\RedListCalculationTest.cs" />
+    <Compile Include="ArtDatabankenService\RedListCalculatorTest.cs" />
+    <Compile Include="ArtDatabankenService\RedListCriteriaBuilderTest.cs" />
+    <Compile Include="ArtDatabankenService\ReferenceManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\ReferenceTest.cs" />
+    <Compile Include="ArtDatabankenService\SerializerTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesEncyclopediaArticleTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactFieldListTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactFieldTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactListTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactQualityListTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactQualityTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesFactTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesInformationDocumentTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationAreaListTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationAreaTest.cs" />
+    <Compile Include="ArtDatabankenService\SpeciesObservationManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonCountyOccurrenceListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonCountyOccurrenceTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameSearchCriteriaTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameTypeListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameUseTypeListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonNameUseTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonPrintObsTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonSearchCriteriaTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeNodeListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeNodeTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTreeSearchCriteriaTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTypeListTest.cs" />
+    <Compile Include="ArtDatabankenService\TaxonTypeTest.cs" />
+    <Compile Include="ArtDatabankenService\TestBase.cs" />
+    <Compile Include="ArtDatabankenService\UserDataSetTest.cs" />
+    <Compile Include="ArtDatabankenService\UserManagerTest.cs" />
+    <Compile Include="ArtDatabankenService\UserParameterSelectionTest.cs" />
+    <Compile Include="ArtDatabankenService\UserRoleListTest.cs" />
+    <Compile Include="ArtDatabankenService\UserRoleTest.cs" />
+    <Compile Include="ArtDatabankenService\UserTest.cs" />
+    <Compile Include="ArtDatabankenService\WebServiceClientTest.cs" />
+    <Compile Include="ArtDatabankenService\WebTransactionTest.cs" />
+    <Compile Include="CacheManagerTest.cs" />
+    <Compile Include="AuthorityDataTypeTest.cs" />
+    <Compile Include="AuthorityDataTypeListTest.cs" />
+    <Compile Include="AuthoritySearchCriteriaTest.cs" />
+    <Compile Include="AnalysisManagerMultiThreadCacheTest.cs" />
+    <Compile Include="AnalysisManagerSingleThreadCacheTest.cs" />
+    <Compile Include="AnalysisManagerTest.cs" />
+    <Compile Include="SpeciesActivityTest.cs" />
+    <Compile Include="RevisionSearchCriteriaTest.cs" />
+    <Compile Include="RevisionListTest.cs" />
+    <Compile Include="SpeciesObservationProvenanceTest.cs" />
+    <Compile Include="TaxonManagerMultiThreadCacheTest.cs" />
+    <Compile Include="TaxonManagerSingleThreadCacheTest.cs" />
+    <Compile Include="TaxonSearchCriteriaTest.cs" />
+    <Compile Include="TaxonCategoryNameListTest.cs" />
+    <Compile Include="TaxonNameCategoryTest.cs" />
+    <Compile Include="ReferenceRelationTest.cs" />
+    <Compile Include="TaxonCategoryTest.cs" />
+    <Compile Include="TaxonCategoryListTest.cs" />
+    <Compile Include="TaxonRelation.cs" />
+    <Compile Include="TaxonListTest.cs" />
+    <Compile Include="TaxonTest.cs" />
+    <Compile Include="TaxonManagerTest.cs" />
+    <Compile Include="PersonSearchCriteriaTest.cs" />
+    <Compile Include="PersonUserSearchCriteriaTest.cs" />
+    <Compile Include="RegionManagerTest.cs" />
+    <Compile Include="RoleListTest.cs" />
+    <Compile Include="CoreDataTest.cs" />
+    <Compile Include="CountryListTest.cs" />
+    <Compile Include="CountryManagerMultiThreadCacheTest.cs" />
+    <Compile Include="CountryManagerSingleThreadCacheTest.cs" />
+    <Compile Include="CountryManagerTest.cs" />
+    <Compile Include="CountryTest.cs" />
+    <Compile Include="DataContextTest.cs" />
+    <Compile Include="DataSourceInformationTest.cs" />
+    <Compile Include="LocaleListTest.cs" />
+    <Compile Include="LocaleManagerTest.cs" />
+    <Compile Include="LocaleTest.cs" />
+    <Compile Include="PasswordInformationTest.cs" />
+    <Compile Include="PersonGenderListTest.cs" />
+    <Compile Include="PersonGenderTest.cs" />
+    <Compile Include="PersonListTest.cs" />
+    <Compile Include="PersonTest.cs" />
+    <Compile Include="PhoneNumberListTest.cs" />
+    <Compile Include="PhoneNumberTest.cs" />
+    <Compile Include="PhoneNumberTypeListTest.cs" />
+    <Compile Include="PhoneNumberTypeTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="RedListCriteriaBuilderTest.cs" />
+    <Compile Include="UserContextTest.cs" />
+    <Compile Include="UserListTest.cs" />
+    <Compile Include="UserManagerMultiThreadCacheTest.cs" />
+    <Compile Include="UserManagerSingleThreadCacheTest.cs" />
+    <Compile Include="UserManagerTest.cs" />
+    <Compile Include="UserTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{E0BDD6BC-E301-4DC9-A15A-54700E620D9D}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

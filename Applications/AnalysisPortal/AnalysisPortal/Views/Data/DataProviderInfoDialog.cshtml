@@ -1,0 +1,29 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.DataProviders.DataProviderViewModel
+@{
+    string url = Model.Url;
+    if (!string.IsNullOrEmpty(url))
+    {
+        if (!url.StartsWith("http") || url.StartsWith("https"))
+        {
+            url = "http://" + url;
+        }    
+    }    
+}
+
+<table class="table table-bordered">
+    <tr>
+        <td>@Resource.SharedDescription</td>
+        <td>@Model.Description</td>
+    </tr>
+    <tr>
+        <td>Url</td>
+        <td class="breakable"><a href="@Html.Raw(url)" target="_blank">@Model.Url</a></td>
+    </tr>
+    <tr>
+        <td>@Resource.SharedOrganization</td>
+        <td>@Model.Organization</td>
+    </tr>
+</table>
+
+ 

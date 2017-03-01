@@ -1,0 +1,28 @@
+﻿@model List<ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map.WfsLayerViewModel>
+
+<div style="max-height: 400px; overflow: auto;">
+    @{
+        var serviceLayers = Model.Where(l => !l.IsFile).ToArray();
+        if (serviceLayers.Length != 0)
+        {
+            <h4>@Resource.SharedServices</h4>
+            <ul class="ellipseList">
+                @foreach (var layer in serviceLayers)
+                {
+                    <li>@layer.Name</li>
+                }
+            </ul>
+        }
+        var fileLayers = Model.Where(l => l.IsFile).ToArray();
+        if (fileLayers.Length != 0)
+        {
+            <h4>@Resource.SharedUploadedFiles</h4>
+            <ul class="ellipseList">
+                @foreach (var layer in fileLayers)
+                {
+                    <li>@layer.Name</li>
+                }
+            </ul>
+        }
+    }
+</div>

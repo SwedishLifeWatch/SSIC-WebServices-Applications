@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.GeoReferenceService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CoordinateDelimiter" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="RegionCategoriesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RegionCategories</Value>
+    </Setting>
+    <Setting Name="RegionTypesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RegionTypes</Value>
+    </Setting>
+    <Setting Name="RegionGeographyCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RegionGeography</Value>
+    </Setting>
+    <Setting Name="RegionsInCategoryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RegionsInCategory</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

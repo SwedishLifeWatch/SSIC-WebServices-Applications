@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken</RootNamespace>
+    <AssemblyName>ArtDatabanken</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\ArtDatabanken.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <NoWarn>1591</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 32|AnyCPU' ">
+    <OutputPath>bin\Release 32\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 64|AnyCPU' ">
+    <OutputPath>bin\Release 64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 32|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release 32\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release 64|x64' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release 64\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyExtension.cs" />
+    <Compile Include="BooleanExtension.cs" />
+    <Compile Include="Data\ContinuousDeclineEnum.cs" />
+    <Compile Include="Data\CountyGuid.cs" />
+    <Compile Include="Data\CountyFeatureId.cs" />
+    <Compile Include="Data\DataId32.cs" />
+    <Compile Include="Data\DataIdInt32List.cs" />
+    <Compile Include="Data\ExtremeFluctuationsEnum.cs" />
+    <Compile Include="Data\ImpactImportanceEnum.cs" />
+    <Compile Include="Data\RegionSearchTypeEnum.cs" />
+    <Compile Include="Data\OrganismAsSubstrateImportanceEnum.cs" />
+    <Compile Include="Data\OrganismGroupStandardId.cs" />
+    <Compile Include="Data\BiotopeImportanceEnum.cs" />
+    <Compile Include="Data\FactorOriginId.cs" />
+    <Compile Include="Data\PictureLifeCycleStatusIdentifier.cs" />
+    <Compile Include="Data\PictureRelationDataTypeIdentifier.cs" />
+    <Compile Include="Data\ProvinceFeatureId.cs" />
+    <Compile Include="Data\RegionCategoryId.cs" />
+    <Compile Include="Data\SeverelyFragementedEnum.cs" />
+    <Compile Include="Data\SubstrateImportanceEnum.cs" />
+    <Compile Include="Data\TaxonNameUsageId.cs" />
+    <Compile Include="Data\NumberCompareOperator.cs" />
+    <Compile Include="Data\CountyOccurrenceEnum.cs" />
+    <Compile Include="Data\FactorFieldDataTypeId.cs" />
+    <Compile Include="Data\FactorFieldEnumId.cs" />
+    <Compile Include="Data\FactorId.cs" />
+    <Compile Include="Data\FactorSearchScope.cs" />
+    <Compile Include="Data\FactorUpdateModeType.cs" />
+    <Compile Include="Data\GridCellGeometryType.cs" />
+    <Compile Include="Data\DataId32List.cs" />
+    <Compile Include="Data\DataId64List.cs" />
+    <Compile Include="Data\DataList.cs" />
+    <Compile Include="Data\FeatureType.cs" />
+    <Compile Include="Data\IDataId32.cs" />
+    <Compile Include="Data\IDataId32Extension.cs" />
+    <Compile Include="Data\IDataId64.cs" />
+    <Compile Include="Data\IndividualCategoryId.cs" />
+    <Compile Include="Data\LandscapeTypeImportanceEnum.cs" />
+    <Compile Include="Data\OrganismGroupType.cs" />
+    <Compile Include="Data\PeriodId.cs" />
+    <Compile Include="Data\PeriodTypeId.cs" />
+    <Compile Include="Data\PictureRelationTypeIdentifier.cs" />
+    <Compile Include="Data\ProvinceGuid.cs" />
+    <Compile Include="Data\RedListTaxonTypeEnum.cs" />
+    <Compile Include="Data\ResourceTypeIdentifier.cs" />
+    <Compile Include="Data\SortOrder.cs" />
+    <Compile Include="Data\SpatialReferenceSystemId.cs" />
+    <Compile Include="Data\SpeciesActivityCategoryId.cs" />
+    <Compile Include="Data\SpeciesFactQualityId.cs" />
+    <Compile Include="Data\SpeciesObservationSpecificationId.cs" />
+    <Compile Include="Data\Periodicity.cs" />
+    <Compile Include="Data\SpeciesProtectionLevelEnum.cs" />
+    <Compile Include="Data\ThematicListEnum.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Int16Extension.cs" />
+    <Compile Include="Database\DataTableExtension.cs" />
+    <Compile Include="Data\ApplicationIdentifier.cs" />
+    <Compile Include="Data\AuthorityType.cs" />
+    <Compile Include="Data\CompareOperator.cs" />
+    <Compile Include="Data\Configuration.cs" />
+    <Compile Include="Data\CoordinateSystemId.cs" />
+    <Compile Include="Data\GridCoordinateSystem.cs" />
+    <Compile Include="Data\CountryId.cs" />
+    <Compile Include="Data\DataType.cs" />
+    <Compile Include="Data\LocaleId.cs" />
+    <Compile Include="Data\LogicalOperator.cs" />
+    <Compile Include="Data\LumpSplitEventTypeId.cs" />
+    <Compile Include="Data\ReferenceRelationTypeId.cs" />
+    <Compile Include="Data\SpeciesObservationDataProviderId.cs" />
+    <Compile Include="Data\TaxonAlertStatusId.cs" />
+    <Compile Include="Data\TaxonRelationSearchScope.cs" />
+    <Compile Include="Data\TaxonRevisionStateId.cs" />
+    <Compile Include="Data\LSID.cs" />
+    <Compile Include="Data\RedListCategory.cs" />
+    <Compile Include="Data\RegionGUID.cs" />
+    <Compile Include="Data\RoleType.cs" />
+    <Compile Include="Data\SpeciesObservationClassId.cs" />
+    <Compile Include="Data\SpeciesObservationPropertyId.cs" />
+    <Compile Include="Data\StringCompareOperator.cs" />
+    <Compile Include="Data\TaxonSearchScope.cs" />
+    <Compile Include="Data\TaxonCategoryId.cs" />
+    <Compile Include="Data\TaxonChangeStatusId.cs" />
+    <Compile Include="Data\TaxonId.cs" />
+    <Compile Include="Data\TaxonNameCategoryId.cs" />
+    <Compile Include="Data\TaxonNameCategoryTypeId.cs" />
+    <Compile Include="Data\TaxonNameStatusId.cs" />
+    <Compile Include="Data\TaxonRevisionEventTypeId.cs" />
+    <Compile Include="Data\TaxonTreeSearchScope.cs" />
+    <Compile Include="Data\UserType.cs" />
+    <Compile Include="DateTimeExtension.cs" />
+    <Compile Include="DoubleExtension.cs" />
+    <Compile Include="ICollectionExtension.cs" />
+    <Compile Include="Int32Extension.cs" />
+    <Compile Include="Int64Extension.cs" />
+    <Compile Include="Log\TelemetryMetric.cs" />
+    <Compile Include="Log\TelemetryProperty.cs" />
+    <Compile Include="NullableStructExtension.cs" />
+    <Compile Include="ObjectExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\CipherString.cs" />
+    <Compile Include="Security\Credentials.cs" />
+    <Compile Include="Security\CryptationHandler.cs" />
+    <Compile Include="Security\PasswordGenerator.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StringExtension.cs" />
+    <Compile Include="TextBuilder.cs" />
+    <Compile Include="TimeSpanExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="CustomDictionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

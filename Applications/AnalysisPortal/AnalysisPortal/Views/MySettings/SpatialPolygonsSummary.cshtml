@@ -1,0 +1,84 @@
+﻿@model string
+
+<div id="mapSummaryControl" class="clearfix map" style="margin-top:7px; width: 350px; height:350px;">
+    <div class="clearfix" id="mapSummaryDiv" style="height: 100%; width: 100%; position:relative;"></div>
+</div>
+
+<script type="text/javascript">
+    var summaryMap;
+  
+    $(document).ready(function () {
+        var currentCoordinateSystem = AnalysisPortal.GIS.CurrentCoordinateSystem;
+        try {
+            AnalysisPortal.GIS.CurrentCoordinateSystem = "EPSG:900913";
+            createSummaryMap();
+            addPolygons();
+            AnalysisPortal.GIS.zoomToFeaturesInVisibleVectorLayers(summaryMap, { zoomToSwedenIfFail: true });
+        } catch(e) {
+        } finally {
+            AnalysisPortal.GIS.CurrentCoordinateSystem = currentCoordinateSystem;
+        }
+    });
+
+    function addPolygons() {
+        @if (!string.IsNullOrEmpty(Model))
+        {
+        <text>
+            var strJson = '@Html.Raw(Model)';
+            var features = new OpenLayers.Format.GeoJSON().read(strJson);
+            summaryMap.spatialLayer.addFeatures(features, { silent: true });
+        </text>
+        }
+    }
+
+    function createSummaryMap() {
+        var baseMapOptions = {
+            controls: [
+                new OpenLayers.Control.Navigation(),
+                new OpenLayers.Control.ArgParser(),
+                new OpenLayers.Control.Attribution()
+            ]
+        };
+
+        var toolsOptions = {
+            ShowMousePosition: false,
+            UseNavigationHistory: false,
+            ShowCreatePolygonTools: false,
+            ShowSelectManyControl: false,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: false,
+                OpenSwitcher: false
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [{
+            id: VectorLayers.Observations,
+            visible: false
+        }, {
+            id: VectorLayers.ObservationAccuracy,
+            visible: false
+        }, {
+            id: VectorLayers.SpatialFilter,
+            mainLayer: true,
+            visible: true
+        }
+        ];
+
+        AnalysisPortal.GIS.CurrentCoordinateSystem = "EPSG:900913";
+        summaryMap = AnalysisPortal.GIS.initMap({
+            divId: 'mapSummaryDiv',
+            panelDivId: null,
+            baseMapOptions: baseMapOptions,
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            restoreMapState: false
+        });
+
+    }
+
+</script>

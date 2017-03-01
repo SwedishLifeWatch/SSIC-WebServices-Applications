@@ -1,0 +1,303 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Temporal.TemporalFilterViewModel
+
+<style type="text/css">
+  
+</style>
+
+@{
+    ViewBag.Title = Resource.FilterTemporalTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton" ><i class="icon-save"></i> &nbsp; @if (Model.IsAllTemporalSettingsDisabled) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedChangeFilter</text> } </button>        
+        <button id="toolbarButtonReset" @if (Model.IsAllTemporalSettingsDisabled) { <text>disabled="disabled"</text> } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>
+    </div>
+</div>
+
+<a data-toggle="collapse" href="#pageInstructions" aria-expanded="false" aria-controls="collapseExample">@Resource.SharedInstructionsAndSupportTitle <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></a>
+<div class="collapse" id="pageInstructions">        
+    <div class="well well-sm">
+        @Html.Raw(Resource.FilterTemporalHelpInstructions)       
+    </div>
+</div>
+
+<div style="margin-top: 10px;">
+    <fieldset class="temporalFilterGroup">
+        <legend>
+            <input id="chkUseObservationDate" type="checkbox" @if (Model.ObservationDate.UseSetting) { <text>checked="checked"</text>} />
+            <span>@Resource.FilterTemporalObsDateTitle</span>
+        </legend>
+        <div id="ObservationDateDetailsDiv" @if (!Model.ObservationDate.UseSetting) { <text>class="disabled"</text>}>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalFrom:
+                </p>
+                <input id="FromObsDate" type="text" value="@Model.ObservationDate.StartDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalTo:
+                </p>
+                <input id="ToObsDate" type="text" value="@Model.ObservationDate.EndDate.ToString("yyyy-MM-dd")"/>
+            </div>
+            <div style="margin-left: 5px;">                        
+                <input type="radio" id="obsDateType1" value="1" @if (!Model.ObservationDate.Annually) { <text> checked="checked" </text> } name="ObsDateType" />
+                <label for="obsDateType1">@Resource.FilterTemporalDateLabel</label>
+                <input type="radio" id="obsDateType2" style="margin-left: 10px;" value="2" @if (Model.ObservationDate.Annually) { <text> checked="checked" </text> } name="ObsDateType" />
+                <label for="obsDateType2" id="obsDateType2Description">@Resource.FilterTemporalAnnually</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="temporalFilterGroup">
+        <legend>
+            <input id="chkUseRegistrationDate" type="checkbox" @if (Model.RegistrationDate.UseSetting) { <text> checked="checked" </text> } />
+            <span>@Resource.FilterTemporalRegDateTitle</span>
+        </legend>
+        <div id="RegistrationDateDetailsDiv" @if (!Model.RegistrationDate.UseSetting) { <text> class="disabled" </text> }>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalFrom:
+                </p>
+                <input id="FromRegDate" type="text" value="@Model.RegistrationDate.StartDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalTo:
+                </p>
+                <input id="ToRegDate" type="text" value="@Model.RegistrationDate.EndDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div style="margin-left: 5px;">
+                <input type="radio" id="regDateType1" value="1" @if (!Model.RegistrationDate.Annually) { <text> checked="checked" </text>  } name="RegDateType" />
+                <label for="regDateType1">@Resource.FilterTemporalDateLabel</label>
+                <input type="radio" id="regDateType2" style="margin-left: 10px;" value="2" @if (Model.RegistrationDate.Annually) { <text> checked="checked" </text>  } name="RegDateType" />
+                <label for="regDateType2" id="regDateType2Description">@Resource.FilterTemporalAnnually</label>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="temporalFilterGroup">
+        <legend>
+            <input id="chkUseChangeDate" type="checkbox" @if (Model.ChangeDate.UseSetting) { <text> checked="checked" </text>  } />
+            <span>@Resource.FilterTemporalChangeDateTitle</span>
+        </legend>
+        <div id="ChangeDateDetailsDiv" @if (!Model.ChangeDate.UseSetting) { <text> class="disabled" </text>  }>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalFrom:
+                </p>
+                <input id="FromChangeDate" type="text" value="@Model.ChangeDate.StartDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div class="inputLabel">
+                <p class="inputLabel">
+                    @Resource.FilterTemporalTo:
+                </p>
+                <input id="ToChangeDate" type="text" value="@Model.ChangeDate.EndDate.ToString("yyyy-MM-dd")" />
+            </div>
+            <div style="margin-left: 5px;">
+                <input type="radio" id="changeDateType1" value="1" @if (!Model.ChangeDate.Annually) { <text> checked="checked" </text>   } name="ChangeDateType" />
+                <label for="changeDateType1">@Resource.FilterTemporalDateLabel</label>
+                <input type="radio" id="changeDateType2" style="margin-left: 10px;" value="2" @if (Model.ChangeDate.Annually) { <text> checked="checked" </text>   } name="ChangeDateType" />
+                <label for="changeDateType2" id="changeDateType2Description">@Resource.FilterTemporalAnnually</label>
+            </div>
+        </div>
+    </fieldset>     
+</div>
+
+
+<form method="POST" id="saveSettingsForm">
+    @Html.Hidden("data")
+</form>
+
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+    var myWindow;
+    var collapsePanel;
+    var Vme;
+    var Ve;
+    var Vt;
+    var VeOpts;
+
+    
+
+    $(document).ready(function () {
+        $('#chkUseObservationDate').click(function () {
+            $('#ObservationDateDetailsDiv').toggleClass('disabled');                
+        });
+        $('#chkUseRegistrationDate').click(function () {
+            $('#RegistrationDateDetailsDiv').toggleClass('disabled');
+        });
+        $('#chkUseChangeDate').click(function () {
+            $('#ChangeDateDetailsDiv').toggleClass('disabled');
+        });
+
+        $("#FromObsDate, #ToObsDate").datepicker({
+            format: "yyyy-mm-dd",
+            language: "sv"
+        }).on('changeDate change', function (e) {
+            setObservationAnnualDescription();            
+        });                      
+
+        $("#FromRegDate, #ToRegDate").datepicker({                
+            format: "yyyy-mm-dd",                
+            language: "sv"
+        }).on('changeDate change', function (e) {
+            setRegistrationAnnualDescription();            
+        });
+
+        $("#FromChangeDate, #ToChangeDate").datepicker({
+            format: "yyyy-mm-dd",
+            language: "sv"
+        }).on('changeDate change', function (e) {
+            setChangeAnnualDescription();            
+        });
+    
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+
+        setTimeout(function() {
+            setObservationAnnualDescription();
+            setRegistrationAnnualDescription();
+            setChangeAnnualDescription();
+        }, 500);
+       
+    });
+
+    function getAnnualFromToDateDescription(fromDate, toDate) {
+        // Date formatting: F=november, M=nov, j=1, d=01
+        var strObsFromDate = Ext.util.Format.date(fromDate, 'j M');
+        var strObsEndDate = Ext.util.Format.date(toDate, 'j M');
+        return Ext.String.format('{0} ({1} - {2})', AnalysisPortal.Resources.FilterTemporalAnnually, strObsFromDate, strObsEndDate);
+    }
+
+    function setObservationAnnualDescription() {
+        var obsFromDate = $('#FromObsDate').val();
+        var obsEndDate = $('#ToObsDate').val();
+        var obsAnnualDescription = getAnnualFromToDateDescription(obsFromDate, obsEndDate);
+        $('#obsDateType2Description').text(obsAnnualDescription);
+    }
+
+    function setRegistrationAnnualDescription() {
+        var obsFromDate = $('#FromRegDate').val();
+        var obsEndDate = $('#ToRegDate').val();
+        var obsAnnualDescription = getAnnualFromToDateDescription(obsFromDate, obsEndDate);
+        $('#regDateType2Description').text(obsAnnualDescription);
+    }
+
+    function setChangeAnnualDescription() {
+        var obsFromDate = $('#FromChangeDate').val();
+        var obsEndDate = $('#ToChangeDate').val();
+        var obsAnnualDescription = getAnnualFromToDateDescription(obsFromDate, obsEndDate);
+        $('#changeDateType2Description').text(obsAnnualDescription);
+    }
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTemporal", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+
+        $('#toolbarButtonHelp').click(function () {
+            toggleHelp();
+        });
+
+        $("#toggle-instructions").click(function (e) {
+            toggleHelp();
+        });
+    }
+
+    function toggleHelp() {
+        var strSpeed = 'slow';
+        if ($('#toolbarButtonHelp').hasClass('active')) {
+            strSpeed = 'fast';
+        }
+        $("div.report-instruktion-wrapper:first").fadeToggle(strSpeed, function () {
+            $('#toolbarButtonHelp').removeClass('active');
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var obsFromDate = $('#FromObsDate').val();
+        var obsEndDate = $('#ToObsDate').val();
+        var useObsSetting = $("#chkUseObservationDate").is(":checked");
+        var obsDateStatus = parseInt($("[name='ObsDateType']:checked").val());
+        var observationDate = {
+            StartDate: obsFromDate,
+            EndDate: obsEndDate,
+            UseSetting: useObsSetting,
+            Annually: obsDateStatus === 2
+        };
+
+        var regFromDate = $('#FromRegDate').val();
+        var regEndDate = $('#ToRegDate').val();
+        var useRegSetting = $("#chkUseRegistrationDate").is(":checked");
+        var regDateStatus = parseInt($("[name='RegDateType']:checked").val());
+        var registrationDate = {
+            StartDate: regFromDate,
+            EndDate: regEndDate,
+            UseSetting: useRegSetting,
+            Annually: regDateStatus === 2
+        };
+
+        var changeFromDate = $('#FromChangeDate').val();
+        var changeEndDate = $('#ToChangeDate').val();
+        var useChangeSetting = $("#chkUseChangeDate").is(":checked");
+        var changeDateStatus = parseInt($("[name='ChangeDateType']:checked").val());
+        var changeDate = {
+            StartDate: changeFromDate,
+            EndDate: changeEndDate,
+            UseSetting: useChangeSetting,
+            Annually: changeDateStatus === 2
+        };
+
+        var data = {
+            ObservationDate: observationDate,
+            RegistrationDate: registrationDate,
+            ChangeDate: changeDate
+        };
+        return data;
+    }
+
+</script>

@@ -1,0 +1,46 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ext Js basic tooltips sample</title>
+        <link href="~/Content/ext-all-slate-min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/AnalysisPortal.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/Overrides.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+
+        <style>
+            body {                
+                margin: 20px;                
+            }
+            div.info {
+                margin: 10px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            Ext.tip.QuickTipManager.init();        
+        </script>
+    </head>
+    <body>
+
+
+        <h3>Ext Js basic Tooltips</h3>
+        <div>
+            <div class="info"><button type="button" class="btn-primary" data-qtip="This is a quick tip from markup!">Button with tooltip</button></div>
+            <div class="info"><button type="button" class="btn-primary" data-qtitle="OK Button" data-qtip="This is a quick tip from markup!">Button with tooltip and title</button></div>
+            <div class="info">This is a text with <span style="font-weight: bold" data-qtip="This is a tooltip">this part</span> as hoverable.</div>
+        </div>
+
+    </body>
+</html>

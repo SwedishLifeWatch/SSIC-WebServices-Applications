@@ -1,0 +1,80 @@
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    /*max-width: 984px;*/
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Temporary class for adjusting width problem in iframe (artdatabanken.se) */
+div#leftContainer {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 600px;
+}
+ 
+#header
+{
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;    
+}
+
+#header h1
+{
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 32px !important;
+}
+
+#main
+{ 
+    padding: 10px 10px 15px 10px;
+    background-color: #fff;
+    margin-bottom: 15px;
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    width: 880px;
+}
+
+#footer
+{
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0;
+    font-size: .9em;
+}
+
+div#footerContent
+{
+    font-size: 11px;
+    display:block;
+    width: 850px;
+    margin: 0;
+    padding-top: 5px;
+}
+
+/* Use this to create a horizontal ruler across a column. */
+hr {
+  background: #ddd; 
+  color: #ddd;
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: 1px;
+  margin: 5px 0;
+  border: none; 
+}

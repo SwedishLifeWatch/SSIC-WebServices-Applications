@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="AuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DataType" />
+      <xs:enumeration value="Application" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorityType" nillable="true" type="tns:AuthorityType" />
+  <xs:simpleType name="LogicalOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="And" />
+      <xs:enumeration value="Not" />
+      <xs:enumeration value="Or" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogicalOperator" nillable="true" type="tns:LogicalOperator" />
+  <xs:complexType name="ArrayOfStringCompareOperator">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringCompareOperator" type="tns:StringCompareOperator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStringCompareOperator" nillable="true" type="tns:ArrayOfStringCompareOperator" />
+  <xs:simpleType name="StringCompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeginsWith" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotEqual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StringCompareOperator" nillable="true" type="tns:StringCompareOperator" />
+  <xs:simpleType name="CompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Excluding" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="GreaterOrEqual" />
+      <xs:enumeration value="Including" />
+      <xs:enumeration value="Less" />
+      <xs:enumeration value="LessOrEqual" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotEqual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CompareOperator" nillable="true" type="tns:CompareOperator" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Person" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
+</xs:schema>

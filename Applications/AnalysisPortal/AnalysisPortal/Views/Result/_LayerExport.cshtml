@@ -1,0 +1,226 @@
+﻿
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.LayerExportModel
+
+<form id="layerExportForm" method="POST" action="_LayerExport">
+    @if (Model.PreSelectMode)
+    {
+        @Html.HiddenFor(m => m.LayerId)
+        @Html.HiddenFor(m => m.Attribute)
+        @Html.HiddenFor(m => m.DataType)
+        @Html.HiddenFor(m => m.ExportFormat)
+    }
+    else
+    {
+        <label>@Resource.LayerExportFormatLabel</label>
+        foreach (var exportFormat in Model.ExportFormats)
+        {
+            <div class="radio" style="margin-top: 0">
+                <label>
+                    <input type="radio" name="ExportFormat" class="ExportFormat" value="@exportFormat.Value" @Html.Raw(Model.ExportFormat.ToString() == exportFormat.Value ? "checked=\"checked\"" : "")> @exportFormat.Text
+                </label>
+            </div>
+        }
+
+        <div class="form-group">
+            <label for="LayerId">@Resource.LayerExportLayerLabel</label>
+            <select id="LayerId" name="LayerId" class="form-control"></select>
+        </div>
+        <div class="form-group concaveHull">
+            <label for="alphaValue">@Resource.MapEOOLayerConcaveCalculateAlphaValue</label>
+            <input type="text" id="alphaValue" name="Alphavalue" class="slider" data-slider-min="0" data-slider-max="1000" data-slider-step="1" data-slider-value="200" data-slider-tooltip="always"/>
+        </div>
+        <div class="form-group concaveHull">
+            <label for="useCenterPoint"><input type="checkbox" id="useCenterPoint" name="UseCenterPoint" checked value="true" />&nbsp;@Resource.MapEOOLayerConcaveCalculateUseCenterPoint</label>
+        </div>
+        <div class="form-group tiffExport">
+            <label for="Attribute">@Resource.LayerExportAttributeLabel</label>
+            <select id="Attribute" name="Attribute" class="form-control" disabled="disabled"></select>
+        </div>
+        <div class="form-group tiffExport">
+            <label for="DataType">@Resource.LayerExportGridDataTypeLabel</label>
+            @Html.DropDownListFor(m => m.DataType, Model.DataTypes, new { @class = "form-control" })
+        </div>
+    }
+
+    <div class="tiffExport">
+        <div class="radio">
+            <label>
+                <input type="radio" name="RazterSize" class="RazterSize" value="0"> @Resource.LayerExportRasterSizeLabel
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="RazterSize" class="RazterSize" checked="checked" value="1"> @Resource.LayerExportRasterResolutionLabel
+                <i class="icon-info" title="@Resource.LayerExportRazterSize"></i>
+            </label>
+        </div>
+        <div id="sizeInPixels" style="margin-top: 20px;">
+            <div class="form-group">
+                <label for="PixelsHeight">@Resource.LayerExportHeightLabel</label>
+                <input type="text" id="PixelsHeight" name="PixelsHeight" class="slider" data-slider-min="500" data-slider-max="5000" data-slider-step="500" data-slider-value="2000" data-slider-tooltip="always" data-slider-orientation="vertical" data-slider-reversed="true" />
+            </div>
+            <div class="form-group">
+                <label for="PixelsWidth">@Resource.LayerExportWidthLabel</label>
+                <input type="text" id="PixelsWidth" name="PixelsWidth" class="slider" data-slider-min="500" data-slider-max="5000" data-slider-step="500" data-slider-value="2000" data-slider-tooltip="always" />
+            </div>
+        </div>
+        <div id="sizeByResolution" style="margin-top: 20px;">
+            <div class="form-group">
+                <label for="PixelSize">@Resource.LayerExportCellResolutionLabel</label>
+                <input type="text" id="PixelSize" name="PixelSize" class="slider" data-slider-min="1000" data-slider-max="10000" data-slider-step="1000" data-slider-value="5000" data-slider-tooltip="always" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="@(Model.PreSelectMode ? "pull-left" : "pull-right")">
+        <button type="button" id="exportLayer" class="btn btn-default">@Resource.StateButtonResultDownload</button>
+    </div>
+    <div class="clearfix"></div>
+</form>
+
+<script type="text/javascript">
+    var layerExport = function () {
+        var _map;
+        var _$form;
+        var _$layer;
+        var _$attribute;
+        var _$dataType;
+        var _$pixelsHeight;
+        var _$pixelsWidth;
+        var _$pixelSize;
+        var _preSelectMode = @Model.PreSelectMode.ToString().ToLower();
+
+        function onExportFormatClick() {
+            var exportFormat;
+
+            if (_preSelectMode) {
+                exportFormat = $('#ExportFormat', _$form).val();
+            } else {
+                exportFormat = $('.ExportFormat:checked', _$form).val();
+            }
+
+            if (exportFormat === 'GeoTiff') {
+                $('.tiffExport', _$form).show('slow');
+            } else {
+                $('.tiffExport', _$form).hide('slow');
+            }
+        }
+
+        function onRazterSizeClick() {
+            if ($('.RazterSize:checked', _$form).val() === '1') {
+                $('#sizeByResolution', _$form).show('slow');
+                $('#sizeInPixels', _$form).hide('slow');
+            } else {
+                $('#sizeInPixels', _$form).show('slow');
+                $('#sizeByResolution', _$form).hide('slow');
+            }
+        };
+
+        function onLayerChange() {
+            $('option', _$attribute).remove();
+            _$attribute.attr('disabled', 'disabled');
+           
+            var selectedLayerId = $('option:selected', _$layer).val();
+
+            if (selectedLayerId == SystemLayerIds.EooConcaveHull) {
+                $('.concaveHull').show('slow');
+            } else {
+                $('.concaveHull').hide('slow');
+            }
+
+            if (selectedLayerId) {
+                var layers = _map.getLayersBy('id', selectedLayerId);
+                
+                if (layers.length === 1) {
+                    var layer = layers[0];
+
+                    if (layer.features && layer.features.length !== 0) {
+                        
+                        var feature = layer.features[0];
+
+                        for (var propertyName in feature.data) {
+                            var val = feature.data[propertyName];
+                            if (!isNaN(val)) {
+                                _$attribute.append($('<option/>').attr({ value: propertyName }).text(propertyName));
+                                _$attribute.removeAttr('disabled');
+                            }
+                        }
+                    }
+                }
+            }
+           
+        };
+
+        function onExportLayerClick() {
+            if (_$form.valid()) {
+                AnalysisPortal.blockWhileServerWorking();
+
+                _$form.submit();
+                _$form.closest('div.modal').modal('hide');
+            }
+        };
+
+        function init(map) {
+            _map = map;
+            _$form = $('#layerExportForm');;
+            _$layer = $('#LayerId', _$form);
+            _$attribute = $('#Attribute', _$form);
+            _$dataType = $('#DataType', _$form);
+            _$pixelsHeight = $('#PixelsHeight', _$form);
+            _$pixelsWidth = $('#PixelsWidth', _$form);
+            _$pixelSize = $('#PixelSize', _$form);
+
+            onExportFormatClick();
+            onRazterSizeClick();
+
+            $("input.slider").slider();
+
+            if (_map != null) {
+                for (var i = 0; i < _map.layers.length; i++) {
+                    var layer = _map.layers[i];
+                    if (layer.displayInLayerSwitcher && !layer.isBaseLayer && layer.features && !layer.notExportable) {
+                        var name = layer.name;
+
+                        if (name.length > 38) {
+                            name = name.substring(0, 35) + '...';
+                        }
+
+                        var $option = $('<option/>')
+                            .attr({ value: layer.id })
+                            .text(name);
+
+                        if ($option.val() === '@Model.LayerId') {
+                            $option.attr('selected', 'selected');
+                        }
+
+                        _$layer.append($option);
+                    }
+                }
+
+                onLayerChange();
+
+                _$form.validate({
+                    rules: {
+                        LayerId: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        LayerId: { required: AnalysisPortal.Resources.LayerExportPickLayerError }
+                    }
+                });
+
+                _$layer.on('change', onLayerChange);
+            }
+
+            $('.ExportFormat', _$form).on('click', onExportFormatClick);
+            $('.RazterSize', _$form).on('click', onRazterSizeClick);
+            $('#exportLayer').on('click', onExportLayerClick);
+            $('.icon-info', _$form).tooltip();
+        };
+
+        return {
+            Init: init
+        };
+    }();
+</script>

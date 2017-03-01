@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8662FB29-95D8-47D3-925C-4DE70DE86A6F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebService.ArtDatabankenService</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebService.ArtDatabankenService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\ArtDatabanken.WebService.ArtDatabankenService.XML</DocumentationFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Utils\Microsoft SqlServer\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjNet, Version=1.2.4455.27045, Culture=neutral, PublicKeyToken=a1f5bdcd9c6f5740, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\ProjNet.1.2\lib\net20\ProjNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\Constants.cs" />
+    <Compile Include="Database\DatabaseName.cs" />
+    <Compile Include="Database\DataReader.cs" />
+    <Compile Include="Database\DataServer.cs" />
+    <Compile Include="Database\SqlCommandBuilder.cs" />
+    <Compile Include="Database\SqlSpeciesFactQueryBuilder.cs" />
+    <Compile Include="Data\ApplicationManager.cs" />
+    <Compile Include="Data\AuthorizationManager.cs" />
+    <Compile Include="Data\DatabaseManager.cs" />
+    <Compile Include="Data\DataQueryManager.cs" />
+    <Compile Include="Data\DoubleExtension.cs" />
+    <Compile Include="Data\FactorManager.cs" />
+    <Compile Include="Data\GeographicManager.cs" />
+    <Compile Include="Data\IApplicationManager.cs" />
+    <Compile Include="Data\IAuthorizationManager.cs" />
+    <Compile Include="Data\IndividualCategoryManager.cs" />
+    <Compile Include="Data\IRegionManager.cs" />
+    <Compile Include="Data\ITaxonManager.cs" />
+    <Compile Include="Data\IUserManager.cs" />
+    <Compile Include="Data\IWebServiceManager.cs" />
+    <Compile Include="Data\ListWebRegionExtension.cs" />
+    <Compile Include="Data\ListWebRegionGeographyExtension.cs" />
+    <Compile Include="Data\LogManager.cs" />
+    <Compile Include="Data\ManagerBase.cs" />
+    <Compile Include="Data\PeriodManager.cs" />
+    <Compile Include="Data\ReferenceManager.cs" />
+    <Compile Include="Data\RegionManager.cs" />
+    <Compile Include="Data\SpeciesFactManager.cs" />
+    <Compile Include="Data\SpeciesObservationManager.cs" />
+    <Compile Include="Data\TaxonManager.cs" />
+    <Compile Include="Data\UserManager.cs" />
+    <Compile Include="Data\WebBirdNestActivity.cs" />
+    <Compile Include="Data\WebBoundingBoxExtension.cs" />
+    <Compile Include="Data\WebCity.cs" />
+    <Compile Include="Data\WebClientToken.cs" />
+    <Compile Include="Data\WebCoordinateSystemExtension.cs" />
+    <Compile Include="Data\WebCounty.cs" />
+    <Compile Include="Data\WebData.cs" />
+    <Compile Include="Data\WebDatabase.cs" />
+    <Compile Include="Data\WebDatabaseUpdate.cs" />
+    <Compile Include="Data\WebDataCondition.cs" />
+    <Compile Include="Data\WebDataConversion.cs" />
+    <Compile Include="Data\WebDataField.cs" />
+    <Compile Include="Data\WebDataIdentifier.cs" />
+    <Compile Include="Data\WebDataLimitation.cs" />
+    <Compile Include="Data\WebDataLogicCondition.cs" />
+    <Compile Include="Data\WebDataQuery.cs" />
+    <Compile Include="Data\WebEndangeredList.cs" />
+    <Compile Include="Data\WebFactor.cs" />
+    <Compile Include="Data\WebFactorDataType.cs" />
+    <Compile Include="Data\WebFactorField.cs" />
+    <Compile Include="Data\WebFactorFieldEnum.cs" />
+    <Compile Include="Data\WebFactorFieldEnumValue.cs" />
+    <Compile Include="Data\WebFactorFieldType.cs" />
+    <Compile Include="Data\WebFactorList.cs" />
+    <Compile Include="Data\WebFactorOrigin.cs" />
+    <Compile Include="Data\WebFactorSearchCriteria.cs" />
+    <Compile Include="Data\WebFactorTreeNode.cs" />
+    <Compile Include="Data\WebFactorTreeNodeList.cs" />
+    <Compile Include="Data\WebFactorTreeSearchCriteria.cs" />
+    <Compile Include="Data\WebFactorUpdateMode.cs" />
+    <Compile Include="Data\WebIndividualCategory.cs" />
+    <Compile Include="Data\WebLinearRingExtension.cs" />
+    <Compile Include="Data\WebLogRow.cs" />
+    <Compile Include="Data\WebMultiPolygonExtension.cs" />
+    <Compile Include="Data\WebPeriod.cs" />
+    <Compile Include="Data\WebPeriodType.cs" />
+    <Compile Include="Data\WebPersonExtension.cs" />
+    <Compile Include="Data\WebPointExtension.cs" />
+    <Compile Include="Data\WebPolygonExtension.cs" />
+    <Compile Include="Data\WebProvince.cs" />
+    <Compile Include="Data\WebReference.cs" />
+    <Compile Include="Data\WebRegionGeographyExtension.cs" />
+    <Compile Include="Data\WebResourceStatus.cs" />
+    <Compile Include="Data\WebResourceType.cs" />
+    <Compile Include="Data\WebRoleExtension.cs" />
+    <Compile Include="Data\WebRoleListExtension.cs" />
+    <Compile Include="Data\WebServiceData.cs" />
+    <Compile Include="Data\WebServiceManager.cs" />
+    <Compile Include="Data\WebSpeciesFact.cs" />
+    <Compile Include="Data\WebSpeciesFactCondition.cs" />
+    <Compile Include="Data\WebSpeciesFactFieldCondition.cs" />
+    <Compile Include="Data\WebSpeciesFactQuality.cs" />
+    <Compile Include="Data\WebSpeciesObservation.cs" />
+    <Compile Include="Data\WebSpeciesObservationChange.cs" />
+    <Compile Include="Data\WebSpeciesObservationInformation.cs" />
+    <Compile Include="Data\WebSpeciesObservationSearchCriteria.cs" />
+    <Compile Include="Data\WebTaxon.cs" />
+    <Compile Include="Data\WebTaxonCountyOccurrence.cs" />
+    <Compile Include="Data\WebTaxonName.cs" />
+    <Compile Include="Data\WebTaxonNameSearchCriteria.cs" />
+    <Compile Include="Data\WebTaxonNameType.cs" />
+    <Compile Include="Data\WebTaxonNameUseType.cs" />
+    <Compile Include="Data\WebTaxonSearchCriteria.cs" />
+    <Compile Include="Data\WebTaxonTreeNode.cs" />
+    <Compile Include="Data\WebTaxonTreeNodeList.cs" />
+    <Compile Include="Data\WebTaxonTreeSearchCriteria.cs" />
+    <Compile Include="Data\WebTaxonType.cs" />
+    <Compile Include="Data\WebTaxonTypeList.cs" />
+    <Compile Include="Data\WebUser.cs" />
+    <Compile Include="Data\WebUserParameterSelection.cs" />
+    <Compile Include="Data\WebUserRole.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StringExtension.cs" />
+    <Compile Include="WebServiceContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{b1493059-6445-4da5-b58d-8876bea79dd0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{adae68c2-6967-4368-ba15-97d1a0a7e25c}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2ce2ff5b-7cbf-4fe1-84f4-6d03f8be0cb7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

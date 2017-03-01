@@ -1,0 +1,16 @@
+﻿@using AnalysisPortal.Helpers.ActionFilters
+@model dynamic
+
+User-agent: *
+@foreach (ActionInfo actionInfo in IndexedBySearchRobotsAttribute.GetDisallowedPages())
+{
+@:Disallow: @Html.Raw(string.Format("/{0}/{1}", actionInfo.Controller, actionInfo.Action)) 
+@*@:Disallow: @Html.Raw(Url.Action(actionInfo.Action, actionInfo.Controller))*@
+}
+@foreach (ActionInfo actionInfo in IndexedBySearchRobotsAttribute.GetAllowedPages())
+{
+@:Allow: @Html.Raw(string.Format("/{0}/{1}", actionInfo.Controller, actionInfo.Action))     
+@*@:Allow: @Html.Raw(Url.Action(actionInfo.Action, actionInfo.Controller))*@
+@*@:Allow: @Html.Raw(Url.Action(actionInfo.Action, actionInfo.Controller))*@
+}
+Allow: /

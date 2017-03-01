@@ -1,0 +1,10 @@
+﻿User-agent: *
+Allow: /home/index/
+Allow: /Data/Index/
+Allow: /Filter/Index/
+Allow: /Result/index/
+Allow: /Result/Info/
+Allow: /Result/SpeciesObservationGridMap/
+Allow: /Result/SpeciesRichnessGridMap/
+Allow: /Result/SummaryStatisticsReport/
+Disallow: /

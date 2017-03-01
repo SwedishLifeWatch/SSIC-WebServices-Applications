@@ -1,0 +1,77 @@
+﻿@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxonSearchOptions
+
+
+@Html.HiddenFor(m => m.RestrictToTaxonId)
+
+<form style="margin-top: 20px;">
+    @if (Model.RestrictToTaxonId.HasValue)
+    {
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="checkbox">
+                    <label>
+                        @Html.CheckBoxFor(x => Model.RestrictToTaxonChildren) @Model.RestrictToTaxonDescription
+                    </label>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.NameCompareOperator, Model.Labels.TaxonNameCompareOperatorLabel)
+            @Html.DropDownListFor(x => Model.NameCompareOperator, Model.CreateCompareOperatorSelectlist(Model.NameCompareOperator), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.IsUnique, Model.Labels.IsUniqueLabel)
+            @Html.DropDownListFor(x => x.IsUnique, Model.CreateNullableBoolSelectlist(Model.IsUnique), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            <td>
+            @Html.LabelFor(x => Model.IsValidTaxon, Model.Labels.IsValidTaxonLabel)
+            @Html.DropDownListFor(x => Model.IsValidTaxon, Model.CreateNullableBoolSelectlist(Model.IsValidTaxon), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.IsRecommended, Model.Labels.IsRecommendedLabel)
+            @Html.DropDownListFor(x => Model.IsRecommended, Model.CreateNullableBoolSelectlist(Model.IsRecommended), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.IsOkForObsSystems, Model.Labels.IsOkForObsSystemLabel)
+            @Html.DropDownListFor(x => Model.IsOkForObsSystems, Model.CreateNullableBoolSelectlist(Model.IsOkForObsSystems), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.IsValidTaxonName, Model.Labels.IsValidTaxonNameLabel)
+            @Html.DropDownListFor(x => Model.IsValidTaxonName, Model.CreateNullableBoolSelectlist(Model.IsValidTaxonName), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.NameCategoryId, Model.Labels.TaxonNameCategoryLabel)
+            @Html.DropDownListFor(x => Model.NameCategoryId, Model.CreateTaxonNameCategorySelectList(Model.NameCategoryId), new {@class = "form-control"})
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="form-group">
+            @Html.LabelFor(x => Model.AuthorSearchString, Model.Labels.AuthorLabel)
+            @Html.TextBoxFor(x => Model.AuthorSearchString, new {@class = "form-control"})
+        </div>
+    </div>
+</form>
+

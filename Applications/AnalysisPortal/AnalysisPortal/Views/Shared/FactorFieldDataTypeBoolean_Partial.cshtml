@@ -1,0 +1,16 @@
+﻿@model ArtDatabanken.Data.IFactorField
+
+<h3>@Model.Label</h3>
+@foreach (var value in Model.Enum.Values)
+{
+    var fieldId = "" + value.Id;
+    var fieldValue = value.KeyInt != 0;
+    var fieldLabel = "" + @Model.Label;
+    fieldLabel = fieldLabel.Replace(" ", "");
+    var fieldName = "factorfield-" + fieldLabel;
+
+    <input @{<text>name="@fieldName"</text>} @{<text>id="@fieldId"</text>} type="checkbox" @{<text>value="@fieldValue.ToString()"</text>} class="checkboxRightMargin" />
+    <label class="inlineLabel" @{<text>for="@fieldId"</text>}>@value.Label</label>
+    <br />
+}
+

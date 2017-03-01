@@ -1,0 +1,259 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxonFromSearchViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="addSelectedTaxaButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedAddFilter</text> } </button>
+        @*<button id="addSelectedTaxaButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedChangeFilter</text> } </button>*@
+        @*<button id="addSelectedTaxaButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.FilterTaxonFromSearchAddToTaxaFilter</text> } </button>*@        
+        <button id="addUnderlyingSpeciesButton" class="btn toolbarButton" title="@Model.Labels.AddTaxaButtonTooltip" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @Resource.FilterTaxonFromIdsChooseUnderlyingSpecies</button>
+        @*<button id="toolbarButtonReset" @if (Model.IsSettingsDefault) { <text> disabled="disabled" </text>  } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>*@
+    </div>
+</div>
+ 
+<div id="searchSection">
+    <div>
+        <input type="text" id="txtSearchText" style="width: 500px;"/>
+        <button id="btnTaxaListSearch" class="btn action-button" type="button" style="vertical-align: top;"><i class="icon-search icon-white"></i> &nbsp; @Model.Labels.SearchLabel</button>
+        
+        &nbsp; &nbsp;
+        <button class="btn action-button" onclick="$('#collapseOne').toggleClass('in');" title="@Model.Labels.SearchOptionsTooltip" data-placement="top" style="vertical-align: top;">@Resources.Resource.TaxonSearchOptionsLabel &nbsp;<i style="padding: 3px 0 0 0" class="icon-plus icon-white right"></i></button>
+        <div class="accordion" id="accordion2">
+            <div class="accordion-group">                                     
+                <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                        @Html.Partial("TaxonSearchOptions", Model.SearchOptions, new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "SearchOptions" } })
+                        <div class="col-xs-12" id="searchRestrictionsInfo"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="searchTaxaDiv" class="gridMarginTop"></div>
+</div>
+
+<br/>
+
+<span @if(Model.IsSettingsDefault) { <text>style="display:none;"</text> }>    
+    @Html.Action("SelectedTaxaPartial", new { showTaxaSelectionCheckboxes = false })
+</span>
+
+@* Form used to add selected taxa to MySettings. Always triggered by Javascript*@
+@using (Html.BeginForm("AddTaxaToFilter", "Filter", FormMethod.Post, new { @id = "addTaxaToFilterForm", @name = "addTaxaToFilterForm" }))
+{
+    @Html.Hidden("strTaxonIds") 
+    @Html.Hidden("returnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery)        
+}
+
+<script type="text/javascript">
+    var isSearching = false;
+    var showSaveSettingsMessageOnLeave = true;
+    var searchTaxaStore;
+    var searchGrid;
+
+    $(document).ready(function() {
+        $("#txtSearchText").focus().select();
+        $("#txtSearchText").keypress(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                searchTaxa();
+            }
+        });
+        $('#btnTaxaListSearch').click(searchTaxa);
+        $('#addSelectedTaxaButton').click(addSelectedTaxa);
+        $('#addUnderlyingSpeciesButton').click(addUnderlyingSpecies);
+
+        createGrid();
+        initToolbar();
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTaxa", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+    }
+
+    function createGrid() {
+        AnalysisPortal.Models.defineTaxonSearchResultItemViewModel();
+        searchTaxaStore = AnalysisPortal.createJsonStore("TaxonSearchResultItemViewModel", '@Html.Raw(Url.Action("GetTaxaBySearch", "Filter"))', {
+            method: 'POST'
+        });
+
+        searchGrid = Ext.create('Ext.grid.Panel', {
+            id: 'searchTaxaGrid',
+            store: searchTaxaStore,
+            title: AnalysisPortal.Resources.FilterTaxonFromNameSearchTaxaGridTitle,
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 300,
+            // bug in Ext Js 4.2.1! Needs to set height explicitly.
+            //minHeight: 20,
+            //maxHeight: 500,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedSearching
+                }
+            },
+            renderTo: 'searchTaxaDiv',
+            columns: [
+            {
+                text: AnalysisPortal.Resources.TaxonSearchHit,
+                width: 170,
+                dataIndex: 'SearchMatchName',
+                cls: 'mousepointer',
+                renderer: function(value, meta, record) {
+                    return Ext.String.format('<a href="#" onclick="showTaxonSummaryDialog({1}); return false;">{0}</a>', value, record.data.TaxonId);
+                }
+            },
+            { text: AnalysisPortal.Resources.TaxonSearchNameCategory, width: 100, dataIndex: 'NameCategory', sortable: true },
+            { text: AnalysisPortal.Resources.TaxonSharedScientificName, width: 170, dataIndex: 'ScientificName', sortable: true },
+            { text: AnalysisPortal.Resources.TaxonSharedAuthor, width: 100, dataIndex: 'Author', sortable: true },
+            { text: AnalysisPortal.Resources.TaxonSharedSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+            { text: AnalysisPortal.Resources.TaxonSharedCategory, width: 100, dataIndex: 'Category', sortable: true },
+            { text: AnalysisPortal.Resources.TaxonSharedTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true },
+            {
+                xtype: 'actioncolumn',
+                dataIndex: 'TaxonStatus',
+                width: 30,
+                align: 'center',
+                menuDisabled: true,
+                hideable: false,
+                resizable: false,
+                sortable: false,
+                getClass: AnalysisPortal.getAlertStatusClassInGrid,
+                handler: function(grid, rowIndex, colindex) {
+                    var record = grid.getStore().getAt(rowIndex);
+                    showTaxonSummaryDialog(record.data.TaxonId);
+                }
+            },
+            {
+                dataIndex: 'SpeciesProtectionLevel',
+                width: 30,
+                align: 'center',
+                menuDisabled: true,
+                hideable: false,
+                resizable: false,
+                sortable: false,
+                renderer: function (value) {
+                    if (value == 1) {
+                        return '';
+                    } else {
+                        return Ext.String.format('<img title="{0}" src="/Content/images/taxon-protection-level-protected1.png" />', AnalysisPortal.Resources.TaxonSharedProtectionLevel1);
+                    }
+                }
+            }
+            ],
+            columnLines: true,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        enableDisableButtons();                      
+                    }
+                }
+            })
+        });
+    }
+    
+
+    // Adds the selected taxa in search grid to the MySettings object on server
+    function addSelectedTaxa() {
+        var selected = [];
+        var s = searchGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+
+        var frm = document.addTaxaToFilterForm;
+        frm.strTaxonIds.value = Ext.encode(selected);
+        frm.submit();
+    }
+
+    function addUnderlyingSpecies() {
+        var selected = [];
+        var s = searchGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+
+        AnalysisPortal.showDialog({
+            title: '@Resource.FilterTaxonFromIdsAddUnderlyingSpecies',
+            url: '@Url.Action("_AddChildTaxon", "Filter")',
+            data: { parentTaxonIds: selected },
+            sizeClass: 'modal-lg',
+            modalDiv: 'AddChildTaxonModal'
+        });
+    }
+
+    function searchTaxa() {
+        if (isSearching) {
+            return;
+        }
+        var nameSearchString = $("#txtSearchText").val();
+        var nameCompareOperator = $("#SearchOptions_NameCompareOperator").val();
+        var isUnique = $("#SearchOptions_IsUnique").val();
+        var isValidTaxon = $("#SearchOptions_IsValidTaxon").val();
+        var isRecommended = $("#SearchOptions_IsRecommended").val();
+        var isOkForObsSystems = $("#SearchOptions_IsOkForObsSystems").val();
+        var isValidTaxonName = $("#SearchOptions_IsValidTaxonName").val();
+        var nameCategoryId = $("#SearchOptions_NameCategoryId").val();
+        var authorSearchString = $("#SearchOptions_AuthorSearchString").val();        
+
+        isSearching = true;
+        searchTaxaStore.load({
+            params: {
+                nameSearchString: nameSearchString,
+                nameCompareOperator: nameCompareOperator,
+                authorSearchString: authorSearchString,
+                isUnique: isUnique,
+                isValidTaxon: isValidTaxon,
+                isRecommended: isRecommended,
+                isOkForObsSystems: isOkForObsSystems,
+                isValidTaxonName: isValidTaxonName,
+                nameCategoryId: nameCategoryId
+            },
+            callback: function (records, operation, success) {
+                isSearching = false;
+
+                var result = Ext.JSON.decode(operation.response.responseText);
+                if (result.extra != null) {
+                    $("#searchRestrictionsInfo").empty().html(result.extra);
+                }
+
+                if (searchTaxaStore.getCount() == 1) {
+                    searchGrid.getSelectionModel().selectAll(true);
+                    enableDisableButtons();
+                }
+            }
+        });
+    }
+
+    function showTaxonSummaryDialog(taxonId) {        
+        var url = '@Url.Action("TaxonSummaryDialog", "Details")';
+        url += "?id=" + taxonId;
+   
+        AnalysisPortal.showDialog({
+            url: url
+        });
+    }
+
+    function enableDisableButtons() {
+        var selections = searchGrid.getSelectionModel().getSelection();
+        if (selections.length == 0) {
+            $('#addSelectedTaxaButton, #addUnderlyingSpeciesButton').attr("disabled", true).removeClass("btn-primary");
+        } else {
+            $('#addSelectedTaxaButton, #addUnderlyingSpeciesButton').attr("disabled", false).addClass("btn-primary");
+        }
+    }
+</script>

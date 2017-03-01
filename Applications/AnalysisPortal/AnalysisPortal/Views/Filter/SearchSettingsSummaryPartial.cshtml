@@ -1,0 +1,15 @@
+﻿@using ArtDatabanken;
+@model List<KeyValuePair<string,string>>
+
+@if (Model.IsNotEmpty())
+{
+<div style="margin-left: 10px;">
+    @Resources.Resource.TaxonSearchSettings:    
+    <ul style="list-style: disc inside none; margin-left: 10px;">
+    @foreach (KeyValuePair<string, string> pair in Model)
+    {
+        <text><li style="list-style: disc inside none;">@pair.Key: <em>@pair.Value</em></li></text>    
+    }
+    </ul>
+</div>
+}

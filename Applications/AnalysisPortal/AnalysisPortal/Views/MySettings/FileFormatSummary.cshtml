@@ -1,0 +1,22 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation.FileFormatViewModel
+
+<h5>CSV</h5>
+<div class="settings-summary-list">
+    <ul class="ellipseList">
+        <li>@Resource.PresentationFileFormatCsvSeparator: <span style="font-style: italic">@Model.GetCsvColumnSeparatorDescription()</span></li>
+        
+        @if (Model.CsvQuoteAllColumns)
+        {
+            <li>@Resource.PresentationFileFormatCsvQuoteAllColumnsShort</li>
+        }
+        @*<li>@Resource.PresentationFileFormatCsvQuoteAllColumnsShort:  @Model.GetCsvQuoteColumnsDescription()</li>*@
+    </ul>
+</div>
+
+<h5>Excel</h5>
+<div class="settings-summary-list">
+    <ul class="ellipseList">
+        <li>@Resource.PresentationExcelFileFormatTypes: <span style="font-style: italic">@Model.GetExcelFileFormatDescription()</span></li>
+    </ul>
+</div>

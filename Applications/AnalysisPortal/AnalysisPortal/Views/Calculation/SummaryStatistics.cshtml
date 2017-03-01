@@ -1,0 +1,155 @@
+﻿@using ArtDatabanken.GIS.WFS.DescribeFeature
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation.SummaryStatisticsViewModel
+
+@{
+    ViewBag.Title = Model.Labels.Title;    
+}
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    </div>
+</div>
+
+<div id="summaryCalculationsObsDataPanel" class="datapanel"></div>
+<div id="summaryEnvironmentDataPanel" class="datapanel"></div>
+
+<div id="summaryCalculationsObsDataDiv" class="calculationInputDiv">
+    <ul class="noMargin">
+        <li class="noMargin">
+            <input id="numberOfObservationsCheckBox" type="checkbox" class="checkboxRightMargin" @if (Model.CalculateNumberOfObservationsfromObsData)
+                                                                                                 { <text>checked="checked" </text> }   />     
+            <label class="inlineLabel" for="numberOfObservationsCheckBox">@Model.Labels.NumberOfObservations</label>
+        </li>
+        <li class="noMargin">
+            <input id="numberOfSpeciesCheckBox" type="checkbox" class="checkboxRightMargin" @if (Model.CalculateNumberOfSpeciesfromObsData)
+                                                                                            { <text>checked="checked" </text> }   />     
+            <label class="inlineLabel" for="numberOfSpeciesCheckBox">@Model.Labels.NumberOfSpecies</label>
+        </li>
+    </ul>
+</div>
+
+<div id="summaryEnvironmentalDataSettingsDiv" class="data-panel-content">
+    <table>
+        <tr>
+            <td>@Resource.SharedLayer</td>
+            <td>
+                <select id="wfsGridStatisticsLayerIdSelectBox" style="margin: 5px; width: 200px;">
+                    <option @if(Model.WfsGridStatisticsLayerId == null || Model.WfsLayers.Count == 0) { <text>selected="selected"</text> } value="-1">@Resource.SharedSelectLayer</option>
+                    @foreach (WfsLayerViewModel layer in Model.WfsLayers)
+                    {
+                        if (layer.GeometryType == GeometryType.Polygon)
+                        {
+                            <option @if (Model.WfsGridStatisticsLayerId == layer.Id) { <text>selected="selected"</text> } value="@layer.Id">@layer.Name</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+   
+    $(document).ready(function () {
+        createLayout();
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetSummaryStatistics", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var calculateNumberOfObservationsfromObsData = $('#numberOfObservationsCheckBox').is(':checked');
+        var calculateNumberOfSpeciesfromObsData = $('#numberOfSpeciesCheckBox').is(':checked');
+        var wfsGridStatisticsLayerId = $('#wfsGridStatisticsLayerIdSelectBox').val();
+        if (wfsGridStatisticsLayerId == -1)
+            wfsGridStatisticsLayerId = null;
+        var data = {
+            CalculateNumberOfObservationsfromObsData: calculateNumberOfObservationsfromObsData,
+            CalculateNumberOfSpeciesfromObsData: calculateNumberOfSpeciesfromObsData,
+            WfsGridStatisticsLayerId: wfsGridStatisticsLayerId
+        };
+        return data;
+    }
+
+   
+    // Create panel 
+    function createLayout() {
+        var summaryCalculationsObsDataControl = AnalysisPortal.createHtmlPanel('summaryCalculationsObsDataDiv', {
+            title: "",
+            region: 'east'
+        });
+
+    // Create mainPanel
+    AnalysisPortal.createMainPanel('summaryCalculationsObsDataPanel', {
+            title: '@Model.Labels.CalculateNumberOfObservations',
+            width: 500,
+            items: [summaryCalculationsObsDataControl],
+            collapsible: false
+        });
+
+        var summaryEnvironmentalDataSettingsControl = AnalysisPortal.createHtmlPanel('summaryEnvironmentalDataSettingsDiv', {
+        title: "",
+        region: 'east'
+    });
+
+        AnalysisPortal.createMainPanel('summaryEnvironmentDataPanel', {
+        title: '@Resource.GridStatisticsEnvironmentalData',
+        width: 500,
+        items: [summaryEnvironmentalDataSettingsControl],
+        collapsible: false
+    });
+    }
+</script>

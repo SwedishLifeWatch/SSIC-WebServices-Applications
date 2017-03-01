@@ -1,0 +1,16 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation.SummaryStatisticsViewModel
+<div style="max-height: 400px; overflow-y: auto;">
+    <strong>@Model.Labels.CalculateNumberOfObservations</strong>
+  
+    <ul class="ellipseList">
+        @foreach (string str in Model.GetCalculateStrings())
+        {
+            <li>@str</li>
+        }        
+    </ul>
+    <strong>@Resource.GridStatisticsEnvironmentalData</strong>
+    <ul class="ellipseList">    
+        <li>@Resource.SharedLayer:  @Model.GetSelectedWfsLayerName()</li>
+    </ul>
+</div>

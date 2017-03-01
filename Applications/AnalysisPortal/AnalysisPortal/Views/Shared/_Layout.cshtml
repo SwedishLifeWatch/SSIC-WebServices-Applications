@@ -1,0 +1,58 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+
+<!DOCTYPE html>
+<html lang="@SessionHandler.Language.Substring(0, 2)">
+    <head>
+        @Html.Partial("PageHeadDefinition_Partial")
+    </head>
+    <body>
+        <div id="pageHeader" class="container">
+            @Html.Partial("PageHeader_Partial")
+        </div>
+        <div id="container" class="container">
+            <div id="mainContent">
+                <div class="col-xs-9">
+                    @* Left column *@
+                    @RenderSection("featured", required: false)
+                    <section class="main-content">
+                        @RenderBody()
+                    </section>
+                </div>
+
+                <div class="col-xs-3">
+                    @*Right Column *@
+                    <div id="MySettingsSummary" class="btn-toolbar">
+                        @{Html.RenderAction("MySettingsSummary", "MySettings");}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div id="footerWrapper">
+                @Html.Partial("PageFooter_Partial")
+                <div class="clearfix"></div>
+            </div>
+            @if (ViewBag.Debug != null && ViewBag.Debug)
+            {
+                @Html.Partial("DebugViews_Partial")
+            }
+        </div>
+
+
+        @if (SessionHandler.UserContext != null)
+        {
+            @Html.Partial("SessionTimeoutDialog")
+        }
+        else
+        {
+            @Html.Partial("AnonymousSessionTimeoutDialog")
+        }
+
+
+        @if (ViewBag.UserMessages != null)
+        {
+            @Html.Partial("UserMessageJavaScript_Partial")
+        }
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

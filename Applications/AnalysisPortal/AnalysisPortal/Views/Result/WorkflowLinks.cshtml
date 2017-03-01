@@ -1,0 +1,15 @@
+﻿@using Resources
+@model string
+@{
+    string biovelPlayerUrl = "https://portal.biovel.eu/runs/new?embedded=true&workflow_id=501&version=2&embedded=true&input_url=" + Model;    
+}
+<h4>@Resource.ResultWorkflowCsvFileHasBeenCreated</h4>   
+<ul>
+    <li>
+        <a href="@Html.Raw(biovelPlayerUrl)" target="_blank">@Resource.ResultWorkflowStartWorkflowInBioVelPlayer</a>        
+    </li>
+    <li>
+        <a href="@Html.Raw(Model)">@Resource.ResultWorkflowDownloadCsvFile</a>    
+    </li>
+</ul>
+    

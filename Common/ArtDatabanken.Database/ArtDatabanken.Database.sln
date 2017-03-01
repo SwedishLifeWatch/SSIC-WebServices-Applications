@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.Database", "ArtDatabanken.Database\ArtDatabanken.Database.csproj", "{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken", "..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj", "{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.Database.Test", "ArtDatabanken.Database.Test\ArtDatabanken.Database.Test.csproj", "{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://artdata-tfs.artdata.slu.se:8081/tfs/dev
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ArtDatabanken.Database\\ArtDatabanken.Database.csproj
+		SccProjectName1 = ArtDatabanken.Database
+		SccLocalPath1 = ArtDatabanken.Database
+		SccProjectUniqueName2 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken\\ArtDatabanken.csproj
+		SccProjectName2 = ../../DataAccess/ArtDatabanken/ArtDatabanken
+		SccLocalPath2 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken
+		SccProjectUniqueName3 = ArtDatabanken.Database.Test\\ArtDatabanken.Database.Test.csproj
+		SccProjectName3 = ArtDatabanken.Database.Test
+		SccLocalPath3 = ArtDatabanken.Database.Test
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release 32|Any CPU = Release 32|Any CPU
+		Release 32|x64 = Release 32|x64
+		Release 64|Any CPU = Release 64|Any CPU
+		Release 64|x64 = Release 64|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D2AEBE-07B5-4F94-8093-2EBDA4C1618D}.Release|x64.ActiveCfg = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.ActiveCfg = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.Build.0 = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.ActiveCfg = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.Build.0 = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.ActiveCfg = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.Build.0 = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.ActiveCfg = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.Build.0 = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.ActiveCfg = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.Build.0 = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.ActiveCfg = Release|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.Build.0 = Release|x64
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F13CCDA9-5126-4A59-8FD2-F6DA4275716C}.Release|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

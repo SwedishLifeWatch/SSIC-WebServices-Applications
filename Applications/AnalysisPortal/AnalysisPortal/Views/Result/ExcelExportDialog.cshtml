@@ -1,0 +1,126 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewManagers.Presentation
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation
+@model dynamic
+
+<form id="excelExportForm" method="POST" action="ExcelExportDialog">
+    <div id="excelOptions">
+        <div id="excelSettingsPresentationCoordinateSystem">
+            @*@{
+                var coordinateSystems = CoordinateSystemHelper.GetPresentationMapCoordinateSystems();
+                var viewManager = new SpeciesObservationTableSettingsViewManager(GetCurrentUser(), SessionHandler.MySettings);
+                var model = viewManager.CreateSpeciesObservationTableSettingsViewModel();
+            }*@
+            <label for="excelSettingsPresentationCoordinateSystemSelectList" style="font-weight: bold">@Resource.SharedCoordinateSystem:</label>
+            <select id="excelSettingsPresentationCoordinateSystemSelectList" style="width: 260px;">
+                @foreach (CoordinateSystemViewModel coordinateSystem in ViewBag.CoordinateSystems)
+                {
+                    <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected)
+                                                         {
+                                                             <text> selected="selected" </text>
+                                                         }>@coordinateSystem.Name</option>
+                }
+            </select>
+        </div>
+        <div id="excelSettingsTableColumns" style="margin-top: 10px;">
+            <label for="excelSettingsTableTypeSystemDefinedSelectList" style="font-weight: bold">@Resource.SharedColumns:</label>
+            <select id="excelSettingsTableTypeSystemDefinedSelectList" style="width: 260px;">
+                <optgroup label="@Resource.PresentationTablePredefinedTables">
+                    @for (int i = 0; i < ViewBag.TableColumnsModel.SystemDefinedTables.Count; i++)
+                    {
+                        TableTypeViewModel systemDefinedTable = ViewBag.TableColumnsModel.SystemDefinedTables[i];
+                        <option value="@systemDefinedTable.Id" @if (!ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId)
+                                                               {
+                                                                   <text> selected="selected" </text>
+                                                               }>@systemDefinedTable.Name</option>
+                    }
+                </optgroup>
+                <optgroup label="@Resource.PresentationTableUserDefinedTables">
+                    @for (int i = 0; i < ViewBag.TableColumnsModel.UserDefinedTables.Count; i++)
+                    {
+                        TableTypeViewModel userDefinedTable = ViewBag.TableColumnsModel.UserDefinedTables[i];
+                        int id = userDefinedTable.Id + ViewBag.TableColumnsModel.SystemDefinedTables.Count;
+                        <option value="@id" @if (ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId)
+                                            {
+                                                <text> selected="selected" </text>
+                                            }>@userDefinedTable.Name</option>
+                    }
+                </optgroup>
+            </select>
+        </div>
+        <br/>
+        <div id="excelSettingsTableColumnHeadings">            
+            <label for="excelSettingsTableColumnsHeadingTypes" style="margin-top: 0px;">@Resource.SharedColumnHeaders:</label>
+            <table id="excelSettingsTableColumnsHeadingTypes" style="width: auto;">
+                <tr>
+                    <td style="vertical-align: middle">
+                        <input type="radio" id="excelSettingsColumnHeaderTypeLabelRadioButton" name="columnHeaderType" value="0" class="" @if (ViewBag.TableColumnsModel.UseLabelAsColumnHeader)
+                                                                                                                             {
+                                                                                                                                 <text> checked="checked" </text>
+                                                                                                                             }/><span style="vertical-align: middle;"><label class="inlineLabel" style="font-weight: normal;" for="excelSettingsColumnHeaderTypeLabelRadioButton">@Resource.SharedColumnHeaderTypeStandard</label></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle">
+                        <input type="radio" id="excelSettingsColumnHeaderTypeDarwinCoreRadioButton" name="columnHeaderType" value="1" class="checkboxRightMargin" @if (!ViewBag.TableColumnsModel.UseLabelAsColumnHeader)
+                                                                                                                                                     {
+                                                                                                                                                         <text> checked="checked" </text>
+                                                                                                                                                     }/><span style="vertical-align: middle;"><label class="inlineLabel" style="font-weight: normal;" for="excelSettingsColumnHeaderTypeDarwinCoreRadioButton">@Resource.SharedColumnHeaderTypeDarwinCore</label></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <label for="excelSettingsOtherSettings" style="margin-top: 0px;">@Resource.SharedExtraExcelSheets:</label>
+        <div id="excelSettingsOtherSettings">
+            @Html.CheckBox("cbAddSettings", true) @Resource.IncludeSettingSheet
+            <br />
+            @Html.CheckBox("cbAddProvenance", true) @Resource.IncludeProvenance
+        </div>
+    </div>
+
+    <div class="pull-left" style="margin-top: 10px;">
+        <button type="button" id="exportExcelDialogButton" class="btn btn-default">@Resource.StateButtonResultDownload</button>
+    </div>
+    <div class="clearfix"></div>
+</form>
+
+<script type="text/javascript">
+    var excelExport = function() {
+        var _$form;
+
+        function onExportExcelClick() {
+            btmDownloadClick();
+            //if (_$form.valid()) {
+            //    AnalysisPortal.blockWhileServerWorking();
+
+            //    _$form.submit();
+            //    _$form.closest('div.modal').modal('hide');
+            //}
+        };
+
+        function btmDownloadClick() {
+            AnalysisPortal.blockWhileServerWorking();
+            var url = "@Url.Action("SpeciesObservationsAsExcel", "Download")";
+            window.location.href = Ext.String.format(                
+                '{0}?addSettings={1}&addProvenance={2}&presentationCoordinateSystem={3}&columnsSet={4}&columnsHeadersType={5}',
+                url,
+                $('#cbAddSettings').is(':checked'),
+                $('#cbAddProvenance').is(':checked'),
+                $('#excelSettingsPresentationCoordinateSystemSelectList').val(),
+                $('#excelSettingsTableTypeSystemDefinedSelectList').val(),
+                $('#excelSettingsColumnHeaderTypeLabelRadioButton').is(':checked') ? 0 : 1);
+            _$form.closest('div.modal').modal('hide');            
+        };
+
+        function init() {
+            _$form = $('#excelExportForm');
+            $('#exportExcelDialogButton').on('click', onExportExcelClick);
+        };
+
+        return {
+            Init: init
+        };
+    }();
+</script>

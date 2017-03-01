@@ -1,0 +1,96 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.UserService.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestPasswordHash" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1C9CA6D4A858CF954867FDC802ADAC6C346E4241</Value>
+    </Setting>
+    <Setting Name="TestApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdmin</Value>
+    </Setting>
+    <Setting Name="TestApplicationVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1.0</Value>
+    </Setting>
+    <Setting Name="TestPersonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestPersonFirstName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TestFirstName</Value>
+    </Setting>
+    <Setting Name="TestPersonURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://artdata.slu.se</Value>
+    </Setting>
+    <Setting Name="TestOrganizationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="SwedenLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="TestEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">artdata@slu.se</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestUserIdForUpdate" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="TestUserNameForUpdate" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser2</Value>
+    </Setting>
+    <Setting Name="TestTypeId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestNonExistingLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TestIdForDelete" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="TestNewPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">zxcvbnmAsd123</Value>
+    </Setting>
+    <Setting Name="TestOrganizationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ArtDatabanken</Value>
+    </Setting>
+    <Setting Name="TestOrganizationCategoryName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Universitetsinstitution</Value>
+    </Setting>
+    <Setting Name="TestCountry" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Sverige</Value>
+    </Setting>
+    <Setting Name="TestCountryCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">46</Value>
+    </Setting>
+    <Setting Name="TestApplicationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestApplicationName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">User Admin Webapplikation</Value>
+    </Setting>
+    <Setting Name="TestRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestRoleName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Superadministratör av användarsystemet</Value>
+    </Setting>
+    <Setting Name="TestAuthorityId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestCountryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">199</Value>
+    </Setting>
+    <Setting Name="TestOrganizationCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="NorwayLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">147</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

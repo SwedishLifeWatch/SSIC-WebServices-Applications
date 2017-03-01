@@ -1,0 +1,13 @@
+﻿User-agent: *
+Allow: /taxon/searchresult/
+Allow: /taxon/info/
+Disallow: /export/
+Disallow: /revision/
+Disallow: /account/
+Disallow: /culture/
+Disallow: /match/
+Disallow: /navigation/
+Disallow: /reference/
+Disallow: /sampleshtml/
+Disallow: /speciesfact/
+Disallow: /taxonname/

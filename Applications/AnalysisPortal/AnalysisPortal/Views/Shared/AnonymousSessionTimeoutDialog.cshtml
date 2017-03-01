@@ -1,0 +1,27 @@
+﻿@using Resources
+
+<div class="modal fade" id="sessionTimeoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">@Resource.SessionExpired</h4>
+      </div>
+      <div class="modal-body">
+        <p>@Resource.SessionAllSettingsReset</p>
+        <p>@Resource.SessionExpiredUseUserAccount</p>
+      </div>
+      <div class="modal-footer">
+         <button id="sessionTimeoutModalOkButton" class="btn btn-primary" type="button" data-dismiss="modal">@Resource.SharedOkButtonText</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {        
+        $('#sessionTimeoutModalOkButton').click(function () {
+            window.location = "@Url.Action("Index", "Home")";
+        });
+    });
+</script>

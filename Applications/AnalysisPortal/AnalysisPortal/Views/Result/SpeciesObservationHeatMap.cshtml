@@ -1,0 +1,125 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = Resource.ResultSpeciesObservationHeatMap;
+}
+
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    @*<h3 class="page-title">@Resource.ResultSpeciesObservationHeatMap</h3>*@
+    <div class="btn-toolbar page-toolbar">
+        <a class="btn action-button" href="@Url.Action("SpeciesObservationHeatMapImage")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>
+    </div>
+</div>
+
+<div id="loader" class="loading"></div>
+@*<div class="report-content">
+    <div style="margin-left:10px;">
+        <div id="spatialPolygonSummaryImageDiv" style="width: 100px; height: 100px;  border-style: solid; border-width: 1px;display:table-cell; vertical-align:middle; text-align:center; ">
+            <img id="spatialPolygonSummaryImage" src="@Url.Action("SpeciesObservationHeatMapImage")" width="350" height="350" />
+            <img id="spatialPolygonWaitImage" src="~/Content/images/ajax-loader.gif" />
+        </div>
+    </div>
+</div>*@
+
+@*<img src="@Url.Action("SpeciesObservationHeatMapImage")" height="100" />*@
+
+<script type="text/javascript">
+    var speciesObservationHeatMapImageId = '@ViewBag.UniqueId';
+    //$(document).ready(function () {
+    //    $("#spatialPolygonSummaryImage").load(function () {
+    //        $("#spatialPolygonWaitImage").remove();
+    //    });        
+    //});
+
+    // when the DOM is ready
+    $(function () {
+        var url = '@Url.Action("IsSpeciesObservationHeatMapGenerated", new { id = ViewBag.UniqueId })';
+        (function poll() {
+            setTimeout(function () {
+                $.ajax({
+                    url: url, success: function (data) {
+                        if (data) {
+                            getSpeciesObservationHeatMapImage();
+                            //alert('image is generated');
+                            return;
+                        }
+
+                        //Setup the next poll recursively
+                        poll();
+                    }, dataType: "json"
+                });
+            }, 3000);
+        })();
+
+        function getSpeciesObservationHeatMapImage() {
+            var url = '@Url.Action("FetchGeneratedSpeciesObservationHeatMapImage", new { id = ViewBag.UniqueId })';
+            var img = $("<img />").attr('src', url).attr('width', 245).height('height', 500)
+              .load(function () {
+                  if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                      alert('broken image!');
+                  } else {
+                      $("#loader").append(img);
+                  }
+              });
+        }
+
+        //(function poll() {
+        //    $.ajax({
+        //        url: url, success: function (data) {
+        //            if (data) {
+        //                alert('image is generated');
+        //            }
+        //            //Update your dashboard gauge
+        //            //salesGauge.setValue(data.value);
+
+
+        //        }, dataType: "json", complete: poll, timeout: 5000
+        //    });
+        //})();
+
+
+        //var img = new Image();
+
+@*        var img = $("<img />").attr('src', '@Url.Action("SpeciesObservationHeatMapImage")')
+          .load(function () {
+              if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+                  alert('broken image!');
+              } else {
+                  $("#loader").append(img);
+              }
+          });*@
+
+
+
+@*        // wrap our new image in jQuery, then:
+        $(img)
+          // once the image has loaded, execute this code
+          .load(function () {
+              // set the image hidden by default    
+              $(this).hide();
+
+              // with the holding div #loader, apply:
+              $('#loader')
+                // remove the loading class (so no background spinner), 
+                .removeClass('loading')
+                // then insert our image
+                .append(this);
+
+              // fade our image in to create a nice effect
+              $(this).fadeIn();
+          })
+
+          // if there was an error loading the image, react accordingly
+          .error(function () {
+              // notify the user that the image could not be loaded
+          })
+
+          // *finally*, set the src attribute of the new image to our image
+          .attr('src', '@Url.Action("SpeciesObservationHeatMapImage")');*@
+    });
+
+</script>

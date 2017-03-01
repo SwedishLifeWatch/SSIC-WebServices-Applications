@@ -1,0 +1,15 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa
+@model ArtDatabanken.Data.IFactorField
+
+<h3>@Model.Label</h3>
+@{
+    var fieldId = "" + Model.Id;
+    var fieldLabel = "" + @Model.Label;
+    fieldLabel = fieldLabel.Replace(" ", "");
+    var fieldName = "factorfield-" + fieldLabel;
+}
+@{ var opModel = new FactorFieldSearchOptions { UniqueId = fieldName + "-compareoperator" }; }
+@Html.Partial("FactorFieldDataTypeStringCompareOperator_Partial", opModel)
+<input @{<text>name="@fieldName"</text>} @{<text>id="@fieldId"</text>} type="text" />
+<label class="inlineLabel">@Model.Unit</label>
+<br />

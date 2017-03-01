@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx?wsdl" docRef="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" xmlns:q1="http://artsdatabanken.no/webtjenester" binding="q1:ArtsnavnebaseSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" xmlns:q2="http://artsdatabanken.no/webtjenester" binding="q2:ArtsnavnebaseSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

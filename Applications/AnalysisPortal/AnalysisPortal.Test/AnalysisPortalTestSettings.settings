@@ -1,0 +1,45 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AnalysisPortal.Tests" GeneratedClassName="AnalysisPortalTestSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SwedishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="SwedishNameString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Swedish(Sweden)</Value>
+    </Setting>
+    <Setting Name="SvenskNameString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">svenska(Sverige)</Value>
+    </Setting>
+    <Setting Name="SwedishLocale" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sv-SE</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestUserEmail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">test.dytaxa@slu.se</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AnalysisPortalTestUser</Value>
+    </Setting>
+    <Setting Name="TestUserGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">"urn:lsid:ArtData.slu.se:User:Id:TestUser"</Value>
+    </Setting>
+    <Setting Name="TestnAnalysisPortalApplcationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1700</Value>
+    </Setting>
+    <Setting Name="TestUserLoginName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestUserPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestUserAnalyzerLoginName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuseranalyzer</Value>
+    </Setting>
+    <Setting Name="MyTestSettingsFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Temp/Settings/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

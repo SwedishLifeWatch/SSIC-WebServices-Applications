@@ -1,0 +1,114 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model dynamic
+
+@{
+    //ViewBag.Title = "title";
+    Layout = null;
+    //Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+        <title>@ViewBag.Title</title>
+        <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />        
+        <meta name="viewport" content="width=device-width" />
+        @*        @Styles.Render("~/bundles/css") *@
+        <link href="~/Content/ext-all-slate-min.css" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Content/bootstrap.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Content/font-awesome.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Scripts/select2/select2.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Scripts/OpenLayers/theme/default/style.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Content/map.css")" rel="stylesheet" type="text/css" />     
+        <link href="@Url.DatedContent("~/Scripts/jquery-miniColors/jquery.miniColors.css")" rel="stylesheet" type="text/css" />
+        <link href="@Url.DatedContent("~/Content/bootstrap-datepicker.css")" rel="stylesheet" type="text/css" /> @* added dec 2012 *@
+        <link href="@Url.DatedContent("~/Content/AnalysisPortal.css")" rel="stylesheet" type="text/css" />        
+        <link href="@Url.DatedContent("~/Content/Overrides.css")" rel="stylesheet" type="text/css" />        
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+          
+        <script src="~/Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
+        
+        @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>*@
+
+        <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.cookie.js" type="text/javascript"></script>
+        <script src="~/Scripts/jquery.subcookie.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>                  
+        @if (SessionHandler.Language == "sv-SE")
+        {
+        @:<script src="@Url.Content("~/Scripts/extjs-4.2.1/locale/ext-lang-sv_SE.js")" type="text/javascript"></script>
+        }
+        <script src="@Url.DatedContent("~/Scripts/bootstrap.js")" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/bootstrap-datepicker.js")" type="text/javascript"></script>              
+        <script src="@Url.DatedContent("~/Scripts/select2/select2.min.js")" type="text/javascript"></script>      
+        <script src="@Url.DatedContent("~/Scripts/jquery-miniColors/jquery.miniColors.min.js")" type="text/javascript"></script>        
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/json2.js")" type="text/javascript"></script>
+        
+        @*@if (ViewBag.RenderMapScriptTags != null && ViewBag.RenderMapScriptTags)
+        {*@
+        @if (HttpContext.Current.Request.IsSecureConnection)
+        {
+            <text><script src="https://maps.googleapis.com/maps/api/js?v=3.6&amp;sensor=false" type="text/javascript"> </script></text>
+        }
+        else
+        {
+            <text><script src="http://maps.googleapis.com/maps/api/js?v=3.6&amp;sensor=false" type="text/javascript"> </script></text>
+        }
+        <script src="@Url.DatedContent("~/Scripts/OpenLayers/OpenLayers.js")" type="text/javascript"> </script>
+        <script src="@Url.DatedContent("~/Scripts/OpenLayers/Lang/sv-SE.js")" type="text/javascript"> </script>
+        <script src="@Url.DatedContent("~/Scripts/OpenLayers/Lang/en.js")" type="text/javascript"> </script>
+        @*}*@
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.js")" type="text/javascript"></script>        
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.Models.js")" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.GIS.js")" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.WFS.Formula.js")" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.WFS.js")" type="text/javascript"></script>
+        <script src="@Url.DatedContent("~/Scripts/AnalysisPortal/AnalysisPortal.Statistics.js")" type="text/javascript"></script>
+        
+
+        @Html.LocalizedJavaScriptImport("AnalysisPortal.Resources.js", SessionHandler.Language)        
+
+        <script type="text/javascript">
+            AnalysisPortal.ApplicationPath = '@Html.Raw(HttpContext.Current.Request.ApplicationPath)';
+            if (AnalysisPortal.ApplicationPath == '/') {
+                AnalysisPortal.ApplicationPath = '';
+            }
+
+            AnalysisPortal.Language = '@Html.Raw(SessionHandler.Language)';
+        </script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                setInterval(getAvailableWorkers, 200);
+            });
+
+            var getAvailableWorkersRequest;
+
+            function getAvailableWorkers() {
+                getAvailableWorkersRequest = AnalysisPortal.makeAjaxCall({
+                    url: AnalysisPortal.ApplicationPath + "/Home/GetAvailableWorkerThreads",
+                    allowMultipleRequests: false,
+                    requestObject: getAvailableWorkersRequest
+                },
+                   function (result) {
+                       var str = Ext.String.format("Available workers: {0}/{1}, Available IO: {2}/{3}", result.data.AvailableWorkers, result.data.MaxWorkers, result.data.AvailableIO, result.data.MaxIO);
+                       $('#availableWorkersDiv').html(str);
+                   }
+               );
+            }
+        </script>
+    </head>
+    <body>
+        <h2>Available threads</h2>
+        <div id="availableWorkersDiv"></div>
+    </body>
+</html>

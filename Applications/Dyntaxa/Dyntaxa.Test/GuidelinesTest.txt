@@ -1,0 +1,43 @@
+﻿Below are some examples of what is appropriate to test.
+
+1. Test that the model is not null and some/all model properties are set to the correct value i.e test controller logic.
+var result = controller.Initialize ( DyntaxaTestSettings.Default.TestTaxonId.ToString ( ) ) as View Result ;
+the model = ( InitializeRevisionViewModel ) result.ViewData.Model ;
+Assert.IsNotNull ( result );
+Assert.Equals ( model.taxonId , XXX );
+Assert.AreEqual ( " Green " , model.AlertLevel );
+
+2. Test that the expected view is returned.
+Assert.AreEqual ( "Initialize " , result.ViewName );
+
+3. Test redirects
+were action result = ( RedirectToRouteResult ) controller.Initialize ( DyntaxaTestSettings.Default.TestTaxonId.ToString ());
+Assert.AreEqual ( "Edit" , actionResult.RouteValues ​​[ "action" ] );
+
+4. Test the correct attributes are set on controller methods.
+each method info = type.GetMethod ( "Add" , new Type [] { typeof (string ) }); were attributes = methodInfo.GetCustomAttributes (typeof ( DyntaxaAuthorizeAttribute ) , true);
+Assert.AreEqual (1, attributes.Length );
+Assert.AreEqual ( RequiredAuthorization.TaxonRevisionAdministrator , ( ( DyntaxaAuthorizeAttribute ) attributes [0]) . Orders );
+
+5. Testing the View Data and Temp Data if used
+var result = customersController.List ( page number, pageSize );
+Assert.AreEqual ( page number, result.ViewData [ "page number" ] , " PageNumber Was Incorrect" );
+Assert.AreEqual ( pageSize , result.ViewData [" pageSize "], " Page Size Was Incorrect" );
+
+6. Test that validation of view is working properly
+controller.ModelState.AddModelError ("" , "dummy error message" );
+was addViewResult = controller.Add ( DyntaxaTestSettings.Default.TestTaxonId , DyntaxaTestSettings.Default.TestRevisionOngoingId , model ) as View Result ; Assert.IsNotNull ( addViewResult );
+
+7. Test that the routing is working properly
+Using MicrosoftFakes then we can performe the Following tests on routes.
+[ Test Method ]
+public void AuditRouteTest ( )
+{
+    MvcApplication.RegisterRoutes ( RouteTable.Routes );
+    "~ / Revision/List/233146 " . ShouldMapTo <RevisionController> (x = > x.List ( " 233146 " , null , null ) );
+    "~ / Revision/Add/1008669 " . ShouldMapTo <RevisionController> (x = > x.Add ( " 1008669 "));
+    "~ / Revision/StartEditing/1 " . ShouldMapTo <RevisionController> (x = > x.StartEditing ("1 "));
+}
+
+8. Test exceptions and Popups
+    Error dialog will be displayed

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/ReferenceService/ReferenceService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IReferenceService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CreateReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReference" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CreateReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CreateReferenceRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferenceRelation" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_CreateReferenceRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateReferenceRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_DeleteReferenceRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferenceRelation" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_DeleteReferenceRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteReferenceRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationById" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationsByRelatedObjectGuid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationsByRelatedObjectGuid" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationsByRelatedObjectGuid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationsByRelatedObjectGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationTypes" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferenceRelationTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferenceRelationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferences" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferencesByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesByIds" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferencesByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferencesBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetReferencesBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetReferencesBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_UpdateReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReference" />
+  </wsdl:message>
+  <wsdl:message name="IReferenceService_UpdateReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateReferenceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IReferenceService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/ClearCache" message="tns:IReferenceService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/ClearCacheResponse" message="tns:IReferenceService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CommitTransaction" message="tns:IReferenceService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CommitTransactionResponse" message="tns:IReferenceService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReference">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CreateReference" message="tns:IReferenceService_CreateReference_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CreateReferenceResponse" message="tns:IReferenceService_CreateReference_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateReferenceRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CreateReferenceRelation" message="tns:IReferenceService_CreateReferenceRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/CreateReferenceRelationResponse" message="tns:IReferenceService_CreateReferenceRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteReferenceRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/DeleteReferenceRelation" message="tns:IReferenceService_DeleteReferenceRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/DeleteReferenceRelationResponse" message="tns:IReferenceService_DeleteReferenceRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/DeleteTrace" message="tns:IReferenceService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/DeleteTraceResponse" message="tns:IReferenceService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetLog" message="tns:IReferenceService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetLogResponse" message="tns:IReferenceService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationById" message="tns:IReferenceService_GetReferenceRelationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationByIdResponse" message="tns:IReferenceService_GetReferenceRelationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationsByRelatedObjectGuid">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationsByRelatedObjectGuid" message="tns:IReferenceService_GetReferenceRelationsByRelatedObjectGuid_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationsByRelatedObjectGuidResponse" message="tns:IReferenceService_GetReferenceRelationsByRelatedObjectGuid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferenceRelationTypes">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationTypes" message="tns:IReferenceService_GetReferenceRelationTypes_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferenceRelationTypesResponse" message="tns:IReferenceService_GetReferenceRelationTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferences">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferences" message="tns:IReferenceService_GetReferences_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferencesResponse" message="tns:IReferenceService_GetReferences_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferencesByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferencesByIds" message="tns:IReferenceService_GetReferencesByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferencesByIdsResponse" message="tns:IReferenceService_GetReferencesByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReferencesBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferencesBySearchCriteria" message="tns:IReferenceService_GetReferencesBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetReferencesBySearchCriteriaResponse" message="tns:IReferenceService_GetReferencesBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetStatus" message="tns:IReferenceService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/GetStatusResponse" message="tns:IReferenceService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/Login" message="tns:IReferenceService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/LoginResponse" message="tns:IReferenceService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/Logout" message="tns:IReferenceService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/LogoutResponse" message="tns:IReferenceService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/Ping" message="tns:IReferenceService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/PingResponse" message="tns:IReferenceService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/RollbackTransaction" message="tns:IReferenceService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/RollbackTransactionResponse" message="tns:IReferenceService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StartTrace" message="tns:IReferenceService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StartTraceResponse" message="tns:IReferenceService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StartTransaction" message="tns:IReferenceService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StartTransactionResponse" message="tns:IReferenceService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StopTrace" message="tns:IReferenceService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/StopTraceResponse" message="tns:IReferenceService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateReference">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/UpdateReference" message="tns:IReferenceService_UpdateReference_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IReferenceService/UpdateReferenceResponse" message="tns:IReferenceService_UpdateReference_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

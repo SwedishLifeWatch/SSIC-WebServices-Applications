@@ -1,0 +1,71 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ext JS Grid sample</title>
+        <link href="~/Content/ext-all-slate-min.css" rel="stylesheet" type="text/css" />        
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript" charset="utf-8"></script>                
+
+        <script type="text/javascript">         
+            Ext.require(['*']);
+
+            Ext.onReady(function () {
+
+                Ext.define('Stock', {
+                    extend: 'Ext.data.Model',
+                    fields: [
+                        { name: 'Company' },
+                        { name: 'Price', type: 'float' },
+                        { name: 'Change', type: 'float' },
+                        { name: 'PctChange', type: 'float' }
+                    ]
+                });                
+                
+
+                // create the Data Store
+                var store = Ext.create('Ext.data.Store', {
+                    model: 'Stock',
+                    autoLoad: true,
+                    proxy: {
+                        // load using HTTP
+                        type: 'ajax',
+                        url: 'GetStocks',
+                        reader: {
+                            type: 'json'
+                        }
+                    }
+                });                
+                
+                
+
+                // create the grid
+                var grid = Ext.create('Ext.grid.Panel', {
+                    store: store,
+                    columns: [
+                            { text: "Company", flex: 1, dataIndex: 'Company', sortable: true },
+                            { text: "Price", width: 180, dataIndex: 'Price', sortable: true },
+                            { text: "Change", width: 115, dataIndex: 'Change', sortable: true },
+                            { text: "PctChange", width: 100, dataIndex: 'PctChange', sortable: true }
+                        ],
+                    renderTo: 'panelDiv',
+                    width: 540,
+                    height: 200
+                });
+            });                
+                
+            
+            </script>
+
+    </head>
+    <body>
+        <div>
+            <div id="panelDiv"></div>                  
+        </div>
+    </body>
+</html>

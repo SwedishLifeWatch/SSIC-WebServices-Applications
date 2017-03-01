@@ -1,0 +1,217 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.Map.WfsLayersViewModel
+
+@{
+    ViewBag.Title = @Model.Labels.Title;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <a href="@Url.Action("AddWfsLayer")" class="btn btn-primary toolbarButton"><i class="icon-plus"></i> &nbsp;@Model.Labels.CreateNewLayer</a>
+        <button id="toolbarButtonRemoveSelectedWfsLayers" disabled="disabled" class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.DataProvidersRemoveSelectedWfsLayers</button>
+    </div>
+</div>
+
+<div id="wfsLayersGridDiv"></div>
+
+<script type="text/javascript">
+    var editUrlBase = '@Url.Action("WfsLayerEditor")';
+
+    var addAction = Ext.create('Ext.Action', {
+        icon: '@Url.Content("~/Content/images/add.png")', // Use a URL in the icon config
+        text: '@Model.Labels.CreateNewLayer',
+        tooltip: '@Model.Labels.CreateNewLayerTooltip',
+        disabled: false,
+        handler: function (widget, event) {
+            var url = '@Url.Action("AddWfsLayer")';
+            window.location.href = url;
+        }
+    });
+
+    var editAction = Ext.create('Ext.Action', {
+        icon: '@Url.Content("~/Content/images/property16.png")', // Use a URL in the icon config
+        text: '@Model.Labels.EditLayer',
+        tooltip: '@Model.Labels.EditLayerTooltip',
+        disabled: true,
+        handler: function (widget, event) {
+            var rec = wfsLayersGrid.getSelectionModel().getSelection()[0];
+            if (rec) {
+                editLayer(rec.data.Id);
+            }
+        }
+    });
+
+    var removeAction = Ext.create('Ext.Action', {
+        icon: '@Url.Content("~/Content/images/delete.gif")',
+        text: '@Model.Labels.RemoveLayer',
+        tooltip: '@Model.Labels.RemoveLayerTooltip',
+        disabled: true,
+        handler: function (widget, event) {
+            var rec = wfsLayersGrid.getSelectionModel().getSelection()[0];
+            removeLayer(rec);
+        }
+    });
+
+    var wfsLayersGrid;
+    var wfsLayerStore;
+    var wfsLayerGridContextMenu;
+    $(document).ready(function () {
+        $('#toolbarButtonRemoveSelectedWfsLayers').click(function () {
+            wfsLayersRemoveSelectedLayers();
+        });
+
+        createGrid();
+        setInterval(enableDisableButtons, 500);
+    });
+
+
+    function enableDisableButtons() {
+        if (wfsLayerStore == null || wfsLayerStore.data == null || wfsLayerStore.data.items == null)
+            return;
+        if (wfsLayerStore.data.items.length == 0)
+            $('#toolbarButtonReset').attr("disabled", true);
+        else
+            $('#toolbarButtonReset').attr("disabled", false);
+    }
+
+    function createGrid() {
+        AnalysisPortal.Models.defineWfsLayerViewModel();
+        wfsLayerStore = AnalysisPortal.createJsonStore('WfsLayerViewModel', '@Html.Raw(Url.Action("GetWfsLayer", "Data"))', {
+            api: {
+                read: '@Html.Raw(Url.Action("GetWfsLayer", "Data"))',
+                create: 'myurl',
+                update: 'myurl',
+                destroy: '@Html.Raw(Url.Action("RemoveWfsLayer", "Data"))'
+            },
+            writer: {
+                type: 'json',
+                writeAllFields: false,
+                allowSingle: true,
+                root: 'data',
+                encode: true
+            }
+        });
+
+        wfsLayersGrid = Ext.create('Ext.grid.Panel', {
+            id: 'wfsLayersGrid',
+            store: wfsLayerStore,
+            title: '@Model.Labels.WfsLayersGridTitle',
+            height: 200,
+            width: AnalysisPortal.DefaultContentWidth,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function (sm, selections) {
+                        enableDisableWfsLayersButtons();
+                    }
+                }
+            }),
+            renderTo: 'wfsLayersGridDiv',
+            columns: [
+                {
+                    text: '@Model.SharedLabels.Name', flex: 1, dataIndex: 'Name', renderer: function (value, meta, record) {
+                        return Ext.String.format('<a href="@Url.Action("WfsLayerEditor","Data")?mode=Edit&Id={1}">{0}</a>', value, record.data.Id);
+                    }
+                },
+                { text: '@Model.SharedLabels.Type', width: 120, dataIndex: 'GeometryType', sortable: true },
+                { text: '@Model.SharedLabels.Media', width: 60, dataIndex: 'MediaName', sortable: true },
+                {
+                    text: '@Model.SharedLabels.Color', width: 50, dataIndex: 'Color', renderer: function (value, meta, record) {
+                        return Ext.String.format('<div class="gridColorCell" style="background-color: {0};"></div>', value);
+                    }
+                },
+                {
+                    xtype: 'actioncolumn',
+                    tooltip: "@Model.Labels.EditLayerTooltip",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/property16.png")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var record = grid.getStore().getAt(rowIndex);
+                        editLayer(record.data.Id);
+                    }
+                }
+            ],
+            columnLines: true
+        });
+
+        wfsLayersGrid.getSelectionModel().on({
+            selectionchange: function (sm, selections) {
+                if (selections.length) {
+                    editAction.enable();
+                    removeAction.enable();
+                } else {
+                    editAction.disable();
+                    removeAction.disable();
+                }
+            }
+        });
+
+        wfsLayerStore.load();
+    }
+
+    function editLayer(id) {
+        var queryString = $.param({ mode: "Edit", Id: id });
+        var url = editUrlBase + "?" + queryString;
+        window.location.href = url;
+    }
+
+
+    function removeLayer(record) {
+        AnalysisPortal.showMessageBox({
+            title: "@Model.Labels.DeleteWfsLayerTitle",
+            msg: "@Model.Labels.DeleteWfsLayerMessage",
+            buttons: Ext.Msg.YESNOCANCEL,
+            icon: Ext.MessageBox.INFO
+        }, function (buttonId) {
+            if (buttonId == 'yes') {
+                if (record) {
+                    var index = wfsLayerStore.data.indexOf(record);
+                    wfsLayerStore.removeAt(index);
+                    wfsLayerStore.sync();
+                    AnalysisPortal.updateMySettingsSummary();
+                }
+            }
+        });
+    }
+
+    function enableDisableWfsLayersButtons() {
+        var selections = wfsLayersGrid.getSelectionModel().getSelection();
+        if (selections.length === 0) {
+            $('#toolbarButtonRemoveSelectedWfsLayers').attr("disabled", true);
+        } else {
+            $('#toolbarButtonRemoveSelectedWfsLayers').attr("disabled", false);
+        }
+    }
+
+    function wfsLayersRemoveSelectedLayers() {
+        var selected = [];
+        var s = wfsLayersGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.Id);
+        });
+
+        $.post(
+            '/Data/RemoveWfsLayers',
+            { wfsLayerIds: selected },
+            function (result) {
+                console.log(result);
+                if (result.success) {
+                    location.reload(true);
+                }
+            }
+        );
+    }
+
+</script>

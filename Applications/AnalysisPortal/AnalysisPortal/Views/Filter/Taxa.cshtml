@@ -1,0 +1,36 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxaViewModel
+
+@{
+    ViewBag.Title = Resource.FilterTaxaSummary;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonRemoveSelectedTaxa" disabled="disabled" class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveSelectedTaxa</button>
+        @*<button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>*@
+    </div> 
+</div>
+
+@Html.Action("SelectedTaxaPartial", new { showTaxaSelectionCheckboxes = true })
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    
+    $(document).ready(function() {
+        initToolbar();
+    });
+
+    function initToolbar() {        
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTaxa", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+
+        $('#toolbarButtonRemoveSelectedTaxa').click(function() {
+            selectedTaxaPartialRemoveSelectedTaxonIds();
+        });
+    }
+</script>

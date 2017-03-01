@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SpeciesObservationHarvestService/SpeciesObservationHarvestService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISpeciesObservationHarvestService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_UpdateSpeciesObservations_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeciesObservations" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_UpdateSpeciesObservations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSpeciesObservationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StartSpeciesObservationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartSpeciesObservationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StartSpeciesObservationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartSpeciesObservationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StopSpeciesObservationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopSpeciesObservationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_StopSpeciesObservationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopSpeciesObservationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_PauseSpeciesObservationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:PauseSpeciesObservationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_PauseSpeciesObservationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PauseSpeciesObservationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_ContinueSpeciesObservationUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:ContinueSpeciesObservationUpdate" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_ContinueSpeciesObservationUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ContinueSpeciesObservationUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetSpeciesObservationUpdateStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationUpdateStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISpeciesObservationHarvestService_GetSpeciesObservationUpdateStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationUpdateStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="ISpeciesObservationHarvestService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/ClearCache" message="tns:ISpeciesObservationHarvestService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/ClearCacheResponse" message="tns:ISpeciesObservationHarvestService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/DeleteTrace" message="tns:ISpeciesObservationHarvestService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/DeleteTraceResponse" message="tns:ISpeciesObservationHarvestService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetLog" message="tns:ISpeciesObservationHarvestService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetLogResponse" message="tns:ISpeciesObservationHarvestService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetStatus" message="tns:ISpeciesObservationHarvestService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetStatusResponse" message="tns:ISpeciesObservationHarvestService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/Login" message="tns:ISpeciesObservationHarvestService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/LoginResponse" message="tns:ISpeciesObservationHarvestService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/Logout" message="tns:ISpeciesObservationHarvestService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/LogoutResponse" message="tns:ISpeciesObservationHarvestService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/Ping" message="tns:ISpeciesObservationHarvestService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/PingResponse" message="tns:ISpeciesObservationHarvestService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StartTrace" message="tns:ISpeciesObservationHarvestService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StartTraceResponse" message="tns:ISpeciesObservationHarvestService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StopTrace" message="tns:ISpeciesObservationHarvestService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StopTraceResponse" message="tns:ISpeciesObservationHarvestService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeciesObservations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/UpdateSpeciesObservations" message="tns:ISpeciesObservationHarvestService_UpdateSpeciesObservations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/UpdateSpeciesObservationsResponse" message="tns:ISpeciesObservationHarvestService_UpdateSpeciesObservations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartSpeciesObservationUpdate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StartSpeciesObservationUpdate" message="tns:ISpeciesObservationHarvestService_StartSpeciesObservationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StartSpeciesObservationUpdateResponse" message="tns:ISpeciesObservationHarvestService_StartSpeciesObservationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopSpeciesObservationUpdate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StopSpeciesObservationUpdate" message="tns:ISpeciesObservationHarvestService_StopSpeciesObservationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/StopSpeciesObservationUpdateResponse" message="tns:ISpeciesObservationHarvestService_StopSpeciesObservationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PauseSpeciesObservationUpdate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/PauseSpeciesObservationUpdate" message="tns:ISpeciesObservationHarvestService_PauseSpeciesObservationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/PauseSpeciesObservationUpdateResponse" message="tns:ISpeciesObservationHarvestService_PauseSpeciesObservationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ContinueSpeciesObservationUpdate">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/ContinueSpeciesObservationUpdate" message="tns:ISpeciesObservationHarvestService_ContinueSpeciesObservationUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/ContinueSpeciesObservationUpdateResponse" message="tns:ISpeciesObservationHarvestService_ContinueSpeciesObservationUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationUpdateStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetSpeciesObservationUpdateStatus" message="tns:ISpeciesObservationHarvestService_GetSpeciesObservationUpdateStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISpeciesObservationHarvestService/GetSpeciesObservationUpdateStatusResponse" message="tns:ISpeciesObservationHarvestService_GetSpeciesObservationUpdateStatus_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

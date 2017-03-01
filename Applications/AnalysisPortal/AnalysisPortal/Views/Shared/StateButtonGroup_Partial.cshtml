@@ -1,0 +1,13 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons
+@model ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups.ButtonGroupModelBase
+
+<div class="btn-toolbar state-button-group" >
+    <h3>@Model.Title</h3>
+
+    <div class="state-buttons">
+        @foreach (StateButtonModel button in Model.Buttons)
+        {
+            @Html.StateButton(button, false)
+        }
+    </div>
+</div>

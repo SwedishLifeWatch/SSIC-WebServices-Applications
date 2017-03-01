@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90B4A08A-4C12-47FB-ABAB-673BA6CBBC04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebApplication.AnalysisPortal.Test</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebApplication.AnalysisPortal.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\Web\AnalysisPortal\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\Utils\CodeStandard\ArtDatabanken.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ArtDatabanken.Data.Fakes">
+      <HintPath>FakesAssemblies\ArtDatabanken.Data.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="ArtDatabanken.WebApplication.AnalysisPortal.Fakes">
+      <HintPath>FakesAssemblies\ArtDatabanken.WebApplication.AnalysisPortal.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\CsvHelper.2.13.2.0\lib\net40-client\CsvHelper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="mscorlib.4.0.0.2.Fakes">
+      <HintPath>FakesAssemblies\mscorlib.4.0.0.2.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.4.0.0.2.Fakes">
+      <HintPath>FakesAssemblies\System.4.0.0.2.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.4.0.0.2.Fakes">
+      <HintPath>FakesAssemblies\System.Web.4.0.0.2.Fakes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Utils\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisPortalTestSettings.Designer.cs">
+      <DependentUpon>AnalysisPortalTestSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="IO\CsvFileWriterTests.cs" />
+    <Compile Include="IO\FilenameGeneratorTests.cs" />
+    <Compile Include="IO\SpeciesObservationGridCsvTests.cs" />
+    <Compile Include="Managers\AboutManagerTest.cs" />
+    <Compile Include="Managers\ColorManagerTest.cs" />
+    <Compile Include="DataProviders\MapLayers\MapLayersSettingsTest.cs" />
+    <Compile Include="Managers\ResultCacheManagerTests.cs" />
+    <Compile Include="Managers\SpeciesObservationSearchCriteriaManagerTest.cs" />
+    <Compile Include="Managers\QueryComplexityManagerTests.cs" />
+    <Compile Include="Managers\FileExportManagerTest.cs" />
+    <Compile Include="MySettingsSummary\Calculation\GridStatisticsSettingSummaryTest.cs" />
+    <Compile Include="MySettingsSummary\Calculation\SummaryStatisticsSettingSummaryTest.cs" />
+    <Compile Include="MySettingsSummary\Improved\ImprovedMySettingsSummaryTests.cs" />
+    <Compile Include="MySettings\Calculation\GridStatisticsSettingTest.cs" />
+    <Compile Include="MySettings\Calculation\SummaryStatisticsSettingTest.cs" />
+    <Compile Include="MySettings\Filter\FilterSettingsTest.cs" />
+    <Compile Include="Helpers\CacheHandlerTest.cs" />
+    <Compile Include="Managers\MySettingsManagerTests.cs" />
+    <Compile Include="MySettings\MySettingsTests.cs" />
+    <Compile Include="Result\CalculatedData\CalculatedDataItemTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationAbundanceIndexDiagramResultCalculatorTest.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationDataManagerTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationDiagramResultCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\SpeciesObservationGridCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\Grid\TaxonGridCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\ResultCalculationFactoryTests.cs" />
+    <Compile Include="Result\ResultCalculation\ResultCalculationTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationCalculatorBaseTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationDictionaryCreatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationMapResultCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\SpeciesObservation\SpeciesObservationTableResultCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\SummaryStatistics\SummaryStatisticsPerPolygonResultCalculatorTests.cs" />
+    <Compile Include="Result\ResultCalculation\SummaryStatistics\SummaryStatisticsResultCalculatorTests.cs" />
+    <Compile Include="Result\ResultViews\Maps\MapsResultGroupTest.cs" />
+    <Compile Include="TestHelpers\HttpSimulator.cs" />
+    <Compile Include="TestHelpers\ReflectionHelper.cs" />
+    <Compile Include="TestHelpers\SimulatedHttpRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\SessionHandlerTest.cs" />
+    <Compile Include="TestModels\SpeciesObservationDataSourceTestRepository.cs" />
+    <Compile Include="TestBase.cs" />
+    <Compile Include="TestModels\UserContextTestRepository.cs" />
+    <Compile Include="TestModels\UserDataSourceTestRepository.cs" />
+    <Compile Include="ViewManagers\Filters\FieldsFilterViewManagerTests.cs" />
+    <Compile Include="ViewManagers\General\TaxonTreeViewManagerTests.cs" />
+    <Compile Include="ViewManagers\Presentation\SpeciesObservationFieldDescriptionViewManagerTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.GIS\ArtDatabanken.GIS\ArtDatabanken.GIS.csproj">
+      <Project>{0ED6C7D1-52C0-44C7-B52C-43A7A56BC897}</Project>
+      <Name>ArtDatabanken.GIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtDatabanken.WebApplication.AnalysisPortal\ArtDatabanken.WebApplication.AnalysisPortal.csproj">
+      <Project>{EACBE4E2-57FB-4DB3-9119-0E93F8037412}</Project>
+      <Name>ArtDatabanken.WebApplication.AnalysisPortal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj">
+      <Project>{54AE5807-085D-4D93-85D2-1694C2ECD22D}</Project>
+      <Name>ArtDatabanken.WebService.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Buttons\" />
+    <Folder Include="Json\" />
+    <Folder Include="ViewManagers\MySettings\" />
+    <Folder Include="ViewManagers\Result\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AnalysisPortalTestSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>AnalysisPortalTestSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="app.config" />
+    <Fakes Include="Fakes\System.fakes" />
+    <Fakes Include="Fakes\mscorlib.fakes" />
+    <Fakes Include="Fakes\System.Web.fakes" />
+    <Fakes Include="Fakes\ArtDatabanken.WebApplication.AnalysisPortal.fakes" />
+    <Fakes Include="Fakes\ArtDatabanken.Data.fakes" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

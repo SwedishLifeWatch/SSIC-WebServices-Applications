@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AnalysisService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="AnalysisServiceSOAP11Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="AnalysisServiceBinaryEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="AnalysisServiceSOAP12Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="urn:WebServices.ArtDatabanken.slu.se" location="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="AnalysisServiceSOAP11Endpoint" type="i0:IAnalysisService">
+    <wsp:PolicyReference URI="#AnalysisServiceSOAP11Endpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatistics">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatistics" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesCountsBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsBySpeciesFactSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetHostsBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationProvenancesBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationProvenancesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesCountBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesFactSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationAOOEOOAsGeoJson">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationAOOEOOAsGeoJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AnalysisServiceBinaryEndpoint" type="i0:IAnalysisService">
+    <wsp:PolicyReference URI="#AnalysisServiceBinaryEndpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsBySpeciesFactSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetHostsBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationProvenancesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationProvenancesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesCountBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesFactSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationAOOEOOAsGeoJson">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationAOOEOOAsGeoJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AnalysisServiceSOAP12Endpoint" type="i0:IAnalysisService">
+    <wsp:PolicyReference URI="#AnalysisServiceSOAP12Endpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatistics">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatistics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridCellFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridFeatureStatisticsCombinedWithSpeciesObservationCounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetGridSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHostsBySpeciesFactSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetHostsBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationProvenancesBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationProvenancesBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesCountBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationCountBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesFactSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesFactSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTaxaWithSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetTimeSpeciesObservationCountsBySpeciesObservationSearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationAOOEOOAsGeoJson">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/GetSpeciesObservationAOOEOOAsGeoJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IAnalysisService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AnalysisService">
+    <wsdl:port name="AnalysisServiceSOAP11Endpoint" binding="tns:AnalysisServiceSOAP11Endpoint">
+      <soap:address location="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc" />
+    </wsdl:port>
+    <wsdl:port name="AnalysisServiceBinaryEndpoint" binding="tns:AnalysisServiceBinaryEndpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc/Fast" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc/Fast</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="AnalysisServiceSOAP12Endpoint" binding="tns:AnalysisServiceSOAP12Endpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc/SOAP12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/AnalysisService/AnalysisService.svc/SOAP12</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

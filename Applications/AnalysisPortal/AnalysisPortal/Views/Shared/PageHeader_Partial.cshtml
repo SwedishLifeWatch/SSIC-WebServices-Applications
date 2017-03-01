@@ -1,0 +1,26 @@
+﻿@using Resources
+@{    
+    string swedishLifeWatchLogoUrl = "~/Content/images/slw-logo-en.png";
+    if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName == "sv")
+    {
+        swedishLifeWatchLogoUrl = "~/Content/images/slw-logo-sv.png";
+    }
+}
+<div class="header content-wrapper">
+    <div class="col-xs-12">        
+        <div class="page-header">                    
+            <h1>
+                @Html.ActionLink(Resource.ApplicationMainTitle, "Index", "Home")
+                <small>@Resource.ApplicationSubTitle</small>
+            </h1>                     
+        </div>
+        @Html.Partial("~/Views/Navigation/HeadNavigationMenu.cshtml")                       
+        <div id="changeUserRoleDisplay">
+            @Html.Partial("ChangeUserRole_Partial")
+        </div>
+        <div id="logindisplay">
+            @Html.Partial("LogOnUserControlTopLine_Partial")
+        </div> 
+        <a href="@Resource.SharedAboutSwedishLifewatchUrl" target="_blank"><img id="swedishLifeWatchLogo" src="@Url.Content(swedishLifeWatchLogoUrl)" /></a>        
+    </div>        
+</div>

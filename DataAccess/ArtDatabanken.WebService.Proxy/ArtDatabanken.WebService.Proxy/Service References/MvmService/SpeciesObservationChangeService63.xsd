@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://miljodata.slu.se/mvm/ws/SpeciesObservationChangeService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+  <xs:complexType name="WebSpeciesObservationChange">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreatedSpeciesObservations" nillable="true" type="tns:ArrayOfWebSpeciesObservation" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DeletedSpeciesObservationGuids" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="MaxChangeCount" type="xs:long" />
+          <xs:element minOccurs="0" name="MaxChangeId" type="xs:long" />
+          <xs:element minOccurs="0" name="UpdatedSpeciesObservations" nillable="true" type="tns:ArrayOfWebSpeciesObservation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesObservationChange" nillable="true" type="tns:WebSpeciesObservationChange" />
+  <xs:complexType name="WebData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataFields" nillable="true" type="tns:ArrayOfWebDataField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebData" nillable="true" type="tns:WebData" />
+  <xs:complexType name="ArrayOfWebDataField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebDataField" nillable="true" type="tns:WebDataField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebDataField" nillable="true" type="tns:ArrayOfWebDataField" />
+  <xs:complexType name="WebDataField">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:WebDataType" />
+      <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WebDataField" nillable="true" type="tns:WebDataField" />
+  <xs:simpleType name="WebDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Boolean" />
+      <xs:enumeration value="DateTime" />
+      <xs:enumeration value="Float64" />
+      <xs:enumeration value="Int32" />
+      <xs:enumeration value="Int64" />
+      <xs:enumeration value="String" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WebDataType" nillable="true" type="tns:WebDataType" />
+  <xs:complexType name="ArrayOfWebSpeciesObservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebSpeciesObservation" nillable="true" type="tns:WebSpeciesObservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebSpeciesObservation" nillable="true" type="tns:ArrayOfWebSpeciesObservation" />
+  <xs:complexType name="WebSpeciesObservation">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfWebSpeciesObservationField" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesObservation" nillable="true" type="tns:WebSpeciesObservation" />
+  <xs:complexType name="ArrayOfWebSpeciesObservationField">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WebSpeciesObservationField" nillable="true" type="tns:WebSpeciesObservationField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWebSpeciesObservationField" nillable="true" type="tns:ArrayOfWebSpeciesObservationField" />
+  <xs:complexType name="WebSpeciesObservationField">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Class" nillable="true" type="tns:WebSpeciesObservationClass" />
+          <xs:element minOccurs="0" name="ClassIndex" type="xs:long" />
+          <xs:element minOccurs="0" name="Information" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsClassIndexSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPropertyIndexSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Locale" nillable="true" type="tns:WebLocale" />
+          <xs:element minOccurs="0" name="Property" nillable="true" type="tns:WebSpeciesObservationProperty" />
+          <xs:element minOccurs="0" name="PropertyIndex" type="xs:long" />
+          <xs:element minOccurs="0" name="Type" type="tns:WebDataType" />
+          <xs:element minOccurs="0" name="Unit" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesObservationField" nillable="true" type="tns:WebSpeciesObservationField" />
+  <xs:complexType name="WebSpeciesObservationClass">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Id" type="q2:SpeciesObservationClassId" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesObservationClass" nillable="true" type="tns:WebSpeciesObservationClass" />
+  <xs:complexType name="WebLocale">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ISOCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Id" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NativeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebLocale" nillable="true" type="tns:WebLocale" />
+  <xs:complexType name="WebSpeciesObservationProperty">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:WebData">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" minOccurs="0" name="Id" type="q3:SpeciesObservationPropertyId" />
+          <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WebSpeciesObservationProperty" nillable="true" type="tns:WebSpeciesObservationProperty" />
+</xs:schema>

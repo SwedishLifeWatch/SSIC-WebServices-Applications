@@ -1,0 +1,400 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model dynamic
+
+@{
+    ViewBag.Title = Resource.ResultViewSpeciesObservationGridMap;
+    ViewBag.Description = Resource.ResultSpeciesObservationGridMapDescription;
+}
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">                
+        <a class="btn action-button" href="@Url.Action("GridStatisticsOnSpeciesObservationCountsAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownloadExcel</a>
+        <a class="btn action-button" href="@Url.Action("GridStatisticsOnSpeciesObservationCountsAsGeoJson", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownloadGeoJson</a>
+        <button id="btnExpand" class="btn toolbarButton"><i class="icon-fullscreen"></i> &nbsp;@Resource.SharedFullScreenMode</button>
+        <button id="btnHistogramBinSettings" class="btn toolbarButton" disabled="disabled"><i class="icon-wrench"></i> &nbsp;@Resource.SharedSettings</button>
+        @if (ViewBag.Debug != null && ViewBag.Debug)
+        {
+        <button id="btnAddMapLayerToServer" class="btn toolbarButton" disabled="disabled"><i class="icon-upload"></i> &nbsp;Add map layer to server</button>    
+        }    
+    </div>
+</div>
+
+<div id="mapControl" class="clearfix map" style="width: 660px; height: 500px;" >
+    <div id="mapNavDiv" class="olControlPanel"></div>    
+    <div class="clearfix" id="mapDiv"></div>
+</div>
+<div id="mainPanel" class="datapanel"></div>
+<div id="gridStatisticsLegendDiv" style="width: 120px; padding:10px;"></div>
+<div id="opacityPanel" style="padding:5px; margin-bottom: 10px;">
+    @Resource.SharedTransparency  
+    <select id="gridMapOpacitySelectList" style="width: 100px;">        
+        <option value="100">100 %</option>
+        <option value="90">90 %</option>
+        <option value="80">80 %</option>
+        <option value="70">70 %</option>
+        <option value="60">60 %</option>
+        <option value="50">50 %</option>        
+        <option value="40">40 %</option>
+        <option value="30" selected="selected">30 %</option>
+        <option value="20">20 %</option>        
+        <option value="10">10 %</option>
+        <option value="0">0 %</option>        
+    </select>
+    
+    <div>
+        <input type="checkbox" id="DrawGridMapCellBorderCheckbox"/>
+        @Resource.GridMapDrawBorders
+    </div>
+    
+</div>    
+
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">    
+    var map;
+    var gridResult;    
+    var gridCellOpacity = 0.3;
+    var histogram = null;
+    @Html.Raw(Html.DeclareWfsLayersJsArray("wfsLayers"))
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))    
+
+    $(document).ready(function() {
+        createMap();      
+        getGridData();
+        createMainPanel();
+        AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+        $("#gridMapOpacitySelectList").change(function () {
+            var opacity = $('#gridMapOpacitySelectList').val();            
+            gridCellOpacity = opacity / 100;            
+            redrawGridMap();           
+        });
+        $('#btnExpand').click(function() {
+            AnalysisPortal.fullScreen(mainPanel, containerPanel);
+        });            
+
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+        });
+
+        $("#DrawGridMapCellBorderCheckbox").change(function () {
+            redrawGridMap();
+        });
+        $('#btnHistogramBinSettings').click(function() {
+            AnalysisPortal.showDialog({
+                title: '@Resource.HistogramBinSettingsTitle',
+                url: '@Url.Action("HistogramBinSettingsDialog", "Result")'
+            });
+        });
+        $('#btnAddMapLayerToServer').click(function() {
+            var geoJsonFormat = AnalysisPortal.GIS.createGeoJsonFormat();
+            var featuresAsJson = geoJsonFormat.write(map.gridLayer.features);
+            var styleAsJson = Ext.encode(map.gridLayer.styleMap);
+            
+            AnalysisPortal.makeAjaxCall({
+                method: 'POST',
+                url: '@Url.Action("AddMapLayerToCompare")',
+                params: {
+                    features: featuresAsJson,
+                    style: styleAsJson
+                }
+            }, function(result) {
+                AnalysisPortal.showMsg(result.Msg);
+            });
+            console.log(json);
+            //return json;
+        });
+        initCoordinateSelectBox();
+    });
+    
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;            
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+    function redrawGridMap() {
+        AnalysisPortal.GIS.showWaitMsg(AnalysisPortal.Resources.SharedWait);
+        setTimeout(function() {
+            var layer = map.gridLayer;
+            AnalysisPortal.GIS.clearLayer(layer);
+            addGridData(layer, gridResult.Cells);
+            AnalysisPortal.GIS.hideWaitMsg();
+        }, 100);
+        
+    }
+
+    function createLegend(histogram) {        
+        var $legendTable = AnalysisPortal.GIS.createGridStatisticsLegendTable(histogram);
+        var $legendDiv = $("#gridStatisticsLegendDiv");
+        $legendDiv.empty();
+        $legendTable.appendTo($legendDiv);
+    }
+
+    function applyHistogramBinSettingsChanges(histogramBinSettings) {
+        AnalysisPortal.GIS.showWaitMsg(AnalysisPortal.Resources.SharedWait);
+        setTimeout(function () {
+            var layer = map.gridLayer;
+            AnalysisPortal.GIS.clearLayer(layer);
+            addGridDataWithPredefinedBins(layer, gridResult.Cells, histogramBinSettings);
+            AnalysisPortal.GIS.hideWaitMsg();
+        }, 100);        
+    }
+    
+    function getGridData() {
+        AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("GetObservationsGridCountAsJSON")',
+            showWaitMessage: true,
+            waitMessage: AnalysisPortal.Resources.SharedLoadingData,
+            waitMessageDivId: 'mapDiv'//,
+            //timeout: 5 * 60 * 1000 // 5 minutes
+            },
+            function (result) {
+                gridResult = result.data;                
+                var gridCells = result.data.Cells;
+            
+                if (gridCells == null || gridCells.length == 0) {
+                    AnalysisPortal.showMsg('No grid cells in result. Can not create grid statistics.');
+                    return;
+                }
+                addGridData(map.gridLayer, gridCells);
+                AnalysisPortal.GIS.zoomToFeaturesInVisibleVectorLayers(map, { zoomToSwedenIfFail: true, allowZoomOutsideSwedenExtent: false });
+            }
+         );
+    }
+
+    function addGridData(layer, gridCells) {
+        if (gridCells == null || gridCells.length == 0)
+            return;
+
+        if (histogram == null) {
+            histogram = AnalysisPortal.GIS.calculateHistogram(gridCells, 'ObservationCount', AnalysisPortal.Statistics.ColorInterpolationMode.pow3);
+        }
+        drawGrid(layer, gridCells, histogram);
+    }
+
+    function addGridDataWithPredefinedBins(layer, gridCells, histogramBinSettings) {
+        if (gridCells == null || gridCells.length == 0)
+            return;
+
+        histogram = AnalysisPortal.GIS.calculateHistogramWithPredefinedBins(gridCells, 'ObservationCount', histogramBinSettings.histogramBins, histogramBinSettings.startColor, histogramBinSettings.endColor);
+        histogram.colorInterpolationMode = histogramBinSettings.colorInterpolationMode;
+        drawGrid(layer, gridCells, histogram);
+    }
+
+    function drawGrid(layer, gridCells, histogram) {
+        var gridCellBorderOpacity = 0;
+        if ($("#DrawGridMapCellBorderCheckbox").is(":checked")) {
+            gridCellBorderOpacity = 1;
+        }
+        $('#btnHistogramBinSettings').removeAttr('disabled');
+        $('#btnAddMapLayerToServer').removeAttr('disabled');
+        createLegend(histogram);
+        layer.styleMap = AnalysisPortal.GIS.createGridStatisticsStyleRules(histogram, 'ObservationCount', gridCellOpacity, gridCellBorderOpacity);
+        var cells = [];
+        for (var i = 0; i < gridCells.length; i++) {
+            var cell = gridCells[i];
+
+            var points = [
+                new OpenLayers.Geometry.Point(cell.BoundingBox[0][0], cell.BoundingBox[0][1]),
+                new OpenLayers.Geometry.Point(cell.BoundingBox[1][0], cell.BoundingBox[1][1]),
+                new OpenLayers.Geometry.Point(cell.BoundingBox[2][0], cell.BoundingBox[2][1]),
+                new OpenLayers.Geometry.Point(cell.BoundingBox[3][0], cell.BoundingBox[3][1])
+            ];
+
+            var ring = new OpenLayers.Geometry.LinearRing(points).transform(AnalysisPortal.GIS.GoogleMercatorProjection, AnalysisPortal.GIS.getBaseProjection());
+            var polygon = new OpenLayers.Geometry.Polygon([ring]);
+            var feature = new OpenLayers.Feature.Vector(polygon, { ObservationCount: cell.ObservationCount }); //, style); //, null, style); //, null, style);
+            cells.push(feature);
+        }
+        map.gridLayer.addFeatures(cells);
+    }
+    
+
+    function createMap() {
+        var toolsOptions = { 
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: false,
+            ShowSelectManyControl: false,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [{
+            id: VectorLayers.GridLayer,
+            visible: true
+        }, {
+            id: VectorLayers.Observations,
+            visible: false
+        }, {
+            id: VectorLayers.ObservationAccuracy,
+            visible: false
+        }, {
+            id: VectorLayers.SpatialFilter,
+            mainLayer: true,
+            visible: false
+        }
+        ];
+                     
+        vectorLayers = vectorLayers.concat(wfsLayers);        
+        map = AnalysisPortal.GIS.initMap({
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });
+        // Activate drag control
+        //map.selectControl.deactivate();
+        //map.dragPanControl.activate();
+    }
+
+    var mapPanel;
+    var containerPanel;
+    var mainPanel;
+    function createMainPanel() {        
+        Ext.suspendLayouts();
+
+        mapPanel = AnalysisPortal.createHtmlPanel('mapControl', {
+            title: '@Resource.SharedMap',
+            region: 'center',
+            width: 560
+        });
+
+        var legendPanel = AnalysisPortal.createHtmlPanel('gridStatisticsLegendDiv', {
+            title: '@Resource.SharedLegend',
+            region: 'north',
+            //flex: 1
+            height: 280,
+            autoScroll: true
+        });
+        
+        var opacityPanel = AnalysisPortal.createHtmlPanel('opacityPanel', {
+            title: '@Resource.SharedSettings',
+            region: 'south',
+            height: 100,
+            //flex: 1,
+            width: 200            
+        });
+        
+        var propertyGrid = createPropertyGrid();
+        //var legendContainer = AnalysisPortal.createLayoutContainer([legendPanel, propertyGrid, opacityPanel], {
+        var legendContainer = AnalysisPortal.createLayoutContainer([legendPanel, propertyGrid, opacityPanel], {
+            width: 220,
+            //height:500,
+            layout: "border",
+            //layout: {
+            //        type: 'vbox',
+            //        align: 'fit'//,
+            //    //padding: 10
+            //},
+            //layout: {
+            //    type: 'vbox',
+            //    align: 'stretch'
+            //},
+            //layout: {
+            //        type: 'vbox',
+            //        align: 'stretchmax',
+            //        pack: 'center'
+            //},
+            region: 'east',
+            collapsible: false
+        });
+        //layout: {
+        //        type: 'vbox',
+        //        align: 'fit'//,
+        //    //padding: 10
+        //},
+        //layout: {
+        //        type: 'vbox',
+        //        align: 'stretchmax',
+        //        pack: 'center'
+        //}
+
+        containerPanel = AnalysisPortal.createLayoutContainer([mapPanel, legendContainer], {
+            layout: "border",
+            collapsible: false
+        });
+
+        mainPanel = AnalysisPortal.createMainPanel('mainPanel', {
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 580,
+            autoDestroy: false,                   
+            collapsible: false,
+            items: [containerPanel]
+        });      
+
+        Ext.resumeLayouts(true);        
+        return mainPanel;
+    }
+
+    function createPropertyGrid() {
+        AnalysisPortal.Models.defineKeyValuePairModel();
+        map.selectedFeatureStore = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            model: 'KeyValuePair',            
+            proxy: {
+                type: 'memory',
+                reader: {
+                    type: 'json'
+                }
+            }
+        });
+        
+        var propertyGrid = new Ext.grid.GridPanel({
+            title: "@Resource.SharedData",
+            id: 'SpeciesObservationPropertyGrid',
+            region: 'center',
+            store: map.selectedFeatureStore,
+            sortableColumns: false,
+            height: 200,
+            //flex: 1,
+            //resizable: true,
+            //plugins: "bufferedrenderer",
+            //collapsible: true,
+            //collapsed: true,
+            //animCollapse: true,
+            //titleCollapse: true,            
+            //floatable: false, // if true the panel will expand over the map and half the map won't be shown            
+            viewConfig: {
+                enableTextSelection: true
+            },
+
+            columns: [{
+                header: "@Resource.SharedField",
+                width: 140,
+                dataIndex: "Key"
+            }, {
+                header: "@Resource.SharedValue",
+                flex: 1,
+                dataIndex: "Value",
+                renderer: function (val, meta, record, rowIndex, colIndex, store) {
+                    return '<div style="white-space:normal !important; word-wrap:break-word !important;">' + val + '</div>';
+                }
+            }],
+            listeners: {
+                collapse: function (p, eOpts) {
+
+                },
+                expand: function (p, eOpts) {
+
+                }
+            }
+        });
+        //forceFit: true,
+        //collapseFirst: true,
+        map.selectedFeatureGrid = propertyGrid;
+        return propertyGrid;
+    }   
+</script>

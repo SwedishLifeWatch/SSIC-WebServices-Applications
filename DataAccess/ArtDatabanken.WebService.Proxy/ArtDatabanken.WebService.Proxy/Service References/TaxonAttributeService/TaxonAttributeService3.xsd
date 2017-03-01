@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="AuthorityType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DataType" />
+      <xs:enumeration value="Application" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AuthorityType" nillable="true" type="tns:AuthorityType" />
+  <xs:complexType name="ArrayOfStringCompareOperator">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringCompareOperator" type="tns:StringCompareOperator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStringCompareOperator" nillable="true" type="tns:ArrayOfStringCompareOperator" />
+  <xs:simpleType name="StringCompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeginsWith" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Like">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NotEqual">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">11</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="StringCompareOperator" nillable="true" type="tns:StringCompareOperator" />
+  <xs:simpleType name="FactorSearchScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NoScope" />
+      <xs:enumeration value="AllChildFactors" />
+      <xs:enumeration value="AllParentFactors" />
+      <xs:enumeration value="NearestChildFactors" />
+      <xs:enumeration value="NearestParentFactors" />
+      <xs:enumeration value="LeafFactors" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FactorSearchScope" nillable="true" type="tns:FactorSearchScope" />
+  <xs:simpleType name="FactorUpdateModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Archive" />
+      <xs:enumeration value="AutomaticUpdate" />
+      <xs:enumeration value="Header" />
+      <xs:enumeration value="ManualUpdate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FactorUpdateModeType" nillable="true" type="tns:FactorUpdateModeType" />
+  <xs:simpleType name="LogicalOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="And" />
+      <xs:enumeration value="Not" />
+      <xs:enumeration value="Or" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LogicalOperator" nillable="true" type="tns:LogicalOperator" />
+  <xs:simpleType name="CompareOperator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BeginsWith" />
+      <xs:enumeration value="Contains" />
+      <xs:enumeration value="EndsWith" />
+      <xs:enumeration value="Equal" />
+      <xs:enumeration value="Excluding" />
+      <xs:enumeration value="Greater" />
+      <xs:enumeration value="GreaterOrEqual" />
+      <xs:enumeration value="Including" />
+      <xs:enumeration value="Less" />
+      <xs:enumeration value="LessOrEqual" />
+      <xs:enumeration value="Like" />
+      <xs:enumeration value="NotEqual" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CompareOperator" nillable="true" type="tns:CompareOperator" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Person" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
+</xs:schema>

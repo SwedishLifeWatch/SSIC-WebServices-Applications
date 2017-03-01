@@ -1,0 +1,222 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxonByTaxonAttributesViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonReset" @if (Model.IsSettingsDefault) { <text> disabled="disabled" </text>       } class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    </div>
+</div>
+<div id="searchSection">
+    <div id="tabPanelDiv">
+        <div id="factorTreeDiv" style="display:none;"></div>
+        <span id="selectedTaxaPartialSpan" style="display:none;">
+            @Html.Action("SelectedTaxaPartial", new { showTaxaSelectionCheckboxes = false })
+        </span>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var isSearching = false;
+    var showSaveSettingsMessageOnLeave = true;
+    var searchGrid;
+    var treepanel;
+    var factorTreeStore;
+
+    $(document).ready(function() {
+        createGrid();
+        initToolbar();
+        createTabGroup();
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTaxa", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+    }
+
+    function createGrid() {
+        AnalysisPortal.Models.defineTaxonSearchResultTreeViewModel();
+
+        factorTreeStore = Ext.create('Ext.data.TreeStore', {
+            storeId: 'TaxonSearchResultTreeViewModelStore',
+            model: 'TaxonSearchResultTreeViewModel',
+            proxy: {
+                type: 'ajax',
+                api: {
+                    read: 'GetTaxaTreeNodes'
+                }
+            },
+            listeners: {
+                beforeload: function(theStore, operation) {
+                    var node = operation.node;
+                    operation.params.parentFactorId = node.get('parentFactorId');
+                    operation.params.nodeFactorId = node.get('nodeFactorId');
+                    operation.params.compositeId = node.get('compositeId');
+                }
+            },
+            root:
+                {
+                    nodeFactorId: 0,
+                    parentFactorId: -1,
+                    compositeId: 0,
+                    name: '@Resource.TaxonAttributesTreePanelHeaderText',
+                    loaded: true,
+                    expanded: true,
+                    leaf: false,
+                    children: [
+                        {
+                            nodeFactorId: 985,
+                            parentFactorId: 0,
+                            compositeId: 985,
+                            name: 'Artfaktadatabasen',
+                            loaded: false,
+                            expanded: false,
+                            leaf: false
+                        },
+                        {
+                            nodeFactorId: 0,
+                            parentFactorId: 0,
+                            compositeId: 0,
+                            name: 'Skogsinventeringslistan',
+                            loaded: true,
+                            expanded: false,
+                            leaf: false,
+                            children: [
+                                {
+                                    nodeFactorId: 2648,
+                                    parentFactorId: 0,
+                                    compositeId: 2648,
+                                    name: 'Skogsstyrelsens naturvårdsarter',
+                                    loaded: true,
+                                    expanded: false,
+                                    leaf: true
+                                },
+                                {
+                                    nodeFactorId: 2023,
+                                    parentFactorId: 0,
+                                    compositeId: 2023,
+                                    name: 'Skogsstyrelsens signalarter',
+                                    loaded: true,
+                                    expanded: false,
+                                    leaf: true
+                                }
+                            ]
+                        }
+                    ]
+                }
+        });
+
+        treepanel = Ext.create('Ext.tree.Panel', {
+            renderTo: 'factorTreeDiv',
+            id: 'factorTreeId',
+            width: AnalysisPortal.DefaultContentWidth,
+            minHeight: 400,
+            store: factorTreeStore,
+            columns: [{
+                xtype: 'treecolumn',
+                //text: '@Resource.TaxonAttributesTreePanelHeaderText',
+                dataIndex: 'name',
+                flex: 1,
+                sortable: false
+            }
+            ],
+            listeners: {
+                afteritemcollapse: function () {
+                    Ext.getCmp('tabPanelId').doLayout();
+                },
+                afteritemexpand: function () {
+                    Ext.getCmp('tabPanelId').doLayout();
+                },
+                itemclick: function (node, record) {
+                    var factorId = record.get('nodeFactorId');
+
+                    if (factorId != 0) {
+                        AnalysisPortal.showDialog({
+                            title: '@Resource.SearchTaxaBySelectedFactorTitle',
+                            url: '@Url.Action("SetTaxonFilterFromFactorDialog")' + "?factorId=" + factorId,
+                            sizeClass: 'modal-lg'
+                        });
+                    }
+                }
+            },
+            dockedItems: [{
+                xtype: 'toolbar'
+            }]
+        });
+
+        /*
+         * Add toolbar items dynamically after creation
+         */
+        var toolbar = treepanel.child('toolbar');
+        toolbar.add({
+            text: '@Resource.TaxonAttributesTreePanelToolbarCollapseAllText',
+            handler: function () {
+                collapseAllTreeNodes();
+            }
+        });
+        toolbar.add({
+            text: '@Resource.TaxonAttributesTreePanelToolbarSortAlphabeticallyText',
+            handler: function (node) {
+                if (node.text == '@Resource.TaxonAttributesTreePanelToolbarSortAlphabeticallyText') {
+                    node.setText('@Resource.TaxonAttributesTreePanelToolbarSortDefaultText');
+                    setSortOrderInTreePanel(true);
+                } else {
+                    node.setText('@Resource.TaxonAttributesTreePanelToolbarSortAlphabeticallyText');
+                    setSortOrderInTreePanel(false);
+                }
+            }
+        });
+    }
+
+    function collapseAllTreeNodes() {
+        treepanel.collapseAll();
+    }
+
+    function setSortOrderInTreePanel(isSortedAlphabetically) {
+
+        factorTreeStore.getRootNode().removeAll();
+
+        if (isSortedAlphabetically) {
+            factorTreeStore.folderSort = true;
+            factorTreeStore.sort('name', 'ASC');
+        } else {
+            factorTreeStore.folderSort = false;
+            factorTreeStore.sort('', '');
+        }
+
+        factorTreeStore.load();
+    }
+
+    function createTabGroup() {
+
+        var tabs = new Ext.TabPanel({
+            renderTo: 'tabPanelDiv',
+            activeTab: 0,
+            id: 'tabPanelId',
+            width: AnalysisPortal.DefaultContentWidth,
+            items: [
+                {
+                    title: '@Resource.TaxonAttributesTreePanelTitle',
+                    contentEl: 'factorTreeId'
+                }, {
+                    title: AnalysisPortal.Resources.FilterTaxonFromIdsSelectedTaxaGridTitle,
+                    contentEl: 'selectedTaxaGrid'
+                }
+            ],
+            listeners: {
+                'tabchange': function (tabPanel, tab) {
+                    Ext.getCmp('selectedTaxaGrid').setHeight(600);
+                }
+            }
+        });
+
+        Ext.getCmp('selectedTaxaGrid').setHeight(600);
+    }
+
+</script>

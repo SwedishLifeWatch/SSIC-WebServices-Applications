@@ -1,0 +1,33 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.SpeciesObservationHarvestService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseDefaultCommandTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1800</Value>
+    </Setting>
+    <Setting Name="TaxonCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HarvestTaxonTableCache</Value>
+    </Setting>
+    <Setting Name="TaxonTreesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonTreeNodeCache</Value>
+    </Setting>
+    <Setting Name="TaxonTableCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonTableCache</Value>
+    </Setting>
+    <Setting Name="BirdTaxonIdsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BirdTaxonIdsCache</Value>
+    </Setting>
+    <Setting Name="ElasticsearchSpeciesObservationUpdateSize" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="TaxonNameDictionariesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonNameDictionariesCache</Value>
+    </Setting>
+    <Setting Name="MaxSpeciesObservationsFromWram" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="MaxSpeciesObservationsFromMvm" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

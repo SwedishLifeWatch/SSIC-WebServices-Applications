@@ -1,0 +1,42 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Long running ajax sample";
+}
+
+<h2>Long running ajax sample</h2>
+
+<button id="startAjaxButton">Start long running process</button>
+
+<button id="cancelAjaxButton">Cancel long running process</button>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#startAjaxButton').click(function() {
+            AnalysisPortal.makeAjaxCall({
+                url: '@Url.Action("MyLongRunningProcess", "Service")',
+                showWaitMessage: false
+            },
+            function (result) {
+                //console.log(result.data);
+                //alert(result.data.Text);
+            });
+        });
+
+        $('#cancelAjaxButton').click(function() {
+            AnalysisPortal.makeAjaxCall({
+                url: '@Url.Action("CancelRequest", "Service")',
+                //params: {
+                //    id: 1
+                //},
+                showWaitMessage: false
+            },
+            function (result) {
+                console.log(result.data);
+                //alert(result.data.Text);
+            });
+        });
+
+    });
+</script>

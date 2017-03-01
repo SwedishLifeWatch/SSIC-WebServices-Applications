@@ -1,0 +1,4792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountAccessIsNotAllowedDescription" xml:space="preserve">
+    <value>You don't have the authority to access the following url</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountAccessIsNotAllowedTitle" xml:space="preserve">
+    <value>Access is not allowed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountControllerIncorrectLoginError" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountControllerIncorrectPasswordError" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogInText" xml:space="preserve">
+    <value>Log in</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutInfoLine1" xml:space="preserve">
+    <value>You are already logged in, or the session has ended due to inactivity (timeout).</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutInfoLine2" xml:space="preserve">
+    <value>Click "Log out" to be able to log in again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutText" xml:space="preserve">
+    <value>Log out</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountUserAdminLinkText" xml:space="preserve">
+    <value>Create new or manage your account</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutAnalysisPortalText" xml:space="preserve">
+    <value>About Analysis portal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutCookiesHeader" xml:space="preserve">
+    <value>About cookies</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutCookiesSubHeader" xml:space="preserve">
+    <value>This website uses cookies</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAddButtonText" xml:space="preserve">
+    <value>Add</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAdditionalErrorInformation" xml:space="preserve">
+    <value>Detalis</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAnalysisPortalMainTitle" xml:space="preserve">
+    <value>Analysis portal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedArtDatabankenText" xml:space="preserve">
+    <value>The Swedish Species Information Centre</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAvaliableLabel" xml:space="preserve">
+    <value>Avaliable</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedBoolFalseText" xml:space="preserve">
+    <value>No</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedBoolTrueText" xml:space="preserve">
+    <value>Yes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedChangeLanguageLabel" xml:space="preserve">
+    <value>Svenska</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedContactMailLinkText" xml:space="preserve">
+    <value>Email to support</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCookiesReadMoreLink" xml:space="preserve">
+    <value>http://www.pts.se/en-gb/Regulations/Legislation/Electronic-Communications-Act/Cookies-kakor/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCookiesReadMoreText" xml:space="preserve">
+    <value>Read more on The Swedish Post and Telecom Authority page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCreating" xml:space="preserve">
+    <value>Creating</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCurrentServiceStatusLinkText" xml:space="preserve">
+    <value>Current service status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDateText" xml:space="preserve">
+    <value>Date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDeleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDeleting" xml:space="preserve">
+    <value>Deleting</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDialogButtonTextNo" xml:space="preserve">
+    <value>No</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogButtonTextYes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogConfirmationHeader" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogConfirmationText" xml:space="preserve">
+    <value>Are you sure?</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogDeleteHeader" xml:space="preserve">
+    <value>Delete</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogInformationHeader" xml:space="preserve">
+    <value>Information</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDoYouWantToContinue" xml:space="preserve">
+    <value>Do you want to continue?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownAny" xml:space="preserve">
+    <value>Any</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownFalse" xml:space="preserve">
+    <value>False</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownTrue" xml:space="preserve">
+    <value>True</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaFullVersionLinkText" xml:space="preserve">
+    <value>Full version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedEditButtonText" xml:space="preserve">
+    <value>Edit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedError" xml:space="preserve">
+    <value>Error </value>
+    <comment>sv (Temporarily error string)</comment>
+  </data>
+  <data name="SharedErrorStringToLong250" xml:space="preserve">
+    <value>The text string is to long (has to be less than 250 chars)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedExeptionNullOrEmpty" xml:space="preserve">
+    <value>Value cannot be empty</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedFieldsetLegendEditCreateText" xml:space="preserve">
+    <value>Fill in the form</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedFinalizing" xml:space="preserve">
+    <value>Publishing revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFooterInfoHeader" xml:space="preserve">
+    <value>Information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFooterLinkHeader" xml:space="preserve">
+    <value>Links</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedGeneratingExcelFile" xml:space="preserve">
+    <value>Generating Excel file...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedGoToReferenceViewQuestion" xml:space="preserve">
+    <value>You have entered the information that will disappear if you continue to the Reference Page, if you don't chose to cancel and save. Do you want to continue and lose unsaved data?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedInfo" xml:space="preserve">
+    <value>Info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedInvalidApplicationUserContext" xml:space="preserve">
+    <value>Analysis Portal application user is invalid. Logout and then login again.</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedInvalidUserContext" xml:space="preserve">
+    <value>No valid user has logged in. Logout and then login again.</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedLoading" xml:space="preserve">
+    <value>Loading...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLogoArtprojektetSmallImg" xml:space="preserve">
+    <value>logo_sv_artprojektet_en_118x50.png</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLogoLifewatch_SmallImg" xml:space="preserve">
+    <value>logo_sv_lifewatch_en_146x32.png</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedManageReferences" xml:space="preserve">
+    <value>Manage references</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedMissingValue" xml:space="preserve">
+    <value>Missing value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToLoginArtDatabankenServiceError" xml:space="preserve">
+    <value>Not possible to login at ArtDatabankenService.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToReadSpeciesFactError" xml:space="preserve">
+    <value>Not possible to read species fact.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToUpdateSpeciesFactError" xml:space="preserve">
+    <value>Not possible to update species fact.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotSpecifiedText" xml:space="preserve">
+    <value>--- Not specified ---</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidReferenceErrorInfoText" xml:space="preserve">
+    <value>No valid reference exists. At least one reference must be set to selected revision.</value>
+  </data>
+  <data name="SharedNoValidReferenceErrorText" xml:space="preserve">
+    <value>No valid reference exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidRevisionErrorText" xml:space="preserve">
+    <value>No valid revision exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidTaxonErrorText" xml:space="preserve">
+    <value>No valid taxon exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedOkButtonText" xml:space="preserve">
+    <value>OK</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPasswordLabel" xml:space="preserve">
+    <value>Password</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedPickReferenceText" xml:space="preserve">
+    <value>Set at least one reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedReadTaxonInformationTaxonStatusLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedReferenceLabel" xml:space="preserve">
+    <value>Reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferenceNoReferencesAvaliable" xml:space="preserve">
+    <value>No references set. </value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferences" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferencesHeaderText" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedResetButtonText" xml:space="preserve">
+    <value>Reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReturnToListText" xml:space="preserve">
+    <value>Return to list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSaveButtonText" xml:space="preserve">
+    <value>Save</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSaving" xml:space="preserve">
+    <value>Saving</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSelectedLabel" xml:space="preserve">
+    <value>Selected</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSLUText" xml:space="preserve">
+    <value>Swedish University of Agricultural Sciences</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSpeciesFactError" xml:space="preserve">
+    <value>Not possible to show Swedish occurrence for selected taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSupportHeaderText" xml:space="preserve">
+    <value>Support</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSvenskaArtprojektetText" xml:space="preserve">
+    <value>The Swedish Taxonomy Initiative</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSwedishLifeWatchText" xml:space="preserve">
+    <value>A part of Swedish LifeWatch</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonConceptDescription" xml:space="preserve">
+    <value>Description</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedTaxonInvalidCategoryText" xml:space="preserve">
+    <value>Invalid taxon category selecetd.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonNameSearchResultListHeader" xml:space="preserve">
+    <value>List of names matching provided search string</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedTaxonPickCategoryText" xml:space="preserve">
+    <value>Pick a category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonSelecteCategoryDropDownListText" xml:space="preserve">
+    <value>Select category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonSelecteReferenceDropDownListText" xml:space="preserve">
+    <value>Select reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTermsOfUseText" xml:space="preserve">
+    <value>Tems of use</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedUserNameLabel" xml:space="preserve">
+    <value>User name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedVersionNumberText" xml:space="preserve">
+    <value>Version number</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedVersionText" xml:space="preserve">
+    <value>Version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedViewLabel" xml:space="preserve">
+    <value>View</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedWebGridFirstPage" xml:space="preserve">
+    <value>First page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedWebGridLastPage" xml:space="preserve">
+    <value>Last page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedClipboard" xml:space="preserve">
+    <value>Clipboard</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRowDelimeter" xml:space="preserve">
+    <value>Row delimiter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRowDelimiterReturnLinefeed" xml:space="preserve">
+    <value>Return line feed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRowDelimiterSemicolon" xml:space="preserve">
+    <value>Semicolon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRowDelimiterTab" xml:space="preserve">
+    <value>Tab</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRowDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertical bar</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxa" xml:space="preserve">
+    <value>Add selected taxa to taxa filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsSearchTaxaGridTitle" xml:space="preserve">
+    <value>Id list matched following taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsSelectedTaxaGridTitle" xml:space="preserve">
+    <value>Current taxon filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelSwedishName" xml:space="preserve">
+    <value>Common name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelTaxon" xml:space="preserve">
+    <value>Taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelTaxonId" xml:space="preserve">
+    <value>TaxonId</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MsgPleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TooltipFilterTaxonFromIdsAddSelectedTaxa" xml:space="preserve">
+    <value>Selected taxa will be added to the selected list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TooltipRemove" xml:space="preserve">
+    <value>Remove</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedErrorRequestTimeout" xml:space="preserve">
+    <value>It appears the request timed out, please try again!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsSaveFailure" xml:space="preserve">
+    <value>There was a problem when saving your settings. Please try again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsSaveSuccess" xml:space="preserve">
+    <value>The settings were saved successfully.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLoadButtonText" xml:space="preserve">
+    <value>Load</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsTitle" xml:space="preserve">
+    <value>Filter - Taxon from ids</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNoTaxaIsSelected" xml:space="preserve">
+    <value>No taxa is selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedTaxa" xml:space="preserve">
+    <value>Taxa ({0} selected)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableGridTitle" xml:space="preserve">
+    <value>Selected observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableLocalityLabel" xml:space="preserve">
+    <value>Locale</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableOrganismGroupLabel" xml:space="preserve">
+    <value>Order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableRedListCategoryLabel" xml:space="preserve">
+    <value>Red list category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableScentificNameLabel" xml:space="preserve">
+    <value>ScientificName</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTaxonConceptStatusLabel" xml:space="preserve">
+    <value>Taxon uncertainty</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableAccurancyLabel" xml:space="preserve">
+    <value>Accurancy (in meters)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCommonNameLabel" xml:space="preserve">
+    <value>Common name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCoordinateEastLabel" xml:space="preserve">
+    <value>Coordinate south</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCoordinateNorthLabel" xml:space="preserve">
+    <value>Coordinate north</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCountyLabel" xml:space="preserve">
+    <value>County</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableEndDateLabel" xml:space="preserve">
+    <value>End date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableMunicipalityLabel" xml:space="preserve">
+    <value>Municipality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableOwnerLabel" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableParishLabel" xml:space="preserve">
+    <value>Parish</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableRecordedByLabel" xml:space="preserve">
+    <value>Observer(s)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableStartDateLabel" xml:space="preserve">
+    <value>Start date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableStateProvinceLabel" xml:space="preserve">
+    <value>State/Province</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableBehaviourLabel" xml:space="preserve">
+    <value>Activity/Number of substrate</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCollectionCodeLabel" xml:space="preserve">
+    <value>Collection</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableDatabaseLabel" xml:space="preserve">
+    <value>Database</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableGroupSortingLabel" xml:space="preserve">
+    <value>Group sorting</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableIsNeverFoundObservarionLabel" xml:space="preserve">
+    <value>Never found</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableIsNotRediscoveredObservationLabel" xml:space="preserve">
+    <value>Not recovered</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableLifeStageLabel" xml:space="preserve">
+    <value>Life stage</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableDatasetIDLabel" xml:space="preserve">
+    <value>Data set id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableOcurranceRemarksLabel" xml:space="preserve">
+    <value>Comment</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableProtectionLevelLabel" xml:space="preserve">
+    <value>Level of protection</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableQuantityLabel" xml:space="preserve">
+    <value>Quantity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableQuantityUnitLabel" xml:space="preserve">
+    <value>Quantity unit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSubstrateLabel" xml:space="preserve">
+    <value>Habitate/Substrate</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTaxonIdLabel" xml:space="preserve">
+    <value>Taxon id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTaxonSortOrderLabel" xml:space="preserve">
+    <value>Taxon sort order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ApplicationSubTitle" xml:space="preserve">
+    <value>for biodiversity data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuCalculation" xml:space="preserve">
+    <value>Calculation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuDataProviders" xml:space="preserve">
+    <value>Data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuOverview" xml:space="preserve">
+    <value>Overview</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuPresentation" xml:space="preserve">
+    <value>Format</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuResult" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedButtonCheckToolTip" xml:space="preserve">
+    <value>Check here to activate</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedButtonSettingToolTip" xml:space="preserve">
+    <value>Change settings for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedButtonUnCheckToolTip" xml:space="preserve">
+    <value>Uncheck to inactivate</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableColumnSelectionLabel" xml:space="preserve">
+    <value>Select observation columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePresentationColumnMaximun" xml:space="preserve">
+    <value>Maximum</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePresentationColumnMedium" xml:space="preserve">
+    <value>Medium</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePresentationColumnMinimum" xml:space="preserve">
+    <value>Minimum</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTitleLabel" xml:space="preserve">
+    <value>Observation preview</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeVersionNumberDate" xml:space="preserve">
+    <value>Date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeVersionNumberTitle" xml:space="preserve">
+    <value>Version number</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeVersionNumberVersion" xml:space="preserve">
+    <value>Version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonGroupCalculation" xml:space="preserve">
+    <value>Calculation (data processing)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonGroupDataProviders" xml:space="preserve">
+    <value>Data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonGroupFilter" xml:space="preserve">
+    <value>Filter (Species observation search criteria)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonGroupPresentation" xml:space="preserve">
+    <value>Format (presentation &amp; export settings)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonCalculationGridStatistics" xml:space="preserve">
+    <value>Grid statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonCalculationSummaryStatistics" xml:space="preserve">
+    <value>Summary statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonCalculationTimeSeries" xml:space="preserve">
+    <value>Time series</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersMetadataSearch" xml:space="preserve">
+    <value>Metadata search</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersSpeciesObservation" xml:space="preserve">
+    <value>Species observations (databases)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterQuality" xml:space="preserve">
+    <value>Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterSpatial" xml:space="preserve">
+    <value>Spatial</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterTaxa" xml:space="preserve">
+    <value>Taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterTemporal" xml:space="preserve">
+    <value>Temporal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationDiagram" xml:space="preserve">
+    <value>Diagram</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationMap" xml:space="preserve">
+    <value>Map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationReport" xml:space="preserve">
+    <value>Report</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationTable" xml:space="preserve">
+    <value>Table columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonGroupResult" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonResultDownload" xml:space="preserve">
+    <value>Download</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonResultView" xml:space="preserve">
+    <value>View</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedOverview" xml:space="preserve">
+    <value>Overview</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLoadingData" xml:space="preserve">
+    <value>Loading data...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTimeoutError" xml:space="preserve">
+    <value>A timeout occured. The server is unreachable or the data processing on server took to long time.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedErrorOccurred" xml:space="preserve">
+    <value>An error occurred. Please try again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSearching" xml:space="preserve">
+    <value>Searching...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadNavigationInfoButton" xml:space="preserve">
+    <value>Go to lifewatch web page to find manuals and more</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsCurrentSettingsHeader" xml:space="preserve">
+    <value>My selections</value>
+  </data>
+  <data name="MySettingsHintsHeader" xml:space="preserve">
+    <value>Hints / Tutorials</value>
+  </data>
+  <data name="MySettingsNewsHeader" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="SharedAboutAnalysisPortal" xml:space="preserve">
+    <value>About Analysis Portal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedButtonGroupHelp" xml:space="preserve">
+    <value>Help and additional information about different options in [Title] </value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedErrorHeader" xml:space="preserve">
+    <value>An error occured!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonFromIdsPasteHint" xml:space="preserve">
+    <value>Paste or manually write taxon id's</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromSearchTitle" xml:space="preserve">
+    <value>Search taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedErrorOccurredInPartialView" xml:space="preserve">
+    <value>An error occurred in this partial view.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRemoveAll" xml:space="preserve">
+    <value>Remove all</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchAmbiguousResult" xml:space="preserve">
+    <value>Ambiguous search result. Select taxon to return to</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchAny" xml:space="preserve">
+    <value>Any</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpAutomatic" xml:space="preserve">
+    <value>Automatic</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpBeginsWith" xml:space="preserve">
+    <value>Begins with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpContains" xml:space="preserve">
+    <value>Contains</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpEndsWith" xml:space="preserve">
+    <value>Ends with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpEqual" xml:space="preserve">
+    <value>Equal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpIterative" xml:space="preserve">
+    <value>Iterative</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpLike" xml:space="preserve">
+    <value>Like</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpNotEqual" xml:space="preserve">
+    <value>NotEqual</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchFalse" xml:space="preserve">
+    <value>False</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchHit" xml:space="preserve">
+    <value>Search hit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchHits" xml:space="preserve">
+    <value>hits</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsOkForObsSystem" xml:space="preserve">
+    <value>Is ok for obs system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsRecommended" xml:space="preserve">
+    <value>Is recommended</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsUnique" xml:space="preserve">
+    <value>Unique</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsValidTaxon" xml:space="preserve">
+    <value>Is valid taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsValidTaxonName" xml:space="preserve">
+    <value>Is valid taxon name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchNameCategory" xml:space="preserve">
+    <value>Name category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchOptionsLabel" xml:space="preserve">
+    <value>Search options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchResetSearchOptions" xml:space="preserve">
+    <value>Reset search options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchRestrictTo" xml:space="preserve">
+    <value>Limit search to [TaxonName]</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchResult" xml:space="preserve">
+    <value>Search result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchSearching" xml:space="preserve">
+    <value>Searching...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchSeconds" xml:space="preserve">
+    <value>seconds</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchSettings" xml:space="preserve">
+    <value>Search restrictions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNameCompareOperator" xml:space="preserve">
+    <value>Compare operator</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNotExistErrorText" xml:space="preserve">
+    <value>Searched taxon does not exist.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNotInRevisionErrorText" xml:space="preserve">
+    <value>Searched taxon is not in selected revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTitle" xml:space="preserve">
+    <value>Search taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTrue" xml:space="preserve">
+    <value>True</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchZeroResults" xml:space="preserve">
+    <value>There is no taxon named "{0}"</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedAlertStatusGreen" xml:space="preserve">
+    <value>The taxon is valid and no particular problems excists concerning its classification and recognition.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedAlertStatusRed" xml:space="preserve">
+    <value>The taxon is not valid.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedAlertStatusYellow" xml:space="preserve">
+    <value>The taxon is valid but it is usually mixed up with other taxa.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedCommonName" xml:space="preserve">
+    <value>Common name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedDescription" xml:space="preserve">
+    <value>Description / taxon concept </value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedInvalidRevision" xml:space="preserve">
+    <value>No valid revision exist</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedInvalidTaxon" xml:space="preserve">
+    <value>No valid taxon exist</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedScientificName" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedSwedishName" xml:space="preserve">
+    <value>Swedish name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedTaxonCategory" xml:space="preserve">
+    <value>Taxon Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaRemoveSelectedTaxa" xml:space="preserve">
+    <value>Remove taxon from list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaRemoveSelectedTaxaTooltip" xml:space="preserve">
+    <value>Remove selected taxa from filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableDetails" xml:space="preserve">
+    <value>I</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DetailsDetailTitleLabel" xml:space="preserve">
+    <value>Detail</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchNotEnoughSearchCriteriaError" xml:space="preserve">
+    <value>You must enter at least taxon name or author.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleText" xml:space="preserve">
+    <value>Select new user role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogInUserRole" xml:space="preserve">
+    <value>Select user role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedUpdateButtonText" xml:space="preserve">
+    <value>Change</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRole" xml:space="preserve">
+    <value>Select user role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleDescription" xml:space="preserve">
+    <value>Role description</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleName" xml:space="preserve">
+    <value>Current role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleTextInfo" xml:space="preserve">
+    <value>Select another role to use in the dropdown below</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleTiltle" xml:space="preserve">
+    <value>Change role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogInChangeUserRole" xml:space="preserve">
+    <value>Change role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRolePersonUser" xml:space="preserve">
+    <value>Private person</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleId" xml:space="preserve">
+    <value>Role id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogInDescription" xml:space="preserve">
+    <value>Use same account as in Artportalen 2, Dyntaxa, Eva, PrintObs</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountUserAdminRoleLinkText" xml:space="preserve">
+    <value>Read more about and update your user account</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaLinkText" xml:space="preserve">
+    <value>Go to Dyntaxa application to find taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNoSpatialFilterIsSelected" xml:space="preserve">
+    <value>No spatial filter is selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedPolygons" xml:space="preserve">
+    <value>Spatial ({0} polygons)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableInfoText" xml:space="preserve">
+    <value>Perform table settings in this view</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSelectButtonText" xml:space="preserve">
+    <value>Update table type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSelectionIdLabel" xml:space="preserve">
+    <value>Table type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSelectTableInfoLabel" xml:space="preserve">
+    <value>Select table type for result presentation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSelectColumnsButtonText" xml:space="preserve">
+    <value>Select columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSelectTypeButtonText" xml:space="preserve">
+    <value>Select type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableColumnSelectedLabel" xml:space="preserve">
+    <value>Observation data columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableInfoLabel" xml:space="preserve">
+    <value>Selected settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePresentationDarwinCoreType" xml:space="preserve">
+    <value>Darwin Core </value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePresentationObsType" xml:space="preserve">
+    <value>Print Obs </value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePreviewLabel" xml:space="preserve">
+    <value>Preview</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTypeSelectedLabel" xml:space="preserve">
+    <value>Table type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTypeSelectionLabel" xml:space="preserve">
+    <value>Selected table type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialClearSuccess" xml:space="preserve">
+    <value>The spatial filter was cleared.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialTitle" xml:space="preserve">
+    <value>Spatial filter summary</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialUpdateSuccess" xml:space="preserve">
+    <value>The spatial filter was updated.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxa" xml:space="preserve">
+    <value>Taxon filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsButton" xml:space="preserve">
+    <value>Paste list of taxon ids</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsButtonTooltip" xml:space="preserve">
+    <value>Search by taxon ids</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromSearchButton" xml:space="preserve">
+    <value>Search by taxon name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromSearchButtonTooltip" xml:space="preserve">
+    <value>Search by name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapCreatePolygon" xml:space="preserve">
+    <value>Draw polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapCreateRectangle" xml:space="preserve">
+    <value>Draw rectangle</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapEditPolygon" xml:space="preserve">
+    <value>Edit polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapHistoryBack" xml:space="preserve">
+    <value>Go back on map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapHistoryNext" xml:space="preserve">
+    <value>Go forward on map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapMovePolygon" xml:space="preserve">
+    <value>Move polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapSelect" xml:space="preserve">
+    <value>Select</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapZoomBox" xml:space="preserve">
+    <value>Zoom on map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedClear" xml:space="preserve">
+    <value>Clear</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSettingsInvalidNoTaxaSelected" xml:space="preserve">
+    <value>No taxa filter is set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapInfo" xml:space="preserve">
+    <value>There are currently no map settings. All settings are done in the Results view for map.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapTitle" xml:space="preserve">
+    <value>Map settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapBaseLayerGoogleHybrid" xml:space="preserve">
+    <value>Google hybrid</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapBaseLayerGoogleStreets" xml:space="preserve">
+    <value>Google streets</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapBaseLayerGoogleTerrain" xml:space="preserve">
+    <value>Google terrain</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapLayerObservations" xml:space="preserve">
+    <value>Observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapLayerObservationsPrecision" xml:space="preserve">
+    <value>Observations accuracy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapLayerSpatialFilter" xml:space="preserve">
+    <value>Spatial filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultNoResults" xml:space="preserve">
+    <value>There is no results to show</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTitle" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonResultDownload" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="StateButtonResultView" xml:space="preserve">
+    <value />
+    <comment>sv</comment>
+  </data>
+  <data name="ApplicationMainTitle" xml:space="preserve">
+    <value>The Analysis portal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersMapLayersCreateNewLayer" xml:space="preserve">
+    <value>Create data layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersMapLayersCreateNewLayerTooltip" xml:space="preserve">
+    <value>Add data layer from a Web Feature Service (OGC WFS)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesMapLayersEditLayer" xml:space="preserve">
+    <value>Edit layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesMapLayersEditLayerTooltip" xml:space="preserve">
+    <value>Edit selected data layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesMapLayersRemoveLayer" xml:space="preserve">
+    <value>Remove layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesMapLayersRemoveLayerTooltip" xml:space="preserve">
+    <value>Remove selected data layer from list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesMapLayersWfsLayersGridTitle" xml:space="preserve">
+    <value>List of data layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerChooseLayer" xml:space="preserve">
+    <value>Choose layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderLayerNamespace" xml:space="preserve">
+    <value>Namespace</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderLayerTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSampleUrls" xml:space="preserve">
+    <value>Sample URLs</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSearch" xml:space="preserve">
+    <value>Get layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerServerUrl" xml:space="preserve">
+    <value>Service URL</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerTitle" xml:space="preserve">
+    <value>Select WFS layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerWfsLayers" xml:space="preserve">
+    <value>Data layers (WFS)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerWfsVersion" xml:space="preserve">
+    <value>WFS Version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorAddOperation" xml:space="preserve">
+    <value>Add</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorAndOperation" xml:space="preserve">
+    <value>And</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorBack" xml:space="preserve">
+    <value>Back</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorBasicInformation" xml:space="preserve">
+    <value>Basic information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorConstant" xml:space="preserve">
+    <value>Constant</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorCreateNewLayer" xml:space="preserve">
+    <value>Save new layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorEnterConstant" xml:space="preserve">
+    <value>Enter constant</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorEqualToOperator" xml:space="preserve">
+    <value>EqualTo (=)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorErrorEnterLayerName" xml:space="preserve">
+    <value>You must enter a layer name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorField" xml:space="preserve">
+    <value>Field</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorGreaterThanOperator" xml:space="preserve">
+    <value>Greater than (&gt;)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorGreatorOrEqualToOperator" xml:space="preserve">
+    <value>Greater or equal to (&gt;=)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderAbstract" xml:space="preserve">
+    <value>Abstract</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderColor" xml:space="preserve">
+    <value>Color</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderFormats" xml:space="preserve">
+    <value>Formats</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderKeywords" xml:space="preserve">
+    <value>Keywords</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderMetadataUrl" xml:space="preserve">
+    <value>Metadata URL</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderServerUrl" xml:space="preserve">
+    <value>Service URL</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderSrs" xml:space="preserve">
+    <value>Srs</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorIsNullOperator" xml:space="preserve">
+    <value>Is null</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLayerData" xml:space="preserve">
+    <value>Layer data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLeftOperand" xml:space="preserve">
+    <value>Left operand</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLessOrEqualToOperator" xml:space="preserve">
+    <value>Less or equal to (&lt;=)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLessThanOperator" xml:space="preserve">
+    <value>Less than (&lt;)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLikeOperator" xml:space="preserve">
+    <value>Like</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorMaxNumberOfFeatures" xml:space="preserve">
+    <value>Max number of features</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorUseSpatialFilterAsBoundingBox" xml:space="preserve">
+    <value>Use spatial filter as bounding box (in this view the current map extent is used as bounding box)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNotEqualToOperator" xml:space="preserve">
+    <value>Not equal to (&lt;&gt;)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNotOperation" xml:space="preserve">
+    <value>Not</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNumberOfFeaturedFeatures" xml:space="preserve">
+    <value>Number of filtered features</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorOperator" xml:space="preserve">
+    <value>Operator</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorOrOperation" xml:space="preserve">
+    <value>Or</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorReset" xml:space="preserve">
+    <value>Reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorResult" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorRightOperand" xml:space="preserve">
+    <value>Right operand</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorRunQuery" xml:space="preserve">
+    <value>Run query</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorSaveChanges" xml:space="preserve">
+    <value>Save changes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorTitle" xml:space="preserve">
+    <value>Edit selected data layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorTotalNumberOfFeatures" xml:space="preserve">
+    <value>Total number of features</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataSourcesWfsLayerEditorUndo" xml:space="preserve">
+    <value>Undo</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersMapLayersDeleteWfsLayerMessage" xml:space="preserve">
+    <value>Do you really want to delete the selected data layer?</value>
+  </data>
+  <data name="DataProvidersMapLayersDeleteWfsLayerTitle" xml:space="preserve">
+    <value>Delete data layer</value>
+  </data>
+  <data name="MapLayerWFSFilter" xml:space="preserve">
+    <value>Datalayer filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalTitle" xml:space="preserve">
+    <value>Temporal filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapSelectMany" xml:space="preserve">
+    <value>Select many</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNoTemporalFilterIsSelected" xml:space="preserve">
+    <value>No temporal filter is selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAddPolygonsFromMapLayer" xml:space="preserve">
+    <value>Add polygon(s) from Map layer</value>
+  </data>
+  <data name="SharedExpand" xml:space="preserve">
+    <value>Expand</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedColor" xml:space="preserve">
+    <value>Color</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedType" xml:space="preserve">
+    <value>Type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultMapNoOfWfsLayersAllowed" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="MetadatasearchBiodiversityCatLinkText" xml:space="preserve">
+    <value>Go to Biodiversity Catalogue</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MetadataSearchDescription" xml:space="preserve">
+    <value>To search for more datasets, map services and other services to be included in your analyses it is recommended to try out any of the metadata portals below.</value>
+  </data>
+  <data name="MetadatasearchEcdsLinkText" xml:space="preserve">
+    <value>Go to ECDS</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MetadatasearchGeodataLinkText" xml:space="preserve">
+    <value>Go to Geodata portalen</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalAnnually" xml:space="preserve">
+    <value>Date annually</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalChangeDateTitle" xml:space="preserve">
+    <value>Change date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalDateLabel" xml:space="preserve">
+    <value>Date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalFrom" xml:space="preserve">
+    <value>From</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalIgnoreLabel" xml:space="preserve">
+    <value>Ignore</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalObsDateTitle" xml:space="preserve">
+    <value>Observation date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalRegDateTitle" xml:space="preserve">
+    <value>Registration date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalTo" xml:space="preserve">
+    <value>To</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedWait" xml:space="preserve">
+    <value>Wait...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterOccurrence" xml:space="preserve">
+    <value>Occurrence</value>
+  </data>
+  <data name="FilterOccurrence" xml:space="preserve">
+    <value>Occurrence status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceTitle" xml:space="preserve">
+    <value>Occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterQuality" xml:space="preserve">
+    <value>Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterQualityTitle" xml:space="preserve">
+    <value>Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialCommonRegionsAddRegion" xml:space="preserve">
+    <value>Add region</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialCommonRegionsTitle" xml:space="preserve">
+    <value>Common regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoSelectedRegions" xml:space="preserve">
+    <value>No selected regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegion" xml:space="preserve">
+    <value>Region</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegionCategoryCounty" xml:space="preserve">
+    <value>County</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegionCategoryMunicipality" xml:space="preserve">
+    <value>Municipality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegionCategoryProvince" xml:space="preserve">
+    <value>Province</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegions" xml:space="preserve">
+    <value>Regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRemoveRegion" xml:space="preserve">
+    <value>Remove region</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRemoveRegionTooltip" xml:space="preserve">
+    <value>Remove selected region</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelect" xml:space="preserve">
+    <value>Select</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectedRegions" xml:space="preserve">
+    <value>Selected regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterPolygonFromMapLayerAddPolygons" xml:space="preserve">
+    <value>Add selected polygon(s) to spatial filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterPolygonFromMapLayerSelectPolygons" xml:space="preserve">
+    <value>Select polygon(s) from map layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterPolygonFromMapLayersTitle" xml:space="preserve">
+    <value>Map layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialDrawPolygonTitle" xml:space="preserve">
+    <value>Draw geometry</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialMapLayersTitle" xml:space="preserve">
+    <value>Map layer polygons</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaSummary" xml:space="preserve">
+    <value>Taxa filter summary</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedBack" xml:space="preserve">
+    <value>Back</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedMap" xml:space="preserve">
+    <value>Map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPolygons" xml:space="preserve">
+    <value>Polygons</value>
+    <comment>sv</comment>
+  </data>
+  <data name="WfsLayersLayerName" xml:space="preserve">
+    <value>Layer name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersDataProvider" xml:space="preserve">
+    <value>Data provider</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersListOfProviders" xml:space="preserve">
+    <value>List of data providers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersNumberOfObservations" xml:space="preserve">
+    <value>Number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersTitle" xml:space="preserve">
+    <value>Species observations provided by Swedish LifeWatch</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfDataProviders" xml:space="preserve">
+    <value>Data Providers ({0} selected)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfWfsLayers" xml:space="preserve">
+    <value>Environmental data ({0} layers)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedRegions" xml:space="preserve">
+    <value>Spatial ({0} regions)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSum" xml:space="preserve">
+    <value>Sum</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersAtLeastOneProviderMustBeSelected" xml:space="preserve">
+    <value>At least one data provider must be selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportDataProviders" xml:space="preserve">
+    <value>Data providers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportWfsLayers" xml:space="preserve">
+    <value>Environmental data layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportDatasources" xml:space="preserve">
+    <value>Data sources</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportPolygons" xml:space="preserve">
+    <value>polygons</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportPolygonsFilter" xml:space="preserve">
+    <value>Spatial filter - polygons</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportRegionsFilter" xml:space="preserve">
+    <value>Spatial filter - regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportTaxaFilter" xml:space="preserve">
+    <value>Taxa filter - taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportTitle" xml:space="preserve">
+    <value>Settings report</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableChooseColumnType" xml:space="preserve">
+    <value>Choose column type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableChooseTableType" xml:space="preserve">
+    <value>Choose table type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableColumnTypeDwc" xml:space="preserve">
+    <value>Use Darwin Core labels (scientificName, vernacularName, etc.)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableColumnTypeLabel" xml:space="preserve">
+    <value>Use standard labels (Scientific name, Common name, etc.)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCreateNewTable" xml:space="preserve">
+    <value>Create new table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableStandardTable" xml:space="preserve">
+    <value>Preselected column set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableTableFields" xml:space="preserve">
+    <value>Table fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableUserDefinedTable" xml:space="preserve">
+    <value>User selected table columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableTypeByImportanceTemplate" xml:space="preserve">
+    <value>Fields with Importance &lt;= {0}</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCalculations" xml:space="preserve">
+    <value>Calculations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsGridCells" xml:space="preserve">
+    <value>Grid cells</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsGridSize" xml:space="preserve">
+    <value>Grid size</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsGenerateAllGridCells" xml:space="preserve">
+    <value>Generate all grid cells (even empty)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsParameters" xml:space="preserve">
+    <value>Grid parameters</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsSelectCoordinateSystem" xml:space="preserve">
+    <value>Select coordinate system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsSelectGridSize" xml:space="preserve">
+    <value>Select grid size</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsTitle" xml:space="preserve">
+    <value>Grid statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCoordinateSystem" xml:space="preserve">
+    <value>Coordinate system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportCalculation" xml:space="preserve">
+    <value>Calculation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGroupMaps" xml:space="preserve">
+    <value>Maps</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGroupTables" xml:space="preserve">
+    <value>Tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationGridMap" xml:space="preserve">
+    <value>Species observation grid map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationMap" xml:space="preserve">
+    <value>Species observationmap</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationTable" xml:space="preserve">
+    <value>Species observation table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViews" xml:space="preserve">
+    <value>Result views</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RecordCountObservations" xml:space="preserve">
+    <value>observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RecordCountOf" xml:space="preserve">
+    <value>of</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RecordCountShowing" xml:space="preserve">
+    <value>showing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationGridStatisticsTable" xml:space="preserve">
+    <value>Grid statistics table - no settings avaliable</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationSpeciesObservationTable" xml:space="preserve">
+    <value>Species observation table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableChooseTable" xml:space="preserve">
+    <value>Select table to be displayed in the result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSettings" xml:space="preserve">
+    <value>Table settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsTitle" xml:space="preserve">
+    <value>Summary statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsCalculateNumberOfObservations" xml:space="preserve">
+    <value>Calculations from species observation data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationGridTable" xml:space="preserve">
+    <value>Grid map statistics on species observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGroupReports" xml:space="preserve">
+    <value>Reports</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatistics" xml:space="preserve">
+    <value>Summary statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationSummaryStatisticsTitle" xml:space="preserve">
+    <value>Summary statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectADbGeo" xml:space="preserve">
+    <value>SLW</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectDefault" xml:space="preserve">
+    <value>Pick a server from list</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSLUGeo" xml:space="preserve">
+    <value>Swedish University of Agricultural Sciences (SLU)</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSMHIGeo" xml:space="preserve">
+    <value>SMHI GeoServer</value>
+  </data>
+  <data name="PresentationReportChooseReport" xml:space="preserve">
+    <value>Select report type for result presentation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationReportTitle" xml:space="preserve">
+    <value>Report settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationSummaryStatisticsReport" xml:space="preserve">
+    <value>Summary Statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsReportTitle" xml:space="preserve">
+    <value>Summary statistics report</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationCountTitle" xml:space="preserve">
+    <value>Calculations from species observation data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationTableColumnCalculationHeader" xml:space="preserve">
+    <value>Calculation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationTableColumnCountHeader" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsObservationCount" xml:space="preserve">
+    <value>Observation count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFullScreenMode" xml:space="preserve">
+    <value>Full screen mode</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLegend" xml:space="preserve">
+    <value>Legend</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedOpacity" xml:space="preserve">
+    <value>Opacity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSettings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutAnalysisPortalUrl" xml:space="preserve">
+    <value>http://www.svenskalifewatch.se/en/about/analysis-portal/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsLoaded" xml:space="preserve">
+    <value>Settings loaded</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsReset" xml:space="preserve">
+    <value>Settings reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsSaved" xml:space="preserve">
+    <value>Settings saved</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIncludeNeverFoundObservations" xml:space="preserve">
+    <value>Include reports of absence in suitable habitat</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIncludeNotRediscoveredObservations" xml:space="preserve">
+    <value>Include reports av absence at sites with previous occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIncludePositiveObservations" xml:space="preserve">
+    <value>Include all indications of presence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIsNaturalOccurrence" xml:space="preserve">
+    <value>Include natural occurrences</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersNumberOfPublicObservations" xml:space="preserve">
+    <value>Number of public observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalChangeDateAnnually" xml:space="preserve">
+    <value>Change date annually</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalObsDateAnnually" xml:space="preserve">
+    <value>Observation date annually</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalRegDateAnnually" xml:space="preserve">
+    <value>Registration date annually</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterRemoveAllTaxa" xml:space="preserve">
+    <value>Remove all taxa from list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIsNotNaturalOccurrence" xml:space="preserve">
+    <value>Include unspontaneous occurrrences</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceIncludeAllAbsenceData" xml:space="preserve">
+    <value>Include all indications of absence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceAbsenceHeader" xml:space="preserve">
+    <value>Absence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrencePresenceHeader" xml:space="preserve">
+    <value>Presence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersCreateNewWmsLayer" xml:space="preserve">
+    <value>Create background map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersEditWmsLayer" xml:space="preserve">
+    <value>Edit layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersRemoveWmsLayer" xml:space="preserve">
+    <value>Delete layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayers" xml:space="preserve">
+    <value>Map layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayersBaseLayer" xml:space="preserve">
+    <value>Background map layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayersDelete" xml:space="preserve">
+    <value>Delete map layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsNumberOfTaxa" xml:space="preserve">
+    <value>Number of taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayerEditorCreateNewWmsLayer" xml:space="preserve">
+    <value>Create background map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayerEditorEditWmsLayer" xml:space="preserve">
+    <value>Edit map layer settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSampleUrls" xml:space="preserve">
+    <value>Sample map services</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorChooseUrl" xml:space="preserve">
+    <value>Choose Url</value>
+  </data>
+  <data name="StateButtonDataProvidersWfsLayers" xml:space="preserve">
+    <value>Environmental data (vector format)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersWmsLayers" xml:space="preserve">
+    <value>Background maps (raster format)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedServerUrl" xml:space="preserve">
+    <value>Server URL</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayerEditorBaseLayer" xml:space="preserve">
+    <value>Use as background map</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorAbstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorBasicInformation" xml:space="preserve">
+    <value>Basic information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLayers" xml:space="preserve">
+    <value>Layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTitle" xml:space="preserve">
+    <value>Title</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsTaxaCount" xml:space="preserve">
+    <value>Species count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewTaxonGridTable" xml:space="preserve">
+    <value>Grid map statistics on number of species</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationGridTaxonStatisticsTable" xml:space="preserve">
+    <value>Grid taxon statistics table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsCalculateNumberOfSpecies" xml:space="preserve">
+    <value>Calculations from species data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsNumberOfSpecies" xml:space="preserve">
+    <value>Number of species</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCentreCoordinate" xml:space="preserve">
+    <value>Centre</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsNumberOfTaxa" xml:space="preserve">
+    <value>Number of species</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedHelp" xml:space="preserve">
+    <value>Help</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLeavePageWithUnsavedSettings" xml:space="preserve">
+    <value>You have made changes to the page. Are you sure you want to leave this page without saving?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedResetSettings" xml:space="preserve">
+    <value>Reset settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSaveSettings" xml:space="preserve">
+    <value>Save settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersReset" xml:space="preserve">
+    <value>Data providers were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersDataProvidersUpdated" xml:space="preserve">
+    <value>Data providers were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWfsLayersReset" xml:space="preserve">
+    <value>The list of data layers is now empty</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersWmsLayersReset" xml:space="preserve">
+    <value>The list of map layers is now empty</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGroupGridTables" xml:space="preserve">
+    <value>Grid tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceReset" xml:space="preserve">
+    <value>Occurrence settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterOccurrenceUpdated" xml:space="preserve">
+    <value>Occurrence settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterCommonRegionsReset" xml:space="preserve">
+    <value>Common regions were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterCommonRegionsUpdated" xml:space="preserve">
+    <value>Common regions were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialSettingsReset" xml:space="preserve">
+    <value>Spatial filter was reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialSettingsUpdated" xml:space="preserve">
+    <value>Spatial filter was updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalSettingsReset" xml:space="preserve">
+    <value>Temporal settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalSettingsUpdated" xml:space="preserve">
+    <value>Temporal settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatSettingsUpdated" xml:space="preserve">
+    <value>File format settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatTitle" xml:space="preserve">
+    <value>File format</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvTitle" xml:space="preserve">
+    <value>CSV (Comma separated)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparator" xml:space="preserve">
+    <value>Column separator</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorComma" xml:space="preserve">
+    <value>Comma (,)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorSemicolon" xml:space="preserve">
+    <value>Semicolon (;)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorPipe" xml:space="preserve">
+    <value>Pipe (|)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorTab" xml:space="preserve">
+    <value>Tab (tab)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvQuoteAllColumns" xml:space="preserve">
+    <value>Enclose each column in quotes ("column")</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvQuoteAllColumnsShort" xml:space="preserve">
+    <value>Quote all columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaSettingsReset" xml:space="preserve">
+    <value>Taxa settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaSettingsUpdated" xml:space="preserve">
+    <value>Taxa settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsReset" xml:space="preserve">
+    <value>Grid statistics were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatReset" xml:space="preserve">
+    <value>File format settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapSettingsReset" xml:space="preserve">
+    <value>Coordinate system settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapSettingsUpdated" xml:space="preserve">
+    <value>Coordinate system settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsUpdated" xml:space="preserve">
+    <value>Grid statistics were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationSpeciesObservationTableReset" xml:space="preserve">
+    <value>Species observation table settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationSpeciesObservationTableUpdated" xml:space="preserve">
+    <value>Species observation table settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSettingsReset" xml:space="preserve">
+    <value>Table settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableSettingsUpdated" xml:space="preserve">
+    <value>Table settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsReset" xml:space="preserve">
+    <value>Summary statistics were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsUpdated" xml:space="preserve">
+    <value>Summary statistics were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialCommonRegionsButtonTooltip" xml:space="preserve">
+    <value>Add spatial filter from predefined regions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialDrawPolygonButtonTooltip" xml:space="preserve">
+    <value>Add spatial filter by drawing polygon(s)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialMapLayersButtonTooltip" xml:space="preserve">
+    <value>Add spatial filter from environmental data (WFS layer)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialOverviewButtonTooltip" xml:space="preserve">
+    <value>Show overview - spatial filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxaOverviewButtonTooltip" xml:space="preserve">
+    <value>Show overview - taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FullScreenMapButtonTooltip" xml:space="preserve">
+    <value>Show map in full screen mode</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuCalculationTooltip" xml:space="preserve">
+    <value>Change settings for data calculations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuDataProvidersTooltip" xml:space="preserve">
+    <value>Select data sources</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuFilterTooltip" xml:space="preserve">
+    <value>Add taxa, spatial, temporal &amp; occurrence filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuOverviewTooltip" xml:space="preserve">
+    <value>Go to overview page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuPresentationTooltip" xml:space="preserve">
+    <value>Change settings for result views</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuResultTooltip" xml:space="preserve">
+    <value>View results</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapDragMap" xml:space="preserve">
+    <value>Drag map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapLayerSwitcher" xml:space="preserve">
+    <value>Select map layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapZoomToFeatures" xml:space="preserve">
+    <value>Zoom to result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapZoomToSweden" xml:space="preserve">
+    <value>Zoom to Sweden</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsLoadTooltip" xml:space="preserve">
+    <value>Load your last saved settings (My Settings will be replaced)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsResetTooltip" xml:space="preserve">
+    <value>Reset all settings to default</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsSaveTooltip" xml:space="preserve">
+    <value>Save your current settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTransparency" xml:space="preserve">
+    <value>Transparency</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersMetadataSearchTooltip" xml:space="preserve">
+    <value>Find metadata portals</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersSpeciesObservationTooltip" xml:space="preserve">
+    <value>Select data provider(s) (at least one)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersWfsLayersTooltip" xml:space="preserve">
+    <value>Add environmental data maps (WFS, GeoJSON, Shape)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDataProvidersWmsLayersTooltip" xml:space="preserve">
+    <value>Select map layer(s) (WMS format)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterOccurrenceTooltip" xml:space="preserve">
+    <value>Search for presence/absence occurrence data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterSpatialTooltip" xml:space="preserve">
+    <value>Select spatial filter (draw geometry, region, map layer polygon, locality)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterTaxaTooltip" xml:space="preserve">
+    <value>Select taxa (via name, id, attribute)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterTemporalTooltip" xml:space="preserve">
+    <value>Select temporal filter (observation, registration or change date)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationMapTooltip" xml:space="preserve">
+    <value>Change map presentation (coordinate system)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationFileFormatTooltip" xml:space="preserve">
+    <value>Change file format (different possibilities for csv and excel)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonPresentationTableTooltip" xml:space="preserve">
+    <value>Change table presentation (minimum-all columns, create customer table, choose table type (standard vs. Darwin Core labels))</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonResultViewTooltip" xml:space="preserve">
+    <value>View results based on your settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxaTooltip" xml:space="preserve">
+    <value>Move the selected taxa to your current taxon filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsMatch" xml:space="preserve">
+    <value>Get/match taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsMatchTooltip" xml:space="preserve">
+    <value>Search for taxa that match the input Ids</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromNameSearchTaxaGridTitle" xml:space="preserve">
+    <value>Search results</value>
+  </data>
+  <data name="FilterTaxonSharedRemoveTaxaTooltip" xml:space="preserve">
+    <value>Remove all taxa from your current taxon filter</value>
+  </data>
+  <data name="SharedDyntaxaMatchLinkText" xml:space="preserve">
+    <value>Search for Taxon Id with Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaMatchLinkTooltip" xml:space="preserve">
+    <value>Use Dyntaxa application to find and match taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchOptionsTooltip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ResultViewSpeciesRichnessGridMap" xml:space="preserve">
+    <value>Species richness grid map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityAllTaxaSelected" xml:space="preserve">
+    <value>All taxa are selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityDoYouWantToRun" xml:space="preserve">
+    <value>Do you want to run the query anyway?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityFasterViewsSuggestion" xml:space="preserve">
+    <value>Suggestions for more appropriate (faster) views</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityIntro" xml:space="preserve">
+    <value>This query is expected to take a long time to run because</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityManyTaxaIsUsedTemplate" xml:space="preserve">
+    <value>{0} taxa is used</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexitySpatialFilterIsUsed" xml:space="preserve">
+    <value>Spatial filter is used</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityText" xml:space="preserve">
+    <value>This query is expected to take a long time to execute. Are you sure you want to run it?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="QueryComplexityTitle" xml:space="preserve">
+    <value>The calculation is complex</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DiagramResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Diagram overview - needs tooltip</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Map overview - needs tooltip</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReportResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Report overview - needs tooltip</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDiagramResult" xml:space="preserve">
+    <value>Diagrams</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonDiagramResultTooltip" xml:space="preserve">
+    <value>Select the type of diagram you want to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonMapResult" xml:space="preserve">
+    <value>Maps</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonMapResultTooltip" xml:space="preserve">
+    <value>Select the type of map you want to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonReportResult" xml:space="preserve">
+    <value>Reports</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonReportResultTooltip" xml:space="preserve">
+    <value>Select the type of report you want to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonTableResult" xml:space="preserve">
+    <value>Tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonTableResultTooltip" xml:space="preserve">
+    <value>Select the type of table you want to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Table overview - needs tooltip</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationDiagram" xml:space="preserve">
+    <value>Time series on numbers of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGroupDiagrams" xml:space="preserve">
+    <value>Diagrams</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDiagramTimeSeriesNoOfObservationsTitle" xml:space="preserve">
+    <value>Number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDiagramTimeSeriesNoOfSelectedTaxaTitle" xml:space="preserve">
+    <value>Number of selected taxa for counting number of observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPagingEmptyMsg" xml:space="preserve">
+    <value>No data to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPagingSpeciesObservationDisplayMsg" xml:space="preserve">
+    <value>Displaying observation {0} - {1} of {2}</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SessionAllSettingsReset" xml:space="preserve">
+    <value>All settings were reset to default</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SessionExpired" xml:space="preserve">
+    <value>Session expired</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SessionExpiredUseCurrentSettings" xml:space="preserve">
+    <value>Do you want to continue using current settings and go to login page?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SessionExpiredUseUserAccount" xml:space="preserve">
+    <value>If you want to use the current settings after the session expired, please login with a user account.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAutosavedSettingsLoaded" xml:space="preserve">
+    <value>Autosaved settings loaded.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLoadAutosavedSettings" xml:space="preserve">
+    <value>Load autosaved settings from</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNamespace" xml:space="preserve">
+    <value>Namespace</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridMapDrawBorders" xml:space="preserve">
+    <value>Draw borders</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MapWhiteBaseLayerTitle" xml:space="preserve">
+    <value>White background</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsAllTaxa" xml:space="preserve">
+    <value>All taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedData" xml:space="preserve">
+    <value>Data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedField" xml:space="preserve">
+    <value>Field</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedValue" xml:space="preserve">
+    <value>Value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsAllTaxaSelected" xml:space="preserve">
+    <value>All taxa selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSettingsSummary" xml:space="preserve">
+    <value>Settings report</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonByTaxonAttributes" xml:space="preserve">
+    <value>List taxa by taxon attributes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityDailyLabel" xml:space="preserve">
+    <value>Daily</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityDayOfTheYearLabel" xml:space="preserve">
+    <value>Day of the year</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityMonthlyLabel" xml:space="preserve">
+    <value>Monthly</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityMonthOfTheYearLabel" xml:space="preserve">
+    <value>Month of the year</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityTitle" xml:space="preserve">
+    <value>Periodicity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityWeeklyLabel" xml:space="preserve">
+    <value>Weekly</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityWeekOfTheYearLabel" xml:space="preserve">
+    <value>Week of the year</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityYearlyLabel" xml:space="preserve">
+    <value>Yearly</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewTimeSeriesOnSpeciesObservationCountsTable" xml:space="preserve">
+    <value>Time series table on species observation counts</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ErrorNameIsMissing" xml:space="preserve">
+    <value>Name is missing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryCategoryLabel" xml:space="preserve">
+    <value>Category (rank)</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryClassificationLabel" xml:space="preserve">
+    <value>Classification</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryCommonNamesLabel" xml:space="preserve">
+    <value>Common names</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryConceptDefinitionLabel" xml:space="preserve">
+    <value>Concept definition</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryCreatedLabel" xml:space="preserve">
+    <value>Created</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryIdLabel" xml:space="preserve">
+    <value>Dyntaxa taxon Id</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryScientificNameLabel" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySwedishHistoryLabel" xml:space="preserve">
+    <value>Immigration history</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySwedishOccurrenceLabel" xml:space="preserve">
+    <value>Swedish immigration history</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySynonymsLabel" xml:space="preserve">
+    <value>Synonyms</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryUpdateInformationLabel" xml:space="preserve">
+    <value>Updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValidityLabel" xml:space="preserve">
+    <value>Validity</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryValidToLabel" xml:space="preserve">
+    <value>Valid until</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValueAccepted" xml:space="preserve">
+    <value>Taxonomically accepted</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValueNotValid" xml:space="preserve">
+    <value>Invalid</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValuePragmatic" xml:space="preserve">
+    <value>Valid as a pragmatic taxon. Not accepted taxonomically.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryReadMoreInDyntaxa" xml:space="preserve">
+    <value>Read more about this taxon in Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterOneSelectedTaxon" xml:space="preserve">
+    <value>Taxon ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalChangeDate" xml:space="preserve">
+    <value>Change date ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalDate" xml:space="preserve">
+    <value>Multiple dates</value>
+  </data>
+  <data name="MySettingsFilterTemporalObservationDate" xml:space="preserve">
+    <value>Obs. date ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalRegistrationDate" xml:space="preserve">
+    <value>Reg. date ({0})</value>
+  </data>
+  <data name="SharedCoordinateSystem" xml:space="preserve">
+    <value>Coordinate system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationTaxonTable" xml:space="preserve">
+    <value>Observed taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationTaxonSpeciesObservationCountTable" xml:space="preserve">
+    <value>Species observation taxon with number of observed species table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationTaxonTable1" xml:space="preserve">
+    <value>Observed taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRegionCategoryGroupOfProvinces" xml:space="preserve">
+    <value>Collective of provinces</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimate1000" xml:space="preserve">
+    <value>More than 1000 taxa selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimate250" xml:space="preserve">
+    <value>More than 250 taxa selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimateAllTaxa" xml:space="preserve">
+    <value>All taxa selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldClass" xml:space="preserve">
+    <value>Class</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldId" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldImplemented" xml:space="preserve">
+    <value>Implemented</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldImportance" xml:space="preserve">
+    <value>Importance</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldLabel" xml:space="preserve">
+    <value>Label</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldMandatory" xml:space="preserve">
+    <value>Mandatory</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableSettingsFieldProvider" xml:space="preserve">
+    <value>From provider</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableTypeByImportance1" xml:space="preserve">
+    <value>Minimum column set</value>
+  </data>
+  <data name="TableTypeByImportance2" xml:space="preserve">
+    <value>Basic column set</value>
+  </data>
+  <data name="TableTypeByImportance3" xml:space="preserve">
+    <value>Average column set</value>
+  </data>
+  <data name="TableTypeByImportance4" xml:space="preserve">
+    <value>Extended column set</value>
+  </data>
+  <data name="TableTypeByImportance5" xml:space="preserve">
+    <value>All columns</value>
+  </data>
+  <data name="TableUserDefinedTitleMedium" xml:space="preserve">
+    <value>E.g. medium table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableUserDefinedTitleMini" xml:space="preserve">
+    <value>E.g. mini table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TimeSeriesSettingsDefaultPeriodicity" xml:space="preserve">
+    <value>Default periodicity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TimeSeriesSettingsReset" xml:space="preserve">
+    <value>Time series settings were reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TimeSeriesSettingsTitle" xml:space="preserve">
+    <value>Time series settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TimeSeriesSettingsUpdated" xml:space="preserve">
+    <value>Time series settings were updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsField" xml:space="preserve">
+    <value>Field</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance1" xml:space="preserve">
+    <value>Show minimum field set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance2" xml:space="preserve">
+    <value>Show basic field set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance3" xml:space="preserve">
+    <value>Show average field set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance4" xml:space="preserve">
+    <value>Show extended field set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance5" xml:space="preserve">
+    <value>Show all fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsShowDarwinCoreAsFieldName" xml:space="preserve">
+    <value>Show DarwinCore as field name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsShowOnlyFieldsWithData" xml:space="preserve">
+    <value>Show only fields with data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsTitle" xml:space="preserve">
+    <value>Observation details</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ObservationDetailsValue" xml:space="preserve">
+    <value>Value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSpeciesObservationAllSelectedTaxa" xml:space="preserve">
+    <value>All selected taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSpeciesObservationFilter" xml:space="preserve">
+    <value>Filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonCalculationDiagramSettings" xml:space="preserve">
+    <value>Diagram</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TableTypeShowAllFields" xml:space="preserve">
+    <value>Show all fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyExclusive" xml:space="preserve">
+    <value>Exclusive</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyExclusiveHint" xml:space="preserve">
+    <value>Exclude coordinates were the accuracy is completly within the selected area</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyInclusive" xml:space="preserve">
+    <value>Inclusive</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyInclusiveHint" xml:space="preserve">
+    <value>Include coordinates were the accuracy extendes beyond the selected area</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyMaxCoordinateAccuracy" xml:space="preserve">
+    <value>Max coordinate accuracy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyTitle" xml:space="preserve">
+    <value>Accuracy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewWfsGridMap" xml:space="preserve">
+    <value>Grid map of environmental data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracySettingsReset" xml:space="preserve">
+    <value>Accuracy filter removed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterAccuracyUpdated" xml:space="preserve">
+    <value>Accuracy filter updated successfully</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloads" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="StateButtonFilterAccuracy" xml:space="preserve">
+    <value>Accuracy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterAccuracyTooltip" xml:space="preserve">
+    <value>Set filter values for accuracy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCalculationModeArea" xml:space="preserve">
+    <value>Area</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCalculationModeCount" xml:space="preserve">
+    <value>Count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCalculationModeLength" xml:space="preserve">
+    <value>Length</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsEnvironmentalData" xml:space="preserve">
+    <value>Environmental data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCalculate" xml:space="preserve">
+    <value>Calculate</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCalculating" xml:space="preserve">
+    <value>Calculating...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLayer" xml:space="preserve">
+    <value>Layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectedLayer" xml:space="preserve">
+    <value>Selected layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectLayer" xml:space="preserve">
+    <value>Select layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCalculation" xml:space="preserve">
+    <value>Calculation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsCellSizeMeters" xml:space="preserve">
+    <value>Cell size (m)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsDisplay" xml:space="preserve">
+    <value>Display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadCombinedGridStatisticsAsExcel" xml:space="preserve">
+    <value>Combined grid statistics from species observations and environmental data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadGridStatisticsOnSpeciesCounts" xml:space="preserve">
+    <value>Grid map statistics on number of species</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificGridStatisticsOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Taxon specific grid observation counts</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificGridOccurrence" xml:space="preserve">
+    <value>Taxon specific grid occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadSummaryStatisticsAsExcel" xml:space="preserve">
+    <value>Summary statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTimeSeriesOnSpeciesObservationCountsAsExcel" xml:space="preserve">
+    <value>Time series table on species observation counts</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupExcel" xml:space="preserve">
+    <value>Excel (xlsx/xml)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupGraphics" xml:space="preserve">
+    <value>Images / graphics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupOthers" xml:space="preserve">
+    <value>Other formats</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCreateLayer" xml:space="preserve">
+    <value>Add selected layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultCombinedGridStatisticsTable" xml:space="preserve">
+    <value>Combined grid statistics table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationHeatMap" xml:space="preserve">
+    <value>Species observation heat map (image)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesRichnessHeatMap" xml:space="preserve">
+    <value>Species richness heat map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationPointMap" xml:space="preserve">
+    <value>Species observation point map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTaxonHeatMap" xml:space="preserve">
+    <value>Taxon heat map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataAddWfsLayer" xml:space="preserve">
+    <value>Create layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataWfsLayer" xml:space="preserve">
+    <value>Environmental layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LabelSpeciesObservationCount" xml:space="preserve">
+    <value>No. of obs</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidersAddWmsLayer" xml:space="preserve">
+    <value>Add Layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadDataObservedTaxonListAsExcel" xml:space="preserve">
+    <value>Observed taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadDataProviderStatisticsAsExcel" xml:space="preserve">
+    <value>Data providers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AnalysisPortalTitlePrefix" xml:space="preserve">
+    <value>Analysis portal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="CalculationIndexDescription" xml:space="preserve">
+    <value>In the analysis portal different types of statistical calculations and aggregation algorithms can be applied on both biodiversity and environmental data.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="CalculationIndexTitle" xml:space="preserve">
+    <value>Calculation (data processing)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataDataProvidersDescription" xml:space="preserve">
+    <value>Species occurrence data from all LifeWatch providers can be analysed as being a single dataset but it is here possible to select a subset of providers.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataIndexDescription" xml:space="preserve">
+    <value>In this section of the analysis portal it is possible to select which data providers of biodiversity data, map layers and environmental data to be used.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataIndexTitle" xml:space="preserve">
+    <value>Data sources</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterIndexDescription" xml:space="preserve">
+    <value>Species observation data retrieval can be limited by set of search criteria including taxonomic, spatial, temporal, accuracy and data quality filters.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterIndexTitle" xml:space="preserve">
+    <value>Filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FormatIndexDescription" xml:space="preserve">
+    <value>Here it is possible change output formats of observation data tables. Customize selection of data fields. Darwin Core (DwC) standard can be applied.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FormatIndexTitle" xml:space="preserve">
+    <value>Format (presentation &amp; export settings)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeIndexDescription" xml:space="preserve">
+    <value>Use the Analysis portal of Swedish LifeWatch for exploration of biodiversity information in relation to environmental and climatic data.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDiagramsDescription" xml:space="preserve">
+    <value>Currently, the analysis portal uses diagrams primarily to visualize temporal variation in data.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadDescription" xml:space="preserve">
+    <value>Download data on species occurrences or environmental factors in formats suitable for analyses. Export the biodiversity data in various aggregated formats.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGridStatisticsTableOnSpeciesObservationCountsDescription" xml:space="preserve">
+    <value>Number of species occurrences summarized per grid cell presented as a table together with information on centre coordinates and selected grid size.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultGridStatisticsTableOnSpeciesRichnessDescription" xml:space="preserve">
+    <value>Grid map statistics on species richness presented in a table view. The data may be downloaded and used for various statistical analysis of biodiversity.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultIndexDescription" xml:space="preserve">
+    <value>Data on biodiversity, species distribution, environmental factors and climate can be viewed and explored in many ways using the LifeWatch Analysis Portal.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultIndexTitle" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultMapsDescription" xml:space="preserve">
+    <value>Patterns of biodiversity can be explored graphically using the different map facilities at SLW Analysis Portal. Connect to any OGC map service.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultReportsDescription" xml:space="preserve">
+    <value>Reports with basic summary statistics on number of species and amount of biodiversity data can be viewed and exported from the system.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationGridMapDescription" xml:space="preserve">
+    <value>Statistics on number of species observations (occurrences or sightings) recorded within each grid cell. Grid cell size can be customized. Default is 10 km2.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationMapDescription" xml:space="preserve">
+    <value>Clickable point map that let you investigate actual positioning of Swedish species observation. The distribution of more than 2600 species can be viewed.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationTaxonTableDescription" xml:space="preserve">
+    <value>List of species observed according to occurrence data provided by Swedish LifeWatch. Use the tool to view the species found in a particular area or day.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesRichnessGridMapDescription" xml:space="preserve">
+    <value>A map with number of species per grid cell visualizes spatial variation in species richness. By default data from &gt; 26 000 species is shown.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSummaryStatisticsReportDescription" xml:space="preserve">
+    <value>Reports on summary statistics of the available biodiversity data can be viewed here. It is also possible to show reports on current filter parameters.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTablesDescription" xml:space="preserve">
+    <value>Statistical results, lists of observed taxa and occurrence data with different attributes can be viewed as downloadable tables.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesHistogramOnSpeciesObservationCountsDescription" xml:space="preserve">
+    <value>Time series with number of species observations per time step. The diagram can show results for a number of periodicities: yearly, monthly, daily, etc.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesTableOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Data table with time step specific counts of number of species observations. This output can be downloaded and used for various time series analyses.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationTableDescription" xml:space="preserve">
+    <value>Species observations viewed as a table with paging. It is possible to customize the selection of data fields and labelling. The data can be filtered.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWfsGridStatisticsMapDescription" xml:space="preserve">
+    <value>Grid based statistics on environmental data can be visualized using this map tool. Counts, area or length of features are summarized and labelled.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultTimeSeriesTaxaTitle" xml:space="preserve">
+    <value>Selected taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationAbundanceIndexDiagram" xml:space="preserve">
+    <value>Taxon specific abundance index time series</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeCookieInformationText" xml:space="preserve">
+    <value>
+&lt;br /&gt;
+According to the Electronic Communications Act (2003) all visitors to a website need to be informed if cookies are used and how they can be blocked.
+&lt;br /&gt;&lt;br /&gt;
+A cookie is a little file which is added to your computer when you visit a website. Any subsequent visits to the website are tracked by the cookie. Analysis portal web application uses cookies to generate visitor statistics which are used to improve the website. They are also used to maintain preferences for website design, functionality and language. This data is anonymous.
+&lt;br /&gt;&lt;br /&gt;
+If you do not want cookies enabled on your computer you can block them in your web browser's security settings. You will find more information in your web browser's help function. But note that disabling cookies may do your pages to work improperly . 
+&lt;br /&gt;&lt;br /&gt;
+All data collected is anonymous.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAnalysisPortalSummary" xml:space="preserve">
+    <value>The objective of Swedish LifeWatch is to make all major national biodiversity databases in Sweden interoperable, and thereby accessible through standardized web services. The Analysis portal provides a single access point to all data connected to the infrastructure, together with a range of analytical services.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDescription" xml:space="preserve">
+    <value>Description</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedOrganization" xml:space="preserve">
+    <value>Organization</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadPageTooltip" xml:space="preserve">
+    <value>Download results</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDiagramAbundanceIndex" xml:space="preserve">
+    <value>Abundance index</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadSpeciesObservationsAsExcel" xml:space="preserve">
+    <value>Species observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSummaryStatisticsPerPolygonTable" xml:space="preserve">
+    <value>Summary statistics per polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedHistogramBinSettings" xml:space="preserve">
+    <value>Histogram bin settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsAddBin" xml:space="preserve">
+    <value>Add bin</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsBin" xml:space="preserve">
+    <value>Bin</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsBins" xml:space="preserve">
+    <value>Bins</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsColors" xml:space="preserve">
+    <value>Colors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsEndColor" xml:space="preserve">
+    <value>End color</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsFrom" xml:space="preserve">
+    <value>From</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsHistogramBins" xml:space="preserve">
+    <value>Bins</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsMoveDown" xml:space="preserve">
+    <value>Move down</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsMoveUp" xml:space="preserve">
+    <value>Move up</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsRemoveBin" xml:space="preserve">
+    <value>Remove bin</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsStartColor" xml:space="preserve">
+    <value>Start color</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsTo" xml:space="preserve">
+    <value>To</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinPercentOfAllItems" xml:space="preserve">
+    <value>Percent of all items</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinPercentOfVisibleItems" xml:space="preserve">
+    <value>Percent of visible items</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCount" xml:space="preserve">
+    <value>Count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPercent" xml:space="preserve">
+    <value>Percent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlCalculation" xml:space="preserve">
+    <value>guides/analysis-portal/calculation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlCalculationGridStatistics" xml:space="preserve">
+    <value>guides/analysis-portal/calculation/grid-statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlCalculationSummaryStatistics" xml:space="preserve">
+    <value>guides/analysis-portal/calculation/summary-statistics</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlCalculationTimeSeries" xml:space="preserve">
+    <value>guides/analysis-portal/calculation/time-series</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlData" xml:space="preserve">
+    <value>guides/analysis-portal/data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlDataEnvironmentalData" xml:space="preserve">
+    <value>guides/analysis-portal/data/Environmental-data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlDataMapLayers" xml:space="preserve">
+    <value>guides/analysis-portal/data/map-layers</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlDataMetadata" xml:space="preserve">
+    <value>guides/analysis-portal/data/metadata</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlDataSpeciesObservations" xml:space="preserve">
+    <value>guides/analysis-portal/data/species-observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilter" xml:space="preserve">
+    <value>guides/analysis-portal/filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilterOccurrence" xml:space="preserve">
+    <value>guides/analysis-portal/filter/occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilterQuality" xml:space="preserve">
+    <value>guides/analysis-portal/filter/quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilterSpatial" xml:space="preserve">
+    <value>guides/analysis-portal/filter/spatial</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilterTaxa" xml:space="preserve">
+    <value>guides/analysis-portal/filter/taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFilterTemporal" xml:space="preserve">
+    <value>guides/analysis-portal/filter/temporal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFormat" xml:space="preserve">
+    <value>guides/analysis-portal/format</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlFormatTableColumns" xml:space="preserve">
+    <value>guides/analysis-portal/format/table-columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResult" xml:space="preserve">
+    <value>guides/analysis-portal/result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResultDiagrams" xml:space="preserve">
+    <value>guides/analysis-portal/result/diagrams</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResultDownload" xml:space="preserve">
+    <value>guides/analysis-portal/result/download</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResultMaps" xml:space="preserve">
+    <value>guides/analysis-portal/result/maps</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResultReports" xml:space="preserve">
+    <value>guides/analysis-portal/result/report</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AboutUrlResultTables" xml:space="preserve">
+    <value>guides/analysis-portal/result/tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsNoWfsLayerSelected" xml:space="preserve">
+    <value>No environmental layer selected.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DetailsObservationDetailsSettings" xml:space="preserve">
+    <value>Observation details settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateBothCounts" xml:space="preserve">
+    <value>You chose to calculate both number of observed species and number of species per polygon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateObservationCount" xml:space="preserve">
+    <value>You chose to calculate only the number of observed species per polygon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateSpeciesCount" xml:space="preserve">
+    <value>You chose to calculate only the number of species per polygon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsObservationCount" xml:space="preserve">
+    <value>Observation count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsPolygon" xml:space="preserve">
+    <value>Polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SummaryStatisticsTaxaCount" xml:space="preserve">
+    <value>Species count</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWmsLayerSearch" xml:space="preserve">
+    <value>Get layer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadSummaryStatisticsPerPolygonAsExcel" xml:space="preserve">
+    <value>Summary statistics per polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadSummaryStatisticsWfsLayerMustBeSelected" xml:space="preserve">
+    <value>To enable this download you must select an environment layer in summary statistics settings.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadGridStatisticsWfsLayerMustBeSelected" xml:space="preserve">
+    <value>To enable this download you must select an environment layer in grid statistics settings.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxaMustBeSelected" xml:space="preserve">
+    <value>To enable this download you must select at least one taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificOccurrencePerPolygon" xml:space="preserve">
+    <value>Taxon specific occurrence per polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificSpeciesObservationCountPerPolygon" xml:space="preserve">
+    <value>Taxon specific species observation count per polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutSwedishLifewatchUrl" xml:space="preserve">
+    <value>http://www.svenskalifewatch.se/en/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterLocalityUpdated" xml:space="preserve">
+    <value>Locality filter updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialLocality" xml:space="preserve">
+    <value>Locality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterLocalityReset" xml:space="preserve">
+    <value>Locality filter was reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialLocalityButtonTooltip" xml:space="preserve">
+    <value>Locality filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialLocalityTitle" xml:space="preserve">
+    <value>Locality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterLocality" xml:space="preserve">
+    <value>Locality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterLocalityComparision" xml:space="preserve">
+    <value>Jämförelse</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterLocalitySearchMethod" xml:space="preserve">
+    <value>Search method</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterLocalitySearchString" xml:space="preserve">
+    <value>Search term</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterLocalityTitle" xml:space="preserve">
+    <value>Locality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportLocalityFilter" xml:space="preserve">
+    <value>Locality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorBeginsWith" xml:space="preserve">
+    <value>Begins with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorContains" xml:space="preserve">
+    <value>Contains</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorEndsWith" xml:space="preserve">
+    <value>Ends with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorEqual" xml:space="preserve">
+    <value>Equal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorLike" xml:space="preserve">
+    <value>Like</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StringCompareOperatorNotEqual" xml:space="preserve">
+    <value>Not equal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsColorInterpolationMode" xml:space="preserve">
+    <value>Interpolation mode</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTaxonFromIdsAddUnderlyingSpecies" xml:space="preserve">
+    <value>Add underlying species</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonResultDownloadExcel" xml:space="preserve">
+    <value>Download (Excel)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ButtonResultDownloadGeoJson" xml:space="preserve">
+    <value>Download (GeoJson)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadGridStatisticsOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Grid map statistics on species observations</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTimeSeriesOnSpeciesObservationAbundanceIndexAsExcel" xml:space="preserve">
+    <value>Time series on taxon abundance index</value>
+    <comment>sv</comment>
+  </data>
+  <data name="InformationExceptionNoObservationsFound" xml:space="preserve">
+    <value>No observations were found</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfWmsLayers" xml:space="preserve">
+    <value>Map layers ({0} layers)</value>
+  </data>
+  <data name="ResultWorkflowUserIsNotLoggedIn" xml:space="preserve">
+    <value>You must log in to use this page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowPleaseLogIn" xml:space="preserve">
+    <value>Please log in</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowCurrentRoleIsNotPrivatePerson" xml:space="preserve">
+    <value>The current user role needs to be set to "Privatperson"</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowChangeUserRole" xml:space="preserve">
+    <value>Please change user role</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowCsvFileHasBeenCreated" xml:space="preserve">
+    <value>CSV file has been created</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowStartWorkflowInBioVelPlayer" xml:space="preserve">
+    <value>Start workflow in BioVel player</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowDownloadCsvFile" xml:space="preserve">
+    <value>Download generated CSV file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowSpeciesObservationGrid" xml:space="preserve">
+    <value>Species observation grid</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowIntroduction" xml:space="preserve">
+    <value>In this view you can generate data and use it in BioVel workflow player. A CSV file is generated and is stored on the Analysisportal web server. Only observations that are publicly available are used.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupWorkflows" xml:space="preserve">
+    <value>Workflows</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultBioVelWorkflow" xml:space="preserve">
+    <value>BioVel workflows</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowEcologicalNicheModeling" xml:space="preserve">
+    <value>Ecological Niche Modeling (ENM)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialFromGeoJsonFile" xml:space="preserve">
+    <value>Set spatial filter from GeoJSON file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectFile" xml:space="preserve">
+    <value>Select file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectedFile" xml:space="preserve">
+    <value>Selected file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialCoordinateSystemUsedInFile" xml:space="preserve">
+    <value>Coordinate system used in the file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialIdentifyCoordinateSystemFromFileContent" xml:space="preserve">
+    <value>Identify the coordinate system from file's content</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedUploadFile" xml:space="preserve">
+    <value>Upload file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoFileSelected" xml:space="preserve">
+    <value>No file is selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialUnableToDetermineCoordinateSystem" xml:space="preserve">
+    <value>Unable to determine which coordinate system is used in the file. Please choose a coordinate system.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialUnableToParseGeoJsonFile" xml:space="preserve">
+    <value>Unable to parse file contents as GeoJSON</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupCsv" xml:space="preserve">
+    <value>Comma-separated values (csv)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapCoordinateSystem" xml:space="preserve">
+    <value>Coordinate system (presentation)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationProvenanceReportDescription" xml:space="preserve">
+    <value>Reports on species observation provenances can be viewed here. It is also possible to show reports on current filter parameters.</value>
+  </data>
+  <data name="ResultViewProvenance" xml:space="preserve">
+    <value>Species observation provenance</value>
+  </data>
+  <data name="ResultViewProvenanceReportTitle" xml:space="preserve">
+    <value>Species observation provenance report</value>
+  </data>
+  <data name="ResultViewProvenanceType" xml:space="preserve">
+    <value>Provenance type</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnNameHeader" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnSpeciesObservationCountHeader" xml:space="preserve">
+    <value>Species observation count</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnValueHeader" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ResultViewProvenanceReportLimitDescription" xml:space="preserve">
+    <value>The result is limited to maximum of 20 rows for each type of provenance.</value>
+  </data>
+  <data name="DownloadSpeciesObservationProvenancesAsExcel" xml:space="preserve">
+    <value>Species observation provenances</value>
+  </data>
+  <data name="StateButtonPresentationFileFormat" xml:space="preserve">
+    <value>File format</value>
+  </data>
+  <data name="LinkTextSLU" xml:space="preserve">
+    <value>Swedish University of Agricultural Sciences</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSLU" xml:space="preserve">
+    <value>http://www.slu.se/en/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextNaturhistoriskaRiksmuseet" xml:space="preserve">
+    <value>Swedish Museum of Natural History</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlNaturhistoriskaRiksmuseet" xml:space="preserve">
+    <value>http://www.nrm.se/english/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlUniversityOfGothenburg" xml:space="preserve">
+    <value>http://www.gu.se/english/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextUniversityOfGothenburg" xml:space="preserve">
+    <value>University of Gothenburg</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextLundUniversity" xml:space="preserve">
+    <value>Lund university</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlLundUniversity" xml:space="preserve">
+    <value>http://www.lunduniversity.lu.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlUmeaUniversity" xml:space="preserve">
+    <value>http://www.umu.se/english/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextUmeaUniversity" xml:space="preserve">
+    <value>Umeå university</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSMHI" xml:space="preserve">
+    <value>http://www.smhi.se/en</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlNaturvardsverket" xml:space="preserve">
+    <value>http://www.swedishepa.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextNaturvardsverket" xml:space="preserve">
+    <value>Swedish environmental protection agency</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSwedishResearchCouncil" xml:space="preserve">
+    <value>http://www.vr.se/english/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextSwedishResearchCouncil" xml:space="preserve">
+    <value>Swedish research council</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlArtdatabanken" xml:space="preserve">
+    <value>http://www.slu.se/en/collaborative-centres-and-projects/artdatabanken/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextArtdatabanken" xml:space="preserve">
+    <value>The swedish species information centre works with biodiversity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldSummary" xml:space="preserve">
+    <value>Filter field summary</value>
+  </data>
+  <data name="AboutUrlFilterField" xml:space="preserve">
+    <value>guides/analysis-portal/filter/field</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldRemoveSelectedField" xml:space="preserve">
+    <value>Remove field from list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterFields" xml:space="preserve">
+    <value>Fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="StateButtonFilterFieldsTooltip" xml:space="preserve">
+    <value>Search by a field (class, field, compare operator, value)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsFromSearchButton" xml:space="preserve">
+    <value>Search by field name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsOverviewButtonTooltip" xml:space="preserve">
+    <value>Show overview - fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsTitle" xml:space="preserve">
+    <value>Search fields</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsFromSearchButtonTooltip" xml:space="preserve">
+    <value>Search by field name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MySettingsFilterOneSelectedField" xml:space="preserve">
+    <value>Field {0}</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedFields" xml:space="preserve">
+    <value>Fields ({0} selected)</value>
+  </data>
+  <data name="FilterFieldsClass" xml:space="preserve">
+    <value>Class:</value>
+  </data>
+  <data name="FilterFieldsGivenValueLabel" xml:space="preserve">
+    <value>Value:</value>
+  </data>
+  <data name="FilterFieldsHeader" xml:space="preserve">
+    <value>Search by field</value>
+  </data>
+  <data name="FilterFieldsPropertyLabel" xml:space="preserve">
+    <value>Field:</value>
+  </data>
+  <data name="FilterFieldSettingsReset" xml:space="preserve">
+    <value>Field settings were reset</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLabel" xml:space="preserve">
+    <value>Compare operator:</value>
+  </data>
+  <data name="FilterFieldsAllClassesSelection" xml:space="preserve">
+    <value>All classes</value>
+  </data>
+  <data name="SpeciesObservationCountPerTaxonAsExcel" xml:space="preserve">
+    <value>Number of observations per taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsAndProperty" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="FilterFieldsOrProperty" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="MetadatasearchSGUGeoServerLinkText" xml:space="preserve">
+    <value>Go to SGU GeoServer</value>
+  </data>
+  <data name="MetadatasearchSMHIOpenDataLinkText" xml:space="preserve">
+    <value>Go to SMHI Open Data</value>
+  </data>
+  <data name="TaxonSharedProtectionLevel1" xml:space="preserve">
+    <value>Protected</value>
+  </data>
+  <data name="PresentationExcelFileFormatTypes" xml:space="preserve">
+    <value>Excel file format</value>
+  </data>
+  <data name="PresentationExcelFileFormatXlsx" xml:space="preserve">
+    <value>XLSX</value>
+  </data>
+  <data name="PresentationExcelFileFormatXml" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorGreater" xml:space="preserve">
+    <value>Greater than</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorGreaterOrEqual" xml:space="preserve">
+    <value>Greater than or equal to</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLess" xml:space="preserve">
+    <value>Less than</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLessOrEqual" xml:space="preserve">
+    <value>Less than or equal to</value>
+  </data>
+  <data name="Filter_CoordinateAccuracy_MaxCoordinateAccuracy_Required" xml:space="preserve">
+    <value>Max coordinate accuracy is required.</value>
+  </data>
+  <data name="FilterCoordinateAccuracyIsActive" xml:space="preserve">
+    <value>Activate coordinate accuracy</value>
+  </data>
+  <data name="FilterTaxonByTaxonAttributesTitle" xml:space="preserve">
+    <value>List taxa by taxon attributes</value>
+  </data>
+  <data name="FilterTaxonByTaxonAttributeSearchTaxaGridTitle" xml:space="preserve">
+    <value>Taxon attributes</value>
+  </data>
+  <data name="FactorIsOnlyAHeaderTitle" xml:space="preserve">
+    <value>The factor is only a header</value>
+  </data>
+  <data name="ReplaceCurrentTaxonFilter" xml:space="preserve">
+    <value>Replace current taxon filter</value>
+  </data>
+  <data name="RestrictToCurrentTaxonFilter" xml:space="preserve">
+    <value>Restrict to current taxon filter</value>
+  </data>
+  <data name="SearchTaxaByFactorButtonText" xml:space="preserve">
+    <value>Search taxa by factor</value>
+  </data>
+  <data name="SearchTaxaBySelectedFactorTitle" xml:space="preserve">
+    <value>Search taxa by selected factor</value>
+  </data>
+  <data name="TaxonAttributesTreePanelHeaderText" xml:space="preserve">
+    <value>Factors</value>
+  </data>
+  <data name="TaxonAttributesTreePanelTitle" xml:space="preserve">
+    <value>Taxon attributes</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarCollapseAllText" xml:space="preserve">
+    <value>Collapse all</value>
+  </data>
+  <data name="AddTaxaButtonTooltip" xml:space="preserve">
+    <value>Add taxa to current taxa filter</value>
+  </data>
+  <data name="ReplaceTaxaButtonTooltip" xml:space="preserve">
+    <value>Replace current taxa filter</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarSortAlphabeticallyText" xml:space="preserve">
+    <value>Sort alphabetically</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarSortDefaultText" xml:space="preserve">
+    <value>Sort in default order</value>
+  </data>
+  <data name="TaxonSearchCompareOpGreater" xml:space="preserve">
+    <value>Greater than</value>
+  </data>
+  <data name="TaxonSearchCompareOpGreaterOrEqual" xml:space="preserve">
+    <value>Greater or equal</value>
+  </data>
+  <data name="TaxonSearchCompareOpLess" xml:space="preserve">
+    <value>Less than</value>
+  </data>
+  <data name="TaxonSearchCompareOpLessOrEqual" xml:space="preserve">
+    <value>Less or equal</value>
+  </data>
+  <data name="PresentationTableCreatedUserDefinedTable" xml:space="preserve">
+    <value>New custom presentation table created</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableCreateNewUserDefinedTable" xml:space="preserve">
+    <value>Create new custom table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableDeletedUserDefinedTable" xml:space="preserve">
+    <value>Custom presentation table deleted</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableDeleteUserDefinedTable" xml:space="preserve">
+    <value>Delete</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableEditedUserDefinedTable" xml:space="preserve">
+    <value>Custom presentation table edited</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableEditUserDefinedTable" xml:space="preserve">
+    <value>Edit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTablePredefinedTables" xml:space="preserve">
+    <value>Predefined tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableUserDefinedTableErrorNoColumnsSelected" xml:space="preserve">
+    <value>You must select at least one column!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableUserDefinedTableErrorNoName" xml:space="preserve">
+    <value>You must enter a name!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationTableUserDefinedTables" xml:space="preserve">
+    <value>Custom tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAutoScale" xml:space="preserve">
+    <value>Auto scale</value>
+  </data>
+  <data name="SharedFixedScale" xml:space="preserve">
+    <value>Fixed scale</value>
+  </data>
+  <data name="StartPage" xml:space="preserve">
+    <value>Start page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ErrorToMuchData" xml:space="preserve">
+    <value>Too much data! You must set taxa filter or spatial filter.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResetSettingsQuestion" xml:space="preserve">
+    <value>Reset settings?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DataProvidesSearchWfsInspireLayerSelectDefault" xml:space="preserve">
+    <value>Swedish Species Information Centre INSPIRE</value>
+  </data>
+  <data name="SettingsReportSheetName" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="QuotationReportSheetName" xml:space="preserve">
+    <value>Quotation</value>
+  </data>
+  <data name="SpeciesObservationProvenanceReportSheetName" xml:space="preserve">
+    <value>Species observation provenance</value>
+  </data>
+  <data name="IncludeProvenance" xml:space="preserve">
+    <value>Include provenance in report</value>
+  </data>
+  <data name="IncludeSettingSheet" xml:space="preserve">
+    <value>Include settings in report</value>
+  </data>
+  <data name="FilterRedListButton" xml:space="preserve">
+    <value>Redlist</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterRedListButtonTooltip" xml:space="preserve">
+    <value>Filter by red list categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterByRedListTitle" xml:space="preserve">
+    <value>Search red listed taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MultiSelectAllSelected" xml:space="preserve">
+    <value>All selected</value>
+  </data>
+  <data name="MultiSelectNonSelected" xml:space="preserve">
+    <value>Non selected</value>
+  </data>
+  <data name="MultiSelectNSelected" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="MultiSelectSelectAll" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="TextCitation" xml:space="preserve">
+    <value>&lt;p&gt;For research publications and all other kinds of reports that have used the Analysis Portal, please add the following credits:&lt;/p&gt;
+&lt;p&gt;“Data used in this study were downloaded from the Swedish LifeWatch Analysis Portal [&lt;i&gt;date of download and chosen data providers&lt;/i&gt;]. The Analysis Portal is funded by the Swedish Research Council and the Swedish Environmental Protection Agency through the Swedish LifeWatch Project (Grant No. 829-2009-6287).”&lt;/p&gt;
+&lt;p&gt;We strongly recommended that you also declare the Data Providers the analysis were run with. Such a list you can find in the species observation provenance report on the Analysis Portal (https://www.analysisportal.se/Result/ProvenanceReport).&lt;/p&gt;</value>
+  </data>
+  <data name="TitleCitation" xml:space="preserve">
+    <value>Citation</value>
+  </data>
+  <data name="HeadMenuHome" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="HeadMenuHomeTooltip" xml:space="preserve">
+    <value>Show the startpage</value>
+  </data>
+  <data name="RedListCategoryCR" xml:space="preserve">
+    <value>Critically Endangered</value>
+  </data>
+  <data name="RedListCategoryDD" xml:space="preserve">
+    <value>Data Deficient</value>
+  </data>
+  <data name="RedListCategoryEN" xml:space="preserve">
+    <value>Endangered</value>
+  </data>
+  <data name="RedListCategoryEX" xml:space="preserve">
+    <value>Extinct</value>
+  </data>
+  <data name="RedListCategoryLC" xml:space="preserve">
+    <value>Least Concern</value>
+  </data>
+  <data name="RedListCategoryNA" xml:space="preserve">
+    <value>Not Applicable</value>
+  </data>
+  <data name="RedListCategoryNE" xml:space="preserve">
+    <value>Not Evaluated</value>
+  </data>
+  <data name="RedListCategoryNT" xml:space="preserve">
+    <value>Near Threatened</value>
+  </data>
+  <data name="RedListCategoryRE" xml:space="preserve">
+    <value>Regionally Extinct</value>
+  </data>
+  <data name="RedListCategoryVU" xml:space="preserve">
+    <value>Vulnerable</value>
+  </data>
+  <data name="RedListGroupRedlisted" xml:space="preserve">
+    <value>Redlisted taxa</value>
+  </data>
+  <data name="RedListGroupThreatened" xml:space="preserve">
+    <value>Threatened taxa</value>
+  </data>
+  <data name="FilterRedListSettingsReset" xml:space="preserve">
+    <value>Red list settings reset</value>
+  </data>
+  <data name="FilterRedListSettingsUpdated" xml:space="preserve">
+    <value>Red list settings was updated</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedRedListCategories" xml:space="preserve">
+    <value>Red list ({0} categories selected)</value>
+  </data>
+  <data name="SettingsReportFieldFilter" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="SettingsReportRedListFilter" xml:space="preserve">
+    <value>Red list</value>
+  </data>
+  <data name="IntroductionText" xml:space="preserve">
+    <value>&lt;h3&gt;How to get started&lt;/h3&gt;
+            &lt;p&gt;
+                &lt;ol class="OrderedList"&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;Select data source&lt;/strong&gt;&lt;br /&gt;
+                        &gt; Data &gt; Species observation
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;Add filter and choose taxa&lt;/strong&gt;&lt;br /&gt;
+                        &gt; Filter &gt; Taxa &gt; Search by taxon name
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;Change settings for data calculations&lt;/strong&gt;&lt;br /&gt;
+                        &gt; Calculation &gt; Grid statistics &gt; Select grid parameters e.g. size
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;Optionally change settings for the format and maps &lt;/strong&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;View results&lt;/strong&gt;&lt;br /&gt;
+                        &gt; Result &gt; e.g. Species observation map
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;strong&gt;Change your selection or analysis, it is always possible to go directly to the result button!&lt;/strong&gt;
+
+                    &lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/p&gt;
+            &lt;p&gt;Your current settings are always shown on the right side =&gt; My settings&lt;/p&gt;</value>
+  </data>
+  <data name="StateButtonCalculationGridStatisticsTooltip" xml:space="preserve">
+    <value>Change grid statistics (grid size, coordinate system, calculations, layer, calculation)</value>
+  </data>
+  <data name="StateButtonCalculationSummaryStatisticsToolTip" xml:space="preserve">
+    <value>Change summary statistics (nr. of observations, nr. of species, select a layer)</value>
+  </data>
+  <data name="StateButtonCalculationTimeSeriesTooltip" xml:space="preserve">
+    <value>Change periodicity for time series (yearly/daily/monthly/weekly; month/week/day of the year)</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Show less</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Show more</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectGlobalDataOnHumanImpact" xml:space="preserve">
+    <value>Global data on human impact</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSwedishBoardOfAgriculture" xml:space="preserve">
+    <value>Swedish Board of Agriculture GeoServer</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSwedishMarine" xml:space="preserve">
+    <value>Swedish Agency for Marine and Water management</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSLUGeoServer" xml:space="preserve">
+    <value>SLU GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIMetObs" xml:space="preserve">
+    <value>Met-obs (SMHI Open Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHISnowStatistics" xml:space="preserve">
+    <value>Snow statistics (SMHI Open Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIPotentialEvaporation" xml:space="preserve">
+    <value>Potential evaporation (SMHI Open Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIFrostAndIce" xml:space="preserve">
+    <value>Frost and ice statistics (SMHI Open Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHICloudiness" xml:space="preserve">
+    <value>Cloudiness (SMHI Open data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIPercipitation" xml:space="preserve">
+    <value>Percipitation (SMHI Open data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSGU" xml:space="preserve">
+    <value>SGU GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishMarineAndWater" xml:space="preserve">
+    <value>Swedish Agency for Marine and Water management</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectMetria" xml:space="preserve">
+    <value>Metria</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectGlobalDataOnHumanImpact" xml:space="preserve">
+    <value>Global data on human impact</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishBoardOfAgriculture" xml:space="preserve">
+    <value>Swedish Board of Agriculture GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectBalticSeaBathymetryDatabase" xml:space="preserve">
+    <value>Baltic Sea Bathymetry Database</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishEnvironmentalProtectionAgency" xml:space="preserve">
+    <value>Vic Nature Metria, Swedish Environmental Protection Agency</value>
+  </data>
+  <data name="DataAddWfslayerDeleteFile" xml:space="preserve">
+    <value>Delete file?</value>
+  </data>
+  <data name="DataAddWfsLayerExistingFile" xml:space="preserve">
+    <value>Use previously uploaded file</value>
+  </data>
+  <data name="DataAddWfsLayerFromFile" xml:space="preserve">
+    <value>Add layer from file</value>
+  </data>
+  <data name="DataAddWfsLayerFromService" xml:space="preserve">
+    <value>Create layer from wfs service</value>
+  </data>
+  <data name="DataAddWfsLayerNewFile" xml:space="preserve">
+    <value>Upload new file (GeoJSON/Shape)</value>
+  </data>
+  <data name="SharedFileAlreadyExists" xml:space="preserve">
+    <value>File already exists</value>
+  </data>
+  <data name="SharedLayerAlreadyExists" xml:space="preserve">
+    <value>Layer already added</value>
+  </data>
+  <data name="DataAddWfsLayerMaxFilesReached" xml:space="preserve">
+    <value>Max number of uploaded files reached</value>
+  </data>
+  <data name="DataAddWfsLayerFileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="SharedFile" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="SharedMedia" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="SharedWfsService" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="SharedYouHaveToLogOn" xml:space="preserve">
+    <value>You have to log on to enable this feature</value>
+  </data>
+  <data name="SharedServices" xml:space="preserve">
+    <value>WFS</value>
+  </data>
+  <data name="SharedUploadedFiles" xml:space="preserve">
+    <value>Own files</value>
+  </data>
+  <data name="DataAddWfsLayeraFileUploadForm" xml:space="preserve">
+    <value>Accepted file formats are geojson and shape. Geojson should have suffix .geojson and shape should be in a .zip container including at least the .shp and the .dbf file</value>
+  </data>
+  <data name="FilterPolygonFromMapLayerFileUploadFormats" xml:space="preserve">
+    <value>Accepted file format is geojson (suffix .geojson)</value>
+  </data>
+  <data name="FilterTemporalHelpDateDifferenceTitle" xml:space="preserve">
+    <value>Date &amp; Date annually - What is the difference?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalHelpInstructions" xml:space="preserve">
+    <value>&lt;h3&gt;Date &amp; Date annually - What is the difference?&lt;/h3&gt;
+&lt;h4&gt;Date&lt;/h4&gt;
+&lt;p&gt;
+    With this setting you set the exact dates between which the observations you want to get is observed/registered/changed.
+&lt;/p&gt;
+
+&lt;h4&gt;Date annually&lt;/h4&gt;
+&lt;p&gt;
+    With this setting you set &lt;em&gt;annually&lt;/em&gt; between what month and day observations you want to get is observed/registered/changed. &lt;br /&gt;
+    For example. If you specify From: 2013-02-01 To: 2013-03-31, then you get observations with observed/registered/changed date between February 1 to March 31 for all years until today.
+&lt;/p&gt;</value>
+  </data>
+  <data name="SharedInstructionsAndSupportTitle" xml:space="preserve">
+    <value>Instructions and support</value>
+  </data>
+  <data name="LayerSidebarBaseLayers" xml:space="preserve">
+    <value>Background maps</value>
+  </data>
+  <data name="LayerSidebarOtherLayers" xml:space="preserve">
+    <value>Data layers</value>
+  </data>
+  <data name="LayerSidebarSorting" xml:space="preserve">
+    <value>Sort layers</value>
+  </data>
+  <data name="LayerSideBarTitle" xml:space="preserve">
+    <value>Map layers</value>
+  </data>
+  <data name="LayerSidebarSortingTooltip" xml:space="preserve">
+    <value>Sorting by drag and drop. Finish sorting by unchecking the checkbox</value>
+  </data>
+  <data name="UploadFileJsonSerialaztionFaild" xml:space="preserve">
+    <value>Failed to serialize GeoJson file.</value>
+  </data>
+  <data name="UploafFileLayerAlreadyAdded" xml:space="preserve">
+    <value>Layer already added</value>
+  </data>
+  <data name="LayerExportAttributeLabel" xml:space="preserve">
+    <value>Attribute for grid cell values</value>
+  </data>
+  <data name="LayerExportCellResolutionLabel" xml:space="preserve">
+    <value>Cell resolution</value>
+  </data>
+  <data name="LayerExportGridDataTypeLabel" xml:space="preserve">
+    <value>Grid data type</value>
+  </data>
+  <data name="LayerExportHeightLabel" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="LayerExportLayerLabel" xml:space="preserve">
+    <value>Layer</value>
+  </data>
+  <data name="LayerExportPickLayerError" xml:space="preserve">
+    <value>Pick a layer</value>
+  </data>
+  <data name="LayerExportRasterResolutionLabel" xml:space="preserve">
+    <value>Razter resolution</value>
+  </data>
+  <data name="LayerExportRasterSizeLabel" xml:space="preserve">
+    <value>Razter size in pixels</value>
+  </data>
+  <data name="LayerExportTitle" xml:space="preserve">
+    <value>Export layer</value>
+  </data>
+  <data name="LayerExportWidthLabel" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="MapGridLayer" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="ResultDownloadGroupGeoJson" xml:space="preserve">
+    <value>GeoJson</value>
+  </data>
+  <data name="ResultDownloadGroupGeoTiff" xml:space="preserve">
+    <value>GeoTIFF</value>
+  </data>
+  <data name="ResultDownloadObservationsGridMap" xml:space="preserve">
+    <value>Species Richness Grid Map (observations count)</value>
+  </data>
+  <data name="ResultDownloadSelectDownload" xml:space="preserve">
+    <value>Select file to download</value>
+  </data>
+  <data name="ResultDownloadSpeciesRichnessGridMap" xml:space="preserve">
+    <value>Species Richness Grid Map (species count)</value>
+  </data>
+  <data name="ResultViewSpeciesRichnessGridMapLayerName" xml:space="preserve">
+    <value>Species Richness Grid Map</value>
+  </data>
+  <data name="LayerExportRazterSize" xml:space="preserve">
+    <value>Higher resolution increase image size</value>
+  </data>
+  <data name="SharedDownload" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="LayerExportFormatLabel" xml:space="preserve">
+    <value>Export Format</value>
+  </data>
+  <data name="ResultDownloadGroupGIS" xml:space="preserve">
+    <value>GIS formats</value>
+  </data>
+  <data name="ResultDownloadGroupShape" xml:space="preserve">
+    <value>ESRI Shape</value>
+  </data>
+  <data name="MapEOOLayer" xml:space="preserve">
+    <value>Extent of occurence (EOO)</value>
+  </data>
+  <data name="MapEOOLayerConcave" xml:space="preserve">
+    <value>Extent of occurence (Concave)</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateAlphaValue" xml:space="preserve">
+    <value>Alpha value</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateDescription" xml:space="preserve">
+    <value>To calculate the geometry, you have to state a alpha value. Higher values will result in a less detailed polygon. To small value will split the geometry in several polygones.</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateTitle" xml:space="preserve">
+    <value>Calculate Extent of occurence (Concave)</value>
+  </data>
+  <data name="MapLayerSpeciesObservationGrid" xml:space="preserve">
+    <value>Presence area (AOO)</value>
+  </data>
+  <data name="SharedFieldInteger" xml:space="preserve">
+    <value>Field can only contain digits</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PrintExportTitle" xml:space="preserve">
+    <value>Export to printable image</value>
+  </data>
+  <data name="MapExportDpi" xml:space="preserve">
+    <value>Dpi</value>
+  </data>
+  <data name="MapExportScale" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="MapExportErrorImageToBig" xml:space="preserve">
+    <value>The image will be to big. Please increase the scale or the zoom and try again.</value>
+  </data>
+  <data name="ResultDownloadGroupImage" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="MapExportOccupancy" xml:space="preserve">
+    <value>Occupancy</value>
+  </data>
+  <data name="SharedCoordinateSystemTooltip" xml:space="preserve">
+    <value>Coordinate system used for presentation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultViewSpeciesObservationClusterPointMap" xml:space="preserve">
+    <value>Species observation point map (grid based)</value>
+  </data>
+  <data name="ResultClusterPointMapFetchObservationsAutomatically" xml:space="preserve">
+    <value>Retrieve observations automatically when zooming and panning</value>
+  </data>
+  <data name="SharedObservations" xml:space="preserve">
+    <value>Observations</value>
+  </data>
+  <data name="ResultClusterPointMapCoordinateSystemTooltip" xml:space="preserve">
+    <value>The coordinate system used in the calculation of grid cells. This can be changed on the Grid Statistics settings page.</value>
+  </data>
+  <data name="ResultClusterPointMapGridSizeTooltip" xml:space="preserve">
+    <value>The map is divided into grid cells where the cells are drawn as yellow / blue dots. Blue dots indicate that there is more than one observation in the grid cell. Yellow points show that there is exactly one observation in the grid cell. The more you zoom in, the smaller the grid size.</value>
+  </data>
+  <data name="ResultClusterPointMapListObservations" xml:space="preserve">
+    <value>List observations</value>
+  </data>
+  <data name="ResultClusterPointMapZoomToPointArea" xml:space="preserve">
+    <value>Zoom to point area</value>
+  </data>
+  <data name="ResultClusterPointMapShowGridCellAs" xml:space="preserve">
+    <value>Show gridcell as</value>
+  </data>
+  <data name="SharedPoints" xml:space="preserve">
+    <value>Points</value>
+  </data>
+  <data name="SharedGridCells" xml:space="preserve">
+    <value>Grid cells</value>
+  </data>
+  <data name="HomeIndexDocuments" xml:space="preserve">
+    <value>&lt;div&gt;
+                &lt;table style="width:100%"&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;td style="text-align: center; padding:0 0 10px 0"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/analysportalen-manual-eng.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Manual - easy&lt;/a&gt;
+                            &lt;/td&gt;
+                            &lt;td style="text-align: center; padding:0 0 10px 0"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/Analysportalen_ExercisesA.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Exercise A - easy&lt;/a&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="text-align: center;"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/analysisportal_user_manual.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Manual - advanced&lt;/a&gt;
+                            &lt;/td&gt;
+                            &lt;td style="text-align: center;"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/Analysportalen_ExercisesB.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Exercise B - advanced&lt;/a&gt;
+                            &lt;/td&gt;    
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateUseCenterPoint" xml:space="preserve">
+    <value>Use grid cell center point</value>
+  </data>
+  <data name="ResultSpeciesObservationsExceedMaxForExport" xml:space="preserve">
+    <value>Number of observations can't exceed {0}</value>
+  </data>
+  <data name="DownloadAOOEOOForTaxonAsExcel" xml:space="preserve">
+    <value>AOO and EOO for each taxon</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateUseGridCellCornerPoints" xml:space="preserve">
+    <value>Use grid cell corner points</value>
+  </data>
+  <data name="SharedSoftwareDescription" xml:space="preserve">
+    <value>Software description</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExcelExportTitle" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="SharedColumns" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="SharedColumnHeaders" xml:space="preserve">
+    <value>Column headers</value>
+  </data>
+  <data name="SharedColumnHeaderTypeStandard" xml:space="preserve">
+    <value>Standard (Scientific name, etc.)</value>
+  </data>
+  <data name="SharedColumnHeaderTypeDarwinCore" xml:space="preserve">
+    <value>Darwin Core (scientificName, etc.)</value>
+  </data>
+  <data name="SharedExtraExcelSheets" xml:space="preserve">
+    <value>Extra sheets</value>
+  </data>
+  <data name="SharedErrorMustAddAtleastOneTaxonToFilter" xml:space="preserve">
+    <value>You must add at least one taxon to the taxa filter</value>
+  </data>
+  <data name="SharedProject" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="FilterRedListUseAsCurrentTaxaList" xml:space="preserve">
+    <value>Use as current taxa list</value>
+  </data>
+  <data name="FilterRedListAddToCurrentTaxaList" xml:space="preserve">
+    <value>Add to current taxa list</value>
+  </data>
+  <data name="FilterRedListFilterCurrentTaxaList" xml:space="preserve">
+    <value>Filter current taxa lista</value>
+  </data>
+  <data name="FilterRedListUseAsCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Set taxa filter to the taxa that matches your selected red list criteria</value>
+  </data>
+  <data name="FilterRedListFilterCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Remove the taxa that not matches your selected red list criteria from current taxa list</value>
+  </data>
+  <data name="FilterRedListAddToCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Add the taxa that matches your selected red list criteria to current taxa list</value>
+  </data>
+  <data name="SharedTaxaAddedToTaxaList" xml:space="preserve">
+    <value>taxa added to taxa list</value>
+  </data>
+  <data name="SharedTaxaRemovedFromTaxaList" xml:space="preserve">
+    <value>taxa removed from taxa list</value>
+  </data>
+  <data name="SharedNoTaxaAddedOrRemovedFromTaxaList" xml:space="preserve">
+    <value>No taxa added or removed from taxa list</value>
+  </data>
+  <data name="SharedRemoveFilter" xml:space="preserve">
+    <value>Remove filter</value>
+  </data>
+  <data name="SharedAddFilter" xml:space="preserve">
+    <value>Add filter</value>
+  </data>
+  <data name="SharedChangeFilter" xml:space="preserve">
+    <value>Change filter</value>
+  </data>
+  <data name="SharedRemoveSelectedTaxa" xml:space="preserve">
+    <value>Remove selected taxa</value>
+  </data>
+  <data name="FilterTaxonFromSearchAddToTaxaFilter" xml:space="preserve">
+    <value>Add to taxa filter</value>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxaWhenFilterNotEmpty" xml:space="preserve">
+    <value>Extend taxa filter with selected taxa</value>
+  </data>
+  <data name="DataProvidersRemoveAllWmsLayers" xml:space="preserve">
+    <value>Remove all background maps</value>
+  </data>
+  <data name="DataProvidersRemoveSelectedWmsLayers" xml:space="preserve">
+    <value>Remove selected background maps</value>
+  </data>
+  <data name="DataProvidersRemoveSelectedWfsLayers" xml:space="preserve">
+    <value>Remove selected data layers</value>
+  </data>
+  <data name="FilterTaxaManageTaxaFilterTemplate" xml:space="preserve">
+    <value>Manage taxa filter ({0} selected)</value>
+  </data>
+  <data name="FilterTaxonFromIdsChooseUnderlyingSpecies" xml:space="preserve">
+    <value>Select underlying species</value>
+  </data>
+  <data name="SharedCoordinateAccuracy" xml:space="preserve">
+    <value>Coordinate accuracy</value>
+  </data>
+  <data name="SharedGridCell" xml:space="preserve">
+    <value>Grid cell</value>
+  </data>
+  <data name="SharedPoint" xml:space="preserve">
+    <value>Point</value>
+  </data>
+  <data name="SharedAccuracyFilterExclude" xml:space="preserve">
+    <value>Accuracy filter (exclude)</value>
+  </data>
+  <data name="SharedAccuracyFilterInclude" xml:space="preserve">
+    <value>Accuracy filter (include)</value>
+  </data>
+  <data name="SharedAccuracyFilterMaxMeterTemplate" xml:space="preserve">
+    <value>Accuracy, max {0}m</value>
+  </data>
+  <data name="PresentationMapDownloadCoordinateSystem" xml:space="preserve">
+    <value>Species observations download</value>
+  </data>
+  <data name="PresentationMapPresentationCoordinateSystem" xml:space="preserve">
+    <value>Presentation in Analysis portal</value>
+  </data>
+  <data name="StateButtonPresentationCoordinateSystem" xml:space="preserve">
+    <value>Coordinate system</value>
+  </data>
+  <data name="PresentationMapGridMapsCoordinateSystem" xml:space="preserve">
+    <value>Grid maps calculation</value>
+  </data>
+  <data name="SharedLayerDoesntSupportCurrentCoordinateSystem" xml:space="preserve">
+    <value>This layer does not support your current selected coordinate system</value>
+  </data>
+  <data name="ButtonGroupSettings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuSettings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HeadMenuSettingsTooltip" xml:space="preserve">
+    <value>Change settings for calculation and presentation</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SettingsReportSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SharedFilename" xml:space="preserve">
+    <value>Filename</value>
+  </data>
+  <data name="WfsLayersUploadedFiles" xml:space="preserve">
+    <value>Uploaded files</value>
+  </data>
+</root>

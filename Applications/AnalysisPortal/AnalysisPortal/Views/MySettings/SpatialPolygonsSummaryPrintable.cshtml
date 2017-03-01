@@ -1,0 +1,15 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Converters
+@using Newtonsoft.Json
+@model System.Collections.ObjectModel.ObservableCollection<ArtDatabanken.WebApplication.AnalysisPortal.MySettings.DataModels.DataPolygon>
+
+@{
+    ViewBag.Title = "SpatialPolygonSummaryPrintable";
+
+    if (Model != null)
+    {
+        var featureCollection = GeoJSONConverter.ConvertToGeoJSONFeatureCollection(Model.ToList());
+        string strJson = JsonConvert.SerializeObject(featureCollection);
+
+        @Html.Partial("SpatialPolygonsSummary", strJson)
+    }
+}

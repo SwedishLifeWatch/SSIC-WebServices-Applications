@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISwedishSpeciesObservationService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetBirdNestActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivities" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetBirdNestActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetCountyRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountyRegions" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetCountyRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountyRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetProvinceRegions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinceRegions" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetProvinceRegions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProvinceRegionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreByIds" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteriaPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteriaPage" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteriaPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteriaPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreChange" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetDarwinCoreChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetProtectedSpeciesObservationIndication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProtectedSpeciesObservationIndication" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetProtectedSpeciesObservationIndication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProtectedSpeciesObservationIndicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationChange" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationCountBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationCountBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationCountBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationDataProviders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationDataProviders" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationDataProviders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationDataProvidersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationFieldDescriptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationFieldDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationFieldDescriptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationFieldDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsByIds" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteriaPage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteriaPage" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteriaPage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpeciesObservationsBySearchCriteriaPageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="ISwedishSpeciesObservationService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/ClearCache" message="tns:ISwedishSpeciesObservationService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/ClearCacheResponse" message="tns:ISwedishSpeciesObservationService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/DeleteTrace" message="tns:ISwedishSpeciesObservationService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/DeleteTraceResponse" message="tns:ISwedishSpeciesObservationService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetBirdNestActivities" message="tns:ISwedishSpeciesObservationService_GetBirdNestActivities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetBirdNestActivitiesResponse" message="tns:ISwedishSpeciesObservationService_GetBirdNestActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountyRegions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetCountyRegions" message="tns:ISwedishSpeciesObservationService_GetCountyRegions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetCountyRegionsResponse" message="tns:ISwedishSpeciesObservationService_GetCountyRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceRegions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProvinceRegions" message="tns:ISwedishSpeciesObservationService_GetProvinceRegions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProvinceRegionsResponse" message="tns:ISwedishSpeciesObservationService_GetProvinceRegions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreByIds" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreByIdsResponse" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteria" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaResponse" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteriaPage">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaPage" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteriaPage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaPageResponse" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreBySearchCriteriaPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreChange">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreChange" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreChangeResponse" message="tns:ISwedishSpeciesObservationService_GetDarwinCoreChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetLog" message="tns:ISwedishSpeciesObservationService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetLogResponse" message="tns:ISwedishSpeciesObservationService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProtectedSpeciesObservationIndication">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProtectedSpeciesObservationIndication" message="tns:ISwedishSpeciesObservationService_GetProtectedSpeciesObservationIndication_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProtectedSpeciesObservationIndicationResponse" message="tns:ISwedishSpeciesObservationService_GetProtectedSpeciesObservationIndication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChange">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationChange" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationChangeResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationCountBySearchCriteria" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationCountBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationCountBySearchCriteriaResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationCountBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationDataProviders">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationDataProviders" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationDataProviders_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationDataProvidersResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationDataProviders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationFieldDescriptions">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationFieldDescriptions" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationFieldDescriptions_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationFieldDescriptionsResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationFieldDescriptions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsByIds" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsByIdsResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteria" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteriaPage">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaPage" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteriaPage_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaPageResponse" message="tns:ISwedishSpeciesObservationService_GetSpeciesObservationsBySearchCriteriaPage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetStatus" message="tns:ISwedishSpeciesObservationService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetStatusResponse" message="tns:ISwedishSpeciesObservationService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Login" message="tns:ISwedishSpeciesObservationService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/LoginResponse" message="tns:ISwedishSpeciesObservationService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Logout" message="tns:ISwedishSpeciesObservationService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/LogoutResponse" message="tns:ISwedishSpeciesObservationService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Ping" message="tns:ISwedishSpeciesObservationService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/PingResponse" message="tns:ISwedishSpeciesObservationService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StartTrace" message="tns:ISwedishSpeciesObservationService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StartTraceResponse" message="tns:ISwedishSpeciesObservationService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StopTrace" message="tns:ISwedishSpeciesObservationService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StopTraceResponse" message="tns:ISwedishSpeciesObservationService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

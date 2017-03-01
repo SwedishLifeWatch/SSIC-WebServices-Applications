@@ -1,0 +1,9 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Report
+@model PresentationReportViewModel
+
+<ul class="ellipseList">
+@foreach (PresentationReportTypeViewModel report in Model.GetSelectedReports())
+{
+    <li>@report.Title</li>        
+}
+</ul>

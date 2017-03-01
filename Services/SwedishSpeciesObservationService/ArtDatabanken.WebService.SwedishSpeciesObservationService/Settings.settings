@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.SwedishSpeciesObservationService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AuthorityTaxaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AuthorityTaxaKey</Value>
+    </Setting>
+    <Setting Name="BirdNestActivitiesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BirdNestActivities</Value>
+    </Setting>
+    <Setting Name="BirdNestActivityIdMin" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="BirdNestActivityIdMax" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="MaxPageSize" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="MaxProtectedSpeciesObservationIndications" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">1000</Value>
+    </Setting>
+    <Setting Name="MaxSpeciesObservation" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">1000000</Value>
+    </Setting>
+    <Setting Name="MaxSpeciesObservationWithInformation" Type="System.Int64" Scope="Application">
+      <Value Profile="(Default)">25000</Value>
+    </Setting>
+    <Setting Name="ProtectedSpeciesObservationIndicationTaxaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProtectedSpeciesObservationIndicationTaxaKey</Value>
+    </Setting>
+    <Setting Name="ProtectedTaxaCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProtectedTaxaKey</Value>
+    </Setting>
+    <Setting Name="SpeciesActivitiesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesActivities</Value>
+    </Setting>
+    <Setting Name="SpeciesActivityCategoriesCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesActivityCategories</Value>
+    </Setting>
+    <Setting Name="TaxonTreeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SSODTaxonTree</Value>
+    </Setting>
+    <Setting Name="TaxonTreeNodeCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SSODTaxonTreeNode</Value>
+    </Setting>
+    <Setting Name="MinActiveActionPlanId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="MaxActiveActionPlanId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="RefreshIntervalElasticsearch" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationExcludedFieldsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationExcludedFieldsKey</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationDarwinCoreFieldsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationDarwinCoreFieldsKey</Value>
+    </Setting>
+    <Setting Name="ProtectedSpeciesObservationIndicationFieldsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProtectedSpeciesObservationIndicationFieldsKey</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationFieldDescriptionsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationFieldDescriptionsKey</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

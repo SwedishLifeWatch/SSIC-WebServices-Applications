@@ -1,0 +1,180 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial.SpatialDrawPolygonViewModel
+
+@{
+    ViewBag.Title = Model.Labels.TitleLabel;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>              
+    </div>
+</div>
+
+<div style="width:790px; height: 520px; margin-bottom: 40px;">
+    <div id="mapControl" class="clearfix map" style="margin-top:7px; width: 780px; height:520px;">
+        <div id="mapNavDiv" class="olControlPanel"></div>
+        <div class="clearfix" id="mapDiv"></div>
+    </div>
+</div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">    
+    var map;
+    var viewName;
+    var showSaveSettingsMessageOnLeave = true;
+    var origPageSettingsJsonString = "";
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+
+    $(document).ready(function () {
+        createMap();        
+        AnalysisPortal.GIS.getSpatialFilterAsGeoJSON(map, null, function () {            
+            setSpatialFilterEvents();
+            origPageSettingsJsonString = getPageSettingsJsonString();
+        });
+
+        
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+            if (showSaveSettingsMessageOnLeave) {
+                var data = getPageSettingsJsonString();
+                if (origPageSettingsJsonString != data) {
+                    return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+                }
+            }
+        });
+
+        $("#btnClearSpatialFilter").click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetPolygons", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+
+        $("#btnSaveSpatialFilter").click(function () {
+            saveChangesUsingPost();            
+        });   
+
+        $('#toolbarButtonSave').click(function () {
+            saveChangesUsingPost();            
+        });
+
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetPolygons", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+        
+        $('#toolbarButtonHelp').click(function () {
+
+        });
+
+        initCoordinateSelectBox();
+    });
+
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;            
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+    function getPageSettingsJsonString() {
+        if (map.editFeatureControl)
+            map.editFeatureControl.deactivate();
+                
+        var geoJsonFormat = AnalysisPortal.GIS.createGeoJsonFormat();
+        var json = geoJsonFormat.write(map.theEditLayer.features);
+        return json;
+    }
+
+    function enableDisableButtons() {        
+        var data = getPageSettingsJsonString();
+        if (origPageSettingsJsonString == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    function saveChangesUsingAjax() {
+
+        AnalysisPortal.GIS.saveSpatialFilter(function () {
+            AnalysisPortal.updateMySettingsSummary();
+            AnalysisPortal.updateStateButtonGroup('#filterStateButtonGroup', 'Filter');
+        });
+        
+    }
+
+    function saveChangesUsingPost() {
+        var data = getPageSettingsJsonString();
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+
+    function createMap() {
+        var toolsOptions = {            
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: true,
+            ShowSelectManyControl: true,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [ {
+                id: VectorLayers.EditLayer,
+                mainLayer: true,
+                visible: true,
+                initVisibilityState: 1
+            }
+        ];
+                
+        map = AnalysisPortal.GIS.initMap({
+            cookieName: 'SpartialDrawPolygon',
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });
+
+    }    
+
+    
+    function setSpatialFilterEvents() {        
+        map.theEditLayer.isModified = false;
+        
+        map.theEditLayer.events.register('featuresremoved', this, function (features) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });
+
+        map.theEditLayer.events.register('featuresadded', this, function (features) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;            
+        });
+        
+        map.theEditLayer.events.register('afterfeaturemodified', this, function (feature) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });
+                
+    }        
+    
+</script>

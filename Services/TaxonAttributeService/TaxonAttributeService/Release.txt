@@ -1,0 +1,147 @@
+﻿Web addresses to the web service:
+ArtDatabankenSOA https://TaxonAttribute.ArtDatabankenSOA.se/TaxonAttributeService.svc
+Old test server https://moneses-dev.artdata.slu.se/TaxonAttributeService/TaxonAttributeService.svc
+Team Species Fact test https://Artfakta-dev.local.slu.se/TaxonAttributeService/TaxonAttributeService.svc
+System test https://TaxonAttributeService-st.artdata.slu.se/TaxonAttributeService.svc
+Team Two Blueberries test https://TaxonAttributeService-slw-dev.artdata.slu.se/TaxonAttributeService.svc
+
+
+Configuration in IIS.
+
+Application pool configuration:
+".Net Framework Version" => 4.0
+"Enable 32-Bit Applications" => False
+"Identity" => ApplicationPoolIdentity
+Production only: "Idel Time-outs (minutes)" => 10000
+"Load User Profile" => False
+Production only: "Regular Time Intervals(minutes)" => 11000 (Recycling)
+"Specific Times" => TimeSpan[] Array
+
+Application configuration:
+".NET Globalization" - "Culture" => Invariant Language (Invariant Country)
+".NET Globalization" - "UI Culture" => Invariant Language (Invariant Country)
+"Session State" - "Session State Mode Settings" => Not enabled
+"SSL Settings" - "Require SSL" => Checked
+
+
+Release on new production server Artservice2:
+1. Change build configuration from ”Debug” to “Release”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Artservice2-1.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\TaxonAttributeService\
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+3. Publish web service to
+\\Artservice2-2.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\TaxonAttributeService\
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on production server Lampetra2:
+1. Change build configuration from ”Debug” to “Release”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Lampetra2-1.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\TaxonAttribute
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+3. Publish web service to
+\\Lampetra2-2.artdata.slu.se\c$\inetpub\ArtDatabankenSOA\TaxonAttribute
+Ensure that configuration is set to "Release - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+
+Release on old test server Moneses:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\moneses-dev.artdata.slu.se\c$\inetpub\wwwroot\TaxonAttributeService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on team Species Fact test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Artfakta-dev.local.slu.se\c$\inetpub\wwwroot\TaxonAttributeService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on system test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Moneses-st.artdata.slu.se\c$\inetpub\Artdata\TaxonAttributeService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+Release on team Two Blueberries test server:
+1. Change build configuration from “Release” to ”Debug”.
+2. Rebuild solution and check that no errors where found.
+3. Publish web service to
+\\Slw-dev.artdata.slu.se\c$\inetpub\Artdata\TaxonAttributeService
+Ensure that configuration is set to "Debug - Any CPU" and check box
+"Delete all existing files prior to publish" is checked
+in the "Settings" tab. 
+
+
+Local test
+1. Change build configuration from ”Release” to “Debug”.
+2. Copy configuration below into file Web.config.
+3. Rebuild solution and check that no errors where found.
+4. Start web service and run tests.
+5. Make "Undo Checkout ..." on file Web.config.
+
+Web.config settings to use during local testing.
+
+  <system.serviceModel>
+    <client/>
+    <bindings>
+      <customBinding>
+        <binding name="TaxonAttributeServiceBinding" closeTimeout="00:20:00"
+          openTimeout="00:20:00" receiveTimeout="00:20:00" sendTimeout="00:20:00">
+          <textMessageEncoding maxReadPoolSize="2000000000" maxWritePoolSize="2000000000"
+            messageVersion="Soap11">
+            <readerQuotas maxDepth="2000000000" maxStringContentLength="2000000000"
+              maxArrayLength="2000000000" maxBytesPerRead="2000000000" maxNameTableCharCount="2000000000" />
+          </textMessageEncoding>
+          <httpTransport maxBufferPoolSize="2000000000" maxReceivedMessageSize="2000000000"
+            allowCookies="false" maxBufferSize="2000000000" transferMode="Buffered"
+            useDefaultWebProxy="true" />
+        </binding>
+      </customBinding>
+    </bindings>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true"/>
+    <services>
+      <service behaviorConfiguration="TaxonAttributeServiceBehavior"
+        name="TaxonAttributeService.TaxonAttributeService">
+        <endpoint address="" behaviorConfiguration="TaxonAttributeServiceEndpointBehavior"
+          binding="customBinding" bindingConfiguration="TaxonAttributeServiceBinding"
+          name="TaxonAttributeServiceEndpoint" contract="TaxonAttributeService.ITaxonAttributeService">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" name="TaxonAttributeServiceMetadataExchangeEndpoint"
+          contract="IMetadataExchange" />
+      </service>
+    </services>
+    <behaviors>
+      <endpointBehaviors>
+        <behavior name="TaxonAttributeServiceEndpointBehavior">
+          <dataContractSerializer maxItemsInObjectGraph="2000000000" />
+        </behavior>
+      </endpointBehaviors>
+      <serviceBehaviors>
+        <behavior name="TaxonAttributeServiceBehavior">
+          <serviceDebug includeExceptionDetailInFaults="true" />
+          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="false" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>

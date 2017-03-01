@@ -1,0 +1,23 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Result
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Extensions
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultViews
+@model ResultGroupBase
+
+<div class="content-box">
+    <ul>
+        @foreach (var resultView in Model.Items)
+        {
+                
+           
+            <li>
+                <a  class="btn btn-success fivePxPad" 
+                    href="@Url.Action(resultView.StaticPageInfo.Action, resultView.StaticPageInfo.Controller)" 
+                    @(resultView.IsActive ? "" : " disabled=\"disabled\"")>
+                    @resultView.Title
+                </a>
+            </li>    
+        }       
+    </ul>   
+</div> 

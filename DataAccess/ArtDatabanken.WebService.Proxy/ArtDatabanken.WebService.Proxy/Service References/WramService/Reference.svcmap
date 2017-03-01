@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="907082df-e137-4ec0-8e99-100627adc5f3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://130.239.46.38:82/WramSpeciesDataChangeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="WramSpeciesDataChangeService.xsd" MetadataType="Schema" ID="5e54fc00-3dcb-4998-853a-710b6c3173f7" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="WramSpeciesDataChangeService1.xsd" MetadataType="Schema" ID="59cb5126-11bf-46da-8842-413ae936ade6" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="WramSpeciesDataChangeService.disco" MetadataType="Disco" ID="5aeb2bb1-e21d-4ffc-aa45-eafc62623b0c" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?disco" />
+    <MetadataFile FileName="WramSpeciesDataChangeService2.xsd" MetadataType="Schema" ID="be5c07dd-745e-463d-814f-372b8e964b1a" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="WramSpeciesDataChangeService3.xsd" MetadataType="Schema" ID="f8548f91-ec84-4064-a8ac-019a0b6ded9a" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd5" />
+    <MetadataFile FileName="WramSpeciesObservationChangeService.wsdl" MetadataType="Wsdl" ID="3d3c1b8c-80ee-480f-8fc3-8fd458ce7108" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?wsdl" />
+    <MetadataFile FileName="WramSpeciesDataChangeService4.xsd" MetadataType="Schema" ID="92abc39e-0516-4b44-b0e3-7570ed3a859e" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="WramSpeciesDataChangeService5.xsd" MetadataType="Schema" ID="6b5eb079-fddc-4ab7-a57c-4ffbbeeb1bae" SourceId="1" SourceUrl="http://130.239.46.38:82/WramSpeciesDataChangeService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

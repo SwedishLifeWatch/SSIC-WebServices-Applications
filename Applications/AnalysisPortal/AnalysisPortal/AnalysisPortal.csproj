@@ -1,0 +1,1577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{56CB1E68-E0D3-429E-83AD-6CDA17003BAF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AnalysisPortal</RootNamespace>
+    <AssemblyName>AnalysisPortal</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>true</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\ArtDatabanken.Build\</SolutionDir>
+    <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Log4Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Log4Slack.1.1.5\lib\net40\Log4Slack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.SqlServer.Types, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\lib\net20\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\.\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <HintPath>..\..\..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalculationController.cs" />
+    <Compile Include="Controllers\WfsController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
+    <Compile Include="Controllers\CultureController.cs" />
+    <Compile Include="Controllers\DataController.cs" />
+    <Compile Include="Controllers\DebugController.cs" />
+    <Compile Include="Controllers\DevExamplesController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\FilterController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
+    <Compile Include="Controllers\FormatController.cs" />
+    <Compile Include="Controllers\ResourcesController.cs" />
+    <Compile Include="Controllers\ResultController.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="Controllers\MySettingsController.cs" />
+    <Compile Include="Controllers\AsyncServiceController.cs" />
+    <Compile Include="Controllers\ServiceController.cs" />
+    <Compile Include="Controllers\TutorialController.cs" />
+    <Compile Include="Controllers\WebAPI\SpeciesObservationSearchCriteriaAPIController.cs" />
+    <Compile Include="DoubleModelBinder.cs" />
+    <Compile Include="DecimalModelBinder.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ActionFilters\CompressionFilterAttribute.cs" />
+    <Compile Include="Helpers\ActionFilters\ExcludeFilterAttribute.cs" />
+    <Compile Include="Helpers\ActionFilters\ExcludeFilterProvider.cs" />
+    <Compile Include="Helpers\ActionFilters\IgnorePageInfoManagerAttribute.cs" />
+    <Compile Include="Helpers\ActionFilters\IndexedBySearchRobotsAttribute.cs" />
+    <Compile Include="Helpers\ActionFilters\NoCacheFilterAttribute.cs" />
+    <Compile Include="Helpers\ActionFilters\NoRobotsAttribute.cs" />
+    <Compile Include="Helpers\CssJsBuilder.cs" />
+    <Compile Include="Helpers\DevExamplesModels\ArtPortalenMapController.cs" />
+    <Compile Include="Helpers\DevExamplesModels\GeoJsonCreator.cs" />
+    <Compile Include="Helpers\DictionaryHelper.cs" />
+    <Compile Include="Helpers\HtmlExtensions.cs" />
+    <Compile Include="Helpers\JavaScriptExtensions.cs" />
+    <Compile Include="Helpers\JsonNetResult.cs" />
+    <Compile Include="Helpers\NewsScrapeHelper.cs" />
+    <Compile Include="Helpers\UrlHelperExtensions.cs" />
+    <Compile Include="Helpers\WebAPI\MySettingsWebAPI.cs" />
+    <Compile Include="Helpers\WebAPI\SessionableControllerHandler.cs" />
+    <Compile Include="Helpers\WebAPI\SessionStateRouteHandler.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy.ashx.cs">
+      <DependentUpon>Proxy.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\msvcr100.dll">
+      <Link>SqlServerTypes\x64\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x64\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x64\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\msvcr100.dll">
+      <Link>SqlServerTypes\x86\msvcr100.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\packages\Microsoft.SqlServer.Types.11.0.2\nativeBinaries\x86\SqlServerSpatial110.dll">
+      <Link>SqlServerTypes\x86\SqlServerSpatial110.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\phantomjs.exe" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.slider.css" />
+    <Content Include="Content\bootstrap.treeview.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\devexamples.css" />
+    <Content Include="Content\ext-all-slate-min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\0045-Map-icon.png" />
+    <Content Include="Content\images\0045-Map-icon_32.png" />
+    <Content Include="Content\images\0045-Map-icon_48.png" />
+    <Content Include="Content\images\Actions-office-chart-pie-icon_24.png" />
+    <Content Include="Content\images\AddWfsLayer.png" />
+    <Content Include="Content\images\analysisportal-image-sample1.png" />
+    <Content Include="Content\images\analysisportal-image-sample2.png" />
+    <Content Include="Content\images\arrow-circle-double.png" />
+    <Content Include="Content\images\arrow-merge.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-down-icon_16.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-down-icon_24.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-down-icon_32.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-right-icon_16.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-right-icon_24.png" />
+    <Content Include="Content\images\arrows\bullet-arrow-right-icon_32.png" />
+    <Content Include="Content\images\banner-SLW2.png" />
+    <Content Include="Content\images\banner-SLW3.png" />
+    <Content Include="Content\images\banner-SLW3TopLine.png" />
+    <Content Include="Content\images\banner-SLW3TopLine2.png" />
+    <Content Include="Content\images\Bar-chart-icon_24.png" />
+    <Content Include="Content\images\bin-full.png" />
+    <Content Include="Content\images\bin.png" />
+    <Content Include="Content\images\bullet-blue-icon.png" />
+    <Content Include="Content\images\bullet-red-icon.png" />
+    <Content Include="Content\images\bullet-yellow-icon.png" />
+    <Content Include="Content\images\CalculationSummaryGroup.png" />
+    <Content Include="Content\images\calculator.png" />
+    <Content Include="Content\images\chart-pie-icon_24.png" />
+    <Content Include="Content\images\chart.png" />
+    <Content Include="Content\images\color-adjustment.png" />
+    <Content Include="Content\images\content-bgsprite.png" />
+    <Content Include="Content\images\content_background1.png" />
+    <Content Include="Content\images\content_background2.png" />
+    <Content Include="Content\images\Copy of banner-SLW3.png" />
+    <Content Include="Content\images\databases.png" />
+    <Content Include="Content\images\DataProvidersSummaryGroup.png" />
+    <Content Include="Content\images\delete_16.png" />
+    <Content Include="Content\images\delete_32.png" />
+    <Content Include="Content\images\disk-black.png" />
+    <Content Include="Content\images\disk.png" />
+    <Content Include="Content\images\disks.png" />
+    <Content Include="Content\images\document-text-image_16.png" />
+    <Content Include="Content\images\document-text-image_24.png" />
+    <Content Include="Content\images\document-text-image_32.png" />
+    <Content Include="Content\images\erase.png" />
+    <Content Include="Content\images\extjs\boundlist\trigger-arrow.png" />
+    <Content Include="Content\images\extjs\box\corners-blue.gif" />
+    <Content Include="Content\images\extjs\box\corners.gif" />
+    <Content Include="Content\images\extjs\box\l-blue.gif" />
+    <Content Include="Content\images\extjs\box\l.gif" />
+    <Content Include="Content\images\extjs\box\r-blue.gif" />
+    <Content Include="Content\images\extjs\box\r.gif" />
+    <Content Include="Content\images\extjs\box\tb-blue.gif" />
+    <Content Include="Content\images\extjs\box\tb.gif" />
+    <Content Include="Content\images\extjs\btn-group\btn-group-default-framed-corners.gif" />
+    <Content Include="Content\images\extjs\btn-group\btn-group-default-framed-notitle-corners.gif" />
+    <Content Include="Content\images\extjs\btn-group\btn-group-default-framed-notitle-sides.gif" />
+    <Content Include="Content\images\extjs\btn-group\btn-group-default-framed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-disabled-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-disabled-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-large-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-disabled-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-disabled-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-medium-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-disabled-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-disabled-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-small-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-large-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-medium-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-focus-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-focus-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-focus-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-focus-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-over-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-over-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-over-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-over-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-pressed-bg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-pressed-corners.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-pressed-fbg.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-pressed-sides.gif" />
+    <Content Include="Content\images\extjs\btn\btn-default-toolbar-small-sides.gif" />
+    <Content Include="Content\images\extjs\button\arrow.gif" />
+    <Content Include="Content\images\extjs\button\btn.gif" />
+    <Content Include="Content\images\extjs\button\group-cs.gif" />
+    <Content Include="Content\images\extjs\button\group-lr.gif" />
+    <Content Include="Content\images\extjs\button\group-tb.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-b-noline.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-b.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-bo.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-light-rtl.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-light.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-noline-rtl.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-noline.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-o-rtl.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-o.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow-rtl.gif" />
+    <Content Include="Content\images\extjs\button\s-arrow.gif" />
+    <Content Include="Content\images\extjs\datepicker\datepicker-footer-bg.gif" />
+    <Content Include="Content\images\extjs\datepicker\datepicker-header-bg.gif" />
+    <Content Include="Content\images\extjs\dd\drop-add.gif" />
+    <Content Include="Content\images\extjs\dd\drop-no.gif" />
+    <Content Include="Content\images\extjs\dd\drop-yes.gif" />
+    <Content Include="Content\images\extjs\editor\tb-sprite.gif" />
+    <Content Include="Content\images\extjs\form\checkbox.gif" />
+    <Content Include="Content\images\extjs\form\clear-trigger-rtl.gif" />
+    <Content Include="Content\images\extjs\form\clear-trigger.gif" />
+    <Content Include="Content\images\extjs\form\date-trigger-rtl.gif" />
+    <Content Include="Content\images\extjs\form\date-trigger.gif" />
+    <Content Include="Content\images\extjs\form\error-tip-corners.gif" />
+    <Content Include="Content\images\extjs\form\exclamation.gif" />
+    <Content Include="Content\images\extjs\form\radio.gif" />
+    <Content Include="Content\images\extjs\form\search-trigger-rtl.gif" />
+    <Content Include="Content\images\extjs\form\search-trigger.gif" />
+    <Content Include="Content\images\extjs\form\spinner-rtl.gif" />
+    <Content Include="Content\images\extjs\form\spinner-small-rtl.gif" />
+    <Content Include="Content\images\extjs\form\spinner-small.gif" />
+    <Content Include="Content\images\extjs\form\spinner.gif" />
+    <Content Include="Content\images\extjs\form\text-bg.gif" />
+    <Content Include="Content\images\extjs\form\trigger-rtl.gif" />
+    <Content Include="Content\images\extjs\form\trigger-square-rtl.gif" />
+    <Content Include="Content\images\extjs\form\trigger-square.gif" />
+    <Content Include="Content\images\extjs\form\trigger-tpl-rtl.gif" />
+    <Content Include="Content\images\extjs\form\trigger-tpl.gif" />
+    <Content Include="Content\images\extjs\form\trigger.gif" />
+    <Content Include="Content\images\extjs\grid-row-editor-buttons\null-corners.gif" />
+    <Content Include="Content\images\extjs\grid-row-editor-buttons\null-sides.gif" />
+    <Content Include="Content\images\extjs\grid\arrow-left-white.gif" />
+    <Content Include="Content\images\extjs\grid\arrow-right-white.gif" />
+    <Content Include="Content\images\extjs\grid\cell-special-bg.gif" />
+    <Content Include="Content\images\extjs\grid\cell-special-bg.png" />
+    <Content Include="Content\images\extjs\grid\cell-special-selected-bg.gif" />
+    <Content Include="Content\images\extjs\grid\cell-special-selected-bg.png" />
+    <Content Include="Content\images\extjs\grid\checked.gif" />
+    <Content Include="Content\images\extjs\grid\col-move-bottom.gif" />
+    <Content Include="Content\images\extjs\grid\col-move-top.gif" />
+    <Content Include="Content\images\extjs\grid\column-header-bg.gif" />
+    <Content Include="Content\images\extjs\grid\column-header-over-bg.gif" />
+    <Content Include="Content\images\extjs\grid\columns.gif" />
+    <Content Include="Content\images\extjs\grid\dd-insert-arrow-left.gif" />
+    <Content Include="Content\images\extjs\grid\dd-insert-arrow-left.png" />
+    <Content Include="Content\images\extjs\grid\dd-insert-arrow-right.gif" />
+    <Content Include="Content\images\extjs\grid\dd-insert-arrow-right.png" />
+    <Content Include="Content\images\extjs\grid\dirty-rtl.gif" />
+    <Content Include="Content\images\extjs\grid\dirty.gif" />
+    <Content Include="Content\images\extjs\grid\done.gif" />
+    <Content Include="Content\images\extjs\grid\drop-no.gif" />
+    <Content Include="Content\images\extjs\grid\drop-yes.gif" />
+    <Content Include="Content\images\extjs\grid\footer-bg.gif" />
+    <Content Include="Content\images\extjs\grid\grid-blue-hd.gif" />
+    <Content Include="Content\images\extjs\grid\grid-blue-split.gif" />
+    <Content Include="Content\images\extjs\grid\grid-hrow.gif" />
+    <Content Include="Content\images\extjs\grid\grid-loading.gif" />
+    <Content Include="Content\images\extjs\grid\grid-split.gif" />
+    <Content Include="Content\images\extjs\grid\grid-vista-hd.gif" />
+    <Content Include="Content\images\extjs\grid\grid3-hd-btn-left.gif" />
+    <Content Include="Content\images\extjs\grid\grid3-hd-btn.gif" />
+    <Content Include="Content\images\extjs\grid\grid3-hrow-over.gif" />
+    <Content Include="Content\images\extjs\grid\grid3-hrow.gif" />
+    <Content Include="Content\images\extjs\grid\grid3-rowheader.gif" />
+    <Content Include="Content\images\extjs\grid\group-by.gif" />
+    <Content Include="Content\images\extjs\grid\group-collapse.gif" />
+    <Content Include="Content\images\extjs\grid\group-expand-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\group-expand.gif" />
+    <Content Include="Content\images\extjs\grid\hd-pop.gif" />
+    <Content Include="Content\images\extjs\grid\hmenu-asc.gif" />
+    <Content Include="Content\images\extjs\grid\hmenu-desc.gif" />
+    <Content Include="Content\images\extjs\grid\hmenu-lock.gif" />
+    <Content Include="Content\images\extjs\grid\hmenu-lock.png" />
+    <Content Include="Content\images\extjs\grid\hmenu-unlock.gif" />
+    <Content Include="Content\images\extjs\grid\hmenu-unlock.png" />
+    <Content Include="Content\images\extjs\grid\invalid_line.gif" />
+    <Content Include="Content\images\extjs\grid\loading.gif" />
+    <Content Include="Content\images\extjs\grid\mso-hd.gif" />
+    <Content Include="Content\images\extjs\grid\nowait.gif" />
+    <Content Include="Content\images\extjs\grid\old\arrow-left-white.gif" />
+    <Content Include="Content\images\extjs\grid\old\arrow-right-white.gif" />
+    <Content Include="Content\images\extjs\grid\old\cell-special-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\cell-special-bg.png" />
+    <Content Include="Content\images\extjs\grid\old\cell-special-selected-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\cell-special-selected-bg.png" />
+    <Content Include="Content\images\extjs\grid\old\col-move-bottom.gif" />
+    <Content Include="Content\images\extjs\grid\old\col-move-top.gif" />
+    <Content Include="Content\images\extjs\grid\old\column-header-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\column-header-over-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\columns.gif" />
+    <Content Include="Content\images\extjs\grid\old\dd-insert-arrow-left.gif" />
+    <Content Include="Content\images\extjs\grid\old\dd-insert-arrow-left.png" />
+    <Content Include="Content\images\extjs\grid\old\dd-insert-arrow-right.gif" />
+    <Content Include="Content\images\extjs\grid\old\dd-insert-arrow-right.png" />
+    <Content Include="Content\images\extjs\grid\old\dirty-rtl.gif" />
+    <Content Include="Content\images\extjs\grid\old\dirty.gif" />
+    <Content Include="Content\images\extjs\grid\old\done.gif" />
+    <Content Include="Content\images\extjs\grid\old\drop-no.gif" />
+    <Content Include="Content\images\extjs\grid\old\drop-yes.gif" />
+    <Content Include="Content\images\extjs\grid\old\footer-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-blue-hd.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-blue-split.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-hrow.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-loading.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-split.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid-vista-hd.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid3-hd-btn-left.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid3-hd-btn.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid3-hrow-over.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid3-hrow.gif" />
+    <Content Include="Content\images\extjs\grid\old\grid3-rowheader.gif" />
+    <Content Include="Content\images\extjs\grid\old\group-by.gif" />
+    <Content Include="Content\images\extjs\grid\old\group-collapse.gif" />
+    <Content Include="Content\images\extjs\grid\old\group-expand-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\old\group-expand.gif" />
+    <Content Include="Content\images\extjs\grid\old\hd-pop.gif" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-asc.gif" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-desc.gif" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-lock.gif" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-lock.png" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-unlock.gif" />
+    <Content Include="Content\images\extjs\grid\old\hmenu-unlock.png" />
+    <Content Include="Content\images\extjs\grid\old\invalid_line.gif" />
+    <Content Include="Content\images\extjs\grid\old\loading.gif" />
+    <Content Include="Content\images\extjs\grid\old\mso-hd.gif" />
+    <Content Include="Content\images\extjs\grid\old\nowait.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-first-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-first.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-last-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-last.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-next-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-next.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-prev-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\old\page-prev.gif" />
+    <Content Include="Content\images\extjs\grid\old\pick-button.gif" />
+    <Content Include="Content\images\extjs\grid\old\property-cell-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\property-cell-selected-bg.gif" />
+    <Content Include="Content\images\extjs\grid\old\refresh-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\old\refresh.gif" />
+    <Content Include="Content\images\extjs\grid\old\row-check-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\old\row-expand-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\old\row-over.gif" />
+    <Content Include="Content\images\extjs\grid\old\row-sel.gif" />
+    <Content Include="Content\images\extjs\grid\old\sort-hd.gif" />
+    <Content Include="Content\images\extjs\grid\old\sort_asc.gif" />
+    <Content Include="Content\images\extjs\grid\old\sort_desc.gif" />
+    <Content Include="Content\images\extjs\grid\old\wait.gif" />
+    <Content Include="Content\images\extjs\grid\page-first-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\page-first.gif" />
+    <Content Include="Content\images\extjs\grid\page-last-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\page-last.gif" />
+    <Content Include="Content\images\extjs\grid\page-next-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\page-next.gif" />
+    <Content Include="Content\images\extjs\grid\page-prev-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\page-prev.gif" />
+    <Content Include="Content\images\extjs\grid\pick-button.gif" />
+    <Content Include="Content\images\extjs\grid\property-cell-bg.gif" />
+    <Content Include="Content\images\extjs\grid\property-cell-selected-bg.gif" />
+    <Content Include="Content\images\extjs\grid\refresh-disabled.gif" />
+    <Content Include="Content\images\extjs\grid\refresh.gif" />
+    <Content Include="Content\images\extjs\grid\row-check-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\row-expand-sprite.gif" />
+    <Content Include="Content\images\extjs\grid\row-over.gif" />
+    <Content Include="Content\images\extjs\grid\row-sel.gif" />
+    <Content Include="Content\images\extjs\grid\sort-hd.gif" />
+    <Content Include="Content\images\extjs\grid\sort_asc.gif" />
+    <Content Include="Content\images\extjs\grid\sort_desc.gif" />
+    <Content Include="Content\images\extjs\grid\unchecked.gif" />
+    <Content Include="Content\images\extjs\grid\wait.gif" />
+    <Content Include="Content\images\extjs\layout\mini-bottom.gif" />
+    <Content Include="Content\images\extjs\layout\mini-left.gif" />
+    <Content Include="Content\images\extjs\layout\mini-right.gif" />
+    <Content Include="Content\images\extjs\layout\mini-top.gif" />
+    <Content Include="Content\images\extjs\menu\checked.gif" />
+    <Content Include="Content\images\extjs\menu\group-checked.gif" />
+    <Content Include="Content\images\extjs\menu\item-over.gif" />
+    <Content Include="Content\images\extjs\menu\menu-item-active-bg.gif" />
+    <Content Include="Content\images\extjs\menu\menu-parent-left.gif" />
+    <Content Include="Content\images\extjs\menu\menu-parent.gif" />
+    <Content Include="Content\images\extjs\menu\menu.gif" />
+    <Content Include="Content\images\extjs\menu\scroll-bottom.gif" />
+    <Content Include="Content\images\extjs\menu\scroll-top.gif" />
+    <Content Include="Content\images\extjs\menu\unchecked.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-bottom-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-bottom-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-bottom-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-bottom-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-bottom-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-bottom-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-bottom-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-bottom-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-bottom-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-fbg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-sides-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-left-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-fbg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-sides-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-right-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-top-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-top-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-top-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-collapsed-top-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-fbg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-sides-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-left-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-fbg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-sides-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-right-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-top-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-top-corners.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-top-fbg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-framed-top-sides.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-left-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-left-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-right-bg-rtl.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-right-bg.gif" />
+    <Content Include="Content\images\extjs\panel-header\panel-header-default-top-bg.gif" />
+    <Content Include="Content\images\extjs\panel\panel-default-framed-corners.gif" />
+    <Content Include="Content\images\extjs\panel\panel-default-framed-sides.gif" />
+    <Content Include="Content\images\extjs\progress\progress-default-bg.gif" />
+    <Content Include="Content\images\extjs\shared\blue-loading.gif" />
+    <Content Include="Content\images\extjs\shared\calendar.gif" />
+    <Content Include="Content\images\extjs\shared\glass-bg.gif" />
+    <Content Include="Content\images\extjs\shared\hd-sprite.gif" />
+    <Content Include="Content\images\extjs\shared\icon-error.gif" />
+    <Content Include="Content\images\extjs\shared\icon-info.gif" />
+    <Content Include="Content\images\extjs\shared\icon-question.gif" />
+    <Content Include="Content\images\extjs\shared\icon-warning.gif" />
+    <Content Include="Content\images\extjs\shared\large-loading.gif" />
+    <Content Include="Content\images\extjs\shared\left-btn.gif" />
+    <Content Include="Content\images\extjs\shared\loading-balls.gif" />
+    <Content Include="Content\images\extjs\shared\right-btn.gif" />
+    <Content Include="Content\images\extjs\shared\shadow-c.png" />
+    <Content Include="Content\images\extjs\shared\shadow-lr.png" />
+    <Content Include="Content\images\extjs\shared\shadow.png" />
+    <Content Include="Content\images\extjs\shared\warning.gif" />
+    <Content Include="Content\images\extjs\sizer\e-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\e-handle.gif" />
+    <Content Include="Content\images\extjs\sizer\ne-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\ne-handle.gif" />
+    <Content Include="Content\images\extjs\sizer\nw-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\nw-handle.gif" />
+    <Content Include="Content\images\extjs\sizer\s-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\s-handle.gif" />
+    <Content Include="Content\images\extjs\sizer\se-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\se-handle.gif" />
+    <Content Include="Content\images\extjs\sizer\square.gif" />
+    <Content Include="Content\images\extjs\sizer\sw-handle-dark.gif" />
+    <Content Include="Content\images\extjs\sizer\sw-handle.gif" />
+    <Content Include="Content\images\extjs\slider\slider-bg.gif" />
+    <Content Include="Content\images\extjs\slider\slider-bg.png" />
+    <Content Include="Content\images\extjs\slider\slider-thumb.gif" />
+    <Content Include="Content\images\extjs\slider\slider-thumb.png" />
+    <Content Include="Content\images\extjs\slider\slider-v-bg.gif" />
+    <Content Include="Content\images\extjs\slider\slider-v-bg.png" />
+    <Content Include="Content\images\extjs\slider\slider-v-thumb.gif" />
+    <Content Include="Content\images\extjs\slider\slider-v-thumb.png" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-bottom-left.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-bottom-right.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-left-bottom.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-left-top.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-right-bottom.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-right-top.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-top-left.gif" />
+    <Content Include="Content\images\extjs\tab-bar\default-scroll-top-right.gif" />
+    <Content Include="Content\images\extjs\tab-bar\tab-bar-default-top-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-active-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-active-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-active-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-active-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-disabled-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-disabled-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-over-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-over-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-over-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-over-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-bottom-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-close.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-active-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-active-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-active-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-active-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-disabled-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-disabled-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-disabled-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-disabled-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-over-bg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-over-corners.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-over-fbg.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-over-sides.gif" />
+    <Content Include="Content\images\extjs\tab\tab-default-top-sides.gif" />
+    <Content Include="Content\images\extjs\tip\tip-default-corners.gif" />
+    <Content Include="Content\images\extjs\tip\tip-default-sides.gif" />
+    <Content Include="Content\images\extjs\tip\tip-form-invalid-corners.gif" />
+    <Content Include="Content\images\extjs\tip\tip-form-invalid-sides.gif" />
+    <Content Include="Content\images\extjs\toolbar\more-left.gif" />
+    <Content Include="Content\images\extjs\toolbar\more.gif" />
+    <Content Include="Content\images\extjs\toolbar\scroll-left.gif" />
+    <Content Include="Content\images\extjs\toolbar\scroll-right.gif" />
+    <Content Include="Content\images\extjs\toolbar\toolbar-default-bg.gif" />
+    <Content Include="Content\images\extjs\tools\tool-sprite-tpl.gif" />
+    <Content Include="Content\images\extjs\tools\tool-sprites.gif" />
+    <Content Include="Content\images\extjs\tools\tools-sprites-trans.gif" />
+    <Content Include="Content\images\extjs\tree\arrows-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\arrows.gif" />
+    <Content Include="Content\images\extjs\tree\drop-above.gif" />
+    <Content Include="Content\images\extjs\tree\drop-add.gif" />
+    <Content Include="Content\images\extjs\tree\drop-append.gif" />
+    <Content Include="Content\images\extjs\tree\drop-below.gif" />
+    <Content Include="Content\images\extjs\tree\drop-between.gif" />
+    <Content Include="Content\images\extjs\tree\drop-no.gif" />
+    <Content Include="Content\images\extjs\tree\drop-over.gif" />
+    <Content Include="Content\images\extjs\tree\drop-under.gif" />
+    <Content Include="Content\images\extjs\tree\drop-yes.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end-minus-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end-minus.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end-plus-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end-plus.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-end.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-line-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-line.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-minus-nl-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-minus-nl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-minus-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-minus.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-plus-nl-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-plus-nl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-plus-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-plus.gif" />
+    <Content Include="Content\images\extjs\tree\elbow-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\elbow.gif" />
+    <Content Include="Content\images\extjs\tree\folder-open-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\folder-open.gif" />
+    <Content Include="Content\images\extjs\tree\folder-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\folder.gif" />
+    <Content Include="Content\images\extjs\tree\leaf-rtl.gif" />
+    <Content Include="Content\images\extjs\tree\leaf.gif" />
+    <Content Include="Content\images\extjs\tree\loading.gif" />
+    <Content Include="Content\images\extjs\tree\s.gif" />
+    <Content Include="Content\images\extjs\util\splitter\mini-bottom.gif" />
+    <Content Include="Content\images\extjs\util\splitter\mini-left.gif" />
+    <Content Include="Content\images\extjs\util\splitter\mini-right.gif" />
+    <Content Include="Content\images\extjs\util\splitter\mini-top.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-bottom-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-bottom-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-bottom-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-bottom-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-left-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-left-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-left-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-right-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-right-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-right-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-top-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-collapsed-top-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-left-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-left-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-left-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-right-corners-rtl.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-right-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-right-sides.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-top-corners.gif" />
+    <Content Include="Content\images\extjs\window-header\window-header-default-top-sides.gif" />
+    <Content Include="Content\images\extjs\window\window-default-corners.gif" />
+    <Content Include="Content\images\extjs\window\window-default-sides.gif" />
+    <Content Include="Content\images\FilterSummaryGroup.png" />
+    <Content Include="Content\images\funnel.png" />
+    <Content Include="Content\images\gear.png" />
+    <Content Include="Content\images\globe--pencil.png" />
+    <Content Include="Content\images\help3_16.png" />
+    <Content Include="Content\images\help_22.png" />
+    <Content Include="Content\images\information-balloon.png" />
+    <Content Include="Content\images\information-button.png" />
+    <Content Include="Content\images\information-frame.png" />
+    <Content Include="Content\images\information-octagon-frame.png" />
+    <Content Include="Content\images\information-octagon-shadowless.png" />
+    <Content Include="Content\images\information-octagon.png" />
+    <Content Include="Content\images\information-shield.png" />
+    <Content Include="Content\images\information-small-white.png" />
+    <Content Include="Content\images\information-small.png" />
+    <Content Include="Content\images\information-white.png" />
+    <Content Include="Content\images\information.png" />
+    <Content Include="Content\images\jquery-miniColors\colors.png" />
+    <Content Include="Content\images\jquery-miniColors\trigger.png" />
+    <Content Include="Content\images\layout-design.png" />
+    <Content Include="Content\images\logos\ArtDatabanken.png" />
+    <Content Include="Content\images\logos\GBIF.png" />
+    <Content Include="Content\images\logos\GU-en.png" />
+    <Content Include="Content\images\logos\GU-sv.png" />
+    <Content Include="Content\images\logos\LU-en.png" />
+    <Content Include="Content\images\logos\LU-sv.png" />
+    <Content Include="Content\images\logos\NRM.png" />
+    <Content Include="Content\images\logos\NV.png" />
+    <Content Include="Content\images\logos\logo_sgu.png" />
+    <Content Include="Content\images\logos\SLU.png" />
+    <Content Include="Content\images\logos\logo_smhi.png" />
+    <Content Include="Content\images\logos\SMHI.png" />
+    <Content Include="Content\images\logos\UMU.png" />
+    <Content Include="Content\images\logos\VR.png" />
+    <Content Include="Content\images\map\export.png" />
+    <Content Include="Content\images\map\exportLayer.png" />
+    <Content Include="Content\images\map\layer-select-active.png" />
+    <Content Include="Content\images\map\layer-select-icon.png" />
+    <Content Include="Content\images\map\layer-select.png" />
+    <Content Include="Content\images\map\move1.png" />
+    <Content Include="Content\images\map\move2.png" />
+    <Content Include="Content\images\map\print.png" />
+    <Content Include="Content\images\OpenFile.png" />
+    <Content Include="Content\images\OpenLayers\add_point_off.png" />
+    <Content Include="Content\images\OpenLayers\add_point_on.png" />
+    <Content Include="Content\images\OpenLayers\blank.gif" />
+    <Content Include="Content\images\OpenLayers\close.gif" />
+    <Content Include="Content\images\OpenLayers\cloud-popup-relative.png" />
+    <Content Include="Content\images\OpenLayers\drag-rectangle-off.png" />
+    <Content Include="Content\images\OpenLayers\drag-rectangle-on.png" />
+    <Content Include="Content\images\OpenLayers\draw_line_off.png" />
+    <Content Include="Content\images\OpenLayers\draw_line_on.png" />
+    <Content Include="Content\images\OpenLayers\draw_point_off.png" />
+    <Content Include="Content\images\OpenLayers\draw_point_on.png" />
+    <Content Include="Content\images\OpenLayers\draw_polygon_off.png" />
+    <Content Include="Content\images\OpenLayers\draw_polygon_on.png" />
+    <Content Include="Content\images\OpenLayers\east-mini.png" />
+    <Content Include="Content\images\OpenLayers\editing_tool_bar.png" />
+    <Content Include="Content\images\OpenLayers\layer-switcher-maximize.png" />
+    <Content Include="Content\images\OpenLayers\layer-switcher-minimize.png" />
+    <Content Include="Content\images\OpenLayers\marker-blue.png" />
+    <Content Include="Content\images\OpenLayers\marker-gold.png" />
+    <Content Include="Content\images\OpenLayers\marker-green.png" />
+    <Content Include="Content\images\OpenLayers\marker.png" />
+    <Content Include="Content\images\OpenLayers\measuring-stick-off.png" />
+    <Content Include="Content\images\OpenLayers\measuring-stick-on.png" />
+    <Content Include="Content\images\OpenLayers\move_feature_off.png" />
+    <Content Include="Content\images\OpenLayers\move_feature_on.png" />
+    <Content Include="Content\images\OpenLayers\navigation_history.png" />
+    <Content Include="Content\images\OpenLayers\north-mini.png" />
+    <Content Include="Content\images\OpenLayers\overview_replacement.gif" />
+    <Content Include="Content\images\OpenLayers\pan-panel-NOALPHA.png" />
+    <Content Include="Content\images\OpenLayers\pan-panel.png" />
+    <Content Include="Content\images\OpenLayers\panning-hand-off.png" />
+    <Content Include="Content\images\OpenLayers\panning-hand-on.png" />
+    <Content Include="Content\images\OpenLayers\pan_off.png" />
+    <Content Include="Content\images\OpenLayers\pan_on.png" />
+    <Content Include="Content\images\OpenLayers\remove_point_off.png" />
+    <Content Include="Content\images\OpenLayers\remove_point_on.png" />
+    <Content Include="Content\images\OpenLayers\ruler.png" />
+    <Content Include="Content\images\OpenLayers\save_features_off.png" />
+    <Content Include="Content\images\OpenLayers\save_features_on.png" />
+    <Content Include="Content\images\OpenLayers\slider.png" />
+    <Content Include="Content\images\OpenLayers\south-mini.png" />
+    <Content Include="Content\images\OpenLayers\view_next_off.png" />
+    <Content Include="Content\images\OpenLayers\view_next_on.png" />
+    <Content Include="Content\images\OpenLayers\view_previous_off.png" />
+    <Content Include="Content\images\OpenLayers\view_previous_on.png" />
+    <Content Include="Content\images\OpenLayers\west-mini.png" />
+    <Content Include="Content\images\OpenLayers\zoom-minus-mini.png" />
+    <Content Include="Content\images\OpenLayers\zoom-panel-NOALPHA.png" />
+    <Content Include="Content\images\OpenLayers\zoom-panel.png" />
+    <Content Include="Content\images\OpenLayers\zoom-plus-mini.png" />
+    <Content Include="Content\images\OpenLayers\zoom-world-mini.png" />
+    <Content Include="Content\images\OpenLayers\zoombar.png" />
+    <Content Include="Content\images\PresentationSummaryGroup.png" />
+    <Content Include="Content\images\SE_flag_ON_29x15.png" />
+    <Content Include="Content\images\slw-logo-en.png" />
+    <Content Include="Content\images\slw-logo-sv.png" />
+    <Content Include="Content\images\svenska_lifewatch_logo.png" />
+    <Content Include="Content\images\swedish_lifewatch.png" />
+    <Content Include="Content\images\swedish_lifewatch_logo.png" />
+    <Content Include="Content\images\table_16.png" />
+    <Content Include="Content\images\taxon-alert-status-green-right.png" />
+    <Content Include="Content\images\taxon-alert-status-red-right.png" />
+    <Content Include="Content\images\taxon-alert-status-yellow-right.png" />
+    <Content Include="Content\images\link-arrow-down.gif" />
+    <Content Include="Content\images\link-arrow-up.gif" />
+    <Content Include="Content\images\map-icon_16.png" />
+    <Content Include="Content\images\map-icon_24.png" />
+    <Content Include="Content\images\map-icon_32.png" />
+    <Content Include="Content\images\map.png" />
+    <Content Include="Content\images\maps-stack.png" />
+    <Content Include="Content\images\bin2.png" />
+    <Content Include="Content\images\map_24.png" />
+    <Content Include="Content\images\map_32.png" />
+    <Content Include="Content\images\Misc-Stats-icon_24.png" />
+    <Content Include="Content\images\piechart-icon_16.png" />
+    <Content Include="Content\images\piechart-icon_24.png" />
+    <Content Include="Content\images\piechart-icon_32.png" />
+    <Content Include="Content\images\question-frame.png" />
+    <Content Include="Content\images\question-octagon.png" />
+    <Content Include="Content\images\question.png" />
+    <Content Include="Content\images\recyclebin_empty_16.png" />
+    <Content Include="Content\images\recyclebin_empty_24.png" />
+    <Content Include="Content\images\recyclebin_empty_32.png" />
+    <Content Include="Content\images\refreshArrow_Blue_16.png" />
+    <Content Include="Content\images\refreshArrow_Blue_24.png" />
+    <Content Include="Content\images\refreshArrow_Blue_32.png" />
+    <Content Include="Content\images\refreshArrow_Green_16.png" />
+    <Content Include="Content\images\refreshArrow_Green_24.png" />
+    <Content Include="Content\images\refreshArrow_Green_32.png" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\analysisportal_top_bg.png" />
+    <Content Include="Content\images\delete.gif" />
+    <Content Include="Content\images\exclamation.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\filter.png" />
+    <Content Include="Content\images\logos\logo_BioDivCat_380x65.png" />
+    <Content Include="Content\images\logos\logo_ecds_290x100.png" />
+    <Content Include="Content\images\logos\logo_geodata.jpg" />
+    <Content Include="Content\images\map\arrow-move-active.png" />
+    <Content Include="Content\images\map\arrow-move.png" />
+    <Content Include="Content\images\map\document-resize-actual.png" />
+    <Content Include="Content\images\map\document-resize.png" />
+    <Content Include="Content\images\map\datamodel.png" />
+    <Content Include="Content\images\map\globe-green.png" />
+    <Content Include="Content\images\map\globe.png" />
+    <Content Include="Content\images\map\kview.png" />
+    <Content Include="Content\images\map\layer-shape-active.png" />
+    <Content Include="Content\images\map\layer-shape.png" />
+    <Content Include="Content\images\map\layer-shape2.png" />
+    <Content Include="Content\images\map\layer-shape3.png" />
+    <Content Include="Content\images\map\map.png" />
+    <Content Include="Content\images\map\selection.png" />
+    <Content Include="Content\images\map\selection_active.png" />
+    <Content Include="Content\images\map\zoom_extend.png" />
+    <Content Include="Content\images\map\zoom_layer.png" />
+    <Content Include="Content\images\pencil.png" />
+    <Content Include="Content\images\pencil24.png" />
+    <Content Include="Content\images\property.png" />
+    <Content Include="Content\images\property16.png" />
+    <Content Include="Content\images\save1.png" />
+    <Content Include="Content\images\saveHS.png" />
+    <Content Include="Content\images\status.png" />
+    <Content Include="Content\images\table-icon_24.png" />
+    <Content Include="Content\images\table-multiple-icon_24.png" />
+    <Content Include="Content\images\table_32.png" />
+    <Content Include="Content\images\table_24.png" />
+    <Content Include="Content\images\taxon-alert-status-green.png" />
+    <Content Include="Content\images\taxon-alert-status-red.png" />
+    <Content Include="Content\images\taxon-alert-status-yellow.png" />
+    <Content Include="Content\images\main_bg.png" />
+    <Content Include="Content\images\map\ap2-ui-bgsprite-x.png" />
+    <Content Include="Content\images\taxon-protection-level-protected1.png" />
+    <Content Include="Content\images\Tutorial\AddNewPage\BeforeUnloadJavaScript.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\BeforeUnloadJavaScript2.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\BeforeUnloadJavaScript3.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\beforeUnloadShowMessage.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\ConsoleInFireBug.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\createJsonStringJavaScript.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\CreateViewModel.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\DocumentReadyJson.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\enableDisableButtons.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\EncodeJsonJavaScript.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GetGridStatisticsAction.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\getPageSettingsJsonString.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\getPageSettingsObject.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridSizeProperty.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsActionInCalculationController.png" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsActionInController.png" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsPropertyInCalculationSettings.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsReport.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsSettingClass.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsViewManager.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\GridStatisticsViewModel.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\initToolbar.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\javascriptVariables1.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\MySettingsGridStatisticsViewManager.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\MySettingsSummaryGridStatistics.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\PageInfoManager.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\PostGridStatisticsAction.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\ReadFromModelInView.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\saveChanges.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\saveSettingsForm.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\toolbar1.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\toolbar2.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\UpdateGridStatisticsSetting.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\UpdateGridStatisticsSetting2.PNG" />
+    <Content Include="Content\images\Tutorial\AddNewPage\updateMySettingsOnServerJavaScript.PNG" />
+    <Content Include="Content\images\UK_flag_ON_29x15.png" />
+    <Content Include="Content\images\upload.png" />
+    <Content Include="Content\images\working.gif" />
+    <Content Include="Content\images\working2.gif" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\jquery.dad.css" />
+    <Content Include="Content\jquery.fileupload.css" />
+    <Content Include="Content\jquery.liScroll.css" />
+    <Content Include="Content\News\Puffs.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\News\Puffs.sv.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\News\News.sv.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\News\News.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Content\OpenLayers.css" />
+    <Content Include="robots-debug.txt" />
+    <Content Include="robots-release.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Release.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\AnalysisPortal.css" />
+    <Content Include="Content\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\images\add.gif" />
+    <Content Include="Content\images\add.png" />
+    <Content Include="Content\images\en.png" />
+    <Content Include="Content\images\error.gif" />
+    <Content Include="Content\images\error.png" />
+    <Content Include="Content\images\grid.png" />
+    <Content Include="Content\images\logo_artdatabanken_175x40.png" />
+    <Content Include="Content\images\logo_slu_112x112.png" />
+    <Content Include="Content\images\logo_sv_artprojektet_en_118x50.png" />
+    <Content Include="Content\images\logo_sv_lifewatch_en_146x32.png" />
+    <Content Include="Content\images\map\icon_normal.png" />
+    <Content Include="Content\images\map\icon_selected.png" />
+    <Content Include="Content\images\map\map-toolbar-sprite.png" />
+    <Content Include="Content\images\map\measure-line.png" />
+    <Content Include="Content\images\map\MoveU.gif" />
+    <Content Include="Content\images\map\nav_back.png" />
+    <Content Include="Content\images\map\nav_back_off.png" />
+    <Content Include="Content\images\map\nav_forward.png" />
+    <Content Include="Content\images\map\nav_forward_off.png" />
+    <Content Include="Content\images\map\newsite.png" />
+    <Content Include="Content\images\map\newSite_off.gif" />
+    <Content Include="Content\images\map\newsite_off.png" />
+    <Content Include="Content\images\map\newSite_on.gif" />
+    <Content Include="Content\images\map\newsite_on.png" />
+    <Content Include="Content\images\map\pan.png" />
+    <Content Include="Content\images\map\pan_1.gif" />
+    <Content Include="Content\images\map\pan_2.gif" />
+    <Content Include="Content\images\map\pan_on.png" />
+    <Content Include="Content\images\map\polygon.png" />
+    <Content Include="Content\images\map\polygonD.gif" />
+    <Content Include="Content\images\map\polygonU.gif" />
+    <Content Include="Content\images\map\polygon_off.png" />
+    <Content Include="Content\images\map\polygon_on.png" />
+    <Content Include="Content\images\map\polyline.png" />
+    <Content Include="Content\images\map\polylineD.gif" />
+    <Content Include="Content\images\map\polylineU.gif" />
+    <Content Include="Content\images\map\polyline_on.png" />
+    <Content Include="Content\images\map\selectsite.png" />
+    <Content Include="Content\images\map\selectsite_on.png" />
+    <Content Include="Content\images\map\select_1.gif" />
+    <Content Include="Content\images\map\select_2.gif" />
+    <Content Include="Content\images\map\toolbar-bg.png" />
+    <Content Include="Content\images\map\toolbar-editpolygon-active.png" />
+    <Content Include="Content\images\map\toolbar-editpolygon-disabled.png" />
+    <Content Include="Content\images\map\toolbar-editpolygon.png" />
+    <Content Include="Content\images\map\toolbar-newsite-active.png" />
+    <Content Include="Content\images\map\toolbar-newsite-disabled.png" />
+    <Content Include="Content\images\map\toolbar-newsite.png" />
+    <Content Include="Content\images\map\toolbar-pan-active.png" />
+    <Content Include="Content\images\map\toolbar-pan.png" />
+    <Content Include="Content\images\map\toolbar-polygon-active.png" />
+    <Content Include="Content\images\map\toolbar-polygon-disabled.png" />
+    <Content Include="Content\images\map\toolbar-polygon.png" />
+    <Content Include="Content\images\map\toolbar-select-active.png" />
+    <Content Include="Content\images\map\toolbar-select.png" />
+    <Content Include="Content\images\map\toolbar-zoomfull.png" />
+    <Content Include="Content\images\map\toolbar-zoomin-active.png" />
+    <Content Include="Content\images\map\toolbar-zoomin.png" />
+    <Content Include="Content\images\map\zoom-full-extent_OFF.gif" />
+    <Content Include="Content\images\map\zoom-full.png" />
+    <Content Include="Content\images\map\zoomin.png" />
+    <Content Include="Content\images\map\zoomin_1.gif" />
+    <Content Include="Content\images\map\zoomin_2.gif" />
+    <Content Include="Content\images\map\zoomin_on.png" />
+    <Content Include="Content\images\map\zoomout_1.gif" />
+    <Content Include="Content\images\map\zoomout_2.gif" />
+    <Content Include="Content\images\sv.png" />
+    <Content Include="Content\map.css" />
+    <Content Include="Content\Overrides.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.GIS.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.Resources-vsdoc.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.Statistics.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.WFS.Formula.js" />
+    <Content Include="Scripts\AnalysisPortal\ExtJsPlugins.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.Models.js" />
+    <Content Include="Scripts\AnalysisPortal\AnalysisPortal.WFS.js" />
+    <Content Include="Scripts\Bootstrap-datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Scripts\Bootstrap-datepicker\locales\bootstrap-datepicker.sv.js" />
+    <Content Include="Scripts\bootstrap.slider.js" />
+    <Content Include="Scripts\bootstrap.treeview.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.popover.custom.js" />
+    <Content Include="Scripts\jquery.dad.js" />
+    <Content Include="Scripts\jquery.detectmobilebrowser.js" />
+    <Content Include="Scripts\dump\dump.js" />
+    <Content Include="Scripts\dump\dump_src.js" />
+    <Content Include="Scripts\extjs-4.2.1\bootstrap.js" />
+    <Content Include="Scripts\extjs-4.2.1\ext-all-debug.js" />
+    <Content Include="Scripts\extjs-4.2.1\ext-all.js" />
+    <Content Include="Scripts\extjs-4.2.1\locale\ext-lang-en.js" />
+    <Content Include="Scripts\extjs-4.2.1\locale\ext-lang-en_GB.js" />
+    <Content Include="Scripts\extjs-4.2.1\locale\ext-lang-sv_SE.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\MapExport\baseLayer.geojson" />
+    <Content Include="Content\Documents\Analysportalen_ÖvningarB.pdf" />
+    <Content Include="Content\Documents\Analysportalen_ÖvningarA.pdf" />
+    <Content Include="Content\Documents\Analysisportal_ExercisesB.pdf" />
+    <Content Include="Content\Documents\Analysisportal_ExercisesA.pdf" />    
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\app.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\cors\jquery.postmessage-transport.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\cors\jquery.xdr-transport.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-angular.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-audio.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-image.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-jquery-ui.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-process.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-validate.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload-video.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.fileupload.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\jquery.iframe-transport.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\main.js" />
+    <Content Include="Scripts\jQuery-File-Upload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\jquery.miniColors.css" />
+    <Content Include="Scripts\jquery-miniColors\jquery.miniColors.js" />
+    <Content Include="Scripts\jquery-miniColors\jquery.miniColors.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.liScroll.js" />
+    <Content Include="Scripts\jquery.subcookie.js" />
+    <Content Include="Scripts\jquery.urldecoder.js" />
+    <Content Include="Scripts\jquery.urldecoder.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\OpenLayers\Lang\en.js" />
+    <Content Include="Scripts\OpenLayers\Lang\sv-SE.js" />
+    <Content Include="Scripts\OpenLayers\LoadingPanel.js" />
+    <Content Include="Scripts\OpenLayers\OpenLayers.js" />
+    <Content Include="Scripts\Phantomjs\colorwheel.js" />
+    <Content Include="Scripts\Phantomjs\colorwheel2.js" />
+    <Content Include="Scripts\Phantomjs\rasterize_element4.js" />
+    <Content Include="Scripts\Phantomjs\rasterize_element3.js" />
+    <Content Include="Scripts\Phantomjs\rasterize_element2.js" />
+    <Content Include="Scripts\Phantomjs\rasterize.js" />
+    <Content Include="Scripts\Phantomjs\rasterize_element.js" />
+    <Content Include="Scripts\Phantomjs\waitfor.js" />
+    <Content Include="Scripts\proj4js\defs\EPSG900913.js" />
+    <Content Include="Scripts\proj4js\defs\EPSG900913.txt" />
+    <Content Include="Scripts\proj4js\defs\GOOGLE.js" />
+    <Content Include="Scripts\proj4js\proj4js-combined.js" />
+    <Content Include="Scripts\proj4js\proj4js-compressed.js" />
+    <Content Include="Scripts\proj4js\proj4js.js" />
+    <Content Include="Content\select2.css" />
+    <Content Include="Scripts\select2\select2.js" />
+    <Content Include="Scripts\select2\select2.min.js" />
+    <Content Include="Content\images\select2\select2.png" />
+    <Content Include="Content\images\select2\select2x2.png" />
+    <Content Include="Content\images\select2\spinner.gif" />
+    <Content Include="Scripts\SharpKit\jsclr-4.1.0.js" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Scripts\toastr\toastr.js" />
+    <Content Include="Scripts\toastr\toastr.min.js" />
+    <Content Include="Scripts\UnitTests\AnalysisPortalTests.js" />
+    <Content Include="Scripts\UnitTests\qunit.js" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="Temp.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+    <Content Include="Views\Filter\RedList.cshtml" />
+    <Content Include="Views\Shared\_UploadGeoJson.cshtml" />
+    <Content Include="Views\MySettings\EnvironmentalDataSummary.cshtml" />
+    <Content Include="Views\Shared\ResultButtonGroup_Partial.cshtml" />
+    <Content Include="Views\Filter\_AddChildTaxon.cshtml" />
+    <Content Include="Views\Result\_LayerExport.cshtml" />
+    <Content Include="Views\Result\_MapExport.cshtml" />
+    <Content Include="Views\Result\ExcelExportDialog.cshtml" />
+    <Content Include="Views\Shared\PageFooter_Partial.cshtml" />
+    <Content Include="Views\Errors\400.cshtml" />
+    <Content Include="Views\Errors\500.cshtml" />
+    <Content Include="Views\Shared\BreadCrumbTitle_Partial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\TempImages\" />
+    <Folder Include="css\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Scripts\Bootstrap-datepicker\css\" />
+    <Folder Include="Temp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj">
+      <Project>{c61f2f90-2345-4099-b8c8-da5e414bfb2f}</Project>
+      <Name>ArtDatabanken.WebApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.GIS\ArtDatabanken.GIS\ArtDatabanken.GIS.csproj">
+      <Project>{0ED6C7D1-52C0-44C7-B52C-43A7A56BC897}</Project>
+      <Name>ArtDatabanken.GIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArtDatabanken.WebApplication.AnalysisPortal\ArtDatabanken.WebApplication.AnalysisPortal.csproj">
+      <Project>{EACBE4E2-57FB-4DB3-9119-0E93F8037412}</Project>
+      <Name>ArtDatabanken.WebApplication.AnalysisPortal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj">
+      <Project>{54AE5807-085D-4D93-85D2-1694C2ECD22D}</Project>
+      <Name>ArtDatabanken.WebService.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Errors\403.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Errors\404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\ErrorInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\LogIn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\LogOut.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\AccessIsNotAllowed.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Debug\SessionVariables.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Debug\DebugView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Proxy.ashx" />
+    <Content Include="App_Data\Map\Sverigekarta med län.dbf" />
+    <Content Include="App_Data\Map\Sverigekarta med län.shp" />
+    <Content Include="App_Data\Map\Sverigekarta med län.shx" />
+    <Content Include="App_Data\Map\RT90 UTF8 kodning med BBOX.geojson" />
+    <Content Include="App_Data\Map\Sverigekarta med län.geojson" />    
+    <Content Include="Views\DevExamples\ExtJSGrid.cshtml" />
+    <Content Include="Views\Debug\DebugActions.cshtml" />
+    <Content Include="Views\DevExamples\ExtJSGridJSON.cshtml" />
+    <Content Include="Views\Filter\TaxonFromIds.cshtml" />
+    <Content Include="Views\DevExamples\ExtJsLayout.cshtml" />
+    <Content Include="Views\DevExamples\ExtJSFormSubmit.cshtml" />
+    <Content Include="Views\MySettings\MySettingsSummary.cshtml" />
+    <Content Include="Views\Shared\ResultMenuGroup_Partial.cshtml" />
+    <Content Include="Views\Shared\LogOnUserControl_Partial.cshtml" />
+    <Content Include="Views\Data\Index.cshtml" />
+    <Content Include="Views\Filter\Index.cshtml" />
+    <Content Include="Views\Result\Index.cshtml" />
+    <Content Include="Views\Shared\StateButtonGroup_Partial.cshtml" />
+    <Content Include="Views\MySettings\MySettingsSummaryButtonGroup.cshtml" />
+    <Content Include="Views\Format\Index.cshtml" />
+    <Content Include="Views\Format\PresentationTable.cshtml" />
+    <Content Include="Views\DevExamples\ExtJsBasicTooltip.cshtml" />
+    <Content Include="Views\DevExamples\ExtJsCustomTooltip.cshtml" />
+    <Content Include="Views\DevExamples\BootstrapToolTip.cshtml" />
+    <Content Include="Views\DevExamples\BootstrapPopOver.cshtml" />
+    <Content Include="Views\Format\Map.cshtml" />
+    <Content Include="Views\DevExamples\MapGeoJsonString.cshtml" />
+    <Content Include="Views\DevExamples\MapAP.cshtml" />
+    <Content Include="Views\DevExamples\MapGoogle.cshtml" />
+    <Content Include="Views\DevExamples\MapBing.cshtml" />
+    <Content Include="Views\DevExamples\MapGoogleGeoJson.cshtml" />
+    <Content Include="Views\DevExamples\MapGoogleGeoJsonPlainCss.cshtml" />
+    <Content Include="Views\Calculation\index.cshtml" />
+    <Content Include="Views\Result\TimeSeriesDiagramOnSpeciesObservationAbundanceIndex.cshtml" />
+    <Content Include="Views\DevExamples\SessionTimeout.cshtml" />
+    <Content Include="Views\DevExamples\SessionTimeout2.cshtml" />
+    <Content Include="Views\DevExamples\SessionTimeout3.cshtml" />
+    <Content Include="Views\Result\SettingsReport.cshtml" />
+    <Content Include="Views\Debug\TaxonInfoFromDyntaxa.cshtml" />
+    <Content Include="Views\Details\TaxonSummary.cshtml" />
+    <Content Include="Views\Details\TaxonSummaryDialog.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationTaxonTable.cshtml" />
+    <Content Include="Views\Details\ObservationDetailPartial.cshtml" />
+    <Content Include="Views\Details\ObservationDetail.cshtml" />
+    <Content Include="Views\Calculation\TimeSeries.cshtml" />
+    <Content Include="Views\Result\Download.cshtml" />
+    <Content Include="Views\Filter\Accuracy.cshtml" />
+    <Content Include="Views\Debug\CoordinateConverter.cshtml" />
+    <Content Include="Views\Home\Robots.cshtml" />
+    <Content Include="Views\Result\CombinedGridStatisticsTable.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationTaxonWithSpeciesObservationCountTable.cshtml" />
+    <Content Include="Views\Data\DataProvidersWithHelpExample.cshtml" />
+    <Content Include="Views\Home\VersionNumber.cshtml" />
+    <Content Include="Views\Home\Cookies.cshtml" />
+    <Content Include="Views\Navigation\HeadNavigationMenu.cshtml" />
+    <Content Include="Views\Shared\PartialViewError.cshtml" />
+    <Content Include="Views\DevExamples\SelectTextInExtJsGrid.cshtml" />
+    <Content Include="Views\DevExamples\GenerateObservationProperties.cshtml" />
+    <Content Include="Views\Filter\TaxonFromSearch.cshtml" />
+    <Content Include="Views\Shared\TaxonSearchOptions.cshtml" />
+    <Content Include="Views\Filter\Taxa.cshtml" />
+    <Content Include="Views\Filter\SelectedTaxaPartial.cshtml" />
+    <Content Include="Views\Filter\SearchSettingsSummaryPartial.cshtml" />
+    <Content Include="Views\Filter\SpatialDrawPolygon.cshtml" />
+    <Content Include="Views\Shared\ChangeUserRole.cshtml" />
+    <Content Include="Views\DevExamples\BootstrapButtonStates.cshtml" />
+    <Content Include="Views\Result\Info.cshtml" />
+    <Content Include="Views\Data\AddWfsLayer.cshtml" />
+    <Content Include="Views\Data\WfsLayerEditor.cshtml" />
+    <Content Include="Views\DevExamples\WFSMap.cshtml" />
+    <Content Include="Views\Data\WfsLayers.cshtml" />
+    <Content Include="Views\Filter\PolygonFromMapLayer.cshtml" />
+    <Content Include="Views\Filter\Temporal.cshtml" />
+    <Content Include="Views\Data\MetadataSearch.cshtml" />
+    <Content Include="Views\Shared\_TutorialLayout.cshtml" />
+    <Content Include="Views\Tutorial\MakeAjaxRequest.cshtml" />
+    <Content Include="Views\Tutorial\TutorialHeader.cshtml" />
+    <Content Include="Views\Tutorial\HandlePartialViewErrorSample.cshtml" />
+    <Content Include="Views\Tutorial\PartialViewWithError.cshtml" />
+    <Content Include="Views\Tutorial\PartialViewWithoutError.cshtml" />
+    <Content Include="Views\Tutorial\MakeAjaxCallTutorial.cshtml" />
+    <Content Include="Views\Tutorial\SaveChangesBeforeLeavingPageTutorial.cshtml" />
+    <Content Include="Views\Filter\Occurrence.cshtml" />
+    <Content Include="Views\Filter\Quality.cshtml" />
+    <Content Include="Views\Filter\SpatialCommonRegions.cshtml" />
+    <Content Include="Views\Tutorial\ExtJsGridSaveChangesTutorial.cshtml" />
+    <Content Include="Views\Filter\Spatial.cshtml" />
+    <Content Include="Views\MySettings\MySettingsSummaryGroup.cshtml" />
+    <Content Include="Views\MySettings\MySettingsSummaryItem.cshtml" />
+    <Content Include="Views\MySettings\TaxaSummary.cshtml" />
+    <Content Include="Views\Data\DataProviders.cshtml" />
+    <Content Include="Views\MySettings\DataProvidersSummary.cshtml" />
+    <Content Include="Views\Shared\List.cshtml" />
+    <Content Include="Views\MySettings\SpatialPolygonsSummary.cshtml" />
+    <Content Include="Views\MySettings\SpatialPolygonsSummaryPrintable.cshtml" />
+    <Content Include="Views\Shared\Empty_Partial.cshtml" />
+    <Content Include="Views\Shared\NotImplemented_Partial.cshtml" />
+    <Content Include="Views\Format\TableFieldDescription.cshtml" />
+    <Content Include="Views\Format\SpeciesObservationTable.cshtml" />
+    <Content Include="Views\Calculation\GridStatistics.cshtml" />
+    <Content Include="Views\MySettings\GridStatisticsSummary.cshtml" />
+    <Content Include="Views\Tutorial\AddNewPage.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationTable.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationMap.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationGridMap.cshtml" />
+    <Content Include="Views\Format\Table.cshtml" />
+    <Content Include="Views\MySettings\TableSummary.cshtml" />
+    <Content Include="Views\Calculation\SummaryStatistics.cshtml" />
+    <Content Include="Views\MySettings\SummaryStatisticsSummary.cshtml" />
+    <Content Include="Views\Result\GridStatisticsTableOnSpeciesObservationCounts.cshtml" />
+    <Content Include="Views\Result\SummaryStatisticsReport.cshtml" />
+    <Content Include="Views\Format\Report.cshtml" />
+    <Content Include="Views\MySettings\ReportSummary.cshtml" />
+    <Content Include="Views\Home\AvailableThreads.cshtml" />
+    <Content Include="Views\MySettings\OccurrenceSummary.cshtml" />
+    <Content Include="Views\DevExamples\LongRunningAjax.cshtml" />
+    <Content Include="Views\AsyncService\Stuff.cshtml" />
+    <Content Include="Views\Service\Stuff.cshtml" />
+    <Content Include="Views\Data\WmsLayerEditor.cshtml" />
+    <Content Include="Views\DevExamples\MapBasic.cshtml" />
+    <Content Include="Views\Data\WmsLayers.cshtml" />
+    <Content Include="Views\Result\GridStatisticsTableOnSpeciesRichness.cshtml" />
+    <Content Include="Views\Home\JobQueue.cshtml" />
+    <Content Include="Views\Shared\QueryComplexityDialog.cshtml" />
+    <Content Include="Views\Result\SpeciesRichnessGridMap.cshtml" />
+    <Content Include="Views\Result\TimeSeriesHistogramOnSpeciesObservationCounts.cshtml" />
+    <Content Include="Views\Result\Tables.cshtml" />
+    <Content Include="Views\Shared\ResultGroup_Partial.cshtml" />
+    <Content Include="Views\Result\Maps.cshtml" />
+    <Content Include="Views\Result\Reports.cshtml" />
+    <Content Include="Views\Result\Diagrams.cshtml" />
+    <Content Include="Views\Shared\SessionTimeoutDialog.cshtml" />
+    <Content Include="Views\Shared\AnonymousSessionTimeoutDialog.cshtml" />
+    <Content Include="Views\Shared\TaxonInfoFromDyntaxa.cshtml" />
+    <Content Include="Views\Result\TimeSeriesTableOnSpeciesObservationCounts.cshtml" />
+    <Content Include="Views\Shared\CoordinateSystemSelectBox_Partial.cshtml" />
+    <Content Include="Views\Tutorial\AddResultPage.cshtml" />
+    <Content Include="Views\Result\WfsGridStatisticsMap.cshtml" />
+    <Content Include="Views\Shared\BreadCrumb_Partial.cshtml" />
+    <Content Include="Views\Shared\PageHeader_Partial.cshtml" />
+    <Content Include="Views\Shared\DebugViews_Partial.cshtml" />
+    <Content Include="Views\Shared\PageHeadDefinition_Partial.cshtml" />
+    <Content Include="Views\Shared\UserMessageJavaScript_Partial.cshtml" />
+    <Content Include="Views\Data\DataProviderInfoDialog.cshtml" />
+    <Content Include="Views\Home\Status.cshtml" />
+    <Content Include="Views\Shared\LogOnUserControlTopLine_Partial.cshtml" />
+    <Content Include="Views\Result\SummaryStatisticsPerPolygonTable.cshtml" />
+    <Content Include="Views\Result\HistogramBinSettingsDialog.cshtml" />
+    <Content Include="Views\Result\HistogramBinSettingsPartial.cshtml" />
+    <Content Include="Views\Result\HistogramBinSettings.cshtml" />
+    <Content Include="Views\Filter\Locality.cshtml" />
+    <Content Include="Views\Shared\ChangeUserRole_Partial.cshtml" />
+    <Content Include="Views\MySettings\TimeSeriesSummary.cshtml" />
+    <Content Include="Views\Debug\SpeciesObservationSearchCriteriaAPI.cshtml" />
+    <Content Include="Views\MySettings\MapLayersSummary.cshtml" />
+    <Content Include="Views\Result\Workflow.cshtml" />
+    <Content Include="Views\Result\WorkflowLinks.cshtml" />
+    <Content Include="Views\Result\WorkflowLinksDialog.cshtml" />
+    <Content Include="Views\Result\WorkflowUserAccessErrorDialog.cshtml" />
+    <Content Include="Views\Result\CompareMapLayers.cshtml" />
+    <Content Include="Views\Filter\SetFilterFromGeoJsonDialog.cshtml" />
+    <Content Include="Views\DevExamples\UploadFileSample.cshtml" />
+    <Content Include="Views\DevExamples\UploadFileUsingPostSample.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationGridMap CompareMapLayersFunctionality.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationProvenanceReport.cshtml" />
+    <Content Include="Views\Format\FileFormat.cshtml" />
+    <Content Include="Views\MySettings\FileFormatSummary.cshtml" />
+    <Content Include="Views\Filter\Field.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationClusterPointMap.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationClusterGridMap.cshtml" />
+    <Content Include="Views\Result\SpeciesObservationHeatMap.cshtml" />
+    <Content Include="Views\Filter\TaxonByTaxonAttributes.cshtml" />
+    <Content Include="Views\Filter\SetTaxonFilterFromFactorDialog.cshtml" />
+    <Content Include="Views\Filter\FactorIsHeadLineDialog.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeEnum_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeString_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeInt32_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeDouble_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeBoolean_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeNumberCompareOperator_Partial.cshtml" />
+    <Content Include="Views\Shared\FactorFieldDataTypeStringCompareOperator_Partial.cshtml" />
+    <Content Include="Views\Format\CustomSpeciesObservationTableDialog.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>48423</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48423/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>rd "$(ProjectDir)obj" /S /Q
+md "$(ProjectDir)obj"
+md "$(ProjectDir)obj\Debug"
+md "$(ProjectDir)obj\Release"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

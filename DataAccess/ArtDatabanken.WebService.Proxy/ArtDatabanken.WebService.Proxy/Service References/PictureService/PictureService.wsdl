@@ -1,0 +1,1145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PictureService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="PictureServiceSOAP11Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="PictureServiceBinaryEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="PictureServiceSOAP12Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="urn:WebServices.ArtDatabanken.slu.se" location="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="PictureServiceSOAP11Endpoint" type="i0:IPictureService">
+    <wsp:PolicyReference URI="#PictureServiceSOAP11Endpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureFilename">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureFilename" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictures">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureFilename">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureFilename" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureMetaData">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureMetaData">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureMetaData">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureRelations">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureRelations">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureRelations">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureRelations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureFilename">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureFilename" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureStringId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureStringId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureInformationById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureInformationById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesInformationBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesInformationBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataById">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPicturesMetaData">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPicturesMetaData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptions">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptionsByIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsByIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationDataTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationDataTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByObjectGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByPictureId">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByPictureId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationTypes">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesByIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesByIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendedPictureIdsByObjectGuid">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetRecommendedPictureIdsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPictureIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPictureIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PictureServiceBinaryEndpoint" type="i0:IPictureService">
+    <wsp:PolicyReference URI="#PictureServiceBinaryEndpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictures">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureStringId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureStringId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureInformationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureInformationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesInformationBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesInformationBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPicturesMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPicturesMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptionsByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationDataTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationDataTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByPictureId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByPictureId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendedPictureIdsByObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetRecommendedPictureIdsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPictureIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPictureIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PictureServiceSOAP12Endpoint" type="i0:IPictureService">
+    <wsp:PolicyReference URI="#PictureServiceSOAP12Endpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CommitTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictures">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/CreatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/UpdatePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePictureRelations">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/DeletePictureRelations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureFilename">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureFilename" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureByPictureStringId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureByPictureStringId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureInformationById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureInformationById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesInformationBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesInformationBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataById">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPicturesMetaData">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPicturesMetaData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureMetaDataDescriptionsByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureMetaDataDescriptionsByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationDataTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationDataTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationsByPictureId">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationsByPictureId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureRelationTypes">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureRelationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPicturesByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPicturesByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPictureBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetPictureBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecommendedPictureIdsByObjectGuid">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetRecommendedPictureIdsByObjectGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllRecommendedPictureIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetAllRecommendedPictureIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/RollbackTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StartTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/IPictureService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PictureService">
+    <wsdl:port name="PictureServiceSOAP11Endpoint" binding="tns:PictureServiceSOAP11Endpoint">
+      <soap:address location="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc" />
+    </wsdl:port>
+    <wsdl:port name="PictureServiceBinaryEndpoint" binding="tns:PictureServiceBinaryEndpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc/Fast" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc/Fast</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="PictureServiceSOAP12Endpoint" binding="tns:PictureServiceSOAP12Endpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc/SOAP12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/PictureService/PictureService.svc/SOAP12</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

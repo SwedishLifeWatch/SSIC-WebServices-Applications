@@ -1,0 +1,51 @@
+$theme-name: 'slate';
+$color1: #abc; 
+$color2: #3e546b;
+$include-missing-images: true;
+$base-color: $color1;
+
+//tabs  
+$tab-color :#000;
+$tab-color-active :#fff; 
+$tab-color-disabled:#000; 
+$tab-color-over :#000;
+$tab-base-color : #f4f4f4; 
+$tab-base-color-active :#4F657B;
+$tab-base-color-disabled : #f4f4f4;  
+$tab-base-color-over :#8FA3B7; 
+
+//progress bar
+$progress-bar-background-color: darken($color1,25);
+
+//button
+$button-toolbar-color :#fff; 
+$button-toolbar-color-pressed :#fff; 
+$button-toolbar-color-over :#fff;
+$button-toolbar-color-focus :#fff;
+$button-toolbar-background-color :#253240;
+$button-toolbar-background-color-pressed :#253240;
+$button-toolbar-background-color-over :#253240;
+$button-toolbar-background-color-focus : #253240;
+
+//fieldsets
+$form-field-border-color :lighten(#4F657B,50); 
+
+//window
+$window-base-color : #f4f4f4;
+$window-background-color: #f4f4f4;
+$window-header-color :#fff;
+$window-header-background-color :$color2;
+$window-body-border-width :2px;
+$window-body-border-color :  $color2;  
+$window-border-color : $color2;
+
+//toolbar
+ $toolbar-background-color :$color2;
+ $toolbar-text-color : #fff; 
+
+ //panel
+$panel-header-color: #fff;
+$panel-header-background-color: #4F657B;
+$panel-header-border-color :#4F657B; 
+$panel-border-color: darken($color1, 5); 
+@import 'compass';

@@ -1,0 +1,279 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation
+@using Resources;
+@model SpeciesObservationTableSettingsViewModel
+
+
+@{
+    ViewBag.Title = Model.Labels.Title;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    </div>
+</div>
+
+
+<h4>@Resource.PresentationTableChooseTableType</h4>           
+<table style="width: auto;">
+    <tr>
+        <td>            
+            <select id="tableTypeSystemDefinedSelectList" style="margin-bottom: 0px;">
+                <optgroup label="@Resource.PresentationTablePredefinedTables">
+                @for (int i = 0; i < Model.SystemDefinedTables.Count; i++)
+                {
+                    TableTypeViewModel systemDefinedTable = Model.SystemDefinedTables[i];
+                    <option value="@systemDefinedTable.Id" @if(!Model.UseUserDefinedTableType && i == Model.SelectedTableId) {<text>selected="selected"</text>}>@systemDefinedTable.Name</option>
+                }
+                </optgroup>
+                <optgroup label="@Resource.PresentationTableUserDefinedTables">
+                    @for (int i = 0; i < Model.UserDefinedTables.Count; i++)
+                    {
+                        TableTypeViewModel userDefinedTable = Model.UserDefinedTables[i];
+                        int id = userDefinedTable.Id + Model.SystemDefinedTables.Count;
+                        <option value="@id" @if(Model.UseUserDefinedTableType && i == Model.SelectedTableId) {<text>selected="selected"</text>}>@userDefinedTable.Name</option>
+                    }
+                </optgroup>
+            </select>      
+        </td>  
+        <td>            
+            <button id="createNewCustomTable" class="btn action-button" style="margin-left: 10px; vertical-align:middle;"><i class="icon-plus-sign icon-white"></i> &nbsp;@Resource.PresentationTableCreateNewUserDefinedTable</button>            
+        </td>   
+        <td>
+            <button id="editCustomTable" class="btn action-button" style="margin-left: 10px; vertical-align:middle; display: none;"><i class="icon-edit icon-white"></i> &nbsp;@Resource.PresentationTableEditUserDefinedTable</button>
+        </td>
+        <td>
+            <button id="deleteCustomTable" class="btn action-button" style="margin-left: 10px; vertical-align:middle; display: none;"><i class="icon-trash icon-white"></i> &nbsp;@Resource.PresentationTableDeleteUserDefinedTable</button>
+        </td>
+    </tr>  
+</table>
+
+<div id="tableFieldsGridDiv" style="margin-top: 10px;"></div>    
+
+
+<h4 style="margin-top: 20px;">@Resource.PresentationTableChooseColumnType</h4>
+<table class="" style="width: auto;">
+    <tr>
+        <td style="vertical-align: middle">
+            <input type="radio" id="columnHeaderTypeLabelRadioButton" name="columnHeaderType" value="0" class="checkboxRightMargin" @if (Model.UseLabelAsColumnHeader) {<text>checked="checked"</text>} /><span style="vertical-align: middle;"><label class="inlineLabel" for="columnHeaderTypeLabelRadioButton">@Resource.PresentationTableColumnTypeLabel</label></span>
+        </td>        
+    </tr>
+    <tr>
+        <td style="vertical-align: middle">            
+            <input type="radio" id="columnHeaderTypeDarwinCoreRadioButton" name="columnHeaderType" value="1" class="checkboxRightMargin" @if (!Model.UseLabelAsColumnHeader) {<text>checked="checked"</text>} /><span style="vertical-align: middle;"><label class="inlineLabel" for="columnHeaderTypeDarwinCoreRadioButton">@Resource.PresentationTableColumnTypeDwc</label></span>
+        </td>        
+    </tr>
+</table>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var tableFieldsStore;
+    var tableFieldsGrid;
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";    
+    var nrSystemDefinedTables = @Model.SystemDefinedTables.Count;        
+    
+    $(document).ready(function () {                
+        createTableFieldsGrid();
+       
+        var useUserDefinedTableType = @Model.UseUserDefinedTableType.ToString().ToLower();
+        var selectedTableId = @Model.SelectedTableId;        
+        loadTableFields(selectedTableId, useUserDefinedTableType);
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);       
+
+        $('#createNewCustomTable').click(function() {            
+            AnalysisPortal.showDialog({
+                title: '@Resource.PresentationTableCreateNewUserDefinedTable',
+                url: '@Url.Action("CustomSpeciesObservationTableDialog")',
+                sizeClass: 'modal-lg'
+            });    
+        });
+
+        $('#deleteCustomTable').click(function() {
+            var data = getPageSettingsObject();       
+            showSaveSettingsMessageOnLeave = false;
+            AnalysisPortal.makeAjaxCall({
+                url: '@Url.Action("DeleteUserDefinedTableTypeByAjax", "Format")',
+                params: {
+                    id: data.SelectedTableId
+                },
+                method: 'POST'
+            }, function (result) {
+                location.reload();                
+            });            
+        });
+
+        $('#editCustomTable').click(function() {
+            var url = '@Url.Action("CustomSpeciesObservationTableDialog")';
+            var data = getPageSettingsObject();       
+            url += '?id=' + data.SelectedTableId;
+            
+            AnalysisPortal.showDialog({
+                title: '@Resource.PresentationTableEditUserDefinedTable',
+                url: url,
+                sizeClass: 'modal-lg'
+            });
+        });
+
+        $('#tableTypeSystemDefinedSelectList').change(function(e) {                        
+            var id = $(this).val();            
+            if (id < nrSystemDefinedTables) {
+                selectedTableId = id;
+                useUserDefinedTableType = false;
+            }
+            else {
+                selectedTableId = id - nrSystemDefinedTables;                
+                useUserDefinedTableType = true;
+            }
+                        
+            loadTableFields(selectedTableId, useUserDefinedTableType);
+        });        
+        
+
+        $('#createNewTableButton').click(function() {
+            alert('Not yet implemented');
+        });   
+
+        $('#tableFieldsGridDiv').on('click', 'img.fieldDescription', function() {
+            var fieldId = $(this).data('id');
+            var title = $(this).data('title');
+            var url = Ext.String.format('@Url.Action("TableFieldDescription", "Format")?fieldId={0}', fieldId);  
+            AnalysisPortal.showDialog({
+                title: title,
+                url: url
+            });
+        });
+    });
+    
+    function initToolbar() {        
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetSpeciesObservationTableSettings", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });      
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {        
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);        
+
+        // show/hide "delete custom table" button
+        var id = $('#tableTypeSystemDefinedSelectList').val();        
+        if (id < nrSystemDefinedTables) {
+            $("#deleteCustomTable,#editCustomTable").hide();    
+            
+        }
+        else {
+            $("#deleteCustomTable,#editCustomTable").show();                
+        }
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+   
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+    
+    function getPageSettingsObject() {        
+        var id = $('#tableTypeSystemDefinedSelectList').val();        
+        if (id < nrSystemDefinedTables) {
+            selectedTableId = id;
+            useUserDefinedTableType = false;
+        }
+        else {
+            selectedTableId = id - nrSystemDefinedTables;                
+            useUserDefinedTableType = true;
+        }
+        
+        var useLabelAsColumnHeader = $('input[name=columnHeaderType]:checked').val() == 0;        
+        var data = {
+            UseUserDefinedTableType : useUserDefinedTableType,
+            SelectedTableId : selectedTableId,
+            UseLabelAsColumnHeader: useLabelAsColumnHeader
+        };
+        return data;
+    }
+
+  
+
+    function loadTableFields(id, useUserDefinedTable) {        
+        tableFieldsStore.load({
+            params: {
+                tableId: id,
+                useUserDefinedTable: useUserDefinedTable
+            }
+        });           
+    }
+    
+    function createTableFieldsGrid() {
+        AnalysisPortal.Models.defineTableFieldDescriptionViewModel();        
+        tableFieldsStore = AnalysisPortal.createJsonStore('TableFieldDescriptionViewModel', '@Html.Raw(Url.Action("GetTableFields", "Format"))');
+
+        tableFieldsGrid = Ext.create('Ext.grid.Panel', {
+            id: 'tableFieldsGrid',
+            store: tableFieldsStore,
+            title: '@Resource.PresentationTableTableFields',
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 420,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }                
+            },            
+            renderTo: 'tableFieldsGridDiv',           
+            columns: [              
+                { text: '', width: 30, dataIndex: 'Id', renderer: function (value, meta, record) {
+                    return Ext.String.format('<img class="mousepointer fieldDescription" src="/Content/images/information-white.png" data-id="{0}" data-title="{1}" title="{1}" />', value, record.data.Name);
+                }},               
+                { text: '@Resource.TableSettingsFieldId', width: 45, dataIndex: 'Id', sortable: true },
+                { text: '@Resource.TableSettingsFieldName', width: 120, dataIndex: 'Name', sortable: true },
+                { text: '@Resource.TableSettingsFieldLabel', width: 120, dataIndex: 'Label', sortable: true},
+                { text: '@Resource.TableSettingsFieldClass', width: 120, dataIndex: 'Class', sortable: true},                
+                { text: '@Resource.TableSettingsFieldMandatory', width: 70, dataIndex: 'IsMandatory', sortable: true},
+                { text: '@Resource.TableSettingsFieldImplemented', width: 75, dataIndex: 'IsImplemented', sortable: true},
+                { text: '@Resource.TableSettingsFieldProvider', width: 80, dataIndex: 'IsObtainedFromProvider', sortable: true},
+                { text: '@Resource.TableSettingsFieldImportance', width: 75, dataIndex: 'Importance', sortable: true}
+            ],
+            columnLines: true
+        });
+        
+    }
+
+   
+</script>  
+   

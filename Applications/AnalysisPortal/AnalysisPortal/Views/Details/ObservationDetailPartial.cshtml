@@ -1,0 +1,172 @@
+﻿@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Details.ObservationDetailViewModel
+
+@{
+    string title = string.Format("{0} (ObsId: {1})", Resource.ObservationDetailsTitle, Model.ObservationId);    
+}
+
+<div style="border-style: solid; border-width: 2px; border-color: lightgray;  padding:0px 4px 4px 4px;">
+    <div><input id="showOnlyFieldsWithDataCheckbox" type="checkbox" checked="checked">&nbsp;@Resource.ObservationDetailsShowOnlyFieldsWithData</input></div>
+    <div><input id="showDwcAsFieldTitleCheckbox" type="checkbox">&nbsp;@Resource.ObservationDetailsShowDarwinCoreAsFieldName</input></div>
+    <div>
+        <select id="fieldImportanceSelectbox" style="width: 300px; margin-bottom: 0px;">
+            <option value="100" selected="selected">@Resource.ObservationDetailsFieldsByImportance5</option>
+            <option value="4">@Resource.ObservationDetailsFieldsByImportance4</option>
+            <option value="3">@Resource.ObservationDetailsFieldsByImportance3</option>
+            <option value="2">@Resource.ObservationDetailsFieldsByImportance2</option>
+            <option value="1">@Resource.ObservationDetailsFieldsByImportance1</option>
+        </select>
+    </div>  
+</div>      
+
+<div id="observationDetailTableDiv" style="padding-top:10px;">
+    @if (Model == null)
+    {
+        <h3>Error! Observation Id "@Model.ObservationId" doesn't exist</h3>
+    }
+</div>
+
+
+
+<script type="text/javascript">
+    var showDarwinCoreAsTitle = false;
+    var importanceLimit = 100;
+    var allObservationDetailFields = [];
+    var allProjects = [];
+    var dicFields = [];
+    @if (Model != null)
+    {
+        foreach (var field in Model.Fields)
+        {
+       <text>
+        allObservationDetailFields.push({
+            Class: '@Html.Raw(field.Class)',
+            Name: '@Html.Raw(field.Name)',
+            Label: '@Html.Raw(field.Label)',
+            Importance: @Html.Raw(field.Importance),
+            Value: '@Html.Raw(field.Value)'
+        });
+        </text>
+        }
+
+        if (Model.Projects != null)
+        {
+            foreach (var project in Model.Projects)
+            {
+            <text>
+            allProjects.push({
+                Name: '@Resource.SharedProject - @Html.Raw(project.Name)',
+                ProjectParameters: [              
+                    @{
+                        int i = 0;
+                        foreach (var projectParameter in project.ProjectParameters.Values)
+                        {
+                            <text> {
+                                Name: '@Html.Raw(projectParameter.Name)',
+                                Label: '@Html.Raw(projectParameter.Label)',
+                                Value: '@Html.Raw(projectParameter.Value)'
+                            } @if (i < project.ProjectParameters.Count - 1) { @Html.Raw(",") }
+                            </text>
+                            i++;
+                        }
+                    }
+                    @*@for (int i=0; i < project.ProjectParameters.Count; i++)
+                    {
+                    <text> {
+                        Name: '@Html.Raw(project.ProjectParameters[i].Name)',
+                        Label: '@Html.Raw(project.ProjectParameters[i].Label)',
+                        Value: '@Html.Raw(project.ProjectParameters[i].Value)'
+                    } @if (i < project.ProjectParameters.Count - 1) { @Html.Raw(",") }
+                    </text>
+                    }*@
+                ]
+            });
+            </text>
+            }
+        }
+    }
+
+    $(document).ready(function() {
+        @if (Model != null)
+        {
+            @:initPage();
+        }
+    });
+
+    function initPage() {
+        $('#showOnlyFieldsWithDataCheckbox').change(function () {
+            updateTable();
+        });
+        $('#showDwcAsFieldTitleCheckbox').change(function () {
+            showDarwinCoreAsTitle = !showDarwinCoreAsTitle;
+            updateTable();
+        });
+        $('#fieldImportanceSelectbox').change(function () {
+            importanceLimit = parseInt($(this).val());
+            updateTable();
+        });
+
+        for (var i = 0; i < allObservationDetailFields.length; i++) {
+            var field = allObservationDetailFields[i];
+            if (!dicFields.hasOwnProperty(field.Class)) {
+                dicFields[field.Class] = [];
+            }
+            dicFields[field.Class].push(field);
+        }
+        updateTable();
+    }
+
+
+    function updateTable() {
+        var $table = createTable();
+        var $tableDiv = $("#observationDetailTableDiv");
+        $tableDiv.empty();
+        $table.appendTo($tableDiv);
+    }
+
+    function createTable() {
+        var tbl = $('<table></table>').attr({ 'class': "table table-striped table-bordered table-condensed" });
+        var strHeader = "<thead><tr><th style='width: 150px;'>" + AnalysisPortal.Resources.ObservationDetailsField +
+            "</th><th>" + AnalysisPortal.Resources.ObservationDetailsValue + "</th></tr></thead>";
+        $(strHeader).appendTo(tbl);
+        var rowTemplate = '<tr><td>{0}</td><td class="breakable">{1}</td></tr>';
+        var titleRowTemplate = '<tr><td colspan="2"><h4>{0}</h4></td></tr>';
+        var projectTitleRowTemplate = '<tr><td colspan="2"><h4>{0}</h4></td></tr>';
+        var projectParameterRowTemplate = '<tr><td>{0}</td><td class="breakable">{1}</td></tr>';
+        var showOnlyObservationsWithData = $('#showOnlyFieldsWithDataCheckbox').is(':checked');
+        var titleRow;
+        var sf;
+
+        for (var title in dicFields) {
+            titleRow = Ext.String.format(titleRowTemplate, title);
+            $(titleRow).appendTo(tbl);
+            for (var i = 0; i < dicFields[title].length; i++) {
+                if (showOnlyObservationsWithData && AnalysisPortal.isStringNullOrEmpty(dicFields[title][i].Value))
+                    continue;
+                if (dicFields[title][i].Importance > importanceLimit)
+                    continue;
+
+                var val = dicFields[title][i].Value;
+                val = AnalysisPortal.autolink(val, { "target": "_blank" });
+                sf = Ext.String.format(rowTemplate, showDarwinCoreAsTitle ? dicFields[title][i].Name : dicFields[title][i].Label, val);
+                $(sf).appendTo(tbl);
+            }
+
+            // Add project parameters after Project
+            if (title === 'Project') {
+                for (var k = 0; k < allProjects.length; k++) {
+                    titleRow = Ext.String.format(projectTitleRowTemplate, allProjects[k].Name);
+                    $(titleRow).appendTo(tbl);
+
+                    for (var j = 0; j < allProjects[k].ProjectParameters.length; j++) {
+                        sf = Ext.String.format(projectParameterRowTemplate, showDarwinCoreAsTitle ? allProjects[k].ProjectParameters[j].Name : allProjects[k].ProjectParameters[j].Label, allProjects[k].ProjectParameters[j].Value);
+                        $(sf).appendTo(tbl);
+                    }
+                }
+            }
+        }
+
+        return tbl;
+    }
+
+</script>

@@ -1,0 +1,240 @@
+﻿@using ArtDatabanken.WebApplication.Dyntaxa.Data
+@model dynamic
+
+@*<h2>Search by taxon name</h2>*@
+
+<div>
+    <input type="text" id="txtSearchText" style="width: 300px;"/>
+    <button id="btnTaxaListSearch" type="button" style="vertical-align: middle;">@Resources.DyntaxaResource.MenuItemSearch</button>        
+    &nbsp; &nbsp;           
+</div>
+
+
+@*<fieldset class="dyntaxa-expander-panel" style="width: 600px;">
+    <h2 id="searchOptions" class="closed">@Resources.DyntaxaResource.TaxonSearchOptionsLabel</h2>
+    <div class="fieldsetContent">        
+        @Html.Partial("SearchOptions", new TaxonSearchOptions(), new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "SearchOptions" } })        
+    </div>
+</fieldset>*@
+
+<div>
+    @*@Html.Partial("TaxonSearchOptions", new TaxonSearchOptions(), new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "SearchOptions" } })    *@
+    @*@Html.Partial("TaxonSearchOptions", Model.SearchOptions, new ViewDataDictionary { TemplateInfo = new TemplateInfo { HtmlFieldPrefix = "SearchOptions" } })*@
+    <div id="searchRestrictionsInfo"></div>
+</div>
+<div id="tableResultDiv" style=""></div>
+@*<div id="tableResultDiv" style="width: 600px; overflow: scroll;"></div>*@
+
+<script type="text/javascript">
+    var isSearching = false;
+
+
+    $(document).ready(function () {
+        $("#txtSearchText").focus().select();
+        $("#txtSearchText").keypress(function (event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == '13') {
+                searchTaxa();
+            }
+        });
+        initToggleFieldsetH2();
+        $('#btnTaxaListSearch').click(searchTaxa);        
+    });
+
+
+    function createTable(data) {        
+        var tbl = $('<table></table>').attr({ 'class': "table", style: "table-layout: fixed" });
+        var strHeader =
+            "<thead><tr>" +
+                "<th style='width: 190px;'>" + "@Resources.DyntaxaResource.TaxonSearchHit" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSearchNameCategory" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSharedScientificName" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSharedAuthor" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSharedCommonName" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSharedCategory" + "</th>" +
+                "<th>" + "@Resources.DyntaxaResource.TaxonSearchTaxonId" + "</th>" +
+                "<th>" + "Status" + "</th>" +
+            "</tr></thead>";        
+        $(strHeader).appendTo(tbl);
+        var rowTemplate = '<tr><td>{0}</td><td>{1}</td></tr>';
+        var titleRowTemplate = '<tr><td style="padding-top: 10px" colspan="2"><h4>{0}</h4></td></tr>';
+
+        $.each(data, function (key, val) {
+            //var sf = Ext.String.format(rowTemplate, showDarwinCoreAsTitle ? dicFields[title][i].Name : dicFields[title][i].Label, val);
+            var taxonName = val.ScientificName;
+            if (val.Author != null && val.Author != "")
+                taxonName += " " + val.Author;
+            if (val.CommonName != null && val.CommonName != "")
+                taxonName += ", " + val.CommonName;
+
+            var statusImageUrl = "~/Images/Icons/info_right_green.png";
+            if (val.TaxonStatus == 1)
+                statusImageUrl = "~/Images/Icons/info_right_yellow.png";
+            if (val.TaxonStatus == 2)
+                statusImageUrl = "~/Images/Icons/info_right_red.png";
+
+            var sf =
+                "<tr>" +
+                    '<td><a href="#" onclick="showTaxonInfo(' + val.TaxonId + ", '" + taxonName  + "'" + '); return false;">' + val.SearchMatchName + "</a></td>" +
+                    "<td>" + val.NameCategory + "</td>" +
+                    "<td>" + val.ScientificName + "</td>" +
+                    "<td>" + val.Author + "</td>" +
+                    "<td>" + val.CommonName + "</td>" +
+                    "<td>" + val.Category + "</td>" +
+                    "<td>" + val.TaxonId + "</td>" +
+                    //"<td><img src='" + statusImageUrl + "'</img></td>" +
+                    "<td>" + val.TaxonStatus + "</td>" +
+                "</tr>";
+            $(sf).appendTo(tbl);
+
+
+            //items.push('<li id="' + key + '">' + val + '</li>');
+        });
+        return tbl;
+
+
+        //for (var title in dicFields) {
+        //    var titleRow = Ext.String.format(titleRowTemplate, title);
+        //    $(titleRow).appendTo(tbl);
+        //    for (var i = 0; i < dicFields[title].length; i++) {
+        //        if (showOnlyObservationsWithData && AnalysisPortal.isStringNullOrEmpty(dicFields[title][i].Value))
+        //            continue;
+        //        if (dicFields[title][i].Importance > importanceLimit)
+        //            continue;
+
+        //        var val = dicFields[title][i].Value;
+        //        val = AnalysisPortal.autolink(val, { "target": "_blank" });
+        //        var sf = Ext.String.format(rowTemplate, showDarwinCoreAsTitle ? dicFields[title][i].Name : dicFields[title][i].Label, val);
+        //        $(sf).appendTo(tbl);
+        //    }
+        //}
+        //return tbl;
+    }
+
+    function showTaxonInfo(taxonId, name) {
+        
+        $("#Select1").append($('<option>', { value: taxonId, text: name }));        
+        $("#Select1").select2("val", taxonId);
+        $('#dialog-search-taxon').dialog("close");
+
+        return;        
+      @*  jQuery.post('@Url.Action("EditHostFactorsForSubstrateAddTaxon", "SpeciesFact")', {
+                taxonId: taxonId
+            },
+            function (data) {
+                console.log(data);
+                if (data == true) {
+                    location.reload(true);
+                } else {
+                    alert('Error! Could not add taxon');
+                }
+            }, "json");*@
+
+        
+    }
+
+    function searchTaxa() {        
+        if (isSearching) {
+            return;
+        }
+        //var nameSearchString = $("#txtSearchText").val();
+        //var nameCompareOperator = $("#SearchOptions_NameCompareOperator").val();
+        //var isUnique = $("#SearchOptions_IsUnique").val();
+        //var isValidTaxon = $("#SearchOptions_IsValidTaxon").val();
+        //var isRecommended = $("#SearchOptions_IsRecommended").val();
+        //var isOkForObsSystems = $("#SearchOptions_IsOkForObsSystems").val();
+        //var isValidTaxonName = $("#SearchOptions_IsValidTaxonName").val();
+        //var nameCategoryId = $("#SearchOptions_NameCategoryId").val();
+        //var authorSearchString = $("#SearchOptions_AuthorSearchString").val();
+
+        var nameSearchString = $("#txtSearchText").val();
+        var nameCompareOperator = "BeginsWith";
+        var isUnique = "";
+        var isValidTaxon = "True";
+        var isRecommended = "";
+        var isOkForObsSystems = "";
+        var isValidTaxonName = "";
+        var nameCategoryId = "";
+        var authorSearchString = "";
+
+
+
+        //$('#collapseOne').collapse("hide");            
+        //AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedSearching, 'searchSection');
+        //searchGrid.setLoading(false, false);
+
+
+        var url = '@Url.Action("GetTaxaBySearch")';
+
+        isSearching = true;
+        
+        $.getJSON(url, {
+                nameSearchString: nameSearchString,
+                nameCompareOperator: nameCompareOperator,
+                authorSearchString: authorSearchString,
+                isUnique: isUnique,
+                isValidTaxon: isValidTaxon,
+                isRecommended: isRecommended,
+                isOkForObsSystems: isOkForObsSystems,
+                isValidTaxonName: isValidTaxonName,
+                nameCategoryId: nameCategoryId
+        },
+        function (data) {
+            if (data.success == false) {
+                alert(data.msg);
+                return;
+            }                
+
+            isSearching = false;
+            var $table = createTable(data.data);
+            var $tableDiv = $("#tableResultDiv");
+            $tableDiv.empty();
+            $table.appendTo($tableDiv);
+
+
+            //var items = [];
+            //$.each(data.data, function (key, val) {
+            //    items.push('<li id="' + key + '">' + val + '</li>');
+            //});
+
+            //$('<ul/>', {
+            //    'class': 'my-new-list',
+            //    html: items.join('')
+            //}).appendTo('body');
+        });
+
+
+
+
+        //searchTaxaStore.load({
+        //    params: {
+        //        nameSearchString: nameSearchString,
+        //        nameCompareOperator: nameCompareOperator,
+        //        authorSearchString: authorSearchString,
+        //        isUnique: isUnique,
+        //        isValidTaxon: isValidTaxon,
+        //        isRecommended: isRecommended,
+        //        isOkForObsSystems: isOkForObsSystems,
+        //        isValidTaxonName: isValidTaxonName,
+        //        nameCategoryId: nameCategoryId
+        //    },
+        //    callback: function (records, operation, success) {
+        //        //AnalysisPortal.hideWaitMsg('searchSection');
+        //        isSearching = false;
+
+        //        var result = Ext.JSON.decode(operation.response.responseText);
+        //        if (result.extra != null) {
+        //            $("#searchRestrictionsInfo").empty().html(result.extra);
+        //            //rendersearchRestrictionsInfo(result.extra);
+        //        }
+
+        //        if (searchTaxaStore.getCount() == 1)
+        //            searchGrid.getSelectionModel().selectAll(true);
+        //    }
+        //});
+    }
+
+
+
+
+</script>

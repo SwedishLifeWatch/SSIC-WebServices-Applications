@@ -1,0 +1,121 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+       <head>        
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+        <title>WFS map</title>
+        <link href="~/Content/images/favicon.ico" rel="shortcut icon" type="image/x-icon" />        
+        <meta name="viewport" content="width=device-width" />        
+
+        <link href="~/Content/bootstrap.css?m=20121015023859" rel="stylesheet" type="text/css" />
+
+        
+        <script src="~/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.js?m=20120917091752" type="text/javascript"></script>
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+        <script src="~/Scripts/json2.js?m=20120810073657" type="text/javascript"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?v=3.6&amp;sensor=false" type="text/javascript"> </script>
+        <script src="~/Scripts/OpenLayers/OpenLayers.js?m=20120430013840" type="text/javascript"> </script>
+        <script src="~/Scripts/OpenLayers/Lang/sv-SE.js?m=20120926034853" type="text/javascript"> </script>
+        <script src="~/Scripts/OpenLayers/Lang/en.js?m=20120430013838" type="text/javascript"> </script>
+        <script src="~/Scripts/AnalysisPortal/AnalysisPortal.js?m=20120926032111" type="text/javascript"></script>        
+        <script src="~/Scripts/AnalysisPortal/AnalysisPortal.Models.js?m=20120921074315" type="text/javascript"></script>
+        <script src="~/Scripts/AnalysisPortal/AnalysisPortal.GIS.js?m=20120927092126" type="text/javascript"></script>
+
+        <style type="text/css">
+            .map { width:600px; height:400px;}
+            .map img { max-width:none; }
+        </style>
+
+
+        <script type="text/javascript">
+            AnalysisPortal.ApplicationPath = '/';
+            if (AnalysisPortal.ApplicationPath == '/') {
+                AnalysisPortal.ApplicationPath = '';
+            }
+
+            AnalysisPortal.Language = 'sv-SE';
+        </script>
+    </head>
+    <body>
+        <div>
+              <h3>WFS map</h3>
+
+              <div id="map" class="map" style="border: 1px solid #CCCCCC; height: 256px; width: 512px;"></div>
+
+        </div>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                createWFSMapLayer();
+            });
+
+
+            function createWFSMapLayer() {
+                var protocol = new OpenLayers.Protocol.WFS({
+                    version: "1.1.0",
+                    url: "http://demo.opengeo.org/geoserver/wfs",
+                    featureType: "tasmania_roads",
+                    featureNS: "http://www.openplans.org/topp",
+                    geometryName: "the_geom"
+                });
+
+
+                OpenLayers.ProxyHost = '../../Proxy.ashx?url=';
+
+                var map = new OpenLayers.Map({
+                    div: "map",
+                    layers: [
+                new OpenLayers.Layer.WMS(
+                    "Natural Earth",
+                    "http://demo.opengeo.org/geoserver/wms",
+                    { layers: "topp:naturalearth" }
+                ),
+                new OpenLayers.Layer.Vector("WFS", {
+                    strategies: [new OpenLayers.Strategy.BBOX()],
+                    protocol: new OpenLayers.Protocol.WFS({
+                        url: "http://demo.opengeo.org/geoserver/wfs",
+                        featureType: "tasmania_roads",
+                        featureNS: "http://www.openplans.org/topp"
+                    }),
+                    styleMap: new OpenLayers.StyleMap({
+                        strokeWidth: 3,
+                        strokeColor: "#333333"
+                    }),
+                    filter: new OpenLayers.Filter.Logical({
+                        type: OpenLayers.Filter.Logical.OR,
+                        filters: [
+                            new OpenLayers.Filter.Comparison({
+                                type: OpenLayers.Filter.Comparison.EQUAL_TO,
+                                property: "TYPE",
+                                value: "highway"
+                            }),
+                            new OpenLayers.Filter.Comparison({
+                                type: OpenLayers.Filter.Comparison.EQUAL_TO,
+                                property: "TYPE",
+                                value: "road"
+                            })
+                        ]
+                    })
+                })
+            ],
+                    center: new OpenLayers.LonLat(146.7, -41.8),
+                    zoom: 6
+                });
+
+
+            }            
+            
+        </script>
+
+    </body>
+</html>

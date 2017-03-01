@@ -1,0 +1,72 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.WorkflowViewModel
+
+@{
+    ViewBag.Title = "Workflow - BioVel";
+}
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+<p class="intro">
+    @Resource.ResultWorkflowIntroduction
+</p>    
+
+<div>
+    <button class="btn action-button" id="speciesObservationGridWorkflowButton">@Resource.ResultWorkflowEcologicalNicheModeling</button>
+</div>
+<div id="speciesObservationGridWorkflowResult" class="alert alert-success workflowResult" style="display: none">
+    
+</div>
+
+<script type="text/javascript">
+
+    $(function () {        
+        @if (Model.IsUserLoggedIn && !Model.IsUserCurrentRolePrivatePerson)
+        {
+            @:showUserNotLoggedInDialog();
+        }
+
+        $('#speciesObservationGridWorkflowButton').click(function() {
+            startSpeciesObservationGridWorkflow();
+        });
+    });
+
+    function showUserNotLoggedInDialog() {
+        var url = '@Url.Action("WorkflowUserAccessErrorDialog", Model)';        
+
+        AnalysisPortal.showDialog({
+            title: '@Resource.ResultWorkflowCurrentRoleIsNotPrivatePerson',
+            url: url
+        });
+    }
+
+    function startSpeciesObservationGridWorkflow() {
+        startWorkflow('speciesObservationGridWorkflowResult', '@Url.Action("SpeciesObservationGridAsCsvStoreFileOnServer", "Download")');        
+    }
+
+    function resetWorkflowResultAlerts() {
+        $('.workflowResult').hide();
+    }
+
+    function startWorkflow(resultDivId, calculationUrl) {
+        resetWorkflowResultAlerts();
+        $('#' + resultDivId).hide();
+        AnalysisPortal.showWaitMsg(AnalysisPortal.Resources.SharedWait);        
+        AnalysisPortal.makeAjaxCall({
+            url: calculationUrl,
+            showWaitMessage: true,
+            manualHideWaitMessage: true,
+            waitMessage: '@Resource.SharedCalculating'
+        },
+            function (result) {
+                var linksUrl = '@Url.Action("WorkflowLinks")';
+                linksUrl += '?absoluteUrl=' + result.data;
+                $('#' + resultDivId).load(linksUrl, function () {
+                        AnalysisPortal.hideWaitMsg();
+                        $(this).show();
+                    });                    
+            }
+         );
+    }
+
+</script>
+

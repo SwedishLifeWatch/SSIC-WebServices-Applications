@@ -1,0 +1,167 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.MySettingsSummary
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.DataProviders.DataProviders
+@using Resources
+@using System.Linq
+@using ArtDatabanken.WebApplication.AnalysisPortal.MySettings.DataModels
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Spatial
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Taxon
+@model MySettingsReportViewModel
+
+    @{
+        ViewBag.Title = Resource.ResultViewSettingsSummary;
+        var hasPolygon = false;
+    }
+<div class="report-content">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    @*<h3 class="page-title">@Resource.ResultViewSettingsSummary</h3>*@
+    <div style="margin-left: 10px;">
+        <div class="titled-toolbar">
+            <div class="btn-toolbar page-toolbar">
+                <div class="btn-group">
+                    <a class="btn action-button" href="@Url.Action("SettingsReportAsExcel", "Download")"><i class="icon-download"></i> &nbsp;@Resource.ButtonResultDownload</a>
+                </div>
+            </div>
+        </div>
+        <h3>@Resource.HeadMenuDataProviders</h3>
+        <div style="margin-left: 20px;">
+            @if (Model.Data.ContainsKey("DataProviders"))
+            {
+                <h4>@Resource.SettingsReportDataProviders</h4>
+                @Html.Partial("List", ((List<DataProviderViewModel>) Model.Data["DataProviders"]).Select(p => p.NameAndOrganization))
+            }
+
+            @if (Model.Data.ContainsKey("DataWfsLayers"))
+            {
+                <h4>@Resource.SettingsReportWfsLayers</h4>
+                @Html.Partial("List", (List<string>) Model.Data["DataWfsLayers"])
+            }
+
+            @if (Model.Data.ContainsKey("DataWmsLayers"))
+            {
+                <h4>@Resource.StateButtonDataProvidersWmsLayers</h4>
+                @Html.Partial("List", (List<string>) Model.Data["DataWmsLayers"])
+            }
+
+        </div>
+
+        <h3>@Resource.SettingsReportFilter</h3>
+        <div style="margin-left: 20px;">
+            @if (Model.Data.ContainsKey("FilterOccurrence"))
+            {
+                <h4>@Resource.StateButtonFilterOccurrence</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterOccurrence"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterTaxa"))
+            {
+                <h4>@Resource.SettingsReportTaxaFilter</h4>
+                @Html.Partial("~/Views/MySettings/TaxaSummary.cshtml", (List<TaxonViewModel>) Model.Data["FilterTaxa"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterRegion"))
+            {
+                <h4>@Resource.SharedRegion</h4>
+                @Html.Partial("List", ((List<RegionViewModel>) Model.Data["FilterRegion"]).Select(r => r.Name))
+            }
+
+            @if (Model.Data.ContainsKey("FilterPolygon"))
+            {
+
+                hasPolygon = true;
+                var filename = Path.GetRandomFileName();
+                filename = Path.ChangeExtension(filename, ".png");
+
+                <h4>@Resource.SettingsReportPolygonsFilter</h4>
+                var polygons = (List<DataPolygon>) Model.Data["FilterPolygon"];
+
+                @Html.Raw(string.Format("{0} {1}", polygons.Count, Resource.SettingsReportPolygons))
+
+                <div id="spatialPolygonSummaryImageDiv" style="width: 350px; height: 350px; border-style: solid; border-width: 1px; display: table-cell; vertical-align: middle; text-align: center;">
+                    <img id="spatialPolygonSummaryImage" src="@Url.Action("SpatialPolygonsSummaryImage", "MySettings", new {filename})"/>
+                    <img id="spatialPolygonWaitImage" src="~/Content/images/ajax-loader.gif"/>
+                </div>
+            }
+
+            @if (Model.Data.ContainsKey("FilterTemporal"))
+            {
+                <h4>@Resource.StateButtonFilterTemporal</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterTemporal"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterAccuracy"))
+            {
+                <h4>@Resource.StateButtonFilterAccuracy</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterAccuracy"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterLocality"))
+            {
+                <h4>@Resource.SettingsReportLocalityFilter</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterLocality"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterField"))
+            {
+                <h4>@Resource.SettingsReportFieldFilter</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterField"])
+            }
+
+            @if (Model.Data.ContainsKey("FilterRedList"))
+            {
+                <h4>@Resource.SettingsReportRedListFilter</h4>
+                @Html.Partial("List", (List<string>) Model.Data["FilterRedList"])
+            }
+
+        </div>
+
+        <h3>@Resource.SettingsReportSettings</h3>
+        <div style="margin-left: 20px;">
+            @if (Model.Data.ContainsKey("CalculationGrid"))
+            {
+                <h4>@Resource.GridStatisticsTitle</h4>
+                @Html.Partial("~/Views/MySettings/GridStatisticsSummary.cshtml", (GridStatisticsViewModel) Model.Data["CalculationGrid"])
+            }
+
+            @if (Model.Data.ContainsKey("CalculationSummary"))
+            {
+                <h4>@Resource.SummaryStatisticsTitle</h4>
+                @Html.Partial("~/Views/MySettings/SummaryStatisticsSummary.cshtml", (SummaryStatisticsViewModel) Model.Data["CalculationSummary"])
+            }
+
+            @if (Model.Data.ContainsKey("CalculationTime"))
+            {
+                <h4>@Resource.ResultTimeSeriesPeriodicityTitle</h4>
+                @Html.Partial("~/Views/MySettings/TimeSeriesSummary.cshtml", (TimeSeriesSettingsViewModel) Model.Data["CalculationTime"])
+            }
+        @*</div>
+        <h3>@Resource.ButtonGroupPresentation</h3>
+        <div style="margin-left: 20px;">*@
+            @if (Model.Data.ContainsKey("PresentationMap"))
+            {
+                <h4>@Resource.StateButtonPresentationCoordinateSystem</h4>
+                @Html.Partial("List", (List<string>) Model.Data["PresentationMap"])
+            }
+
+            @if (Model.Data.ContainsKey("PresentationFileFormat"))
+            {
+                <h4>@Resource.StateButtonPresentationFileFormat</h4>
+                @Html.Partial("List", (List<string>) Model.Data["PresentationFileFormat"])
+            }
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            @if (hasPolygon)
+            {
+                <text>
+                $("#spatialPolygonSummaryImage").load(function () {
+                    $("#spatialPolygonWaitImage").remove();
+                });
+                </text>
+            }
+        });
+    </script>

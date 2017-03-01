@@ -1,0 +1,343 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Result.ResultsDownloadViewModel
+@{
+    ViewBag.Title = Resource.ResultDownloads;
+    ViewBag.Description = Resource.ResultDownloadDescription;
+}
+
+@Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+
+<div id="downloadContents" class="content-box">
+    <select id="downloads" class="form-control">
+        <option>--@Resource.ResultDownloadSelectDownload--</option>
+        <optgroup data-typeid="1" label="@Resource.ResultDownloadGroupExcel">
+            <option value="@Url.Action("DataProviderStatisticsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadDataProviderStatisticsAsExcel</option>
+            <option value="@Url.Action("SpeciesObservationsAsExcel", "Download")" data-filtercheck="true" data-disabled="false" data-disabled-reason="" data-select-presentation-coordinate-system="true">@Resource.DownloadSpeciesObservationsAsExcel</option>
+            <option value="@Url.Action("ObservedTaxonListAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadDataObservedTaxonListAsExcel</option>
+            <option value="@Url.Action("SpeciesObservationCountPerTaxonAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.SpeciesObservationCountPerTaxonAsExcel</option>
+            <option value="@Url.Action("GridStatisticsOnSpeciesObservationCountsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadGridStatisticsOnSpeciesObservationCounts</option>
+            <option value="@Url.Action("GridStatisticsOnSpeciesCountsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadGridStatisticsOnSpeciesCounts</option>
+            <option value="@Url.Action("TaxonSpecificGridStatisticsOnSpeciesObservationCountsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadTaxonSpecificGridStatisticsOnSpeciesObservationCounts</option>
+            <option value="@Url.Action("TaxonSpecificGridOccurrenceAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadTaxonSpecificGridOccurrence</option>
+            <option value="@Url.Action("TimeSeriesOnSpeciesObservationCountsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadTimeSeriesOnSpeciesObservationCountsAsExcel</option>
+            <option value="@Url.Action("TimeSeriesOnSpeciesObservationAbundanceIndexAsExcel", "Download")" data-filtercheck="false" data-disabled="@(SessionHandler.MySettings.Filter.Taxa.TaxonIds.Count == 0 ? "true" : "false")" data-disabled-reason="@Resource.DownloadTaxaMustBeSelected">@Resource.DownloadTimeSeriesOnSpeciesObservationAbundanceIndexAsExcel</option>
+            @{
+                int wfsGridStatisticsLayerId = SessionHandler.MySettings.Calculation.GridStatistics.WfsGridStatisticsLayerId.GetValueOrDefault(-1);
+                <option value="@Url.Action("CombinedGridStatisticsAsExcel", "Download")" data-filtercheck="false" data-disabled="@(wfsGridStatisticsLayerId < 0 ? "true" : "false")" data-disabled-reason="@Resource.DownloadGridStatisticsWfsLayerMustBeSelected">@Resource.DownloadCombinedGridStatisticsAsExcel</option>
+
+                int wfsSummaryStatisticsLayerId = SessionHandler.MySettings.Calculation.SummaryStatistics.WfsSummaryStatisticsLayerId.GetValueOrDefault(-1);
+                <option value="@Url.Action("SummaryStatisticsPerPolygonAsExcel", "Download")" data-filtercheck="false" data-disabled="@(wfsSummaryStatisticsLayerId < 0 ? " true" : "false")" data-disabled-reason="@Resource.DownloadSummaryStatisticsWfsLayerMustBeSelected">@Resource.DownloadSummaryStatisticsPerPolygonAsExcel</option>
+                <option value="@Url.Action("TaxonSpecificOccurrencePerPolygonAsExcel", "Download")" data-filtercheck="false" data-disabled="@(wfsSummaryStatisticsLayerId < 0 ? " true" : "false")" data-disabled-reason="@Resource.DownloadSummaryStatisticsWfsLayerMustBeSelected">@Resource.DownloadTaxonSpecificOccurrencePerPolygon</option>
+                <option value="@Url.Action("TaxonSpecificSpeciesObservationCountPerPolygonAsExcel", "Download")" data-filtercheck="false" data-disabled="@(wfsSummaryStatisticsLayerId < 0 ? " true" : "false")" data-disabled-reason="@Resource.DownloadSummaryStatisticsWfsLayerMustBeSelected">@Resource.DownloadTaxonSpecificSpeciesObservationCountPerPolygon</option>
+                <option value="@Url.Action("SummaryStatisticsAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadSummaryStatisticsAsExcel</option>
+                <option value="@Url.Action("SpeciesObservationProvenancesAsExcel", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadSpeciesObservationProvenancesAsExcel</option>
+            }
+            <option value="@Url.Action("GetAOOEOOForTaxonAsExcel", "Download")" data-filtercheck="true" data-disabled="@(SessionHandler.MySettings.Filter.Taxa.TaxonIds.Count == 0 ? "true" : "false")" data-disabled-reason="@Resource.DownloadTaxaMustBeSelected">@Resource.DownloadAOOEOOForTaxonAsExcel</option>
+        </optgroup>
+        <optgroup data-typeid="2" label="@Resource.ResultDownloadGroupCsv">
+            <option value="@Url.Action("SpeciesObservationsAsCsv", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="" data-select-presentation-coordinate-system="true">@Resource.ResultViewSpeciesObservationTable</option>
+            <option value="@Url.Action("TaxonSpecificGridStatisticsOnSpeciesObservationCountsAsCsv", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadTaxonSpecificGridStatisticsOnSpeciesObservationCounts</option>
+            <option value="@Url.Action("TaxonSpecificGridOccurrenceAsCsv", "Download")" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.DownloadTaxonSpecificGridOccurrence</option>
+        </optgroup>
+        <optgroup data-typeid="4" label="@Resource.ResultDownloadGroupGeoJson">
+            <option value="-1:" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.ResultViewSpeciesRichnessGridMapLayerName</option>
+            <option value="-2:" data-filtercheck="false" data-disabled="false" data-disabled-reason="">@Resource.ResultViewSpeciesObservationGridMap</option>
+        </optgroup>
+        <optgroup data-typeid="5" label="@Resource.ResultDownloadGroupGeoTiff">
+            <option value="-1:SpeciesCount">@Resource.ResultDownloadSpeciesRichnessGridMap</option>
+            <option value="-1:ObservationCount">@Resource.ResultDownloadObservationsGridMap</option>
+            <option value="-2:ObservationCount">@Resource.ResultViewSpeciesObservationGridMap</option>
+        </optgroup>
+        <optgroup data-typeid="6" label="@Resource.ResultDownloadGroupShape">
+            <option value="-1:">@Resource.ResultViewSpeciesRichnessGridMapLayerName</option>
+            <option value="-2:">@Resource.ResultViewSpeciesObservationGridMap</option>
+        </optgroup>
+    </select>
+    <div class="col-xs-12 col-md-6">
+        <div id="excelOptions" style="margin-top: 20px;">
+            <div id="speciesObservationsExcelSettings">
+                <div id="excelSettingsPresentationCoordinateSystem">
+                    <label for="excelSettingsPresentationCoordinateSystemSelectList" style="font-weight: bold">@Resource.SharedCoordinateSystem:</label>
+                <select id="excelSettingsPresentationCoordinateSystemSelectList" style="width: 370px;">
+                    @foreach (CoordinateSystemViewModel coordinateSystem in ViewBag.CoordinateSystems)
+                    {
+                        <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected) { <text> selected="selected" </text>  }>@coordinateSystem.Name</option>
+                    }
+                </select>
+                </div>
+                <div id="excelSettingsTableColumns" style="margin-top: 10px;">
+                    <label for="excelSettingsTableTypeSystemDefinedSelectList" style="font-weight: bold; display: block;">@Resource.SharedColumns:</label>
+                    <select id="excelSettingsTableTypeSystemDefinedSelectList" style="width: 260px;">
+                        <optgroup label="@Resource.PresentationTablePredefinedTables">
+                            @for (int i = 0; i < ViewBag.TableColumnsModel.SystemDefinedTables.Count; i++)
+                            {
+                                TableTypeViewModel systemDefinedTable = ViewBag.TableColumnsModel.SystemDefinedTables[i];
+                                <option value="@systemDefinedTable.Id" @if (!ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId) { <text> selected="selected" </text>  }>@systemDefinedTable.Name</option>
+                            }
+                        </optgroup>
+                        <optgroup label="@Resource.PresentationTableUserDefinedTables">
+                            @for (int i = 0; i < ViewBag.TableColumnsModel.UserDefinedTables.Count; i++)
+                            {
+                                TableTypeViewModel userDefinedTable = ViewBag.TableColumnsModel.UserDefinedTables[i];
+                                int id = userDefinedTable.Id + ViewBag.TableColumnsModel.SystemDefinedTables.Count;
+                                <option value="@id" @if (ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId) { <text> selected="selected" </text>  }>@userDefinedTable.Name</option>
+                            }
+                        </optgroup>
+                    </select>
+                </div>
+                <br />
+                <div id="excelSettingsTableColumnHeadings">
+                    <label for="excelSettingsTableColumnsHeadingTypes" style="margin-top: 0px;">@Resource.SharedColumnHeaders:</label>
+                    <table id="excelSettingsTableColumnsHeadingTypes" style="width: auto;">
+                        <tr>
+                            <td style="vertical-align: middle">                                
+                                <span style="vertical-align: middle;">
+                                    <input type="radio" id="excelSettingsColumnHeaderTypeLabelRadioButton" name="columnHeaderType" value="0" @if (ViewBag.TableColumnsModel.UseLabelAsColumnHeader) { <text> checked="checked" </text>  }>
+                                    <label class="inlineLabel" style="font-weight: normal;vertical-align: text-bottom;" for="excelSettingsColumnHeaderTypeLabelRadioButton">
+                                        @Resource.SharedColumnHeaderTypeStandard
+                                    </label>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle">
+                                <span style="vertical-align: middle;">
+                                    <input type="radio" id="excelSettingsColumnHeaderTypeDarwinCoreRadioButton" name="columnHeaderType" value="1" class="checkboxRightMargin" @if (!ViewBag.TableColumnsModel.UseLabelAsColumnHeader) { <text> checked="checked" </text>    }>
+                                    <label class="inlineLabel" style="font-weight: normal;vertical-align: text-bottom;" for="excelSettingsColumnHeaderTypeDarwinCoreRadioButton">
+                                        @Resource.SharedColumnHeaderTypeDarwinCore
+                                    </label>
+                                </span>                                
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
+            </div>
+
+            @Html.CheckBox("cbAddSettings", true) @Resource.IncludeSettingSheet
+            <br/>
+            @Html.CheckBox("cbAddProvenance", true) @Resource.IncludeProvenance
+        </div>
+        <div id="geoTiffOptions" style="margin-top: 20px;">
+        </div>
+        <div id="csvOptions" style="margin-top: 20px;">
+            <div id="speciesObservationsCsvSettings">
+                <div id="csvSettingsPresentationCoordinateSystem">
+                    <label for="csvSettingsPresentationCoordinateSystemSelectList" style="font-weight: bold">@Resource.SharedCoordinateSystem:</label>
+                    <select id="csvSettingsPresentationCoordinateSystemSelectList" style="width: 370px;">
+                        @foreach (CoordinateSystemViewModel coordinateSystem in ViewBag.CoordinateSystems)
+                        {
+                            <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected) { <text> selected="selected" </text>   }>@coordinateSystem.Name</option>
+                        }
+                    </select>
+                </div>
+                <div id="csvSettingsTableColumns" style="margin-top: 10px;">
+                    <label for="csvSettingsTableTypeSystemDefinedSelectList" style="font-weight: bold; display: block;">@Resource.SharedColumns:</label>
+                    <select id="csvSettingsTableTypeSystemDefinedSelectList" style="width: 260px;">
+                        <optgroup label="@Resource.PresentationTablePredefinedTables">
+                            @for (int i = 0; i < ViewBag.TableColumnsModel.SystemDefinedTables.Count; i++)
+                            {
+                                TableTypeViewModel systemDefinedTable = ViewBag.TableColumnsModel.SystemDefinedTables[i];
+                                <option value="@systemDefinedTable.Id" @if (!ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId) { <text> selected="selected" </text>   }>@systemDefinedTable.Name</option>
+                            }
+                        </optgroup>
+                        <optgroup label="@Resource.PresentationTableUserDefinedTables">
+                            @for (int i = 0; i < ViewBag.TableColumnsModel.UserDefinedTables.Count; i++)
+                            {
+                                TableTypeViewModel userDefinedTable = ViewBag.TableColumnsModel.UserDefinedTables[i];
+                                int id = userDefinedTable.Id + ViewBag.TableColumnsModel.SystemDefinedTables.Count;
+                                <option value="@id" @if (ViewBag.TableColumnsModel.UseUserDefinedTableType && i == ViewBag.TableColumnsModel.SelectedTableId) { <text> selected="selected" </text>   }>@userDefinedTable.Name</option>
+                            }
+                        </optgroup>
+                    </select>
+                </div>
+                <br />
+                <div id="csvSettingsTableColumnHeadings">
+                    <label for="csvSettingsTableColumnsHeadingTypes" style="margin-top: 0px;">@Resource.SharedColumnHeaders:</label>
+                    <table id="csvSettingsTableColumnsHeadingTypes" style="width: auto;">
+                        <tr>
+                            <td style="vertical-align: middle">
+                                <input type="radio" id="csvSettingsColumnHeaderTypeLabelRadioButton" name="columnHeaderType" value="0" class="" @if (ViewBag.TableColumnsModel.UseLabelAsColumnHeader) { <text> checked="checked" </text>   } /><span style="vertical-align: middle;"><label class="inlineLabel" style="font-weight: normal;" for="csvSettingsColumnHeaderTypeLabelRadioButton">@Resource.SharedColumnHeaderTypeStandard</label></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle">
+                                <input type="radio" id="csvSettingsColumnHeaderTypeDarwinCoreRadioButton" name="columnHeaderType" value="1" class="checkboxRightMargin" @if (!ViewBag.TableColumnsModel.UseLabelAsColumnHeader) { <text> checked="checked" </text>   } /><span style="vertical-align: middle;"><label class="inlineLabel" style="font-weight: normal;" for="csvSettingsColumnHeaderTypeDarwinCoreRadioButton">@Resource.SharedColumnHeaderTypeDarwinCore</label></span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
+            </div>
+        </div>
+
+        <div id="mainToolbar" style="margin-top: 20px;">
+            <button type="button" id="btnDownload" class="btn btn-default">@Resource.StateButtonResultDownload</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+<script type="text/javascript">
+    var download = function () {
+        var $downloads;
+        var $excelOptions;
+        var $csvOptions;
+        var $geoTiffOptions;
+        var $mainToolbar;
+        var $btnDownload;
+
+        function init() {
+            $downloads = $('#downloads');
+            $excelOptions = $('#excelOptions');
+            $csvOptions = $('#csvOptions');
+            $geoTiffOptions = $('#geoTiffOptions');
+            $mainToolbar = $('#mainToolbar');
+            $btnDownload = $('#btnDownload');
+
+            $excelOptions.hide();
+            $csvOptions.hide();
+            $geoTiffOptions.hide();
+            $mainToolbar.hide();
+
+            $downloads.on('change', onDownLoadsChange);
+            $btnDownload.on('click', btmDownloadClick);
+
+            // Because of Radio button not checked bug in web browsers we have to set it using jQuery.
+            @if (ViewBag.TableColumnsModel.UseLabelAsColumnHeader)
+            {
+            <text>
+            $('#excelSettingsColumnHeaderTypeLabelRadioButton').prop('checked', 'checked');
+            </text>
+            }
+            else
+            {
+            <text>
+            $('#excelSettingsColumnHeaderTypeDarwinCoreRadioButton').prop('checked', 'checked');
+            </text>
+            }            
+        };
+
+        function onDownLoadsChange() {
+            var $selectedOption = $("option:selected", this);
+            var filterCheck = $selectedOption.data('filtercheck');
+            var typeId = parseInt($selectedOption.closest('optgroup').data('typeid'));
+            var selectedExport = $selectedOption.val();
+            var readyToExport = typeId < 4 && selectedExport; //Geojson and Geotiff have own toolbar, hide main toolbar
+
+            if (typeId === 1) { //Excel options
+                if ($selectedOption.data('select-presentation-coordinate-system')) {
+                    $('#speciesObservationsExcelSettings').show();
+                } else {
+                    $('#speciesObservationsExcelSettings').hide();
+                }
+                $excelOptions.show('slow');
+                } else {
+                $excelOptions.hide('slow');
+                }
+
+            if (typeId === 2) { // CSV optons
+                if ($selectedOption.data('select-presentation-coordinate-system')) {
+                    $csvOptions.show('slow');
+                } else {
+                    $csvOptions.hide('slow');
+                }
+                } else {
+                $csvOptions.hide('slow');
+                }
+
+            if (typeId > 3) { //Geotiff
+                var params = selectedExport.split(':');
+                var layerId = params[0];
+                var attribute = params[1];
+
+                var exportFormat;
+                switch (typeId) {
+                    case 4:
+                        exportFormat = 'GeoJson';
+                        break;
+                    case 5:
+                        exportFormat = 'GeoTiff';
+                        break;
+                    case 6:
+                        exportFormat = 'Shape';
+                        break;
+                }
+
+                $geoTiffOptions.load(AnalysisPortal.ApplicationPath + '/Result/_LayerExport?preSelectMode=true&layerId=' + layerId + '&attribute=' + attribute + '&exportFormat=' + exportFormat, function () {
+                    layerExport.Init();
+                    $geoTiffOptions.show('slow');
+                });
+                } else {
+                $geoTiffOptions.hide('slow');
+                }
+
+            if (filterCheck) {
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("IsFilterSelected", "Download")',
+                    success: function (filterIsSelected) {
+                        if (!filterIsSelected) {
+                            AnalysisPortal.showMsg('@Resource.ErrorToMuchData');
+                            readyToExport = false;
+                }
+                },
+                    async: false
+                });
+                }
+
+            if ($selectedOption.data('disabled')) {
+                AnalysisPortal.showMsg($selectedOption.data('disabled-reason'));
+                readyToExport = false;
+                }
+
+            if (readyToExport) {
+                $mainToolbar.show('slow');
+                } else {
+                $mainToolbar.hide('slow');
+                }
+                };
+
+                    function btmDownloadClick() {
+                        AnalysisPortal.blockWhileServerWorking();
+                        var $selectedOption = $("#downloads option:selected");
+                        var typeId = parseInt($selectedOption.closest('optgroup').data('typeid'));
+                        if (typeId === 1 && $selectedOption.data('select-presentation-coordinate-system')) { //Excel Species observations
+                            window.location.href = Ext.String.format(
+                                '{0}?addSettings={1}&addProvenance={2}&presentationCoordinateSystem={3}&columnsSet={4}&columnsHeadersType={5}',
+                                $selectedOption.val(),
+                                $('#cbAddSettings').is(':checked'),
+                                $('#cbAddProvenance').is(':checked'),
+                                $('#excelSettingsPresentationCoordinateSystemSelectList').val(),
+                                $('#excelSettingsTableTypeSystemDefinedSelectList').val(),
+                                $('#excelSettingsColumnHeaderTypeLabelRadioButton').is(':checked') ? 0 : 1);
+                        } else if (typeId === 2 && $selectedOption.data('select-presentation-coordinate-system')) { //CSV Species observations
+                            window.location.href = Ext.String.format(
+                                '{0}?presentationCoordinateSystem={1}&columnsSet={2}&columnsHeadersType={3}',
+                                $selectedOption.val(),
+                                $('#csvSettingsPresentationCoordinateSystemSelectList').val(),
+                                $('#csvSettingsTableTypeSystemDefinedSelectList').val(),
+                                $('#csvSettingsColumnHeaderTypeLabelRadioButton').is(':checked') ? 0 : 1);
+                        } else {
+                            window.location.href = Ext.String.format(
+                                '{0}?addSettings={1}&addProvenance={2}',
+                                $selectedOption.val(),
+                                $('#cbAddSettings').is(':checked'),
+                                $('#cbAddProvenance').is(':checked'));
+                        }
+
+
+
+                    };
+
+                    return {
+                        Init: init
+                    };
+                }();
+
+            $(document).ready(function () {
+                download.Init();
+            });
+</script>

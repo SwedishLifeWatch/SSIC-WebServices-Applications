@@ -1,0 +1,111 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation
+@using Resources
+@model PresentationTableViewModel
+
+@{
+    ViewBag.Title = Resource.PresentationTableSettings;
+}
+
+@Html.Partial("StateButtonGroup_Partial", ButtonGroupManager.PresentationButtonGroup)
+
+<div class="btn-toolbar">
+    <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+    <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    @*<button id="toolbarButtonHelp" class="btn toolbarButton" data-content="Help information..."><img src="@Url.Content("~/Content/images/question-octagon.png")"/>&nbsp;@Resource.SharedHelp</button>*@
+</div>
+
+<h2 style="margin-bottom: 15px;">@Resource.PresentationTableSettings</h2>
+@Resource.PresentationTableChooseTable
+
+<ul style="margin-top: 5px; margin-left: 10px;">
+    @for (int i = 0; i < Model.Tables.Count; i++)
+    {
+        PresentationTableTypeViewModel table = Model.Tables[i];
+        var inputId = string.Format("presentationTableTypeRadioButton{0}", i);
+        if (table.PageInfo != null)
+        {
+            <li>  
+                    <input id="@inputId" value="@table.Id" name="presentationTableType" type="radio" @if (table.IsSelected) { <text>checked="checked"</text> } @if (!table.HasSettings){<text>disabled ="disabled"</text> }/>
+                    <label style="vertical-align: middle;" class="inlineLabel" for="@inputId">@table.Title</label> - 
+                    @Html.ActionLink(Resource.SharedSettings.ToLower(), table.PageInfo.Action, table.PageInfo.Controller, null, new {style = "vertical-align:middle"}  )                                
+            </li>
+        }
+        else
+        {
+            <li>
+                <input id="@inputId" value="@table.Id" name="presentationTableType" type="radio" @if (table.IsSelected) { <text>checked="checked"</text> } @if (!table.HasSettings){<text>disabled ="disabled"</text> }/>
+                <label style="vertical-align: middle;" class="inlineLabel" for="@inputId" @if (!table.HasSettings){}>@table.Title</label>
+            </li>
+        }
+    }    
+</ul>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";    
+
+    $(document).ready(function() {
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        $('[name=presentationTableType] :checkbox').change(enableDisableButtons);
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTableSettings", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var tableTypeId = $('[name=presentationTableType]:checked').val();
+        var selectedTableTypes = [];
+        selectedTableTypes.push(tableTypeId);
+        var data = {
+            SelectedTableTypes: selectedTableTypes
+        };
+        return data;
+    }
+
+</script>

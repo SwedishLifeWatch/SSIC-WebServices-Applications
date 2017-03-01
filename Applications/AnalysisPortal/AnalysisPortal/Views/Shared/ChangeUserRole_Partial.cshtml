@@ -1,0 +1,11 @@
+﻿@if (ViewBag.IsLoggedIn != null && ViewBag.IsLoggedIn && ViewBag.MultipleRoles != null && ViewBag.MultipleRoles)
+{
+<ul>                 
+    <li class="changeRoles">@ViewBag.UserRole
+        <a href="@Url.Action("ChangeUserRole", "Account")">
+        <i class="icon-wrench"></i>
+            @Resources.Resource.AccountLogInChangeUserRole
+        </a>            
+    </li>   
+</ul>
+}

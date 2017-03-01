@@ -1,0 +1,79 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Report
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Report.PresentationReportViewModel
+
+@{
+    ViewBag.Title = Resource.PresentationSummaryStatisticsTitle;
+}
+
+@Html.Partial("StateButtonGroup_Partial", ButtonGroupManager.PresentationButtonGroup)
+
+<h2 style="margin-bottom: 15px;">@Resource.PresentationSummaryStatisticsTitle</h2>
+@Resource.PresentationReportChooseReport
+
+<ul style="margin-top: 5px; margin-left: 10px;">
+   @for (int i = 0; i < Model.Reports.Count; i++)
+    {
+        PresentationReportTypeViewModel report = Model.Reports[i];
+        var inputId = string.Format("presentationReportTypeRadioButton{0}", i);
+        if (report.PageInfo != null)
+        {
+            <li>
+                <input id="@inputId" value="@report.Id" name="presentationReportType" type="radio" @if (report.IsSelected)
+                                                                                                   { <text>checked="checked"</text> }  />
+                @Html.ActionLink(report.Title, report.PageInfo.Action, report.PageInfo.Controller, new {style = "vertical-align:middle" })                
+            </li>
+        }
+        else
+        {
+            <li>
+                <input id="@inputId" value="@report.Id" name="presentationReportType" type="radio" @if (report.IsSelected)
+                                                                                                  { <text>checked="checked"</text> } />
+                <label style="vertical-align: middle;" class="inlineLabel" for="@inputId">@report.Title</label>
+            </li>
+        }
+    }    
+</ul>
+
+
+<script type="text/javascript">
+
+    var strReportSettingsOnLoad = "";
+
+    $(document).ready(function () {
+
+        strReportSettingsOnLoad = createReportSettingsJsonString();
+    });
+
+    $(window).bind('beforeunload', function () {
+        updateMySettingsOnServer();
+    });
+
+    function updateMySettingsOnServer() {
+        var data = createReportSettingsJsonString();
+        if (strReportSettingsOnLoad === data)
+            return;
+        strReportSettingsOnLoad = data;
+        AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("UpdatePresentationReportSettings", "MySettings")',
+            params: {
+                data: data
+            },
+            async: false
+        });
+    }
+
+    function createReportSettingsJsonString() {
+        var reportTypeId = $('[name=presentationReportType]:checked').val();
+        var selectedReportTypes = [];
+        selectedReportTypes.push(reportTypeId);
+
+        var data = {
+            SelectedReportTypes: selectedReportTypes
+        };
+        var strData = Ext.encode(data);
+        return strData;
+    }
+
+</script>

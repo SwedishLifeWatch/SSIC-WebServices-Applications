@@ -1,0 +1,24 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation
+@using Resources
+@model string
+@{
+    List<CoordinateSystemViewModel> coordinateSystems;
+    
+    // If we render the map as image, we use Google Mercator
+    if (ViewBag.RenderImageMode != null && ViewBag.RenderImageMode == true) 
+    {
+        coordinateSystems = CoordinateSystemHelper.GetCoordinateSystems(CoordinateSystemId.GoogleMercator);
+    }
+    else
+    {
+        coordinateSystems = CoordinateSystemHelper.GetPresentationMapCoordinateSystems();
+    }
+}
+<select id="@Html.Raw(Model)" class="coordinate-system" title="@Resource.SharedCoordinateSystemTooltip" name="coordinateSystem">
+    @foreach (CoordinateSystemViewModel coordinateSystem in coordinateSystems)
+    {
+        <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected) { <text>selected="selected"</text> }>@coordinateSystem.Name</option>    
+    }    
+</select>

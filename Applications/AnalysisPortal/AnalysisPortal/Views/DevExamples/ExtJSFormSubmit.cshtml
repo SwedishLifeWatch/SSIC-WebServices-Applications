@@ -1,0 +1,284 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ext JS Grid sample</title>
+        <link href="~/Content/ext-all-slate-min.css" rel="stylesheet" type="text/css" />      
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript" charset="utf-8"></script>                
+       
+        <script type="text/javascript">
+            Ext.require(['*']);
+
+            Ext.onReady(function () {
+
+                var required = '<span style="color:red;font-weight:bold" data-qtip="Required">*</span>';
+                
+                var simple = Ext.widget({
+                    xtype: 'form',
+                    standardSubmit : true, // true = ordinary HTML POST, false = Ajax post
+                    renderTo: 'panelDiv',                        
+                    layout: 'form',
+                    collapsible: false,
+                    id: 'simpleForm',
+                    url: '@Url.Action("ExtJSFormSubmit")',
+                    frame: true,
+                    title: 'HTML POST Form',
+                    bodyPadding: '5 5 0',
+                    width: 350,
+                    fieldDefaults: {
+                        msgTarget: 'side',
+                        labelWidth: 75
+                    },
+                    defaultType: 'textfield',
+                    items: [{
+                        fieldLabel: 'Name',
+                        afterLabelTextTpl: required,
+                        name: 'name',
+                        allowBlank: false
+                    }, {
+                        fieldLabel: 'Age',
+                        afterLabelTextTpl: required,
+                        name: 'age',
+                        xtype: 'numberfield',
+                        minValue: 0,
+                        maxValue: 100,
+                        allowBlank: false
+                    },
+                    new Ext.form.ComboBox({
+                        fieldLabel: 'Rating',
+                        store: new Ext.data.SimpleStore({ 
+                            fields: ['value', 'name'], 
+                            data: [['1', 'Very good'], ['2', 'Good'], ['3', 'Bad']] 
+                        }), 
+                        name: 'rating', 
+                        displayField: 'name', 
+                        valueField: 'value'
+                    })]                     
+                    ,
+                    buttons: [{
+                        text: 'Save',                        
+                        handler: function () {
+                            simple.getForm().submit();
+                        }
+                    }]
+                });
+
+
+
+
+
+                var ajaxForm = Ext.widget({
+                    xtype: 'form',
+                    standardSubmit: false, // true = ordinary HTML POST, false = Ajax post
+                    renderTo: 'ajaxFormDiv',
+                    layout: 'form',
+                    collapsible: false,
+                    id: 'ajaxForm',
+                    url: '@Url.Action("ExtJSFormSubmit")',
+                    frame: true,
+                    title: 'Ajax POST Form',
+                    bodyPadding: '5 5 0',
+                    width: 350,
+                    fieldDefaults: {
+                        msgTarget: 'side',
+                        labelWidth: 75
+                    },
+                    defaultType: 'textfield',
+                    items: [{
+                        fieldLabel: 'Name',
+                        afterLabelTextTpl: required,
+                        name: 'name',
+                        allowBlank: false
+                    }, {
+                        fieldLabel: 'Age',
+                        afterLabelTextTpl: required,
+                        name: 'age',
+                        xtype: 'numberfield',
+                        minValue: 0,
+                        maxValue: 100,
+                        allowBlank: false
+                    }],
+                    buttons: [{
+                        text: 'Save',
+                        handler: function () {                            
+                            var form = ajaxForm.getForm();
+                            if (form.isValid()) {
+                                // Submit the Ajax request and handle the response
+                                form.submit({
+                                    success: function (fo, action) {
+                                        Ext.Msg.alert('Success', action.result.msg);
+                                    },
+                                    failure: function (fo, action) {
+                                        Ext.Msg.alert('Failed', action.result ? action.result.msg : 'No response');
+                                    }
+                                });
+                            }
+                        }
+                        
+                    }]
+                });
+
+                Ext.define('RowDelimiterModel', {
+                    extend: 'Ext.data.Model',
+                    fields: [
+                    { name: 'Text', type: 'string' },                    
+                    { name: 'Value', type: 'int' }
+                ]
+                });
+                
+
+//                var store = Ext.create('Ext.data.JsonStore', {
+//                    //id:'store',
+//                    model: 'NazioniList',
+//                    autoLoad: true,
+//                    proxy: {
+//                        type: 'ajax',
+//                        url: 'prova.php',
+//                        actionMethods: {
+//                            read: 'POST'
+//                        },
+//                        reader: {
+//                            type: 'json',
+//                            root: 'owners'
+//                        }
+//                    }
+//                });
+
+                //var store = Ext.create('Ext.data.Store', {
+                var rowDelimitersStore = Ext.create('Ext.data.JsonStore', {
+                    model: 'RowDelimiterModel',
+                    autoLoad: false,
+                    proxy: {
+                        // load using HTTP
+                        type: 'ajax',
+                        url: 'GetAllRowDelimiters',
+                        reader: {
+                            type: 'json',
+                            root: 'data',
+                            successProperty: 'success'
+                        }
+                    },
+                    listeners: {
+                        load: function () {                            
+//                            var combo = Ext.getCmp('rowDelimiter');
+//                            combo.setValue(this.first().data.code);
+                        }
+                    }                    
+                });                
+                
+                
+                var textareaForm = Ext.widget({
+                    xtype: 'form',
+                    standardSubmit: true, // true = ordinary HTML POST, false = Ajax post
+                    renderTo: 'textAreaDiv',
+                    layout: 'form',
+                    collapsible: false,
+                    id: 'textAreaForm',
+                    url: '@Url.Action("ExtJSFormSubmit")',
+                    frame: true,
+                    title: 'Text Area Form',
+                    bodyPadding: '5 5 0',
+                    width: 550,
+                    fieldDefaults: {
+                        msgTarget: 'side',
+                        labelWidth: 75
+                    },
+                    defaultType: 'textfield',
+                    items: [{
+                        fieldLabel: 'Taxon Ids',                        
+                        xtype: 'textareafield',
+                        grow: true,
+                        name: 'taxonIds',                        
+                        anchor: '100%',
+                        allowBlank: false
+                    }, {
+                        fieldLabel: 'Row delimiter',
+                        xtype: 'combobox',
+                        store: rowDelimitersStore,
+                        name: 'rowDelimiter',
+                        id: 'rowDelimiter',
+                        displayField: 'Text',
+                        valueField: 'Value',
+                        queryMode: 'local',
+                        forceSelection: true,
+                        value: '1',
+                        editable : false
+                        
+                        
+                    }]                
+                    ,
+                    buttons: [{
+                        text: 'Search',
+                        handler: function () {
+                            textAreaForm.getForm().submit();
+                        }
+                    }]
+                });
+
+                Ext.getCmp('rowDelimiter').setValue(1);
+
+//                rowDelimitersStore.store.on("load", function (store) {
+//                    villeInput.setValue(ActualidVille, false);
+//                }, this);
+
+                rowDelimitersStore.load();
+                
+                
+            });
+
+
+            ////                            simple.getForm().submit({ 
+            ////                            //method:'POST', 
+            ////                            //waitTitle:'Logging in', 
+            ////                            //waitMsg:'Authenticating...', 
+            ////                            //url:'ajax/checklogin.asp',
+            ////                            success: function () {
+            ////                                alert('hej');
+            ////                                var url = 'default.asp'; 
+            ////                                window.location = url; 
+            ////                            },
+            ////                            failure: function (form, action) {
+            ////                                alert('fel');
+            ////                                if (action.failureType == 'server') {
+            ////                                    obj = Ext.util.JSON.decode(action.response.responseText);
+            ////                                    Ext.Msg.alert('Cannot login in!', obj.errors);
+            ////                                } else {
+            ////                                    Ext.Msg.alert('Warning!', 'Authentication server is unreachable : ' + action.response.responseText);
+            ////                                }
+            ////                                simple.getForm().reset();
+            ////                            }
+            ////                            });            
+            
+            </script>
+
+    </head>
+    <body>
+        <h2>Submit Form using HTML Post</h2>
+        <p>
+            make sure to set: standardSubmit : true
+        </p>
+        <div id="panelDiv"></div>                  
+
+
+
+        <h2>Submit Form using Ajax Post</h2>
+        <p>
+            make sure to set: standardSubmit : false
+        </p>
+        <div id="ajaxFormDiv"></div>                  
+        <br/><br/>
+
+        <h2>Text area</h2>        
+        <div id="textAreaDiv"></div>                          
+        
+    </body>
+</html>
+
+
+

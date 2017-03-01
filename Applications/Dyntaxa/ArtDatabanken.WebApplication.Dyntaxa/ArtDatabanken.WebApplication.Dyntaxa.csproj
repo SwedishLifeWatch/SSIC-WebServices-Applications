@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF7D0E89-87EC-40BC-89CC-60DD4642D4CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArtDatabanken.WebApplication.Dyntaxa</RootNamespace>
+    <AssemblyName>ArtDatabanken.WebApplication.Dyntaxa</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\ArtDatabanken.Build\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>..\..\..\ArtDatabankenCodeAnalysis.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <CodeAnalysisRuleSet>ArtDatabanken.WebApplication.Dyntaxa.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=4.0.4.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Log4Slack, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Log4Slack.1.1.5\lib\net40\Log4Slack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Account\AccessIsNotAllowedViewModel.cs" />
+    <Compile Include="Data\Account\AccountMembershipService.cs" />
+    <Compile Include="Data\Account\AuthorizationManager.cs" />
+    <Compile Include="Data\Account\DyntaxaAuthorizeAttribute.cs" />
+    <Compile Include="Data\Account\EvaCredentialsManager.cs" />
+    <Compile Include="Data\Account\FormsAuthenticationService.cs" />
+    <Compile Include="Data\Account\LogInModel.cs" />
+    <Compile Include="Data\DyntaxaInternalService\DyntaxaInternalDataSource.cs" />
+    <Compile Include="Data\DyntaxaInternalService\DyntaxaInternalDataSourceBase.cs" />
+    <Compile Include="Data\DyntaxaInternalService\DyntaxaInternalTaxonServiceManager.cs" />
+    <Compile Include="Data\Export\ExcelHelper.cs" />
+    <Compile Include="Data\Export\ExportGraphVizViewModel.cs" />
+    <Compile Include="Data\Extensions\TaxonTreeNodeListExtension.cs" />
+    <Compile Include="Data\Export\XlsxExcelFile.cs" />
+    <Compile Include="Data\Extensions\IReferenceManagerExtension.cs" />
+    <Compile Include="Data\Extensions\IReferenceRelationExtension.cs" />
+    <Compile Include="Data\Extensions\ISpeciesFactManagerExtension.cs" />
+    <Compile Include="Data\Extensions\ISpeciesFactSearchCriteriaExtension.cs" />
+    <Compile Include="Data\Extensions\ITaxonManagerExtension.cs" />
+    <Compile Include="Data\FileSystemManager.cs" />
+    <Compile Include="Data\Json\JsonModel.cs" />
+    <Compile Include="Data\SpeciesFact\DataQuality.cs" />
+    <Compile Include="Data\SpeciesFact\QualityApplyMode.cs" />
+    <Compile Include="Data\Reference\ReferenceApplyMode.cs" />
+    <Compile Include="Data\Reference\ReferenceModel.cs" />
+    <Compile Include="Data\ScheduledTasksManager.cs" />
+    <Compile Include="Data\SpeciesFact\ISpeciesFactModelManager.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactExtensions.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactHostsIdListHelper.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactHostViewModel.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactFieldValueModelHelper.cs" />
+    <Compile Include="Data\SpeciesFact\FactorViewModel.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaSpeciesFact.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaAllFactorData.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaFactorUpdateMode.cs" />
+    <Compile Include="Data\DyntaxaHelper.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaHost.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaIndividualCategory.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaFactorField.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaPeriod.cs" />
+    <Compile Include="Data\Enums\DyntaxaStringCompareOperator.cs" />
+    <Compile Include="Data\Export\ExcelFileFormat.cs" />
+    <Compile Include="Data\Export\ExportDatabaseExcelFile.cs" />
+    <Compile Include="Data\Export\ExportDatabaseViewModel.cs" />
+    <Compile Include="Data\Extensions\GeneralExtensions.cs" />
+    <Compile Include="Data\Match\MatchEnums.cs" />
+    <Compile Include="Data\ReferenceHelper.cs" />
+    <Compile Include="Data\DyntaxaLogger.cs" />
+    <Compile Include="Data\Export\ExportManager.cs" />
+    <Compile Include="Data\Export\ExportName.cs" />
+    <Compile Include="Data\Export\ExportNameStatusItem.cs" />
+    <Compile Include="Data\Export\ExportNameType.cs" />
+    <Compile Include="Data\Export\ExportSpeciesFactFactorValue.cs" />
+    <Compile Include="Data\Export\ExportTaxonCategory.cs" />
+    <Compile Include="Data\Export\ExportTaxonItem.cs" />
+    <Compile Include="Data\Export\ExportTaxonListExcelFile.cs" />
+    <Compile Include="Data\Export\ExportViewModel.cs" />
+    <Compile Include="Data\LocalizedEnumAttribute.cs" />
+    <Compile Include="Data\Match\MatchExcelFile.cs" />
+    <Compile Include="Data\Reference\CreateNewReferenceViewModel.cs" />
+    <Compile Include="Data\Revision\RevisionTaxonInfoViewModel.cs" />
+    <Compile Include="Data\Shared\AboutViewModel.cs" />
+    <Compile Include="Data\Shared\RenderTaxonNameViewModel.cs" />
+    <Compile Include="Data\Shared\TaxonCategoryViewModel.cs" />
+    <Compile Include="Data\Shared\TaxonNameAuthorViewModel.cs" />
+    <Compile Include="Data\SpeciesFactHelper.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactModelManager.cs" />
+    <Compile Include="Data\Extensions\ITaxonExtension.cs" />
+    <Compile Include="Data\Match\DyntaxaMatchItem.cs" />
+    <Compile Include="Data\Match\DyntaxaMatchManager.cs" />
+    <Compile Include="Data\Match\MatchSettingsViewModel.cs" />
+    <Compile Include="Data\Match\MatchViewManager.cs" />
+    <Compile Include="Data\Match\TaxonSelectList.cs" />
+    <Compile Include="Data\Menu\MenuItem.cs" />
+    <Compile Include="Data\Menu\MenuManager.cs" />
+    <Compile Include="Data\Menu\MenuModel.cs" />
+    <Compile Include="Data\Navigation\NavigateData.cs" />
+    <Compile Include="Data\Navigation\TreeNavigationManager.cs" />
+    <Compile Include="Data\Navigation\TaxonTreeViewItem.cs" />
+    <Compile Include="Data\Navigation\TaxonTreeViewModel.cs" />
+    <Compile Include="Data\Navigation\TaxonTreeViewTaxon.cs" />
+    <Compile Include="Data\Reference\GuidObjectViewModel.cs" />
+    <Compile Include="Data\Reference\ReferenceAddViewModel.cs" />
+    <Compile Include="Data\Reference\ReferenceInfoViewModel.cs" />
+    <Compile Include="Data\Reference\ReferenceListViewModel.cs" />
+    <Compile Include="Data\Reference\ReferenceViewManager.cs" />
+    <Compile Include="Data\Reference\ReferenceViewModel.cs" />
+    <Compile Include="Data\Revision\RevisionUserModelManager.cs" />
+    <Compile Include="Data\Revision\RevisionAddViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionEditViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionFinalizeViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionInfoViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionInitializeViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionListViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionEventModelHelper .cs" />
+    <Compile Include="Data\Revision\RevisionEventViewModel .cs" />
+    <Compile Include="Data\Revision\RevisionInfoItemModelHelper.cs" />
+    <Compile Include="Data\Revision\RevisionModelManager.cs" />
+    <Compile Include="Data\Revision\RevisionSelectionItemModelHelper.cs" />
+    <Compile Include="Data\Revision\RevisionUserItemModelHelper.cs" />
+    <Compile Include="Data\Revision\RevisionCommonInfoViewModel .cs" />
+    <Compile Include="Data\Shared\ErrorModelManger.cs" />
+    <Compile Include="Data\Shared\ErrorViewModel.cs" />
+    <Compile Include="Data\Shared\TaxonIdTuple.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactDataList.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactDyntaxaListManager.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactViewModel.cs" />
+    <Compile Include="Data\SpeciesFact\SpeciesFactDropDownModelHelper.cs" />
+    <Compile Include="Data\Subscription\SubscriptionsViewModel.cs" />
+    <Compile Include="Data\Subscription\SubscriptionViewManager.cs" />
+    <Compile Include="Data\Tasks\RefreshDyntaxaTaxonTreeTask.cs" />
+    <Compile Include="Data\Tasks\ScheduledTaskBase.cs" />
+    <Compile Include="Data\Tasks\ScheduledTaskType.cs" />
+    <Compile Include="Data\TaxonName\TaxonNameDeleteViewModel.cs" />
+    <Compile Include="Data\TaxonName\TaxonNameInfoViewModel.cs" />
+    <Compile Include="Data\TaxonName\TaxonNameViewManager.cs" />
+    <Compile Include="Data\Taxon\DistributionInSwedenViewModel.cs" />
+    <Compile Include="Data\Taxon\SwedishOccurrenceSummaryManager.cs" />
+    <Compile Include="Data\Taxon\SwedishOccurrenceSummaryViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonEditQualityViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonDropDownModelHelper.cs" />
+    <Compile Include="Data\Taxon\TaxonSearchResultItemViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonSwedishOccuranceBaseViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonSwedishOccuranceEditViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonEditViewModelHelper.cs" />
+    <Compile Include="Data\Taxon\TaxonInfoQualityChartModelHelper.cs" />
+    <Compile Include="Data\Taxon\TaxonMoveViewManager.cs" />
+    <Compile Include="Data\Taxon\TaxonParentViewModelHelper.cs" />
+    <Compile Include="Data\Taxon\TaxonAddViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonEditViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonModelManager.cs" />
+    <Compile Include="Data\Taxon\TaxonMoveChangeNameViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonMoveViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonLumpViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonReplaceModelManager.cs" />
+    <Compile Include="Data\Taxon\TaxonSearchOptions.cs" />
+    <Compile Include="Data\Taxon\TaxonSplitViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonSummaryViewModel.cs" />
+    <Compile Include="Data\TaxonSearchManager.cs" />
+    <Compile Include="Data\SortTaxon\SortChildTaxonItem.cs" />
+    <Compile Include="Data\TaxonName\AddEditTaxonNameViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonAddParentViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonDropParentViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonDeleteViewModel.cs" />
+    <Compile Include="Data\TaxonName\ListTaxonNameModel.cs" />
+    <Compile Include="Data\Revision\RevisionStatusItemModelHelper.cs" />
+    <Compile Include="Data\Revision\RevisionItemModel.cs" />
+    <Compile Include="Data\LinkItem.cs" />
+    <Compile Include="Data\LinkManager.cs" />
+    <Compile Include="Data\LocalizedDisplayNameAttribute.cs" />
+    <Compile Include="Data\Extensions\IUserManagerExtension.cs" />
+    <Compile Include="Data\Shared\BaseViewModel.cs" />
+    <Compile Include="Data\Taxon\SortChildTaxaViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonInfoViewModel.cs" />
+    <Compile Include="Data\Taxon\TaxonSearchViewModel.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaFactorOrigin.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaFactorQuality.cs" />
+    <Compile Include="Data\SpeciesFact\DyntaxaFactor.cs" />
+    <Compile Include="Data\Taxon\TaxonViewModel.cs" />
+    <Compile Include="Data\Tree\GraphvizManager.cs" />
+    <Compile Include="Data\Tree\TaxonRelationsTreeCacheManager.cs" />
+    <Compile Include="DyntaxaResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DyntaxaResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DyntaxaResource.sv.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DyntaxaResource.sv.resx</DependentUpon>
+    </Compile>
+    <Compile Include="DyntaxaSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>DyntaxaSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Extensions\IUserContextExtension.cs" />
+    <Compile Include="Helpers\DebugEventHistory.cs" />
+    <Compile Include="Helpers\GuidHelper.cs" />
+    <Compile Include="Helpers\HttpContextSessionHelper .cs" />
+    <Compile Include="Helpers\ISessionHelper.cs" />
+    <Compile Include="Helpers\NullFormat.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj">
+      <Project>{c61f2f90-2345-4099-b8c8-da5e414bfb2f}</Project>
+      <Name>ArtDatabanken.WebApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.Data\ArtDatabanken.Data\ArtDatabanken.Data.csproj">
+      <Project>{B1493059-6445-4DA5-B58D-8876BEA79DD0}</Project>
+      <Name>ArtDatabanken.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ArtDatabanken.IO\ArtDatabanken.IO\ArtDatabanken.IO.csproj">
+      <Project>{0584E0B4-5AC8-4B22-9AE7-96BBAF7B2A87}</Project>
+      <Name>ArtDatabanken.IO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client\ArtDatabanken.WebService.Client.csproj">
+      <Project>{54AE5807-085D-4D93-85D2-1694C2ECD22D}</Project>
+      <Name>ArtDatabanken.WebService.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data\ArtDatabanken.WebService.Data.csproj">
+      <Project>{ADAE68C2-6967-4368-BA15-97D1A0A7E25C}</Project>
+      <Name>ArtDatabanken.WebService.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy\ArtDatabanken.WebService.Proxy.csproj">
+      <Project>{e0bdd6bc-e301-4dc9-a15a-54700e620d9d}</Project>
+      <Name>ArtDatabanken.WebService.Proxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj">
+      <Project>{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}</Project>
+      <Name>ArtDatabanken</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ArtDatabanken.WebApplication.Dyntaxa.ruleset" />
+    <None Include="Data\SpeciesFact\SpeciesFactClasses.cd" />
+    <None Include="DyntaxaSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>DyntaxaSettings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DyntaxaResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DyntaxaResource.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DyntaxaResource.sv.resx">
+      <CustomToolNamespace>Resources</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DyntaxaResource.sv.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\Newtonsoft.Json.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\..\..\packages\StyleCop.Analyzers.1.0.0\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

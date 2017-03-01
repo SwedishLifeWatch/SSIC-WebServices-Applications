@@ -1,0 +1,35 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.PageInfo
+@model PageInfo
+
+@{
+    List<PageInfo> parentPages = Model.GetParentPages();
+}
+
+<p class="page-hierarchy" style="background: none repeat scroll 0 0 #1D3741; color: #FFFFFF; margin: 0; padding: 10px 8px;">
+    @foreach (PageInfo pageInfo in parentPages)
+    {
+        if (pageInfo.Controller == "Home" && pageInfo.Action == "Index")
+        {
+            continue;
+        }
+        @*<text><span style="">@pageInfo.Title</span>/</text>*@
+
+        if (pageInfo.BreadcrumbNavigation)
+        {
+            <text><a style="color: #FFFFFF; font-size: 14px;" href="@Url.Action(pageInfo.Action, pageInfo.Controller)">@pageInfo.Title</a>&nbsp;<span class="divider" style="color: white; padding: 0 2px; font-size: 20px;">›</span></text>
+        }
+        else
+        {
+            <text><span style="font-size: 14px!important;font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;">@pageInfo.Title</span>&nbsp;<span class="divider" style="color: white; padding: 0 2px; font-size: 20px;">›</span></text>
+        }
+
+        @*<text><a style="color: #FFFFFF; font-size: 14px;" href="@Url.Action(pageInfo.Action, pageInfo.Controller)">@pageInfo.Title</a>&nbsp;<span class="divider" style="color: #c7c7cc;padding: 0 2px;font-size: 20px;">›</span></text>*@
+
+        @*<text><a href="@Url.Action(pageInfo.Action, pageInfo.Controller)">@pageInfo.Title</a>&nbsp;»&nbsp;</text>*@
+
+        @*<text><strong><a href="@Url.Action(pageInfo.Action, pageInfo.Controller)">@pageInfo.Title</a></strong>&nbsp;»&nbsp;</text>*@
+    }
+    <span style="font-size: 18px!important;font-family: 'Lato','Helvetica Neue',Helvetica,Arial,sans-serif;font-weight: 700;">
+        @Model.Title
+    </span>
+</p>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca8eaf4c-6e84-4f2d-a484-e832d239cee2" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SpeciesObservationChangeService.xsd" MetadataType="Schema" ID="417af4d5-50e3-4dd4-be4f-b49bda84e1d8" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SpeciesObservationChangeService1.xsd" MetadataType="Schema" ID="81171da1-2dce-4f53-897e-4c84305f80c2" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SpeciesObservationChangeService2.xsd" MetadataType="Schema" ID="a8120c50-f651-46ea-a0fc-53719c202d8c" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SpeciesObservationChangeService3.xsd" MetadataType="Schema" ID="be1c826c-f891-4008-96aa-7e43cdb69652" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SpeciesObservationChangeService4.xsd" MetadataType="Schema" ID="cf1ee14a-1718-4a1b-bff4-6aa469401224" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SpeciesObservationChangeService5.xsd" MetadataType="Schema" ID="ff322bfa-091f-4b03-b860-30774a283b2d" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SpeciesObservationChangeService.wsdl" MetadataType="Wsdl" ID="61f1b426-24e7-46b2-8fe3-b56258d7fa54" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?wsdl" />
+    <MetadataFile FileName="SpeciesObservationChangeService.disco" MetadataType="Disco" ID="5bcce600-1b33-43aa-9231-d0816d100fca" SourceId="1" SourceUrl="http://aquasupport.slu.se/Kul/SpeciesObservationChangeService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

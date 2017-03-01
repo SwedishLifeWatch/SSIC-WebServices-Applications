@@ -1,0 +1,291 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Buttons.ButtonGroups
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+
+@model dynamic
+
+@{
+    ViewBag.Title = "Coordinate converter";
+}
+
+<h2>Coordinate converter</h2>
+
+@Html.Partial("StateButtonGroup_Partial", ButtonGroupManager.FilterButtonGroup)
+@*<div class="subMenuDiv">
+</div>*@
+<div class="btn-toolbar page-toolbar">
+    <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i>&nbsp;@Resource.SharedSaveSettings</button>
+    <button id="toolbarButtonReset" @if(SessionHandler.MySettings.Filter.Spatial.IsSettingsDefault()) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i>&nbsp;@Resource.SharedResetSettings</button>
+    @*<button class="btn" type="button"><i class="icon-save icon-white"></i></button>
+    <button class="btn"><i class="icon-trash icon-white"></i></button>
+    <button class="btn"><i class="icon-question-sign icon-white"></i></button>*@
+        
+    @*<button class="btn" type="button"><i class="icon-save icon-white"></i>&nbsp;Save</button>
+    <button class="btn"><i class="icon-trash icon-white"></i>&nbsp;Reset</button>
+    <button class="btn"><i class="icon-question-sign icon-white"></i>&nbsp;Help</button>*@
+
+    @*<button id="toolbarButtonSave" class="btn"><i class="icon-save icon-white"></i>&nbsp;Save polygons</button>
+    <button id="toolbarButtonReset" class="btn"><i class="icon-trash icon-white"></i>&nbsp;Reset polygons</button>
+    <button id="toolbarButtonHelp" class="btn"><i class="icon-question-sign icon-white"></i>&nbsp;Help</button>*@
+        
+        
+    @*<button id="toolbarButtonHelp" class="btn toolbarButton" data-content="Help information..."><img src="@Url.Content("~/Content/images/question-octagon.png")"/>&nbsp;@Resource.SharedHelp</button>        *@
+
+</div>
+@*<button class="btn"><i class="icon-remove icon-white"></i></button>*@
+
+
+
+<h2>Konvertera</h2>
+<div>
+    <table>
+        <tr>
+            <td>
+                Från:
+                <select id="coordinateSystemFrom" style="width: 150px;">
+                    <option selected="selected" value="EPSG:900913">Google Mercator</option>
+                    <option value="EPSG:4326">WGS 84</option>
+                    <option value="EPSG:3006">SWEREF 99</option>
+                    <option value="EPSG:3021">RT 90</option>        
+                </select>
+                X (lon): <input id="convertXcoordinate" value="12.3" type="text" style="width: 150px;"/>
+                Y (lat): <input id="convertYcoordinate" value="11.3" type="text" style="width: 150px;"/>
+                Till: 
+                <select id="coordinateSystemTo" style="width: 150px;">
+                    <option selected="selected" value="EPSG:900913">Google Mercator</option>
+                    <option value="EPSG:4326">WGS 84</option>
+                    <option value="EPSG:3006">SWEREF 99</option>
+                    <option value="EPSG:3021">RT 90</option>        
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>                
+                Resultat:
+                <div id="coordinateResultDiv" style="display: inline-block">
+                    
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button id="convertButton" type="button">Konvertera</button>
+            </td>
+        </tr>
+    </table>
+    
+    
+
+</div>
+
+
+<div style="width:780px; height: 520px; margin-bottom: 40px;">
+    <div id="mapControl" class="clearfix map" style="margin-top:7px; width: 780px; height:520px;">
+        <div id="mapNavDiv" class="olControlPanel"></div>
+        <div class="clearfix" id="mapDiv"></div>
+    </div>
+</div>
+
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+@Html.Partial("CoordinateSystemSelectBox_Partial", "toolbarCoordinateSystemSelectBox")
+
+<script type="text/javascript">    
+    var map;
+    var viewName;
+    var showSaveSettingsMessageOnLeave = true;
+    var origPageSettingsJsonString = "";
+    @Html.Raw(Html.DeclareWmsLayersJsArray("wmsLayers"))
+
+    function handleConvert() {
+        var fromCoordinateSystem = $('#coordinateSystemFrom').val();
+        var toCoordinateSystem = $('#coordinateSystemTo').val();
+        var xCoordinate = parseFloat($('#convertXcoordinate').val());
+        var yCoordinate = parseFloat($('#convertYcoordinate').val());
+        
+        var transformedCoordinate = new OpenLayers.LonLat(xCoordinate, yCoordinate).transform(new OpenLayers.Projection(fromCoordinateSystem), new OpenLayers.Projection(toCoordinateSystem));
+        console.log(transformedCoordinate);
+        var result = 'X (lon): ' + transformedCoordinate.lon + ", Y (lat): " + transformedCoordinate.lat; // + '  Sammansatt: (' + transformedCoordinate.lon + "," + transformedCoordinate.lat + ")";
+        $('#coordinateResultDiv').text(result);
+        
+
+        var coordinateGoogleMercator = new OpenLayers.Geometry.Point(xCoordinate, yCoordinate).transform(new OpenLayers.Projection(fromCoordinateSystem), new OpenLayers.Projection('EPSG:900913'));
+        var featurePoint = new OpenLayers.Feature.Vector(coordinateGoogleMercator);
+        map.theObservationsLayer.addFeatures(featurePoint);
+        
+
+        //map.theEditLayer.addFeatures(featurePoint);
+
+
+        //$('#coordinateResultDiv').text( );
+        
+
+        //var coord = new OpenLayers.Geometry.Point(1760008, 8115248);
+        ////var coord = new OpenLayers.LonLat(8115248, 1760008);
+        //var featurePoint = new OpenLayers.Feature.Vector(coord, {
+        //    //observationId: 2777073,
+        //    //siteType: 2,
+        //    //accuracy: "25"
+        //});
+        //map.theObservationsLayer.addFeatures(featurePoint);
+
+        
+
+    }
+
+    $(document).ready(function () {
+        $('#convertButton').click(handleConvert);
+        //createToolbar();
+        createMap();        
+        AnalysisPortal.GIS.getSpatialFilterAsGeoJSON(map, null, function () {            
+            setSpatialFilterEvents();
+            origPageSettingsJsonString = getPageSettingsJsonString();
+            //AnalysisPortal.GIS.startUpdateMapSizeTimer(map);
+        });
+
+        
+        $(window).bind('beforeunload', function () {
+            AnalysisPortal.GIS.saveMapState();
+            if (showSaveSettingsMessageOnLeave) {
+                var data = getPageSettingsJsonString();
+                if (origPageSettingsJsonString != data) {
+                    return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+                }
+            }
+        });
+
+        $("#btnClearSpatialFilter").click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetPolygons", "Filter", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+
+        $("#btnSaveSpatialFilter").click(function () {
+            saveChangesUsingPost();            
+        });
+
+        $('#toolbarButtonSave').click(function () {
+            saveChangesUsingPost();            
+        });
+
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetPolygons", "Filter", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+        
+        $('#toolbarButtonHelp').click(function () {
+
+        });
+
+        initCoordinateSelectBox();
+    });
+
+    function initCoordinateSelectBox() {
+        $('#toolbarCoordinateSystemSelectBox').change(function () {
+            var coordinateSystemId = $(this).val();
+            var url = '@Url.Action("UpdateCoordinateSystem", "Format", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})';
+            url += "&coordinateSystemId=" + coordinateSystemId;
+            window.location.href = url;            
+        });
+        $("#toolbarCoordinateSystemSelectBox").appendTo("#mapNavDiv");
+        $("#toolbarCoordinateSystemSelectBox").css('visibility', 'visible');
+    }
+
+    function getPageSettingsJsonString() {
+        if (map.editFeatureControl)
+            map.editFeatureControl.deactivate();
+                
+        var geoJsonFormat = AnalysisPortal.GIS.createGeoJsonFormat();
+        var json = geoJsonFormat.write(map.theEditLayer.features);
+        return json;
+    }
+
+    function enableDisableButtons() {        
+        var data = getPageSettingsJsonString();
+        if (origPageSettingsJsonString == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    function saveChangesUsingAjax() {
+
+        AnalysisPortal.GIS.saveSpatialFilter(function () {
+            AnalysisPortal.updateMySettingsSummary();
+            AnalysisPortal.updateStateButtonGroup('#filterStateButtonGroup', 'Filter');
+        });
+        
+    }
+
+    function saveChangesUsingPost() {
+        var data = getPageSettingsJsonString();
+        //origDataProviders = data;
+        var $frm = $('#saveSettingsForm');
+        //$frm.data = data;
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+
+    function createMap() {
+        var toolsOptions = {            
+            ShowMousePosition: false,
+            UseNavigationHistory: true,
+            ShowCreatePolygonTools: true,
+            ShowSelectManyControl: true,
+            SelectByPolygon: false, // not used yet
+            LayerOptions: {
+                UseSwitcher: true,
+                OpenSwitcher: true
+            },
+            OvMapOptions: {
+                ShowOvMap: false,
+                UseOvMap: false
+            }
+        };
+
+        var vectorLayers = [{
+                id: VectorLayers.Observations,
+                visible: true
+            }, {
+                id: VectorLayers.ObservationAccuracy,
+                visible: true
+            }, {
+                id: VectorLayers.EditLayer,
+                mainLayer: true,
+                visible: true
+            }
+        ];
+                
+        map = AnalysisPortal.GIS.initMap({
+            toolsOptions: toolsOptions,
+            vectorLayers: vectorLayers,
+            wmsLayers: wmsLayers
+        });
+
+    }    
+
+    
+    function setSpatialFilterEvents() {        
+        map.theEditLayer.isModified = false;
+        
+        map.theEditLayer.events.register('featuresremoved', this, function (features) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });
+
+        map.theEditLayer.events.register('featuresadded', this, function (features) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;            
+        });
+        
+        map.theEditLayer.events.register('afterfeaturemodified', this, function (feature) {            
+            enableDisableButtons();
+            map.theEditLayer.isModified = true;
+        });
+                
+    }        
+    
+</script>
+

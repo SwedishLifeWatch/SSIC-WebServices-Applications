@@ -1,0 +1,87 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Upload file sample";    
+}
+
+<link href="~/Scripts/jQuery-File-Upload/css/jquery.fileupload.css" rel="stylesheet" />
+@*<script src="~/Scripts/jquery.ui.widget.js"></script>*@
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="~/Scripts/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+<script src="~/Scripts/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+@*<script src="~/Scripts/jQuery-File-Upload/js/jquery.fileupload-validate.js"></script>*@
+@*<script src="~/Scripts/jQuery-File-Upload/js/jquery.fileupload-ui.js"></script>*@
+
+<style type="text/css">
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.progress-bar {
+    background-image: linear-gradient(to bottom, #428BCA 0px, #3071A9 100%);
+    background-repeat: repeat-x;
+}
+
+.progress-bar {
+    background-color: #428BCA;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15) inset;
+    color: #FFFFFF;
+    float: left;
+    font-size: 12px;
+    height: 100%;
+    text-align: center;
+    transition: width 0.6s ease 0s;
+}
+</style>
+
+<h2>Upload file sample</h2>
+
+
+
+
+<div class="container">
+	<span class="btn btn-success fileinput-button">
+		<i class="glyphicon glyphicon-plus"></i>
+		<span>Add files...</span>
+		<input id="fileupload" type="file" name="files[]" multiple>
+	</span>
+	<br />
+	<div class="progress" style="width: 150px;">
+		<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+			<span class="sr-only">0% complete</span>
+		</div>
+	</div>
+	<br />
+	<div class="file_name"></div>
+	<br />
+	<div class="file_type"></div>
+	<br />
+	<div class="file_size"></div>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#fileupload').fileupload({
+			dataType: 'json',
+			url: '@Url.Action("UploadFiles")',
+			autoUpload: true,
+			done: function (e, data) {
+				$('.file_name').html(data.result.name);
+				$('.file_type').html(data.result.type);
+				$('.file_size').html(data.result.size);
+			}
+		}).on('fileuploadprogressall', function (e, data) {
+			var progress = parseInt(data.loaded / data.total * 100, 10);
+			$('.progress .progress-bar').css('width', progress + '%');
+		});
+	});
+</script>

@@ -1,0 +1,140 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Managers.PageInfo
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.SelectedTaxaPartialViewModel
+
+<div>
+    @{
+        if (SessionHandler.CurrentPage != PageInfoManager.GetPageInfo("Filter", "Taxa") && !SessionHandler.MySettings.Filter.Taxa.IsSettingsDefault())
+        {
+            <text>
+                <a href="@Url.Action("Taxa")">@string.Format(Resource.FilterTaxaManageTaxaFilterTemplate, SessionHandler.MySettings.Filter.Taxa.TaxonIds.Count)</a>
+            </text>
+        }
+    }
+    
+    <div id="selectedTaxaDiv"></div>
+</div>
+@*<div id="selectedTaxaDiv" class="gridMarginTop"></div>*@
+<br/>
+ 
+ @* Form used to remove selected taxa to MySettings. Always triggered by Javascript*@
+@using (Html.BeginForm("RemoveTaxaFromFilter", "Filter", FormMethod.Post, new { @id = "removeTaxaFromFilterForm", @name = "removeTaxaFromFilterForm" }))
+{
+    @Html.Hidden("strTaxonIds")
+    @Html.Hidden("returnUrl", ViewContext.HttpContext.Request.Url.PathAndQuery)        
+}
+
+<script type="text/javascript">
+    var selectedTaxaGrid;
+
+    $(document).ready(function () {
+        AnalysisPortal.Models.defineTaxonViewModel();
+
+        var selectedTaxaStore = AnalysisPortal.createJsonStore('TaxonViewModel', '@Html.Raw(Url.Action("GetFilteredTaxa", "Filter"))', {
+                    api: {
+                        read: '@Html.Raw(Url.Action("GetFilteredTaxa", "Filter"))',
+                        create: 'myurl',
+                        update: 'myurl',
+                        destroy: '@Html.Raw(Url.Action("RemoveTaxonId", "Filter"))'
+                    },
+             writer: {
+                 type: 'json',
+                 writeAllFields: false,
+                 allowSingle: true,
+                 root: 'data',
+                 encode: true
+             }
+         });
+
+     
+        // Create grid that shows the current selected taxa
+        selectedTaxaGrid = Ext.create('Ext.grid.Panel', {
+            id: 'selectedTaxaGrid',
+            store: selectedTaxaStore,
+            title: AnalysisPortal.Resources.FilterTaxonFromIdsSelectedTaxaGridTitle,            
+            width: AnalysisPortal.DefaultContentWidth,
+            minHeight: 200,
+            maxHeight: 640,
+            columnLines: true,
+            @if (Model.ShowTaxaSelectionCheckBoxes)
+            {
+            <text>
+                selModel: Ext.create('Ext.selection.CheckboxModel', {
+                    checkOnly: true,
+                listeners: {
+                        selectionchange: function (sm, selections) {
+                            enableDisableSelectedTaxaPartialButtons();
+                        }
+                    }
+                }),
+            </text>
+            }
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedLoading
+                }
+            },            
+            renderTo: 'selectedTaxaDiv',
+            columns: [
+                { text: AnalysisPortal.Resources.LabelTaxon, flex: 1, dataIndex: 'ScientificName', sortable: true },
+                { text: AnalysisPortal.Resources.LabelAuthor, width: 170, dataIndex: 'Author', sortable: true },
+                { text: AnalysisPortal.Resources.LabelSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+                { text: AnalysisPortal.Resources.LabelCategory, width: 100, dataIndex: 'Category', sortable: true },
+                { text: AnalysisPortal.Resources.LabelTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true }
+                @*{
+                    xtype: 'actioncolumn',
+                    tooltip: "@Resource.FilterTaxaRemoveSelectedTaxa",
+                    width: 30,
+                    align: 'center',
+                    icon: '@Url.Content("~/Content/images/delete.gif")',
+                    iconCls: 'mousepointer',
+                    handler: function (grid, rowIndex, colindex) {
+                        var store = grid.getStore();
+                        var record = store.getAt(rowIndex);
+                        if (record) {
+                            var index = store.data.indexOf(record);
+                            store.removeAt(index);
+                            store.sync();
+                            AnalysisPortal.updateMySettingsSummary();
+                        }
+                    }
+                }*@                           
+            ]
+        });
+      
+        selectedTaxaStore.load();
+    });        
+
+    function enableDisableSelectedTaxaPartialButtons() {
+        var selections = selectedTaxaGrid.getSelectionModel().getSelection();       
+        if (selections.length == 0) {
+            $('#toolbarButtonRemoveSelectedTaxa').attr("disabled", true);
+        } else {
+            $('#toolbarButtonRemoveSelectedTaxa').attr("disabled", false);
+        }
+    }
+
+    function selectedTaxaPartialRemoveSelectedTaxonIds() {
+        var selected = [];
+        var s = selectedTaxaGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+
+        $.post(
+            '/Filter/RemoveTaxonIdsFromFilter',
+            { taxonIds: selected },
+            function (result) {
+                console.log(result);
+                if (result.success) {
+                    location.reload(true);
+                }
+            }
+        );
+    }
+
+</script>

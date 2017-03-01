@@ -1,0 +1,85 @@
+﻿@model ArtDatabanken.WebApplication.Dyntaxa.Data.TaxonSearchOptions
+
+
+@Html.HiddenFor(m => m.RestrictToTaxonId)
+<table class="searchOptionsTable" >
+@if (Model.RestrictToTaxonId.HasValue)
+{
+    <text>
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.RestrictToTaxonChildren, Model.RestrictToTaxonDescription)
+        </td>
+        <td>
+            @Html.CheckBoxFor(x => Model.RestrictToTaxonChildren)
+        </td>
+    </tr>        
+    </text>
+}
+
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.NameCompareOperator, Model.Labels.TaxonNameCompareOperatorLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.NameCompareOperator, Model.CreateCompareOperatorSelectlist(Model.NameCompareOperator))
+        </td>
+    </tr>    
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.IsUnique, Model.Labels.IsUniqueLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => x.IsUnique, Model.CreateNullableBoolSelectlist(Model.IsUnique))
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.IsValidTaxon, Model.Labels.IsValidTaxonLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.IsValidTaxon, Model.CreateIsValidSelectlist(Model.IsValidTaxon))
+        </td>
+    </tr>   
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.IsRecommended, Model.Labels.IsRecommendedLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.IsRecommended, Model.CreateNullableBoolSelectlist(Model.IsRecommended))
+        </td>
+    </tr>    
+    </table><table class="searchOptionsTable">
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.IsOkForObsSystems, Model.Labels.IsOkForObsSystemLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.IsOkForObsSystems, Model.CreateNullableBoolSelectlist(Model.IsOkForObsSystems))
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.IsValidTaxonName, Model.Labels.IsValidTaxonNameLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.IsValidTaxonName, Model.CreateNullableBoolSelectlist(Model.IsValidTaxonName))
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.NameCategoryId, Model.Labels.TaxonNameCategoryLabel) 
+        </td>
+        <td>
+            @Html.DropDownListFor(x => Model.NameCategoryId, Model.CreateTaxonNameCategorySelectList(Model.NameCategoryId))
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.LabelFor(x => Model.AuthorSearchString, Model.Labels.AuthorLabel) 
+        </td>
+        <td>
+            @Html.TextBoxFor(x => Model.AuthorSearchString) 
+        </td>
+    </tr>
+</table>

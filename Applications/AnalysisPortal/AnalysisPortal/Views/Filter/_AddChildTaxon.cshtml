@@ -1,0 +1,157 @@
+﻿@model int[]
+
+<div class="btn-toolbar page-toolbar">
+    @*<button id="btnAddChildTaxon" class="btn toolbarButton" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @Resource.FilterTaxonFromIdsAddSelectedTaxa</button>*@
+    <button id="btnAddChildTaxon" class="btn toolbarButton" data-placement="top" disabled="disabled"><i class="icon-plus-sign icon-white"></i> &nbsp; @Resource.SharedAddFilter</button>
+</div>
+ 
+<div id="taxaChildDiv" class="gridMarginTop"></div>
+
+<script type="text/javascript">
+    var addChildTaxon = function () {
+        var _searchGrid;
+        var _searchTaxaStore;
+
+        function init() {
+            createGrid();
+           
+            setTimeout(function(){ loadChildTaxa(); }, 100);
+            $('#btnAddChildTaxon').click(addSelectedTaxa);
+        };
+
+        function createGrid() {
+            AnalysisPortal.Models.defineTaxonSearchResultItemViewModel();
+            _searchTaxaStore = AnalysisPortal.createJsonStore("TaxonSearchResultItemViewModel", '@Html.Raw(Url.Action("GetChildTaxa", "Filter"))', {
+                method: 'POST'
+            });
+
+            _searchGrid = Ext.create('Ext.grid.Panel', {
+                id: 'taxaChildGrid',
+                store: _searchTaxaStore,
+                title: AnalysisPortal.Resources.FilterTaxonFromNametaxaChildGridTitle,
+                width: AnalysisPortal.DefaultContentWidth + 80,
+                height: 300,
+                frame: false,
+                viewConfig: {
+                    stripeRows: true,
+                    enableTextSelection: true,
+                    loadMask: {
+                        msg: AnalysisPortal.Resources.SharedSearching
+                    }
+                },
+                renderTo: 'taxaChildDiv',
+                columns: [
+                    {
+                        text: AnalysisPortal.Resources.TaxonSearchHit,
+                        width: 170,
+                        dataIndex: 'SearchMatchName',
+                        cls: 'mousepointer',
+                        renderer: function (value, meta, record) {
+                            return Ext.String.format('<a href="#" onclick="showTaxonSummaryDialog({1}); return false;">{0}</a>', value, record.data.TaxonId);
+                        }
+                    },
+                    { text: AnalysisPortal.Resources.TaxonSearchNameCategory, width: 100, dataIndex: 'NameCategory', sortable: true },
+                    { text: AnalysisPortal.Resources.TaxonSharedScientificName, width: 170, dataIndex: 'ScientificName', sortable: true },
+                    { text: AnalysisPortal.Resources.TaxonSharedAuthor, width: 100, dataIndex: 'Author', sortable: true },
+                    { text: AnalysisPortal.Resources.TaxonSharedSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+                    { text: AnalysisPortal.Resources.TaxonSharedCategory, width: 100, dataIndex: 'Category', sortable: true },
+                    { text: AnalysisPortal.Resources.TaxonSharedTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true },
+                    {
+                        xtype: 'actioncolumn',
+                        dataIndex: 'TaxonStatus',
+                        width: 30,
+                        align: 'center',
+                        menuDisabled: true,
+                        hideable: false,
+                        resizable: false,
+                        sortable: false,
+                        getClass: AnalysisPortal.getAlertStatusClassInGrid,
+                        handler: function (grid, rowIndex, colindex) {
+                            var record = grid.getStore().getAt(rowIndex);
+                            showTaxonSummaryDialog(record.data.TaxonId);
+                        }
+                    },
+                    {
+                        dataIndex: 'SpeciesProtectionLevel',
+                        width: 30,
+                        align: 'center',
+                        menuDisabled: true,
+                        hideable: false,
+                        resizable: false,
+                        sortable: false,
+                        renderer: function (value) {
+                            if (value == 1) {
+                                return '';
+                            } else {
+                                return Ext.String.format('<img title="{0}" src="/Content/images/taxon-protection-level-protected1.png" />', AnalysisPortal.Resources.TaxonSharedProtectionLevel1);
+                            }
+                        }
+                    }
+                ],
+                columnLines: true,
+                selModel: Ext.create('Ext.selection.CheckboxModel', {
+                    checkOnly: true,
+                    listeners: {
+                        selectionchange: function (sm, selections) {
+                            enableDisableButtons();
+                        }
+                    }
+                })
+            });
+        };
+
+        function addSelectedTaxa() {
+            var selected = [];
+            var s = _searchGrid.getSelectionModel().getSelection();
+            Ext.each(s, function (it) {
+                selected.push(it.data.TaxonId);
+            });
+
+            $.post( 
+                '@Url.Action("AddTaxaByIdToFilter", "Filter")', 
+                { taxaIds: selected }, 
+                function( result ) {
+                    if (result) {
+                        location.reload(true);
+                    }
+                }
+            );
+        };
+
+        function enableDisableButtons() {
+            var selections = _searchGrid.getSelectionModel().getSelection();
+            if (selections.length == 0) {
+                $('#btnAddChildTaxon').attr("disabled", true).removeClass("btn-primary");
+            } else {
+                $('#btnAddChildTaxon').attr("disabled", false).addClass("btn-primary");
+            }
+        }
+
+        function loadChildTaxa() {
+            @{
+                var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            }
+            
+            var taxa = @serializer.Serialize(Model);
+            _searchTaxaStore.load({
+                params: {
+                    parentTaxaIds: taxa
+                },
+                callback: function (records, operation, success) {
+                    if (_searchTaxaStore.getCount() == 1) {
+                        _searchGrid.getSelectionModel().selectAll(true);
+                        enableDisableButtons();
+                    }
+                }
+            });
+        };
+
+        return {
+            Init: init
+        };
+    }();
+
+    $(document).ready(function () {
+        addChildTaxon.Init();
+    });
+</script>

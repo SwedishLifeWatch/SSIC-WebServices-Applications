@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SwedishSpeciesObservationService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="SwedishSpeciesObservationServiceSOAP11Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="SwedishSpeciesObservationServiceBinaryEndpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="SwedishSpeciesObservationServiceSOAP12Endpoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsoma:OptimizedMimeSerialization xmlns:wsoma="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:import namespace="urn:WebServices.ArtDatabanken.slu.se" location="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="SwedishSpeciesObservationServiceSOAP11Endpoint" type="i0:ISwedishSpeciesObservationService">
+    <wsp:PolicyReference URI="#SwedishSpeciesObservationServiceSOAP11Endpoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetBirdNestActivities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountyRegions">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetCountyRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceRegions">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProvinceRegions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreByIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreByIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteriaPage">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreChange">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProtectedSpeciesObservationIndication">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProtectedSpeciesObservationIndication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChange">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationChange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationCountBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationDataProviders">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationDataProviders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationFieldDescriptions">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationFieldDescriptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsByIds">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsByIds" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteria">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteriaPage">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SwedishSpeciesObservationServiceBinaryEndpoint" type="i0:ISwedishSpeciesObservationService">
+    <wsp:PolicyReference URI="#SwedishSpeciesObservationServiceBinaryEndpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetBirdNestActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountyRegions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetCountyRegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceRegions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProvinceRegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteriaPage">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProtectedSpeciesObservationIndication">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProtectedSpeciesObservationIndication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationCountBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationDataProviders">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationDataProviders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationFieldDescriptions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationFieldDescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteriaPage">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SwedishSpeciesObservationServiceSOAP12Endpoint" type="i0:ISwedishSpeciesObservationService">
+    <wsp:PolicyReference URI="#SwedishSpeciesObservationServiceSOAP12Endpoint_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ClearCache">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/ClearCache" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/DeleteTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetBirdNestActivities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountyRegions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetCountyRegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProvinceRegions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProvinceRegions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteriaPage">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetDarwinCoreChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProtectedSpeciesObservationIndication">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetProtectedSpeciesObservationIndication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationChange">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationChange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationCountBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationCountBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationDataProviders">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationDataProviders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationFieldDescriptions">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationFieldDescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsByIds">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsByIds" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteria">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteria" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpeciesObservationsBySearchCriteriaPage">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetSpeciesObservationsBySearchCriteriaPage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StartTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <soap12:operation soapAction="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationService/StopTrace" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SwedishSpeciesObservationService">
+    <wsdl:port name="SwedishSpeciesObservationServiceSOAP11Endpoint" binding="tns:SwedishSpeciesObservationServiceSOAP11Endpoint">
+      <soap:address location="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc" />
+    </wsdl:port>
+    <wsdl:port name="SwedishSpeciesObservationServiceBinaryEndpoint" binding="tns:SwedishSpeciesObservationServiceBinaryEndpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc/Fast" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc/Fast</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="SwedishSpeciesObservationServiceSOAP12Endpoint" binding="tns:SwedishSpeciesObservationServiceSOAP12Endpoint">
+      <soap12:address location="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc/SOAP12" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationService/SwedishSpeciesObservationService.svc/SOAP12</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

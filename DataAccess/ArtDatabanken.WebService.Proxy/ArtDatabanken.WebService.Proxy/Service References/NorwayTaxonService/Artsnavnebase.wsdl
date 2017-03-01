@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://artsdatabanken.no/webtjenester" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://artsdatabanken.no/Artsnavnebase" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://artsdatabanken.no/webtjenester" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://artsdatabanken.no/webtjenester">
+      <s:import namespace="http://artsdatabanken.no/Artsnavnebase" />
+      <s:element name="TaksonFraID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TaksonID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TaksonFraIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TaksonFraIDResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LatinskNavnFraID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LatinskNavnID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LatinskNavnFraIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LatinskNavnFraIDResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Artstre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LatinskNavnID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dybde" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtstreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArtstreResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtstreForGruppe">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GruppeID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Dybde" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtstreForGruppeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArtstreForGruppeResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Artssok">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtssokResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArtssokResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtssokPagination">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="max" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArtssokPaginationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ArtssokPaginationResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Navnesok">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Search" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="max" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NavnesokResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NavnesokResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Grupper">
+        <s:complexType />
+      </s:element>
+      <s:element name="GrupperResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GrupperResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Statistikk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LatinskNavnID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatistikkResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatistikkResult" type="s1:ArtsnavnType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://artsdatabanken.no/Artsnavnebase">
+      <s:element name="TaksonMedGyldigLatinskNavn" type="s1:ArtsnavnType" />
+      <s:element name="LatinskNavnFraID" type="s1:ArtsnavnType" />
+      <s:element name="Artstre" type="s1:ArtsnavnType" />
+      <s:element name="Artssok" type="s1:ArtsnavnType" />
+      <s:element name="Navnesok" type="s1:ArtsnavnType" />
+      <s:element name="Grupper" type="s1:ArtsnavnType" />
+      <s:element name="Statistikk" type="s1:ArtsnavnType" />
+      <s:complexType name="ArtsnavnType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LatinskNavn" type="s1:LatinskNavnType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Takson" type="s1:TaksonType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Gruppeinndeling" type="s1:GruppeinndelingType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Antall" type="s1:AntallType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Navn" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LatinskNavnType">
+        <s:sequence>
+          <s:element minOccurs="0" name="Rike" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underrike" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Rekke" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underrekke" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Klasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Infraklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Kohort" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Orden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Infraorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overfamilie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Familie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underfamilie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Tribus" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Undertribus" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Slekt" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underslekt" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Seksjon" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Art" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underart" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Varietet" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Form" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="VitenskapligNavn" type="s:string" />
+          <s:element minOccurs="0" name="Autorstreng" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Gruppe" type="s1:GruppeType" />
+          <s:element minOccurs="0" name="Takson" type="s1:TaksonType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LatinskNavn" type="s1:LatinskNavnType">
+            <s:annotation>
+              <s:documentation>Underordnede navn</s:documentation>
+            </s:annotation>
+          </s:element>
+        </s:sequence>
+        <s:attribute name="LatinskNavnID" type="s:integer" />
+        <s:attribute name="OverordnaLatinskNavnID" type="s:integer" />
+        <s:attribute name="Kategori" type="s:string" />
+        <s:attribute name="KategoriID" type="s:integer" />
+        <s:attribute name="Hovedstatus" type="s:string" />
+        <s:attribute name="Bistatus" type="s:string" />
+        <s:attribute name="Underordnede" type="s:boolean" />
+        <s:attribute name="Slettet" type="s:boolean" />
+      </s:complexType>
+      <s:complexType name="GruppeinndelingType">
+        <s:sequence>
+          <s:element name="Navn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Gruppe" type="s1:GruppeType" />
+        </s:sequence>
+        <s:attribute name="GruppeinndelingID" type="s:integer" />
+      </s:complexType>
+      <s:complexType name="GruppeType">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="GruppeID" type="s:integer" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="TaksonType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Popularnavn" type="s1:PopularnavnType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LatinskNavn" type="s1:LatinskNavnType">
+            <s:annotation>
+              <s:documentation>Gyldig LatinskNavn for Takson</s:documentation>
+            </s:annotation>
+          </s:element>
+        </s:sequence>
+        <s:attribute name="TaksonID" type="s:integer" />
+        <s:attribute name="TypeEksID" type="s:integer" />
+        <s:attribute name="FinnesINorge" type="s:boolean" />
+      </s:complexType>
+      <s:complexType name="PopularnavnType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Navn">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="Anbefalt" type="s:boolean" />
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+        <s:attribute name="Spraak" type="s:string" />
+      </s:complexType>
+      <s:group name="Kategorier">
+        <s:sequence>
+          <s:element minOccurs="0" name="Rike" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underrike" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Rekke" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underrekke" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Klasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Infraklasse" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Kohort" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Orden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Infraorden" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Overfamilie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Familie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underfamilie" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Tribus" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Undertribus" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Slekt" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underslekt" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Seksjon" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Art" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Underart" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Varietet" type="s1:KategoriType" />
+          <s:element minOccurs="0" name="Form" type="s1:KategoriType" />
+        </s:sequence>
+      </s:group>
+      <s:complexType name="KategoriType">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="KategoriID" type="s:integer" />
+            <s:attribute name="LatinskNavnID" type="s:integer" />
+            <s:attribute name="TypeEksID" type="s:integer" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="AntallType">
+        <s:sequence>
+          <s:element name="LatinskeNavn">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Hovedstatus">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:string">
+                        <s:attribute name="Totalt" type="s:integer" />
+                        <s:attribute name="INorge" type="s:integer" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+              <s:attribute name="Totalt" type="s:integer" />
+              <s:attribute name="INorge" type="s:integer" />
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" name="PopulareNavn">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="unbounded" name="Spraak">
+                  <s:complexType>
+                    <s:simpleContent>
+                      <s:extension base="s:string">
+                        <s:attribute name="Totalt" type="s:integer" />
+                        <s:attribute name="INorge" type="s:integer" />
+                        <s:attribute name="Anbefalt" type="s:integer" />
+                      </s:extension>
+                    </s:simpleContent>
+                  </s:complexType>
+                </s:element>
+              </s:sequence>
+              <s:attribute name="Totalt" type="s:integer" />
+              <s:attribute name="INorge" type="s:integer" />
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+        <s:attribute name="Kategori" type="s:string" />
+        <s:attribute name="KategoriID" type="s:integer" />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TaksonFraIDSoapIn">
+    <wsdl:part name="parameters" element="tns:TaksonFraID" />
+  </wsdl:message>
+  <wsdl:message name="TaksonFraIDSoapOut">
+    <wsdl:part name="parameters" element="tns:TaksonFraIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDSoapIn">
+    <wsdl:part name="parameters" element="tns:LatinskNavnFraID" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDSoapOut">
+    <wsdl:part name="parameters" element="tns:LatinskNavnFraIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreSoapIn">
+    <wsdl:part name="parameters" element="tns:Artstre" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreSoapOut">
+    <wsdl:part name="parameters" element="tns:ArtstreResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeSoapIn">
+    <wsdl:part name="parameters" element="tns:ArtstreForGruppe" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeSoapOut">
+    <wsdl:part name="parameters" element="tns:ArtstreForGruppeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokSoapIn">
+    <wsdl:part name="parameters" element="tns:Artssok" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokSoapOut">
+    <wsdl:part name="parameters" element="tns:ArtssokResponse" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationSoapIn">
+    <wsdl:part name="parameters" element="tns:ArtssokPagination" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationSoapOut">
+    <wsdl:part name="parameters" element="tns:ArtssokPaginationResponse" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokSoapIn">
+    <wsdl:part name="parameters" element="tns:Navnesok" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokSoapOut">
+    <wsdl:part name="parameters" element="tns:NavnesokResponse" />
+  </wsdl:message>
+  <wsdl:message name="GrupperSoapIn">
+    <wsdl:part name="parameters" element="tns:Grupper" />
+  </wsdl:message>
+  <wsdl:message name="GrupperSoapOut">
+    <wsdl:part name="parameters" element="tns:GrupperResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkSoapIn">
+    <wsdl:part name="parameters" element="tns:Statistikk" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkSoapOut">
+    <wsdl:part name="parameters" element="tns:StatistikkResponse" />
+  </wsdl:message>
+  <wsdl:message name="TaksonFraIDHttpGetIn">
+    <wsdl:part name="TaksonID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaksonFraIDHttpGetOut">
+    <wsdl:part name="Body" element="s1:TaksonMedGyldigLatinskNavn" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDHttpGetIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDHttpGetOut">
+    <wsdl:part name="Body" element="s1:LatinskNavnFraID" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreHttpGetIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+    <wsdl:part name="Dybde" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreHttpGetOut">
+    <wsdl:part name="Body" element="s1:Artstre" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeHttpGetIn">
+    <wsdl:part name="GruppeID" type="s:string" />
+    <wsdl:part name="Dybde" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeHttpGetOut">
+    <wsdl:part name="Body" element="s1:Artstre" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokHttpGetIn">
+    <wsdl:part name="Search" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokHttpGetOut">
+    <wsdl:part name="Body" element="s1:Artssok" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationHttpGetIn">
+    <wsdl:part name="Search" type="s:string" />
+    <wsdl:part name="max" type="s:string" />
+    <wsdl:part name="offset" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationHttpGetOut">
+    <wsdl:part name="Body" element="s1:Artssok" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokHttpGetIn">
+    <wsdl:part name="Search" type="s:string" />
+    <wsdl:part name="max" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokHttpGetOut">
+    <wsdl:part name="Body" element="s1:Navnesok" />
+  </wsdl:message>
+  <wsdl:message name="GrupperHttpGetIn" />
+  <wsdl:message name="GrupperHttpGetOut">
+    <wsdl:part name="Body" element="s1:Grupper" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkHttpGetIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkHttpGetOut">
+    <wsdl:part name="Body" element="s1:Statistikk" />
+  </wsdl:message>
+  <wsdl:message name="TaksonFraIDHttpPostIn">
+    <wsdl:part name="TaksonID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TaksonFraIDHttpPostOut">
+    <wsdl:part name="Body" element="s1:TaksonMedGyldigLatinskNavn" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDHttpPostIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LatinskNavnFraIDHttpPostOut">
+    <wsdl:part name="Body" element="s1:LatinskNavnFraID" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreHttpPostIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+    <wsdl:part name="Dybde" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreHttpPostOut">
+    <wsdl:part name="Body" element="s1:Artstre" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeHttpPostIn">
+    <wsdl:part name="GruppeID" type="s:string" />
+    <wsdl:part name="Dybde" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtstreForGruppeHttpPostOut">
+    <wsdl:part name="Body" element="s1:Artstre" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokHttpPostIn">
+    <wsdl:part name="Search" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokHttpPostOut">
+    <wsdl:part name="Body" element="s1:Artssok" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationHttpPostIn">
+    <wsdl:part name="Search" type="s:string" />
+    <wsdl:part name="max" type="s:string" />
+    <wsdl:part name="offset" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ArtssokPaginationHttpPostOut">
+    <wsdl:part name="Body" element="s1:Artssok" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokHttpPostIn">
+    <wsdl:part name="Search" type="s:string" />
+    <wsdl:part name="max" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NavnesokHttpPostOut">
+    <wsdl:part name="Body" element="s1:Navnesok" />
+  </wsdl:message>
+  <wsdl:message name="GrupperHttpPostIn" />
+  <wsdl:message name="GrupperHttpPostOut">
+    <wsdl:part name="Body" element="s1:Grupper" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkHttpPostIn">
+    <wsdl:part name="LatinskNavnID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="StatistikkHttpPostOut">
+    <wsdl:part name="Body" element="s1:Statistikk" />
+  </wsdl:message>
+  <wsdl:portType name="ArtsnavnebaseSoap">
+    <wsdl:operation name="TaksonFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer takson med tilhørende vitenskapelige (gyldige og synonyme) og populærnavn</wsdl:documentation>
+      <wsdl:input message="tns:TaksonFraIDSoapIn" />
+      <wsdl:output message="tns:TaksonFraIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer latinsk navn med takson, populærnavn og tilhørende gyldig latinsk navn (ved synonym)</wsdl:documentation>
+      <wsdl:input message="tns:LatinskNavnFraIDSoapIn" />
+      <wsdl:output message="tns:LatinskNavnFraIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt ID, som satt til 0 returnerer rikene. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreSoapIn" />
+      <wsdl:output message="tns:ArtstreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt GruppeID. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreForGruppeSoapIn" />
+      <wsdl:output message="tns:ArtstreForGruppeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokSoapIn" />
+      <wsdl:output message="tns:ArtssokSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer. Bruk max for å angi antall og offset for å angi startposisjon i resultatsettet.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokPaginationSoapIn" />
+      <wsdl:output message="tns:ArtssokPaginationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker etter navnestrenger i latinske og populære navn, også synonymer. Returnerer bare navnestrengen, primært for bruk i autocomplete.</wsdl:documentation>
+      <wsdl:input message="tns:NavnesokSoapIn" />
+      <wsdl:output message="tns:NavnesokSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer definerte (Arts)grupper</wsdl:documentation>
+      <wsdl:input message="tns:GrupperSoapIn" />
+      <wsdl:output message="tns:GrupperSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer Statistikk for gitt LatinskNavnId</wsdl:documentation>
+      <wsdl:input message="tns:StatistikkSoapIn" />
+      <wsdl:output message="tns:StatistikkSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArtsnavnebaseHttpGet">
+    <wsdl:operation name="TaksonFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer takson med tilhørende vitenskapelige (gyldige og synonyme) og populærnavn</wsdl:documentation>
+      <wsdl:input message="tns:TaksonFraIDHttpGetIn" />
+      <wsdl:output message="tns:TaksonFraIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer latinsk navn med takson, populærnavn og tilhørende gyldig latinsk navn (ved synonym)</wsdl:documentation>
+      <wsdl:input message="tns:LatinskNavnFraIDHttpGetIn" />
+      <wsdl:output message="tns:LatinskNavnFraIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt ID, som satt til 0 returnerer rikene. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreHttpGetIn" />
+      <wsdl:output message="tns:ArtstreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt GruppeID. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreForGruppeHttpGetIn" />
+      <wsdl:output message="tns:ArtstreForGruppeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokHttpGetIn" />
+      <wsdl:output message="tns:ArtssokHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer. Bruk max for å angi antall og offset for å angi startposisjon i resultatsettet.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokPaginationHttpGetIn" />
+      <wsdl:output message="tns:ArtssokPaginationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker etter navnestrenger i latinske og populære navn, også synonymer. Returnerer bare navnestrengen, primært for bruk i autocomplete.</wsdl:documentation>
+      <wsdl:input message="tns:NavnesokHttpGetIn" />
+      <wsdl:output message="tns:NavnesokHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer definerte (Arts)grupper</wsdl:documentation>
+      <wsdl:input message="tns:GrupperHttpGetIn" />
+      <wsdl:output message="tns:GrupperHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer Statistikk for gitt LatinskNavnId</wsdl:documentation>
+      <wsdl:input message="tns:StatistikkHttpGetIn" />
+      <wsdl:output message="tns:StatistikkHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ArtsnavnebaseHttpPost">
+    <wsdl:operation name="TaksonFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer takson med tilhørende vitenskapelige (gyldige og synonyme) og populærnavn</wsdl:documentation>
+      <wsdl:input message="tns:TaksonFraIDHttpPostIn" />
+      <wsdl:output message="tns:TaksonFraIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer latinsk navn med takson, populærnavn og tilhørende gyldig latinsk navn (ved synonym)</wsdl:documentation>
+      <wsdl:input message="tns:LatinskNavnFraIDHttpPostIn" />
+      <wsdl:output message="tns:LatinskNavnFraIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt ID, som satt til 0 returnerer rikene. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreHttpPostIn" />
+      <wsdl:output message="tns:ArtstreHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer hierarkisk oppbygging av navn fra gitt GruppeID. Sett dybde til -1 for å returnere alle undernivåer. OBS: Denne metoden returnerer potensielt et svært stort resultatsett!</wsdl:documentation>
+      <wsdl:input message="tns:ArtstreForGruppeHttpPostIn" />
+      <wsdl:output message="tns:ArtstreForGruppeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokHttpPostIn" />
+      <wsdl:output message="tns:ArtssokHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker i latinske og populære navn, også synonymer. Bruk max for å angi antall og offset for å angi startposisjon i resultatsettet.</wsdl:documentation>
+      <wsdl:input message="tns:ArtssokPaginationHttpPostIn" />
+      <wsdl:output message="tns:ArtssokPaginationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Søker etter navnestrenger i latinske og populære navn, også synonymer. Returnerer bare navnestrengen, primært for bruk i autocomplete.</wsdl:documentation>
+      <wsdl:input message="tns:NavnesokHttpPostIn" />
+      <wsdl:output message="tns:NavnesokHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer definerte (Arts)grupper</wsdl:documentation>
+      <wsdl:input message="tns:GrupperHttpPostIn" />
+      <wsdl:output message="tns:GrupperHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnerer Statistikk for gitt LatinskNavnId</wsdl:documentation>
+      <wsdl:input message="tns:StatistikkHttpPostIn" />
+      <wsdl:output message="tns:StatistikkHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ArtsnavnebaseSoap" type="tns:ArtsnavnebaseSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TaksonFraID">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/TaksonFraID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/LatinskNavnFraID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/Artstre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/ArtstreForGruppe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/Artssok" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/ArtssokPagination" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/Navnesok" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/Grupper" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <soap:operation soapAction="http://artsdatabanken.no/webtjenester/Statistikk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtsnavnebaseSoap12" type="tns:ArtsnavnebaseSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TaksonFraID">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/TaksonFraID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/LatinskNavnFraID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/Artstre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/ArtstreForGruppe" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/Artssok" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/ArtssokPagination" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/Navnesok" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/Grupper" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <soap12:operation soapAction="http://artsdatabanken.no/webtjenester/Statistikk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtsnavnebaseHttpGet" type="tns:ArtsnavnebaseHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="TaksonFraID">
+      <http:operation location="/TaksonFraID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <http:operation location="/LatinskNavnFraID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <http:operation location="/Artstre" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <http:operation location="/ArtstreForGruppe" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <http:operation location="/Artssok" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <http:operation location="/ArtssokPagination" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <http:operation location="/Navnesok" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <http:operation location="/Grupper" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <http:operation location="/Statistikk" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ArtsnavnebaseHttpPost" type="tns:ArtsnavnebaseHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="TaksonFraID">
+      <http:operation location="/TaksonFraID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LatinskNavnFraID">
+      <http:operation location="/LatinskNavnFraID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artstre">
+      <http:operation location="/Artstre" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtstreForGruppe">
+      <http:operation location="/ArtstreForGruppe" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Artssok">
+      <http:operation location="/Artssok" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArtssokPagination">
+      <http:operation location="/ArtssokPagination" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Navnesok">
+      <http:operation location="/Navnesok" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Grupper">
+      <http:operation location="/Grupper" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Statistikk">
+      <http:operation location="/Statistikk" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Artsnavnebase">
+    <wsdl:port name="ArtsnavnebaseSoap" binding="tns:ArtsnavnebaseSoap">
+      <soap:address location="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtsnavnebaseSoap12" binding="tns:ArtsnavnebaseSoap12">
+      <soap12:address location="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtsnavnebaseHttpGet" binding="tns:ArtsnavnebaseHttpGet">
+      <http:address location="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ArtsnavnebaseHttpPost" binding="tns:ArtsnavnebaseHttpPost">
+      <http:address location="http://webtjenester.artsdatabanken.no/Artsnavnebase.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

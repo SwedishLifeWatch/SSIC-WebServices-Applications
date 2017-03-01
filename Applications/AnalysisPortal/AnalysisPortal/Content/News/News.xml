@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<news>
+  <Article>
+    <Published><![CDATA[Published: 07 December 2016]]></Published>
+    <Title><![CDATA[SHARK data update]]></Title>
+    <Introduction><![CDATA[SHARK data from SMHI will be temporally unavailable in the Analysis Portal during the holidays due to a data service update.]]></Introduction>
+    <Text><![CDATA[
+    <p>The update will be implemented in the end of December, with scheduled start 20 December. All SHARK data will be available again after 8 January.</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Published: 01 December 2016]]></Published>
+    <Title><![CDATA[Swedish LifeWatch starts developing ecosystem avatars]]></Title>
+    <Introduction><![CDATA[A marine model ecosystem based on Swedish LifeWatch data will be the first step towards developing a Swedish ecosystem avatar.]]></Introduction>
+    <Text><![CDATA[
+    <p>The<i>&nbsp;Carl and Thecla Lamberg Foundation</i>&nbsp;has awarded an International Guest Professorship to Dawn Field, a frontier scientist in marine genomics and founder of the Genomic Standards Consortium, the Genomic Observatories Network and Ocean Sampling Day.</p>
+<p>Dawn Field will join &nbsp;the Department of Marine Sciences at University of Gothenburg during 2017 to develop a marine model ecosystem in Sweden based on Swedish LifeWatch and other data.</p>
+<p>The dense biodiversity data that are now becoming available through the LifeWatch initiative allow to transform marine long-term observatories into model 'places' that are able to predict biodiversity in unprecedented detail.&nbsp;This project is part of the larger Island Digital Ecosystem Avatars (IDEAS) Consortium launched by researchers working to describe the complete tropical island of Moorea in French Polynesia.&nbsp;</p>
+<p>The integration of data from DNA up to climate change is the first step towards a Swedish ecosystem avatar. Once achieved, this system will allow us to carry out&nbsp;<i>in-silico&nbsp;</i>studies of the impact from various socio-economic, climate or management scenarios on marine biodiversity and associated ecosystem services.</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Published: 14 November 2016]]></Published>
+    <Title><![CDATA[Applications to compare gaps in biodiversity data awarded first prize in GBIF challenge]]></Title>
+    <Introduction><![CDATA[Alejandro Ruete at SLU has won first prize in the 2016 GBIF Ebbe Nielsen Challenge for his approach to measuring and comparing spatial and temporal gaps in LifeWatch and GBIF biodiversity data.]]></Introduction>
+    <Text><![CDATA[<div class="intro-image">
+        <!--eri-desc-->
+
+
+
+    <img src="http://www.slu.se/globalassets/ew/org/inst/ekol/nyheter/alejandro-ruete.jpg?width=480&amp;height=480&amp;mode=crop" alt='Alejandro Ruete.jpg' title="Alejandro Ruete.jpg">
+
+        <!--/eri-desc-->
+
+    </div>
+    <p>Alejandro Ruete’s entry,&nbsp;<a href="https://gbif2016.devpost.com/submissions/56941-exploring-ignorance-in-space-and-time">Exploring ignorance in space and time</a>, earned the top prize of €20,000 upon its selection by an expert jury who reviewed 16 submissions to this year’s Challenge. As part of his submission, Ruete developed two web applications: The first application,&nbsp;<a href="https://aleruete.shinyapps.io/SLWapp/">SLWapp</a>, compares the ignorance calculated for seven species groups in Sweden, using Swedish LifeWatch data and the Swedish Species Observations web service provided by Swedish LifeWatch. The other application,&nbsp;<a href="https://aleruete.shinyapps.io/GBIFapp/">GBIFapp</a>,&nbsp;explores ignorance in space and time for amphibians in Europe, using GBIF data.</p>
+<p>- What made the winning entry so attractive was its simplicity and scalability. It makes few assumptions, and unlike some other entries it only requires simple occurrence data,” said Roderic Page, a University of Glasgow professor and chair of both the Challenge jury and the GBIF Science Committee. This means the tool can be applied to any geographic region or taxonomic group in the GBIF network.</p>
+<h3>About the applications</h3>
+<p>The approach presented for the challenge is meant for managers and users of primary biodiversity data to identify gaps, to assess the spatial and temporal bias inherent to the data, as well as to evaluate the relative gain in knowledge added from new observations. It does so by quantifying and comparing the lack of data (<i>Ignorance</i>) in biodiversity databases, like GBIF.</p>
+<p>The aim is to provide ignorance scores and maps that are easily comparable and scalable across dimensions, to report the spatial and temporal distribution of sampling effort (or lack of it). Ignorance maps will serve to properly inform users of the bias inherent to the data and to provide them with tools to properly analyse the data. Simplicity is crucial for web-based implementations on e-infrastructures for biodiversity information. Therefore, this approach expresses ignorance solely based on raw&nbsp;<i>presence-only</i>&nbsp;data (absences are optional but not required) summarized per grid cells or pixels. For the same reason, this approach relies on as few assumptions as possible. The aim is not to include any covariates or correlations and to avoid prediction, estimation and interpolation methods. The core algorithm is then thought to be fast enough to be implemented in web-based tools and Application Programming Interfaces (APIs). However, it can also be used&nbsp;<i>off-line</i>&nbsp;in the researcher's prefered analysis environment. This project is in line with the need identified by Rocchini et al. (2011) and will provide quality control tools for protocols for biodiversity analysis such as the one proposed by Hortal et al. (2007).</p>
+<p>The algorithm behind the Ignorance Score is designed for comparison of bias and gaps in primary biodiversity data across taxonomy, time and space:</p>
+<p>1.<b>Taxonomy</b>: applies to any species groups, but has also applications at the species level.<br> 2.<b>Time</b>: can be used to aggregate or dissect bias over time.<br> 3.<b>Space</b>: compares per pixel or between summaries of irregular polygons, and can be suited to different resolutions.</p>
+<p><img alt="" src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/nyhetsbilder/ignorance-map-ruetes.jpg" height="530" width="800"></p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Published: 10 June 2016]]></Published>
+    <Title><![CDATA[WRAM moose data available in the Analysis Portal]]></Title>
+    <Introduction><![CDATA[Moose telemetry data from Wireless Remote Animal Monitoring (WRAM) is now available in the Analysis Portal for biodiversity data.]]></Introduction>
+    <Text><![CDATA[<div class="intro-image">
+        <!--eri-desc-->
+
+
+
+    <img src="http://www.slu.se/globalassets/ew/subw/lifewatch/bilder/wram-moose.jpg?width=480&amp;height=480&amp;mode=crop" alt='wram-moose.jpg' title="wram-moose.jpg">
+
+        <!--/eri-desc-->
+
+    </div>
+    <p>Wireless Remote Animal Monitoring (WRAM) is an e-infrastructure for biotelemetry data automatically collected by different sensors. The infrastructure is hosted by UC-WRAM at SLU in Umeå.</p>
+<p>WRAM handles biotelemetry data from fish and wildlife, e.g. moose, bear, wolf and salmon. Sensor measurements ranging from positions (GPS), acceleration, proximity and heart rate to body temperature and internal sensors are stored in the database.</p>
+<p>UC-WRAM and Swedish LifeWatch have been cooperating for several years. A web service harvesting WRAM data to Swedish LifeWatch is now up and running and WRAM data is included in the Analysis portal.</p>
+<p>Due to the huge amount of data available from each individual in the WRAM database, LifeWatch harvests only aggregated position data from WRAM. Initially UC-WRAM provides data on moose (Alces alces) from different projects with GPS-collared moose in Sweden. During the initial phase, data from in total 596 individuals covering a total time period between 2003 and 2015 is publically available.</p>
+<h2>Aggregated data</h2>
+<p>When harvested by LifeWatch, the raw spatial data (GPS positions) in the WRAM Data Warehouse are aggregated per individual at the level of one month into an monthly 'observation'. The aggregated 'observation' reported in the Analysis Portal is based on the midpoint of maximum and minimum latitude and longitude for the animal and month in question. The 'coordinateUncertaintyInMeters' value is calculated as the distance in meters between the midpoint and the maximum latitude and longitude position.</p>
+<p>In other words: the minimum and maximum latitude and longitude for each individual and month form a rectangular box with the reported 'observation' as center point. The 'uncertainty' is then just the distance between the center point and the upper right corner of the box (max lat &amp; lon in our hemisphere).</p>
+]]></Text>
+  </Article>
+  <Article>
+    <Published><![CDATA[Published: 10 June 2016]]></Published>
+    <Title><![CDATA[More freshwater data]]></Title>
+    <Introduction><![CDATA[Due to improved web services, Swedish LifeWatch and the Analysis portal can now provide substantially more freshwater data.]]></Introduction>
+    <Text><![CDATA[
+    <p><br>The amount of freshwater data harvested by Swedish LifeWatch from the MVM database at SLU has now more than doubled and more than 900 000 freshwater species observations are now available in the Analysis Portal.</p>
+]]></Text>
+  </Article>
+</news>

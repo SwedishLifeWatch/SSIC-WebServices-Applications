@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken", "..\..\DataAccess\ArtDatabanken\ArtDatabanken\ArtDatabanken.csproj", "{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtDatabanken.WebApplication", "ArtDatabanken.WebApplication\ArtDatabanken.WebApplication.csproj", "{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D7C44560-B498-448D-B9C9-0E8C4A4387A0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://artdata-tfs.artdata.slu.se:8081/tfs/dev
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken\\ArtDatabanken.csproj
+		SccProjectName1 = ../../DataAccess/ArtDatabanken/ArtDatabanken
+		SccLocalPath1 = ..\\..\\DataAccess\\ArtDatabanken\\ArtDatabanken
+		SccProjectUniqueName2 = ArtDatabanken.WebApplication\\ArtDatabanken.WebApplication.csproj
+		SccProjectName2 = ArtDatabanken.WebApplication
+		SccLocalPath2 = ArtDatabanken.WebApplication
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release 32|Any CPU = Release 32|Any CPU
+		Release 32|x64 = Release 32|x64
+		Release 64|Any CPU = Release 64|Any CPU
+		Release 64|x64 = Release 64|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.ActiveCfg = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Debug|x64.Build.0 = Debug|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.ActiveCfg = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|Any CPU.Build.0 = Release 32|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.ActiveCfg = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 32|x64.Build.0 = Release 32|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.ActiveCfg = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|Any CPU.Build.0 = Release 64|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.ActiveCfg = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release 64|x64.Build.0 = Release 64|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.ActiveCfg = Release|x64
+		{2CE2FF5B-7CBF-4FE1-84F4-6D03F8BE0CB7}.Release|x64.Build.0 = Release|x64
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 32|x64.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release 64|x64.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61F2F90-2345-4099-B8C8-DA5E414BFB2F}.Release|x64.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

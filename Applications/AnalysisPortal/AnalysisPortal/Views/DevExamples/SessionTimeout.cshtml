@@ -1,0 +1,19 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Long running ajax sample";
+}
+<h2>Session timeout sample</h2>
+
+<div id="messageDiv"></div>
+
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $('#messageDiv').append('<p>window load occurred</p>');
+    });
+
+    $(document).ready(function () {
+        $('#messageDiv').append('<p>document ready occurred</p>');        
+    });    
+</script>

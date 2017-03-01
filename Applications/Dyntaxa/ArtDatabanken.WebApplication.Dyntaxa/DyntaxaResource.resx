@@ -1,0 +1,3474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ErrorNoData" xml:space="preserve">
+    <value>No data found</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ErrorTaxonIsMissing" xml:space="preserve">
+    <value>There is no taxon in Dyntaxa with taxon id = [TaxonId]!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ListOptionsHeader" xml:space="preserve">
+    <value>Export options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ListOptionsIncludeAuthorInNameCellLabel" xml:space="preserve">
+    <value>Include author in cells with scientific names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ListOptionsIncludeCommonNameInNameCellLabel" xml:space="preserve">
+    <value>Include common name in cells with scientific names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ListOptionsSubmitButtonValue" xml:space="preserve">
+    <value>Get list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchingResultsHeader" xml:space="preserve">
+    <value>Results of matching</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsAllowedFiletypesText" xml:space="preserve">
+    <value>Allowed file type: Excel (xlsx)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsFileExtensionError" xml:space="preserve">
+    <value>Wrong file extension, must be either .xls or .xlsx</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsInputColumnContentLabel" xml:space="preserve">
+    <value>Column content</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsIsFirstRowColumnNameLabel" xml:space="preserve">
+    <value>First row represents column names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsLimitToTaxonLabel" xml:space="preserve">
+    <value>Limit match to [TaxonName]</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputAmbiguitiesLabel" xml:space="preserve">
+    <value>Matching ambiguities</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputAuthorLabel" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputCommonNameLabel" xml:space="preserve">
+    <value>Common name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputMatchStatusLabel" xml:space="preserve">
+    <value>Matching status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputParentTaxaLabel" xml:space="preserve">
+    <value>Parent taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputProvidedTaxonIdLabel" xml:space="preserve">
+    <value>Provided taxon id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputProvidedTextLabel" xml:space="preserve">
+    <value>Provided string</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputScientificNameLabel" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputScientificSynonymsLabel" xml:space="preserve">
+    <value>Scientific synonyms</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputTaxonCetegoryLabel" xml:space="preserve">
+    <value>Taxon category (Rank)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutputTaxonIdLabel" xml:space="preserve">
+    <value>Taxon id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsSubmitButtonValue" xml:space="preserve">
+    <value>Match</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonDropDownListDefaultText" xml:space="preserve">
+    <value>Select one of [Count] matching taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeInstructionLabel" xml:space="preserve">
+    <value>Revision  instructions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeAuthorityDescriptionText" xml:space="preserve">
+    <value>This authority allows the user to perform revision for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeAuthorityNameText" xml:space="preserve">
+    <value>Perform revision for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeAuthorityObligationText" xml:space="preserve">
+    <value>Executing revision according to instructions.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeRoleDescriptionText" xml:space="preserve">
+    <value>This role will allow users to create, change, move  and remove taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeRoleIdentifierText" xml:space="preserve">
+    <value>DyntaxaRevisionTaxonEditor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeRoleNameText" xml:space="preserve">
+    <value>Taxon editor for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeRoleShortNameText" xml:space="preserve">
+    <value>DyntaxtaRevisionEditor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeInstructionAndValidDateLabel" xml:space="preserve">
+    <value>Instruction and validity</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionInitializeLabel" xml:space="preserve">
+    <value>Initialize revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeSelectedTaxonLabel" xml:space="preserve">
+    <value>Selected taxon:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeSelectUsersLabel" xml:space="preserve">
+    <value>Choose editors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeStartTaxonRevisionButton" xml:space="preserve">
+    <value>Start revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionTaxonStatusLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionButton" xml:space="preserve">
+    <value>Submit revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionHeaderText" xml:space="preserve">
+    <value>Publish revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionTaxonHeaderText" xml:space="preserve">
+    <value>Revision taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeTitleText" xml:space="preserve">
+    <value>Publish revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountControllerIncorrectLoginError" xml:space="preserve">
+    <value>The user name or password provided is incorrect.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountControllerIncorrectPasswordError" xml:space="preserve">
+    <value>The current password is incorrect or the new password is invalid.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogInText" xml:space="preserve">
+    <value>Log in</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutText" xml:space="preserve">
+    <value>Log out</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeIndexHeaderText" xml:space="preserve">
+    <value>Welcome to Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListHeaderText" xml:space="preserve">
+    <value>List revisions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListPublishingDateTableHeaderText" xml:space="preserve">
+    <value>Publishing date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListRevisionStatusTableHeaderText" xml:space="preserve">
+    <value>Status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusClosedText" xml:space="preserve">
+    <value>Published</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusCreatedText" xml:space="preserve">
+    <value>Preliminary</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusOngoingText" xml:space="preserve">
+    <value>Ongoing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusText" xml:space="preserve">
+    <value>Selected status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListSelectedRevisonsAllRevisionsText" xml:space="preserve">
+    <value>All taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListStartDateTableHeaderText" xml:space="preserve">
+    <value>Start date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEditButton" xml:space="preserve">
+    <value>Administer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListInfoButton" xml:space="preserve">
+    <value>Info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListNoRevisionsAvailableText" xml:space="preserve">
+    <value>No revisions available</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCancelButtonText" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListTaxonInformationLabel" xml:space="preserve">
+    <value>For</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddAddNewEditorButton" xml:space="preserve">
+    <value>Add new editor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionInitializeButtonText" xml:space="preserve">
+    <value>Initialize</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddMainHeaderText" xml:space="preserve">
+    <value>New revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddPropertiesHeaderText" xml:space="preserve">
+    <value>Revision properties</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionPublishingDateText" xml:space="preserve">
+    <value>Expected publishing date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddSelectEditorsHeaderText" xml:space="preserve">
+    <value>Select editors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionStartDateText" xml:space="preserve">
+    <value>Expected start date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSaveButtonText" xml:space="preserve">
+    <value>Save</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditActionHeaderText" xml:space="preserve">
+    <value>Edit revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditEditorsHeaderText" xml:space="preserve">
+    <value>Editors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditMainHeaderText" xml:space="preserve">
+    <value>Define revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditQualityHeaderText" xml:space="preserve">
+    <value>Evaluate data quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditQualityLabel" xml:space="preserve">
+    <value>Data quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditReferencesHeaderText" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditRevisionPropretiesHeaderText" xml:space="preserve">
+    <value>Revision properties</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDeleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeButtonText" xml:space="preserve">
+    <value>Publish</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionIdLabel" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionStateLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeInformation" xml:space="preserve">
+    <value>Publish this revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeLabel" xml:space="preserve">
+    <value>Publish revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionInitializeInformation" xml:space="preserve">
+    <value>Initialize revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInfoActionHeaderText" xml:space="preserve">
+    <value>Revision information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInfoMainHeaderText" xml:space="preserve">
+    <value>Revision information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddActionHeaderText" xml:space="preserve">
+    <value>New revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStartEditingButtonText" xml:space="preserve">
+    <value>Start</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStopEditingButtonText" xml:space="preserve">
+    <value>Stop</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStopEditingActionHeaderText" xml:space="preserve">
+    <value>Stop editing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionEditingHeaderText" xml:space="preserve">
+    <value>Revision of the</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeErrorInformation" xml:space="preserve">
+    <value>Cannot initialize this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListFilterHeader" xml:space="preserve">
+    <value>Filters</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListLimitToCurrentTaxon" xml:space="preserve">
+    <value>Limit revision list to current taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStartEditingActionHeaderText" xml:space="preserve">
+    <value>Start editing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStartMainHeaderText" xml:space="preserve">
+    <value>Start editing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStopMainHeaderText" xml:space="preserve">
+    <value>Stop editing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddErrorInformation" xml:space="preserve">
+    <value>Cannot create this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedOkButtonText" xml:space="preserve">
+    <value>OK</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedEditButtonText" xml:space="preserve">
+    <value>Edit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSortChildTaxaTitle" xml:space="preserve">
+    <value>Sort children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionNoRolesCreatedErrorInformation" xml:space="preserve">
+    <value>Cannot create roles for this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeActionErrorHeaderText" xml:space="preserve">
+    <value>Publishing failed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeMainErrorHeaderText" xml:space="preserve">
+    <value>Publishing failed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeRevisionNotSavedErrorInformation" xml:space="preserve">
+    <value>Revision  must be saved before changing status to published.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeActionErrorHeaderText" xml:space="preserve">
+    <value>Initialize failed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeMainErrorHeaderText" xml:space="preserve">
+    <value>Initialize failed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInitializeRevisionNotSavedErrorInformation" xml:space="preserve">
+    <value>Revision must be saved.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeErrorInformation" xml:space="preserve">
+    <value>Cannot publish revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeRolesNotRemovedErrorInformation" xml:space="preserve">
+    <value>Remove roles manually.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionText" xml:space="preserve">
+    <value>revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddNoUsersErrorInformation" xml:space="preserve">
+    <value>Cannot initialize. No users selected for this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditNoUsersErrorInformation" xml:space="preserve">
+    <value>Cannot initialize. No users selected for this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditNoUsersFinalizeErrorInformation" xml:space="preserve">
+    <value>Cannot finalize. No users selected for this revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionStartRevisionForEditingText" xml:space="preserve">
+    <value>Revision selected for editing.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedError" xml:space="preserve">
+    <value>Error</value>
+    <comment>sv (Temporarily error string)</comment>
+  </data>
+  <data name="SharedErrorStringToLong250" xml:space="preserve">
+    <value>The text string is to long (has to be less than 250 chars)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddBlockedForReporting" xml:space="preserve">
+    <value>Blocked for reporting</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddExcludeFromReportingSystem" xml:space="preserve">
+    <value>Exclude from observation systems</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddIsProblematic" xml:space="preserve">
+    <value>Taxon is problematic</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ErrorNameIsMissing" xml:space="preserve">
+    <value>Name is missing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddInvalidRevisionErrorText" xml:space="preserve">
+    <value>No valid revision could be created.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisonAddInvalidTaxonErrorText" xml:space="preserve">
+    <value>No valid taxon for revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionNoValidRevisionErrorText" xml:space="preserve">
+    <value>No valid revision exists.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionSharedNoValidRevisionIdErrorText" xml:space="preserve">
+    <value>No valid revision exists for id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditUpdateUsersErrorText" xml:space="preserve">
+    <value>Cannot update the list of users.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditUpdateRevisionErrorText" xml:space="preserve">
+    <value>Cannot modify revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSortChildTaxaAscending" xml:space="preserve">
+    <value>Alphabetical order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSortChildTaxaDescending" xml:space="preserve">
+    <value>Reverse alphabetical order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSortChildTaxaSortOrder" xml:space="preserve">
+    <value>Custom sort order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveAvailableParents" xml:space="preserve">
+    <value>Available parents</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveMoveSelectedTaxa" xml:space="preserve">
+    <value>Change parent for the selected taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveSelectChildrenToMove" xml:space="preserve">
+    <value>Select children taxa to move</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveSelectedParent" xml:space="preserve">
+    <value>Selected new parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveSelectNewParent" xml:space="preserve">
+    <value>Select new parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveTitle" xml:space="preserve">
+    <value>Change parent taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionUserAdminLinkText" xml:space="preserve">
+    <value>Add revision editors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonRemoveParentHeaderText" xml:space="preserve">
+    <value>Remove parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonRemoveParentLabelText" xml:space="preserve">
+    <value>Select parent to remove</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddParentHeaderText" xml:space="preserve">
+    <value>Add new parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddParentLabelText" xml:space="preserve">
+    <value>Select new parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDropParentHeaderText" xml:space="preserve">
+    <value>Remove parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDropParentLabelText" xml:space="preserve">
+    <value>Select parent to remove</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionNoEditorsExistErrorText" xml:space="preserve">
+    <value>No TaxonEditorRole exists in DB.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionToManyEditorsErrorText" xml:space="preserve">
+    <value>Too many TaxonEditiorRoles exists.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAddButtonText" xml:space="preserve">
+    <value>Add</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeDialogText" xml:space="preserve">
+    <value>Publish this revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionFinalizeDialogTitleText" xml:space="preserve">
+    <value>Publish revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionInitializeDialogText" xml:space="preserve">
+    <value>Initialize revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionInitializeDialogTitleText" xml:space="preserve">
+    <value>Initialize revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddParentExistingParentsLabel" xml:space="preserve">
+    <value>Existing parents in revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddBoxHeader" xml:space="preserve">
+    <value>Add taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddPageHeader" xml:space="preserve">
+    <value>Create new child taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddPageTitle" xml:space="preserve">
+    <value>Add taxon</value>
+    <comment>svsv</comment>
+  </data>
+  <data name="TaxonAddParentErrorText" xml:space="preserve">
+    <value>No parents avaliable.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDropParentErrorText" xml:space="preserve">
+    <value>A taxon must have at least two parents before removing one of them. The primary parent cannot be removed.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDeleteInfoHeaderText" xml:space="preserve">
+    <value>Delete taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDeleteInfoText" xml:space="preserve">
+    <value>Are you sure that the selected taxon should be deleted? A better option might be to lump the taxon into another existing taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonDeleteText" xml:space="preserve">
+    <value>Delete the selected taxon? A better option could be lumping it with another taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidRevisionErrorText" xml:space="preserve">
+    <value>No valid revision exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidTaxonErrorText" xml:space="preserve">
+    <value>No valid taxon exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReadTaxonInformationAdduBioLinkLabel" xml:space="preserve">
+    <value>Add uBio link tool</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationAnamorhNameHeader" xml:space="preserve">
+    <value>Anamorph names</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationAnamorhNameLabel" xml:space="preserve">
+    <value>Anamorph name</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationAuthorLabel" xml:space="preserve">
+    <value>Author</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationCommonNameLabel" xml:space="preserve">
+    <value>Swedish name</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationIdentifierListHeader" xml:space="preserve">
+    <value>Identifiers</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationMapHeader" xml:space="preserve">
+    <value>Distribution map</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationNationalSynonymsHeader" xml:space="preserve">
+    <value>Swedish synonyms</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationNearestChildTaxaHeader" xml:space="preserve">
+    <value>Immediate child taxa</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationNumberOfChildTaxaHeader" xml:space="preserve">
+    <value>Number of child taxa per taxon category</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationOptionsHeader" xml:space="preserve">
+    <value>Options</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationOriginalScientificNameHeader" xml:space="preserve">
+    <value>Original name</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationOriginalScientificNameLabel" xml:space="preserve">
+    <value>Original name</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationOtherLanguagesHeader" xml:space="preserve">
+    <value>Other languages</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationOtherNamesHeader" xml:space="preserve">
+    <value>Other names</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationRecommendedLinksHeader" xml:space="preserve">
+    <value>Links to more information</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationRecommendedNamesHeader" xml:space="preserve">
+    <value>Recommended names</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationScientificNameLabel" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationScientificSynonymsHeader" xml:space="preserve">
+    <value>Scientific synonyms</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowChildTaxaLabel" xml:space="preserve">
+    <value>Show child taxon list</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowCommentsLabel" xml:space="preserve">
+    <value>Show comments</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowHistoryLabel" xml:space="preserve">
+    <value>Show history</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowIdentifiersLabel" xml:space="preserve">
+    <value>Show identifers</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowInvalidNamesLabel" xml:space="preserve">
+    <value>Show incorrect names</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowMapLabel" xml:space="preserve">
+    <value>Show distribution map</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowNumberOfChildTaxaLabel" xml:space="preserve">
+    <value>Show number of child taxa</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowOtherNameTypesLabel" xml:space="preserve">
+    <value>Show other name types</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowPhotosLabel" xml:space="preserve">
+    <value>Show photos</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowQualityLabel" xml:space="preserve">
+    <value>Show quality</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowReferencesLabel" xml:space="preserve">
+    <value>Show references</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowSynonymsLabel" xml:space="preserve">
+    <value>Show Synonyms</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationShowUpdateInformationLabel" xml:space="preserve">
+    <value>Show revision information</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationSynonymsHeader" xml:space="preserve">
+    <value>Synonyms</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationTaxonCategoryLabel" xml:space="preserve">
+    <value>Taxon category</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationTaxonIdLabel" xml:space="preserve">
+    <value>Dyntaxa taxon id</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationTaxonTreeHeader" xml:space="preserve">
+    <value>Taxonomic hierarchy (parent taxa)</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationTitleText" xml:space="preserve">
+    <value>Taxon concept description</value>
+    <comment>?</comment>
+  </data>
+  <data name="ReadTaxonInformationValidityLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>?</comment>
+  </data>
+  <data name="SharedAvaliableLabel" xml:space="preserve">
+    <value>Avaliable</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogButtonTextNo" xml:space="preserve">
+    <value>No</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogButtonTextYes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogConfirmationHeader" xml:space="preserve">
+    <value>Confirm</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogConfirmationText" xml:space="preserve">
+    <value>Are you sure?</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogDeleteHeader" xml:space="preserve">
+    <value>Delete</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedDialogInformationHeader" xml:space="preserve">
+    <value>Information</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedExeptionNullOrEmpty" xml:space="preserve">
+    <value>Value must not be missing</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedFieldsetLegendEditCreateText" xml:space="preserve">
+    <value>Fill in the form</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedInvalidUserContext" xml:space="preserve">
+    <value>No valid user has logged in. Log out and then log in again.</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedInvalidApplicationUserContext" xml:space="preserve">
+    <value>Dyntaxa application user is invalid. Log out and then log in again.</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedPasswordLabel" xml:space="preserve">
+    <value>Password</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedReadTaxonInformationTaxonStatusLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSaving" xml:space="preserve">
+    <value>Saving</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSelectedLabel" xml:space="preserve">
+    <value>Selected</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedSubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedTaxonConceptDescription" xml:space="preserve">
+    <value>Description</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedTaxonNameSearchResultListHeader" xml:space="preserve">
+    <value>List of names matching the search string</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedUserNameLabel" xml:space="preserve">
+    <value>User name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoAnamorphNameLabel" xml:space="preserve">
+    <value>Anamorph</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoCommonNameLabel" xml:space="preserve">
+    <value>Swedish</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoDistributionMapLabel" xml:space="preserve">
+    <value>Distribution map</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoIdentifiersLabel" xml:space="preserve">
+    <value>Identifiers</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoNearestChildTaxaLabel" xml:space="preserve">
+    <value>Immediate child taxa</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoOtherLanguagesLabel" xml:space="preserve">
+    <value>Other languages</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoOtherNames" xml:space="preserve">
+    <value>Other names</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoRecommendedLinksLabel" xml:space="preserve">
+    <value>Links to more information</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoRecommendedNamesLabel" xml:space="preserve">
+    <value>Recommended names</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoScientificNameLabel" xml:space="preserve">
+    <value>Scientific</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoSynonymsLabel" xml:space="preserve">
+    <value>Synonyms</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonIdLabel" xml:space="preserve">
+    <value>Dyntaxa Taxon Id</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonomicHierarchyLabel" xml:space="preserve">
+    <value>Taxonomic hierarchy (Classification)</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsCategoryNameLabel" xml:space="preserve">
+    <value>Taxon Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsInDyntaxa" xml:space="preserve">
+    <value>Dyntaxa Total</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsInSweden" xml:space="preserve">
+    <value>Recorded from Sweden</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsLabel" xml:space="preserve">
+    <value>Number of child taxa</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonInfoTitleLabel" xml:space="preserve">
+    <value>Taxon information</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditAuthorLabel" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditCommentLabel" xml:space="preserve">
+    <value>Comment</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditIsRecommendedLabel" xml:space="preserve">
+    <value>Recommended</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditNameCategoryLabel" xml:space="preserve">
+    <value>Name category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditNameHeader" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditNameLabel" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditNameUsageHeader" xml:space="preserve">
+    <value>Nomenclature</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditNotOkForObs" xml:space="preserve">
+    <value>Not ok for obs system</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddEditUsageLabel" xml:space="preserve">
+    <value>Nomenclature</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameAddTitle" xml:space="preserve">
+    <value>Add name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteDoYouWantToDelete" xml:space="preserve">
+    <value>Do you really want to delete?</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteNameUsage" xml:space="preserve">
+    <value>Nomenclature</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteRecommended" xml:space="preserve">
+    <value>Recommended</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameDeleteTitle" xml:space="preserve">
+    <value>Delete name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameEditTitle" xml:space="preserve">
+    <value>Edit name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameListAddNewNameCategory" xml:space="preserve">
+    <value>Add new name category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameListAddNewNameToCategory" xml:space="preserve">
+    <value>Add new name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameListTitle" xml:space="preserve">
+    <value>List names</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedIsRecommended" xml:space="preserve">
+    <value>Recommended</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedNameUsage" xml:space="preserve">
+    <value>Name usage</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedNotOkForObs" xml:space="preserve">
+    <value>Is not ok for obs. system</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonNameSharedReferences" xml:space="preserve">
+    <value>References</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchAmbiguousResult" xml:space="preserve">
+    <value>Ambiguous search result. Select taxon to return to</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchHits" xml:space="preserve">
+    <value>hits</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchResult" xml:space="preserve">
+    <value>Search result</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchSeconds" xml:space="preserve">
+    <value>seconds</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchTitle" xml:space="preserve">
+    <value>Search taxon</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedCommonName" xml:space="preserve">
+    <value>Common name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedDescription" xml:space="preserve">
+    <value>Description of taxon concept</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedInvalidRevision" xml:space="preserve">
+    <value>No valid revision exists</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedInvalidTaxon" xml:space="preserve">
+    <value>No valid taxon exists</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedScientificName" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSharedTaxonCategory" xml:space="preserve">
+    <value>Taxon Category</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryCategoryLabel" xml:space="preserve">
+    <value>Category (rank)</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryClassificationLabel" xml:space="preserve">
+    <value>Classification</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryCommonNamesLabel" xml:space="preserve">
+    <value>Common names</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryConceptDefinitionLabel" xml:space="preserve">
+    <value>Concept definition</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryIdLabel" xml:space="preserve">
+    <value>Dyntaxa taxon id</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryScientificNameLabel" xml:space="preserve">
+    <value>Scientific name</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySwedishHistoryLabel" xml:space="preserve">
+    <value>Swedish immigration history</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySwedishOccurrenceLabel" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummarySynonymsLabel" xml:space="preserve">
+    <value>Synonyms</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSummaryValidityLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="SharedRevisionNoEditorsSelectedErrorText" xml:space="preserve">
+    <value>No taxon editors selected for this revision!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionTaxonIsInRevisionDialogText" xml:space="preserve">
+    <value>Taxon or some of its children are already part of an ongoing revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedArtDatabankenText" xml:space="preserve">
+    <value>The Swedish Species Information Centre</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedChangeLanguageLabel" xml:space="preserve">
+    <value>Svenska</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedContactMailLinkText" xml:space="preserve">
+    <value>Email to support</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCurrentServiceStatusLinkText" xml:space="preserve">
+    <value>Current service status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSupportHeaderText" xml:space="preserve">
+    <value>Support</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoQualityChartLabel" xml:space="preserve">
+    <value>Data quality in Dyntaxa</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="TaxonSearchNameCategory" xml:space="preserve">
+    <value>Name category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitHaveChildrenErrorText" xml:space="preserve">
+    <value>No possible to split taxon that has child taxa. Remove children before splitting.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitPopUpText" xml:space="preserve">
+    <value>Split taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpAddCurrentTaxonToListButtonText" xml:space="preserve">
+    <value>Add selected taxon to list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpHaveChildrenErrorText" xml:space="preserve">
+    <value>It is not possible to set the current taxon to the list of taxa to lump. Remove all child taxa if this taxon is to be added to the list of taxa to lump.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpHeaderText" xml:space="preserve">
+    <value>Lump taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpListTaxaToLumpText" xml:space="preserve">
+    <value>List of taxa to lump into the replacing taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpNoReplacingTaxonErrorText" xml:space="preserve">
+    <value>No replacing taxon has been selected!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpNoTaxaSelectedErrorText" xml:space="preserve">
+    <value>No taxa have been selected!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpPopUpText" xml:space="preserve">
+    <value>Lump taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpReplacingTaxonLabel" xml:space="preserve">
+    <value>Replacing taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpSetCurrentTaxonToReplacingTaxonButtonText" xml:space="preserve">
+    <value>Set selected taxon to be the replacing taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpButtonText" xml:space="preserve">
+    <value>Lump</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpAlreadyInLumpListErrorText" xml:space="preserve">
+    <value>Not possible to set this taxon as the replacing taxon. It is already in the list of taxa to lump.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpSetAsReplacingErrorText" xml:space="preserve">
+    <value>No possible to add selected taxon to list of taxa to lump. Taxon already set as replacing taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferencesHeaderText" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitAddCurrentTaxonToListButtonText" xml:space="preserve">
+    <value>Add selected taxon to list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitAlreadyInReplaceListErrorText" xml:space="preserve">
+    <value>No possible to choose current taxon to be split. It is already in the list of replacement taxa.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitAlreadyInSetAsSplittingErrorText" xml:space="preserve">
+    <value>No possible to add current taxon to list of replacement taxa. It is already set as taxon to be split.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitButtonText" xml:space="preserve">
+    <value>Split</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitHeaderText" xml:space="preserve">
+    <value>Split taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitNoReplacingTaxonErrorText" xml:space="preserve">
+    <value>No replacement taxa has been selected!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitNoTaxaSelectedErrorText" xml:space="preserve">
+    <value>No taxon have been selected!</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitReplacingTaxonLabel" xml:space="preserve">
+    <value>Replacement taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitSetCurrentTaxonToSplittingTaxonButtonText" xml:space="preserve">
+    <value>Set current taxon to be split</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitTaxonToBeSplittedText" xml:space="preserve">
+    <value>Taxon to be split</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameAddEditIsOriginal" xml:space="preserve">
+    <value>Is the original name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoQuality0Label" xml:space="preserve">
+    <value>Not set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoQuality1Label" xml:space="preserve">
+    <value>Bad</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoQuality2Label" xml:space="preserve">
+    <value>Acceptable</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoQuality3Label" xml:space="preserve">
+    <value>Good</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddButtonAdd" xml:space="preserve">
+    <value>Add references</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddFilteringLabel" xml:space="preserve">
+    <value>(filtered from _MAX_ total entries)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddId" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddNoDataAvailableLabel" xml:space="preserve">
+    <value>No data available in table</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddNoRecordsLabel" xml:space="preserve">
+    <value>No records to display</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddNumberOfFilteredElementsLabel" xml:space="preserve">
+    <value>Displaying _START_ to _END_ of _TOTAL_ entries</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddSearchLabel" xml:space="preserve">
+    <value>Search</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddSearchReferences" xml:space="preserve">
+    <value>Search references</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddText" xml:space="preserve">
+    <value>Title</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddTitle" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddType" xml:space="preserve">
+    <value>Type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddUsage" xml:space="preserve">
+    <value>Usage</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddUsageTypeId" xml:space="preserve">
+    <value>Usage type Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddYear" xml:space="preserve">
+    <value>Year</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceGuidObjectInfoDescriptionLabel" xml:space="preserve">
+    <value>Description</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceGuidObjectInfoGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceGuidObjectInfoIdLabel" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceGuidObjectInfoTypeDescriptionLabel" xml:space="preserve">
+    <value>Reference type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAdditionalErrorInformation" xml:space="preserve">
+    <value>Details</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionNoTaxonEditorAutorityExist" xml:space="preserve">
+    <value>No authorization exists for this revision.</value>
+  </data>
+  <data name="SharedRevisionNoTaxonEditorRoleExist" xml:space="preserve">
+    <value>No role exists for this revision.</value>
+  </data>
+  <data name="ReferenceAddChooseType" xml:space="preserve">
+    <value>Choose type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferenceLabel" xml:space="preserve">
+    <value>Reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNotExistErrorText" xml:space="preserve">
+    <value>No such taxon found.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNotInRevisionErrorText" xml:space="preserve">
+    <value>No such taxon in the selected revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionDeleteActionHeaderText" xml:space="preserve">
+    <value>Delete revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionDeleteMainHeaderText" xml:space="preserve">
+    <value>Delete revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionDeleteDialogText" xml:space="preserve">
+    <value>Do you really want to delete the selected revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionDeleteDialogTitleText" xml:space="preserve">
+    <value>Delete revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionRevisonEventActionHeaderText" xml:space="preserve">
+    <value>Revision events</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceGuidObjectInfoRevisionText" xml:space="preserve">
+    <value>Revision for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpNotPossibleToLumpErrorText" xml:space="preserve">
+    <value>Selected taxa are not possible to lump.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionInvalidRevisionEventErrorText" xml:space="preserve">
+    <value>Invalid revision event.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddReferences" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCurrentRevision" xml:space="preserve">
+    <value>Current revision: {0}</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedViewLabel" xml:space="preserve">
+    <value>View</value>
+    <comment>sv2</comment>
+  </data>
+  <data name="RevisionListEventAffectedTaxaValueText" xml:space="preserve">
+    <value>Affected taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventChangeTypeText" xml:space="preserve">
+    <value>Change type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventListTitleLabelText" xml:space="preserve">
+    <value>Revision events</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventNewValueText" xml:space="preserve">
+    <value>New value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventNoRevisionEventsAvailableText" xml:space="preserve">
+    <value>No valid revision events for selected revesion.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventOldValueText" xml:space="preserve">
+    <value>Old value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventPageTitleText" xml:space="preserve">
+    <value>Revision events</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventStepTypeText" xml:space="preserve">
+    <value>Event Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventUndoTypeText" xml:space="preserve">
+    <value>Undo last change</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpNotOkToLumpErrorText" xml:space="preserve">
+    <value>Selected taxa are not possible to lump.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonPickCategoryText" xml:space="preserve">
+    <value>Pick a category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditHeaderLabel" xml:space="preserve">
+    <value>Taxon edit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListTitleLabelText" xml:space="preserve">
+    <value>Revisions  (Count =</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoHistoricalParentsHeader" xml:space="preserve">
+    <value>Previous parents</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoOtherParentsHeader" xml:space="preserve">
+    <value>Other parents</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditQualityHeaderText" xml:space="preserve">
+    <value>Evaluate quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditQualityLabel" xml:space="preserve">
+    <value>Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsAmbiguitiesTitle" xml:space="preserve">
+    <value>Match - Taxon conflicts and ambiguities</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsExcelFile" xml:space="preserve">
+    <value>Excel file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsPasteText" xml:space="preserve">
+    <value>Paste text (from clipboard)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsPickCorrectMatchFor" xml:space="preserve">
+    <value>Pick correct match for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsResult" xml:space="preserve">
+    <value>Result</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsSaveAsExcel" xml:space="preserve">
+    <value>Save result as Excel</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsTitle" xml:space="preserve">
+    <value>Matching options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsViewResultScreen" xml:space="preserve">
+    <value>View results on screen</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoNameTooltip" xml:space="preserve">
+    <value>Click to display name info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameAddEditExistingNames" xml:space="preserve">
+    <value>Existing names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditQualityOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Quality of immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditQualityOfSwedishOccurrence" xml:space="preserve">
+    <value>Quality of occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditReferenceOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Reference of immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditReferenceOfSwedishOccurrence" xml:space="preserve">
+    <value>Reference of occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditStatusOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Immigration history status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditStatusOfSwedishOccurrence" xml:space="preserve">
+    <value>Occurrence status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditSwedishImmigrationHistoryDescriptionLabel" xml:space="preserve">
+    <value>Comment on immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditSwedishImmigrationHistoryLabel" xml:space="preserve">
+    <value>Swedish immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceDescriptionLabel" xml:space="preserve">
+    <value>Comment on occurrence status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceLabel" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchAny" xml:space="preserve">
+    <value>Any</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchFalse" xml:space="preserve">
+    <value>False</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsUnique" xml:space="preserve">
+    <value>The name is unique</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTrue" xml:space="preserve">
+    <value>True</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListFilterButtonLabelText" xml:space="preserve">
+    <value>Apply filter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferences" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSpeciesFactError" xml:space="preserve">
+    <value>Not possible to show Swedish occurrence for the current taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoReferencesLabel" xml:space="preserve">
+    <value>References</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryUpdateInformationLabel" xml:space="preserve">
+    <value>Last updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValueAccepted" xml:space="preserve">
+    <value>Accepted</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValueNotValid" xml:space="preserve">
+    <value>Unaccepted</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValitityValuePragmatic" xml:space="preserve">
+    <value>Informally accepted as a pragamatic taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToLoginArtDatabankenServiceError" xml:space="preserve">
+    <value>Not possible to login at ArtDatabankenService.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExport" xml:space="preserve">
+    <value>Export</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportDatabaseTables" xml:space="preserve">
+    <value>Database tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportHierarchicalTaxonList" xml:space="preserve">
+    <value>Hierarchical taxon list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportTaxonList" xml:space="preserve">
+    <value>Straight taxon list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportSubscription" xml:space="preserve">
+    <value>Subscriptions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemMatch" xml:space="preserve">
+    <value>Match</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevision" xml:space="preserve">
+    <value>Revisions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevisionAdd" xml:space="preserve">
+    <value>New</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevisionList" xml:space="preserve">
+    <value>List revisions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevisionListRevisionEvents" xml:space="preserve">
+    <value>Revision events</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevisionStartEdititng" xml:space="preserve">
+    <value>Taxonomy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemRevisionStopEdititng" xml:space="preserve">
+    <value>Stop editing</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSearch" xml:space="preserve">
+    <value>Search</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxon" xml:space="preserve">
+    <value>Taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonAdd" xml:space="preserve">
+    <value>New child</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonAddParent" xml:space="preserve">
+    <value>Add parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonDelete" xml:space="preserve">
+    <value>Delete taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonEdit" xml:space="preserve">
+    <value>Taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonInformation" xml:space="preserve">
+    <value>Taxon info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonLump" xml:space="preserve">
+    <value>Lump</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonMove" xml:space="preserve">
+    <value>Move children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonName" xml:space="preserve">
+    <value>Names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonOccurrence" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonQuality" xml:space="preserve">
+    <value>Data quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonReferences" xml:space="preserve">
+    <value>Taxon references</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonRemoveParent" xml:space="preserve">
+    <value>Remove parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonSortChildTaxa" xml:space="preserve">
+    <value>Sort children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemTaxonSplit" xml:space="preserve">
+    <value>Split</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToReadSpeciesFactError" xml:space="preserve">
+    <value>Not possible to read species attribute.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotPossibleToUpdateSpeciesFactError" xml:space="preserve">
+    <value>Not possible to update species attribute.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoHistoricalParentsUntil" xml:space="preserve">
+    <value>until</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonInvalidCategoryText" xml:space="preserve">
+    <value>Invalid taxon category selected.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonSelecteCategoryDropDownListText" xml:space="preserve">
+    <value>Select category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddIsNotOkToCreateTaxonErrorText" xml:space="preserve">
+    <value>It is not possible to create a new taxon. Try changing parent or category.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightAllOption" xml:space="preserve">
+    <value>All</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightCategories" xml:space="preserve">
+    <value>Categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightCheckAllNone" xml:space="preserve">
+    <value>Check all/none</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightChildren" xml:space="preserve">
+    <value>Child categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnCommonName" xml:space="preserve">
+    <value>Common Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnGUID" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnScientificName" xml:space="preserve">
+    <value>Scientific Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnTaxonCategory" xml:space="preserve">
+    <value>Taxon category (Rank)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnTaxonInfoUrl" xml:space="preserve">
+    <value>Taxon info url</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightCurrent" xml:space="preserve">
+    <value>Current</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightFilter" xml:space="preserve">
+    <value>Taxon selection (list rows)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightGeneratingExcelFile" xml:space="preserve">
+    <value>Generating Excel file...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightGetExcelFile" xml:space="preserve">
+    <value>Create Excel file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightIncludeAuthorInAllNameCells" xml:space="preserve">
+    <value>Include author in cells with scientific names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightIncludeCommonNameInAllNameCells" xml:space="preserve">
+    <value>Include common name in cells with scientific names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightOutputTitle" xml:space="preserve">
+    <value>Taxon information (list columns)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightParents" xml:space="preserve">
+    <value>Parent categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightSelect" xml:space="preserve">
+    <value>Select</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightTitle" xml:space="preserve">
+    <value>Export straight list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownAny" xml:space="preserve">
+    <value>Any</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownFalse" xml:space="preserve">
+    <value>False</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDropDownTrue" xml:space="preserve">
+    <value>True</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightColumnRecommendedGUID" xml:space="preserve">
+    <value>Recommended GUID</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonAddCreateTaxonText" xml:space="preserve">
+    <value>Create new taxon?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionSharedNoValidTaxonIdErrorText" xml:space="preserve">
+    <value>No valid taxon exists for id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionAddCreateRevisionText" xml:space="preserve">
+    <value>Create new revision?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedResetButtonText" xml:space="preserve">
+    <value>Reset</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightIsValidTaxon" xml:space="preserve">
+    <value>Accepted taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightSwedishHistory" xml:space="preserve">
+    <value>Swedish immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightSwedishOccurrence" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightTaxonNames" xml:space="preserve">
+    <value>Names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportHierarchicalTitle" xml:space="preserve">
+    <value>Export hierarchical list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonHaveChildrenErrorText" xml:space="preserve">
+    <value>It is not possible to remove taxa with children. Move or remove all children before removal.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpAutomatic" xml:space="preserve">
+    <value>Automatic</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpBeginsWith" xml:space="preserve">
+    <value>Begins with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpContains" xml:space="preserve">
+    <value>Contains</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpEndsWith" xml:space="preserve">
+    <value>Ends with</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpEqual" xml:space="preserve">
+    <value>Equal</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpIterative" xml:space="preserve">
+    <value>Iterative</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpLike" xml:space="preserve">
+    <value>Like (% = any character)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchCompareOpNotEqual" xml:space="preserve">
+    <value>NotEqual</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsOkForObsSystem" xml:space="preserve">
+    <value>Is ok for obs system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsRecommended" xml:space="preserve">
+    <value>Is recommended</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsValidTaxon" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchIsValidTaxonName" xml:space="preserve">
+    <value>Is valid taxon name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchRestrictTo" xml:space="preserve">
+    <value>Limit search to [TaxonName]</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchTaxonNameCompareOperator" xml:space="preserve">
+    <value>Compare operator</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchHit" xml:space="preserve">
+    <value>Hit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonQualityLabel" xml:space="preserve">
+    <value>Taxon Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLoading" xml:space="preserve">
+    <value>Loading...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionTitleLabelText" xml:space="preserve">
+    <value>Revision Id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryCreatedLabel" xml:space="preserve">
+    <value>Created</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryValidToLabel" xml:space="preserve">
+    <value>Accepted until</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReturnToListText" xml:space="preserve">
+    <value>Return to list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoAuthorLabel" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoCommentLabel" xml:space="preserve">
+    <value>Comment</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoIsOriginalLabel" xml:space="preserve">
+    <value>Is the original name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoIsRecommendedLabel" xml:space="preserve">
+    <value>Is recommended</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoIsUniqueLabel" xml:space="preserve">
+    <value>Is unique</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoModifiedLabel" xml:space="preserve">
+    <value>Modified</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoNameCategoryLabel" xml:space="preserve">
+    <value>Name category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoNameLabel" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameInfoNameStatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoNameInformationLabel" xml:space="preserve">
+    <value>Name information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchOptionsLabel" xml:space="preserve">
+    <value>Search options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSortChildTaxaSortableChildren" xml:space="preserve">
+    <value>Sort children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchColumnContentAlternativeNameAndAuthorCombined" xml:space="preserve">
+    <value>Name and author combined</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchColumnContentAlternativeNameAndAuthorInSeparateColumns" xml:space="preserve">
+    <value>Name and author in separate columns</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchColumnContentAlternativeWithoutAuthor" xml:space="preserve">
+    <value>Without author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsClipboard" xml:space="preserve">
+    <value>Clipboard</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsFileName" xml:space="preserve">
+    <value>File name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsFilter" xml:space="preserve">
+    <value>Matching options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsInput" xml:space="preserve">
+    <value>Input</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsInputColumnDelimeterLabel" xml:space="preserve">
+    <value>Column delimiter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsInputRowDelimeterLabel" xml:space="preserve">
+    <value>Row delimiter</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsMatchToType" xml:space="preserve">
+    <value>Match to type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsMatchToTypeLabel" xml:space="preserve">
+    <value>Match to type</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsOutput" xml:space="preserve">
+    <value>General output options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsSearchOptions" xml:space="preserve">
+    <value>Search options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusExact" xml:space="preserve">
+    <value>Exact</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusFuzzy" xml:space="preserve">
+    <value>Fuzzy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusManualSelection" xml:space="preserve">
+    <value>Manual selection</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusNeedsManualSelection" xml:space="preserve">
+    <value>Manual selection needed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusNoMatch" xml:space="preserve">
+    <value>No match</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchStatusUndone" xml:space="preserve">
+    <value>Undone</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonColumnDelimiterSemicolon" xml:space="preserve">
+    <value>Semicolon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonColumnDelimiterTab" xml:space="preserve">
+    <value>Tab</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonColumnDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertical bar</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonInputTypeClipboardText" xml:space="preserve">
+    <value>Clipboard text</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonInputTypeExcelFile" xml:space="preserve">
+    <value>Excel file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonRowDelimiterReturnLinefeed" xml:space="preserve">
+    <value>Return line feed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonRowDelimiterSemicolon" xml:space="preserve">
+    <value>Semicolon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonRowDelimiterTab" xml:space="preserve">
+    <value>Tab</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonRowDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertical bar</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonToTypeTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonToTypeTaxonName" xml:space="preserve">
+    <value>Taxon name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedGeneratingExcelFile" xml:space="preserve">
+    <value>Generating Excel file...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTaxonSelecteReferenceDropDownListText" xml:space="preserve">
+    <value>Select reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedPickReferenceText" xml:space="preserve">
+    <value>Set at least one reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="NoScriptText" xml:space="preserve">
+    <value>This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off. To see this page as it is meant to appear please use a Javascript enabled browser.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddCreateNewReference" xml:space="preserve">
+    <value>Add new to reference list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonTreeCurrentRootTaxon" xml:space="preserve">
+    <value>Current root taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchSearching" xml:space="preserve">
+    <value>Searching...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchZeroResults" xml:space="preserve">
+    <value>There is no taxon named "{0}"</value>
+    <comment>sv</comment>
+  </data>
+  <data name="UrlToGetWikipediaTaxonInformation" xml:space="preserve">
+    <value>http://en.wikipedia.org/wiki/[TaxonName]</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedMissingValue" xml:space="preserve">
+    <value>Missing value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitNotOkToSplitErrorText" xml:space="preserve">
+    <value>Selected taxon is not possible to split.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToEoLLabel" xml:space="preserve">
+    <value>Encyclopedia of Life</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToFaunaEuropeaLabel" xml:space="preserve">
+    <value>Fauna Europaea</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToGbifLabel" xml:space="preserve">
+    <value>GBIF</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToGoogleLabel" xml:space="preserve">
+    <value>Google</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToItisLabel" xml:space="preserve">
+    <value>ITIS (North American taxonomy)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToPesiLabel" xml:space="preserve">
+    <value>PESI (European taxonomy)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToSwedishRedlistLabel" xml:space="preserve">
+    <value>Swedish Species Facts</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToWikipediaLabel" xml:space="preserve">
+    <value>Wikipedia</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToAlgaebaseLabel" xml:space="preserve">
+    <value>Algaebase</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToWormsLabel" xml:space="preserve">
+    <value>WoRMS (Marine taxonomy)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToNordicMicroalgaeLabel" xml:space="preserve">
+    <value>Nordic microalgae (SMHI)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToPhotosAPLabel" xml:space="preserve">
+    <value>Images (Artportalen)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedNotRecommended" xml:space="preserve">
+    <value>Not recommended</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDoYouWantToContinue" xml:space="preserve">
+    <value>Do you want to continue?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedGoToReferenceViewQuestion" xml:space="preserve">
+    <value>You have entered the information that will disappear if you continue to the Reference Page, unless you choose to cancel and save. Do you want to continue and lose unsaved data?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedWebGridFirstPage" xml:space="preserve">
+    <value>First page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedWebGridLastPage" xml:space="preserve">
+    <value>Last page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNoChildrenErrorText" xml:space="preserve">
+    <value>Selected taxon has no children to move.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveChangeChildrenNames" xml:space="preserve">
+    <value>Change children names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveMovedTaxons" xml:space="preserve">
+    <value>Taxa with new parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveMoveInfo" xml:space="preserve">
+    <value>Parent change info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNewParent" xml:space="preserve">
+    <value>New parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNewRecommendedNames" xml:space="preserve">
+    <value>New recommended scientific names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveOldParent" xml:space="preserve">
+    <value>Old parent</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpReplacingTaxonErrorText" xml:space="preserve">
+    <value>Invalid replacing taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpTaxonCategoryErrorText" xml:space="preserve">
+    <value>Invalid taxon category for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpTaxonErrorText" xml:space="preserve">
+    <value>Inavalid data for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitReplacingTaxonErrorText" xml:space="preserve">
+    <value>Invalid taxon to split,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitTaxonCategoryErrorText" xml:space="preserve">
+    <value>Invalid taxon category for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitTaxonErrorText" xml:space="preserve">
+    <value>Inavalid data for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNoSynonymsExists" xml:space="preserve">
+    <value>There are no synonyms</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionEditMainHeaderFullText" xml:space="preserve">
+    <value>Define revision for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedRevisionIdLabelText" xml:space="preserve">
+    <value>revision id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventMainHeaderlText" xml:space="preserve">
+    <value>Revision event list for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionListEventTitleLabelText" xml:space="preserve">
+    <value>Revision event list - Revision Id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveMoveGenusCategoryErrorText" xml:space="preserve">
+    <value>Not possible to change parent to above the genus category for this taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveMoveIllegalMoveErrorText" xml:space="preserve">
+    <value>Not possible to change parent for taxon,</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNoChildTaxaSelectedError" xml:space="preserve">
+    <value>No taxa to move are seleceted.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNoNewParentTaxonSelectedError" xml:space="preserve">
+    <value>No new parent is selected.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveNoOldParentTaxonSelectedError" xml:space="preserve">
+    <value>No parent taxon selected.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCreating" xml:space="preserve">
+    <value>Creating</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFinalizing" xml:space="preserve">
+    <value>Publishing revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedInitializing" xml:space="preserve">
+    <value>Initializing revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDeleting" xml:space="preserve">
+    <value>Deleting</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountAccessIsNotAllowedDescription" xml:space="preserve">
+    <value>You don't have the authority to access the following url</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountAccessIsNotAllowedTitle" xml:space="preserve">
+    <value>Access is not allowed</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchResetSearchOptions" xml:space="preserve">
+    <value>Reset search options</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedBoolFalseText" xml:space="preserve">
+    <value>No</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedBoolTrueText" xml:space="preserve">
+    <value>Yes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameDeleteNotPossibleToDeleteErrorText" xml:space="preserve">
+    <value>Can't delete recommended scientific name.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedManageReferences" xml:space="preserve">
+    <value>Manage references</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutDyntaxaText" xml:space="preserve">
+    <value>About Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDateText" xml:space="preserve">
+    <value>Date</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedTermsOfUseText" xml:space="preserve">
+    <value>Tems of use</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedVersionText" xml:space="preserve">
+    <value>Version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidReferenceErrorText" xml:space="preserve">
+    <value>No valid reference exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameDeleteInfoText" xml:space="preserve">
+    <value>Are you sure that selected taxon name is to be deleted?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedId" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedLastUpdated" xml:space="preserve">
+    <value>Last updated</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedOkForObsSystem" xml:space="preserve">
+    <value>Ok for obs. system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedUpdatedBy" xml:space="preserve">
+    <value>Updated by</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HomeCookieInformationText" xml:space="preserve">
+    <value>&lt;br /&gt;
+According to the Electronic Communications Act (2003) all visitors to a website need to be informed if cookies are used and how they can be blocked.
+&lt;br /&gt;&lt;br /&gt;
+A cookie is a little file which is added to your computer when you visit a website. Any subsequent visits to the website are tracked by the cookie. Dyntaxa web application uses cookies to generate visitor statistics which are used to improve the website. They are also used to maintain preferences for website design, functionality and language. This data is anonymous.
+&lt;br /&gt;&lt;br /&gt;
+If you do not want cookies enabled on your computer you can block them in your web browser's security settings. You will find more information in your web browser's help function. But note that disabling cookies may do your pages to work improperly . 
+&lt;br /&gt;&lt;br /&gt;
+All data collected is anonymous.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutCookiesHeader" xml:space="preserve">
+    <value>About cookies</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedAboutCookiesSubHeader" xml:space="preserve">
+    <value>This website uses cookies</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCookiesReadMoreLink" xml:space="preserve">
+    <value>http://www.pts.se/en-gb/Regulations/Legislation/Electronic-Communications-Act/Cookies-kakor/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedCookiesReadMoreText" xml:space="preserve">
+    <value>Read more on The Swedish Post and Telecom Authority page</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFooterInfoHeader" xml:space="preserve">
+    <value>Information</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedFooterLinkHeader" xml:space="preserve">
+    <value>Links</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSwedishLifeWatchText" xml:space="preserve">
+    <value>Part of Swedish LifeWatch</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedVersionNumberText" xml:space="preserve">
+    <value>Version number</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferenceNoReferencesAvaliable" xml:space="preserve">
+    <value>No references set.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoValidReferenceErrorInfoText" xml:space="preserve">
+    <value>No valid reference exists. At least one reference must be set for the selected revision.</value>
+  </data>
+  <data name="AccountUserAdminLinkText" xml:space="preserve">
+    <value>Manage your account in UserAdmin</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoDistributionMapImageTitle" xml:space="preserve">
+    <value>Distribution map for</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNotSpecifiedText" xml:space="preserve">
+    <value>--- Not specified ---</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSpeciesFactDatabaseTables" xml:space="preserve">
+    <value>Database species attributes tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSpeciesFactExport" xml:space="preserve">
+    <value>Export species attributes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSpeciesFactHierarchicalTaxonList" xml:space="preserve">
+    <value>Hierarchical species attributes list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSpeciesFactTaxonList" xml:space="preserve">
+    <value>Taxon attribute list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportDatabaseClipboard" xml:space="preserve">
+    <value>List of taxon ids</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportDatabaseInput" xml:space="preserve">
+    <value>Input</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportDatabaseTitle" xml:space="preserve">
+    <value>Database tables</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportDatabase" xml:space="preserve">
+    <value>Database</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveAuthor" xml:space="preserve">
+    <value>Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonMoveName" xml:space="preserve">
+    <value>Name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightParentTaxa" xml:space="preserve">
+    <value>Parent taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemHierarchicalSpeciesFactList" xml:space="preserve">
+    <value>Export mroe species facts</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemSpeciesFactList" xml:space="preserve">
+    <value>Taxon attributes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportSharedSelectCategories" xml:space="preserve">
+    <value>Select categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportSharedSelectNameCategories" xml:space="preserve">
+    <value>Select name categories</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportSharedSelectSwedishImmigrationHistory" xml:space="preserve">
+    <value>Select Swedish immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportSharedSelectSwedishOccurrence" xml:space="preserve">
+    <value>Select Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaMainTitle" xml:space="preserve">
+    <value>Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaSubTitle" xml:space="preserve">
+    <value>Swedish Taxonomic Database</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSLUText" xml:space="preserve">
+    <value>Swedish University of Agricultural Sciences</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSvenskaArtprojektetText" xml:space="preserve">
+    <value>The Swedish Taxonomy Initiative</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ValidateAlreadyExists" xml:space="preserve">
+    <value>already exists</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ValidateTaxonWithScientificName" xml:space="preserve">
+    <value>A taxon with the scientific name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedIsTaxonPartOfRevision" xml:space="preserve">
+    <value>The taxon is not part of the revision</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutInfoLine1" xml:space="preserve">
+    <value>You are already logged in, or the session has ended due to inactivity (timeout).</value>
+    <comment>sv</comment>
+  </data>
+  <data name="AccountLogOutInfoLine2" xml:space="preserve">
+    <value>Click "Log out" to be able to log in again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedInfo" xml:space="preserve">
+    <value>Info</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditImmigrationHistoryValidationMessage" xml:space="preserve">
+    <value>Since you have entered 'Immigration history' status you must also specify quality and reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditLeavePageWithoutSave" xml:space="preserve">
+    <value>You are about to leave the page without saving.\nDo you really want to leave the page without updating Species facts?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceValidationMessage" xml:space="preserve">
+    <value>Since you have entered Swedish occurrence, you must also fill in immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchSettings" xml:space="preserve">
+    <value>Search restrictions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemEdit" xml:space="preserve">
+    <value>Edit</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedDyntaxaFullVersionLinkText" xml:space="preserve">
+    <value>Full version</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportWarningText" xml:space="preserve">
+    <value>(Note! Large exports may take a long time, up to several minutes)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RestMasterBackToSearchLink" xml:space="preserve">
+    <value>Back to taxon search</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RestMasterViewCurrentTaxonLink" xml:space="preserve">
+    <value>View current taxon info (Taxon Id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLogoArtprojektetSmallImg" xml:space="preserve">
+    <value>logo_sv_artprojektet_en_118x50.png</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedLogoLifewatch_SmallImg" xml:space="preserve">
+    <value>logo_sv_lifewatch_en_146x32.png</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeader1" xml:space="preserve">
+    <value>Factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeader2" xml:space="preserve">
+    <value>Header 2</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderFactorID" xml:space="preserve">
+    <value>Factor Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderIndividualCategori" xml:space="preserve">
+    <value>Specimen Category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderPeriod" xml:space="preserve">
+    <value>Period</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderQuality" xml:space="preserve">
+    <value>Quality</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSortOrder" xml:space="preserve">
+    <value>Sort order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSuperior" xml:space="preserve">
+    <value>Factor superior</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSupressed" xml:space="preserve">
+    <value>Factor minor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderValue" xml:space="preserve">
+    <value>Value</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListURLInfo" xml:space="preserve">
+    <value>URL for more information about taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExportGeneratingExcelFile" xml:space="preserve">
+    <value>Generating Excel file...</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExportGetExcelFile" xml:space="preserve">
+    <value>Create Excel file</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExportTitle" xml:space="preserve">
+    <value>Export taxon attribute list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExportActionHeaderText" xml:space="preserve">
+    <value>Export taxon attributes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderComment" xml:space="preserve">
+    <value>Comment</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderField" xml:space="preserve">
+    <value>Field</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderHost" xml:space="preserve">
+    <value>Host taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSpecification" xml:space="preserve">
+    <value>Specification</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactExcelListInfoHeader" xml:space="preserve">
+    <value>Taxon information from Dyntaxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightOtherNames" xml:space="preserve">
+    <value>Other names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightSynonyms" xml:space="preserve">
+    <value>Synonyms</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchOptionsInputAuthorNamePartOfTaxonName" xml:space="preserve">
+    <value>Author name is part of taxon name</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MatchTaxonToTypeTaxonNameAndAuthor" xml:space="preserve">
+    <value>Taxon name + Author</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoSwedishOccurrenceSummaryRedListClass" xml:space="preserve">
+    <value>Red list category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoSwedishOccurrenceSummaryTitle" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactDatabaseTitle" xml:space="preserve">
+    <value>Database</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactListHeaderFactorID" xml:space="preserve">
+    <value>Id</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactListHeaderIndividualCategory" xml:space="preserve">
+    <value>Category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactListHeaderSortOrder" xml:space="preserve">
+    <value>Order</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedChooseCategory" xml:space="preserve">
+    <value>Choose category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSharedListTaxaInCategory" xml:space="preserve">
+    <value>List taxa in chosen category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoDistributionInSweden" xml:space="preserve">
+    <value>Distribution in Sweden</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoDistributionInSwedenCountyOccurrence" xml:space="preserve">
+    <value>County occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchLastUpdated" xml:space="preserve">
+    <value>Last updated (only taxonomy, not species facts)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchLastUpdatedEndDate" xml:space="preserve">
+    <value>To</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSearchLastUpdatedStartDate" xml:space="preserve">
+    <value>From</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoAvailableData" xml:space="preserve">
+    <value>No available data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSpeciesFactPickCategoryText" xml:space="preserve">
+    <value>Pick a category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactSharedExistingEvaluations" xml:space="preserve">
+    <value>Existing evaluations:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactSharedIndividualCategory" xml:space="preserve">
+    <value>Specimen Category</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorItemHeader" xml:space="preserve">
+    <value>Edit factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactChangeFactorText" xml:space="preserve">
+    <value>Change</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorHeaderText" xml:space="preserve">
+    <value>Edit factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorInvalidCombinationErrorMessage" xml:space="preserve">
+    <value>No factor data avaliable using this combination of taxon id: [taxonId], faktor id: [factorId], datatype id: [dataType] and factordatatype id: [factorDataType].</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorsHeaderText" xml:space="preserve">
+    <value>Edit factors</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactLatestUpdateByText" xml:space="preserve">
+    <value>Latest update ([UpdateDate]) by [UpdateUserFullName].</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorItemErrorText" xml:space="preserve">
+    <value>No species fact exists with factor id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkToNaturforskarenLabel" xml:space="preserve">
+    <value>The Naturalist (NRM)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorsAddButton" xml:space="preserve">
+    <value>Add</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorsAddDropDownName" xml:space="preserve">
+    <value>Add factor from short list</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorsAddFactorLabel" xml:space="preserve">
+    <value>Add factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditFactorsDropDownDefaultLabel" xml:space="preserve">
+    <value>Select factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactAddFactorHeaderText" xml:space="preserve">
+    <value>Add factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoButtonText" xml:space="preserve">
+    <value>No</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedYesButtonText" xml:space="preserve">
+    <value>Yes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactAddFactorContinueWithoutSaveDialogHeader" xml:space="preserve">
+    <value>There are unsaved changes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactAddFactorContinueWithoutSaveDialogText" xml:space="preserve">
+    <value>There are unsaved changes. These changes ​​will be lost if a factor is created. Do you want to continue and loose changes?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateExistingDataLabelText" xml:space="preserve">
+    <value>Existing data</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateFactorAddDropDownName" xml:space="preserve">
+    <value>Add factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateHeaderText" xml:space="preserve">
+    <value>Edit host taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateSearchTaxonButtonText" xml:space="preserve">
+    <value>Serach taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateTaxonAddDropDownName" xml:space="preserve">
+    <value>Add taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostForSubstrateChangeManyButtonText" xml:space="preserve">
+    <value>Edit selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditTaxonAddDropDownName" xml:space="preserve">
+    <value>Taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactDeleteFactorItemDialogHeader" xml:space="preserve">
+    <value>Delete selected factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactDeleteFactorItemDialogText" xml:space="preserve">
+    <value>Do you want to delete selected factor?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactDeleteTaxonItemDialogHeader" xml:space="preserve">
+    <value>Delete selected taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactDeleteTaxonItemDialogText" xml:space="preserve">
+    <value>Do you want to delete selected taxon?</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorItemsErrorText" xml:space="preserve">
+    <value>Invalid combination for factors and hosts.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactInvalidSelectionDialogHeader" xml:space="preserve">
+    <value>Invalid selction</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactInvalidSelectionDialogText" xml:space="preserve">
+    <value>Invalid selction of factors or taxon to add. Selected taxon to add must match a factor in list or selected factor to add must match a taxon in list.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateSaveSettingsButtonText" xml:space="preserve">
+    <value>Save selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNoItemsSelectedDialogHeader" xml:space="preserve">
+    <value>No items selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNoItemsSelectedDialogText" xml:space="preserve">
+    <value>No items selecyed in tables. Select items, save and try again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNoValueSet" xml:space="preserve">
+    <value>No value set</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditHostItemHeader" xml:space="preserve">
+    <value>Edit host taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNoHostsItemsSelectedDialogHeader" xml:space="preserve">
+    <value>No valid host taxon is selected</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNoHostsItemsSelectedDialogText" xml:space="preserve">
+    <value>No valid host taxon is selected. Select host taxa, save and try again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNotSavedDialogHeader" xml:space="preserve">
+    <value>Save selections</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactNotSavedDialogText" xml:space="preserve">
+    <value>There are unsaved selections made. Save and try again.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SpeciesFactEditAllFactorsAddDropDownName" xml:space="preserve">
+    <value>Add factor</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferenceNewLabel" xml:space="preserve">
+    <value>New reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferenceOldLabel" xml:space="preserve">
+    <value>Existing reference</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsTitle" xml:space="preserve">
+    <value>Subscriptions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsMySubscriptions" xml:space="preserve">
+    <value>My subscriptions</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsSubscribe" xml:space="preserve">
+    <value>Subscribe to</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsUnsubscribe" xml:space="preserve">
+    <value>Unsubscribe</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonReferenceSwedishImmigrationHistoryTitle" xml:space="preserve">
+    <value>Swedish immigration history</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonReferenceSwedishOccurrenceTitle" xml:space="preserve">
+    <value>Swedish occurrence</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonReferenceTaxonomyTitle" xml:space="preserve">
+    <value>Taxonomy</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceAddReferencesRelatesTo" xml:space="preserve">
+    <value>The references relates to</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceApplyModeAddToUnderlyingTaxa" xml:space="preserve">
+    <value>Add to all children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceApplyModeOnlySelected" xml:space="preserve">
+    <value>Only selected taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceApplyModeReplaceOnlySourceInUnderlyingTaxa" xml:space="preserve">
+    <value>Replace only sources in all children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ReferenceApplyModeReplaceUnderlyingTaxa" xml:space="preserve">
+    <value>Replace in all children</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameAddEditNameUsageLabel" xml:space="preserve">
+    <value>Name usage</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedNomenclature" xml:space="preserve">
+    <value>Nomenclature</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoProParteSynonymsLabel" xml:space="preserve">
+    <value>Partial synonyms (pro parte)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoMisapplicationsLabel" xml:space="preserve">
+    <value>Misapplications (auct.)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameAddEditIncorrectNomencalture" xml:space="preserve">
+    <value>Only Nomenclature: Correct, Provisional, Provisional or Informal names may have usage: Accepted.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameListWrongNameUsage" xml:space="preserve">
+    <value>Only 'Name usage: Accepted' may have 'Recommended: Yes'.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSummaryTaxonStatusLabel" xml:space="preserve">
+    <value>Taxon status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightMisappliedNames" xml:space="preserve">
+    <value>Misapplied names</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportStraightProParteSynonyms" xml:space="preserve">
+    <value>Partial synonyms (pro parte)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonNameSharedSpellingVariant" xml:space="preserve">
+    <value>Writing variant</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsReproInSweden" xml:space="preserve">
+    <value>Reproducing Regularly in Sweden</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportTaxonNameList" xml:space="preserve">
+    <value>Name list</value>
+  </data>
+  <data name="ReferenceAddFilteringLabel1" xml:space="preserve">
+    <value>(filtered from _MAX_ references)</value>
+  </data>
+  <data name="ReferenceAddNoDataAvailableLabel1" xml:space="preserve">
+    <value>Information missing</value>
+  </data>
+  <data name="ReferenceAddNoRecordsLabel1" xml:space="preserve">
+    <value>There are no references to display</value>
+  </data>
+  <data name="ReferenceAddNumberOfFilteredElementsLabel1" xml:space="preserve">
+    <value>Displaying _START_ to _END_ of _TOTAL_ references</value>
+  </data>
+  <data name="ReferenceAddSearchLabel1" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoTypeDescriptionLabel1" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="RevisionListEventNoRevisionEventsAvaiableText" xml:space="preserve">
+    <value>No revision steps to display.</value>
+  </data>
+  <data name="SharedAddButtonText1" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="SharedCurrentRevision1" xml:space="preserve">
+    <value>Chosen revision: {0}</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogText1" xml:space="preserve">
+    <value>Publish this revision?</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogTitleText1" xml:space="preserve">
+    <value>Publish revision</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogText1" xml:space="preserve">
+    <value>Initialize revision?</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogTitleText1" xml:space="preserve">
+    <value>Initiate revision</value>
+  </data>
+  <data name="SharedRevisionNoEditorsSelectedErrorText1" xml:space="preserve">
+    <value>You have not chose any editor for this revision!</value>
+  </data>
+  <data name="SpeciesFactEditFactorsAddDropDown" xml:space="preserve">
+    <value>Factors</value>
+  </data>
+  <data name="TaxonNameAddEditIsOriginal1" xml:space="preserve">
+    <value>Is the original name</value>
+  </data>
+  <data name="TaxonNameInfoOkForObsSystemLabel" xml:space="preserve">
+    <value>Is ok for obs-system</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeCommentLabel" xml:space="preserve">
+    <value>Kommentar</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeQualityLabel" xml:space="preserve">
+    <value>Kvalitet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeReferenceLabel" xml:space="preserve">
+    <value>Referens</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeStatusLabel" xml:space="preserve">
+    <value>Status</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeCheckInErrorInformation" xml:space="preserve">
+    <value>Something went wrong when checking in revision.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeFactsUpdateErrorInformation" xml:space="preserve">
+    <value>Faild to update Artfakta. Please try to publish the revision again.</value>
+  </data>
+  <data name="RevisionFinalizeFlagNotSetErrorInformation" xml:space="preserve">
+    <value>Failed to update Artfakta updated flag.</value>
+  </data>
+  <data name="SharedRevisionUpdateSpeciesFactsButton" xml:space="preserve">
+    <value>Update species facts</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeDoNotExist" xml:space="preserve">
+    <value>Artfakta existerar ej</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DyntaxaSpeciesFactDelete" xml:space="preserve">
+    <value>Artfakta tas bort</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedIAgreeClose" xml:space="preserve">
+    <value>Ok, I agree (close)</value>
+  </data>
+  <data name="SharedReadMore" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="SharedWeUseCookies" xml:space="preserve">
+    <value>We use cookies to improve your experience on this web site.</value>
+  </data>
+  <data name="SharedIsMicrospeciesLabel" xml:space="preserve">
+    <value>Microspecies</value>
+  </data>
+  <data name="TaxonTreeShowSecondaryRelations" xml:space="preserve">
+    <value>Show secondary relations = </value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportGraphviz" xml:space="preserve">
+    <value>Taxon tree (graphviz)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ExportGraphvizTitle" xml:space="preserve">
+    <value>Export taxon tree to graphviz format</value>
+  </data>
+  <data name="ExportGraphvizGenerateGraphviz" xml:space="preserve">
+    <value>Generate graphviz format</value>
+  </data>
+  <data name="ExportGraphvizLastUpdatedTime" xml:space="preserve">
+    <value>Dyntaxa tree last cache updated time</value>
+  </data>
+  <data name="ExportGraphvizRefreshTreeCache" xml:space="preserve">
+    <value>Refresh tree cache after database script changes</value>
+  </data>
+  <data name="ExportGraphvizIncludeBothParentsAndChildren" xml:space="preserve">
+    <value>Include both children and parents</value>
+  </data>
+  <data name="ExportGraphvizIncludeOnlyChildren" xml:space="preserve">
+    <value>Include only children</value>
+  </data>
+  <data name="ExportGraphvizIncludeOnlyParents" xml:space="preserve">
+    <value>Include only parents</value>
+  </data>
+  <data name="ExportGraphvizBothValidAndInvalidRelations" xml:space="preserve">
+    <value>Show both valid and invalid relations</value>
+  </data>
+  <data name="ExportGraphvizOnlyValidRelations" xml:space="preserve">
+    <value>Show only valid relations</value>
+  </data>
+  <data name="ExportGraphvizIncludelumpSplits" xml:space="preserve">
+    <value>Include lump &amp; split information</value>
+  </data>
+  <data name="ExportGraphvizShowRelationId" xml:space="preserve">
+    <value>Show relation id</value>
+  </data>
+  <data name="ExportStraightExcludeAuctor" xml:space="preserve">
+    <value>Exclude author for synonyms.</value>
+  </data>
+  <data name="HomeLicensingInformationText" xml:space="preserve">
+    <value>&lt;br /&gt;Data from dyntaxa data is made available under the Creative Commons 1.0 license (CC0) and is therefore free to use, reuse, distribute and aggregate as far as the law allows. The author does not need to be specified.</value>
+  </data>
+  <data name="SharedAboutLicensing" xml:space="preserve">
+    <value>Licensing</value>
+  </data>
+  <data name="SharedLicensingHeader" xml:space="preserve">
+    <value>Licensing</value>
+  </data>
+  <data name="SharedLicensingReadMoreLink" xml:space="preserve">
+    <value>https://creativecommons.org/publicdomain/zero/1.0/</value>
+  </data>
+  <data name="SharedLicensingReadMoreText" xml:space="preserve">
+    <value>Read more</value>
+  </data>
+  <data name="SharedLicensingSubHeader" xml:space="preserve">
+    <value>Data from dyntaxa is free to use under CC0</value>
+  </data>
+  <data name="LinkToNobanisLabel" xml:space="preserve">
+    <value>Alien species (NOBANIS)</value>
+  </data>
+  <data name="LinkToArtfaktaLabel" xml:space="preserve">
+    <value>Artfakta (Species info, in Swedish)</value>
+  </data>
+  <data name="LinkToSkudLabel" xml:space="preserve">
+    <value>Utility and Cultivated Plants (SKUD)</value>
+  </data>
+  <data name="LinkToBHLLabel" xml:space="preserve">
+    <value>Biodiversity Heritage Library</value>
+  </data>
+  <data name="NaturforskarenLink" xml:space="preserve">
+    <value>https://dina-web.net/naturalist/search/[TaxonName]?lang=en_US</value>
+  </data>
+  <data name="QualityApplyModeOnlySelected" xml:space="preserve">
+    <value>Only selected taxon</value>
+  </data>
+  <data name="QualityApplyModeReplaceInUnderlyingTaxa" xml:space="preserve">
+    <value>Also replace in all children</value>
+  </data>
+  <data name="QualityApplyModeAddToUnderlyingTaxaExceptWhereAlreadyDeclared" xml:space="preserve">
+    <value>Also replace in all children without present evaluation</value>
+  </data>
+  <data name="QualityApplyModeHeading" xml:space="preserve">
+    <value>Evaluate quality relates to</value>
+  </data>
+  <data name="QualityApplyModeReplaceInUnderlyingTaxaExceptWhereAlreadyDeclaredHigher" xml:space="preserve">
+    <value>Also replace in all children without present evaluation of a higher degree</value>
+  </data>
+  <data name="TaxonInfoQualityChartUpdatedText" xml:space="preserve">
+    <value>Chart normally updated once every night</value>
+  </data>
+  <data name="RevisionListEventListCountLabelText" xml:space="preserve">
+    <value>latest event =</value>
+  </data>
+</root>

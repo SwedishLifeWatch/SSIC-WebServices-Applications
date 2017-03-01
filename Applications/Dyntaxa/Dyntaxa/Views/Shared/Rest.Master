@@ -1,0 +1,200 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="Dyntaxa.Helpers" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="SHORTCUT ICON" href="<%= Url.Content("~/Images/Icons/DyntaxaFavicon.ico") %>"/> 
+    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        // Loads the version specific jquery and jquery-ui
+        if (window.google && window.google.load) {
+            google.load("jquery", "1.7.1");
+            google.load("jqueryui", "1.8.11");
+        } else {
+            document.write('<script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery-1.7.1.min.js") %>"><\/script>');
+            document.write('<script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery-ui-1.8.11.min.js") %>"><\/script>');
+        } 
+        // Loads the latest versions of jquery and jquery-ui
+        //google.load("jquery", "1");
+        //google.load("jqueryui", "1");
+    </script>
+    <%--
+    <script src="<%= Url.Content("~/Scripts/jquery-1.7.1.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery-ui-1.8.11.min.js") %>" type="text/javascript"></script>
+    --%>
+    <script src="<%= Url.Content("~/Scripts/MicrosoftAjax.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/MicrosoftMvcAjax.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/MicrosoftMvcValidation.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>    
+    
+    <script src="<%= Url.Content("~/Scripts/jquery.ui.datepicker-en.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.ui.datepicker-sv.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.ui.nestedSortable.js") %>" type="text/javascript"></script>    
+    
+    <script src="<%= Url.Content("~/Scripts/jquery.MoverBoxes.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.blockUI.js") %>" type="text/javascript"></script>     
+
+    <link href="<%= Url.Content("~/Scripts/DataTables-1.8.2/media/css/demo_table.css") %>" rel="stylesheet"type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/DataTables-1.8.2/media/js/jquery.dataTables.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.DatedContent("~/Scripts/dyntaxa.references.js") %>" type="text/javascript"></script>	
+
+    <script src="<%= Url.Content("~/Scripts/jquery.tools.min.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.DatedContent("~/Scripts/dyntaxa.common.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.cookie.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/jquery.subcookie.js") %>" type="text/javascript"></script>
+    <script src="<%= Url.Content("~/Scripts/json2.js") %>" type="text/javascript"></script>    
+
+    <link href="<%= Url.Content("~/Scripts/Dynatree/src/skin/ui.dynatree.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/Dynatree/src/jquery.dynatree.min.js") %>" type="text/javascript"></script>
+    
+    <link href="<%= Url.Content("~/Css/Reset.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Css/JQueryUI.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Css/Common.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Css/Newlyadded.css") %>" rel="stylesheet" type="text/css" />
+    <link href="<%= Url.Content("~/Css/Rest.css") %>" rel="stylesheet" type="text/css" />        
+
+    <link href="<%= Url.Content("~/Scripts/dropdown-check-list/css/ui.dropdownchecklist.standalone.css") %>" rel="stylesheet" type="text/css" />    
+    <script src="<%= Url.Content("~/Scripts/dropdown-check-list/js/ui.dropdownchecklist-1.4-min.js") %>" type="text/javascript"></script>
+    
+    <link href="<%= Url.Content("~/Scripts/select2-3.4.2/select2.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/select2-3.4.2/select2.min.js") %>" type="text/javascript"></script>        
+    
+    <%--<link href="<%= Url.Content("~/Scripts/tablecloth/css/tablecloth.css") %>" rel="stylesheet" type="text/css" />
+    <script src="<%= Url.Content("~/Scripts/tablecloth/js/jquery.tablecloth.js") %>" type="text/javascript"></script>--%>
+    
+    <script type="text/javascript">
+    
+        $(function () {
+            var $datePicker = $('input#ValidFromDate, input#ValidToDate');
+
+            if ($datePicker.length !== 0) {
+                $datePicker.datepicker(
+                {
+                    showAnim: '',
+                    showOtherMonths: true,
+                    showWeek: true,
+                    changeMonth: true,
+                    changeYear: true,
+                    yearRange: 'c-100:c+10',
+                    duration: 0
+                },
+                $.datepicker.setDefaults($.datepicker.regional['sv']));
+                /*$.datepicker.setDefaults($.datepicker.regional['<%: System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName %>']));*/
+            }
+
+            var subkey = '<%=ViewBag.CookieName%>';
+            restoreH2States(subkey);
+            initToggleFieldsetH2();
+            initToggleFieldsetH3();
+
+            $(window).unload(function () {
+                var key = '<%=ViewBag.CookieName%>';
+                saveH2States(key);
+            });            
+            
+            //$("div.editor-field(0) :input:first").focus();
+
+        });
+      
+        
+        // DatePicker options > http://jqueryui.com/demos/datepicker/#options 
+
+        // Jump to client-side validation error
+        /*
+        $(window).load(function () {
+            $('form:eq(0)').submit(function (e) {
+                $(this).find('input:first').focus();
+                $(this).find('input.input-validation-error:first').focus();
+            });
+        });
+        */
+	
+	</script>
+    
+<%-- Google Analytics code--%>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-32170396-1']);
+        _gaq.push(['_setDomainName', 'dyntaxa.se']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+</head>
+
+<body> 
+    <div class="page">
+
+        <div id="header">
+            <div id="title"></div>
+        </div>
+         
+        <br class="clear" />  
+
+        <div id="main">    
+            <noscript>
+                <div id="NoScriptDiv">
+                    <%: Resources.DyntaxaResource.NoScriptText %>
+                </div>
+            </noscript>           
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />           
+            
+            <br class="clear" />            
+
+            <!-- Footer -->
+            <fieldset>
+            
+                <div id="footerContent">
+                        
+                        
+                    <div class="footerColumn right">
+                        <a href="<%: Resources.DyntaxaSettings.Default.UrlToArtDatabankenHomePage %>" target="_blank"><img src="<%= Url.Content("~/Images/logo_artdatabanken_175x40.png") %>" width="175" height="40" class="footerADbImg" alt="<%: Resources.DyntaxaResource.SharedArtDatabankenText %>" title="<%: Resources.DyntaxaResource.SharedArtDatabankenText %>" /></a>
+                    </div>
+                        
+                    <div class="footerColumn right rightSeparator">
+                        <a href="<%: Resources.DyntaxaSettings.Default.UrlToSvenskaArtprojektetHomePage %>" target="_blank"><img src="<%= Url.Content("~/Images/")%><%: Resources.DyntaxaResource.SharedLogoArtprojektetSmallImg %>" height="50" class="footerSvApImg" alt="<%: Resources.DyntaxaResource.SharedSvenskaArtprojektetText %>" title="<%: Resources.DyntaxaResource.SharedSvenskaArtprojektetText %>" /></a>
+                    </div>
+                        
+                    <div class="footerColumn right">
+                        <a href="<%: Resources.DyntaxaSettings.Default.UrlToSwedishLifeWatchHomePage %>" target="_blank"><img src="<%= Url.Content("~/Images/")%><%: Resources.DyntaxaResource.SharedLogoLifewatch_SmallImg %>" height="32" class="footerSLWImg" alt="<%: Resources.DyntaxaResource.SharedSwedishLifeWatchText %>" title="<%: Resources.DyntaxaResource.SharedSwedishLifeWatchText %>" /></a>
+                    </div>
+                        
+                    <div class="footerColumn right rightSeparator">
+                        <h4><%: Resources.DyntaxaResource.SharedDyntaxaMainTitle %></h4>
+                        <ul>
+                            <%--<li>Taxon search</li>
+                            <li>Taxon Info</li>--%>
+                            <li><a href="<%:Resources.DyntaxaSettings.Default.UrlToDyntaxaFullVersion %>" target="_top"><%: Resources.DyntaxaResource.SharedDyntaxaFullVersionLinkText %></a></li>
+                            <li>&nbsp;</li>
+                            <li>&nbsp;</li>
+                        </ul>
+                    </div>
+                    
+                    <%--
+                    <div class="footerColumn right rightSeparator">
+                    <h4><%: Resources.DyntaxaResource.SharedFooterInfoHeader %></h4>
+                        <ul>
+                            <li><a href="<%= Resources.DyntaxaSettings.Default.UrlToDyntaxaHomePage %>" target="_blank"><%: Resources.DyntaxaResource.SharedAboutDyntaxaText%></a></li>
+                            <li><a href="<%= Url.Action("Cookies", "Home")%>"><%: Resources.DyntaxaResource.SharedAboutCookiesHeader%></a></li>
+                            <li><a href="<%: Resources.DyntaxaSettings.Default.UrlToArtDatabankenServiceStatusPage %>" target="_blank"><%: Resources.DyntaxaResource.SharedCurrentServiceStatusLinkText %></a></li>                            
+                        </ul>   
+                    </div>--%>
+                </div>
+
+            </fieldset>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

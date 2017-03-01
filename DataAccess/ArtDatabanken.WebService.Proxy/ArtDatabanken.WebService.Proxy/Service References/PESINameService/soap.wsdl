@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://PESI/v0.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://PESI/v0.5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://PESI/v0.5">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="PESIRecord">
+        <xsd:all>
+          <xsd:element name="GUID" type="xsd:string" />
+          <xsd:element name="url" type="xsd:string" />
+          <xsd:element name="scientificname" type="xsd:string" />
+          <xsd:element name="authority" type="xsd:string" />
+          <xsd:element name="rank" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="valid_guid" type="xsd:string" />
+          <xsd:element name="valid_name" type="xsd:string" />
+          <xsd:element name="valid_authority" type="xsd:string" />
+          <xsd:element name="kingdom" type="xsd:string" />
+          <xsd:element name="phylum" type="xsd:string" />
+          <xsd:element name="class" type="xsd:string" />
+          <xsd:element name="order" type="xsd:string" />
+          <xsd:element name="family" type="xsd:string" />
+          <xsd:element name="genus" type="xsd:string" />
+          <xsd:element name="citation" type="xsd:string" />
+          <xsd:element name="match_type" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PESIRecords">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:PESIRecord[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Vernacular">
+        <xsd:all>
+          <xsd:element name="vernacular" type="xsd:string" />
+          <xsd:element name="language_code" type="xsd:string" />
+          <xsd:element name="language" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="Vernaculars">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Vernacular[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getGUIDRequest">
+    <wsdl:part name="scientificname" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getGUIDResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordsRequest">
+    <wsdl:part name="scientificname" type="xsd:string" />
+    <wsdl:part name="like" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordsResponse">
+    <wsdl:part name="return" type="tns:PESIRecords" />
+  </wsdl:message>
+  <wsdl:message name="getPESINameByGUIDRequest">
+    <wsdl:part name="GUID" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESINameByGUIDResponse">
+    <wsdl:part name="return" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordByGUIDRequest">
+    <wsdl:part name="GUID" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordByGUIDResponse">
+    <wsdl:part name="return" type="tns:PESIRecord" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordsByVernacularRequest">
+    <wsdl:part name="vernacular" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESIRecordsByVernacularResponse">
+    <wsdl:part name="return" type="tns:PESIRecords" />
+  </wsdl:message>
+  <wsdl:message name="getPESIVernacularsByGUIDRequest">
+    <wsdl:part name="GUID" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESIVernacularsByGUIDResponse">
+    <wsdl:part name="return" type="tns:Vernaculars" />
+  </wsdl:message>
+  <wsdl:message name="matchTaxonRequest">
+    <wsdl:part name="scientificname" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="matchTaxonResponse">
+    <wsdl:part name="return" type="tns:PESIRecords" />
+  </wsdl:message>
+  <wsdl:message name="getPESISynonymsByGUIDRequest">
+    <wsdl:part name="GUID" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="getPESISynonymsByGUIDResponse">
+    <wsdl:part name="return" type="tns:PESIRecords" />
+  </wsdl:message>
+  <wsdl:portType name="PESINameServicePortType">
+    <wsdl:operation name="getGUID">
+      <documentation>&lt;strong&gt;Get the first exact matching GUID for a given name.
+  &lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getGUIDRequest" />
+      <wsdl:output message="tns:getGUIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecords">
+      <documentation>&lt;strong&gt;Get one or more matching (max. 50) PESIRecords for a given name.&lt;br/&gt;Parameters:
+   &lt;ul&gt;
+    &lt;li&gt;&lt;u&gt;like&lt;/u&gt;: add a '%'-sign added after the ScientificName (SQL LIKE function). Default=true.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getPESIRecordsRequest" />
+      <wsdl:output message="tns:getPESIRecordsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESINameByGUID">
+      <documentation>&lt;strong&gt;Get the correct name for a given GUID&lt;/strong&gt;.</documentation>
+      <wsdl:input message="tns:getPESINameByGUIDRequest" />
+      <wsdl:output message="tns:getPESINameByGUIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecordByGUID">
+      <documentation>&lt;strong&gt;Get the complete PESI Record for a given GUID.&lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getPESIRecordByGUIDRequest" />
+      <wsdl:output message="tns:getPESIRecordByGUIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecordsByVernacular">
+      <documentation>&lt;strong&gt;Get one or more PESI Records (max. 50) for a given common name or vernacular.&lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getPESIRecordsByVernacularRequest" />
+      <wsdl:output message="tns:getPESIRecordsByVernacularResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESIVernacularsByGUID">
+      <documentation>&lt;strong&gt;Get all vernaculars for a given GUID.&lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getPESIVernacularsByGUIDRequest" />
+      <wsdl:output message="tns:getPESIVernacularsByGUIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="matchTaxon">
+      <documentation>&lt;strong&gt;Fuzzy matches one ScientificName to one or more (max. 50) PESI Records.&lt;br/&gt;
+  This function uses &lt;a href="http://www.cmar.csiro.au/datacentre/taxamatch.htm" target="_blank"&gt;Tony Rees' TAXAMATCH algorithm&lt;/a&gt;
+  &lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:matchTaxonRequest" />
+      <wsdl:output message="tns:matchTaxonResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getPESISynonymsByGUID">
+      <documentation>&lt;strong&gt;Get all synonyms for a given GUID.&lt;/strong&gt;</documentation>
+      <wsdl:input message="tns:getPESISynonymsByGUIDRequest" />
+      <wsdl:output message="tns:getPESISynonymsByGUIDResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PESINameServiceBinding" type="tns:PESINameServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getGUID">
+      <soap:operation soapAction="getGUID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/GUID" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/GUID" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecords">
+      <soap:operation soapAction="getPESIRecords" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESINameByGUID">
+      <soap:operation soapAction="getPESINameByGUID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIName" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIName" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecordByGUID">
+      <soap:operation soapAction="getPESIRecordByGUID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecord" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecord" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESIRecordsByVernacular">
+      <soap:operation soapAction="getPESIRecordsByVernacular" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESIVernacularsByGUID">
+      <soap:operation soapAction="getPESIVernacularsByGUID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIVernaculars" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIVernaculars" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="matchTaxon">
+      <soap:operation soapAction="matchTaxon" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPESISynonymsByGUID">
+      <soap:operation soapAction="getPESISynonymsByGUID" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://PESI/v0.5/PESIRecords" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PESINameService">
+    <wsdl:port name="PESINameServicePort" binding="tns:PESINameServiceBinding">
+      <soap:address location="http://www.eu-nomen.eu/portal/soap.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

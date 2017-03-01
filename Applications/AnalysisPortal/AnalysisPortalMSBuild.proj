@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0"
+         DefaultTargets="Build" 
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+  <PropertyGroup>
+    <OutDir>$(MSBuildThisFileDirectory)\AnalysisPortal\bin</OutDir>
+	<NOutputDir>$(MSBuildThisFileDirectory)..\..</NOutputDir>
+	<NInputDir>$(MSBuildThisFileDirectory)..\..\Tools\NuGet</NInputDir>
+	<ExtOutputDir>$(MSBuildThisFileDirectory)..\..</ExtOutputDir>
+	<ExtInputDir>$(MSBuildThisFileDirectory)..\..\External Dependencies\GDAL</ExtInputDir>
+    <Configuration>Release</Configuration>
+    <ProjectProperties>
+        OutDir=$(OutDir);
+        Configuration=$(Configuration);
+    </ProjectProperties>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Solution Include="AnalysisPortal.sln" />
+	<NSourceFiles Include="$(NInputDir)\NuGet.config"/>	
+	<ExtSourceFiles Include="$(ExtInputDir)\gdal_csharp.dll;$(ExtInputDir)\ogr_csharp.dll;$(ExtInputDir)\osr_csharp.dll"/>	
+  </ItemGroup>
+
+  
+  
+  <Target Name="CopyNugetFromSource">
+   <Copy
+            SourceFiles="@(NSourceFiles)"
+            DestinationFolder="$(NOutputDir)"
+        />
+  </Target>
+  
+  <Target Name="CopyExternalDependencyFromSource">
+    <Copy
+            SourceFiles="@(ExtSourceFiles)"
+            DestinationFolder="$(ExtOutputDir)"
+        />
+  </Target>
+  
+  <Target Name="RestorePackages">
+    <Exec Command="..\..\Tools\NuGet\NuGet.exe restore AnalysisPortal.sln"/>
+  </Target>
+  
+  <Target Name="Clean">
+    <MSBuild Targets="Clean"
+             Projects="@(Solution)"
+             Properties="$(ProjectProperties)" />
+  </Target>
+
+  <Target Name="Build" DependsOnTargets="CopyNugetFromSource;CopyExternalDependencyFromSource;RestorePackages">
+    <MSBuild Targets="Build"
+             Projects="@(Solution)"
+             Properties="$(ProjectProperties)" />
+  </Target>
+
+  <Target Name="Rebuild" DependsOnTargets="RestorePackages">
+    <MSBuild Targets="Rebuild"
+             Projects="@(Solution)"
+             Properties="$(ProjectProperties)" />
+  </Target>
+
+</Project>
+

@@ -1,0 +1,43 @@
+﻿<ul>    
+    <li>
+        @if (System.Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName != "sv")
+        {        
+            @:<a style="float:right" title="Byt Språk" href="@Html.Raw(Url.Action("SetCulture", "Culture", new { culture = "sv", returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }))">
+            @:<span title="Svenska" class="IconFlag IconFlag-sv"></span>
+            @:</a>
+        }
+        else
+        {            
+            @:<a style="float:right" title="Change Language" href="@Html.Raw(Url.Action("SetCulture", "Culture", new { culture = "en", returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }))">
+            @:<span title="English" class="IconFlag IconFlag-en"></span>
+            @:</a>
+        }     
+    </li>
+    
+    <li>
+        @if (ViewBag.IsLoggedIn != null && ViewBag.IsLoggedIn)
+        {@:@ViewBag.UserName - 
+            @:<a href="@Url.Action("Logout", "Account")">
+            @:<i class="icon-signout icon-white"></i>
+            @Resources.Resource.AccountLogOutText
+            @:</a>
+            
+            if (ViewBag.MultipleRoles != null && ViewBag.MultipleRoles)
+            {
+                @:</li>
+                @:<li class="changeRoles">@ViewBag.UserRole
+                @:<a href="@Url.Action("ChangeUserRole", "Account")">
+                @:<i class="icon-wrench"></i>
+                @Resources.Resource.AccountLogInChangeUserRole
+                @:</a>
+            }
+        }
+        else
+        {
+            @:<a href="@Url.Action("LogIn", "Account", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })">
+            @:<i class="icon-signin icon-white"></i>
+            @Resources.Resource.AccountLogInText
+            @:</a>
+        }
+    </li>   
+</ul>

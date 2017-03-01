@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="TaxonAttributeService.TaxonAttributeService" CodeBehind="TaxonAttributeService.svc.cs" %>

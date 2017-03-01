@@ -1,0 +1,2693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="RevisionAddActionHeaderText" xml:space="preserve">
+    <value>Ny revision</value>
+  </data>
+  <data name="RevisionAddAddNewEditorButton" xml:space="preserve">
+    <value>Lägg till ny redigerare</value>
+  </data>
+  <data name="RevisionAddErrorInformation" xml:space="preserve">
+    <value>Inte möjligt att skapa denna revision.</value>
+  </data>
+  <data name="RevisionAddInvalidRevisionErrorText" xml:space="preserve">
+    <value>Ingen giltig revision kunde skapas.</value>
+  </data>
+  <data name="RevisionAddMainHeaderText" xml:space="preserve">
+    <value>Ny revision</value>
+  </data>
+  <data name="RevisionAddNoUsersErrorInformation" xml:space="preserve">
+    <value>Inte möjligt att starta revisionen. Inga användare valda.</value>
+  </data>
+  <data name="RevisionAddPropertiesHeaderText" xml:space="preserve">
+    <value>Information om revisionen</value>
+  </data>
+  <data name="RevisionAddSelectEditorsHeaderText" xml:space="preserve">
+    <value>Välj redigerare</value>
+  </data>
+  <data name="RevisionEditActionHeaderText" xml:space="preserve">
+    <value>Redigera revision</value>
+  </data>
+  <data name="RevisionEditEditorsHeaderText" xml:space="preserve">
+    <value>Redigerare</value>
+  </data>
+  <data name="RevisionEditMainHeaderText" xml:space="preserve">
+    <value>Revisionsegenskaper</value>
+  </data>
+  <data name="RevisionEditNoUsersErrorInformation" xml:space="preserve">
+    <value>Inte möjligt att starta revision. Inga användare valda.</value>
+  </data>
+  <data name="RevisionEditNoUsersFinalizeErrorInformation" xml:space="preserve">
+    <value>Inte möjligt att publicera. Inga användare valda.</value>
+  </data>
+  <data name="RevisionEditQualityHeaderText" xml:space="preserve">
+    <value>Kvalitetsbedömning</value>
+  </data>
+  <data name="RevisionEditQualityLabel" xml:space="preserve">
+    <value>Datakvalitet i Dyntaxa</value>
+  </data>
+  <data name="RevisionEditReferencesHeaderText" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="RevisionEditRevisionPropretiesHeaderText" xml:space="preserve">
+    <value>Revisionsuppgifter</value>
+  </data>
+  <data name="RevisionEditUpdateRevisionErrorText" xml:space="preserve">
+    <value>Inte möjligt att ändra revisionen.</value>
+  </data>
+  <data name="RevisionEditUpdateUsersErrorText" xml:space="preserve">
+    <value>Kan inte uppdatera listan över användare.</value>
+  </data>
+  <data name="RevisionFinalizeActionErrorHeaderText" xml:space="preserve">
+    <value>Publicering misslyckades</value>
+  </data>
+  <data name="RevisionFinalizeErrorInformation" xml:space="preserve">
+    <value>Revisionen kan inte publiceras</value>
+  </data>
+  <data name="RevisionFinalizeMainErrorHeaderText" xml:space="preserve">
+    <value>Publicering misslyckades</value>
+  </data>
+  <data name="RevisionFinalizeRevisionNotSavedErrorInformation" xml:space="preserve">
+    <value>Revisionen måste sparas först.</value>
+  </data>
+  <data name="RevisionFinalizeRolesNotRemovedErrorInformation" xml:space="preserve">
+    <value>Avlägsna rollerna manuellt.</value>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionButton" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionHeaderText" xml:space="preserve">
+    <value>Publicera</value>
+  </data>
+  <data name="RevisionFinalizeTaxonRevisionTaxonHeaderText" xml:space="preserve">
+    <value>Revisionstaxon</value>
+  </data>
+  <data name="RevisionInfoActionHeaderText" xml:space="preserve">
+    <value>Revisionsinformation</value>
+  </data>
+  <data name="RevisionInfoMainHeaderText" xml:space="preserve">
+    <value>Revisionsinformation</value>
+  </data>
+  <data name="RevisionInitializeActionErrorHeaderText" xml:space="preserve">
+    <value>Start misslyckades</value>
+  </data>
+  <data name="RevisionInitializeAuthorityDescriptionText" xml:space="preserve">
+    <value>Användaren har tillåtelse att uppdatera taxon,</value>
+  </data>
+  <data name="RevisionInitializeAuthorityNameText" xml:space="preserve">
+    <value>Revision av</value>
+  </data>
+  <data name="RevisionInitializeAuthorityObligationText" xml:space="preserve">
+    <value>Utför revisionen enligt instruktioner.</value>
+  </data>
+  <data name="RevisionInitializeErrorInformation" xml:space="preserve">
+    <value>Revisionen kan inte startas.</value>
+  </data>
+  <data name="RevisionInitializeInstructionAndValidDateLabel" xml:space="preserve">
+    <value>Instruktion och giltighet</value>
+  </data>
+  <data name="RevisionInitializeInstructionLabel" xml:space="preserve">
+    <value>Instruktioner</value>
+  </data>
+  <data name="RevisionInitializeMainErrorHeaderText" xml:space="preserve">
+    <value>Start misslyckades</value>
+  </data>
+  <data name="RevisionInitializeRevisionNotSavedErrorInformation" xml:space="preserve">
+    <value>Revisionen måste sparas först.</value>
+  </data>
+  <data name="RevisionInitializeRoleDescriptionText" xml:space="preserve">
+    <value>Denna roll tillåter tillägg, ändring, flytt och radering av taxon,</value>
+  </data>
+  <data name="RevisionInitializeRoleIdentifierText" xml:space="preserve">
+    <value>DyntaxaRevisionTaxonEditor</value>
+  </data>
+  <data name="RevisionInitializeRoleNameText" xml:space="preserve">
+    <value>Redigerare för</value>
+  </data>
+  <data name="RevisionInitializeRoleShortNameText" xml:space="preserve">
+    <value>DyntaxtaRevisionEditor</value>
+  </data>
+  <data name="RevisionInitializeSelectedTaxonLabel" xml:space="preserve">
+    <value>Valt taxon:</value>
+  </data>
+  <data name="RevisionInitializeSelectUsersLabel" xml:space="preserve">
+    <value>Välj redigerare</value>
+  </data>
+  <data name="RevisionInitializeStartTaxonRevisionButton" xml:space="preserve">
+    <value>Starta redigering</value>
+  </data>
+  <data name="RevisionListEditButton" xml:space="preserve">
+    <value>Hantera</value>
+  </data>
+  <data name="RevisionListFilterHeader" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="RevisionListHeaderText" xml:space="preserve">
+    <value>Revisioner</value>
+  </data>
+  <data name="RevisionListInfoButton" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="RevisionListLimitToCurrentTaxon" xml:space="preserve">
+    <value>Begränsa listade revisioner till valt taxon</value>
+  </data>
+  <data name="RevisionListNoRevisionsAvailableText" xml:space="preserve">
+    <value>Inga revisioner tillgängliga</value>
+  </data>
+  <data name="RevisionListPublishingDateTableHeaderText" xml:space="preserve">
+    <value>Publiceringsdatum</value>
+  </data>
+  <data name="RevisionListRevisionStatusTableHeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusClosedText" xml:space="preserve">
+    <value>Publicerad</value>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusCreatedText" xml:space="preserve">
+    <value>Preliminär</value>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusOngoingText" xml:space="preserve">
+    <value>Pågående</value>
+  </data>
+  <data name="RevisionListSelectedRevisionStatusText" xml:space="preserve">
+    <value>Vald status</value>
+  </data>
+  <data name="RevisionListSelectedRevisonsAllRevisionsText" xml:space="preserve">
+    <value>Alla taxa</value>
+  </data>
+  <data name="RevisionListStartDateTableHeaderText" xml:space="preserve">
+    <value>Startdatum</value>
+  </data>
+  <data name="RevisionListTaxonInformationLabel" xml:space="preserve">
+    <value>För</value>
+  </data>
+  <data name="RevisionSharedNoValidRevisionIdErrorText" xml:space="preserve">
+    <value>Ingen giltig revision finns med id:</value>
+  </data>
+  <data name="RevisionStartEditingActionHeaderText" xml:space="preserve">
+    <value>Börja redigera</value>
+  </data>
+  <data name="RevisionStartEditingButtonText" xml:space="preserve">
+    <value>Börja redigera</value>
+  </data>
+  <data name="RevisionStartMainHeaderText" xml:space="preserve">
+    <value>Börja redigera</value>
+  </data>
+  <data name="RevisionStartRevisionForEditingText" xml:space="preserve">
+    <value>Revision vald för redigering.</value>
+  </data>
+  <data name="RevisionStopEditingActionHeaderText" xml:space="preserve">
+    <value>Sluta redigera</value>
+  </data>
+  <data name="RevisionStopEditingButtonText" xml:space="preserve">
+    <value>Sluta redigera</value>
+  </data>
+  <data name="RevisionStopMainHeaderText" xml:space="preserve">
+    <value>Sluta redigera</value>
+  </data>
+  <data name="RevisonAddInvalidTaxonErrorText" xml:space="preserve">
+    <value>Inget giltig taxon finns för vald revision.</value>
+  </data>
+  <data name="SharedCancelButtonText" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="SharedDeleteButtonText" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+  <data name="SharedEditButtonText" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
+  <data name="SharedError" xml:space="preserve">
+    <value>Fel</value>
+    <comment>Temporär fel sträng...</comment>
+  </data>
+  <data name="SharedErrorStringToLong250" xml:space="preserve">
+    <value>Textsträngen är för lång (måste vara färre än 250 tecken)</value>
+  </data>
+  <data name="SharedOkButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="SharedRevisionEditingHeaderText" xml:space="preserve">
+    <value>Revision av</value>
+  </data>
+  <data name="SharedRevisionFinalizeButtonText" xml:space="preserve">
+    <value>Publicera revisionen</value>
+  </data>
+  <data name="SharedRevisionFinalizeInformation" xml:space="preserve">
+    <value>Vill du publicera revisionen?</value>
+  </data>
+  <data name="SharedRevisionFinalizeLabel" xml:space="preserve">
+    <value>Publicera revisionen</value>
+  </data>
+  <data name="SharedRevisionFinalizeTitleText" xml:space="preserve">
+    <value>Publicera revisionen</value>
+  </data>
+  <data name="SharedRevisionIdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="SharedRevisionInitializeButtonText" xml:space="preserve">
+    <value>Starta revisionen</value>
+  </data>
+  <data name="SharedRevisionInitializeInformation" xml:space="preserve">
+    <value>Vill du starta revisionen?</value>
+  </data>
+  <data name="SharedRevisionInitializeLabel" xml:space="preserve">
+    <value>Starta revisionen</value>
+  </data>
+  <data name="SharedRevisionNoEditorsExistErrorText" xml:space="preserve">
+    <value>Inga TaxonEditorRole i databasen.</value>
+  </data>
+  <data name="SharedRevisionNoRolesCreatedErrorInformation" xml:space="preserve">
+    <value>Roller kan inte skapas för denna revision.</value>
+  </data>
+  <data name="SharedRevisionNoValidRevisionErrorText" xml:space="preserve">
+    <value>Ingen giltig revision finns.</value>
+  </data>
+  <data name="SharedRevisionPublishingDateText" xml:space="preserve">
+    <value>Förväntat publiceringsdatum</value>
+  </data>
+  <data name="SharedRevisionStartDateText" xml:space="preserve">
+    <value>Förväntat startdatum</value>
+  </data>
+  <data name="SharedRevisionStateLabel" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="SharedRevisionTaxonStatusLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="SharedRevisionText" xml:space="preserve">
+    <value>revision</value>
+  </data>
+  <data name="SharedRevisionToManyEditorsErrorText" xml:space="preserve">
+    <value>För många TaxonEditiorRoles finns i DB</value>
+  </data>
+  <data name="SharedRevisionUserAdminLinkText" xml:space="preserve">
+    <value>Lägg till redigerare</value>
+  </data>
+  <data name="SharedSaveButtonText" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="SharedAddButtonText" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogText" xml:space="preserve">
+    <value>Vill du publicera revisionen?</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogTitleText" xml:space="preserve">
+    <value>Publicera revisionen</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogText" xml:space="preserve">
+    <value>Vill du starta revisionen?</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogTitleText" xml:space="preserve">
+    <value>Starta revision</value>
+  </data>
+  <data name="RevisionAddParentExistingParentsLabel" xml:space="preserve">
+    <value>Existerande föräldrar inom revisionen</value>
+  </data>
+  <data name="TaxonAddParentHeaderText" xml:space="preserve">
+    <value>Lägg till ny förälder</value>
+  </data>
+  <data name="TaxonAddParentLabelText" xml:space="preserve">
+    <value>Välj ny förälder</value>
+  </data>
+  <data name="TaxonDropParentHeaderText" xml:space="preserve">
+    <value>Ta bort förälder</value>
+  </data>
+  <data name="TaxonDropParentLabelText" xml:space="preserve">
+    <value>Välj förälder att ta bort</value>
+  </data>
+  <data name="TaxonAddParentErrorText" xml:space="preserve">
+    <value>Inga föräldrar finns tillgängliga.</value>
+  </data>
+  <data name="TaxonDropParentErrorText" xml:space="preserve">
+    <value>Det måste finnas minst två föräldrar innan någon förälder får tas bort. Huvudföräldern kan inte tas bort.</value>
+  </data>
+  <data name="TaxonDeleteInfoHeaderText" xml:space="preserve">
+    <value>Ta bort taxon</value>
+  </data>
+  <data name="TaxonDeleteInfoText" xml:space="preserve">
+    <value>Vill du verkligen ta bort valt taxon? Ett bättre alternativ kan vara att slå ihop valt taxon.</value>
+  </data>
+  <data name="TaxonDeleteText" xml:space="preserve">
+    <value>Ska valt taxon tas bort? Ett bättre alternativ kan vara att slå ihop det med ett annat taxon.</value>
+  </data>
+  <data name="TaxonLumpHeaderText" xml:space="preserve">
+    <value>Slå ihop taxa</value>
+  </data>
+  <data name="SharedNoValidRevisionErrorText" xml:space="preserve">
+    <value>Ingen giltig revision finns</value>
+  </data>
+  <data name="SharedNoValidTaxonErrorText" xml:space="preserve">
+    <value>Inget giltigt taxon finns</value>
+  </data>
+  <data name="SharedAvaliableLabel" xml:space="preserve">
+    <value>Tillgängliga</value>
+  </data>
+  <data name="SharedDialogButtonTextNo" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedDialogButtonTextYes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SharedDialogConfirmationHeader" xml:space="preserve">
+    <value>Bekräfta</value>
+  </data>
+  <data name="SharedDialogConfirmationText" xml:space="preserve">
+    <value>Är du säker?</value>
+  </data>
+  <data name="SharedDialogDeleteHeader" xml:space="preserve">
+    <value>Radera</value>
+  </data>
+  <data name="SharedDialogInformationHeader" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedExeptionNullOrEmpty" xml:space="preserve">
+    <value>Värdet får inte saknas</value>
+  </data>
+  <data name="SharedFieldsetLegendEditCreateText" xml:space="preserve">
+    <value>Fyll i formuläret</value>
+  </data>
+  <data name="SharedInvalidUserContext" xml:space="preserve">
+    <value>Ingen giltig användare har loggat in. Logga ut och logga in igen.</value>
+  </data>
+  <data name="SharedInvalidApplicationUserContext" xml:space="preserve">
+    <value>Dyntaxas applikationsanvändare är ogiltig. Logga ut och logga in igen.</value>
+  </data>
+  <data name="SharedPasswordLabel" xml:space="preserve">
+    <value>Lösenord</value>
+  </data>
+  <data name="SharedReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="SharedReadTaxonInformationTaxonStatusLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="SharedSaving" xml:space="preserve">
+    <value>Sparar</value>
+  </data>
+  <data name="SharedSelectedLabel" xml:space="preserve">
+    <value>Valda</value>
+  </data>
+  <data name="SharedSubmitButtonText" xml:space="preserve">
+    <value>Skicka</value>
+  </data>
+  <data name="SharedTaxonConceptDescription" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="SharedTaxonNameSearchResultListHeader" xml:space="preserve">
+    <value>Lista över namn som matchar söksträngen</value>
+  </data>
+  <data name="SharedUserNameLabel" xml:space="preserve">
+    <value>Användarnamn</value>
+  </data>
+  <data name="TaxonInfoAnamorphNameLabel" xml:space="preserve">
+    <value>Anamorf</value>
+  </data>
+  <data name="TaxonInfoCommonNameLabel" xml:space="preserve">
+    <value>Svenskt</value>
+  </data>
+  <data name="TaxonInfoDistributionMapLabel" xml:space="preserve">
+    <value>Utbredningskarta</value>
+  </data>
+  <data name="TaxonInfoGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="TaxonInfoIdentifiersLabel" xml:space="preserve">
+    <value>Identifierare</value>
+  </data>
+  <data name="TaxonInfoNearestChildTaxaLabel" xml:space="preserve">
+    <value>Närmast underliggande taxa</value>
+  </data>
+  <data name="TaxonInfoOtherLanguagesLabel" xml:space="preserve">
+    <value>Andra språk</value>
+  </data>
+  <data name="TaxonInfoOtherNames" xml:space="preserve">
+    <value>Andra namn</value>
+  </data>
+  <data name="TaxonInfoRecommendedLinksLabel" xml:space="preserve">
+    <value>Länkar till mer information</value>
+  </data>
+  <data name="TaxonInfoRecommendedNamesLabel" xml:space="preserve">
+    <value>Rekommenderade namn</value>
+  </data>
+  <data name="TaxonInfoScientificNameLabel" xml:space="preserve">
+    <value>Vetenskapligt</value>
+  </data>
+  <data name="TaxonInfoSynonymsLabel" xml:space="preserve">
+    <value>Synonymer</value>
+  </data>
+  <data name="TaxonInfoTaxonIdLabel" xml:space="preserve">
+    <value>Dyntaxa taxon-id</value>
+  </data>
+  <data name="TaxonInfoTaxonomicHierarchyLabel" xml:space="preserve">
+    <value>Taxonomisk hierarki (klassificering)</value>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsCategoryNameLabel" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsInDyntaxa" xml:space="preserve">
+    <value>Totalt i Dyntaxa</value>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsInSweden" xml:space="preserve">
+    <value>Påträffade i Sverige</value>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsLabel" xml:space="preserve">
+    <value>Antal underliggande taxa</value>
+  </data>
+  <data name="TaxonInfoTitleLabel" xml:space="preserve">
+    <value>Taxonomisk information</value>
+  </data>
+  <data name="TaxonNameAddEditAuthorLabel" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonNameAddEditCommentLabel" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="TaxonNameAddEditIsRecommendedLabel" xml:space="preserve">
+    <value>Rekommenderat</value>
+  </data>
+  <data name="TaxonNameAddEditNameCategoryLabel" xml:space="preserve">
+    <value>Namnkategori</value>
+  </data>
+  <data name="TaxonNameAddEditNameHeader" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonNameAddEditNameLabel" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonNameAddEditNameUsageHeader" xml:space="preserve">
+    <value>Nomenklatur</value>
+  </data>
+  <data name="TaxonNameAddEditNotOkForObs" xml:space="preserve">
+    <value>Är inte ok för obs-system</value>
+  </data>
+  <data name="TaxonNameAddEditUsageLabel" xml:space="preserve">
+    <value>Nomenklatur</value>
+  </data>
+  <data name="TaxonNameAddTitle" xml:space="preserve">
+    <value>Lägg till namn</value>
+  </data>
+  <data name="TaxonNameDeleteAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonNameDeleteCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="TaxonNameDeleteDoYouWantToDelete" xml:space="preserve">
+    <value>Vill du verkligen ta bort?</value>
+  </data>
+  <data name="TaxonNameDeleteName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonNameDeleteNameUsage" xml:space="preserve">
+    <value>Nomenklatur</value>
+  </data>
+  <data name="TaxonNameDeleteRecommended" xml:space="preserve">
+    <value>Rekommenderat</value>
+  </data>
+  <data name="TaxonNameDeleteTitle" xml:space="preserve">
+    <value>Ta bort namn</value>
+  </data>
+  <data name="TaxonNameEditTitle" xml:space="preserve">
+    <value>Redigera namn</value>
+  </data>
+  <data name="TaxonNameListAddNewNameCategory" xml:space="preserve">
+    <value>Lägg till ny namnkategori</value>
+  </data>
+  <data name="TaxonNameListAddNewNameToCategory" xml:space="preserve">
+    <value>Lägg till nytt namn</value>
+  </data>
+  <data name="TaxonNameListTitle" xml:space="preserve">
+    <value>Lista namn</value>
+  </data>
+  <data name="TaxonNameSharedAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonNameSharedIsRecommended" xml:space="preserve">
+    <value>Rekommenderad</value>
+  </data>
+  <data name="TaxonNameSharedName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonNameSharedNameUsage" xml:space="preserve">
+    <value>Namnanvändning</value>
+  </data>
+  <data name="TaxonNameSharedNotOkForObs" xml:space="preserve">
+    <value>Ej för obs.-system</value>
+  </data>
+  <data name="TaxonNameSharedReferences" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="TaxonSearchAmbiguousResult" xml:space="preserve">
+    <value>Tvetydigt sökresultat. Välj taxon att återgå till</value>
+  </data>
+  <data name="TaxonSearchHits" xml:space="preserve">
+    <value>träffar</value>
+  </data>
+  <data name="TaxonSearchResult" xml:space="preserve">
+    <value>Sökresultat</value>
+  </data>
+  <data name="TaxonSearchSeconds" xml:space="preserve">
+    <value>sekunder</value>
+  </data>
+  <data name="TaxonSearchTitle" xml:space="preserve">
+    <value>Sök taxon</value>
+  </data>
+  <data name="TaxonSharedAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonSharedCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="TaxonSharedCommonName" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="TaxonSharedDescription" xml:space="preserve">
+    <value>Beskrivning av taxonkonceptet</value>
+  </data>
+  <data name="TaxonSharedInvalidRevision" xml:space="preserve">
+    <value>Ingen giltig revision finns</value>
+  </data>
+  <data name="TaxonSharedInvalidTaxon" xml:space="preserve">
+    <value>Inget giltigt taxon finns</value>
+  </data>
+  <data name="TaxonSharedName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonSharedScientificName" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="TaxonSharedTaxonCategory" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="TaxonSummaryCategoryLabel" xml:space="preserve">
+    <value>Kategori (rang)</value>
+  </data>
+  <data name="TaxonSummaryClassificationLabel" xml:space="preserve">
+    <value>Klassificering</value>
+  </data>
+  <data name="TaxonSummaryCommonNamesLabel" xml:space="preserve">
+    <value>Trivialnamn</value>
+  </data>
+  <data name="TaxonSummaryConceptDefinitionLabel" xml:space="preserve">
+    <value>Konceptdefinition</value>
+  </data>
+  <data name="TaxonSummaryGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="TaxonSummaryIdLabel" xml:space="preserve">
+    <value>Dyntaxa taxon-id</value>
+  </data>
+  <data name="TaxonSummaryScientificNameLabel" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="TaxonSummarySwedishHistoryLabel" xml:space="preserve">
+    <value>Svensk invandringshistoria</value>
+  </data>
+  <data name="TaxonSummarySwedishOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="TaxonSummarySynonymsLabel" xml:space="preserve">
+    <value>Synonymer</value>
+  </data>
+  <data name="TaxonSummaryValidityLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="SharedRevisionNoEditorsSelectedErrorText" xml:space="preserve">
+    <value>Inga redigerare har valts för denna revision!</value>
+  </data>
+  <data name="SharedRevisionTaxonIsInRevisionDialogText" xml:space="preserve">
+    <value>Taxonet eller något underliggande taxon ingår redan i en pågående revision.</value>
+  </data>
+  <data name="TaxonInfoQualityChartLabel" xml:space="preserve">
+    <value>Datakvalitet i Dyntaxa</value>
+  </data>
+  <data name="SharedChangeLanguageLabel" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="TaxonLumpAddCurrentTaxonToListButtonText" xml:space="preserve">
+    <value>Lägg till valt taxon till listan</value>
+  </data>
+  <data name="TaxonLumpHaveChildrenErrorText" xml:space="preserve">
+    <value>Det är inte möjligt att ange valt taxon till listan över taxa som ska sammanfogas. Flytta underliggande taxa om valt taxon ska anges i listan över taxa som ska sammanfogas.</value>
+  </data>
+  <data name="TaxonLumpListTaxaToLumpText" xml:space="preserve">
+    <value>Lista över taxa som ska infogas i ersättningstaxonet</value>
+  </data>
+  <data name="TaxonLumpNoReplacingTaxonErrorText" xml:space="preserve">
+    <value>Inget ersättningstaxon har valts!</value>
+  </data>
+  <data name="TaxonLumpNoTaxaSelectedErrorText" xml:space="preserve">
+    <value>Inga taxa har valts!</value>
+  </data>
+  <data name="TaxonLumpPopUpText" xml:space="preserve">
+    <value>Slå ihop taxa</value>
+  </data>
+  <data name="TaxonLumpReplacingTaxonLabel" xml:space="preserve">
+    <value>Ersättningstaxon</value>
+  </data>
+  <data name="TaxonLumpSetCurrentTaxonToReplacingTaxonButtonText" xml:space="preserve">
+    <value>Ange valt taxon som ersättningstaxon.</value>
+  </data>
+  <data name="TaxonSplitHaveChildrenErrorText" xml:space="preserve">
+    <value>Det är inte möjligt att dela upp taxa som har barn. Flytta barn innan det kan delas upp.</value>
+  </data>
+  <data name="TaxonSplitPopUpText" xml:space="preserve">
+    <value>Dela upp taxon</value>
+  </data>
+  <data name="TaxonLumpButtonText" xml:space="preserve">
+    <value>Slå ihop</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonLumpAlreadyInLumpListErrorText" xml:space="preserve">
+    <value>Inte möjligt att använda valt taxon som ersättningstaxon. Det finns redan i listan över taxa som ska slås ihop.</value>
+  </data>
+  <data name="TaxonLumpSetAsReplacingErrorText" xml:space="preserve">
+    <value>Inte möjligt att lägga till valt taxon till listan över taxa som ska slås ihop. Taxonet redan valt som ersättningstaxon.</value>
+  </data>
+  <data name="SharedReferencesHeaderText" xml:space="preserve">
+    <value>Referenser</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonSplitAddCurrentTaxonToListButtonText" xml:space="preserve">
+    <value>Lägg till valt taxon till listan</value>
+  </data>
+  <data name="TaxonSplitAlreadyInReplaceListErrorText" xml:space="preserve">
+    <value>Inte möjligt att göra valt taxon till det som ska delas upp. Det finns redan i listan över ersättningstaxa.</value>
+  </data>
+  <data name="TaxonSplitAlreadyInSetAsSplittingErrorText" xml:space="preserve">
+    <value>Inte möjligt att lägga till valt taxon till listan över ersättningstaxa. Taxonet är redan valt till det som ska delas upp.</value>
+  </data>
+  <data name="TaxonSplitButtonText" xml:space="preserve">
+    <value>Dela upp taxon</value>
+  </data>
+  <data name="TaxonSplitHeaderText" xml:space="preserve">
+    <value>Dela upp taxon</value>
+  </data>
+  <data name="TaxonSplitNoReplacingTaxonErrorText" xml:space="preserve">
+    <value>Inga ersättningstaxa har valts!</value>
+  </data>
+  <data name="TaxonSplitNoTaxaSelectedErrorText" xml:space="preserve">
+    <value>Inga taxa har valts!</value>
+  </data>
+  <data name="TaxonSplitReplacingTaxonLabel" xml:space="preserve">
+    <value>Ersättningstaxa</value>
+  </data>
+  <data name="TaxonSplitSetCurrentTaxonToSplittingTaxonButtonText" xml:space="preserve">
+    <value>Ange valt taxon som det som ska delas upp</value>
+  </data>
+  <data name="TaxonSplitTaxonToBeSplittedText" xml:space="preserve">
+    <value>Taxon som ska delas upp</value>
+  </data>
+  <data name="TaxonNameAddEditIsOriginal" xml:space="preserve">
+    <value>Är originalnamn</value>
+  </data>
+  <data name="TaxonInfoQuality0Label" xml:space="preserve">
+    <value>Ej bedömd</value>
+  </data>
+  <data name="TaxonInfoQuality1Label" xml:space="preserve">
+    <value>Låg</value>
+  </data>
+  <data name="TaxonInfoQuality2Label" xml:space="preserve">
+    <value>Godtagbar</value>
+  </data>
+  <data name="TaxonInfoQuality3Label" xml:space="preserve">
+    <value>Hög</value>
+  </data>
+  <data name="ReferenceAddFilteringLabel" xml:space="preserve">
+    <value>(filtrerat från totalt _MAX_ poster)</value>
+  </data>
+  <data name="ReferenceAddNoDataAvailableLabel" xml:space="preserve">
+    <value>Ingen data tillgänglig i tabellen</value>
+  </data>
+  <data name="ReferenceAddNoRecordsLabel" xml:space="preserve">
+    <value>Inga poster att visa</value>
+  </data>
+  <data name="ReferenceAddNumberOfFilteredElementsLabel" xml:space="preserve">
+    <value>Visar_START_till_END_av_TOTAL_poster</value>
+  </data>
+  <data name="ReferenceAddSearchLabel" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="SharedAdditionalErrorInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedRevisionNoTaxonEditorAutorityExist" xml:space="preserve">
+    <value>Inga rättigheter finns för denna revision.</value>
+  </data>
+  <data name="SharedRevisionNoTaxonEditorRoleExist" xml:space="preserve">
+    <value>Ingen roll finns för denna revision.</value>
+  </data>
+  <data name="SharedReferenceLabel" xml:space="preserve">
+    <value>Referens</value>
+  </data>
+  <data name="TaxonSearchTaxonNotExistErrorText" xml:space="preserve">
+    <value>Sökt taxon finns inte.</value>
+  </data>
+  <data name="TaxonSearchTaxonNotInRevisionErrorText" xml:space="preserve">
+    <value>Sökt taxon finns inte i vald revision.</value>
+  </data>
+  <data name="RevisionDeleteActionHeaderText" xml:space="preserve">
+    <value>Ta bort revision</value>
+  </data>
+  <data name="RevisionDeleteMainHeaderText" xml:space="preserve">
+    <value>Ta bort revision</value>
+  </data>
+  <data name="RevisionDeleteDialogText" xml:space="preserve">
+    <value>Vill du verkligen ta bort vald revision?</value>
+  </data>
+  <data name="RevisionDeleteDialogTitleText" xml:space="preserve">
+    <value>Ta bort revisionen</value>
+  </data>
+  <data name="RevisionRevisonEventActionHeaderText" xml:space="preserve">
+    <value>Redigeringssteg</value>
+  </data>
+  <data name="TaxonLumpNotPossibleToLumpErrorText" xml:space="preserve">
+    <value>Valda taxa är inte möjliga att sammanfoga.</value>
+  </data>
+  <data name="RevisionInvalidRevisionEventErrorText" xml:space="preserve">
+    <value>Ogiltigt revisionssteg.</value>
+  </data>
+  <data name="SharedCurrentRevision" xml:space="preserve">
+    <value>Aktuell revision: {0}</value>
+  </data>
+  <data name="SharedViewLabel" xml:space="preserve">
+    <value>Visa</value>
+  </data>
+  <data name="RevisionListEventAffectedTaxaValueText" xml:space="preserve">
+    <value>Förändrat taxon</value>
+  </data>
+  <data name="RevisionListEventChangeTypeText" xml:space="preserve">
+    <value>Förändring</value>
+  </data>
+  <data name="RevisionListEventListTitleLabelText" xml:space="preserve">
+    <value>Redigeringssteg</value>
+  </data>
+  <data name="RevisionListEventNewValueText" xml:space="preserve">
+    <value>Nytt värde</value>
+  </data>
+  <data name="RevisionListEventOldValueText" xml:space="preserve">
+    <value>Gammalt värde</value>
+  </data>
+  <data name="RevisionListEventPageTitleText" xml:space="preserve">
+    <value>Redigeringssteg</value>
+  </data>
+  <data name="RevisionListEventStepTypeText" xml:space="preserve">
+    <value>Händelse-id</value>
+  </data>
+  <data name="RevisionListEventTitleLabelText" xml:space="preserve">
+    <value>Lista över utförda redigeringsteg - RevisionsId:</value>
+  </data>
+  <data name="RevisionListEventUndoTypeText" xml:space="preserve">
+    <value>Ta bort senaste redigeringssteg</value>
+  </data>
+  <data name="RevisionListEventNoRevisionEventsAvailableText" xml:space="preserve">
+    <value>Inga förändringar har skett på vald revision.</value>
+  </data>
+  <data name="TaxonLumpNotOkToLumpErrorText" xml:space="preserve">
+    <value>Inte möjligt att slå ihop valda taxa.</value>
+  </data>
+  <data name="RevisionListTitleLabelText" xml:space="preserve">
+    <value>Revisioner (n=</value>
+  </data>
+  <data name="TaxonInfoHistoricalParentsHeader" xml:space="preserve">
+    <value>Tidigare tillhörigheter</value>
+  </data>
+  <data name="TaxonInfoOtherParentsHeader" xml:space="preserve">
+    <value>Övriga tillhörigheter</value>
+  </data>
+  <data name="TaxonEditQualityHeaderText" xml:space="preserve">
+    <value>Kvalitetsbedömning</value>
+  </data>
+  <data name="TaxonEditQualityLabel" xml:space="preserve">
+    <value>Datakvalitet</value>
+  </data>
+  <data name="TaxonEditQualityOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Kvalitet för invandringshistoria</value>
+  </data>
+  <data name="TaxonEditQualityOfSwedishOccurrence" xml:space="preserve">
+    <value>Kvalitet för förekomst</value>
+  </data>
+  <data name="TaxonEditReferenceOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Referens för invandringshistoria</value>
+  </data>
+  <data name="TaxonEditReferenceOfSwedishOccurrence" xml:space="preserve">
+    <value>Referens för förekomst</value>
+  </data>
+  <data name="TaxonEditStatusOfSwedishImmigrationHistory" xml:space="preserve">
+    <value>Status för invandringshistoria</value>
+  </data>
+  <data name="TaxonEditStatusOfSwedishOccurrence" xml:space="preserve">
+    <value>Förekomststatus</value>
+  </data>
+  <data name="TaxonEditSwedishImmigrationHistoryDescriptionLabel" xml:space="preserve">
+    <value>Kommentarer på  invandringshistoria</value>
+  </data>
+  <data name="TaxonEditSwedishImmigrationHistoryLabel" xml:space="preserve">
+    <value>Svensk invandringshistoria</value>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceDescriptionLabel" xml:space="preserve">
+    <value>Kommentarer på förekomststatus</value>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="RevisionListFilterButtonLabelText" xml:space="preserve">
+    <value>Filtrera listan</value>
+  </data>
+  <data name="SharedArtDatabankenText" xml:space="preserve">
+    <value>ArtDatabanken</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedReferences" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="SharedSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att visa svensk förkomst för valt taxon.</value>
+  </data>
+  <data name="ReferenceAddTitle" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="TaxonInfoNameTooltip" xml:space="preserve">
+    <value>Klicka för att visa info om namn</value>
+  </data>
+  <data name="TaxonInfoReferencesLabel" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="TaxonSummaryUpdateInformationLabel" xml:space="preserve">
+    <value>Senast uppdaterad</value>
+  </data>
+  <data name="TaxonSummaryValitityValueAccepted" xml:space="preserve">
+    <value>Accepterat</value>
+  </data>
+  <data name="TaxonSummaryValitityValueNotValid" xml:space="preserve">
+    <value>Inte accepterat</value>
+  </data>
+  <data name="TaxonSummaryValitityValuePragmatic" xml:space="preserve">
+    <value>Informellt accepterat som pragmatiskt taxon</value>
+  </data>
+  <data name="SharedNotPossibleToLoginArtDatabankenServiceError" xml:space="preserve">
+    <value>Inte möjligt att logga in på  ArtDatabankenService.</value>
+  </data>
+  <data name="MenuItemExport" xml:space="preserve">
+    <value>Exportera</value>
+  </data>
+  <data name="MenuItemExportDatabaseTables" xml:space="preserve">
+    <value>Databastabeller</value>
+  </data>
+  <data name="MenuItemExportHierarchicalTaxonList" xml:space="preserve">
+    <value>Hierarkisk lista</value>
+  </data>
+  <data name="MenuItemExportTaxonList" xml:space="preserve">
+    <value>Rak lista</value>
+  </data>
+  <data name="MenuItemExportTaxonNameList" xml:space="preserve">
+    <value>Namnlista</value>
+  </data>
+  <data name="MenuItemMatch" xml:space="preserve">
+    <value>Matcha</value>
+  </data>
+  <data name="MenuItemRevision" xml:space="preserve">
+    <value>Revisioner</value>
+  </data>
+  <data name="MenuItemRevisionAdd" xml:space="preserve">
+    <value>Ny</value>
+  </data>
+  <data name="MenuItemRevisionList" xml:space="preserve">
+    <value>Lista revisioner</value>
+  </data>
+  <data name="MenuItemRevisionListRevisionEvents" xml:space="preserve">
+    <value>Lista redigeringssteg</value>
+  </data>
+  <data name="MenuItemRevisionStartEdititng" xml:space="preserve">
+    <value>Taxonomi</value>
+  </data>
+  <data name="MenuItemRevisionStopEdititng" xml:space="preserve">
+    <value>Avsluta redigering</value>
+  </data>
+  <data name="MenuItemSearch" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="MenuItemTaxon" xml:space="preserve">
+    <value>Taxon</value>
+  </data>
+  <data name="MenuItemTaxonAdd" xml:space="preserve">
+    <value>Nytt barn</value>
+  </data>
+  <data name="MenuItemTaxonAddParent" xml:space="preserve">
+    <value>Lägg till förälder</value>
+  </data>
+  <data name="MenuItemTaxonDelete" xml:space="preserve">
+    <value>Ta bort taxon</value>
+  </data>
+  <data name="MenuItemTaxonEdit" xml:space="preserve">
+    <value>Taxon</value>
+  </data>
+  <data name="MenuItemTaxonInformation" xml:space="preserve">
+    <value>Taxoninformation</value>
+  </data>
+  <data name="MenuItemTaxonLump" xml:space="preserve">
+    <value>Slå ihop</value>
+  </data>
+  <data name="MenuItemTaxonMove" xml:space="preserve">
+    <value>Flytta barn</value>
+  </data>
+  <data name="MenuItemTaxonName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="MenuItemTaxonOccurrence" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="MenuItemTaxonQuality" xml:space="preserve">
+    <value>Datakvalitet</value>
+  </data>
+  <data name="MenuItemTaxonReferences" xml:space="preserve">
+    <value>Taxonomireferenser</value>
+  </data>
+  <data name="MenuItemTaxonRemoveParent" xml:space="preserve">
+    <value>Ta bort förälder</value>
+  </data>
+  <data name="MenuItemTaxonSortChildTaxa" xml:space="preserve">
+    <value>Sortera barn</value>
+  </data>
+  <data name="MenuItemTaxonSplit" xml:space="preserve">
+    <value>Dela upp</value>
+  </data>
+  <data name="SharedNotPossibleToReadSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att läsa artfakta.</value>
+  </data>
+  <data name="SharedNotPossibleToUpdateSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att uppdatera artfakta.</value>
+  </data>
+  <data name="TaxonInfoHistoricalParentsUntil" xml:space="preserve">
+    <value>fram till</value>
+  </data>
+  <data name="SharedTaxonInvalidCategoryText" xml:space="preserve">
+    <value>Ogiltig taxonkategori vald.</value>
+  </data>
+  <data name="SharedTaxonSelecteCategoryDropDownListText" xml:space="preserve">
+    <value>Välj kategori</value>
+  </data>
+  <data name="TaxonAddIsNotOkToCreateTaxonErrorText" xml:space="preserve">
+    <value>Inte möjligt skapa nytt taxon. Ändra förälder eller kategori.</value>
+  </data>
+  <data name="ExportStraightAllOption" xml:space="preserve">
+    <value>Alla</value>
+  </data>
+  <data name="ExportStraightCategories" xml:space="preserve">
+    <value>Kategorier</value>
+  </data>
+  <data name="ExportStraightCheckAllNone" xml:space="preserve">
+    <value>Markera/avmarkera alla</value>
+  </data>
+  <data name="ExportStraightChildren" xml:space="preserve">
+    <value>Underordnade kategorier</value>
+  </data>
+  <data name="ExportStraightColumnAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="ExportStraightColumnCommonName" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="ExportStraightColumnGUID" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="ExportStraightColumnRecommendedGUID" xml:space="preserve">
+    <value>Rekommenderad GUID</value>
+  </data>
+  <data name="ExportStraightColumnScientificName" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="ExportStraightColumnTaxonCategory" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="ExportStraightColumnTaxonId" xml:space="preserve">
+    <value>TaxonId</value>
+  </data>
+  <data name="ExportStraightColumnTaxonInfoUrl" xml:space="preserve">
+    <value>URL till taxoninformation</value>
+  </data>
+  <data name="ExportStraightCurrent" xml:space="preserve">
+    <value>Nuvarande</value>
+  </data>
+  <data name="ExportStraightFilter" xml:space="preserve">
+    <value>Urval av taxa (listans rader)</value>
+  </data>
+  <data name="ExportStraightGeneratingExcelFile" xml:space="preserve">
+    <value>Skapar excelfil…</value>
+  </data>
+  <data name="ExportStraightGetExcelFile" xml:space="preserve">
+    <value>Skapa excelfil</value>
+  </data>
+  <data name="ExportStraightIncludeAuthorInAllNameCells" xml:space="preserve">
+    <value>Ta med auktor i celler med vetenskapliga namn</value>
+  </data>
+  <data name="ExportStraightIncludeCommonNameInAllNameCells" xml:space="preserve">
+    <value>Ta med svenskt namn i celler med vetenskapliga namn</value>
+  </data>
+  <data name="ExportStraightOutputTitle" xml:space="preserve">
+    <value>Taxoninformation (listans kolumner)</value>
+  </data>
+  <data name="ExportStraightParents" xml:space="preserve">
+    <value>Överordnade taxonkategorier</value>
+  </data>
+  <data name="ExportStraightSelect" xml:space="preserve">
+    <value>Välj</value>
+  </data>
+  <data name="ExportStraightTitle" xml:space="preserve">
+    <value>Exportera rak taxonlista</value>
+  </data>
+  <data name="MatchingResultsHeader" xml:space="preserve">
+    <value>Matchningsresultat</value>
+  </data>
+  <data name="MatchOptionsAllowedFiletypesText" xml:space="preserve">
+    <value>Filformat: Excel (xlsx)</value>
+  </data>
+  <data name="MatchOptionsAmbiguitiesTitle" xml:space="preserve">
+    <value>Matchningsproblem</value>
+  </data>
+  <data name="MatchOptionsExcelFile" xml:space="preserve">
+    <value>Excelfil</value>
+  </data>
+  <data name="MatchOptionsFileExtensionError" xml:space="preserve">
+    <value>Felaktigt filtillägg. Måste vara .xls eller .xlsx</value>
+  </data>
+  <data name="MatchOptionsInputColumnContentLabel" xml:space="preserve">
+    <value>Kolumninnehåll</value>
+  </data>
+  <data name="MatchOptionsIsFirstRowColumnNameLabel" xml:space="preserve">
+    <value>Första raden är rubriker</value>
+  </data>
+  <data name="MatchOptionsLimitToTaxonLabel" xml:space="preserve">
+    <value>Begränsa matchning till [TaxonName]</value>
+  </data>
+  <data name="MatchOptionsOutputAmbiguitiesLabel" xml:space="preserve">
+    <value>Tvetydiga matchningar</value>
+  </data>
+  <data name="MatchOptionsOutputAuthorLabel" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="MatchOptionsOutputCommonNameLabel" xml:space="preserve">
+    <value>Trivialnamn</value>
+  </data>
+  <data name="MatchOptionsOutputGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="MatchOptionsOutputMatchStatusLabel" xml:space="preserve">
+    <value>Matchningsstatus</value>
+  </data>
+  <data name="MatchOptionsOutputParentTaxaLabel" xml:space="preserve">
+    <value>Överordnade taxa</value>
+  </data>
+  <data name="MatchOptionsOutputProvidedTaxonIdLabel" xml:space="preserve">
+    <value>Ursprungligt TaxonId</value>
+  </data>
+  <data name="MatchOptionsOutputProvidedTextLabel" xml:space="preserve">
+    <value>Ursprunglig namnsträng</value>
+  </data>
+  <data name="MatchOptionsOutputScientificNameLabel" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="MatchOptionsOutputScientificSynonymsLabel" xml:space="preserve">
+    <value>Vetenskapliga synonymer</value>
+  </data>
+  <data name="MatchOptionsOutputTaxonCetegoryLabel" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="MatchOptionsOutputTaxonIdLabel" xml:space="preserve">
+    <value>Taxon-id</value>
+  </data>
+  <data name="MatchOptionsPasteText" xml:space="preserve">
+    <value>Klistra in text</value>
+  </data>
+  <data name="MatchOptionsPickCorrectMatchFor" xml:space="preserve">
+    <value>Välj rätt matchning för</value>
+  </data>
+  <data name="MatchOptionsResult" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="MatchOptionsSaveAsExcel" xml:space="preserve">
+    <value>Spara resultat som excelfil</value>
+  </data>
+  <data name="MatchOptionsSubmitButtonValue" xml:space="preserve">
+    <value>Matcha</value>
+  </data>
+  <data name="MatchOptionsTitle" xml:space="preserve">
+    <value>Matchningsalternativ</value>
+  </data>
+  <data name="MatchOptionsViewResultScreen" xml:space="preserve">
+    <value>Visa resultat</value>
+  </data>
+  <data name="MatchTaxonDropDownListDefaultText" xml:space="preserve">
+    <value>Välj ett av [Count] matchande taxa</value>
+  </data>
+  <data name="TaxonAddCreateTaxonText" xml:space="preserve">
+    <value>Skapa nytt taxon?</value>
+  </data>
+  <data name="AccountLogInText" xml:space="preserve">
+    <value>Logga in</value>
+  </data>
+  <data name="AccountLogOutText" xml:space="preserve">
+    <value>Logga ut</value>
+  </data>
+  <data name="TaxonSearchAny" xml:space="preserve">
+    <value>Ignorera</value>
+  </data>
+  <data name="TaxonSearchFalse" xml:space="preserve">
+    <value>Falskt</value>
+  </data>
+  <data name="TaxonSearchTrue" xml:space="preserve">
+    <value>Sant</value>
+  </data>
+  <data name="RevisionSharedNoValidTaxonIdErrorText" xml:space="preserve">
+    <value>Inget giltigt taxon finns med id:</value>
+  </data>
+  <data name="RevisionAddCreateRevisionText" xml:space="preserve">
+    <value>Skapa en ny revision?</value>
+  </data>
+  <data name="SharedResetButtonText" xml:space="preserve">
+    <value>Återställ</value>
+  </data>
+  <data name="TaxonHaveChildrenErrorText" xml:space="preserve">
+    <value>Inte möjligt att avlägsna taxa som har barn. Ta bort eller flytta barn före avlägsnandet.</value>
+  </data>
+  <data name="TaxonSearchHit" xml:space="preserve">
+    <value>Sökträff</value>
+  </data>
+  <data name="TaxonQualityLabel" xml:space="preserve">
+    <value>Taxonkvalitet</value>
+  </data>
+  <data name="SharedLoading" xml:space="preserve">
+    <value>Laddar...</value>
+  </data>
+  <data name="RevisionTitleLabelText" xml:space="preserve">
+    <value>Revisions-id:</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ErrorNameIsMissing" xml:space="preserve">
+    <value>Namn saknas</value>
+  </data>
+  <data name="ErrorNoData" xml:space="preserve">
+    <value>Information saknas</value>
+  </data>
+  <data name="ErrorTaxonIsMissing" xml:space="preserve">
+    <value>Det finns inget taxon i Dyntaxa med taxonid = [TaxonId]</value>
+  </data>
+  <data name="HomeIndexHeaderText" xml:space="preserve">
+    <value>Välkommen till Dyntaxa</value>
+  </data>
+  <data name="ReferenceAddButtonAdd" xml:space="preserve">
+    <value>Lägg till referenser</value>
+  </data>
+  <data name="ReferenceAddChooseType" xml:space="preserve">
+    <value>Välj typ</value>
+  </data>
+  <data name="ReferenceAddFilteringLabel1" xml:space="preserve">
+    <value>(filtrerad från totalt _MAX_ referenser)</value>
+  </data>
+  <data name="ReferenceAddName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="ReferenceAddNoDataAvailableLabel1" xml:space="preserve">
+    <value>Information saknas</value>
+  </data>
+  <data name="ReferenceAddNoRecordsLabel1" xml:space="preserve">
+    <value>Det finns inga referenser att visa</value>
+  </data>
+  <data name="ReferenceAddNumberOfFilteredElementsLabel1" xml:space="preserve">
+    <value>Visar_START_till_END_av_TOTAL_referenser</value>
+  </data>
+  <data name="ReferenceAddSearchLabel1" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="ReferenceAddSearchReferences" xml:space="preserve">
+    <value>Sök referenser</value>
+  </data>
+  <data name="ReferenceAddText" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="ReferenceAddType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="ReferenceAddUsage" xml:space="preserve">
+    <value>Användning</value>
+  </data>
+  <data name="ReferenceAddYear" xml:space="preserve">
+    <value>Årtal</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoTypeDescriptionLabel" xml:space="preserve">
+    <value>Referenstyp</value>
+  </data>
+  <data name="SharedAddButtonText1" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="SharedContactMailLinkText" xml:space="preserve">
+    <value>Kontakta support</value>
+  </data>
+  <data name="SharedCurrentRevision1" xml:space="preserve">
+    <value>Vald revision: {0}</value>
+  </data>
+  <data name="SharedCurrentServiceStatusLinkText" xml:space="preserve">
+    <value>Aktuell driftinformation</value>
+  </data>
+  <data name="SharedDropDownAny" xml:space="preserve">
+    <value>Ignorera</value>
+  </data>
+  <data name="SharedDropDownFalse" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedDropDownTrue" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogText1" xml:space="preserve">
+    <value>Vill du publicera revisionen?</value>
+  </data>
+  <data name="SharedRevisionFinalizeDialogTitleText1" xml:space="preserve">
+    <value>Publicera revisionen</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogText1" xml:space="preserve">
+    <value>Vill du starta revisionen?</value>
+  </data>
+  <data name="SharedRevisionInitializeDialogTitleText1" xml:space="preserve">
+    <value>Initiera revisionen</value>
+  </data>
+  <data name="SharedRevisionNoEditorsSelectedErrorText1" xml:space="preserve">
+    <value>Du har inte utsett någon redigerare för denna revision!</value>
+  </data>
+  <data name="SharedSupportHeaderText" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SharedTaxonPickCategoryText" xml:space="preserve">
+    <value>Välj en taxonkategori</value>
+  </data>
+  <data name="TaxonAddBlockedForReporting" xml:space="preserve">
+    <value>Ej för rapportering</value>
+  </data>
+  <data name="TaxonAddBoxHeader" xml:space="preserve">
+    <value>Lägg till taxon</value>
+  </data>
+  <data name="TaxonAddExcludeFromReportingSystem" xml:space="preserve">
+    <value>Uteslut från rapportsystem</value>
+  </data>
+  <data name="TaxonAddIsProblematic" xml:space="preserve">
+    <value>Taxonet är problematiskt</value>
+  </data>
+  <data name="TaxonAddPageHeader" xml:space="preserve">
+    <value>Lägg till nytt tillhörande taxon</value>
+  </data>
+  <data name="TaxonAddPageTitle" xml:space="preserve">
+    <value>Nytt taxon</value>
+  </data>
+  <data name="TaxonEditHeaderLabel" xml:space="preserve">
+    <value>Redigera taxon</value>
+  </data>
+  <data name="TaxonMoveAvailableParents" xml:space="preserve">
+    <value>Tillgängliga föräldrar</value>
+  </data>
+  <data name="TaxonMoveMoveSelectedTaxa" xml:space="preserve">
+    <value>Byt förälder för markerade taxa</value>
+  </data>
+  <data name="TaxonMoveSelectChildrenToMove" xml:space="preserve">
+    <value>Välj taxa som ska flyttas</value>
+  </data>
+  <data name="TaxonMoveSelectedParent" xml:space="preserve">
+    <value>Vald ny förälder</value>
+  </data>
+  <data name="TaxonMoveSelectNewParent" xml:space="preserve">
+    <value>Välj ny förälder</value>
+  </data>
+  <data name="TaxonMoveTitle" xml:space="preserve">
+    <value>Byt förälder för taxon</value>
+  </data>
+  <data name="TaxonNameAddEditExistingNames" xml:space="preserve">
+    <value>Nuvarande namn</value>
+  </data>
+  <data name="TaxonNameAddEditIsOriginal1" xml:space="preserve">
+    <value>Är originalnamn</value>
+  </data>
+  <data name="TaxonRemoveParentHeaderText" xml:space="preserve">
+    <value>Ta bort förälder</value>
+  </data>
+  <data name="TaxonRemoveParentLabelText" xml:space="preserve">
+    <value>Välj vilken förälder som ska tas bort</value>
+  </data>
+  <data name="TaxonSearchIsUnique" xml:space="preserve">
+    <value>Namnet är unikt</value>
+  </data>
+  <data name="TaxonSearchNameCategory" xml:space="preserve">
+    <value>Namnkategori</value>
+  </data>
+  <data name="TaxonSearchTaxonId" xml:space="preserve">
+    <value>TaxonId</value>
+  </data>
+  <data name="TaxonSortChildTaxaAscending" xml:space="preserve">
+    <value>Alfabetisk ordning</value>
+  </data>
+  <data name="TaxonSortChildTaxaDescending" xml:space="preserve">
+    <value>Omvänd alfabetisk ordning</value>
+  </data>
+  <data name="TaxonSortChildTaxaSortOrder" xml:space="preserve">
+    <value>Dyntaxas sorteringsordning</value>
+  </data>
+  <data name="TaxonSortChildTaxaTitle" xml:space="preserve">
+    <value>Sortera taxa</value>
+  </data>
+  <data name="TaxonSummaryCreatedLabel" xml:space="preserve">
+    <value>Skapades</value>
+  </data>
+  <data name="TaxonSummaryValidToLabel" xml:space="preserve">
+    <value>Accepterat till</value>
+  </data>
+  <data name="TaxonSearchRestrictTo" xml:space="preserve">
+    <value>Begränsa sök till [TaxonName]</value>
+  </data>
+  <data name="SharedReturnToListText" xml:space="preserve">
+    <value>Återgå till listan</value>
+  </data>
+  <data name="TaxonNameInfoAuthorLabel" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonNameInfoCommentLabel" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="TaxonNameInfoGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="TaxonNameInfoIsOriginalLabel" xml:space="preserve">
+    <value>Är original namn</value>
+  </data>
+  <data name="TaxonNameInfoIsRecommendedLabel" xml:space="preserve">
+    <value>Är rekommenderat</value>
+  </data>
+  <data name="TaxonNameInfoIsUniqueLabel" xml:space="preserve">
+    <value>Är unikt</value>
+  </data>
+  <data name="TaxonNameInfoModifiedLabel" xml:space="preserve">
+    <value>Senast uppdaterad</value>
+  </data>
+  <data name="TaxonNameInfoNameCategoryLabel" xml:space="preserve">
+    <value>Namnkategori</value>
+  </data>
+  <data name="TaxonNameInfoNameLabel" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonNameInfoNameStatusLabel" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="TaxonInfoNameInformationLabel" xml:space="preserve">
+    <value>Namninformation</value>
+  </data>
+  <data name="TaxonSearchOptionsLabel" xml:space="preserve">
+    <value>Sökalternativ</value>
+  </data>
+  <data name="MatchColumnContentAlternativeNameAndAuthorCombined" xml:space="preserve">
+    <value>Namn och auktor tillsammans</value>
+  </data>
+  <data name="MatchColumnContentAlternativeNameAndAuthorInSeparateColumns" xml:space="preserve">
+    <value>Namn och auktor i separata kolumner</value>
+  </data>
+  <data name="MatchColumnContentAlternativeWithoutAuthor" xml:space="preserve">
+    <value>Utan auktor</value>
+  </data>
+  <data name="MatchOptionsAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="MatchOptionsClipboard" xml:space="preserve">
+    <value>Urklipp</value>
+  </data>
+  <data name="MatchOptionsFileName" xml:space="preserve">
+    <value>Filnamn</value>
+  </data>
+  <data name="MatchOptionsFilter" xml:space="preserve">
+    <value>Matchningsinställningar</value>
+  </data>
+  <data name="MatchOptionsInput" xml:space="preserve">
+    <value>Indata</value>
+  </data>
+  <data name="MatchOptionsInputColumnDelimeterLabel" xml:space="preserve">
+    <value>Kolumnavgränsare</value>
+  </data>
+  <data name="MatchOptionsInputRowDelimeterLabel" xml:space="preserve">
+    <value>Radavgränsare</value>
+  </data>
+  <data name="MatchOptionsMatchToType" xml:space="preserve">
+    <value>Matchningstyp</value>
+  </data>
+  <data name="MatchOptionsMatchToTypeLabel" xml:space="preserve">
+    <value>Matchningstyp</value>
+  </data>
+  <data name="MatchOptionsOutput" xml:space="preserve">
+    <value>Utdata (kolumner)</value>
+  </data>
+  <data name="MatchOptionsSearchOptions" xml:space="preserve">
+    <value>Sökalternativ</value>
+  </data>
+  <data name="MatchStatusExact" xml:space="preserve">
+    <value>Exakt</value>
+  </data>
+  <data name="MatchStatusFuzzy" xml:space="preserve">
+    <value>Fuzzy</value>
+  </data>
+  <data name="MatchStatusManualSelection" xml:space="preserve">
+    <value>Manuellt val</value>
+  </data>
+  <data name="MatchStatusNeedsManualSelection" xml:space="preserve">
+    <value>Manuellt val behövs</value>
+  </data>
+  <data name="MatchStatusNoMatch" xml:space="preserve">
+    <value>Ingen matchning</value>
+  </data>
+  <data name="MatchStatusUndone" xml:space="preserve">
+    <value>Ogjord</value>
+  </data>
+  <data name="MatchTaxonColumnDelimiterSemicolon" xml:space="preserve">
+    <value>Semikolon</value>
+  </data>
+  <data name="MatchTaxonColumnDelimiterTab" xml:space="preserve">
+    <value>Tabb</value>
+  </data>
+  <data name="MatchTaxonColumnDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertikalt streck</value>
+  </data>
+  <data name="MatchTaxonInputTypeClipboardText" xml:space="preserve">
+    <value>Urklipp</value>
+  </data>
+  <data name="MatchTaxonInputTypeExcelFile" xml:space="preserve">
+    <value>Excelfil</value>
+  </data>
+  <data name="MatchTaxonRowDelimiterReturnLinefeed" xml:space="preserve">
+    <value>Radbrytning</value>
+  </data>
+  <data name="MatchTaxonRowDelimiterSemicolon" xml:space="preserve">
+    <value>Semikolon</value>
+  </data>
+  <data name="MatchTaxonRowDelimiterTab" xml:space="preserve">
+    <value>Tabb</value>
+  </data>
+  <data name="MatchTaxonRowDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertikalt streck</value>
+  </data>
+  <data name="MatchTaxonToTypeTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+  </data>
+  <data name="MatchTaxonToTypeTaxonName" xml:space="preserve">
+    <value>Taxonnamn</value>
+  </data>
+  <data name="SharedGeneratingExcelFile" xml:space="preserve">
+    <value>Skapar excelfil...</value>
+  </data>
+  <data name="TaxonSearchAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonSearchCompareOpAutomatic" xml:space="preserve">
+    <value>Automatisk</value>
+  </data>
+  <data name="TaxonSearchCompareOpBeginsWith" xml:space="preserve">
+    <value>Börjar med</value>
+  </data>
+  <data name="TaxonSearchCompareOpContains" xml:space="preserve">
+    <value>Innehåller</value>
+  </data>
+  <data name="TaxonSearchCompareOpEndsWith" xml:space="preserve">
+    <value>Slutar med</value>
+  </data>
+  <data name="TaxonSearchCompareOpEqual" xml:space="preserve">
+    <value>Lika med</value>
+  </data>
+  <data name="TaxonSearchCompareOpIterative" xml:space="preserve">
+    <value>Iterativ</value>
+  </data>
+  <data name="TaxonSearchCompareOpLike" xml:space="preserve">
+    <value>Like (% = vilket tecken som helst)</value>
+  </data>
+  <data name="TaxonSearchCompareOpNotEqual" xml:space="preserve">
+    <value>Ej lika med</value>
+  </data>
+  <data name="TaxonSearchIsOkForObsSystem" xml:space="preserve">
+    <value>Är ok för obs-system</value>
+  </data>
+  <data name="TaxonSearchIsRecommended" xml:space="preserve">
+    <value>Rekommenderad</value>
+  </data>
+  <data name="TaxonSearchIsValidTaxon" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="TaxonSearchIsValidTaxonName" xml:space="preserve">
+    <value>Giltigt taxonnamn</value>
+  </data>
+  <data name="TaxonSearchTaxonNameCompareOperator" xml:space="preserve">
+    <value>Jämförelseoperator</value>
+  </data>
+  <data name="SharedTaxonSelecteReferenceDropDownListText" xml:space="preserve">
+    <value>Välj referens</value>
+  </data>
+  <data name="SharedPickReferenceText" xml:space="preserve">
+    <value>Ange minst en referens</value>
+  </data>
+  <data name="NoScriptText" xml:space="preserve">
+    <value>Denna sida använder Javascript. Din webbläsare stöder antingen inte Javascript eller så har du den avstängd. För att se denna sida som det är tänkt att visas vänligen använd en webbläsare med Javascript aktiverat.</value>
+  </data>
+  <data name="ReferenceAddCreateNewReference" xml:space="preserve">
+    <value>Lägg till ny referens till listan</value>
+  </data>
+  <data name="ReferenceAddReferences" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="TaxonSortChildTaxaSortableChildren" xml:space="preserve">
+    <value>Sortera underliggande taxa</value>
+  </data>
+  <data name="TaxonTreeCurrentRootTaxon" xml:space="preserve">
+    <value>Nuvarande rottaxon</value>
+  </data>
+  <data name="AccountControllerIncorrectLoginError" xml:space="preserve">
+    <value>Användarnamnet eller lösenordet är felaktigt.</value>
+  </data>
+  <data name="AccountControllerIncorrectPasswordError" xml:space="preserve">
+    <value>Det nuvarande lösenordet är felaktigt eller det nya lösenordet är ogiltigt.</value>
+  </data>
+  <data name="ExportHierarchicalTitle" xml:space="preserve">
+    <value>Exportera hierarkisk lista</value>
+  </data>
+  <data name="ExportStraightIsValidTaxon" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="ExportStraightSwedishHistory" xml:space="preserve">
+    <value>Svensk invandringshistoria</value>
+  </data>
+  <data name="ExportStraightSwedishOccurrence" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="ExportStraightTaxonNames" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="ListOptionsHeader" xml:space="preserve">
+    <value>Exportalternativ</value>
+  </data>
+  <data name="ListOptionsIncludeAuthorInNameCellLabel" xml:space="preserve">
+    <value>Inkludera auktor i celler med vetenskapliga namn</value>
+  </data>
+  <data name="ListOptionsIncludeCommonNameInNameCellLabel" xml:space="preserve">
+    <value>Inkludera svenskt namn i celler med vetenskapliga namn</value>
+  </data>
+  <data name="ListOptionsSubmitButtonValue" xml:space="preserve">
+    <value>Hämta listan</value>
+  </data>
+  <data name="ReferenceAddUsageTypeId" xml:space="preserve">
+    <value>Användningstyps-id</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoDescriptionLabel" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoIdLabel" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoRevisionText" xml:space="preserve">
+    <value>Revision för</value>
+  </data>
+  <data name="ReferenceGuidObjectInfoTypeDescriptionLabel1" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="TaxonSearchSearching" xml:space="preserve">
+    <value>Söker...</value>
+  </data>
+  <data name="TaxonSearchZeroResults" xml:space="preserve">
+    <value>Det finns inget taxon med namnet "{0}"</value>
+  </data>
+  <data name="UrlToGetWikipediaTaxonInformation" xml:space="preserve">
+    <value>http://sv.wikipedia.org/wiki/[TaxonName]</value>
+  </data>
+  <data name="SharedMissingValue" xml:space="preserve">
+    <value>Värde saknas</value>
+  </data>
+  <data name="TaxonSplitNotOkToSplitErrorText" xml:space="preserve">
+    <value>Inte möjligt att dela upp valt taxon.</value>
+  </data>
+  <data name="LinkToEoLLabel" xml:space="preserve">
+    <value>Encyclopedia of Life</value>
+  </data>
+  <data name="LinkToFaunaEuropeaLabel" xml:space="preserve">
+    <value>Fauna Europaea</value>
+  </data>
+  <data name="LinkToGbifLabel" xml:space="preserve">
+    <value>GBIF</value>
+  </data>
+  <data name="LinkToGoogleLabel" xml:space="preserve">
+    <value>Google</value>
+  </data>
+  <data name="LinkToItisLabel" xml:space="preserve">
+    <value>ITIS (nordamerikansk taxonomi)</value>
+  </data>
+  <data name="LinkToPesiLabel" xml:space="preserve">
+    <value>PESI (europeisk taxonomi)</value>
+  </data>
+  <data name="LinkToSwedishRedlistLabel" xml:space="preserve">
+    <value>Artfakta</value>
+  </data>
+  <data name="LinkToWikipediaLabel" xml:space="preserve">
+    <value>Wikipedia</value>
+  </data>
+  <data name="LinkToAlgaebaseLabel" xml:space="preserve">
+    <value>Algaebase</value>
+  </data>
+  <data name="LinkToWormsLabel" xml:space="preserve">
+    <value>WoRMS (marin taxonomi)</value>
+  </data>
+  <data name="LinkToNordicMicroalgaeLabel" xml:space="preserve">
+    <value>Nordiska mikroalger (SMHI)</value>
+  </data>
+  <data name="LinkToPhotosAPLabel" xml:space="preserve">
+    <value>Bilder (Artportalen)</value>
+  </data>
+  <data name="TaxonNameSharedNotRecommended" xml:space="preserve">
+    <value>Ej rekommenderad</value>
+  </data>
+  <data name="RevisionListEventNoRevisionEventsAvaiableText" xml:space="preserve">
+    <value>Inga redigeringssteg finns att visa.</value>
+  </data>
+  <data name="SharedDoYouWantToContinue" xml:space="preserve">
+    <value>Vill du fortsätta?</value>
+  </data>
+  <data name="SharedGoToReferenceViewQuestion" xml:space="preserve">
+    <value>Du har skrivit in information som kommer att försvinna om du fortsätter till Referenssidan, såvida du inte väljer att avbryta och spara.  Vill du fortsätta och förlora data?</value>
+  </data>
+  <data name="SharedWebGridFirstPage" xml:space="preserve">
+    <value>Första sidan</value>
+  </data>
+  <data name="SharedWebGridLastPage" xml:space="preserve">
+    <value>Sista sidan</value>
+  </data>
+  <data name="TaxonMoveNoChildrenErrorText" xml:space="preserve">
+    <value>Valt taxon har inga barn att flytta.</value>
+  </data>
+  <data name="TaxonMoveChangeChildrenNames" xml:space="preserve">
+    <value>Ändra barnens namn</value>
+  </data>
+  <data name="TaxonMoveMovedTaxons" xml:space="preserve">
+    <value>Taxa med ny förälder</value>
+  </data>
+  <data name="TaxonMoveMoveInfo" xml:space="preserve">
+    <value>Information om flytt</value>
+  </data>
+  <data name="TaxonMoveNewParent" xml:space="preserve">
+    <value>Ny förälder</value>
+  </data>
+  <data name="TaxonMoveNewRecommendedNames" xml:space="preserve">
+    <value>Nytt rekommenderat vetenskapligt namn</value>
+  </data>
+  <data name="TaxonMoveOldParent" xml:space="preserve">
+    <value>Gammal förälder</value>
+  </data>
+  <data name="TaxonLumpReplacingTaxonErrorText" xml:space="preserve">
+    <value>Ogiltigt ersättningstaxon,</value>
+  </data>
+  <data name="TaxonLumpTaxonCategoryErrorText" xml:space="preserve">
+    <value>Ogiltig  taxonkategori för taxon,</value>
+  </data>
+  <data name="TaxonLumpTaxonErrorText" xml:space="preserve">
+    <value>Ogiltigt taxon,</value>
+  </data>
+  <data name="TaxonSplitReplacingTaxonErrorText" xml:space="preserve">
+    <value>Ogiltigt taxon för uppdelning,</value>
+  </data>
+  <data name="TaxonSplitTaxonCategoryErrorText" xml:space="preserve">
+    <value>Ogiltig  taxonkategori för taxon,</value>
+  </data>
+  <data name="TaxonSplitTaxonErrorText" xml:space="preserve">
+    <value>Ogiltigt taxon,</value>
+  </data>
+  <data name="TaxonMoveNoSynonymsExists" xml:space="preserve">
+    <value>Det finns inga synonymer</value>
+  </data>
+  <data name="RevisionEditMainHeaderFullText" xml:space="preserve">
+    <value>Revisionsegenskaper för</value>
+  </data>
+  <data name="SharedRevisionIdLabelText" xml:space="preserve">
+    <value>revisions-id:</value>
+  </data>
+  <data name="RevisionListEventMainHeaderlText" xml:space="preserve">
+    <value>Lista över utförda redigeringsteg för</value>
+  </data>
+  <data name="TaxonMoveMoveGenusCategoryErrorText" xml:space="preserve">
+    <value>Inte möjligt att välja förälder till över släkte för detta taxon,</value>
+  </data>
+  <data name="TaxonMoveMoveIllegalMoveErrorText" xml:space="preserve">
+    <value>Inte möjligt att ändra förälder för taxon,</value>
+  </data>
+  <data name="TaxonMoveNoChildTaxaSelectedError" xml:space="preserve">
+    <value>Inga taxa valda för flytt.</value>
+  </data>
+  <data name="TaxonMoveNoNewParentTaxonSelectedError" xml:space="preserve">
+    <value>Inget nytt föräldrataxon har valts.</value>
+  </data>
+  <data name="TaxonMoveNoOldParentTaxonSelectedError" xml:space="preserve">
+    <value>Inget föräldrartaxon har valts.</value>
+  </data>
+  <data name="SharedCreating" xml:space="preserve">
+    <value>Skapar</value>
+  </data>
+  <data name="SharedFinalizing" xml:space="preserve">
+    <value>Publicerar revisionen</value>
+  </data>
+  <data name="SharedInitializing" xml:space="preserve">
+    <value>Startar revisionen</value>
+  </data>
+  <data name="SharedDeleting" xml:space="preserve">
+    <value>Tar bort</value>
+  </data>
+  <data name="AccountAccessIsNotAllowedDescription" xml:space="preserve">
+    <value>Du har inte behörighet att komma åt följande sida</value>
+  </data>
+  <data name="AccountAccessIsNotAllowedTitle" xml:space="preserve">
+    <value>Åtkomst är inte tillåten</value>
+  </data>
+  <data name="TaxonSearchResetSearchOptions" xml:space="preserve">
+    <value>Återställ sökalternativ</value>
+  </data>
+  <data name="SharedBoolFalseText" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedBoolTrueText" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="TaxonNameDeleteNotPossibleToDeleteErrorText" xml:space="preserve">
+    <value>Inte möjligt att ta bort vetenskapligt rekommenderat namn.</value>
+  </data>
+  <data name="SharedManageReferences" xml:space="preserve">
+    <value>Hantera referenser</value>
+  </data>
+  <data name="SharedAboutDyntaxaText" xml:space="preserve">
+    <value>Om Dyntaxa</value>
+  </data>
+  <data name="SharedDateText" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="SharedTermsOfUseText" xml:space="preserve">
+    <value>Användarvillkor</value>
+  </data>
+  <data name="SharedVersionText" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="SharedNoValidReferenceErrorText" xml:space="preserve">
+    <value>Ingen giltig referens finns</value>
+  </data>
+  <data name="TaxonNameDeleteInfoText" xml:space="preserve">
+    <value>Vill du verkligen ta bort valt namn?</value>
+  </data>
+  <data name="TaxonNameSharedId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="TaxonNameSharedLastUpdated" xml:space="preserve">
+    <value>Senast uppdaterad</value>
+  </data>
+  <data name="TaxonNameSharedOkForObsSystem" xml:space="preserve">
+    <value>Ok för obs.-system</value>
+  </data>
+  <data name="TaxonNameSharedUpdatedBy" xml:space="preserve">
+    <value>Uppdaterad av</value>
+  </data>
+  <data name="HomeCookieInformationText" xml:space="preserve">
+    <value>&lt;br /&gt;
+Enligt lagen om elektronisk kommunikation, som trädde i kraft 2003 ska alla som besöker en webbplats informeras om vad cookies används till och informeras om hur sådan användning förhindras.
+&lt;br /&gt;&lt;br /&gt;
+En cookie är en liten textfil som lagras på din dator när du besöker en webbplats. Nästa gång du besöker webbplatsen kan webbläsaren använda den för att visa sidorna enligt dina inställningar. Dyntaxa-applikationen använder cookies för att få tillgång till bättre besöksstatistik och för att behålla inställningar för webbplatsens utseende, funktionalitet och språk.
+&lt;br /&gt;&lt;br /&gt;
+Om du inte vill tillåta att cookies lagras på din dator kan du stänga av funktionen i din webbläsares inställningar. Hur du gör detta beror på vilken webbläsare du använder. Du kan hitta mer information om detta i din webbläsares hjälpfunktion. Men observera att det kan innebära att sidorna inte fungerar som de skall om du inaktiverar cookies.
+&lt;br /&gt;&lt;br /&gt;
+Dyntaxa sparar ingen personlig information via cookies.</value>
+  </data>
+  <data name="SharedAboutCookiesHeader" xml:space="preserve">
+    <value>Om cookies</value>
+  </data>
+  <data name="SharedAboutCookiesSubHeader" xml:space="preserve">
+    <value>Den här webbplatsen använder cookies</value>
+  </data>
+  <data name="SharedCookiesReadMoreLink" xml:space="preserve">
+    <value>http://www.pts.se/sv/Regler/Lagar/Lag-om-elektronisk-kommunikation/Cookies-kakor/</value>
+  </data>
+  <data name="SharedCookiesReadMoreText" xml:space="preserve">
+    <value>Läs mer på Post- och telestyrelsens sida</value>
+  </data>
+  <data name="SharedFooterInfoHeader" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedFooterLinkHeader" xml:space="preserve">
+    <value>Länkar</value>
+  </data>
+  <data name="SharedSwedishLifeWatchText" xml:space="preserve">
+    <value>Ingår i Svenska LifeWatch</value>
+  </data>
+  <data name="SharedVersionNumberText" xml:space="preserve">
+    <value>Versionsnummer</value>
+  </data>
+  <data name="SharedReferenceNoReferencesAvaliable" xml:space="preserve">
+    <value>Inga referenser angivna.</value>
+  </data>
+  <data name="SharedNoValidReferenceErrorInfoText" xml:space="preserve">
+    <value>Ingen giltig referens finns. Minst en referens måste anges för vald revision.</value>
+  </data>
+  <data name="AccountUserAdminLinkText" xml:space="preserve">
+    <value>Hantera användarkonto i UserAdmin</value>
+  </data>
+  <data name="TaxonInfoDistributionMapImageTitle" xml:space="preserve">
+    <value>Utbredningskarta för</value>
+  </data>
+  <data name="SharedNotSpecifiedText" xml:space="preserve">
+    <value>--- Ej angivet ---</value>
+  </data>
+  <data name="MenuItemSpeciesFactDatabaseTables" xml:space="preserve">
+    <value>Databastabeller artfakta</value>
+  </data>
+  <data name="MenuItemSpeciesFactExport" xml:space="preserve">
+    <value>Exportera artfakta</value>
+  </data>
+  <data name="MenuItemSpeciesFactHierarchicalTaxonList" xml:space="preserve">
+    <value>Hierarkisk artfaktalista</value>
+  </data>
+  <data name="MenuItemSpeciesFactTaxonList" xml:space="preserve">
+    <value>Artfaktalista</value>
+  </data>
+  <data name="ExportDatabaseClipboard" xml:space="preserve">
+    <value>Lista med taxon-id</value>
+  </data>
+  <data name="ExportDatabaseInput" xml:space="preserve">
+    <value>Indata</value>
+  </data>
+  <data name="ExportDatabaseTitle" xml:space="preserve">
+    <value>Databastabeller</value>
+  </data>
+  <data name="MenuItemExportDatabase" xml:space="preserve">
+    <value>Databas</value>
+  </data>
+  <data name="TaxonMoveAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonMoveCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="TaxonMoveName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="ExportStraightParentTaxa" xml:space="preserve">
+    <value>Överordnade taxa</value>
+  </data>
+  <data name="ExportSharedSelectCategories" xml:space="preserve">
+    <value>Välj kategori</value>
+  </data>
+  <data name="ExportSharedSelectNameCategories" xml:space="preserve">
+    <value>Välj namnkategori</value>
+  </data>
+  <data name="ExportSharedSelectSwedishImmigrationHistory" xml:space="preserve">
+    <value>Välj svensk invandringshistoria</value>
+  </data>
+  <data name="ExportSharedSelectSwedishOccurrence" xml:space="preserve">
+    <value>Välj svensk förekomst</value>
+  </data>
+  <data name="MenuItemHierarchicalSpeciesFactList" xml:space="preserve">
+    <value>Exportera flera artfakta</value>
+  </data>
+  <data name="MenuItemSpeciesFactList" xml:space="preserve">
+    <value>Artfakta</value>
+  </data>
+  <data name="SharedDyntaxaMainTitle" xml:space="preserve">
+    <value>Dyntaxa</value>
+  </data>
+  <data name="SharedDyntaxaSubTitle" xml:space="preserve">
+    <value>Svensk taxonomisk databas</value>
+  </data>
+  <data name="SharedSLUText" xml:space="preserve">
+    <value>Sveriges lantbruksuniversitet</value>
+  </data>
+  <data name="SharedSvenskaArtprojektetText" xml:space="preserve">
+    <value>Svenska artprojektet</value>
+  </data>
+  <data name="SharedIsTaxonPartOfRevision" xml:space="preserve">
+    <value>Taxonet är inte med i revisionen</value>
+  </data>
+  <data name="ValidateAlreadyExists" xml:space="preserve">
+    <value>existerar redan</value>
+  </data>
+  <data name="ValidateTaxonWithScientificName" xml:space="preserve">
+    <value>Ett taxon med det vetenskapliga namnet</value>
+  </data>
+  <data name="AccountLogOutInfoLine1" xml:space="preserve">
+    <value>Du är redan inloggad eller så har sessionen avslutats pga inaktivitet (timeout).</value>
+  </data>
+  <data name="AccountLogOutInfoLine2" xml:space="preserve">
+    <value>Klicka "Logga ut" för att kunna logga in igen.</value>
+  </data>
+  <data name="SharedInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="TaxonEditImmigrationHistoryValidationMessage" xml:space="preserve">
+    <value>Eftersom du har angivit status för 'Invandringshistoria' måste du även ange kvalitet och referens</value>
+  </data>
+  <data name="TaxonEditLeavePageWithoutSave" xml:space="preserve">
+    <value>Du är på väg att lämna sidan utan att spara.\nVill du verkligen lämna sidan utan att uppdatera Artfakta?</value>
+  </data>
+  <data name="TaxonEditSwedishOccurrenceValidationMessage" xml:space="preserve">
+    <value>Eftersom du har fyllt i svensk förekomst, så måste du även fylla i invandringshistoria</value>
+  </data>
+  <data name="TaxonSearchSettings" xml:space="preserve">
+    <value>Sökbegränsningar</value>
+  </data>
+  <data name="MenuItemEdit" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="SharedDyntaxaFullVersionLinkText" xml:space="preserve">
+    <value>Full version</value>
+  </data>
+  <data name="ExportWarningText" xml:space="preserve">
+    <value>(Obs! Stora exporter kan ta lång tid, upp till flera minuter)</value>
+  </data>
+  <data name="RestMasterBackToSearchLink" xml:space="preserve">
+    <value>Tillbaka till sök taxon</value>
+  </data>
+  <data name="RestMasterViewCurrentTaxonLink" xml:space="preserve">
+    <value>Visa valt taxon (taxon-id:</value>
+  </data>
+  <data name="SharedLogoArtprojektetSmallImg" xml:space="preserve">
+    <value>logo_sv_artprojektet_90x50.png</value>
+  </data>
+  <data name="SharedLogoLifewatch_SmallImg" xml:space="preserve">
+    <value>logo_sv_lifewatch_134x32.png</value>
+  </data>
+  <data name="SpeciesFactExcelListHeader1" xml:space="preserve">
+    <value>Faktor</value>
+  </data>
+  <data name="SpeciesFactExcelListHeader2" xml:space="preserve">
+    <value>Rubrik 2</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderFactorID" xml:space="preserve">
+    <value>Faktor Id</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderIndividualCategori" xml:space="preserve">
+    <value>Individkategori</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderPeriod" xml:space="preserve">
+    <value>Period</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderQuality" xml:space="preserve">
+    <value>Kvalitet</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSortOrder" xml:space="preserve">
+    <value>Sorteringsordning</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSuperior" xml:space="preserve">
+    <value>Faktor överordnad</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSupressed" xml:space="preserve">
+    <value>Faktor underordnad</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderValue" xml:space="preserve">
+    <value>Värde</value>
+  </data>
+  <data name="SpeciesFactExcelListURLInfo" xml:space="preserve">
+    <value>URL till mer taxoninformation</value>
+  </data>
+  <data name="SpeciesFactExportGeneratingExcelFile" xml:space="preserve">
+    <value>Skapar excelfil…</value>
+  </data>
+  <data name="SpeciesFactExportGetExcelFile" xml:space="preserve">
+    <value>Skapa excelfil</value>
+  </data>
+  <data name="SpeciesFactExportTitle" xml:space="preserve">
+    <value>Exportera artfaktalista</value>
+  </data>
+  <data name="SpeciesFactExportActionHeaderText" xml:space="preserve">
+    <value>Exportera artfaktalista</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderComment" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderField" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderHost" xml:space="preserve">
+    <value>Värdtaxon</value>
+  </data>
+  <data name="SpeciesFactExcelListHeaderSpecification" xml:space="preserve">
+    <value>Specifikation</value>
+  </data>
+  <data name="SpeciesFactExcelListInfoHeader" xml:space="preserve">
+    <value>Taxoninformation från Dyntaxa</value>
+  </data>
+  <data name="ExportStraightOtherNames" xml:space="preserve">
+    <value>Andra namn</value>
+  </data>
+  <data name="ExportStraightSynonyms" xml:space="preserve">
+    <value>Synonymer (inkl. auktor)</value>
+  </data>
+  <data name="MatchOptionsInputAuthorNamePartOfTaxonName" xml:space="preserve">
+    <value>Auktornamn är del av taxonnamn</value>
+  </data>
+  <data name="MatchTaxonToTypeTaxonNameAndAuthor" xml:space="preserve">
+    <value>Taxonnamn + Auktor</value>
+  </data>
+  <data name="TaxonInfoSwedishOccurrenceSummaryRedListClass" xml:space="preserve">
+    <value>Rödlistekategori</value>
+  </data>
+  <data name="TaxonInfoSwedishOccurrenceSummaryTitle" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="SpeciesFactDatabaseTitle" xml:space="preserve">
+    <value>Databas</value>
+  </data>
+  <data name="SpeciesFactListHeaderFactorID" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="SpeciesFactListHeaderIndividualCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="SpeciesFactListHeaderSortOrder" xml:space="preserve">
+    <value>Ordning</value>
+  </data>
+  <data name="SharedChooseCategory" xml:space="preserve">
+    <value>Välj kategori</value>
+  </data>
+  <data name="TaxonSharedListTaxaInCategory" xml:space="preserve">
+    <value>Lista taxa i vald kategori</value>
+  </data>
+  <data name="TaxonInfoDistributionInSweden" xml:space="preserve">
+    <value>Utbredning inom Sverige</value>
+  </data>
+  <data name="TaxonInfoDistributionInSwedenCountyOccurrence" xml:space="preserve">
+    <value>Länsvis förekomst</value>
+  </data>
+  <data name="TaxonSearchLastUpdated" xml:space="preserve">
+    <value>Senast uppdaterad (endast taxonomi, ej artfakta)</value>
+  </data>
+  <data name="TaxonSearchLastUpdatedEndDate" xml:space="preserve">
+    <value>Till</value>
+  </data>
+  <data name="TaxonSearchLastUpdatedStartDate" xml:space="preserve">
+    <value>Från</value>
+  </data>
+  <data name="SharedNoAvailableData" xml:space="preserve">
+    <value>Inga uppgifter tillgängliga</value>
+  </data>
+  <data name="SharedSpeciesFactPickCategoryText" xml:space="preserve">
+    <value>Välj en categori</value>
+  </data>
+  <data name="SpeciesFactSharedExistingEvaluations" xml:space="preserve">
+    <value>Befintliga bedömmningar:</value>
+  </data>
+  <data name="SpeciesFactSharedIndividualCategory" xml:space="preserve">
+    <value>Individkategori</value>
+  </data>
+  <data name="SpeciesFactEditFactorItemHeader" xml:space="preserve">
+    <value>Redigera faktor</value>
+  </data>
+  <data name="SpeciesFactChangeFactorText" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
+  <data name="SpeciesFactEditFactorHeaderText" xml:space="preserve">
+    <value>Redigera faktor</value>
+  </data>
+  <data name="SpeciesFactEditFactorInvalidCombinationErrorMessage" xml:space="preserve">
+    <value>Ingen faktor tillgänglig för denna kombination av taxon-id: [taxonId], faktor-id: [factorId], datatype id: [dataType] och factordatatype id: [factorDataType].</value>
+  </data>
+  <data name="SpeciesFactEditFactorsHeaderText" xml:space="preserve">
+    <value>Redigera faktorer</value>
+  </data>
+  <data name="SpeciesFactLatestUpdateByText" xml:space="preserve">
+    <value>Senast uppdaterad ([UpdateDate]) av [UpdateUserFullName].</value>
+  </data>
+  <data name="SpeciesFactEditFactorItemErrorText" xml:space="preserve">
+    <value>Ingen artfakta hittad för faktor med id:</value>
+  </data>
+  <data name="LinkToNaturforskarenLabel" xml:space="preserve">
+    <value>Naturforskaren (NRM)</value>
+  </data>
+  <data name="SpeciesFactEditFactorsAddButton" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="SpeciesFactEditFactorsAddDropDown" xml:space="preserve">
+    <value>Faktorer</value>
+  </data>
+  <data name="SpeciesFactEditFactorsAddFactorLabel" xml:space="preserve">
+    <value>Lägg till faktor</value>
+  </data>
+  <data name="SpeciesFactEditFactorsDropDownDefaultLabel" xml:space="preserve">
+    <value>Välj faktor</value>
+  </data>
+  <data name="SpeciesFactAddFactorHeaderText" xml:space="preserve">
+    <value>Lägg till faktor</value>
+  </data>
+  <data name="SharedNoButtonText" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedYesButtonText" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SpeciesFactAddFactorContinueWithoutSaveDialogHeader" xml:space="preserve">
+    <value>Ändingar har skett</value>
+  </data>
+  <data name="SpeciesFactAddFactorContinueWithoutSaveDialogText" xml:space="preserve">
+    <value>Det finns ej sparade ändringar gjorda som kommer att gå förlorade om on ny faktor skapas. Vill du fortsätta utan att spara?</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateExistingDataLabelText" xml:space="preserve">
+    <value>Tillhörande data</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateFactorAddDropDownName" xml:space="preserve">
+    <value>Lägg till faktor</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateHeaderText" xml:space="preserve">
+    <value>Redigera värdtaxa</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateSearchTaxonButtonText" xml:space="preserve">
+    <value>Sök taxon</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateTaxonAddDropDownName" xml:space="preserve">
+    <value>Lägg till taxon</value>
+  </data>
+  <data name="SpeciesFactEditHostForSubstrateChangeManyButtonText" xml:space="preserve">
+    <value>Redigera valda</value>
+  </data>
+  <data name="SpeciesFactEditTaxonAddDropDownName" xml:space="preserve">
+    <value>Taxa</value>
+  </data>
+  <data name="SpeciesFactDeleteFactorItemDialogHeader" xml:space="preserve">
+    <value>Ta bort vald faktor</value>
+  </data>
+  <data name="SpeciesFactDeleteFactorItemDialogText" xml:space="preserve">
+    <value>Vill du verkligen ta bort vald faktor?</value>
+  </data>
+  <data name="SpeciesFactDeleteTaxonItemDialogHeader" xml:space="preserve">
+    <value>Ta bort valt värdtaxon</value>
+  </data>
+  <data name="SpeciesFactDeleteTaxonItemDialogText" xml:space="preserve">
+    <value>Vill du verkligen ta bort valt värdtaxon?</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorItemsErrorText" xml:space="preserve">
+    <value>Ogiltig kombination av faktorer och värdtaxa vald.</value>
+  </data>
+  <data name="SpeciesFactInvalidSelectionDialogHeader" xml:space="preserve">
+    <value>Ogiltigt val</value>
+  </data>
+  <data name="SpeciesFactInvalidSelectionDialogText" xml:space="preserve">
+    <value>Ogiltigt val av faktor eller taxon att lägga till. Valt taxon att lägga till måste matcha minst en faktor från listan eller vald faktor att lägga till måste matcha minst ett värdtaxon från listan.</value>
+  </data>
+  <data name="SpeciesFactEditHostFactorsForSubstrateSaveSettingsButtonText" xml:space="preserve">
+    <value>Spara valda</value>
+  </data>
+  <data name="SpeciesFactNoItemsSelectedDialogHeader" xml:space="preserve">
+    <value>Inga faktorer eller värdtaxa valda</value>
+  </data>
+  <data name="SpeciesFactNoItemsSelectedDialogText" xml:space="preserve">
+    <value>Inga faktorer eller värdtaxa valda i listorna. Välj, spara och försök igen.</value>
+  </data>
+  <data name="SpeciesFactNoValueSet" xml:space="preserve">
+    <value>Inget värde satt</value>
+  </data>
+  <data name="SpeciesFactEditHostItemHeader" xml:space="preserve">
+    <value>Redigera värdtaxa</value>
+  </data>
+  <data name="SpeciesFactNoHostsItemsSelectedDialogHeader" xml:space="preserve">
+    <value>Inget giltigt värdtaxon</value>
+  </data>
+  <data name="SpeciesFactNoHostsItemsSelectedDialogText" xml:space="preserve">
+    <value>Det finns inga giltiga värdtaxa kopplat till vald faktor att ta bort. Välj värdtaxa, spara och försök igen.</value>
+  </data>
+  <data name="SpeciesFactNotSavedDialogHeader" xml:space="preserve">
+    <value>Spara valda</value>
+  </data>
+  <data name="SpeciesFactNotSavedDialogText" xml:space="preserve">
+    <value>Det finns osparade val gjorda. Spara och försök igen.</value>
+  </data>
+  <data name="SpeciesFactEditFactorsAddDropDownName" xml:space="preserve">
+    <value>Lägg till faktor från kortlistan</value>
+  </data>
+  <data name="SpeciesFactEditAllFactorsAddDropDownName" xml:space="preserve">
+    <value>Lägg till faktor</value>
+  </data>
+  <data name="SharedReferenceNewLabel" xml:space="preserve">
+    <value>Ny referens</value>
+  </data>
+  <data name="SharedReferenceOldLabel" xml:space="preserve">
+    <value>Existerande referens</value>
+  </data>
+  <data name="MenuItemExportSubscription" xml:space="preserve">
+    <value>Prenumerationer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsTitle" xml:space="preserve">
+    <value>Prenumerationer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsMySubscriptions" xml:space="preserve">
+    <value>Mina prenumerationer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsSubscribe" xml:space="preserve">
+    <value>Prenumerera på</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SubscriptionsUnsubscribe" xml:space="preserve">
+    <value>Avsluta prenumeration</value>
+    <comment>sv</comment>
+  </data>
+  <data name="TaxonReferenceSwedishImmigrationHistoryTitle" xml:space="preserve">
+    <value>Svensk invandringshistoria</value>
+  </data>
+  <data name="TaxonReferenceSwedishOccurrenceTitle" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="TaxonReferenceTaxonomyTitle" xml:space="preserve">
+    <value>Taxonomi</value>
+  </data>
+  <data name="ReferenceAddReferencesRelatesTo" xml:space="preserve">
+    <value>Referenserna avser</value>
+  </data>
+  <data name="ReferenceApplyModeAddToUnderlyingTaxa" xml:space="preserve">
+    <value>Lägg till för alla underliggande taxa</value>
+  </data>
+  <data name="ReferenceApplyModeOnlySelected" xml:space="preserve">
+    <value>Endast valt taxon</value>
+  </data>
+  <data name="ReferenceApplyModeReplaceOnlySourceInUnderlyingTaxa" xml:space="preserve">
+    <value>Ersätt endast källor för underliggande taxa</value>
+  </data>
+  <data name="ReferenceApplyModeReplaceUnderlyingTaxa" xml:space="preserve">
+    <value>Ersätt för alla underliggande taxa</value>
+  </data>
+  <data name="TaxonNameAddEditNameUsageLabel" xml:space="preserve">
+    <value>Namnanvändning</value>
+  </data>
+  <data name="TaxonNameSharedNomenclature" xml:space="preserve">
+    <value>Nomenklatur</value>
+  </data>
+  <data name="TaxonInfoProParteSynonymsLabel" xml:space="preserve">
+    <value>Delvisa synonymer (pro parte)</value>
+  </data>
+  <data name="TaxonInfoMisapplicationsLabel" xml:space="preserve">
+    <value>Felanvändningar (auct.)</value>
+  </data>
+  <data name="TaxonNameAddEditIncorrectNomencalture" xml:space="preserve">
+    <value>Endast Nomenklatur: Korrekt, Provisoriskt, Preliminärt eller Informellt namn får ha Användning: Accepterad.</value>
+  </data>
+  <data name="TaxonNameListWrongNameUsage" xml:space="preserve">
+    <value>Endast 'Användning: Accepterad' kan ha 'Rekommenderat: Ja'.</value>
+  </data>
+  <data name="TaxonSummaryTaxonStatusLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="ExportStraightMisappliedNames" xml:space="preserve">
+    <value>Felanvända namn (inkl. auktor)</value>
+  </data>
+  <data name="ExportStraightProParteSynonyms" xml:space="preserve">
+    <value>Delvisa synonymer (pro parte, inkl. auktor)</value>
+  </data>
+  <data name="TaxonNameSharedSpellingVariant" xml:space="preserve">
+    <value>Skrivningsvariant</value>
+  </data>
+  <data name="TaxonInfoTaxonStatisticsReproInSweden" xml:space="preserve">
+    <value>Bofasta i Sverige</value>
+  </data>
+  <data name="ReadTaxonInformationAdduBioLinkLabel" xml:space="preserve">
+    <value>Lägg till uBio:s länkverktyg</value>
+  </data>
+  <data name="ReadTaxonInformationAnamorhNameHeader" xml:space="preserve">
+    <value>Anamorfnamn</value>
+  </data>
+  <data name="ReadTaxonInformationAnamorhNameLabel" xml:space="preserve">
+    <value>Anamorfnamn</value>
+  </data>
+  <data name="ReadTaxonInformationAuthorLabel" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="ReadTaxonInformationCommonNameLabel" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="ReadTaxonInformationGUIDLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="ReadTaxonInformationIdentifierListHeader" xml:space="preserve">
+    <value>Identifierare</value>
+  </data>
+  <data name="ReadTaxonInformationMapHeader" xml:space="preserve">
+    <value>Utbredningskarta</value>
+  </data>
+  <data name="ReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="ReadTaxonInformationNationalSynonymsHeader" xml:space="preserve">
+    <value>Svenska synonymer</value>
+  </data>
+  <data name="ReadTaxonInformationNearestChildTaxaHeader" xml:space="preserve">
+    <value>Närmast underliggande taxa</value>
+  </data>
+  <data name="ReadTaxonInformationNumberOfChildTaxaHeader" xml:space="preserve">
+    <value>Antal underliggande taxa per taxonkategori</value>
+  </data>
+  <data name="ReadTaxonInformationOptionsHeader" xml:space="preserve">
+    <value>Alternativ</value>
+  </data>
+  <data name="ReadTaxonInformationOriginalScientificNameHeader" xml:space="preserve">
+    <value>Originalnamn</value>
+  </data>
+  <data name="ReadTaxonInformationOriginalScientificNameLabel" xml:space="preserve">
+    <value>Originalnamn</value>
+  </data>
+  <data name="ReadTaxonInformationOtherLanguagesHeader" xml:space="preserve">
+    <value>Andra språk</value>
+  </data>
+  <data name="ReadTaxonInformationOtherNamesHeader" xml:space="preserve">
+    <value>Andra namn</value>
+  </data>
+  <data name="ReadTaxonInformationRecommendedLinksHeader" xml:space="preserve">
+    <value>Länkar till mer information</value>
+  </data>
+  <data name="ReadTaxonInformationRecommendedNamesHeader" xml:space="preserve">
+    <value>Rekommenderade namn</value>
+  </data>
+  <data name="ReadTaxonInformationScientificNameLabel" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="ReadTaxonInformationScientificSynonymsHeader" xml:space="preserve">
+    <value>Vetenskapliga synonymer</value>
+  </data>
+  <data name="ReadTaxonInformationShowChildTaxaLabel" xml:space="preserve">
+    <value>Visa lista över underliggande taxa</value>
+  </data>
+  <data name="ReadTaxonInformationShowCommentsLabel" xml:space="preserve">
+    <value>Visa kommentarer</value>
+  </data>
+  <data name="ReadTaxonInformationShowHistoryLabel" xml:space="preserve">
+    <value>Visa historik</value>
+  </data>
+  <data name="ReadTaxonInformationShowIdentifiersLabel" xml:space="preserve">
+    <value>Visa identifierare</value>
+  </data>
+  <data name="ReadTaxonInformationShowInvalidNamesLabel" xml:space="preserve">
+    <value>Visa felaktiga namn</value>
+  </data>
+  <data name="ReadTaxonInformationShowMapLabel" xml:space="preserve">
+    <value>Visa utbredningskarta</value>
+  </data>
+  <data name="ReadTaxonInformationShowNumberOfChildTaxaLabel" xml:space="preserve">
+    <value>Visa antal underliggande taxa</value>
+  </data>
+  <data name="ReadTaxonInformationShowOtherNameTypesLabel" xml:space="preserve">
+    <value>Visa andra namntyper</value>
+  </data>
+  <data name="ReadTaxonInformationShowPhotosLabel" xml:space="preserve">
+    <value>Visa foton</value>
+  </data>
+  <data name="ReadTaxonInformationShowQualityLabel" xml:space="preserve">
+    <value>Visa kvalitet</value>
+  </data>
+  <data name="ReadTaxonInformationShowReferencesLabel" xml:space="preserve">
+    <value>Visa referenser</value>
+  </data>
+  <data name="ReadTaxonInformationShowSynonymsLabel" xml:space="preserve">
+    <value>Visa synonymer</value>
+  </data>
+  <data name="ReadTaxonInformationShowUpdateInformationLabel" xml:space="preserve">
+    <value>Visa revisionsinformation</value>
+  </data>
+  <data name="ReadTaxonInformationSynonymsHeader" xml:space="preserve">
+    <value>Synonymer</value>
+  </data>
+  <data name="ReadTaxonInformationTaxonCategoryLabel" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="ReadTaxonInformationTaxonIdLabel" xml:space="preserve">
+    <value>Dyntaxas taxon-id</value>
+  </data>
+  <data name="ReadTaxonInformationTaxonTreeHeader" xml:space="preserve">
+    <value>Taxonomisk hierarki (överliggande taxa)</value>
+  </data>
+  <data name="ReadTaxonInformationTitleText" xml:space="preserve">
+    <value>Taxonkonceptsbeskrivning</value>
+  </data>
+  <data name="ReadTaxonInformationValidityLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="ReferenceAddId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="TaxonNameInfoOkForObsSystemLabel" xml:space="preserve">
+    <value>Är ok för obs-system</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeCommentLabel" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeQualityLabel" xml:space="preserve">
+    <value>Kvalitet</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeReferenceLabel" xml:space="preserve">
+    <value>Referens</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeStatusLabel" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="RevisionFinalizeCheckInErrorInformation" xml:space="preserve">
+    <value>Något gick fel när revisionen skulle checkas in.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="RevisionFinalizeFactsUpdateErrorInformation" xml:space="preserve">
+    <value>Uppdateringen av Artfakta misslyckades. Försök att publicera revisionen igen.</value>
+  </data>
+  <data name="RevisionFinalizeFlagNotSetErrorInformation" xml:space="preserve">
+    <value>Misslyckades att uppdatera information om att Artfakta är uppdaterad.</value>
+  </data>
+  <data name="SharedRevisionUpdateSpeciesFactsButton" xml:space="preserve">
+    <value>Uppdatera Artfakta</value>
+  </data>
+  <data name="DyntaxaSpeciesFactChangeDoNotExist" xml:space="preserve">
+    <value>Artfakta existerar ej</value>
+  </data>
+  <data name="SharedIAgreeClose" xml:space="preserve">
+    <value>Ok, jag förstår (stäng)</value>
+  </data>
+  <data name="SharedReadMore" xml:space="preserve">
+    <value>Läs mer</value>
+  </data>
+  <data name="SharedWeUseCookies" xml:space="preserve">
+    <value>Vi använder cookies för att förbättra din upplevelse av vår webbplats.</value>
+  </data>
+  <data name="DyntaxaSpeciesFactDelete" xml:space="preserve">
+    <value>Artfakta tas bort</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedIsMicrospeciesLabel" xml:space="preserve">
+    <value>Småart</value>
+  </data>
+  <data name="TaxonTreeShowSecondaryRelations" xml:space="preserve">
+    <value>Visa sekundära tillhörigheter = </value>
+    <comment>sv</comment>
+  </data>
+  <data name="MenuItemExportGraphviz" xml:space="preserve">
+    <value>Taxonträd (graphviz)</value>
+  </data>
+  <data name="ExportGraphvizTitle" xml:space="preserve">
+    <value>Exportera taxonträd till graphviz-format</value>
+  </data>
+  <data name="ExportGraphvizGenerateGraphviz" xml:space="preserve">
+    <value>Skapa graphviz-format</value>
+  </data>
+  <data name="ExportGraphvizLastUpdatedTime" xml:space="preserve">
+    <value>Dyntaxa träd cache senast uppdaterad</value>
+  </data>
+  <data name="ExportGraphvizRefreshTreeCache" xml:space="preserve">
+    <value>Uppdatera trädcache efter manuella databasförändringar</value>
+  </data>
+  <data name="ExportGraphvizIncludeBothParentsAndChildren" xml:space="preserve">
+    <value>Inkludera både barn och föräldrar</value>
+  </data>
+  <data name="ExportGraphvizIncludeOnlyChildren" xml:space="preserve">
+    <value>Inkludera endast barn</value>
+  </data>
+  <data name="ExportGraphvizIncludeOnlyParents" xml:space="preserve">
+    <value>Inkludera endast föräldrar</value>
+  </data>
+  <data name="ExportGraphvizBothValidAndInvalidRelations" xml:space="preserve">
+    <value>Visa både giltiga och ogiltiga relationer</value>
+  </data>
+  <data name="ExportGraphvizOnlyValidRelations" xml:space="preserve">
+    <value>Visa bara giltiga relationer</value>
+  </data>
+  <data name="ExportGraphvizIncludelumpSplits" xml:space="preserve">
+    <value>Inkludera lump- &amp; splitinformation</value>
+  </data>
+  <data name="ExportGraphvizShowRelationId" xml:space="preserve">
+    <value>Visa relations-Id</value>
+  </data>
+  <data name="ExportStraightExcludeAuctor" xml:space="preserve">
+    <value>Uteslut auktor för synonymer, delvisa synonymer samt felvända namn.</value>
+  </data>
+  <data name="HomeLicensingInformationText" xml:space="preserve">
+    <value>&lt;br /&gt; Data från dyntaxa data tillgängliggörs under licensen Creative Commons 1.0 (CC0) och är därmed fria att använda, återanvända, distribuera och aggregera så långt lagen tillåter. Upphovsmannen behöver inte anges.</value>
+  </data>
+  <data name="SharedAboutLicensing" xml:space="preserve">
+    <value>Licensiering</value>
+  </data>
+  <data name="SharedLicensingHeader" xml:space="preserve">
+    <value>Licensiering</value>
+  </data>
+  <data name="SharedLicensingReadMoreLink" xml:space="preserve">
+    <value>https://creativecommons.org/publicdomain/zero/1.0/</value>
+  </data>
+  <data name="SharedLicensingReadMoreText" xml:space="preserve">
+    <value>Läs mer</value>
+  </data>
+  <data name="SharedLicensingSubHeader" xml:space="preserve">
+    <value>Data från dyntaxa får användas fritt under CC0</value>
+  </data>
+  <data name="LinkToSkudLabel" xml:space="preserve">
+    <value>Svensk Kulturväxtdatabas (SKUD)</value>
+  </data>
+  <data name="LinkToNobanisLabel" xml:space="preserve">
+    <value>Främmande arter (NOBANIS)</value>
+  </data>
+  <data name="LinkToArtfaktaLabel" xml:space="preserve">
+    <value>Artfakta (ArtDatabanken)</value>
+  </data>
+  <data name="LinkToBHLLabel" xml:space="preserve">
+    <value>Biodiversity Heritage Library</value>
+  </data>
+  <data name="NaturforskarenLink" xml:space="preserve">
+    <value>https://dina-web.net/naturalist/search/[TaxonName]?lang=sv_SE</value>
+  </data>
+  <data name="QualityApplyModeOnlySelected" xml:space="preserve">
+    <value>Enbart för aktuellt taxon</value>
+  </data>
+  <data name="QualityApplyModeReplaceInUnderlyingTaxa" xml:space="preserve">
+    <value>Ersätt även för alla underliggande taxa</value>
+  </data>
+  <data name="QualityApplyModeAddToUnderlyingTaxaExceptWhereAlreadyDeclared" xml:space="preserve">
+    <value>Ersätt även för de underliggande taxa som inte tidigare är kvalitetsbedömda</value>
+  </data>
+  <data name="QualityApplyModeHeading" xml:space="preserve">
+    <value>Kvalitetsbedömningen avser</value>
+  </data>
+  <data name="QualityApplyModeReplaceInUnderlyingTaxaExceptWhereAlreadyDeclaredHigher" xml:space="preserve">
+    <value>Ersätt även för de underliggande taxa som inte tidigare är kvalitetsbedömda till ett högre värde</value>
+  </data>
+  <data name="TaxonInfoQualityChartUpdatedText" xml:space="preserve">
+    <value>Diagrammet uppdateras normalt varje natt</value>
+  </data>
+  <data name="RevisionListEventListCountLabelText" xml:space="preserve">
+    <value>senaste steget =</value>
+  </data>
+</root>

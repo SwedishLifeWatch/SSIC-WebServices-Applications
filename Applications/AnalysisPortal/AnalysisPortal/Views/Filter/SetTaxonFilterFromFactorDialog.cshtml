@@ -1,0 +1,270 @@
+﻿@using ArtDatabanken.Data
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Taxa.TaxaFilterFromFactorViewModel
+
+
+<div>
+    <h2>@Model.Factor.Label</h2>
+    <br />
+    @if (Model.Factor.DataType == null)
+    {
+        <text>@Resource.FactorIsOnlyAHeaderTitle!</text>
+    }
+    else
+    {
+        foreach (var field in Model.Factor.DataType.Fields)
+        {
+            if (field != null)
+            {
+                if(field.Type.Id == (int)FactorFieldDataTypeId.Enum)
+                {
+                    @Html.Partial("FactorFieldDataTypeEnum_Partial", field)
+                }
+                else if (field.Type.Id == (int)FactorFieldDataTypeId.Boolean)
+                {
+                    @Html.Partial("FactorFieldDataTypeBoolean_Partial", field)
+                }
+                else if (field.Type.Id == (int)FactorFieldDataTypeId.Double)
+                {
+                    @Html.Partial("FactorFieldDataTypeDouble_Partial", field)
+                }
+                else if (field.Type.Id == (int)FactorFieldDataTypeId.Int32)
+                {
+                    @Html.Partial("FactorFieldDataTypeInt32_Partial", field)
+                }
+                else if (field.Type.Id == (int)FactorFieldDataTypeId.String)
+                {
+                    @Html.Partial("FactorFieldDataTypeString_Partial", field)
+                }
+            }
+        }
+    }
+    <br />
+</div>
+<div>
+    <hr />
+    <input id="restrictToCurrentTaxonFilter" type="checkbox" class="checkboxRightMargin" />
+    <label class="inlineLabel" for="restrictToCurrentTaxonFilter">@Resource.RestrictToCurrentTaxonFilter</label>
+    <button id="btnSearchTaxaByFactor" class="btn action-button" type="button" style="vertical-align: top;"><i class="icon-search icon-white"></i> &nbsp; @Resource.SearchTaxaByFactorButtonText</button>
+    (<label class="inlineLabel">@Resource.FilterTaxonFromNameSearchTaxaGridTitle: </label><label id="lblResultCount" class="inlineLabel">0</label>)
+</div>
+<div>
+    <div id="taxaDiv" class="gridMarginTop" ></div>
+</div>
+   
+<div class="buttonToolbar">
+    <button id="addSelectedTaxaButton" class="btn" title="@Resource.AddTaxaButtonTooltip" data-placement="top" disabled="disabled" data-dismiss="modal"><i class="icon-plus-sign icon-white"></i> &nbsp; @Resource.FilterTaxonFromIdsAddSelectedTaxa</button>
+    <button id="replaceTaxaFilterButton" class="btn" title="@Resource.ReplaceTaxaButtonTooltip" data-placement="top" disabled="disabled" data-dismiss="modal"><i class="icon-plus-sign icon-white"></i> &nbsp; @Resource.ReplaceCurrentTaxonFilter</button>
+</div>
+
+<script type="text/javascript">
+    var dataContext = null;
+    var searchTaxaByFactorStore;
+    var isSearchingByFactor = false;
+    var searchGrid;
+    var factorFieldTypes;
+
+    $(function () {
+        createTaxaGrid();
+        $('#btnSearchTaxaByFactor').click(searchTaxaByFactor);
+        $('#addSelectedTaxaButton').click(addSelectedTaxa);
+        $('#replaceTaxaFilterButton').click(replaceTaxaFilter);
+    });
+
+    function createTaxaGrid() {
+        AnalysisPortal.Models.defineTaxonSearchResultItemViewModel();
+        searchTaxaByFactorStore = AnalysisPortal.createJsonStore("TaxonSearchResultItemViewModel", '@Html.Raw(Url.Action("GetTaxaByFactor", "Filter"))', {
+            method: 'POST'
+        });
+
+        searchGrid = Ext.create('Ext.grid.Panel', {
+            id: 'taxaGrid',
+            store: searchTaxaByFactorStore,
+            title: AnalysisPortal.Resources.FilterTaxonFromNameSearchTaxaGridTitle,
+            width: AnalysisPortal.DefaultContentWidth,
+            height: 300,
+            // bug in Ext Js 4.2.1! Needs to set height explicitly.
+            //minHeight: 600,
+            //maxHeight: 500,
+            frame: false,
+            viewConfig: {
+                stripeRows: true,
+                enableTextSelection: true,
+                loadMask: {
+                    msg: AnalysisPortal.Resources.SharedSearching
+                }
+            },
+            renderTo: 'taxaDiv',
+            columns: [
+                { text: AnalysisPortal.Resources.TaxonSharedScientificName, flex: 1, dataIndex: 'ScientificName', sortable: true },
+                { text: AnalysisPortal.Resources.TaxonSharedAuthor, width: 100, dataIndex: 'Author', sortable: true },
+                { text: AnalysisPortal.Resources.TaxonSharedSwedishName, width: 170, dataIndex: 'CommonName', sortable: true },
+                { text: AnalysisPortal.Resources.TaxonSharedCategory, width: 100, dataIndex: 'Category', sortable: true },
+                { text: AnalysisPortal.Resources.TaxonSharedTaxonId, width: 60, dataIndex: 'TaxonId', sortable: true },
+                //{
+                //    xtype: 'actioncolumn',
+                //    dataIndex: 'TaxonStatus',
+                //    width: 30,
+                //    align: 'center',
+                //    menuDisabled: true,
+                //    hideable: false,
+                //    resizable: false,
+                //    sortable: false,
+                //    getClass: AnalysisPortal.getAlertStatusClassInGrid,
+                //    handler: function(grid, rowIndex, colindex) {
+                //        var record = grid.getStore().getAt(rowIndex);
+                //        showTaxonSummaryDialog(record.data.TaxonId);
+                //    }
+                //},
+                {
+                    dataIndex: 'SpeciesProtectionLevel',
+                    width: 30,
+                    align: 'center',
+                    menuDisabled: true,
+                    hideable: false,
+                    resizable: false,
+                    sortable: false,
+                    renderer: function(value) {
+                        if (value == 1) {
+                            return '';
+                        } else {
+                            return Ext.String.format('<img title="{0}" src="/Content/images/taxon-protection-level-protected1.png" />', AnalysisPortal.Resources.TaxonSharedProtectionLevel1);
+                        }
+                    }
+                }
+            ],
+            columnLines: true,
+            selModel: Ext.create('Ext.selection.CheckboxModel', {
+                checkOnly: true,
+                listeners: {
+                    selectionchange: function() {
+                        enableDisableButtons();
+                    }
+                }
+            })
+        });
+    }
+
+    function searchTaxaByFactor() {
+        if (isSearchingByFactor) {
+            return;
+        }
+
+        var factorFieldViewModels = [];
+
+        $("input:checkbox[name|='factorfield']:checked").each(function () {
+            
+            var name = $(this).attr("name");
+            var id = $(this).attr("id");
+            var val = $(this).val();
+
+            if (((name) && (name != "")) && ((id) && id != "") && ((val) && val != "")) {
+                var factorFieldViewModel = { FactorFieldTypeId: id, CompareOperatorIsSpecified: false, FactorFieldTypeValue: val };
+                factorFieldViewModels.push(factorFieldViewModel);
+            }
+        });
+
+        $("input:text[name|='factorfield']").each(function () {
+            
+            var name = $(this).attr("name");
+            var id = $(this).attr("id");
+            var val = $(this).val();
+
+            if (((name) && (name != "")) && ((id) && id != "") && ((val) && val != "")) {
+                var selectedCompareOperator = $("#"+name+"-compareoperator").val();
+                var compareOperatorString = "Equal";
+                if (selectedCompareOperator != undefined) {
+                    compareOperatorString = selectedCompareOperator;
+                }
+                var factorFieldViewModel = { FactorFieldTypeId: id, CompareOperator: compareOperatorString, CompareOperatorIsSpecified: true, FactorFieldTypeValue: val };
+                factorFieldViewModels.push(factorFieldViewModel);
+            }
+        });
+
+        var restrictToCurrentTaxonFilter = $("#restrictToCurrentTaxonFilter").is(':checked');
+
+        isSearchingByFactor = true;
+        searchTaxaByFactorStore.load({
+            params: {
+                factorFieldViewModels: JSON.stringify(factorFieldViewModels),
+                factorId: @Model.Factor.Id,
+                restrictToCurrentTaxonFilter: restrictToCurrentTaxonFilter
+            },
+            callback: function(records, operation, success) {
+                isSearchingByFactor = false;
+
+                //var result = Ext.JSON.decode(operation.response.responseText);
+                //if (result.extra != null) {
+                //    $("#searchRestrictionsInfo").empty().html(result.extra);
+                //}
+
+                var resultCount = searchTaxaByFactorStore.getCount();
+                
+                $("#lblResultCount").text(resultCount);
+
+                if (resultCount >= 1) {
+                    searchGrid.getSelectionModel().selectAll(true);
+                    enableDisableButtons();
+                }
+            }
+        });
+    }
+
+    // Adds the selected taxa in search grid to the MySettings object on server
+    function addSelectedTaxa() {
+        
+        var selected = [];
+        var s = searchGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+
+        AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("AddFilteredTaxaToFilter", "Filter")',
+            params: {
+                strTaxonIds: JSON.stringify(selected)
+            }
+        }, function (result) {
+            partialRefresh();
+        });
+
+    }
+
+    // Remove existing and add the selected taxa in search grid to the MySettings object on server
+    function replaceTaxaFilter() {
+        
+        var selected = [];
+        var s = searchGrid.getSelectionModel().getSelection();
+        Ext.each(s, function (it) {
+            selected.push(it.data.TaxonId);
+        });
+        
+        AnalysisPortal.makeAjaxCall({
+            url: '@Url.Action("ReplaceTaxaInFilter", "Filter")',
+            params: {
+                strTaxonIds: JSON.stringify(selected)
+            }
+        }, function (result) {            
+            partialRefresh();
+        });
+    }
+    
+    function partialRefresh() {
+        AnalysisPortal.showToasterMsg("Taxon is added to filter");
+        AnalysisPortal.updateMySettingsSummary();
+        AnalysisPortal.updateStateButtonGroup('#filterStateButtonGroup', 'Filter');
+        Ext.getCmp('selectedTaxaGrid').getStore().load();
+        $('#toolbarButtonReset').removeAttr('disabled');
+    }
+
+    function enableDisableButtons() {
+        var selections = searchGrid.getSelectionModel().getSelection();
+        
+        if (selections.length == 0) {
+            $('#addSelectedTaxaButton, #replaceTaxaFilterButton').attr("disabled", true).removeClass("btn-primary");
+        } else {
+            $('#addSelectedTaxaButton, #replaceTaxaFilterButton').attr("disabled", false).addClass("btn-primary");
+        }
+    }
+
+</script>

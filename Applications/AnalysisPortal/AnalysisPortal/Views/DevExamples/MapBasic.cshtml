@@ -1,0 +1,137 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Google maps sample</title>
+
+        <link href="~/Scripts/OpenLayers/theme/default/style.css" rel="stylesheet" type="text/css" />
+        @*<link href="~/Content/Overrides.css" rel="stylesheet" type="text/css" />*@
+        <script src="~/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+
+        <script src="http://maps.google.com/maps/api/js?v=3.6&amp;sensor=false" type="text/javascript"></script>        
+        <script src="~/Scripts/OpenLayers/OpenLayers.js" type="text/javascript"></script>
+        
+
+        <style type="text/css">
+            body {                
+                margin: 20px;                
+            }
+            div.info {
+                margin: 10px;
+            }
+            .smallmap {
+                width: 612px;
+                height: 456px;
+                border: 1px solid #ccc;
+            }         
+            div.olLayerGoogleCopyright, div.olLayerGooglePoweredBy {
+              display: none !important;
+            }
+   
+        </style>
+
+        <script type="text/javascript">
+            var lon = 5;
+            var lat = 40;
+            var zoom = 5;
+            var map, layer;
+
+            $(document).ready(function() {
+                map = new OpenLayers.Map('map'); //, { allOverlays: true });
+                map.addControl(new OpenLayers.Control.LayerSwitcher());
+
+                var layer = new OpenLayers.Layer.WMS(
+                         "Sample WMS",
+                         "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                         {
+                             layers: "basic"
+                             //,
+                             //version: "1.0.0"
+                         },
+                         { isBaseLayer: true }
+                        // {}
+                     );
+
+                var layer2 = new OpenLayers.Layer.WMS(
+                         "Miljökvalitetsnormer",
+                         "http://ext-geoservices.lansstyrelsen.se/arcgis/services/VISS/miljokvalitetsnormer/MapServer/WMSServer?",
+                         {
+                             layers: "0,2,3,4,5,6",
+                             transparent: true                             
+                         },
+                        {
+                             isBaseLayer: false
+                        }                        
+                     );
+
+
+                //var layer2 = new OpenLayers.Layer.WMS(
+                //         "Luft",
+                //         "http://gpt.vic-metria.nu:80/wmsconnector/com.esri.wms.Esrimap/luft",
+                //         {
+                //             layers: "0,1,2,3,4,5,6",
+                //             transparent: true
+                //             //,
+                //             //version: "1.0.0"
+                //         },
+                //         { isBaseLayer: false }
+                //        // {}
+                //     );
+
+                var layer3 = new OpenLayers.Layer.WMS(
+                         "PS.N2K.Fageldirektivet",
+                         "http://gis-services.metria.se/arcgis/services/InspireNV_N2K/MapServer/WMSServer",
+                         {
+                             layers: "PS.N2K.Fageldirektivet", //",PS.N2K.Habitatdirektivet",
+                             transparent: true
+                             //,
+                             //version: "1.0.0"
+                         },
+                         { isBaseLayer: false }
+                        // {}
+                     );
+
+                var layer4 = new OpenLayers.Layer.WMS(
+                         "Skyddade områden",
+                         "http://ext-geoservices.lansstyrelsen.se/arcgis/services/skyddadeomraden/MapServer/WMSServer",
+                         {
+                             layers: "0,1,2,3,4,5,6,7", //",PS.N2K.Habitatdirektivet",
+                             transparent: true
+                             //,
+                             //version: "1.0.0"
+                         },
+                         { isBaseLayer: false }
+                        // {}
+                     );
+
+                
+
+                map.addLayers([layer, layer2]); //, layer3, layer4]);
+
+                // Google.v3 uses EPSG:900913 as projection, so we have to
+                // transform our coordinates
+                map.setCenter(new OpenLayers.LonLat(10.2, 48.9).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), 5);                             
+            });
+            
+        </script>
+    </head>
+    <body>
+
+        <h3>Google maps</h3>
+        
+        <div id="map" class="smallmap"></div>
+
+    </body>
+</html>

@@ -1,0 +1,150 @@
+﻿@using Resources
+@model int
+
+<a id="TaxonDetails_TaxonLink" target="_blank" href="@string.Format("https://www.dyntaxa.se/taxon/info/{0}",Model)"></a>
+<table class="table table-condensed white-bg">
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryIdLabel</td>
+        <td id="TaxonDetails_TaxonId"></td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryGuidLabel</td>
+        <td id="TaxonDetails_TaxonGuid"></td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryValidityLabel</td>
+        <td id="TaxonDetails_Validity"></td>
+    </tr>      
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryConceptDefinitionLabel</td>
+        <td id="TaxonDetails_ConceptDefinition"></td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryCategoryLabel</td>
+        <td id="TaxonDetails_Category"></td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryScientificNameLabel</td>
+        <td id="TaxonDetails_ScientificName">
+            @*<strong><%= Model.ScientificName != null ? Html.RenderScientificName(Model.ScientificName.Name, Model.ScientificName.Author, Model.CategorySortOrder).ToString() : "-" %></strong>*@
+        </td>
+    </tr>   
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySynonymsLabel</td>
+        <td id="TaxonDetails_Synonyms">
+            @*<% if (Model.Synonyms.Count > 0)
+                {
+                    for (int i = 0; i < Model.Synonyms.Count; i++)
+                    {
+                        var item = Model.Synonyms[i];
+                        if (i > 0)
+                        {
+                            %>
+                            <%: "; "%>
+                    <% } %>
+
+                    <%: Html.RenderScientificName(item.Name, item.Author, Model.CategorySortOrder)%>
+
+                <% }%>
+
+            <% }
+                else
+                { %> 
+                <%: "-" %>
+            <% } %>*@
+        </td>
+    </tr>           
+                     
+    <tr>            
+        <td class="tablelabel">@Resource.TaxonSummaryCommonNamesLabel</td>
+        <td id="TaxonDetails_CommonNames">
+            @*<%: Model.CommonName != null ? Model.CommonName.Name : "-" %>
+            <% if (Model.OtherValidCommonNames.Count > 0)
+                {%>
+                <%: string.Format("({0})", string.Join(", ", Model.OtherValidCommonNames)) %>
+            <% } %>*@
+        </td>
+    </tr>       
+                         
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryClassificationLabel</td>
+        <td id="TaxonDetails_Classification">
+            @*<% for (int i = 0; i < Model.Classification.Count; i++)
+                {
+                    var item = Model.Classification[i];
+                    %>
+                <%:Model.Classification[i].Category %> <strong><%: Html.RenderScientificName(item.ScientificName, null, item.SortOrder)%></strong><%: string.Format("{0}", i < Model.Classification.Count-1 ? ", " : "")%>
+            <% } %>*@
+        </td>
+    </tr>  
+
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySwedishOccurrenceLabel</td>
+        <td id="TaxonDetails_SwedishOccurrence"></td>
+    </tr>   
+                            
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySwedishHistoryLabel</td>
+        <td id="TaxonDetails_SwedishHistory"></td>
+    </tr> 
+
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryUpdateInformationLabel</td>
+        <td id="TaxonDetails_CreateInformation"></td>
+    </tr>
+            
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryUpdateInformationLabel</td>
+        <td id="TaxonDetails_UpdateInformation"></td>
+    </tr>         
+</table>
+
+
+<script type="text/javascript">    
+    $(function () {
+        var url = "https://www.dyntaxa.se/taxon/detail/" + @Model + "?jsonp=parseResponse";
+        //todo - hantera språk
+        $.ajax({
+            url: url,
+            type: "GET",
+            crossDomain: true,
+            dataType: "jsonp",
+            success: function (data) {
+                if (data.CommonName != null) {
+                    $('#TaxonDetails_TaxonLink').text(data.ScientificName.Name + "-" + data.CommonName.Name);
+                } else {
+                    $('#TaxonDetails_TaxonLink').text(data.ScientificName.Name);
+
+                }
+
+                $('#TaxonDetails_TaxonId').text(data.Id);
+                $('#TaxonDetails_TaxonGuid').text(data.Guid);                
+                $('#TaxonDetails_Validity').text(data.Validity);                
+                $('#TaxonDetails_ConceptDefinition').text(data.ConceptDefiniton);
+
+                $('#TaxonDetails_Category').text(data.Category);
+                $('#TaxonDetails_ScientificName').text(data.ScientificName.Name);
+                //$('#TaxonDetails_Synonyms').text(data.Synonyms); // array
+                $('#TaxonDetails_CommonNames').text(data.CommonName != null ? data.CommonName.Name : "-");
+                //data.OtherValidCommonNames; // array
+
+                //$('#TaxonDetails_Classification').text(data.Classification); // array
+                //data.Classification[0].Category = "Rike"
+                //data.Classification[0].CommonName = "djur"
+                //data.Classification[0].EndDate = null
+                //data.Classification[0].ScientificName = "Animalia"
+                //data.Classification[0].SortOrder = 4
+                //data.Classification[0].TaxonId = 5000001
+                $('#TaxonDetails_SwedishOccurrence').text(data.SwedishOccurrence != null ? data.SwedishOccurrence : "-");
+                $('#TaxonDetails_SwedishHistory').text(data.SwedishHistory != null ? data.SwedishHistory : "-");
+                $('#TaxonDetails_CreateInformation').text(data.CreatedInformation);
+                $('#TaxonDetails_UpdateInformation').text(data.UpdateInformation);
+
+
+            }, error: function (jqXhr, textStatus, errorThrown) {
+                
+            }
+        });
+    })
+
+</script>

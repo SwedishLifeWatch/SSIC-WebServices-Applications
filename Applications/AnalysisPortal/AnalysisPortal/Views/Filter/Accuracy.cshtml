@@ -1,0 +1,140 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Filter.Accuracy.AccuracyFilterViewModel
+
+@{
+    ViewBag.Title = Resource.FilterAccuracyTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton" ><i class="icon-save"></i> &nbsp; @if (Model.IsSettingsDefault) { <text>@Resource.SharedAddFilter</text> } else { <text>@Resource.SharedChangeFilter</text> } </button>
+        @*<button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>*@
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedRemoveFilter</button>
+    </div>
+</div>
+
+@using (Html.BeginForm("Accuracy", "Filter", FormMethod.Post, new { id = "saveSettingsForm" }))
+{
+    <div id="searchSection">    
+        <div id="AccuracyFilter" class="accuracyFilterDiv">        
+            <h3 style="display: inline">
+                @Resource.SharedCoordinateAccuracy
+            </h3>        
+            &nbsp; &nbsp; 
+            <input id="isCoordinateAccuracyActiveCheckbox" name="isCoordinateAccuracyActiveCheckbox" type="checkbox" class="checkboxRightMargin" @if (Model.IsCoordinateAccuracyActive){<text>checked="checked" </text>}  />
+            <label class="inlineLabel" for="isCoordinateAccuracyActiveCheckbox">@Model.Labels.CoordinateAccuracyIsActive</label>
+            <br/>
+            <br/>
+            <div class="inputLabel">
+                <p class="inputLabel">@Model.Labels.MaxCoordinateAccuracy</p>
+                <input id="MaxCoordinateAccuracy" style="width: 100px; margin-left: 6px;" type="text" value = "@if (Model.MaxCoordinateAccuracy > 0) {<text>@Model.MaxCoordinateAccuracy.ToString()</text>} else {<text>100</text>}" />
+                <p class="inputLabel">m</p>
+            </div>
+        </div>
+    </div>
+    
+      @Html.Hidden("data")
+
+}
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+
+
+    $(document).ready(function() {
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+        $('#AccuracyFilter :checkbox').change(enableDisableButtons);
+        $('#MaxCoordinateAccuracy').bind('input', function () {            
+            $('#isCoordinateAccuracyActiveCheckbox').prop("checked", true);
+        });        
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function() {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function() {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetAccuracy", new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })";
+        });
+    }
+
+    function isPositiveInteger(n) {
+        return /^\+?\d+$/.test(n);
+    }
+
+    function validateData() {
+        var maxCoordinateAccuracyValue = $("#MaxCoordinateAccuracy").val();
+        
+        if (!isPositiveInteger(maxCoordinateAccuracyValue) || maxCoordinateAccuracyValue < 1 || maxCoordinateAccuracyValue > 2147483647) {
+            return {
+                isValid: false,
+                message: 'Error! Invalid MaxCoordinateAccuracy. Valid value is whole, positive number.'
+            };
+        }        
+        
+        return {
+            isValid: true,
+            message: ''
+        };
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+
+        var validateResult = validateData();
+        if (!validateResult.isValid) {
+            AnalysisPortal.showMsg(validateResult.message);
+            return;
+        }
+
+        $frm.find('input[name=data]').val(data);
+
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+        
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+    
+        $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+        });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var maxCoordinateAccuracy = $('#MaxCoordinateAccuracy').val();
+        var includeExclude = ($("[name='inclusiveExclusive']:checked").val() == 0);
+        var isCoordinateAccuracyActive = $('#isCoordinateAccuracyActiveCheckbox').is(':checked');
+        var data = {
+            MaxCoordinateAccuracy: maxCoordinateAccuracy,
+            IncludeExclude: includeExclude,
+            IsCoordinateAccuracyActive: isCoordinateAccuracyActive
+        };
+
+        return data;
+    }
+
+</script>

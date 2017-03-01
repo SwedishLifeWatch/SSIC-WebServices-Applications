@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/SwedishSpeciesObservationSOAPService/SwedishSpeciesObservationSOAPService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_ClearCache_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCache" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_ClearCache_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCacheResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_DeleteTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_DeleteTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetBirdNestActivities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivities" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetBirdNestActivities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBirdNestActivitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreByIds_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreByIds" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreByIds_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreByIdsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreBySearchCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreBySearchCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreBySearchCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreChange_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreChange" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetDarwinCoreChange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDarwinCoreChangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLog" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_HasConservationSpeciesObservation_InputMessage">
+    <wsdl:part name="parameters" element="tns:HasConservationSpeciesObservation" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_HasConservationSpeciesObservation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HasConservationSpeciesObservationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_StartTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_StartTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTraceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_StopTrace_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopTrace" />
+  </wsdl:message>
+  <wsdl:message name="ISwedishSpeciesObservationSOAPService_StopTrace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopTraceResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="ISwedishSpeciesObservationSOAPService">
+    <wsdl:operation name="ClearCache">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/ClearCache" message="tns:ISwedishSpeciesObservationSOAPService_ClearCache_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/ClearCacheResponse" message="tns:ISwedishSpeciesObservationSOAPService_ClearCache_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/DeleteTrace" message="tns:ISwedishSpeciesObservationSOAPService_DeleteTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/DeleteTraceResponse" message="tns:ISwedishSpeciesObservationSOAPService_DeleteTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBirdNestActivities">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetBirdNestActivities" message="tns:ISwedishSpeciesObservationSOAPService_GetBirdNestActivities_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetBirdNestActivitiesResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetBirdNestActivities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreByIds">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreByIds" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreByIds_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreByIdsResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreByIds_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreBySearchCriteria">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreBySearchCriteria" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreBySearchCriteria_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreBySearchCriteriaResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreBySearchCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDarwinCoreChange">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreChange" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreChange_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetDarwinCoreChangeResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetDarwinCoreChange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLog">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetLog" message="tns:ISwedishSpeciesObservationSOAPService_GetLog_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetLogResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetStatus" message="tns:ISwedishSpeciesObservationSOAPService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/GetStatusResponse" message="tns:ISwedishSpeciesObservationSOAPService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="HasConservationSpeciesObservation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/HasConservationSpeciesObservation" message="tns:ISwedishSpeciesObservationSOAPService_HasConservationSpeciesObservation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/HasConservationSpeciesObservationResponse" message="tns:ISwedishSpeciesObservationSOAPService_HasConservationSpeciesObservation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/Login" message="tns:ISwedishSpeciesObservationSOAPService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/LoginResponse" message="tns:ISwedishSpeciesObservationSOAPService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/Logout" message="tns:ISwedishSpeciesObservationSOAPService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/LogoutResponse" message="tns:ISwedishSpeciesObservationSOAPService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/Ping" message="tns:ISwedishSpeciesObservationSOAPService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/PingResponse" message="tns:ISwedishSpeciesObservationSOAPService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/StartTrace" message="tns:ISwedishSpeciesObservationSOAPService_StartTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/StartTraceResponse" message="tns:ISwedishSpeciesObservationSOAPService_StartTrace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopTrace">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/StopTrace" message="tns:ISwedishSpeciesObservationSOAPService_StopTrace_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/ISwedishSpeciesObservationSOAPService/StopTraceResponse" message="tns:ISwedishSpeciesObservationSOAPService_StopTrace_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

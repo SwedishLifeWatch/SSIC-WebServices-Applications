@@ -1,0 +1,62 @@
+﻿@model object
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Ext Js custom tooltip sample</title>
+
+        <link href="~/Scripts/OpenLayers/theme/default/style.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="~/Scripts/extjs-4.2.1/ext-all.js" type="text/javascript"></script>
+        <script src="~/Scripts/bootstrap.js" type="text/javascript"></script>
+        <script src="~/Scripts/modernizr-2.5.3.js" type="text/javascript"></script>
+        <script src="~/Scripts/OpenLayers/OpenLayers.js" type="text/javascript"></script>
+        
+
+        <style type="text/css">            
+            div.info {
+                margin: 10px;
+            }
+            .smallmap {
+                width: 612px;
+                height: 456px;
+                border: 1px solid #ccc;
+            }            
+        </style>
+
+        <script type="text/javascript">
+            var lon = 5;
+            var lat = 40;
+            var zoom = 5;
+            var map, layer;
+
+            $(document).ready(function() {                           
+                map = new OpenLayers.Map('map');
+                layer = new OpenLayers.Layer.WMS("OpenLayers WMS",
+                        "http://vmap0.tiles.osgeo.org/wms/vmap0",
+                        { layers: 'basic' });
+                map.addLayer(layer);
+                map.setCenter(new OpenLayers.LonLat(lon, lat), zoom);
+                var myFeatures = @Html.Raw(ViewBag.GeoJsonAsString);
+                                               
+                var geojson_format = new OpenLayers.Format.GeoJSON();
+                var vector_layer = new OpenLayers.Layer.Vector();
+                map.addLayer(vector_layer);
+                vector_layer.addFeatures(geojson_format.read(myFeatures));                                        
+            });
+            
+        </script>
+    </head>
+    <body>
+
+        <h3>GeoJson with Json string written in page</h3>
+        
+        <div id="map" class="smallmap"></div>
+
+    </body>
+</html>

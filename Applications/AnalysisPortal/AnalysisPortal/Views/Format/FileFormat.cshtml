@@ -1,0 +1,147 @@
+﻿@using Resources
+@using ArtDatabanken.WebApplication.AnalysisPortal.MySettings.Presentation.FileFormat
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Extensions
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Presentation.FileFormatViewModel
+
+@{
+    ViewBag.Title = Resource.PresentationFileFormatTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    </div>
+</div>
+
+<div id="csvFormatPanel" class="datapanel"></div>
+
+@*<h4 style="text-decoration: underline">CSV</h4>*@
+<div id="csvFormatDiv" class="data-panel-content" >
+    <label for="csvSeparatorSelectList" class="headerLabel">@Resource.PresentationFileFormatCsvSeparator:</label>
+    <select id="csvSeparatorSelectList">
+        <option value="@CsvSeparator.Comma" @if(Model.CsvEnumSeparator == CsvSeparator.Comma) {<text>selected="selected"</text>}>@CsvSeparator.Comma.ToText()</option>
+        <option value="@CsvSeparator.Semicolon" @if(Model.CsvEnumSeparator == CsvSeparator.Semicolon) {<text>selected="selected"</text>}>@CsvSeparator.Semicolon.ToText()</option>
+        <option value="@CsvSeparator.Pipe" @if(Model.CsvEnumSeparator == CsvSeparator.Pipe) {<text>selected="selected"</text>}>@CsvSeparator.Pipe.ToText()</option>
+        <option value="@CsvSeparator.Tab" @if(Model.CsvEnumSeparator == CsvSeparator.Tab) {<text>selected="selected"</text>}>@CsvSeparator.Tab.ToText()</option>
+        @*@foreach (CoordinateSystemViewModel coordinateSystem in Model.CoordinateSystems)
+    {
+        <option value="@coordinateSystem.Id" @if (coordinateSystem.Selected) { <text>selected="selected"</text> }>@coordinateSystem.Name</option>    
+    }  *@  
+    </select>
+
+    @*<input id="qoteAllColumnsCheckBox" type="checkbox" class="checkboxRightMargin" @if(Model.GenerateAllGridCells) { <text>checked="checked" </text> }  />*@
+    <div>
+        <input id="qoteAllColumnsCheckBox" type="checkbox" class="checkboxRightMargin" @if(Model.CsvQuoteAllColumns) {<text>checked="checked"</text>}/>
+        <label class="inlineLabel" for="qoteAllColumnsCheckBox">@Resource.PresentationFileFormatCsvQuoteAllColumns</label>
+    </div>
+</div>
+
+<div id="excelFormatPanel" class="datapanel"></div>
+
+<div id="excelFormatDiv" class="data-panel-content" >
+    <label for="excelFormatSelectList" class="headerLabel">@Resource.PresentationExcelFileFormatTypes:</label>
+    <select id="excelFormatSelectList">
+        <option value="@ExcelFileType.Xlsx" @if (Model.ExcelFileFormatType == ExcelFileType.Xlsx){<text>selected="selected"</text>}>@ExcelFileType.Xlsx.ToText()</option>
+        <option value="@ExcelFileType.Xml" @if (Model.ExcelFileFormatType == ExcelFileType.Xml){<text>selected="selected"</text>}>@ExcelFileType.Xml.ToText()</option>
+    </select>
+</div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+
+    $(function() {
+        createLayout();
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        setInterval(enableDisableButtons, 500);
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetFileFormatSettings", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var strData = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != strData) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var csvSeparatorEnumVal = $('#csvSeparatorSelectList').val();
+        var quoteAllColumns = $('#qoteAllColumnsCheckBox').is(':checked');
+        var excelFormatEnumVal = $('#excelFormatSelectList').val();
+        var data = {            
+            CsvQuoteAllColumns: quoteAllColumns,
+            CsvEnumSeparator: csvSeparatorEnumVal,
+            ExcelFileFormatType: excelFormatEnumVal
+        };
+        return data;
+    }
+
+
+
+    function createLayout() {
+        var csvFormatControl = AnalysisPortal.createHtmlPanel('csvFormatDiv', {
+            title: "",
+            region: 'west'
+        });
+
+        AnalysisPortal.createMainPanel('csvFormatPanel', {
+            title: 'CSV',
+            width: 500,
+            items: [csvFormatControl],
+            collapsible: false
+        });
+
+        var excelFormatControl = AnalysisPortal.createHtmlPanel('excelFormatDiv', {
+            title: "",
+            region: 'west'
+        });
+
+        AnalysisPortal.createMainPanel('excelFormatPanel', {
+            title: 'Excel',
+            width: 500,
+            items: [excelFormatControl],
+            collapsible: false
+        });
+    }
+</script>

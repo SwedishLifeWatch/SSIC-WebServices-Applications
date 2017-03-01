@@ -1,0 +1,1098 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body
+{
+    font-size: .75em;
+    font-family: Verdana, Helvetica, Sans-Serif;
+    margin: 0; 
+    padding: 0;  
+    color: #666;
+} 
+
+a:link 
+{
+    color: #33618d;
+    text-decoration: underline;
+}
+a:visited
+{
+    color: #505abc;
+    text-decoration: underline;
+}
+a:hover
+{
+    color: #1188C1;
+    text-decoration: none;
+}
+a:active
+{
+    color: #1188C1;
+    text-decoration: none;
+}
+
+p, ul
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1
+{
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+h2
+{
+    padding: 0 0 10px 0;
+}
+h3
+{
+    font-size: 1.2em;
+}
+h4
+{
+    font-size: 1.1em;
+}
+h5, h6
+{
+    font-size: 1em;
+}
+
+/* this rule styles <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+    margin-top: 0;
+}
+
+
+/* Use this to create a horizontal ruler across a column. */
+hr {
+  background: #ddd; 
+  color: #ddd;
+  clear: both; 
+  float: none; 
+  width: 100%; 
+  height: .1em;
+  margin: 0 0 1.45em;
+  border: none; 
+}
+hr.space {
+  background: #fff;
+  color: #fff;
+}
+
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu
+{
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li
+{
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a
+{
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+}
+
+ul#menu li a:hover
+{
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active
+{
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a
+{
+    background-color: #fff;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset 
+{
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #CCC;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table 
+{
+  border: solid 1px #ccc; 
+  border-collapse: collapse;
+  margin: 12px 15px;
+    
+}
+
+table td 
+{
+  padding: 5px;   
+  border: dotted 1px #ccc;
+  font-size: 0.9em;
+}
+
+table th
+{
+  padding: 3px 6px 5px 6px;
+  text-align: left;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #666;
+  background-color: #f0eec0 !important;
+  border: solid 1px #ccc;
+
+  -moz-box-shadow: 0px 3px 3px -1px #eee;
+  -webkit-box-shadow: 0px 3px 3px -1px #eee;
+  box-shadow: 0px 3px 3px -1px #eee;
+}
+
+table tr.webgrid-footer td
+{
+  cursor: default;
+  padding: 3px 6px 5px 6px;
+  text-align: left;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #666;
+  background-color: #f0eec0 !important;
+  border: solid 1px #ccc;
+
+  -moz-box-shadow: 0px 3px 3px -1px #eee;
+  -webkit-box-shadow: 0px 3px 3px -1px #eee;
+  box-shadow: 0px 3px 3px -1px #eee;
+}
+
+tr.alt, tr.odd {
+    /*background: #f9f8e6;
+    background: #fafaf9;*/
+    background: #f5f4f2;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear
+{
+    clear: both;
+}
+
+.error
+{
+    color:Red;
+}
+
+div#title
+{
+    display:block;
+    float:left;
+    text-align:left;
+}
+
+#logindisplay a:link, #logindisplay a:visited, #logindisplay a:hover
+{
+    color: white;
+    text-decoration: none;    
+}
+
+#demo .MoverBox
+{
+    width: 280px;
+}
+
+#demo table
+{
+    border: none;
+    margin: 0;
+   
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error
+{
+    color: #ff0000;
+}
+
+span.field-validation-error {
+    background: none repeat scroll 0 0 #FBE3E4;
+    border-color: #FBC2C4;
+    border-right: 0 none;
+    border-style: solid none none;
+    border-width: 1px 0 0;
+    color: #8A1F11;
+    display: block;
+    font-size: 0.9em !important;
+    font-weight: bold;
+    padding: 2px;
+    margin: 0 10px
+    /* width: 100% !important; */
+}
+
+/*
+.field-validation-error {
+    color: #CD0A0A;
+}
+*/
+.field-validation-valid
+{
+    display: none;
+}
+/*
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors
+{
+    font-weight: bold;
+    color: #ff0000;
+}
+*/
+.validation-summary-valid
+{
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label,
+.editor-label,
+.display-field,
+.editor-field
+{
+    margin: 0.5em 10px;
+}
+
+.text-box
+{
+    width: 30em;
+}
+
+.text-box.multi-line
+{
+    height: 6.5em;
+}
+
+.tri-state
+{
+    width: 6em;
+}
+
+
+/* misc styles */
+em, i, .italic
+{
+    font-style: italic;
+}
+
+strong, b, .bold
+{
+    font-weight: bold;
+}
+
+div#fullContainer
+{    
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid #eee;*/
+}
+
+div#leftContainer
+{
+    float: left;
+    width: 680px;
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid #eee;*/
+}
+
+div#rightContainer
+{
+    float: right;
+    width: 265px;
+    margin: 0;
+    padding: 0;
+    /*border: 1px solid #eee;*/
+}
+/*
+div#alertContainer
+{
+    width: 880px;
+    margin: 0;
+    padding: 0;    
+}
+*/
+
+div#leftContainer fieldset, div#rightContainer fieldset, div#fullContainer fieldset, div#alertContainer fieldset, fieldset.dyntaxa-expander-panel
+{
+    background-color: #fff;
+    padding: 0;
+    margin: 1em 0 0 0;
+}
+
+/* open */
+div#fullContainer fieldset h2.open, div#leftContainer fieldset h2.open, div#rightContainer fieldset h2.open, fieldset.dyntaxa-expander-panel h2.open
+{
+    /* 856px, 578px, 242px; */
+    background: #cbe5ed url("../Images/Icons/minus-button_right.png") no-repeat right;
+}
+
+/* close */
+div#fullContainer fieldset h2.closed, div#leftContainer fieldset h2.closed, div#rightContainer fieldset h2.closed, fieldset.dyntaxa-expander-panel h2.closed
+{
+    /* 856px, 578px, 242px; */
+    background: #cbe5ed url("../Images/Icons/plus-button_right.png") no-repeat right;
+}
+
+div#leftContainer fieldset h2, div#rightContainer fieldset h2, div#fullContainer fieldset h2, fieldset.dyntaxa-expander-panel h2
+{
+    background: #cbe5ed;
+    cursor: pointer;
+    padding: 1px 6px 1px 6px;
+    margin-bottom: 2px;
+    border-bottom: 1px solid #ccc; 
+    display: block;
+    line-height: 22px;
+}
+
+h2.savestate
+{
+    
+}
+
+div#leftContainer h2#LimitToCurrentTaxon
+{
+    background: #e9c780;
+    padding: 1px 5px 1px 5px;
+    display: block;
+    line-height: 22px;
+    border: 1px solid #ccc; 
+    margin: 12px 0 0 0;
+}
+
+fieldset h2.limitToCurrentTaxon, fieldset h2.validationSummaryHeader
+{
+    padding: 0 0 2px 6px;
+    background: #e9c780;   
+}
+
+div#alertContainer fieldset h2, div#validationSummaryContainer fieldset ul
+{
+    background: #e9c780;
+    padding: 0 5px 2px 5px;
+    display: block;
+    line-height: 22px;
+}
+
+div.fieldsetContent h3.closed
+{
+   /*background: #f0eec0 url("../Images/Icons/plus-small_right.png") no-repeat 578px;*/
+   background: #f0eec0 url("../Images/Icons/plus-small_right.png") no-repeat right;
+}
+
+div.fieldsetContent h3.open
+{
+    /*background: #f0eec0 url("../Images/Icons/minus-small_right.png") no-repeat 578px;*/
+    background: #f0eec0 url("../Images/Icons/minus-small_right.png") no-repeat right;
+}
+
+div.fieldsetContent h3
+{
+    color: #666;
+    font-family: Verdana, Sans-Serif;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight:bold;
+    padding: 0 5px 2px 10px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #ccc; 
+    border-top: 1px solid #ccc;
+    display: block;
+    line-height: 16px;
+}
+ 
+div.fieldsetContent p
+{ 
+    margin: 0 10px 0 10px;
+    padding: 2px 0;
+    max-width: 580px;
+}
+div.fieldsetContent p.info
+{
+    font-size:0.9em;    
+}
+/*
+div.fieldsetContent input, div.fieldsetContent select, div.fieldsetContent textarea
+{
+    margin: 0 0 0 10px;
+}
+table#matchProblemGrid input, table#matchProblemGrid select, table#matchProblemGrid textarea 
+{
+    margin: 0;
+}
+*/
+div#leftContainer input[type="submit"], div#leftContainer button, div#fullContainer input[type="submit"], div#fullContainer button
+{
+    margin: 10px;
+}
+div.fieldsetContent label.checkboxLabel {
+    font-weight: normal;
+    margin: 0 0px;
+}
+div.fieldsetContent label
+{
+    font-weight: bold;
+    margin: 0 0px;
+}
+div.fieldsetContent select, div.fieldsetContent textarea
+{
+     border: 1px solid #ccc;
+}
+div.fieldsetContent input, div.fieldsetContent select, div.fieldsetContent textarea
+{
+    background: #f6f6f6;
+}
+div.fieldsetContent textarea
+{ 
+    width: 480px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#clipBoardTextArea 
+{
+    width: 922px;
+    height: 10em;
+    line-height: 120%;
+    margin-bottom: 0px;    
+}
+
+div.fieldsetContent input[type="checkbox"], div.fieldsetContent input[type="radio"]
+{
+    background: none;
+}
+
+p.noData
+{
+    color: #ccc;
+}
+
+div.fieldsetContent ul
+{
+    margin: 0 10px;
+}
+
+div.fieldsetContent img
+{
+    margin: 5px
+}
+
+div.fieldsetContent div.fieldsetSubContent
+{
+    background-color: #f9f9f9;
+    margin-left: 10px;   
+}
+
+div.fieldsetContent div.fullWidth
+{
+    background-color: #f9f9f9;
+    margin-left: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+div.fieldsetContent div.fieldsetSubContent table
+{
+    background-color: #fff; 
+}
+
+div.fieldsetTopContent
+{
+    text-align: right;
+    background: #eee;
+}
+div.fieldsetTopContent p
+{
+    margin: 0 10px;
+}
+div.checkboxDiv label
+{
+    margin: 0;
+} 
+
+div.checkboxToggle
+{
+    margin: 4px 10px 5px 10px;
+    text-align: left;
+    font-size: 0.9em;    
+} 
+
+.left50
+{
+    width:49%;
+    float: left;        
+}
+
+.right50
+{
+    width:48%;
+    float: right;        
+}
+
+.headerFactorName
+{
+    width:100px;   
+    font-weight:bold;
+    font-size: 1.1em;   
+}
+.factorName
+{
+    width:150px;      
+}
+.factorValue
+{
+    width:350px;      
+}
+.factorValue2
+{
+    width:350px;      
+}
+
+.factorCategory
+{
+    width:50px;
+}
+
+.factorComment
+{
+    width:228px;     
+}
+
+.factorQuality
+{
+    width:50px;     
+}
+
+.factorId
+{
+    width:50px;      
+}
+
+.factorSortOrder
+{
+    width:50px;     
+}
+
+span.speciesFactHostColored {
+    color: #2c95b5;
+}
+
+h1.readHeader
+{ 
+    font-size: 1.6em;
+    display: block;
+    background: #d8d8d9;
+    /*background: #616265;
+    background: #ccc7c0;*/
+    font-weight: bold;
+    color: #555;
+    padding: 2px 6px 1px 6px;
+    margin-bottom: 10px;
+}
+
+h1.readRevisionHeader
+{ 
+    font-size: 1.6em;
+    display: block;
+    background: #d28e00;
+    /*background: #616265;
+    background: #ccc7c0;*/
+    font-weight: bold;
+    color: #555;
+    padding: 2px 6px 1px 6px;
+    margin-bottom: 10px;
+}
+
+h1.taxonSummaryHeader
+{
+    display: block; 
+    color: #fff;
+    padding: 2px 6px 2px 6px;
+    margin: 0px;
+    cursor: pointer;
+    /*background: #2c95b5 url("../Images/Icons/info_right_green.png") no-repeat 846px;*/
+    background: #2c95b5 url("../Images/Icons/info_right_green.png") no-repeat right;
+}
+
+fieldset.taxonSummaryFieldset, fieldset.limitToTaxonFieldset, fieldset.validationSummaryFieldset
+{
+    background: #fff;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+h1.revisionSummaryHeader
+{
+    display: block;
+    background: #339;
+    color: #fff;
+    padding: 2px;
+    margin: 0px;
+    cursor: pointer;
+    
+}
+
+fieldset.revisionSummaryFieldset
+{
+    padding: 0px;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.smallCheckboxColumn {
+    width: 30px;
+}
+
+table div.editor-label, table div.editor-field
+{
+    font-size: 1.1em;
+}
+
+/*
+* UI modifications
+*/
+.input-wrapper 
+{
+    display: inline;
+    -moz-border-radius: 2px 2px 2px 2px;
+    border-radius: 2px 2px 2px 2px;
+    background: url("../Images/ap/ui-content-bgsprite.png") repeat-x scroll 0 -740px #FAFAFA;
+    border-color: #B3B3B3 #E6E6E6 #E6E6E6 #BFBFBF;
+    border-style: solid;
+    border-width: 1px;
+    /* margin: 1px 0; */
+    overflow: hidden;
+    padding: 0 0 0 0;    
+}
+
+.input-wrapper input, .input-wrapper select, .input-wrapper textarea {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    /* width: 100% !important; */
+}
+
+.input-wrapper select option
+{
+    background-color: #FAFAFA;
+}
+
+/* makes scrollbar clip */
+.input-wrapper input, .input-wrapper textarea {
+    padding: 0 0 0 0.2em;
+}
+a.ap-ui-button, input.ap-ui-button, button.ap-ui-button {
+    font: normal bold 12px arial;
+    color: #000;
+}
+a.ap-ui-button, input.ap-ui-button, button.ap-ui-button {
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    
+    -moz-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:1px 1px 0 rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow:1px 1px 0 rgba(0, 0, 0, 0.1);    
+    background: url("../Images/ap/ui-bgsprite-button.png") repeat-x scroll 0 -201px transparent;
+    display: block;
+    border: 1px solid #999999;
+    margin: 0 10px 0 0;
+    float: left;
+}
+
+input.ap-ui-button:hover, input.ap-ui-button:focus, button.ap-ui-button:focus, a.ap-ui-button:focus, a.ap-ui-button:hover, button.ap-ui-button:hover {
+    -moz-box-shadow: 0 0 4px #83BEEE;
+    box-shadow:0 0 4px #83BEEE;
+    -o-box-shadow:0 0 4px #83BEEE;
+    -webkit-box-shadow:0 0 4px #83BEEE;    
+    background: url("../Images/ap/ui-bgsprite-button.png") repeat-x scroll 0 -230px transparent;
+    border-color: #666666;
+    color: #007EC4;
+    cursor: pointer;
+}
+
+a.ap-ui-button-disabled, input.ap-ui-button-disabled, button.ap-ui-button-disabled {
+    font: normal bold 12px arial;
+    color: #999;
+}
+
+input.ap-ui-button-disabled, input.ap-ui-button-disabled:hover, button.ap-ui-button-disabled:hover, input.ap-ui-button-disabled:focus, a.ap-ui-button-disabled, a.ap-ui-button-disabled:hover, a.ap-ui-button-disabled:focus, button.ap-ui-button-disabled:focus 
+{
+    
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;    
+    
+    -moz-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0);
+    box-shadow:1px 1px 0 rgba(0, 0, 0, 0);
+    -o-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0);
+    -webkit-box-shadow:1px 1px 0 rgba(0, 0, 0, 0);
+    
+    background: url("../Images/ap/ui-bgsprite-button.png") repeat-x scroll 0 -201px transparent;
+    display: block;
+    border: 1px solid #CCC;
+    margin: 0 10px 0 0;
+    float: left;
+    cursor: default;
+}
+
+
+input.ap-ui-button, input.ap-ui-button-disabled, button.ap-ui-button, button.ap-ui-button-disabled
+{    
+    line-height: 22px !important;
+    height: 26px;
+    padding: 0 8px;
+}
+ span.ap-ui-text-disabled
+{
+    font: 12px arial;
+    color: #C0C0C0;
+    text-decoration: underline;
+}
+
+#main a.ap-ui-button, #main a.ap-ui-button-disabled
+{   
+    text-decoration: none;
+    line-height: 25px !important;
+    height: 24px;
+    padding: 0 11px;    
+}
+
+#main p.submitButtons 
+{
+    height: 20px;
+}
+
+fieldset input[type="submit"], fieldset input[type="submit"].ap-ui-button-disabled, fieldset a.ap-ui-button, fieldset a.ap-ui-button-disabled
+{
+    margin: 12px 10px 12px 0;
+}
+
+.group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.group {
+    display: inline-block;    
+    margin-right: 3px;    
+}
+
+.formRow {
+    padding-bottom: 8px;
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+/* display table */
+table.display-table {
+    border: 0px hidden transparent;
+    margin: 2px;
+}
+
+.display-table tr {
+  padding: 3px 5px;
+  border: 0px hidden transparent;
+  border-width: 0px;
+}
+
+.display-table td {
+  padding: 5px;
+  border: 0px hidden transparent;
+  font-size: 0.9em;
+  border-width: 0px;
+}
+
+/* Search form */
+
+.searchForm {   
+    margin-top: 100px;        
+    margin-bottom: 100px;
+    width: 100%;
+    margin-left: auto;    
+    text-align: center;    
+}
+
+
+.searchBox 
+{
+    float: left;
+    height: 30px;    
+    width: 600px;
+    margin: 0px;
+}
+
+.searchBox input[type="text"] {
+    height: 30px;
+    width: 540px;
+    font-size: 20px;
+    background: white;
+    margin-left: 5px;
+}
+
+div#fullContainer .searchBox button {    
+    height: 32px;    
+    width: 42px; 
+    vertical-align: middle;
+    margin: 0 0 13px;   
+}
+/*
+    float: right;
+    height: 32px;
+    margin: 0;
+    width: 42px;    
+*/
+
+#searchLogo {
+    left: 0px;
+    font-family: 'Times New Roman' , Times, serif;
+    font-size: 46px;
+    color: #000080;
+    font-style: italic;
+}
+
+#searchLogo .searchLogoText1 {
+    position: relative;
+    left: 0px;
+}
+
+#searchLogo .searchLogoText2 {
+    position: relative;
+    left: 32px;
+}
+
+
+.searchTip {    
+      
+}
+
+#searchResults {
+    
+}
+
+.searchResultItem {
+    
+}
+
+#upperSearchArea {
+    padding: 5px;
+    height: 46px;
+    background-color: #96cada;
+}
+
+#numberOfResultsArea {}
+
+#resultsArea {}
+
+#messageArea {
+    background: none repeat scroll 0 0 #e9c780;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+#messageArea2 {
+    background: none repeat scroll 0 0 #e9c780;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+#messageArea3 {
+    background: none repeat scroll 0 0 #e9c780;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+/* Styles for Sorting */
+
+.placeholder {
+			background-color: #cfcfcf;
+}
+
+.ui-nestedSortable-error {
+	background:#fbe3e4;
+	color:#8a1f11;
+}
+
+ol {
+	margin: 0;
+	padding: 0;
+	padding-left: 30px;
+}
+
+ol.sortable, ol.sortable ol {
+	margin: 0 0 0 25px;
+	padding: 0;
+	list-style-type: none;
+}
+
+ol.sortable {
+	margin: 1em 0;
+}
+
+.sortable li {
+	margin: 7px 0 0 0;
+	padding: 0;
+}
+
+.sortable li div  {
+	border: 1px solid black;
+	padding: 3px;
+	margin: 0;
+	cursor: move;
+}
+
+
+table.editFactorTable {
+    width: 826px;
+}
+
+td.factorName {
+    width: 274px;
+}
+
+td.factorValue{
+    width: 250px;
+}
+td.factorValue2{
+    width: 250px;
+}
+
+td.factorQuality {
+    width: 150px;
+}
+
+td.factorChange {
+    width: 75px;
+}
+
+
+table.editHostTaxonTable {
+    width: 475px;
+}
+
+table.editHostFactorTable {
+    width: 300px;
+}
+
+
+td.editHostChecked {
+    width: 25px;
+}
+
+td.editHostName {
+    width: 225px;
+}
+
+td.editHostRemove {
+    width: 50px;
+}
+td.editHostId {
+    width: 50px;
+}
+
+td.editHostFactor {
+    width: 50px;
+}
+
+td.editHostCategory {
+    width: 50px;
+}
+
+td.hideTableCell {
+    visibility: hidden;
+}
+
+.reference-grid {
+    margin-top: 2px;
+}
+
+div.fieldsetContent h3.reference-group-title
+{
+    border: 0px;
+}

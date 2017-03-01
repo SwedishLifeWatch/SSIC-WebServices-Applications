@@ -1,0 +1,132 @@
+﻿@using ArtDatabanken.Data
+@using ArtDatabanken.WebApplication.AnalysisPortal.Utils.Helpers
+@using Resources
+@model ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Calculation.TimeSeriesSettingsViewModel
+
+@{
+    ViewBag.Title = Resource.TimeSeriesSettingsTitle;
+}
+
+<div class="titled-toolbar">
+    @Html.Partial("BreadCrumbTitle_Partial", SessionHandler.CurrentPage)
+    <div class="btn-toolbar page-toolbar">
+        <button id="toolbarButtonSave" disabled="disabled" class="btn toolbarButton"><i class="icon-save"></i> &nbsp;@Resource.SharedSaveSettings</button>
+        <button id="toolbarButtonReset" @if(Model.IsSettingsDefault) { <text>disabled="disabled"</text> }  class="btn toolbarButton"><i class="icon-trash"></i> &nbsp;@Resource.SharedResetSettings</button>
+    </div>
+</div>
+
+<div id="TimeSeriesSettingsDefaultPeriodicityDiv" class="data-panel-content">    
+    @Resource.TimeSeriesSettingsDefaultPeriodicity:
+    <select id="timeSeriesPeriodicitySelectList" >
+        @foreach (Periodicity value in Enum.GetValues(typeof(Periodicity)))
+        {
+            string title = "";
+            switch (value)
+            {
+                case Periodicity.MonthOfTheYear:
+                    title = Resource.ResultTimeSeriesPeriodicityMonthOfTheYearLabel;
+                    break;
+                case Periodicity.WeekOfTheYear:
+                    title = Resource.ResultTimeSeriesPeriodicityWeekOfTheYearLabel;
+                    break;
+                case Periodicity.DayOfTheYear:
+                    title = Resource.ResultTimeSeriesPeriodicityDayOfTheYearLabel;
+                    break;
+                case Periodicity.Yearly:
+                    title = Resource.ResultTimeSeriesPeriodicityYearlyLabel;
+                    break;                     
+                case Periodicity.Monthly:
+                    title = Resource.ResultTimeSeriesPeriodicityMonthlyLabel;
+                    break;
+                case Periodicity.Weekly:
+                    title = Resource.ResultTimeSeriesPeriodicityWeeklyLabel;
+                    break;
+                case Periodicity.Daily:
+                    title = Resource.ResultTimeSeriesPeriodicityDailyLabel;
+                    break;
+            }
+            <option value="@((int)value)" @if(Model.DefaultPeriodicityIndex==(int)value) {<text>selected="selected"</text> }>@title</option>
+        }
+    </select>    
+</div>
+<div id="timeSeriesSettingsDataPanel" class="datapanel"></div>
+
+<form method="POST" id="saveSettingsForm">    
+    @Html.Hidden("data")
+</form>
+
+<script type="text/javascript">
+    var showSaveSettingsMessageOnLeave = true;
+    var strPageSettingsOnLoad = "";
+
+    $(document).ready(function () {
+        createLayout();
+        strPageSettingsOnLoad = getPageSettingsJsonString();
+        initToolbar();
+        $('#timeSeriesPeriodicitySelectList').change(enableDisableButtons);        
+    });
+
+    function initToolbar() {
+        $('#toolbarButtonSave').click(function () {
+            saveChanges();
+        });
+        $('#toolbarButtonReset').click(function () {
+            showSaveSettingsMessageOnLeave = false;
+            window.location = "@Url.Action("ResetTimeSeriesSettings", new {returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery})";
+        });
+    }
+
+    function saveChanges() {
+        var data = getPageSettingsJsonString();
+        strPageSettingsOnLoad = data;
+        var $frm = $('#saveSettingsForm');
+        $frm.find('input[name=data]').val(data);
+        showSaveSettingsMessageOnLeave = false;
+        $frm.submit();
+    }
+
+    function enableDisableButtons() {
+        var data = getPageSettingsJsonString();
+        if (strPageSettingsOnLoad == data)
+            $('#toolbarButtonSave').attr("disabled", true);
+        else
+            $('#toolbarButtonSave').attr("disabled", false);
+    }
+
+    $(window).bind('beforeunload', function () {
+        if (showSaveSettingsMessageOnLeave) {
+            var data = getPageSettingsJsonString();
+            if (strPageSettingsOnLoad != data) {
+                return AnalysisPortal.Resources.SharedLeavePageWithUnsavedSettings;
+            }
+        }
+    });
+
+    function getPageSettingsJsonString() {
+        var pageSettings = getPageSettingsObject();
+        var strJson = Ext.encode(pageSettings);
+        return strJson;
+    }
+
+    function getPageSettingsObject() {
+        var defaultPeriodicityIndex = $('#timeSeriesPeriodicitySelectList').val();    
+        var data = {
+            DefaultPeriodicityIndex: defaultPeriodicityIndex
+        };
+        return data;
+    }
+
+    // Create panel 
+    function createLayout() {
+        var summaryCalculationsObsDataControl = AnalysisPortal.createHtmlPanel('TimeSeriesSettingsDefaultPeriodicityDiv');
+
+        // Create mainPanel
+        AnalysisPortal.createMainPanel('timeSeriesSettingsDataPanel', {
+            title: '@Resource.SharedSettings',
+            width: AnalysisPortal.DefaultContentWidth,        
+            items: [summaryCalculationsObsDataControl],
+            collapsible: false
+        });
+    }
+
+</script>

@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.TaxonService.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dyntaxa</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestCountryISOCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">752</Value>
+    </Setting>
+    <Setting Name="TestLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="ComputerTimeDifference" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="UserDyntaxaReader" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaReader</Value>
+    </Setting>
+    <Setting Name="UserDyntaxaReaderPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DYNTAXAReader123</Value>
+    </Setting>
+    <Setting Name="TestRevisionGUIDPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:dyntaxa.se:Revision</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

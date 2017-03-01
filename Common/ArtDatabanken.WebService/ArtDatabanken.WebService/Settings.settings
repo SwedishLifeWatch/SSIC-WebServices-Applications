@@ -1,0 +1,144 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DatabaseDateTimeFormat" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">yyyy-MM-dd HH:mm:ss.fff</Value>
+    </Setting>
+    <Setting Name="LocalIpAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="TransactionDefaultTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="TransactionMaxTimeout" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">300</Value>
+    </Setting>
+    <Setting Name="MaxReturnedLogRows" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">10000</Value>
+    </Setting>
+    <Setting Name="IPv6MaxStringLength" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">42</Value>
+    </Setting>
+    <Setting Name="ClientTokenDelimiter" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">#</Value>
+    </Setting>
+    <Setting Name="DefaultLocaleISOCode" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">en-GB</Value>
+    </Setting>
+    <Setting Name="DefaultLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">49</Value>
+    </Setting>
+    <Setting Name="RegionGeographyCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RegionGeography</Value>
+    </Setting>
+    <Setting Name="CacheKeyDelimiter" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">#</Value>
+    </Setting>
+    <Setting Name="CoordinateDifferenceLimit" Type="System.Double" Scope="Application">
+      <Value Profile="(Default)">0.0001</Value>
+    </Setting>
+    <Setting Name="PointCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PointKey</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationDataProviderCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationDataProvider</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationDataProviderDictionaryCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationDataProviderDictionary</Value>
+    </Setting>
+    <Setting Name="DarwinCoreFieldDescriptionCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FieldDescriptionKey</Value>
+    </Setting>
+    <Setting Name="DarwinCoreFieldMappingCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FieldMappingKey</Value>
+    </Setting>
+    <Setting Name="BirdNestActivityCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">BirdNestActivityKey</Value>
+    </Setting>
+    <Setting Name="SpeciesActivityCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesActivityKey</Value>
+    </Setting>
+    <Setting Name="DarwinCoreFieldDescriptionExtendedCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">FieldDescriptionExtendedKey</Value>
+    </Setting>
+    <Setting Name="DarwinCoreObservationColumnsCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ObservationColumnsCacheKey</Value>
+    </Setting>
+    <Setting Name="OkStatusUpdateIntervalMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="OkStatusUpdateIntervalSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ErrorStatusUpdateIntervalMinutes" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ErrorStatusUpdateIntervalSeconds" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="ResourceTypeDatabaseSwedishName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Databas</Value>
+    </Setting>
+    <Setting Name="ResourceTypeDatabaseEnglishName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database</Value>
+    </Setting>
+    <Setting Name="ResourceTypeWebServiceSwedishName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Webbtjänst</Value>
+    </Setting>
+    <Setting Name="ResourceTypeWebServiceEnglishName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Web service</Value>
+    </Setting>
+    <Setting Name="ResourceAccessTypeReadSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Läsa</Value>
+    </Setting>
+    <Setting Name="ResourceAccessTypeReadEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Read</Value>
+    </Setting>
+    <Setting Name="DatabaseStatusErrorEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Database returned status not ok.</Value>
+    </Setting>
+    <Setting Name="DatabaseStatusErrorSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Databasen svarade att något är fel.</Value>
+    </Setting>
+    <Setting Name="DatabaseCommunicationFailureEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Failure when communicating with database.</Value>
+    </Setting>
+    <Setting Name="DatabaseCommunicationFailureSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Ett fel uppstod vid kommunikationen med databasen.</Value>
+    </Setting>
+    <Setting Name="ErrorMessageEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Error message</Value>
+    </Setting>
+    <Setting Name="ErrorMessageSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Felmeddelande</Value>
+    </Setting>
+    <Setting Name="WebServiceCommunicationFailureEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Failed to retrieve status.</Value>
+    </Setting>
+    <Setting Name="WebServiceCommunicationFailureSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Misslyckades med att hämta status.</Value>
+    </Setting>
+    <Setting Name="ResourceAccessTypeReadAndWriteSwedish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Läsa och skriva</Value>
+    </Setting>
+    <Setting Name="ResourceAccessTypeReadAndWriteEnglish" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Read and write</Value>
+    </Setting>
+    <Setting Name="TaxaInAuthorityCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxaInAuthority</Value>
+    </Setting>
+    <Setting Name="TaxonTreeRelationCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonTreeRelations</Value>
+    </Setting>
+    <Setting Name="SaltMaxLength" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationCountyRegionCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationCountyRegion</Value>
+    </Setting>
+    <Setting Name="SpeciesObservationProvinceRegionCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesObservationProvinceRegion</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,3896 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountAccessIsNotAllowedDescription" xml:space="preserve">
+    <value>Du har inte behörighet att komma åt följande sida</value>
+  </data>
+  <data name="AccountAccessIsNotAllowedTitle" xml:space="preserve">
+    <value>Åtkomst är inte tillåten</value>
+  </data>
+  <data name="AccountControllerIncorrectLoginError" xml:space="preserve">
+    <value>Användarnamnet eller lösenordet är felaktigt.</value>
+  </data>
+  <data name="AccountControllerIncorrectPasswordError" xml:space="preserve">
+    <value>Det nuvarande lösenordet är felaktigt eller det nya lösenordet är ogiltigt.</value>
+  </data>
+  <data name="AccountLogInText" xml:space="preserve">
+    <value>Logga in</value>
+  </data>
+  <data name="AccountLogOutInfoLine1" xml:space="preserve">
+    <value>Du är redan inloggad eller så har sessionen avslutats pga inaktivitet (timeout).</value>
+  </data>
+  <data name="AccountLogOutInfoLine2" xml:space="preserve">
+    <value>Klicka "Logga ut" för att kunna logga in igen.</value>
+  </data>
+  <data name="AccountLogOutText" xml:space="preserve">
+    <value>Logga ut</value>
+  </data>
+  <data name="AccountUserAdminLinkText" xml:space="preserve">
+    <value>Skapa nytt eller redigera befintligt konto</value>
+  </data>
+  <data name="SharedAboutAnalysisPortalText" xml:space="preserve">
+    <value>Om Analysportalen</value>
+  </data>
+  <data name="SharedAboutCookiesHeader" xml:space="preserve">
+    <value>Om cookies</value>
+  </data>
+  <data name="SharedAboutCookiesSubHeader" xml:space="preserve">
+    <value>Den här webbplatsen använder cookies</value>
+  </data>
+  <data name="SharedAddButtonText" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="SharedAddButtonText1" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="SharedAdditionalErrorInformation" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedAnalysisPortalFullVersionLinkText" xml:space="preserve">
+    <value>Full version</value>
+  </data>
+  <data name="SharedAnalysisPortalMainTitle" xml:space="preserve">
+    <value>Analysportalen</value>
+  </data>
+  <data name="SharedArtDatabankenText" xml:space="preserve">
+    <value>ArtDatabanken</value>
+  </data>
+  <data name="SharedAvaliableLabel" xml:space="preserve">
+    <value>Tillgängliga</value>
+  </data>
+  <data name="SharedBoolFalseText" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedBoolTrueText" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SharedCancelButtonText" xml:space="preserve">
+    <value>Avbryt</value>
+  </data>
+  <data name="SharedChangeLanguageLabel" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="SharedContactMailLinkText" xml:space="preserve">
+    <value>Kontakta support</value>
+  </data>
+  <data name="SharedCookiesReadMoreLink" xml:space="preserve">
+    <value>http://www.pts.se/sv/Regler/Lagar/Lag-om-elektronisk-kommunikation/Cookies-kakor/</value>
+  </data>
+  <data name="SharedCookiesReadMoreText" xml:space="preserve">
+    <value>Läs mer på Post- och telestyrelsens sida</value>
+  </data>
+  <data name="SharedCreating" xml:space="preserve">
+    <value>Skapar</value>
+  </data>
+  <data name="SharedCurrentServiceStatusLinkText" xml:space="preserve">
+    <value>Aktuell driftinformation</value>
+  </data>
+  <data name="SharedDateText" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="SharedDeleteButtonText" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+  <data name="SharedDeleting" xml:space="preserve">
+    <value>Tar bort</value>
+  </data>
+  <data name="SharedDialogButtonTextNo" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedDialogButtonTextYes" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SharedDialogConfirmationHeader" xml:space="preserve">
+    <value>Bekräfta</value>
+  </data>
+  <data name="SharedDialogConfirmationText" xml:space="preserve">
+    <value>Är du säker</value>
+  </data>
+  <data name="SharedDialogDeleteHeader" xml:space="preserve">
+    <value>Radera</value>
+  </data>
+  <data name="SharedDialogInformationHeader" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedDoYouWantToContinue" xml:space="preserve">
+    <value>Vill du fortsätta?</value>
+  </data>
+  <data name="SharedDropDownAny" xml:space="preserve">
+    <value>Ignorera</value>
+  </data>
+  <data name="SharedDropDownFalse" xml:space="preserve">
+    <value>Nej</value>
+  </data>
+  <data name="SharedDropDownTrue" xml:space="preserve">
+    <value>Ja</value>
+  </data>
+  <data name="SharedEditButtonText" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
+  <data name="SharedError" xml:space="preserve">
+    <value>Fel</value>
+    <comment>Temporär felsträng...</comment>
+  </data>
+  <data name="SharedErrorStringToLong250" xml:space="preserve">
+    <value>Textsträngen är för lång (måste vara mindre än 250 tecken)</value>
+  </data>
+  <data name="SharedExeptionNullOrEmpty" xml:space="preserve">
+    <value>Värdet kan inte vara tomt</value>
+  </data>
+  <data name="SharedFieldsetLegendEditCreateText" xml:space="preserve">
+    <value>Fyll i formuläret</value>
+  </data>
+  <data name="SharedFinalizing" xml:space="preserve">
+    <value>Publicerar revisionen</value>
+  </data>
+  <data name="SharedFooterInfoHeader" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="SharedFooterLinkHeader" xml:space="preserve">
+    <value>Länkar</value>
+  </data>
+  <data name="SharedGeneratingExcelFile" xml:space="preserve">
+    <value>Skapar Excelfil...</value>
+  </data>
+  <data name="SharedGoToReferenceViewQuestion" xml:space="preserve">
+    <value>Du har skrivit in information som kommer att försvinna om du fortsätter till Referenssidan, om du inte väljer att avbryta och spara.  Vill du fortsätta och förlora data?</value>
+  </data>
+  <data name="SharedInfo" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="SharedInvalidApplicationUserContext" xml:space="preserve">
+    <value>Analysportalens applikationsanvändare är ogiltig. Logga ut och logga in igen.</value>
+  </data>
+  <data name="SharedInvalidUserContext" xml:space="preserve">
+    <value>Ingen giltig användare har loggat in. Logga ut och logga in igen.</value>
+  </data>
+  <data name="SharedLoading" xml:space="preserve">
+    <value>Laddar...</value>
+  </data>
+  <data name="SharedLogoArtprojektetSmallImg" xml:space="preserve">
+    <value>logo_sv_artprojektet_90x50.png</value>
+  </data>
+  <data name="SharedLogoLifewatch_SmallImg" xml:space="preserve">
+    <value>logo_sv_lifewatch_134x32.png</value>
+  </data>
+  <data name="SharedManageReferences" xml:space="preserve">
+    <value>Hantera referenser</value>
+  </data>
+  <data name="SharedMissingValue" xml:space="preserve">
+    <value>Värde saknas</value>
+  </data>
+  <data name="SharedNotPossibleToLoginArtDatabankenServiceError" xml:space="preserve">
+    <value>Inte möjligt att logga in på  ArtDatabankenService.</value>
+  </data>
+  <data name="SharedNotPossibleToReadSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att läsa artfakta.</value>
+  </data>
+  <data name="SharedNotPossibleToUpdateSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att uppdatera artfakta.</value>
+  </data>
+  <data name="SharedNotSpecifiedText" xml:space="preserve">
+    <value>--- Ej angivet ---</value>
+  </data>
+  <data name="SharedNoValidReferenceErrorInfoText" xml:space="preserve">
+    <value>Ingen giltig referens finns. Minst en referens måste anges till vald revision.</value>
+  </data>
+  <data name="SharedNoValidReferenceErrorText" xml:space="preserve">
+    <value>Ingen giltig referens finns</value>
+  </data>
+  <data name="SharedNoValidRevisionErrorText" xml:space="preserve">
+    <value>Ingen giltig revision finns</value>
+  </data>
+  <data name="SharedNoValidTaxonErrorText" xml:space="preserve">
+    <value>Inget giltigt taxon finns</value>
+  </data>
+  <data name="SharedOkButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="SharedPasswordLabel" xml:space="preserve">
+    <value>Lösenord</value>
+  </data>
+  <data name="SharedPickReferenceText" xml:space="preserve">
+    <value>Ange minst en referens</value>
+  </data>
+  <data name="SharedReadTaxonInformationNationalOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="SharedReadTaxonInformationTaxonStatusLabel" xml:space="preserve">
+    <value>Taxonstatus</value>
+  </data>
+  <data name="SharedReferenceLabel" xml:space="preserve">
+    <value>Referens</value>
+  </data>
+  <data name="SharedReferenceNoReferencesAvaliable" xml:space="preserve">
+    <value>Inga referenser angivna.</value>
+  </data>
+  <data name="SharedReferences" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="SharedReferencesHeaderText" xml:space="preserve">
+    <value>Referenser</value>
+  </data>
+  <data name="SharedResetButtonText" xml:space="preserve">
+    <value>Nollställ</value>
+  </data>
+  <data name="SharedReturnToListText" xml:space="preserve">
+    <value>Återgå till listan</value>
+  </data>
+  <data name="SharedSaveButtonText" xml:space="preserve">
+    <value>Spara</value>
+  </data>
+  <data name="SharedSaving" xml:space="preserve">
+    <value>Sparar</value>
+  </data>
+  <data name="SharedSelectedLabel" xml:space="preserve">
+    <value>Valda</value>
+  </data>
+  <data name="SharedSLUText" xml:space="preserve">
+    <value>Sveriges lantbruksuniversitet</value>
+  </data>
+  <data name="SharedSpeciesFactError" xml:space="preserve">
+    <value>Inte möjligt att visa svensk förkomst för valt taxon.</value>
+  </data>
+  <data name="SharedSubmitButtonText" xml:space="preserve">
+    <value>Skicka</value>
+  </data>
+  <data name="SharedSupportHeaderText" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SharedSvenskaArtprojektetText" xml:space="preserve">
+    <value>Svenska artprojektet</value>
+  </data>
+  <data name="SharedSwedishLifeWatchText" xml:space="preserve">
+    <value>Ingår i Svenska LifeWatch</value>
+  </data>
+  <data name="SharedTaxonConceptDescription" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="SharedTaxonInvalidCategoryText" xml:space="preserve">
+    <value>Ogiltig taxon categori vald.</value>
+  </data>
+  <data name="SharedTaxonNameSearchResultListHeader" xml:space="preserve">
+    <value>Lista med namn som matchar söksträngen</value>
+  </data>
+  <data name="SharedTaxonPickCategoryText" xml:space="preserve">
+    <value>Välj en taxonkategori</value>
+  </data>
+  <data name="SharedTaxonSelecteCategoryDropDownListText" xml:space="preserve">
+    <value>Välj kategori</value>
+  </data>
+  <data name="SharedTaxonSelecteReferenceDropDownListText" xml:space="preserve">
+    <value>Välj referens</value>
+  </data>
+  <data name="SharedTermsOfUseText" xml:space="preserve">
+    <value>Användarvillkor</value>
+  </data>
+  <data name="SharedUserNameLabel" xml:space="preserve">
+    <value>Användarnamn</value>
+  </data>
+  <data name="SharedVersionNumberText" xml:space="preserve">
+    <value>Versionsnummer</value>
+  </data>
+  <data name="SharedVersionText" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="SharedViewLabel" xml:space="preserve">
+    <value>Visa</value>
+  </data>
+  <data name="SharedWebGridFirstPage" xml:space="preserve">
+    <value>Första sidan</value>
+  </data>
+  <data name="SharedWebGridLastPage" xml:space="preserve">
+    <value>Sista sidan</value>
+  </data>
+  <data name="SharedClipboard" xml:space="preserve">
+    <value>Urklipp</value>
+  </data>
+  <data name="SharedRowDelimeter" xml:space="preserve">
+    <value>Radavgränsare</value>
+  </data>
+  <data name="SharedRowDelimiterReturnLinefeed" xml:space="preserve">
+    <value>Radbrytning</value>
+  </data>
+  <data name="SharedRowDelimiterSemicolon" xml:space="preserve">
+    <value>Semikolon</value>
+  </data>
+  <data name="SharedRowDelimiterTab" xml:space="preserve">
+    <value>Tabb</value>
+  </data>
+  <data name="SharedRowDelimiterVerticalBar" xml:space="preserve">
+    <value>Vertikalt streck</value>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxa" xml:space="preserve">
+    <value>Lägg till markerade taxa till taxafilter</value>
+  </data>
+  <data name="FilterTaxonFromNameSearchTaxaGridTitle" xml:space="preserve">
+    <value>Sökträffar</value>
+  </data>
+  <data name="FilterTaxonFromIdsSelectedTaxaGridTitle" xml:space="preserve">
+    <value>Aktuellt taxonfilter</value>
+  </data>
+  <data name="LabelAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="LabelCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="LabelSwedishName" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="LabelTaxon" xml:space="preserve">
+    <value>Taxon</value>
+  </data>
+  <data name="LabelTaxonId" xml:space="preserve">
+    <value>TaxonId</value>
+  </data>
+  <data name="MsgPleaseWait" xml:space="preserve">
+    <value>Vänligen vänta...</value>
+  </data>
+  <data name="TooltipFilterTaxonFromIdsAddSelectedTaxa" xml:space="preserve">
+    <value>Den valda taxan kommer att läggas till...</value>
+  </data>
+  <data name="TooltipRemove" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+  <data name="SharedErrorRequestTimeout" xml:space="preserve">
+    <value>Det verkar som att anropet har gjort en Timeout, vänligen prova igen!</value>
+  </data>
+  <data name="MySettingsSaveFailure" xml:space="preserve">
+    <value>Det uppstod ett fel när inställningarna skulle sparas. Vänligen försök igen.</value>
+  </data>
+  <data name="MySettingsSaveSuccess" xml:space="preserve">
+    <value>Inställningarna har sparats.</value>
+  </data>
+  <data name="SharedLoadButtonText" xml:space="preserve">
+    <value>Ladda</value>
+  </data>
+  <data name="FilterTaxonFromIdsTitle" xml:space="preserve">
+    <value>Filter - Taxon från id</value>
+  </data>
+  <data name="MySettingsFilterNoTaxaIsSelected" xml:space="preserve">
+    <value>Inga valda taxa</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedTaxa" xml:space="preserve">
+    <value>Taxa ({0} valda)</value>
+  </data>
+  <data name="SharedSearch" xml:space="preserve">
+    <value>Sök</value>
+  </data>
+  <data name="PresentationTableGridTitle" xml:space="preserve">
+    <value>Utvalda observationer</value>
+  </data>
+  <data name="PresentationTableLocalityLabel" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="PresentationTableOrganismGroupLabel" xml:space="preserve">
+    <value>Grupprubrik</value>
+  </data>
+  <data name="PresentationTableRedListCategoryLabel" xml:space="preserve">
+    <value>Rödlistekategori</value>
+  </data>
+  <data name="PresentationTableScentificNameLabel" xml:space="preserve">
+    <value>Vetenskapligtnamn</value>
+  </data>
+  <data name="PresentationTableTaxonConceptStatusLabel" xml:space="preserve">
+    <value>Taxonosäkerhet</value>
+  </data>
+  <data name="PresentationTableAccurancyLabel" xml:space="preserve">
+    <value>Noggrannhet (m)</value>
+  </data>
+  <data name="PresentationTableCommonNameLabel" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="PresentationTableCoordinateEastLabel" xml:space="preserve">
+    <value>Ostkoordinat</value>
+  </data>
+  <data name="PresentationTableCoordinateNorthLabel" xml:space="preserve">
+    <value>Nordkoordinat</value>
+  </data>
+  <data name="PresentationTableCountyLabel" xml:space="preserve">
+    <value>Län</value>
+  </data>
+  <data name="PresentationTableEndDateLabel" xml:space="preserve">
+    <value>Slutdatum</value>
+  </data>
+  <data name="PresentationTableMunicipalityLabel" xml:space="preserve">
+    <value>Kommun</value>
+  </data>
+  <data name="PresentationTableOwnerLabel" xml:space="preserve">
+    <value>Upphov</value>
+  </data>
+  <data name="PresentationTableParishLabel" xml:space="preserve">
+    <value>Församling</value>
+  </data>
+  <data name="PresentationTableRecordedByLabel" xml:space="preserve">
+    <value>Observatör(er)</value>
+  </data>
+  <data name="PresentationTableStartDateLabel" xml:space="preserve">
+    <value>Startdatum</value>
+  </data>
+  <data name="PresentationTableStateProvinceLabel" xml:space="preserve">
+    <value>Landskap</value>
+  </data>
+  <data name="PresentationTableBehaviourLabel" xml:space="preserve">
+    <value>Activity/Number of substrate</value>
+  </data>
+  <data name="PresentationTableCollectionCodeLabel" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="PresentationTableDatabaseLabel" xml:space="preserve">
+    <value>Databas</value>
+  </data>
+  <data name="PresentationTableGroupSortingLabel" xml:space="preserve">
+    <value>Gruppsortering</value>
+  </data>
+  <data name="PresentationTableIsNeverFoundObservarionLabel" xml:space="preserve">
+    <value>Ej återfunnen</value>
+  </data>
+  <data name="PresentationTableIsNotRediscoveredObservationLabel" xml:space="preserve">
+    <value>Aldrig funnen</value>
+  </data>
+  <data name="PresentationTableLifeStageLabel" xml:space="preserve">
+    <value>Life stage</value>
+  </data>
+  <data name="PresentationTableDatasetIDLabel" xml:space="preserve">
+    <value>Föredomst id</value>
+  </data>
+  <data name="PresentationTableOcurranceRemarksLabel" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="PresentationTableProtectionLevelLabel" xml:space="preserve">
+    <value>Skyddsnivå</value>
+  </data>
+  <data name="PresentationTableQuantityLabel" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="PresentationTableQuantityUnitLabel" xml:space="preserve">
+    <value>Quantity unit</value>
+  </data>
+  <data name="PresentationTableSubstrateLabel" xml:space="preserve">
+    <value>Habitate/Substrate</value>
+  </data>
+  <data name="PresentationTableTaxonIdLabel" xml:space="preserve">
+    <value>Taxonid</value>
+  </data>
+  <data name="PresentationTableTaxonSortOrderLabel" xml:space="preserve">
+    <value>Taxonsortering</value>
+  </data>
+  <data name="ApplicationSubTitle" xml:space="preserve">
+    <value>för biodiversitetsdata</value>
+  </data>
+  <data name="HeadMenuCalculation" xml:space="preserve">
+    <value>Beräkningar</value>
+  </data>
+  <data name="HeadMenuDataProviders" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="HeadMenuFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="HeadMenuOverview" xml:space="preserve">
+    <value>Översikt</value>
+  </data>
+  <data name="HeadMenuPresentation" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="HeadMenuResult" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="SharedButtonCheckToolTip" xml:space="preserve">
+    <value>Kryssa i för att aktivera</value>
+  </data>
+  <data name="SharedButtonSettingToolTip" xml:space="preserve">
+    <value>Ändra inställningar för</value>
+  </data>
+  <data name="SharedButtonUnCheckToolTip" xml:space="preserve">
+    <value>Kryssa ur för att inaktivera</value>
+  </data>
+  <data name="PresentationTableColumnSelectionLabel" xml:space="preserve">
+    <value>Välj observationsdatakolumner</value>
+  </data>
+  <data name="PresentationTablePresentationColumnMaximun" xml:space="preserve">
+    <value>Maximum</value>
+  </data>
+  <data name="PresentationTablePresentationColumnMedium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="PresentationTablePresentationColumnMinimum" xml:space="preserve">
+    <value>Minimum</value>
+  </data>
+  <data name="PresentationTableTitleLabel" xml:space="preserve">
+    <value>Förhandsvisning av observationer</value>
+  </data>
+  <data name="HomeVersionNumberDate" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="HomeVersionNumberTitle" xml:space="preserve">
+    <value>Versionsnummer</value>
+  </data>
+  <data name="HomeVersionNumberVersion" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="ButtonGroupCalculation" xml:space="preserve">
+    <value>Beräkningar (databearbetning)</value>
+  </data>
+  <data name="ButtonGroupDataProviders" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ButtonGroupFilter" xml:space="preserve">
+    <value>Filter (Sökkriterier för artobservationer)</value>
+  </data>
+  <data name="ButtonGroupPresentation" xml:space="preserve">
+    <value>Format (presentation- &amp; exportinställningar)</value>
+  </data>
+  <data name="StateButtonCalculationGridStatistics" xml:space="preserve">
+    <value>Gridstatistik</value>
+  </data>
+  <data name="StateButtonCalculationSummaryStatistics" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="StateButtonCalculationTimeSeries" xml:space="preserve">
+    <value>Tidsserier</value>
+  </data>
+  <data name="StateButtonDataProvidersMetadataSearch" xml:space="preserve">
+    <value>Metadatasök</value>
+  </data>
+  <data name="StateButtonDataProvidersSpeciesObservation" xml:space="preserve">
+    <value>Artobservationer (databaser)</value>
+  </data>
+  <data name="StateButtonFilterQuality" xml:space="preserve">
+    <value>Kvalité</value>
+  </data>
+  <data name="StateButtonFilterSpatial" xml:space="preserve">
+    <value>Rumsligt</value>
+  </data>
+  <data name="StateButtonFilterTaxa" xml:space="preserve">
+    <value>Taxa</value>
+  </data>
+  <data name="StateButtonFilterTemporal" xml:space="preserve">
+    <value>Tid</value>
+  </data>
+  <data name="StateButtonPresentationDiagram" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="StateButtonPresentationMap" xml:space="preserve">
+    <value>Karta</value>
+  </data>
+  <data name="StateButtonPresentationReport" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="StateButtonPresentationTable" xml:space="preserve">
+    <value>Tabellkolumner</value>
+  </data>
+  <data name="ButtonGroupResult" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="ButtonResultDownload" xml:space="preserve">
+    <value>Ladda ner</value>
+  </data>
+  <data name="ButtonResultView" xml:space="preserve">
+    <value>Visa</value>
+  </data>
+  <data name="SharedOverview" xml:space="preserve">
+    <value>Översikt</value>
+  </data>
+  <data name="SharedLoadingData" xml:space="preserve">
+    <value>Laddar data...</value>
+  </data>
+  <data name="SharedTimeoutError" xml:space="preserve">
+    <value>En timeout inträffade. Servern är inte kontaktbar eller så tog beräkningen för lång tid.</value>
+  </data>
+  <data name="SharedErrorOccurred" xml:space="preserve">
+    <value>Ett fel uppstod. Vänligen försök igen.</value>
+  </data>
+  <data name="SharedSearching" xml:space="preserve">
+    <value>Söker...</value>
+  </data>
+  <data name="HeadNavigationInfoButton" xml:space="preserve">
+    <value>Gå till hemsidan för Svenska Lifewatch för att läsa mer och hitta manualer m.m.</value>
+  </data>
+  <data name="MySettingsCurrentSettingsHeader" xml:space="preserve">
+    <value>Mina val</value>
+  </data>
+  <data name="MySettingsHintsHeader" xml:space="preserve">
+    <value>Tips och Handledningar</value>
+  </data>
+  <data name="MySettingsNewsHeader" xml:space="preserve">
+    <value>Nyheter</value>
+  </data>
+  <data name="SharedAboutAnalysisPortal" xml:space="preserve">
+    <value>Om Analysportalen</value>
+  </data>
+  <data name="SharedButtonGroupHelp" xml:space="preserve">
+    <value>Hjälp och ytterligare information om de olika alternativen under [Title]</value>
+  </data>
+  <data name="SharedErrorHeader" xml:space="preserve">
+    <value>Ett fel inträffade!</value>
+  </data>
+  <data name="TaxonFromIdsPasteHint" xml:space="preserve">
+    <value>Klistra eller skriv in lista med taxon-id</value>
+  </data>
+  <data name="FilterTaxonFromSearchTitle" xml:space="preserve">
+    <value>Sök taxa</value>
+  </data>
+  <data name="SharedErrorOccurredInPartialView" xml:space="preserve">
+    <value>Ett fel uppstod i denna delvy.</value>
+  </data>
+  <data name="SharedRemoveAll" xml:space="preserve">
+    <value>Ta bort alla</value>
+  </data>
+  <data name="TaxonSearchAmbiguousResult" xml:space="preserve">
+    <value>Tvetydigt sökresultat. Välj taxon för att återgå till</value>
+  </data>
+  <data name="TaxonSearchAny" xml:space="preserve">
+    <value>Ignorera</value>
+  </data>
+  <data name="TaxonSearchAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonSearchCompareOpAutomatic" xml:space="preserve">
+    <value>Automatisk</value>
+  </data>
+  <data name="TaxonSearchCompareOpBeginsWith" xml:space="preserve">
+    <value>Börjar med</value>
+  </data>
+  <data name="TaxonSearchCompareOpContains" xml:space="preserve">
+    <value>Innehåller</value>
+  </data>
+  <data name="TaxonSearchCompareOpEndsWith" xml:space="preserve">
+    <value>Slutar med</value>
+  </data>
+  <data name="TaxonSearchCompareOpEqual" xml:space="preserve">
+    <value>Lika med</value>
+  </data>
+  <data name="TaxonSearchCompareOpIterative" xml:space="preserve">
+    <value>Iterativ</value>
+  </data>
+  <data name="TaxonSearchCompareOpLike" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="TaxonSearchCompareOpNotEqual" xml:space="preserve">
+    <value>Ej lika med</value>
+  </data>
+  <data name="TaxonSearchFalse" xml:space="preserve">
+    <value>Falskt</value>
+  </data>
+  <data name="TaxonSearchHit" xml:space="preserve">
+    <value>Sökträff</value>
+  </data>
+  <data name="TaxonSearchHits" xml:space="preserve">
+    <value>träffar</value>
+  </data>
+  <data name="TaxonSearchIsOkForObsSystem" xml:space="preserve">
+    <value>Är ok för obs-system</value>
+  </data>
+  <data name="TaxonSearchIsRecommended" xml:space="preserve">
+    <value>Rekommenderad</value>
+  </data>
+  <data name="TaxonSearchIsUnique" xml:space="preserve">
+    <value>Namnet är unikt</value>
+  </data>
+  <data name="TaxonSearchIsValidTaxon" xml:space="preserve">
+    <value>Giltigt taxon</value>
+  </data>
+  <data name="TaxonSearchIsValidTaxonName" xml:space="preserve">
+    <value>Giltigt taxonnamn</value>
+  </data>
+  <data name="TaxonSearchNameCategory" xml:space="preserve">
+    <value>Namnkategori</value>
+  </data>
+  <data name="TaxonSearchOptionsLabel" xml:space="preserve">
+    <value>Sökalternativ</value>
+  </data>
+  <data name="TaxonSearchResetSearchOptions" xml:space="preserve">
+    <value>Återställ sökinställningar</value>
+  </data>
+  <data name="TaxonSearchRestrictTo" xml:space="preserve">
+    <value>Begränsa sök till [TaxonName]</value>
+  </data>
+  <data name="TaxonSearchResult" xml:space="preserve">
+    <value>Sökresultat</value>
+  </data>
+  <data name="TaxonSearchSearching" xml:space="preserve">
+    <value>Söker...</value>
+  </data>
+  <data name="TaxonSearchSeconds" xml:space="preserve">
+    <value>sekunder</value>
+  </data>
+  <data name="TaxonSearchSettings" xml:space="preserve">
+    <value>Sökbegränsningar</value>
+  </data>
+  <data name="TaxonSearchTaxonId" xml:space="preserve">
+    <value>TaxonId</value>
+  </data>
+  <data name="TaxonSearchTaxonNameCompareOperator" xml:space="preserve">
+    <value>Jämförelseoperator</value>
+  </data>
+  <data name="TaxonSearchTaxonNotExistErrorText" xml:space="preserve">
+    <value>Sökt taxon finns inte.</value>
+  </data>
+  <data name="TaxonSearchTaxonNotInRevisionErrorText" xml:space="preserve">
+    <value>Sökt taxon finns inte i vald revision.</value>
+  </data>
+  <data name="TaxonSearchTitle" xml:space="preserve">
+    <value>Sök taxon</value>
+  </data>
+  <data name="TaxonSearchTrue" xml:space="preserve">
+    <value>Sant</value>
+  </data>
+  <data name="TaxonSearchZeroResults" xml:space="preserve">
+    <value>Det finns inget taxon med namnet "{0}"</value>
+  </data>
+  <data name="TaxonSharedAlertStatusGreen" xml:space="preserve">
+    <value>Taxonet är giltigt och inga särskilda problem existerar om dess klassificering och erkännande.</value>
+  </data>
+  <data name="TaxonSharedAlertStatusRed" xml:space="preserve">
+    <value>Taxonet är inte giltigt.</value>
+  </data>
+  <data name="TaxonSharedAlertStatusYellow" xml:space="preserve">
+    <value>Taxonet är giltigt, men det blandas ofta ihop med andra taxa.</value>
+  </data>
+  <data name="TaxonSharedAuthor" xml:space="preserve">
+    <value>Auktor</value>
+  </data>
+  <data name="TaxonSharedCategory" xml:space="preserve">
+    <value>Kategori</value>
+  </data>
+  <data name="TaxonSharedCommonName" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="TaxonSharedDescription" xml:space="preserve">
+    <value>Beskrivning av taxonkonceptet</value>
+  </data>
+  <data name="TaxonSharedInvalidRevision" xml:space="preserve">
+    <value>Ingen giltig revision finns</value>
+  </data>
+  <data name="TaxonSharedInvalidTaxon" xml:space="preserve">
+    <value>Inget giltigt taxon finns</value>
+  </data>
+  <data name="TaxonSharedName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TaxonSharedScientificName" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="TaxonSharedSwedishName" xml:space="preserve">
+    <value>Svenskt namn</value>
+  </data>
+  <data name="TaxonSharedTaxonCategory" xml:space="preserve">
+    <value>Taxonkategori</value>
+  </data>
+  <data name="TaxonSharedTaxonId" xml:space="preserve">
+    <value>Taxon Id</value>
+  </data>
+  <data name="FilterTaxaRemoveSelectedTaxa" xml:space="preserve">
+    <value>Ta bort taxon från listan</value>
+  </data>
+  <data name="FilterTaxaRemoveSelectedTaxaTooltip" xml:space="preserve">
+    <value>Ta bort markerad taxa från filter</value>
+  </data>
+  <data name="PresentationTableDetails" xml:space="preserve">
+    <value>I</value>
+  </data>
+  <data name="DetailsDetailTitleLabel" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="TaxonSearchNotEnoughSearchCriteriaError" xml:space="preserve">
+    <value>Du måste skriva in åtminstone taxonnamn eller auktor.</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleText" xml:space="preserve">
+    <value>Välj ny roll</value>
+  </data>
+  <data name="AccountLogInUserRole" xml:space="preserve">
+    <value>Välj roll</value>
+  </data>
+  <data name="SharedUpdateButtonText" xml:space="preserve">
+    <value>Ändra</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRole" xml:space="preserve">
+    <value>Välj roll</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleDescription" xml:space="preserve">
+    <value>Beskrivning av rollen</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleName" xml:space="preserve">
+    <value>Nuvarande roll</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleTextInfo" xml:space="preserve">
+    <value>Välj en annan roll i listen nedan</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleTiltle" xml:space="preserve">
+    <value>Byt roll</value>
+  </data>
+  <data name="AccountLogInChangeUserRole" xml:space="preserve">
+    <value>Byt roll</value>
+  </data>
+  <data name="AccountChangeUserRolePersonUser" xml:space="preserve">
+    <value>Privatperson</value>
+  </data>
+  <data name="AccountChangeUserRoleUserRoleId" xml:space="preserve">
+    <value>Roll id</value>
+  </data>
+  <data name="AccountLogInDescription" xml:space="preserve">
+    <value>Använd samma användarkonto som i Artportalen 2, Dyntaxa, Eva, PrintObs, m.fl</value>
+  </data>
+  <data name="AccountUserAdminRoleLinkText" xml:space="preserve">
+    <value>Läs om och uppdatera ditt användarkonto</value>
+  </data>
+  <data name="SharedDyntaxaLinkText" xml:space="preserve">
+    <value>Gå till dyntaxa för att söka fram taxa</value>
+  </data>
+  <data name="MySettingsFilterNoSpatialFilterIsSelected" xml:space="preserve">
+    <value>Inget geografiskt filter är valt</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedPolygons" xml:space="preserve">
+    <value>Rumsligt filter ({0} polygoner)</value>
+  </data>
+  <data name="PresentationTableInfoText" xml:space="preserve">
+    <value>Gör tabellinställningar i den här vyn</value>
+  </data>
+  <data name="PresentationTableSelectButtonText" xml:space="preserve">
+    <value>Ändra table typ</value>
+  </data>
+  <data name="PresentationTableSelectionIdLabel" xml:space="preserve">
+    <value>Tabelltyp</value>
+  </data>
+  <data name="PresentationTableSelectTableInfoLabel" xml:space="preserve">
+    <value>Välj tabelltyp för resultatpresentatation</value>
+  </data>
+  <data name="PresentationTableSelectColumnsButtonText" xml:space="preserve">
+    <value>Välj kolumner</value>
+  </data>
+  <data name="PresentationTableSelectTypeButtonText" xml:space="preserve">
+    <value>Välj typ</value>
+  </data>
+  <data name="PresentationTableColumnSelectedLabel" xml:space="preserve">
+    <value>Observationsdatakolumner</value>
+  </data>
+  <data name="PresentationTableInfoLabel" xml:space="preserve">
+    <value>Valda inställningar</value>
+  </data>
+  <data name="PresentationTablePresentationDarwinCoreType" xml:space="preserve">
+    <value>Darwin Core</value>
+  </data>
+  <data name="PresentationTablePresentationObsType" xml:space="preserve">
+    <value>Print Obs</value>
+  </data>
+  <data name="PresentationTablePreviewLabel" xml:space="preserve">
+    <value>Förhandsgranskning</value>
+  </data>
+  <data name="PresentationTableTypeSelectedLabel" xml:space="preserve">
+    <value>Tabelltyp</value>
+  </data>
+  <data name="PresentationTableTypeSelectionLabel" xml:space="preserve">
+    <value>Vald tabelltyp</value>
+  </data>
+  <data name="FilterSettingsInvalidNoTaxaSelected" xml:space="preserve">
+    <value>Inget taxafilter är valt</value>
+  </data>
+  <data name="FilterSpatialClearSuccess" xml:space="preserve">
+    <value>Det geografiska filtret nollställdes.</value>
+  </data>
+  <data name="FilterSpatialTitle" xml:space="preserve">
+    <value>Rumsligt filter - sammanställning</value>
+  </data>
+  <data name="FilterSpatialUpdateSuccess" xml:space="preserve">
+    <value>Det geografiska filtret uppdaterades.</value>
+  </data>
+  <data name="FilterTaxa" xml:space="preserve">
+    <value>Taxonfilter</value>
+  </data>
+  <data name="FilterTaxonFromIdsButton" xml:space="preserve">
+    <value>Klistra in lista med taxon-id</value>
+  </data>
+  <data name="FilterTaxonFromIdsButtonTooltip" xml:space="preserve">
+    <value>Sök via Taxon-id</value>
+  </data>
+  <data name="FilterTaxonFromSearchButton" xml:space="preserve">
+    <value>Sök på taxonnamn</value>
+  </data>
+  <data name="FilterTaxonFromSearchButtonTooltip" xml:space="preserve">
+    <value>Sök via namn</value>
+  </data>
+  <data name="MapCreatePolygon" xml:space="preserve">
+    <value>Rita polygon</value>
+  </data>
+  <data name="MapCreateRectangle" xml:space="preserve">
+    <value>Rita rektangel</value>
+  </data>
+  <data name="MapEditPolygon" xml:space="preserve">
+    <value>Redigera polygon</value>
+  </data>
+  <data name="MapHistoryBack" xml:space="preserve">
+    <value>Gå till föregående kartutsnitt</value>
+  </data>
+  <data name="MapHistoryNext" xml:space="preserve">
+    <value>Gå framåt till nästa kartutsnitt</value>
+  </data>
+  <data name="MapMovePolygon" xml:space="preserve">
+    <value>Flytta polygon</value>
+  </data>
+  <data name="MapSelect" xml:space="preserve">
+    <value>Markera</value>
+  </data>
+  <data name="MapZoomBox" xml:space="preserve">
+    <value>Zooma in</value>
+  </data>
+  <data name="PresentationMapInfo" xml:space="preserve">
+    <value>Det finns för närvarande inga kartinställningar. Alla inställningar görs just nu i resultatvyn för kartan.</value>
+  </data>
+  <data name="PresentationMapTitle" xml:space="preserve">
+    <value>Kartinställningar</value>
+  </data>
+  <data name="SharedClear" xml:space="preserve">
+    <value>Rensa</value>
+  </data>
+  <data name="SharedReset" xml:space="preserve">
+    <value>Nollställ</value>
+  </data>
+  <data name="MapBaseLayerGoogleHybrid" xml:space="preserve">
+    <value>Google hybrid</value>
+  </data>
+  <data name="MapBaseLayerGoogleStreets" xml:space="preserve">
+    <value>Google vägar</value>
+  </data>
+  <data name="MapBaseLayerGoogleTerrain" xml:space="preserve">
+    <value>Google terräng</value>
+  </data>
+  <data name="MapLayerObservations" xml:space="preserve">
+    <value>Observationer</value>
+  </data>
+  <data name="MapLayerObservationsPrecision" xml:space="preserve">
+    <value>Observationsprecision</value>
+  </data>
+  <data name="MapLayerSpatialFilter" xml:space="preserve">
+    <value>Rumsligt filter</value>
+  </data>
+  <data name="ResultNoResults" xml:space="preserve">
+    <value>Det finns inga resultat att visa</value>
+  </data>
+  <data name="ResultTitle" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="StateButtonResultDownload" xml:space="preserve">
+    <value>Ladda ner</value>
+  </data>
+  <data name="StateButtonResultView" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApplicationMainTitle" xml:space="preserve">
+    <value>Analysportalen</value>
+  </data>
+  <data name="DataProvidersMapLayersCreateNewLayer" xml:space="preserve">
+    <value>Skapa datalager</value>
+  </data>
+  <data name="DataProvidersMapLayersCreateNewLayerTooltip" xml:space="preserve">
+    <value>Lägg till valfritt datalager från en standardiserad karttjänst (OGC WFS).</value>
+  </data>
+  <data name="DataProvidesMapLayersEditLayer" xml:space="preserve">
+    <value>Redigera datalagrets inställningar</value>
+  </data>
+  <data name="DataProvidesMapLayersEditLayerTooltip" xml:space="preserve">
+    <value>Redigera valt datalager</value>
+  </data>
+  <data name="DataProvidesMapLayersRemoveLayer" xml:space="preserve">
+    <value>Ta bort datalager</value>
+  </data>
+  <data name="DataProvidesMapLayersRemoveLayerTooltip" xml:space="preserve">
+    <value>Ta bort valt datalager</value>
+  </data>
+  <data name="DataProvidesMapLayersWfsLayersGridTitle" xml:space="preserve">
+    <value>Datalager</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerChooseLayer" xml:space="preserve">
+    <value>Välj datalager</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderLayerNamespace" xml:space="preserve">
+    <value>Namespace</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderLayerTitle" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerHeaderName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSampleUrls" xml:space="preserve">
+    <value>Exempel på datatjänster (WFS)</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSearch" xml:space="preserve">
+    <value>Hämta lager</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerServerUrl" xml:space="preserve">
+    <value>URL till datatjänsten</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerTitle" xml:space="preserve">
+    <value>Välj datatjänst</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerWfsLayers" xml:space="preserve">
+    <value>Datalager</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerWfsVersion" xml:space="preserve">
+    <value>WFS-version</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorAddOperation" xml:space="preserve">
+    <value>Lägg till</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorAndOperation" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorBack" xml:space="preserve">
+    <value>Tillbaka</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorBasicInformation" xml:space="preserve">
+    <value>Basinformation</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorConstant" xml:space="preserve">
+    <value>Konstant</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorCreateNewLayer" xml:space="preserve">
+    <value>Spara nytt lager</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorEnterConstant" xml:space="preserve">
+    <value>Skriv in konstant</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorEqualToOperator" xml:space="preserve">
+    <value>Lika med (=)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorErrorEnterLayerName" xml:space="preserve">
+    <value>Du måste skriva in ett namn på lagret</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorField" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorGreaterThanOperator" xml:space="preserve">
+    <value>Större än (&gt;)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorGreatorOrEqualToOperator" xml:space="preserve">
+    <value>Större eller lika med (&gt;=)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderAbstract" xml:space="preserve">
+    <value>Abstract</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderColor" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderFormats" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderKeywords" xml:space="preserve">
+    <value>Nyckelord</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderMetadataUrl" xml:space="preserve">
+    <value>Metadata URL</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderServerUrl" xml:space="preserve">
+    <value>URL till datatjänst</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderSrs" xml:space="preserve">
+    <value>Srs</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorHeaderTitle" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorIsNullOperator" xml:space="preserve">
+    <value>Är Null</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLayerData" xml:space="preserve">
+    <value>Lagerdata</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLeftOperand" xml:space="preserve">
+    <value>Operand 1</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLessOrEqualToOperator" xml:space="preserve">
+    <value>Mindre eller lika med (&lt;=)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLessThanOperator" xml:space="preserve">
+    <value>Mindre än (&lt;)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorLikeOperator" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorMaxNumberOfFeatures" xml:space="preserve">
+    <value>Max antal features</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNotEqualToOperator" xml:space="preserve">
+    <value>Ej lika med (&lt;&gt;)</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNotOperation" xml:space="preserve">
+    <value>Not</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorNumberOfFeaturedFeatures" xml:space="preserve">
+    <value>Antal filtrerade features</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorOperator" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorOrOperation" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorReset" xml:space="preserve">
+    <value>Återställ</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorResult" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorRightOperand" xml:space="preserve">
+    <value>Operand 2</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorRunQuery" xml:space="preserve">
+    <value>Kör fråga</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorSaveChanges" xml:space="preserve">
+    <value>Spara ändringar</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorTitle" xml:space="preserve">
+    <value>Redigera WFS-lager</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorTotalNumberOfFeatures" xml:space="preserve">
+    <value>Totalt antal features</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorUndo" xml:space="preserve">
+    <value>Ångra</value>
+  </data>
+  <data name="DataProvidersMapLayersDeleteWfsLayerMessage" xml:space="preserve">
+    <value>Vill du verkligen ta bort det valda datalagret?</value>
+  </data>
+  <data name="DataProvidersMapLayersDeleteWfsLayerTitle" xml:space="preserve">
+    <value>Ta bort datalager</value>
+  </data>
+  <data name="MapLayerWFSFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterTemporalTitle" xml:space="preserve">
+    <value>Tidsmässigt filter</value>
+  </data>
+  <data name="MapSelectMany" xml:space="preserve">
+    <value>Markera flera</value>
+  </data>
+  <data name="MySettingsFilterNoTemporalFilterIsSelected" xml:space="preserve">
+    <value>Inget tidsfilter är valt</value>
+  </data>
+  <data name="SharedAddPolygonsFromMapLayer" xml:space="preserve">
+    <value>Lägg till polygon(er) från kartlagret</value>
+  </data>
+  <data name="SharedExpand" xml:space="preserve">
+    <value>Expandera</value>
+  </data>
+  <data name="ResultMapNoOfWfsLayersAllowed" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="SharedColor" xml:space="preserve">
+    <value>Färg</value>
+  </data>
+  <data name="SharedName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="SharedType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="MetadatasearchBiodiversityCatLinkText" xml:space="preserve">
+    <value>Gå till Biodiversity Catalogue</value>
+  </data>
+  <data name="MetadataSearchDescription" xml:space="preserve">
+    <value>För att söka efter fler dataset, karttjänster och annat för din analys, testa någon av tjänsterna nedan.</value>
+  </data>
+  <data name="MetadatasearchEcdsLinkText" xml:space="preserve">
+    <value>Gå till ECDS</value>
+  </data>
+  <data name="MetadatasearchGeodataLinkText" xml:space="preserve">
+    <value>Gå till Geodata portalen</value>
+  </data>
+  <data name="FilterTemporalAnnually" xml:space="preserve">
+    <value>Datum årligen</value>
+  </data>
+  <data name="FilterTemporalChangeDateTitle" xml:space="preserve">
+    <value>Ändringsdatum</value>
+  </data>
+  <data name="FilterTemporalDateLabel" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="FilterTemporalFrom" xml:space="preserve">
+    <value>Från</value>
+  </data>
+  <data name="FilterTemporalIgnoreLabel" xml:space="preserve">
+    <value>Ignorera</value>
+  </data>
+  <data name="FilterTemporalObsDateTitle" xml:space="preserve">
+    <value>Observationsdatum</value>
+  </data>
+  <data name="FilterTemporalRegDateTitle" xml:space="preserve">
+    <value>Registreringsdatum</value>
+  </data>
+  <data name="FilterTemporalTo" xml:space="preserve">
+    <value>Till</value>
+  </data>
+  <data name="SharedWait" xml:space="preserve">
+    <value>Vänta...</value>
+  </data>
+  <data name="StateButtonFilterOccurrence" xml:space="preserve">
+    <value>Förekomst</value>
+  </data>
+  <data name="FilterOccurrence" xml:space="preserve">
+    <value>Förekomst</value>
+  </data>
+  <data name="FilterOccurrenceTitle" xml:space="preserve">
+    <value>Förekomst</value>
+  </data>
+  <data name="FilterQuality" xml:space="preserve">
+    <value>Kvalitet</value>
+  </data>
+  <data name="FilterQualityTitle" xml:space="preserve">
+    <value>Kvalitet</value>
+  </data>
+  <data name="FilterSpatialCommonRegionsAddRegion" xml:space="preserve">
+    <value>Lägg till region</value>
+  </data>
+  <data name="FilterSpatialCommonRegionsTitle" xml:space="preserve">
+    <value>Vanliga regioner</value>
+  </data>
+  <data name="SharedNoSelectedRegions" xml:space="preserve">
+    <value>Inga valda regioner</value>
+  </data>
+  <data name="SharedRegion" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="SharedRegionCategoryCounty" xml:space="preserve">
+    <value>Län</value>
+  </data>
+  <data name="SharedRegionCategoryMunicipality" xml:space="preserve">
+    <value>Kommun</value>
+  </data>
+  <data name="SharedRegionCategoryProvince" xml:space="preserve">
+    <value>Landskap</value>
+  </data>
+  <data name="SharedRegions" xml:space="preserve">
+    <value>Regioner</value>
+  </data>
+  <data name="SharedRemoveRegion" xml:space="preserve">
+    <value>Ta bort region</value>
+  </data>
+  <data name="SharedRemoveRegionTooltip" xml:space="preserve">
+    <value>Ta bort markerad region</value>
+  </data>
+  <data name="SharedSelect" xml:space="preserve">
+    <value>Välj</value>
+  </data>
+  <data name="SharedSelectedRegions" xml:space="preserve">
+    <value>Valda regioner</value>
+  </data>
+  <data name="FilterPolygonFromMapLayerAddPolygons" xml:space="preserve">
+    <value>Lägg till valda polygoner till rumsligt filter</value>
+  </data>
+  <data name="FilterPolygonFromMapLayerSelectPolygons" xml:space="preserve">
+    <value>Välj polygon(er) från kartskikt</value>
+  </data>
+  <data name="FilterPolygonFromMapLayersTitle" xml:space="preserve">
+    <value>Kartskikt</value>
+  </data>
+  <data name="FilterSpatialDrawPolygonTitle" xml:space="preserve">
+    <value>Rita geometri</value>
+  </data>
+  <data name="FilterSpatialMapLayersTitle" xml:space="preserve">
+    <value>Kartskikt polygoner</value>
+  </data>
+  <data name="FilterTaxaSummary" xml:space="preserve">
+    <value>Taxa filter - sammanställning</value>
+  </data>
+  <data name="SharedBack" xml:space="preserve">
+    <value>Tillbaka</value>
+  </data>
+  <data name="SharedMap" xml:space="preserve">
+    <value>Karta</value>
+  </data>
+  <data name="SharedPolygons" xml:space="preserve">
+    <value>Polygoner</value>
+  </data>
+  <data name="WfsLayersLayerName" xml:space="preserve">
+    <value>Lagernamn</value>
+  </data>
+  <data name="DataProvidersDataProvidersDataProvider" xml:space="preserve">
+    <value>Artobservationer (databaser)</value>
+  </data>
+  <data name="DataProvidersDataProvidersListOfProviders" xml:space="preserve">
+    <value>Lista med datakällor</value>
+  </data>
+  <data name="DataProvidersDataProvidersNumberOfObservations" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="DataProvidersDataProvidersTitle" xml:space="preserve">
+    <value>Artobservationer som tillhandahålls av Svenska LifeWatch</value>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfDataProviders" xml:space="preserve">
+    <value>Datakällor ({0} valda)</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedRegions" xml:space="preserve">
+    <value>Rumsligt filter ({0} regioner)</value>
+  </data>
+  <data name="SharedSum" xml:space="preserve">
+    <value>Summa</value>
+  </data>
+  <data name="DataProvidersDataProvidersAtLeastOneProviderMustBeSelected" xml:space="preserve">
+    <value>Minst en datakälla måste väljas</value>
+  </data>
+  <data name="SettingsReportDataProviders" xml:space="preserve">
+    <value>Datakälla</value>
+  </data>
+  <data name="SettingsReportDatasources" xml:space="preserve">
+    <value>Datakällor</value>
+  </data>
+  <data name="SettingsReportFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="SettingsReportPolygons" xml:space="preserve">
+    <value>polygoner</value>
+  </data>
+  <data name="SettingsReportPolygonsFilter" xml:space="preserve">
+    <value>Rumsligt filter - polygoner</value>
+  </data>
+  <data name="SettingsReportRegionsFilter" xml:space="preserve">
+    <value>Rumsligt filter - regioner</value>
+  </data>
+  <data name="SettingsReportTitle" xml:space="preserve">
+    <value>Rapport - inställningar</value>
+  </data>
+  <data name="PresentationTableChooseColumnType" xml:space="preserve">
+    <value>Välj hur kolumnrubrik ska synas i resultattabell</value>
+  </data>
+  <data name="PresentationTableChooseTableType" xml:space="preserve">
+    <value>Välj tabelltyp</value>
+  </data>
+  <data name="PresentationTableColumnTypeDwc" xml:space="preserve">
+    <value>Använd Darwin Core kolumnrubriker (scientificName, vernacularName, etc.)</value>
+  </data>
+  <data name="PresentationTableColumnTypeLabel" xml:space="preserve">
+    <value>Använd standard kolumnrubriker (Vetenskapligt namn, Svenskt namn, etc.)</value>
+  </data>
+  <data name="PresentationTableCreateNewTable" xml:space="preserve">
+    <value>Skapa ny tabell</value>
+  </data>
+  <data name="PresentationTableStandardTable" xml:space="preserve">
+    <value>Förvald uppsättning kolumner</value>
+  </data>
+  <data name="PresentationTableTableFields" xml:space="preserve">
+    <value>Tabellfält</value>
+  </data>
+  <data name="PresentationTableUserDefinedTable" xml:space="preserve">
+    <value>Egenvalda kolumner</value>
+  </data>
+  <data name="TableTypeByImportanceTemplate" xml:space="preserve">
+    <value>Fält med Importance &lt;= {0}</value>
+  </data>
+  <data name="GridStatisticsCalculations" xml:space="preserve">
+    <value>Beräkningar</value>
+  </data>
+  <data name="GridStatisticsCoordinateSystem" xml:space="preserve">
+    <value>Koordinatsystem</value>
+  </data>
+  <data name="GridStatisticsGridSize" xml:space="preserve">
+    <value>Rutstorlek</value>
+  </data>
+  <data name="GridStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="GridStatisticsParameters" xml:space="preserve">
+    <value>Gridegenskaper</value>
+  </data>
+  <data name="GridStatisticsSelectCoordinateSystem" xml:space="preserve">
+    <value>Välj koordinatsystem</value>
+  </data>
+  <data name="GridStatisticsSelectGridSize" xml:space="preserve">
+    <value>Välj grid-storlek</value>
+  </data>
+  <data name="GridStatisticsTitle" xml:space="preserve">
+    <value>Gridstatistik</value>
+  </data>
+  <data name="SettingsReportCalculation" xml:space="preserve">
+    <value>Beräkningar</value>
+  </data>
+  <data name="ResultGroupMaps" xml:space="preserve">
+    <value>Kartor</value>
+  </data>
+  <data name="ResultGroupTables" xml:space="preserve">
+    <value>Tabeller</value>
+  </data>
+  <data name="ResultViewSpeciesObservationGridMap" xml:space="preserve">
+    <value>Frekvenskarta över antal artobservationer</value>
+  </data>
+  <data name="ResultViewSpeciesObservationMap" xml:space="preserve">
+    <value>Artobservationskarta</value>
+  </data>
+  <data name="ResultViewSpeciesObservationTable" xml:space="preserve">
+    <value>Artobservationstabell</value>
+  </data>
+  <data name="ResultViews" xml:space="preserve">
+    <value>Resultatvyer</value>
+  </data>
+  <data name="RecordCountObservations" xml:space="preserve">
+    <value>observationer</value>
+  </data>
+  <data name="RecordCountOf" xml:space="preserve">
+    <value>av</value>
+  </data>
+  <data name="RecordCountShowing" xml:space="preserve">
+    <value>visar</value>
+  </data>
+  <data name="PresentationGridStatisticsTable" xml:space="preserve">
+    <value>Gridstatistiktabell - inga installningar tillgängliga</value>
+  </data>
+  <data name="PresentationSpeciesObservationTable" xml:space="preserve">
+    <value>Artobservationstabell</value>
+  </data>
+  <data name="PresentationTableChooseTable" xml:space="preserve">
+    <value>Välj vilken tabell som ska visas i resultatet</value>
+  </data>
+  <data name="PresentationTableSettings" xml:space="preserve">
+    <value>Tabellinställningar</value>
+  </data>
+  <data name="SummaryStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="SummaryStatisticsTitle" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="SummaryStatisticsCalculateNumberOfObservations" xml:space="preserve">
+    <value>Beräkningar från observationsdata</value>
+  </data>
+  <data name="ResultViewSpeciesObservationGridTable" xml:space="preserve">
+    <value>Gridbaserad statistik över antal artobservationer</value>
+  </data>
+  <data name="ResultGroupReports" xml:space="preserve">
+    <value>Rapporter</value>
+  </data>
+  <data name="ResultViewSummaryStatistics" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="PresentationSummaryStatisticsTitle" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectADbGeo" xml:space="preserve">
+    <value>SLW</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectDefault" xml:space="preserve">
+    <value>Välj tjänst i listan</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSLUGeo" xml:space="preserve">
+    <value>SLU</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSMHIGeo" xml:space="preserve">
+    <value>SMHI GeoServer</value>
+  </data>
+  <data name="PresentationReportChooseReport" xml:space="preserve">
+    <value>Välj vilken rapport som ska visas i resultatet</value>
+  </data>
+  <data name="PresentationReportTitle" xml:space="preserve">
+    <value>Rapport</value>
+  </data>
+  <data name="PresentationSummaryStatisticsReport" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsNumberOfObservations" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsReportTitle" xml:space="preserve">
+    <value>Rapport på översiktlig statistik</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationCountTitle" xml:space="preserve">
+    <value>Beräkningar från observationsdata</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationTableColumnCalculationHeader" xml:space="preserve">
+    <value>Beräkning</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsSpeciesObservationTableColumnCountHeader" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="GridStatisticsObservationCount" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="SharedFullScreenMode" xml:space="preserve">
+    <value>Fullskärmsläge</value>
+  </data>
+  <data name="SharedLegend" xml:space="preserve">
+    <value>Förklaring</value>
+  </data>
+  <data name="SharedOpacity" xml:space="preserve">
+    <value>Genomskinlighet</value>
+  </data>
+  <data name="SharedSettings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="SharedAboutAnalysisPortalUrl" xml:space="preserve">
+    <value>http://www.svenskalifewatch.se/sv/om-lifewatch/analysportalen/</value>
+  </data>
+  <data name="MySettingsLoaded" xml:space="preserve">
+    <value>Inställningarna laddades</value>
+  </data>
+  <data name="MySettingsReset" xml:space="preserve">
+    <value>Inställningarna återställdes</value>
+  </data>
+  <data name="MySettingsSaved" xml:space="preserve">
+    <value>Inställningarna sparades</value>
+  </data>
+  <data name="FilterOccurrenceIncludeNeverFoundObservations" xml:space="preserve">
+    <value>Inkludera rapporter där angivet taxon eftersökts i lämplig miljö utan resultat</value>
+  </data>
+  <data name="FilterOccurrenceIncludeNotRediscoveredObservations" xml:space="preserve">
+    <value>Inkludera rapporter om att eftersök på tidigare känd plats misslyckats</value>
+  </data>
+  <data name="FilterOccurrenceIncludePositiveObservations" xml:space="preserve">
+    <value>Inkludera alla typer av förekomst</value>
+  </data>
+  <data name="FilterOccurrenceIsNaturalOccurrence" xml:space="preserve">
+    <value>Inkludera naturliga förekomster</value>
+  </data>
+  <data name="DataProvidersDataProvidersNumberOfPublicObservations" xml:space="preserve">
+    <value>Antal publika observationer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterTemporalChangeDateAnnually" xml:space="preserve">
+    <value>Ändringsdatum årligen</value>
+  </data>
+  <data name="FilterTemporalObsDateAnnually" xml:space="preserve">
+    <value>Observationsdatum årligen</value>
+  </data>
+  <data name="FilterTemporalRegDateAnnually" xml:space="preserve">
+    <value>Registreringsdatum årligen</value>
+  </data>
+  <data name="FilterRemoveAllTaxa" xml:space="preserve">
+    <value>Töm taxonlista</value>
+  </data>
+  <data name="FilterOccurrenceIsNotNaturalOccurrence" xml:space="preserve">
+    <value>Inkludera ospontana förekomster</value>
+  </data>
+  <data name="DataProvidersCreateNewWmsLayer" xml:space="preserve">
+    <value>Skapa bakgrundskarta</value>
+  </data>
+  <data name="DataProvidersEditWmsLayer" xml:space="preserve">
+    <value>Redigera lager</value>
+  </data>
+  <data name="DataProvidersRemoveWmsLayer" xml:space="preserve">
+    <value>Ta bort kartskikt</value>
+  </data>
+  <data name="DataProvidersWmsLayers" xml:space="preserve">
+    <value>Kartskikt</value>
+  </data>
+  <data name="DataProvidersWmsLayersBaseLayer" xml:space="preserve">
+    <value>Bakgrundskarta</value>
+  </data>
+  <data name="DataProvidersWmsLayersDelete" xml:space="preserve">
+    <value>Ta bort kartskikt</value>
+  </data>
+  <data name="FilterOccurrenceIncludeAllAbsenceData" xml:space="preserve">
+    <value>Inkludera alla indikationer på ickeförekomst</value>
+  </data>
+  <data name="FilterOccurrenceAbsenceHeader" xml:space="preserve">
+    <value>Ickeförekomst</value>
+  </data>
+  <data name="FilterOccurrencePresenceHeader" xml:space="preserve">
+    <value>Förekomst</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorChooseUrl" xml:space="preserve">
+    <value>Välj karttjänst</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorCreateNewWmsLayer" xml:space="preserve">
+    <value>Skapa bakgrundskarta</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorEditWmsLayer" xml:space="preserve">
+    <value>Redigera kartskikt</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSampleUrls" xml:space="preserve">
+    <value>Exempel på karttjänster</value>
+  </data>
+  <data name="GridStatisticsNumberOfTaxa" xml:space="preserve">
+    <value>Antal taxa</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorAbstract" xml:space="preserve">
+    <value>Sammandrag</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorBaseLayer" xml:space="preserve">
+    <value>Använd som bakgrundskarta</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorBasicInformation" xml:space="preserve">
+    <value>Basinformation</value>
+  </data>
+  <data name="SharedLayers" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+  <data name="SharedServerUrl" xml:space="preserve">
+    <value>Serverns URL</value>
+  </data>
+  <data name="SharedTitle" xml:space="preserve">
+    <value>Titel</value>
+  </data>
+  <data name="StateButtonDataProvidersWfsLayers" xml:space="preserve">
+    <value>Miljödata (vektorformat)</value>
+  </data>
+  <data name="StateButtonDataProvidersWmsLayers" xml:space="preserve">
+    <value>Bakgrundskartor (rasterformat)</value>
+  </data>
+  <data name="GridStatisticsTaxaCount" xml:space="preserve">
+    <value>Antal arter</value>
+  </data>
+  <data name="ResultViewTaxonGridTable" xml:space="preserve">
+    <value>Gridbaserad statistik över antal arter</value>
+  </data>
+  <data name="PresentationGridTaxonStatisticsTable" xml:space="preserve">
+    <value>Gridstatistiktabell - Taxon</value>
+  </data>
+  <data name="SummaryStatisticsCalculateNumberOfSpecies" xml:space="preserve">
+    <value>Beräkningar från art data</value>
+  </data>
+  <data name="SummaryStatisticsNumberOfSpecies" xml:space="preserve">
+    <value>Antal arter</value>
+  </data>
+  <data name="GridStatisticsCentreCoordinate" xml:space="preserve">
+    <value>Centrum</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsNumberOfTaxa" xml:space="preserve">
+    <value>Antal arter</value>
+  </data>
+  <data name="SharedHelp" xml:space="preserve">
+    <value>Hjälp</value>
+  </data>
+  <data name="SharedLeavePageWithUnsavedSettings" xml:space="preserve">
+    <value>Du har gjort ändringar på sidan. Är du säker på att du vill lämna den här sidan utan att spara?</value>
+  </data>
+  <data name="SharedResetSettings" xml:space="preserve">
+    <value>Återställ inställningar</value>
+  </data>
+  <data name="SharedSaveSettings" xml:space="preserve">
+    <value>Spara inställningar</value>
+  </data>
+  <data name="DataProvidersDataProvidersReset" xml:space="preserve">
+    <value>Datakällor återställdes</value>
+  </data>
+  <data name="DataProvidersDataProvidersUpdated" xml:space="preserve">
+    <value>Datakällor uppdaterades</value>
+  </data>
+  <data name="DataProvidersWfsLayersReset" xml:space="preserve">
+    <value>Datalagret återställdes</value>
+  </data>
+  <data name="DataProvidersWmsLayersReset" xml:space="preserve">
+    <value>Kartskiktet återställdes</value>
+  </data>
+  <data name="ResultGroupGridTables" xml:space="preserve">
+    <value>Rutnätstabeller</value>
+  </data>
+  <data name="FilterOccurrenceReset" xml:space="preserve">
+    <value>Förekomstinställningar återställdes</value>
+  </data>
+  <data name="FilterOccurrenceUpdated" xml:space="preserve">
+    <value>Förekomstinställningar uppdaterades</value>
+  </data>
+  <data name="FilterCommonRegionsReset" xml:space="preserve">
+    <value>Vanliga regioner återställdes</value>
+  </data>
+  <data name="FilterCommonRegionsUpdated" xml:space="preserve">
+    <value>Vanliga regioner uppdaterades</value>
+  </data>
+  <data name="FilterSpatialSettingsReset" xml:space="preserve">
+    <value>Rumsligt filter återställdes</value>
+  </data>
+  <data name="FilterSpatialSettingsUpdated" xml:space="preserve">
+    <value>Rumsligt filter uppdaterades</value>
+  </data>
+  <data name="FilterTemporalSettingsReset" xml:space="preserve">
+    <value>Tidsmässiga inställningar återställdes</value>
+  </data>
+  <data name="FilterTemporalSettingsUpdated" xml:space="preserve">
+    <value>Tidsmässiga inställningar uppdaterades</value>
+  </data>
+  <data name="FilterTaxaSettingsReset" xml:space="preserve">
+    <value>Taxa återställdes</value>
+  </data>
+  <data name="FilterTaxaSettingsUpdated" xml:space="preserve">
+    <value>Taxa uppdaterades</value>
+  </data>
+  <data name="GridStatisticsReset" xml:space="preserve">
+    <value>Gridstatistik återställdes</value>
+  </data>
+  <data name="GridStatisticsUpdated" xml:space="preserve">
+    <value>Gridstatistik uppdaterades</value>
+  </data>
+  <data name="PresentationSpeciesObservationTableReset" xml:space="preserve">
+    <value>Inställningarna för Artobservationstabellen återställdes</value>
+  </data>
+  <data name="PresentationSpeciesObservationTableUpdated" xml:space="preserve">
+    <value>Inställningarna för Artobservationstabellen uppdaterades</value>
+  </data>
+  <data name="PresentationTableSettingsReset" xml:space="preserve">
+    <value>Tabellinställningar återställdes</value>
+  </data>
+  <data name="PresentationTableSettingsUpdated" xml:space="preserve">
+    <value>Tabellinställningar uppdaterades</value>
+  </data>
+  <data name="SummaryStatisticsReset" xml:space="preserve">
+    <value>Översiktlig statistik återställdes</value>
+  </data>
+  <data name="SummaryStatisticsUpdated" xml:space="preserve">
+    <value>Översiktlig statistik uppdaterades</value>
+  </data>
+  <data name="FilterSpatialCommonRegionsButtonTooltip" xml:space="preserve">
+    <value>Lägg till rumsligt filter utifrån fördefinierade regioner</value>
+  </data>
+  <data name="FilterSpatialDrawPolygonButtonTooltip" xml:space="preserve">
+    <value>Lägg till rumsligt filter genom att rita polygon(er)</value>
+  </data>
+  <data name="FilterSpatialMapLayersButtonTooltip" xml:space="preserve">
+    <value>Lägg till rumsligt filter från miljödata (WFS-lager)</value>
+  </data>
+  <data name="FilterSpatialOverviewButtonTooltip" xml:space="preserve">
+    <value>Visa översikt - rumsligt filter</value>
+  </data>
+  <data name="FilterTaxaOverviewButtonTooltip" xml:space="preserve">
+    <value>Visa översikt - taxa</value>
+  </data>
+  <data name="FullScreenMapButtonTooltip" xml:space="preserve">
+    <value>Visa kartan i fullskärmsläge</value>
+  </data>
+  <data name="HeadMenuCalculationTooltip" xml:space="preserve">
+    <value>Ändra inställningar för vilka beräkningar som ska utföras</value>
+  </data>
+  <data name="HeadMenuDataProvidersTooltip" xml:space="preserve">
+    <value>Välj datakällor</value>
+  </data>
+  <data name="HeadMenuFilterTooltip" xml:space="preserve">
+    <value>Välj arter, geografiskt område, tidsperiod och förekomst</value>
+  </data>
+  <data name="HeadMenuOverviewTooltip" xml:space="preserve">
+    <value>Visa översiktssidan</value>
+  </data>
+  <data name="HeadMenuPresentationTooltip" xml:space="preserve">
+    <value>Ändra inställningar för visning av resultat</value>
+  </data>
+  <data name="HeadMenuResultTooltip" xml:space="preserve">
+    <value>Visa resultat</value>
+  </data>
+  <data name="MapDragMap" xml:space="preserve">
+    <value>Drag karta</value>
+  </data>
+  <data name="MapLayerSwitcher" xml:space="preserve">
+    <value>Välj kartskikt</value>
+  </data>
+  <data name="MapZoomToFeatures" xml:space="preserve">
+    <value>Zooma in till resultat</value>
+  </data>
+  <data name="MapZoomToSweden" xml:space="preserve">
+    <value>Zooma till Sverige</value>
+  </data>
+  <data name="MySettingsLoadTooltip" xml:space="preserve">
+    <value>Hämta dina senast sparade inställningar (ersätter mina inställningar)</value>
+  </data>
+  <data name="MySettingsResetTooltip" xml:space="preserve">
+    <value>Återställ alla inställningar till utgångsläge</value>
+  </data>
+  <data name="MySettingsSaveTooltip" xml:space="preserve">
+    <value>Spara dina nuvarande inställningar</value>
+  </data>
+  <data name="SharedTransparency" xml:space="preserve">
+    <value>Genomskinlighet</value>
+  </data>
+  <data name="StateButtonDataProvidersMetadataSearchTooltip" xml:space="preserve">
+    <value>Hitta metadata</value>
+  </data>
+  <data name="StateButtonDataProvidersSpeciesObservationTooltip" xml:space="preserve">
+    <value>Välj dataleverantör(er) (minst en)</value>
+  </data>
+  <data name="StateButtonDataProvidersWfsLayersTooltip" xml:space="preserve">
+    <value>Lägg till miljödata kartor (WFS, GeoJSON, Shape)</value>
+  </data>
+  <data name="StateButtonDataProvidersWmsLayersTooltip" xml:space="preserve">
+    <value>Välj ett kartlager i rasterformat för visning (WMS-format)</value>
+  </data>
+  <data name="StateButtonFilterOccurrenceTooltip" xml:space="preserve">
+    <value>Anpassa data efter förekomst/icke-förekomst</value>
+  </data>
+  <data name="StateButtonFilterSpatialTooltip" xml:space="preserve">
+    <value>Välj rumsligt filter (yta, region, polygon, i kartskikt, lokal)</value>
+  </data>
+  <data name="StateButtonFilterTaxaTooltip" xml:space="preserve">
+    <value>Välj taxa (namn, id, attribut)</value>
+  </data>
+  <data name="StateButtonFilterTemporalTooltip" xml:space="preserve">
+    <value>Välj tidsfilter (när fynden har observerats, rapporterats eller ändrats)</value>
+  </data>
+  <data name="StateButtonPresentationMapTooltip" xml:space="preserve">
+    <value>Ändra kartprojektion (koordinat system)</value>
+  </data>
+  <data name="StateButtonPresentationTableTooltip" xml:space="preserve">
+    <value>Ändra form och utseende på tabell (minimum – alla kolumner, skapa ny egendefinierad tabell, välj tabell typ (standard vs. Darwin Core kolumnrubriker)</value>
+  </data>
+  <data name="StateButtonResultViewTooltip" xml:space="preserve">
+    <value>Visa resultat baserat på dina inställningar</value>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxaTooltip" xml:space="preserve">
+    <value>Flytta valda taxa till ditt nuvarande taxonfilter</value>
+  </data>
+  <data name="FilterTaxonFromIdsMatch" xml:space="preserve">
+    <value>Hämta / matcha taxa</value>
+  </data>
+  <data name="FilterTaxonFromIdsMatchTooltip" xml:space="preserve">
+    <value>Sök efter taxa som matchar inmatade id:n</value>
+  </data>
+  <data name="FilterTaxonFromIdsSearchTaxaGridTitle" xml:space="preserve">
+    <value>Inmatad lista matchar följande taxa</value>
+  </data>
+  <data name="FilterTaxonSharedRemoveTaxaTooltip" xml:space="preserve">
+    <value>Tabort samtliga taxa från ditt nuvarande taxonfilter</value>
+  </data>
+  <data name="SharedDyntaxaMatchLinkText" xml:space="preserve">
+    <value>Sök fram taxonid med Dyntaxa</value>
+  </data>
+  <data name="SharedDyntaxaMatchLinkTooltip" xml:space="preserve">
+    <value>Använd Dyntaxa-applikationen för att hitta och matcha taxa</value>
+  </data>
+  <data name="TaxonSearchOptionsTooltip" xml:space="preserve">
+    <value>Set limitations and conditions for the taxon search</value>
+  </data>
+  <data name="ResultViewSpeciesRichnessGridMap" xml:space="preserve">
+    <value>Artpoolskarta (antal arter per kartruta)</value>
+  </data>
+  <data name="QueryComplexityAllTaxaSelected" xml:space="preserve">
+    <value>Alla taxa är valda</value>
+  </data>
+  <data name="QueryComplexityDoYouWantToRun" xml:space="preserve">
+    <value>Vill du köra frågan ändå?</value>
+  </data>
+  <data name="QueryComplexityFasterViewsSuggestion" xml:space="preserve">
+    <value>Förslag på lämpligare (snabbare) vyer</value>
+  </data>
+  <data name="QueryComplexityIntro" xml:space="preserve">
+    <value>Denna fråga förväntas ta lång tid att köra eftersom</value>
+  </data>
+  <data name="QueryComplexityManyTaxaIsUsedTemplate" xml:space="preserve">
+    <value>{0} taxa används</value>
+  </data>
+  <data name="QueryComplexitySpatialFilterIsUsed" xml:space="preserve">
+    <value>Rumsligt filter används</value>
+  </data>
+  <data name="QueryComplexityText" xml:space="preserve">
+    <value>Denna fråga beräknas ta lång tid att utföra. Är du säker på att du vill köra den?</value>
+  </data>
+  <data name="QueryComplexityTitle" xml:space="preserve">
+    <value>Beräkningen är komplex</value>
+  </data>
+  <data name="DiagramResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Diagram overview - needs tooltip</value>
+  </data>
+  <data name="MapResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Map overview - needs tooltip</value>
+  </data>
+  <data name="ReportResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Report overview - needs tooltip</value>
+  </data>
+  <data name="StateButtonDiagramResult" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="StateButtonDiagramResultTooltip" xml:space="preserve">
+    <value>Välj vilken typ av diagram du vill visa</value>
+  </data>
+  <data name="StateButtonMapResult" xml:space="preserve">
+    <value>Kartor</value>
+  </data>
+  <data name="StateButtonMapResultTooltip" xml:space="preserve">
+    <value>Välj vilken typ av karta du vill visa</value>
+  </data>
+  <data name="StateButtonReportResult" xml:space="preserve">
+    <value>Rapporter</value>
+  </data>
+  <data name="StateButtonReportResultTooltip" xml:space="preserve">
+    <value>Välj vilken typ av rapport du vill visa</value>
+  </data>
+  <data name="StateButtonTableResult" xml:space="preserve">
+    <value>Tabeller</value>
+  </data>
+  <data name="StateButtonTableResultTooltip" xml:space="preserve">
+    <value>Välj vilken typ av tabell du vill visa</value>
+  </data>
+  <data name="TableResultOverviewButtonTooltip" xml:space="preserve">
+    <value>* Table overview - needs tooltip</value>
+  </data>
+  <data name="ResultViewSpeciesObservationDiagram" xml:space="preserve">
+    <value>Tidsserier över artobservationer</value>
+  </data>
+  <data name="ResultGroupDiagrams" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityMonthOfTheYearLabel" xml:space="preserve">
+    <value>Månad oberoende av år</value>
+  </data>
+  <data name="ResultDiagramTimeSeriesNoOfObservationsTitle" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="ResultDiagramTimeSeriesNoOfSelectedTaxaTitle" xml:space="preserve">
+    <value>Antal valda taxa för visning av antalet observationer</value>
+  </data>
+  <data name="SharedPagingEmptyMsg" xml:space="preserve">
+    <value>Det finns ingen data att visa</value>
+  </data>
+  <data name="SharedPagingSpeciesObservationDisplayMsg" xml:space="preserve">
+    <value>Visar observationer {0} - {1} av {2}</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityDayOfTheYearLabel" xml:space="preserve">
+    <value>Dagnummer oberoende av år</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityYearlyLabel" xml:space="preserve">
+    <value>År</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityTitle" xml:space="preserve">
+    <value>Tidsintervall</value>
+  </data>
+  <data name="SessionAllSettingsReset" xml:space="preserve">
+    <value>Alla inställningar återställdes.</value>
+  </data>
+  <data name="SessionExpired" xml:space="preserve">
+    <value>Sessionen har upphört</value>
+  </data>
+  <data name="SessionExpiredUseCurrentSettings" xml:space="preserve">
+    <value>Vill du fortsätta använda nuvarande inställningar och gå till inloggningssidan?</value>
+  </data>
+  <data name="SessionExpiredUseUserAccount" xml:space="preserve">
+    <value>Om du vill kunna använda nuvarande inställningar efter att sessionen upphört, vänligen logga in med ett användarkonto.</value>
+  </data>
+  <data name="SharedAutosavedSettingsLoaded" xml:space="preserve">
+    <value>Automatiskt sparade inställningar laddades in.</value>
+  </data>
+  <data name="SharedLoadAutosavedSettings" xml:space="preserve">
+    <value>Ladda autosparade inställningar från</value>
+  </data>
+  <data name="SharedNamespace" xml:space="preserve">
+    <value>Namnrymd</value>
+  </data>
+  <data name="GridMapDrawBorders" xml:space="preserve">
+    <value>Rita kantlinjer</value>
+  </data>
+  <data name="MapWhiteBaseLayerTitle" xml:space="preserve">
+    <value>Vit bakgrund</value>
+  </data>
+  <data name="MySettingsAllTaxa" xml:space="preserve">
+    <value>Alla taxa</value>
+  </data>
+  <data name="SharedData" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="SharedField" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="SharedValue" xml:space="preserve">
+    <value>Värde</value>
+  </data>
+  <data name="MySettingsAllTaxaSelected" xml:space="preserve">
+    <value>Alla taxa valda</value>
+  </data>
+  <data name="ResultViewSettingsSummary" xml:space="preserve">
+    <value>Inställningsrapport</value>
+  </data>
+  <data name="FilterTaxonByTaxonAttributes" xml:space="preserve">
+    <value>Lista från artfakta</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityDailyLabel" xml:space="preserve">
+    <value>Dag</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityMonthlyLabel" xml:space="preserve">
+    <value>Månad</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityWeeklyLabel" xml:space="preserve">
+    <value>Vecka</value>
+  </data>
+  <data name="ResultTimeSeriesPeriodicityWeekOfTheYearLabel" xml:space="preserve">
+    <value>Veckonummer oberoende av år</value>
+  </data>
+  <data name="ResultViewTimeSeriesOnSpeciesObservationCountsTable" xml:space="preserve">
+    <value>Tidsserietabell över antal artobservationer per tidsenhet</value>
+  </data>
+  <data name="ErrorNameIsMissing" xml:space="preserve">
+    <value>Namn saknas</value>
+  </data>
+  <data name="TaxonSummaryCategoryLabel" xml:space="preserve">
+    <value>Kategori (rang)</value>
+  </data>
+  <data name="TaxonSummaryClassificationLabel" xml:space="preserve">
+    <value>Klassificering</value>
+  </data>
+  <data name="TaxonSummaryCommonNamesLabel" xml:space="preserve">
+    <value>Svenska namn</value>
+  </data>
+  <data name="TaxonSummaryConceptDefinitionLabel" xml:space="preserve">
+    <value>Konceptdefinition</value>
+  </data>
+  <data name="TaxonSummaryCreatedLabel" xml:space="preserve">
+    <value>Skapades</value>
+  </data>
+  <data name="TaxonSummaryGuidLabel" xml:space="preserve">
+    <value>GUID</value>
+  </data>
+  <data name="TaxonSummaryIdLabel" xml:space="preserve">
+    <value>Dyntaxa TaxonId</value>
+  </data>
+  <data name="TaxonSummaryScientificNameLabel" xml:space="preserve">
+    <value>Vetenskapligt namn</value>
+  </data>
+  <data name="TaxonSummarySwedishHistoryLabel" xml:space="preserve">
+    <value>Svensk invandringshistoria</value>
+  </data>
+  <data name="TaxonSummarySwedishOccurrenceLabel" xml:space="preserve">
+    <value>Svensk förekomst</value>
+  </data>
+  <data name="TaxonSummarySynonymsLabel" xml:space="preserve">
+    <value>Synonymer</value>
+  </data>
+  <data name="TaxonSummaryUpdateInformationLabel" xml:space="preserve">
+    <value>Senast uppdaterad</value>
+  </data>
+  <data name="TaxonSummaryValidityLabel" xml:space="preserve">
+    <value>Giltighet</value>
+  </data>
+  <data name="TaxonSummaryValidToLabel" xml:space="preserve">
+    <value>Giltigt till</value>
+  </data>
+  <data name="TaxonSummaryValitityValueAccepted" xml:space="preserve">
+    <value>Taxonomiskt giltig</value>
+  </data>
+  <data name="TaxonSummaryValitityValueNotValid" xml:space="preserve">
+    <value>Ogiltigt taxon</value>
+  </data>
+  <data name="TaxonSummaryValitityValuePragmatic" xml:space="preserve">
+    <value>Giltig som pragmatiskt taxon</value>
+  </data>
+  <data name="TaxonSummaryReadMoreInDyntaxa" xml:space="preserve">
+    <value>Läs mer om detta taxon i Dyntaxa</value>
+  </data>
+  <data name="MySettingsFilterOneSelectedTaxon" xml:space="preserve">
+    <value>Taxon ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalChangeDate" xml:space="preserve">
+    <value>Ändringsdatum ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalDate" xml:space="preserve">
+    <value>Flera datum</value>
+  </data>
+  <data name="MySettingsFilterTemporalObservationDate" xml:space="preserve">
+    <value>Obs.datum ({0})</value>
+  </data>
+  <data name="MySettingsFilterTemporalRegistrationDate" xml:space="preserve">
+    <value>Reg.datum ({0})</value>
+  </data>
+  <data name="SharedCoordinateSystem" xml:space="preserve">
+    <value>Koordinatsystem</value>
+  </data>
+  <data name="ResultViewSpeciesObservationTaxonTable" xml:space="preserve">
+    <value>Observerade taxa</value>
+  </data>
+  <data name="SharedRegionCategoryGroupOfProvinces" xml:space="preserve">
+    <value>Landsdel</value>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimate1000" xml:space="preserve">
+    <value>Fler än 1000 taxa valda</value>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimate250" xml:space="preserve">
+    <value>Fler än 250 taxa valda</value>
+  </data>
+  <data name="ResultTaxonTableComplexityEstimateAllTaxa" xml:space="preserve">
+    <value>Alla taxa valda</value>
+  </data>
+  <data name="TableSettingsFieldClass" xml:space="preserve">
+    <value>Klass</value>
+  </data>
+  <data name="TableSettingsFieldId" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="TableSettingsFieldImplemented" xml:space="preserve">
+    <value>Införd</value>
+  </data>
+  <data name="TableSettingsFieldImportance" xml:space="preserve">
+    <value>Betydelse/vikt</value>
+  </data>
+  <data name="TableSettingsFieldLabel" xml:space="preserve">
+    <value>Kolumnrubrik</value>
+  </data>
+  <data name="TableSettingsFieldMandatory" xml:space="preserve">
+    <value>Obligatorisk</value>
+  </data>
+  <data name="TableSettingsFieldName" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="TableSettingsFieldProvider" xml:space="preserve">
+    <value>Från datakälla</value>
+  </data>
+  <data name="TableTypeByImportance1" xml:space="preserve">
+    <value>Minimalt antal kolumner</value>
+  </data>
+  <data name="TableTypeByImportance2" xml:space="preserve">
+    <value>Grundläggande uppsättning</value>
+  </data>
+  <data name="TableTypeByImportance3" xml:space="preserve">
+    <value>Ordinär uppsättning</value>
+  </data>
+  <data name="TableTypeByImportance4" xml:space="preserve">
+    <value>Utökad uppsättning</value>
+  </data>
+  <data name="TableTypeByImportance5" xml:space="preserve">
+    <value>Alla kolumner</value>
+  </data>
+  <data name="TableUserDefinedTitleMedium" xml:space="preserve">
+    <value>Tex. mediumtabell</value>
+  </data>
+  <data name="TableUserDefinedTitleMini" xml:space="preserve">
+    <value>Tex. minitabell</value>
+  </data>
+  <data name="ObservationDetailsField" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance1" xml:space="preserve">
+    <value>Visa minimalt antal fält</value>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance2" xml:space="preserve">
+    <value>Visa grundläggande uppsättning</value>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance3" xml:space="preserve">
+    <value>Visa ordinär uppsättning</value>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance4" xml:space="preserve">
+    <value>Visa utökad uppsättning</value>
+  </data>
+  <data name="ObservationDetailsFieldsByImportance5" xml:space="preserve">
+    <value>Visa alla fält</value>
+  </data>
+  <data name="ObservationDetailsShowDarwinCoreAsFieldName" xml:space="preserve">
+    <value>Visa DarwinCore som fältnamn</value>
+  </data>
+  <data name="ObservationDetailsShowOnlyFieldsWithData" xml:space="preserve">
+    <value>Visa endast fält som har data</value>
+  </data>
+  <data name="ObservationDetailsTitle" xml:space="preserve">
+    <value>Observationsdetaljer</value>
+  </data>
+  <data name="ObservationDetailsValue" xml:space="preserve">
+    <value>Värde</value>
+  </data>
+  <data name="SharedSpeciesObservationAllSelectedTaxa" xml:space="preserve">
+    <value>Alla valda taxa</value>
+  </data>
+  <data name="SharedSpeciesObservationFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="TableTypeShowAllFields" xml:space="preserve">
+    <value>Visa alla fält</value>
+  </data>
+  <data name="TimeSeriesSettingsDefaultPeriodicity" xml:space="preserve">
+    <value>Förvalt tidsintervall</value>
+  </data>
+  <data name="TimeSeriesSettingsReset" xml:space="preserve">
+    <value>Inställningar för tidsserier återställdes</value>
+  </data>
+  <data name="TimeSeriesSettingsTitle" xml:space="preserve">
+    <value>Tidsserieinställningar</value>
+  </data>
+  <data name="TimeSeriesSettingsUpdated" xml:space="preserve">
+    <value>Inställningar för tidsserier uppdaterades</value>
+  </data>
+  <data name="StateButtonCalculationDiagramSettings" xml:space="preserve">
+    <value>Diagram</value>
+  </data>
+  <data name="FilterAccuracyExclusive" xml:space="preserve">
+    <value>Exkluderande</value>
+  </data>
+  <data name="FilterAccuracyExclusiveHint" xml:space="preserve">
+    <value>Exkludera koordinater där någon del av observationens noggrannheten ligger utanför vald area</value>
+  </data>
+  <data name="FilterAccuracyInclusive" xml:space="preserve">
+    <value>Inkluderande</value>
+  </data>
+  <data name="FilterAccuracyInclusiveHint" xml:space="preserve">
+    <value>Inkludera även med koordinater där någon del av observationens noggrannheten ligger inom vald area</value>
+  </data>
+  <data name="FilterAccuracyMaxCoordinateAccuracy" xml:space="preserve">
+    <value>Max koordinat noggrannhet</value>
+  </data>
+  <data name="FilterAccuracyTitle" xml:space="preserve">
+    <value>Noggrannhet</value>
+  </data>
+  <data name="ResultViewWfsGridMap" xml:space="preserve">
+    <value>Rutnätskarta över miljödata</value>
+  </data>
+  <data name="FilterAccuracySettingsReset" xml:space="preserve">
+    <value>Noggrannhetsfilter togs bort</value>
+  </data>
+  <data name="FilterAccuracyUpdated" xml:space="preserve">
+    <value>Noggrannhetsfiltret har uppdaterats</value>
+  </data>
+  <data name="ResultDownloads" xml:space="preserve">
+    <value>Ladda ner</value>
+  </data>
+  <data name="StateButtonFilterAccuracy" xml:space="preserve">
+    <value>Noggrannhet</value>
+  </data>
+  <data name="StateButtonFilterAccuracyTooltip" xml:space="preserve">
+    <value>Ställ in filtret för noggrannhet</value>
+  </data>
+  <data name="GridStatisticsCalculationModeArea" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="GridStatisticsCalculationModeCount" xml:space="preserve">
+    <value>Antal</value>
+  </data>
+  <data name="GridStatisticsCalculationModeLength" xml:space="preserve">
+    <value>Längd</value>
+  </data>
+  <data name="GridStatisticsEnvironmentalData" xml:space="preserve">
+    <value>Miljödata</value>
+  </data>
+  <data name="SharedCalculate" xml:space="preserve">
+    <value>Beräkna</value>
+  </data>
+  <data name="SharedLayer" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+  <data name="SharedSelectedLayer" xml:space="preserve">
+    <value>Valt lager</value>
+  </data>
+  <data name="SharedSelectLayer" xml:space="preserve">
+    <value>Välj lager</value>
+  </data>
+  <data name="GridStatisticsCalculation" xml:space="preserve">
+    <value>Beräkning</value>
+  </data>
+  <data name="GridStatisticsCellSizeMeters" xml:space="preserve">
+    <value>Cellstorlek (m)</value>
+  </data>
+  <data name="GridStatisticsDisplay" xml:space="preserve">
+    <value>Visning</value>
+  </data>
+  <data name="DownloadCombinedGridStatisticsAsExcel" xml:space="preserve">
+    <value>Kombinerad gridstatistik från artobservationer &amp; miljödata</value>
+  </data>
+  <data name="DownloadGridStatisticsOnSpeciesCounts" xml:space="preserve">
+    <value>Gridbaserad statistik över antal arter</value>
+  </data>
+  <data name="DownloadSummaryStatisticsAsExcel" xml:space="preserve">
+    <value>Översiktlig statistik</value>
+  </data>
+  <data name="DownloadTimeSeriesOnSpeciesObservationCountsAsExcel" xml:space="preserve">
+    <value>Tidsserietabell över antal artobservationer per tidsenhet</value>
+  </data>
+  <data name="ResultDownloadGroupExcel" xml:space="preserve">
+    <value>Excel (xlsx/xml)</value>
+  </data>
+  <data name="ResultDownloadGroupGraphics" xml:space="preserve">
+    <value>Bilder / Grafik</value>
+  </data>
+  <data name="ResultDownloadGroupOthers" xml:space="preserve">
+    <value>Andra format</value>
+  </data>
+  <data name="SharedCreateLayer" xml:space="preserve">
+    <value>Lägg till lagret</value>
+  </data>
+  <data name="ResultCombinedGridStatisticsTable" xml:space="preserve">
+    <value>Kombinerad gridstatistik</value>
+  </data>
+  <data name="ResultSpeciesObservationHeatMap" xml:space="preserve">
+    <value>Frekvenskarta över antal artobservationer (bild)</value>
+  </data>
+  <data name="ResultSpeciesObservationPointMap" xml:space="preserve">
+    <value>Species observation point map</value>
+  </data>
+  <data name="ResultTaxonHeatMap" xml:space="preserve">
+    <value>Taxon heat map</value>
+  </data>
+  <data name="DataAddWfsLayer" xml:space="preserve">
+    <value>Skapa lager</value>
+  </data>
+  <data name="DataWfsLayer" xml:space="preserve">
+    <value>Miljödatalager</value>
+  </data>
+  <data name="ResultViewSpeciesObservationTaxonSpeciesObservationCountTable" xml:space="preserve">
+    <value>Observerade taxa med antalet observationer</value>
+  </data>
+  <data name="LabelSpeciesObservationCount" xml:space="preserve">
+    <value>Antal obs</value>
+  </data>
+  <data name="DataProvidersAddWmsLayer" xml:space="preserve">
+    <value>Lägg till lager</value>
+  </data>
+  <data name="DownloadDataObservedTaxonListAsExcel" xml:space="preserve">
+    <value>Observerade taxa</value>
+  </data>
+  <data name="DownloadDataProviderStatisticsAsExcel" xml:space="preserve">
+    <value>Datakällor</value>
+  </data>
+  <data name="AnalysisPortalTitlePrefix" xml:space="preserve">
+    <value>Analysportalen</value>
+  </data>
+  <data name="CalculationIndexDescription" xml:space="preserve">
+    <value>Analysportalens beräkningar av artobservationer (förekomster av arter) och miljödata kan anpassas enligt användarens behov, rumsligt och temporalt.</value>
+  </data>
+  <data name="CalculationIndexTitle" xml:space="preserve">
+    <value>Beräkningar (databearbetning)</value>
+  </data>
+  <data name="DataDataProvidersDescription" xml:space="preserve">
+    <value>Artdata från ArtDatabanken, Artportalen, Miljövervakning (MVM, WRAM, SLU Aqua, SMHI) , Naturhistoriska riksmuseet och andra naturaliesamlingar.</value>
+  </data>
+  <data name="DataIndexDescription" xml:space="preserve">
+    <value>Genom Svenska LifeWatch ges tillgång till flera dataleverantörer med uppgifter om arters utbredning och förekomst samt valfria kartskikt och miljödata.</value>
+  </data>
+  <data name="DataIndexTitle" xml:space="preserve">
+    <value>Datakällor</value>
+  </data>
+  <data name="FilterIndexDescription" xml:space="preserve">
+    <value>Miljontals fynd av svenska arter kan enkelt filtreras med hjälp av olika sökkriterier. Sök observationer baserat på artnamn eller valfri plats på kartan.</value>
+  </data>
+  <data name="FilterIndexTitle" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FormatIndexDescription" xml:space="preserve">
+    <value>Fynddata kan presenteras i olika format. Här styrs vilka kolumnrubriker som ska finnas med och om observationerna ska presenteras enligt DarwinCore (DwC).</value>
+  </data>
+  <data name="FormatIndexTitle" xml:space="preserve">
+    <value>Format (presentation- &amp; exportinställningar)</value>
+  </data>
+  <data name="HomeIndexDescription" xml:space="preserve">
+    <value>Utforska svensk biodiversitet med hjälp av en rad analytiska verktyg, kartor och diagram. Undersök arters utbredning, artrikedom, effekter av miljöpåverkan.</value>
+  </data>
+  <data name="ResultDiagramsDescription" xml:space="preserve">
+    <value>Grafisk visualisering av tidserieanalytiska och andra resultat i form av stapeldiagram och andra typer av diagram.</value>
+  </data>
+  <data name="ResultDownloadDescription" xml:space="preserve">
+    <value>Ladda ner observationsdata och miljödata för statistisk bearbetning och analys. Exportera data i aggregerad form, gridstatistik eller tidsserier.</value>
+  </data>
+  <data name="ResultGridStatisticsTableOnSpeciesObservationCountsDescription" xml:space="preserve">
+    <value>Antalet observationer av svenska taxa per grid cell. Här presenteras resultatet från utsökningen i nedladdningsbart tabellformat.</value>
+  </data>
+  <data name="ResultGridStatisticsTableOnSpeciesRichnessDescription" xml:space="preserve">
+    <value>Nedladdningsbar gridstatistik över antalet arter per kartruta. Kan användas för biodiversitetsanalyser, studier av artantal, biologiska hotspots, traktanalys.</value>
+  </data>
+  <data name="ResultIndexDescription" xml:space="preserve">
+    <value>Biodiversitetsdata kan visas på många olika sätt med hjälp av analysportalens rika utbud av kartfunktioner, diagram och andra visualiseringsverktyg.</value>
+  </data>
+  <data name="ResultIndexTitle" xml:space="preserve">
+    <value>Resultat</value>
+  </data>
+  <data name="ResultMapsDescription" xml:space="preserve">
+    <value>Utbredningskartor för svenska arter och andra taxa. Kartor som visar artantal per atlasruta eller kartor över klimatdata, naturtyper och biotoper.</value>
+  </data>
+  <data name="ResultReportsDescription" xml:space="preserve">
+    <value>Rapporter över mängden arter och hur många observationer som totalt ingår i analysen. Sammanställningar över sökkriterier och valda datakällor.</value>
+  </data>
+  <data name="ResultSpeciesObservationGridMapDescription" xml:space="preserve">
+    <value>Gridbaserad frekvenskarta som visar antalet rapporter av svenska arter per kartruta. Antalet individer per rapport kan variera. Default rutstorlek 10 km2.</value>
+  </data>
+  <data name="ResultSpeciesObservationMapDescription" xml:space="preserve">
+    <value>Zoomningsbar punktkarta med observationer från Svenska LifeWatch. Klicka på kartan för att visa uppgifter om artfynden. Studera utbredningsmönster.</value>
+  </data>
+  <data name="ResultSpeciesObservationTaxonTableDescription" xml:space="preserve">
+    <value>En lista över de arter som observerats i Sverige och där förekomsdata finns tillgängliga via Svenska LifeWatch och dess infrastruktur av publika webbtjänster.</value>
+  </data>
+  <data name="ResultSpeciesRichnessGridMapDescription" xml:space="preserve">
+    <value>Antalet arter per kartruta kan beräknas för valfria artpooler i Analysportalen. Som default visas resultat från &gt;26 000 arter med tillgängliga data.</value>
+  </data>
+  <data name="ResultSummaryStatisticsReportDescription" xml:space="preserve">
+    <value>Antalet arter och fynduppgifter som är tillgängliga via Svenska LifeWatch infrastruktur för biodiversitet ökar dagligen. Artantal och obsantal i tabellformat.</value>
+  </data>
+  <data name="ResultTablesDescription" xml:space="preserve">
+    <value>Biodiversitetsinformation i tabellform. Nedladdningsbar statistik över antalet fynd och artrikedom. Mängd biodiversitetsdata. Förändringar över tiden.</value>
+  </data>
+  <data name="ResultTimeSeriesHistogramOnSpeciesObservationCountsDescription" xml:space="preserve">
+    <value>Stapeldiagram över antalet artobservationer gjorda inom olika månader under året och andra tidsperioder, årsvist, dag för dag. Används i tidsserieanalyser.</value>
+  </data>
+  <data name="ResultTimeSeriesTableOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Tabell med antalet artobservationer per tidssteg i nedladdningsbart format. Kan användas som underlag för tidserieanalyser, för att se populationstrender.</value>
+  </data>
+  <data name="ResultViewSpeciesObservationTableDescription" xml:space="preserve">
+    <value>Lista över svenska fynd av arter och andra taxa som resultat av utsökning från valda datakällor tillgängliggjorda via LifeWatch (observationswebbtjänsten).</value>
+  </data>
+  <data name="ResultWfsGridStatisticsMapDescription" xml:space="preserve">
+    <value>Analysportalen ger möjlighet att visa gridbaserad statistik som beräknats från miljö- och klimatdata som är öppet tillgängliga via standardiserade karttjänser.</value>
+  </data>
+  <data name="ResultTimeSeriesTaxaTitle" xml:space="preserve">
+    <value>Valda taxa</value>
+  </data>
+  <data name="ResultViewSpeciesObservationAbundanceIndexDiagram" xml:space="preserve">
+    <value>Taxonspecifikt abundansindex per tidsenhet</value>
+  </data>
+  <data name="HomeCookieInformationText" xml:space="preserve">
+    <value>&lt;br /&gt;
+Enligt lagen om elektronisk kommunikation, som trädde i kraft 2003 ska alla som besöker en webbplats informeras om vad cookies används till och informeras om hur sådan användning förhindras.
+&lt;br /&gt;&lt;br /&gt;
+En cookie är en liten textfil som lagras på din dator när du besöker en webbplats. Nästa gång du besöker webbplatsen kan webbläsaren använda den för att visa sidorna enligt dina inställningar. Analysportalen använder cookies för att få tillgång till bättre besöksstatistik och för att behålla inställningar för webbplatsens utseende, funktionalitet och språk.
+&lt;br /&gt;&lt;br /&gt;
+Om du inte vill tillåta att cookies lagras på din dator kan du stänga av funktionen i din webbläsares inställningar. Hur du gör detta beror på vilken webbläsare du använder. Du kan hitta mer information om detta i din webbläsares hjälpfunktion. Men observera att det kan innebära att sidorna inte fungerar som de skall om du inaktiverar cookies.
+&lt;br /&gt;&lt;br /&gt;
+Analysportalen sparar ingen personlig information via cookies.</value>
+  </data>
+  <data name="SharedAnalysisPortalSummary" xml:space="preserve">
+    <value>Analysportalen är en tjänst från Svenska LifeWatch - en forskningsinfrastruktur för biodiversitetsdata. Här kan du söka, filtrera, visualisera och ladda hem data från alla de datakällor som är anslutna till Svenska LifeWatch. Analysportalen är under utveckling och kompletteras successivt med nya funktioner och mer data.</value>
+  </data>
+  <data name="SharedDescription" xml:space="preserve">
+    <value>Beskrivning</value>
+  </data>
+  <data name="SharedOrganization" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="DownloadPageTooltip" xml:space="preserve">
+    <value>Ladda ner resultat</value>
+  </data>
+  <data name="ResultDiagramAbundanceIndex" xml:space="preserve">
+    <value>Abundansindex</value>
+  </data>
+  <data name="DownloadSpeciesObservationsAsExcel" xml:space="preserve">
+    <value>Artobservationer</value>
+  </data>
+  <data name="ResultViewSummaryStatisticsPerPolygonTable" xml:space="preserve">
+    <value>Översiktlig statistik per polygon</value>
+  </data>
+  <data name="SharedHistogramBinSettings" xml:space="preserve">
+    <value>Inställningar för histogramfördelning</value>
+    <comment>sv</comment>
+  </data>
+  <data name="HistogramBinSettingsAddBin" xml:space="preserve">
+    <value>Lägg till box</value>
+  </data>
+  <data name="HistogramBinSettingsBin" xml:space="preserve">
+    <value>Box</value>
+  </data>
+  <data name="HistogramBinSettingsBins" xml:space="preserve">
+    <value>Boxar</value>
+  </data>
+  <data name="HistogramBinSettingsColors" xml:space="preserve">
+    <value>Färger</value>
+  </data>
+  <data name="HistogramBinSettingsEndColor" xml:space="preserve">
+    <value>Slutfärg</value>
+  </data>
+  <data name="HistogramBinSettingsFrom" xml:space="preserve">
+    <value>Från</value>
+  </data>
+  <data name="HistogramBinSettingsHistogramBins" xml:space="preserve">
+    <value>Boxar</value>
+  </data>
+  <data name="HistogramBinSettingsMoveDown" xml:space="preserve">
+    <value>Flytta ner</value>
+  </data>
+  <data name="HistogramBinSettingsMoveUp" xml:space="preserve">
+    <value>Flytta upp</value>
+  </data>
+  <data name="HistogramBinSettingsRemoveBin" xml:space="preserve">
+    <value>Ta bort box</value>
+  </data>
+  <data name="HistogramBinSettingsStartColor" xml:space="preserve">
+    <value>Startfärg</value>
+  </data>
+  <data name="HistogramBinSettingsTitle" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="HistogramBinSettingsTo" xml:space="preserve">
+    <value>Till</value>
+  </data>
+  <data name="HistogramBinPercentOfAllItems" xml:space="preserve">
+    <value>Procent av alla poster</value>
+  </data>
+  <data name="HistogramBinPercentOfVisibleItems" xml:space="preserve">
+    <value>Procent av synliga poster</value>
+  </data>
+  <data name="SharedCount" xml:space="preserve">
+    <value>Antal</value>
+  </data>
+  <data name="SharedPercent" xml:space="preserve">
+    <value>Procent</value>
+  </data>
+  <data name="AboutUrlCalculation" xml:space="preserve">
+    <value>guider/analysportalen/berakningar</value>
+  </data>
+  <data name="AboutUrlCalculationGridStatistics" xml:space="preserve">
+    <value>guider/analysportalen/berakningar/gridstatistik</value>
+  </data>
+  <data name="AboutUrlCalculationSummaryStatistics" xml:space="preserve">
+    <value>guider/analysportalen/berakningar/oversikt-statistik</value>
+  </data>
+  <data name="AboutUrlCalculationTimeSeries" xml:space="preserve">
+    <value>guider/analysportalen/berakningar/tidsserier</value>
+  </data>
+  <data name="AboutUrlData" xml:space="preserve">
+    <value>guider/analysportalen/data</value>
+  </data>
+  <data name="AboutUrlDataEnvironmentalData" xml:space="preserve">
+    <value>guider/analysportalen/data/miljodata</value>
+  </data>
+  <data name="AboutUrlDataMapLayers" xml:space="preserve">
+    <value>guider/analysportalen/data/kartlager</value>
+  </data>
+  <data name="AboutUrlDataMetadata" xml:space="preserve">
+    <value>guider/analysportalen/data/metadata</value>
+  </data>
+  <data name="AboutUrlDataSpeciesObservations" xml:space="preserve">
+    <value>guider/analysportalen/data/artobservationer</value>
+  </data>
+  <data name="AboutUrlFilter" xml:space="preserve">
+    <value>guider/analysportalen/filter</value>
+  </data>
+  <data name="AboutUrlFilterOccurrence" xml:space="preserve">
+    <value>guider/analysportalen/filter/forekomst</value>
+  </data>
+  <data name="AboutUrlFilterQuality" xml:space="preserve">
+    <value>guider/analysportalen/filter/noggrannhet</value>
+  </data>
+  <data name="AboutUrlFilterSpatial" xml:space="preserve">
+    <value>guider/analysportalen/filter/rumsligt</value>
+  </data>
+  <data name="AboutUrlFilterTaxa" xml:space="preserve">
+    <value>guider/analysportalen/filter/taxa</value>
+  </data>
+  <data name="AboutUrlFilterTemporal" xml:space="preserve">
+    <value>guider/analysportalen/filter/tid</value>
+  </data>
+  <data name="AboutUrlFormat" xml:space="preserve">
+    <value>guider/analysportalen/format</value>
+  </data>
+  <data name="AboutUrlFormatTableColumns" xml:space="preserve">
+    <value>guider/analysportalen/format/tabellkolumner</value>
+  </data>
+  <data name="AboutUrlResult" xml:space="preserve">
+    <value>guider/analysportalen/resultat</value>
+  </data>
+  <data name="AboutUrlResultDiagrams" xml:space="preserve">
+    <value>guider/analysportalen/resultat/diagram</value>
+  </data>
+  <data name="AboutUrlResultDownload" xml:space="preserve">
+    <value>guider/analysportalen/resultat/download</value>
+  </data>
+  <data name="AboutUrlResultMaps" xml:space="preserve">
+    <value>guider/analysportalen/resultat/kartor</value>
+  </data>
+  <data name="AboutUrlResultReports" xml:space="preserve">
+    <value>guider/analysportalen/resultat/rapporter</value>
+  </data>
+  <data name="AboutUrlResultTables" xml:space="preserve">
+    <value>guider/analysportalen/resultat/tabeller</value>
+  </data>
+  <data name="SummaryStatisticsNoWfsLayerSelected" xml:space="preserve">
+    <value>Inget miljödatalager valt.</value>
+  </data>
+  <data name="DetailsObservationDetailsSettings" xml:space="preserve">
+    <value>Inställningar för observationsdetaljer</value>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateBothCounts" xml:space="preserve">
+    <value>Du valde att beräkna både antalet observationer och antalet taxa per polygon.</value>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateObservationCount" xml:space="preserve">
+    <value>Du valde att endast beräkna antalet observationer per polygon.</value>
+  </data>
+  <data name="ResultSummaryStatisticsPerPolygonComplexityEstimateSpeciesCount" xml:space="preserve">
+    <value>Du valde att endast beräkna antalet taxa per polygon.</value>
+  </data>
+  <data name="SummaryStatisticsObservationCount" xml:space="preserve">
+    <value>Antal observationer</value>
+  </data>
+  <data name="SummaryStatisticsPolygon" xml:space="preserve">
+    <value>Polygon</value>
+  </data>
+  <data name="SummaryStatisticsTaxaCount" xml:space="preserve">
+    <value>Antal arter</value>
+  </data>
+  <data name="DataProvidesSearchWmsLayerSearch" xml:space="preserve">
+    <value>Hämta skikt</value>
+  </data>
+  <data name="DownloadSummaryStatisticsPerPolygonAsExcel" xml:space="preserve">
+    <value>Översiktlig statistik per polygon</value>
+  </data>
+  <data name="SharedAboutSwedishLifewatchUrl" xml:space="preserve">
+    <value>http://www.svenskalifewatch.se/sv/</value>
+  </data>
+  <data name="FilterLocalityUpdated" xml:space="preserve">
+    <value>Lokalfilter uppdaterades</value>
+  </data>
+  <data name="FilterSpatialLocality" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="FilterLocalityReset" xml:space="preserve">
+    <value>Filtret för lokal nollställdes</value>
+  </data>
+  <data name="FilterSpatialLocalityButtonTooltip" xml:space="preserve">
+    <value>Lokalfilter</value>
+  </data>
+  <data name="FilterSpatialLocalityTitle" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="MySettingsFilterLocality" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="MySettingsFilterLocalityComparision" xml:space="preserve">
+    <value>Jämförelse</value>
+  </data>
+  <data name="FilterLocalitySearchMethod" xml:space="preserve">
+    <value>Sökmetod</value>
+  </data>
+  <data name="FilterLocalitySearchString" xml:space="preserve">
+    <value>Sökord</value>
+  </data>
+  <data name="FilterLocalityTitle" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="SettingsReportLocalityFilter" xml:space="preserve">
+    <value>Lokal</value>
+  </data>
+  <data name="StringCompareOperatorBeginsWith" xml:space="preserve">
+    <value>Börjar med</value>
+  </data>
+  <data name="StringCompareOperatorContains" xml:space="preserve">
+    <value>Innehåller</value>
+  </data>
+  <data name="StringCompareOperatorEndsWith" xml:space="preserve">
+    <value>Slutar med</value>
+  </data>
+  <data name="StringCompareOperatorEqual" xml:space="preserve">
+    <value>Lika med</value>
+  </data>
+  <data name="StringCompareOperatorLike" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="StringCompareOperatorNotEqual" xml:space="preserve">
+    <value>Ej lika med</value>
+  </data>
+  <data name="HistogramBinSettingsColorInterpolationMode" xml:space="preserve">
+    <value>Interpoleringsmetod</value>
+  </data>
+  <data name="FilterTaxonFromIdsAddUnderlyingSpecies" xml:space="preserve">
+    <value>Lägg till underliggande arter</value>
+  </data>
+  <data name="ButtonResultDownloadExcel" xml:space="preserve">
+    <value>Ladda ner (Excel)</value>
+  </data>
+  <data name="ButtonResultDownloadGeoJson" xml:space="preserve">
+    <value>Ladda ner (GeoJson)</value>
+  </data>
+  <data name="DownloadGridStatisticsOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Gridbaserad statistik över antal artobservationer</value>
+  </data>
+  <data name="DownloadTimeSeriesOnSpeciesObservationAbundanceIndexAsExcel" xml:space="preserve">
+    <value>Tidsserietabell över taxon abundansindex</value>
+  </data>
+  <data name="InformationExceptionNoObservationsFound" xml:space="preserve">
+    <value>Inga observationer hittades</value>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfWfsLayers" xml:space="preserve">
+    <value>Miljödata ({0} lager)</value>
+  </data>
+  <data name="SettingsReportWfsLayers" xml:space="preserve">
+    <value>Miljödatalager</value>
+  </data>
+  <data name="MySettingsDataSourcesNumberOfWmsLayers" xml:space="preserve">
+    <value>Kartskikt ({0} lager)</value>
+  </data>
+  <data name="SharedCalculating" xml:space="preserve">
+    <value>Beräknar...</value>
+  </data>
+  <data name="ResultWorkflowUserIsNotLoggedIn" xml:space="preserve">
+    <value>Du måste logga in för att använda denna sida</value>
+  </data>
+  <data name="ResultWorkflowPleaseLogIn" xml:space="preserve">
+    <value>Vänligen logga in</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowCurrentRoleIsNotPrivatePerson" xml:space="preserve">
+    <value>Den aktuella användarrollen måste ändras till "Privatperson"</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowChangeUserRole" xml:space="preserve">
+    <value>Vänligen byt användarroll</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowCsvFileHasBeenCreated" xml:space="preserve">
+    <value>CSV-fil har skapats</value>
+  </data>
+  <data name="ResultWorkflowStartWorkflowInBioVelPlayer" xml:space="preserve">
+    <value>Starta workflow i BioVel player</value>
+  </data>
+  <data name="ResultWorkflowDownloadCsvFile" xml:space="preserve">
+    <value>Ladda ner genererad CSV-fil</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowSpeciesObservationGrid" xml:space="preserve">
+    <value>Gridbaserad statistik över artobservationer</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultWorkflowIntroduction" xml:space="preserve">
+    <value>I den här vyn kan du generera data och använda i ett BioVel workflow. En CSV-fil skapas och lagras på Analysportalens webbserver. Endast observationer som är publikt tillgängliga är tillåtna att användas.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupWorkflows" xml:space="preserve">
+    <value>Workflows</value>
+  </data>
+  <data name="ResultBioVelWorkflow" xml:space="preserve">
+    <value>BioVel workflows</value>
+  </data>
+  <data name="ResultWorkflowEcologicalNicheModeling" xml:space="preserve">
+    <value>Ekologisk nischmodellering (ENM)</value>
+  </data>
+  <data name="GridStatisticsGenerateAllGridCells" xml:space="preserve">
+    <value>Generera alla gridceller (även tomma)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="GridStatisticsGridCells" xml:space="preserve">
+    <value>Gridceller</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialFromGeoJsonFile" xml:space="preserve">
+    <value>Sätt rumsligt filter från GeoJSON-fil</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectFile" xml:space="preserve">
+    <value>Välj fil</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedSelectedFile" xml:space="preserve">
+    <value>Vald fil</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialCoordinateSystemUsedInFile" xml:space="preserve">
+    <value>Koordinatsystem som används i filen</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialIdentifyCoordinateSystemFromFileContent" xml:space="preserve">
+    <value>Identifiera koordinatsystemet från filens innehåll</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedUploadFile" xml:space="preserve">
+    <value>Ladda upp fil</value>
+    <comment>sv</comment>
+  </data>
+  <data name="SharedNoFileSelected" xml:space="preserve">
+    <value>Ingen fil är vald</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialUnableToDetermineCoordinateSystem" xml:space="preserve">
+    <value>Det går inte att avgöra vilket koordinatsystem som används i filen. Vänligen välj ett koordinatsystem.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterSpatialUnableToParseGeoJsonFile" xml:space="preserve">
+    <value>Det går inte att tolka filens innehåll som GeoJSON</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultDownloadGroupCsv" xml:space="preserve">
+    <value>Comma-separated values (csv)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesRichnessHeatMap" xml:space="preserve">
+    <value>Species richness heat map</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapCoordinateSystem" xml:space="preserve">
+    <value>Koordinatsystem (presentation)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="ResultSpeciesObservationProvenanceReportDescription" xml:space="preserve">
+    <value>Härkomst av artobservationer kan ses här. Visas utifrån nuvarande filterinställningar.</value>
+  </data>
+  <data name="ResultViewProvenance" xml:space="preserve">
+    <value>Härkomst av artobservationer</value>
+  </data>
+  <data name="ResultViewProvenanceReportTitle" xml:space="preserve">
+    <value>Rapport på härkomst av artobservationer</value>
+  </data>
+  <data name="ResultViewProvenanceType" xml:space="preserve">
+    <value>Härkomsttyp</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnNameHeader" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnSpeciesObservationCountHeader" xml:space="preserve">
+    <value>Artobservationsantal</value>
+  </data>
+  <data name="ResultViewSpeciesObservationProvenanceTableColumnValueHeader" xml:space="preserve">
+    <value>Namn</value>
+  </data>
+  <data name="ResultViewProvenanceReportLimitDescription" xml:space="preserve">
+    <value>Resultatet har begränsats till maximalt 20 rader för varje härkomsttyp.</value>
+  </data>
+  <data name="DownloadSpeciesObservationProvenancesAsExcel" xml:space="preserve">
+    <value>Härkomst av artobservationer</value>
+  </data>
+  <data name="StateButtonPresentationFileFormat" xml:space="preserve">
+    <value>Filformat</value>
+  </data>
+  <data name="StateButtonPresentationFileFormatTooltip" xml:space="preserve">
+    <value>Ändra filformat och tecken för separering av data (olika möjligheter till csv och ecxel)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatSettingsUpdated" xml:space="preserve">
+    <value>Inställningarna för filformat uppdaterades</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatTitle" xml:space="preserve">
+    <value>Filformat</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvTitle" xml:space="preserve">
+    <value>CSV (Kommaseparerad)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparator" xml:space="preserve">
+    <value>Kolumnavskiljare</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorComma" xml:space="preserve">
+    <value>Komma (,)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorSemicolon" xml:space="preserve">
+    <value>Semikolon (;)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorPipe" xml:space="preserve">
+    <value>Vertikalstreck (|)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvSeparatorTab" xml:space="preserve">
+    <value>Tabb (tab)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvQuoteAllColumns" xml:space="preserve">
+    <value>Omslut varje kolumn med citationstecken ("kolumn")</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatReset" xml:space="preserve">
+    <value>Inställningarna för filformat återställdes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationFileFormatCsvQuoteAllColumnsShort" xml:space="preserve">
+    <value>Omslut med citationstecken</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificGridStatisticsOnSpeciesObservationCounts" xml:space="preserve">
+    <value>Antal observationer per gridcell och listat taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificGridOccurrence" xml:space="preserve">
+    <value>Gridbaserad förekomst per listat taxon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextSLU" xml:space="preserve">
+    <value>Sveriges lantbruksuniversitet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSLU" xml:space="preserve">
+    <value>http://www.slu.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextNaturhistoriskaRiksmuseet" xml:space="preserve">
+    <value>Naturhistoriska riksmuseet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlNaturhistoriskaRiksmuseet" xml:space="preserve">
+    <value>http://www.nrm.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlUniversityOfGothenburg" xml:space="preserve">
+    <value>http://www.gu.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextUniversityOfGothenburg" xml:space="preserve">
+    <value>Göteborgs universitet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlLundUniversity" xml:space="preserve">
+    <value>http://www.lu.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextLundUniversity" xml:space="preserve">
+    <value>Lunds universitet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlUmeaUniversity" xml:space="preserve">
+    <value>http://www.umu.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextUmeaUniversity" xml:space="preserve">
+    <value>Umeå universitet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSMHI" xml:space="preserve">
+    <value>http://www.smhi.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextNaturvardsverket" xml:space="preserve">
+    <value>Naturvårdsverket</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlNaturvardsverket" xml:space="preserve">
+    <value>http://www.naturvardsverket.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlSwedishResearchCouncil" xml:space="preserve">
+    <value>http://www.vr.se/</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextSwedishResearchCouncil" xml:space="preserve">
+    <value>Vetenskapsrådet</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkUrlArtdatabanken" xml:space="preserve">
+    <value>http://www.slu.se/artdatabanken</value>
+    <comment>sv</comment>
+  </data>
+  <data name="LinkTextArtdatabanken" xml:space="preserve">
+    <value>ArtDatabanken</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldSummary" xml:space="preserve">
+    <value>Fält filter - sammanställning</value>
+  </data>
+  <data name="AboutUrlFilterField" xml:space="preserve">
+    <value>guider/analysportalen/filter/fält</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldRemoveSelectedField" xml:space="preserve">
+    <value>Ta bort fält från listan</value>
+  </data>
+  <data name="StateButtonFilterFields" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="StateButtonFilterFieldsTooltip" xml:space="preserve">
+    <value>Filterar efter värd, klassificering m.m.</value>
+  </data>
+  <data name="FilterFieldsFromSearchButton" xml:space="preserve">
+    <value>Sök på fältnamn</value>
+  </data>
+  <data name="FilterFieldsOverviewButtonTooltip" xml:space="preserve">
+    <value>Visa översikt - fält</value>
+  </data>
+  <data name="FilterFieldsTitle" xml:space="preserve">
+    <value>Sök fält</value>
+  </data>
+  <data name="FilterFieldsFromSearchButtonTooltip" xml:space="preserve">
+    <value>Sök på fältnamn</value>
+  </data>
+  <data name="MySettingsFilterOneSelectedField" xml:space="preserve">
+    <value>Fält {0}</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedFields" xml:space="preserve">
+    <value>Fält ({0} valda)</value>
+  </data>
+  <data name="FilterFieldsClass" xml:space="preserve">
+    <value>Klass:</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLabel" xml:space="preserve">
+    <value>Jämförelsetyp:</value>
+  </data>
+  <data name="FilterFieldsGivenValueLabel" xml:space="preserve">
+    <value>Värde:</value>
+  </data>
+  <data name="FilterFieldsHeader" xml:space="preserve">
+    <value>Sök på fält</value>
+  </data>
+  <data name="FilterFieldsPropertyLabel" xml:space="preserve">
+    <value>Fält:</value>
+  </data>
+  <data name="FilterFieldSettingsReset" xml:space="preserve">
+    <value>Filter för fält återställdes.</value>
+  </data>
+  <data name="DownloadTaxonSpecificOccurrencePerPolygon" xml:space="preserve">
+    <value>Förekomst per listat taxon och polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxonSpecificSpeciesObservationCountPerPolygon" xml:space="preserve">
+    <value>Antal observationer per listat taxon och polygon</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadSummaryStatisticsWfsLayerMustBeSelected" xml:space="preserve">
+    <value>För att möjliggöra denna hämtning måste du välja ett miljödatalager i översiktlig statistik.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadGridStatisticsWfsLayerMustBeSelected" xml:space="preserve">
+    <value>För att möjliggöra denna hämtning måste du välja ett miljödatalager i gridstatistik.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="DownloadTaxaMustBeSelected" xml:space="preserve">
+    <value>För att möjliggöra denna hämtning måste du välja minst ett taxon.</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapSettingsReset" xml:space="preserve">
+    <value>Inställningarna för koordinatsystem återställdes</value>
+    <comment>sv</comment>
+  </data>
+  <data name="PresentationMapSettingsUpdated" xml:space="preserve">
+    <value>Inställningarna för koordinatsystem uppdaterades</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsAllClassesSelection" xml:space="preserve">
+    <value>Alla klasser</value>
+  </data>
+  <data name="SpeciesObservationCountPerTaxonAsExcel" xml:space="preserve">
+    <value>Antal observationer per listat taxon</value>
+  </data>
+  <data name="DataSourcesWfsLayerEditorUseSpatialFilterAsBoundingBox" xml:space="preserve">
+    <value>Använd rumsligt filter som bounding box (i denna vy används kartvyn som bounding box)</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterFieldsAndProperty" xml:space="preserve">
+    <value>And</value>
+  </data>
+  <data name="FilterFieldsOrProperty" xml:space="preserve">
+    <value>Or</value>
+  </data>
+  <data name="MetadatasearchSGUGeoServerLinkText" xml:space="preserve">
+    <value>Gå till SGU Geolagret</value>
+  </data>
+  <data name="MetadatasearchSMHIOpenDataLinkText" xml:space="preserve">
+    <value>Gå till SMHI Öppna data</value>
+  </data>
+  <data name="TaxonSharedProtectionLevel1" xml:space="preserve">
+    <value>Skyddsklassad</value>
+  </data>
+  <data name="PresentationExcelFileFormatTypes" xml:space="preserve">
+    <value>Excel filformat</value>
+  </data>
+  <data name="PresentationExcelFileFormatXlsx" xml:space="preserve">
+    <value>XLSX</value>
+  </data>
+  <data name="PresentationExcelFileFormatXml" xml:space="preserve">
+    <value>XML</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorGreater" xml:space="preserve">
+    <value>Större än</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorGreaterOrEqual" xml:space="preserve">
+    <value>Större eller lika med</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLess" xml:space="preserve">
+    <value>Mindre än</value>
+  </data>
+  <data name="FilterFieldsCompareOperatorLessOrEqual" xml:space="preserve">
+    <value>Mindre eller lika med</value>
+  </data>
+  <data name="Filter_CoordinateAccuracy_MaxCoordinateAccuracy_Required" xml:space="preserve">
+    <value>Max koordinat noggrannhet måste anges.</value>
+  </data>
+  <data name="FilterCoordinateAccuracyIsActive" xml:space="preserve">
+    <value>Aktivera koordinat noggrannhet</value>
+  </data>
+  <data name="FilterTaxonByTaxonAttributesTitle" xml:space="preserve">
+    <value>Lista från artfakta</value>
+  </data>
+  <data name="FilterTaxonByTaxonAttributeSearchTaxaGridTitle" xml:space="preserve">
+    <value>Taxonattribut</value>
+  </data>
+  <data name="FactorIsOnlyAHeaderTitle" xml:space="preserve">
+    <value>Faktorn är enbart en rubrik</value>
+  </data>
+  <data name="ReplaceCurrentTaxonFilter" xml:space="preserve">
+    <value>Ersätt nuvarande taxonfilter</value>
+  </data>
+  <data name="RestrictToCurrentTaxonFilter" xml:space="preserve">
+    <value>Begränsa till nuvarande taxonfilter</value>
+  </data>
+  <data name="SearchTaxaByFactorButtonText" xml:space="preserve">
+    <value>Sök taxa</value>
+  </data>
+  <data name="SearchTaxaBySelectedFactorTitle" xml:space="preserve">
+    <value>Sök taxa knutna till vald faktor</value>
+  </data>
+  <data name="TaxonAttributesTreePanelHeaderText" xml:space="preserve">
+    <value>Faktorer</value>
+  </data>
+  <data name="TaxonAttributesTreePanelTitle" xml:space="preserve">
+    <value>Artfakta</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarCollapseAllText" xml:space="preserve">
+    <value>Minimera</value>
+  </data>
+  <data name="AddTaxaButtonTooltip" xml:space="preserve">
+    <value>Lägg till taxa i nuvarande taxafilter</value>
+  </data>
+  <data name="ReplaceTaxaButtonTooltip" xml:space="preserve">
+    <value>Ersätt nuvarande taxafilter</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarSortAlphabeticallyText" xml:space="preserve">
+    <value>Sortera i alfabetisk ordning</value>
+  </data>
+  <data name="TaxonAttributesTreePanelToolbarSortDefaultText" xml:space="preserve">
+    <value>Sortera på kategori</value>
+  </data>
+  <data name="TaxonSearchCompareOpGreater" xml:space="preserve">
+    <value>Större än</value>
+  </data>
+  <data name="TaxonSearchCompareOpGreaterOrEqual" xml:space="preserve">
+    <value>Större eller lika med</value>
+  </data>
+  <data name="TaxonSearchCompareOpLess" xml:space="preserve">
+    <value>Mindre än</value>
+  </data>
+  <data name="TaxonSearchCompareOpLessOrEqual" xml:space="preserve">
+    <value>Mindre eller lika med</value>
+  </data>
+  <data name="PresentationTableCreatedUserDefinedTable" xml:space="preserve">
+    <value>Ny egendefinerad tabell skapades</value>
+  </data>
+  <data name="PresentationTableCreateNewUserDefinedTable" xml:space="preserve">
+    <value>Skapa ny egendefinierad tabell</value>
+  </data>
+  <data name="PresentationTableDeletedUserDefinedTable" xml:space="preserve">
+    <value>Egendefinierad tabell togs bort</value>
+  </data>
+  <data name="PresentationTableDeleteUserDefinedTable" xml:space="preserve">
+    <value>Ta bort</value>
+  </data>
+  <data name="PresentationTableEditedUserDefinedTable" xml:space="preserve">
+    <value>Egendefinierad tabell redigerades</value>
+  </data>
+  <data name="PresentationTableEditUserDefinedTable" xml:space="preserve">
+    <value>Redigera</value>
+  </data>
+  <data name="PresentationTablePredefinedTables" xml:space="preserve">
+    <value>Fördefinierade tabeller</value>
+  </data>
+  <data name="PresentationTableUserDefinedTableErrorNoColumnsSelected" xml:space="preserve">
+    <value>Du måste välja minst en kolumn!</value>
+  </data>
+  <data name="PresentationTableUserDefinedTableErrorNoName" xml:space="preserve">
+    <value>Du måste ange ett namn!</value>
+  </data>
+  <data name="PresentationTableUserDefinedTables" xml:space="preserve">
+    <value>Egendefinierade tabeller</value>
+  </data>
+  <data name="SharedAutoScale" xml:space="preserve">
+    <value>Autoskala</value>
+  </data>
+  <data name="SharedFixedScale" xml:space="preserve">
+    <value>Fast skala</value>
+  </data>
+  <data name="StartPage" xml:space="preserve">
+    <value>Startsida</value>
+  </data>
+  <data name="ErrorToMuchData" xml:space="preserve">
+    <value>För mycket data! Du måste applicera taxa eller rumsligt filter.</value>
+  </data>
+  <data name="ResetSettingsQuestion" xml:space="preserve">
+    <value>Återställ alla inställningar?</value>
+  </data>
+  <data name="DataProvidesSearchWfsInspireLayerSelectDefault" xml:space="preserve">
+    <value>ArtDatabanken INSPIRE</value>
+  </data>
+  <data name="SettingsReportSheetName" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="SpeciesObservationProvenanceReportSheetName" xml:space="preserve">
+    <value>Härkomst av artobservationer</value>
+  </data>
+  <data name="IncludeProvenance" xml:space="preserve">
+    <value>Inkludera härkomst i rapporten</value>
+  </data>
+  <data name="IncludeSettingSheet" xml:space="preserve">
+    <value>Inkludera inställningar i rapporten</value>
+  </data>
+  <data name="FilterRedListButton" xml:space="preserve">
+    <value>Rödlista</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterRedListButtonTooltip" xml:space="preserve">
+    <value>Välj kategorier från rödlistan</value>
+    <comment>sv</comment>
+  </data>
+  <data name="FilterByRedListTitle" xml:space="preserve">
+    <value>Filtrera på rödlistade taxa</value>
+    <comment>sv</comment>
+  </data>
+  <data name="MultiSelectAllSelected" xml:space="preserve">
+    <value>Alla valda</value>
+  </data>
+  <data name="MultiSelectNonSelected" xml:space="preserve">
+    <value>Ingen vald</value>
+  </data>
+  <data name="MultiSelectNSelected" xml:space="preserve">
+    <value>valda</value>
+  </data>
+  <data name="MultiSelectSelectAll" xml:space="preserve">
+    <value>Välj alla</value>
+  </data>
+  <data name="TextCitation" xml:space="preserve">
+    <value>&lt;p&gt;I vetenskapliga publikationer och andra rapporter där Analysportalen använts, bör man referera enligt följande:&lt;/p&gt;
+&lt;p&gt;”Data använda i den här studien har laddats ned från Svenska LifeWatch Analysportal [&lt;i&gt;datum för nedladdningen och använda dataproviders&lt;/i&gt;]. Analysportalen är finanserad av Vetenskapsrådet och Naturvårdsverket genom Svenska LifeWatch-projektet (Grant No. 829-2009-6287).”&lt;/p&gt;
+&lt;p&gt;Vi rekommenderar också att man anger de viktigaste dataleverantörerna till den analys man gjort. En sådan lista fås i Analysportalen under Resultat/Rapporter/Härkomst av artobservationer (https://www.analysisportal.se/Result/ProvenanceReport).&lt;/p&gt;
+</value>
+  </data>
+  <data name="TitleCitation" xml:space="preserve">
+    <value>Citering</value>
+  </data>
+  <data name="HeadMenuHome" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="HeadMenuHomeTooltip" xml:space="preserve">
+    <value>Visa startsidan</value>
+  </data>
+  <data name="RedListCategoryCR" xml:space="preserve">
+    <value>Akut hotad</value>
+  </data>
+  <data name="RedListCategoryDD" xml:space="preserve">
+    <value>Kunskapsbrist</value>
+  </data>
+  <data name="RedListCategoryEN" xml:space="preserve">
+    <value>Starkt hotad</value>
+  </data>
+  <data name="RedListCategoryEX" xml:space="preserve">
+    <value>Utdöd</value>
+  </data>
+  <data name="RedListCategoryLC" xml:space="preserve">
+    <value>Livskraftig</value>
+  </data>
+  <data name="RedListCategoryNA" xml:space="preserve">
+    <value>El tillämplig</value>
+  </data>
+  <data name="RedListCategoryNE" xml:space="preserve">
+    <value>Ej bedömd</value>
+  </data>
+  <data name="RedListCategoryNT" xml:space="preserve">
+    <value>Nära hotad</value>
+  </data>
+  <data name="RedListCategoryRE" xml:space="preserve">
+    <value>Nationellt utdöd</value>
+  </data>
+  <data name="RedListCategoryVU" xml:space="preserve">
+    <value>Sårbar</value>
+  </data>
+  <data name="RedListGroupRedlisted" xml:space="preserve">
+    <value>Rödlistade taxa</value>
+  </data>
+  <data name="RedListGroupThreatened" xml:space="preserve">
+    <value>Hotade taxa</value>
+  </data>
+  <data name="FilterRedListSettingsReset" xml:space="preserve">
+    <value>Rödlisteinställningar nollställda</value>
+  </data>
+  <data name="FilterRedListSettingsUpdated" xml:space="preserve">
+    <value>Rödlisteinställningar uppdaterade</value>
+  </data>
+  <data name="MySettingsFilterNumberOfSelectedRedListCategories" xml:space="preserve">
+    <value>Rödlista  ({0} kategorier valda)</value>
+  </data>
+  <data name="SettingsReportFieldFilter" xml:space="preserve">
+    <value>Fält</value>
+  </data>
+  <data name="SettingsReportRedListFilter" xml:space="preserve">
+    <value>Rödlista</value>
+  </data>
+  <data name="IntroductionText" xml:space="preserve">
+    <value>&lt;h3&gt;Kom igång&lt;/h3&gt;
+&lt;p&gt;
+    &lt;ol class="OrderedList"&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Välj data&lt;/strong&gt;&lt;br /&gt;
+            &gt; Data &gt; Artobservationer
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Filtrera och välj taxa&lt;/strong&gt;&lt;br /&gt;
+            &gt; Filter &gt; Taxa &gt; Sök på taxonnamn
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Gör eventuella beräkningar&lt;/strong&gt;&lt;br /&gt;
+            &gt; Beräkningar &gt; Gridstatistik &gt; välj t.ex. Rutstorlek
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Välj eventuella format och kartinställningar&lt;/strong&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Se resultatet&lt;/strong&gt;&lt;br /&gt;
+            &gt; Resulta &gt; t.ex. Artobservationskarta
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;strong&gt;Ändra din sökning eller analys, det går alltid att gå direkt till resultatknappen!&lt;/strong&gt;
+        &lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/p&gt;
+&lt;p&gt;Dina val syns alltid till höger =&gt; Mina inställningar&lt;/p&gt;</value>
+  </data>
+  <data name="StateButtonCalculationGridStatisticsTooltip" xml:space="preserve">
+    <value>Ändra gridstatistik (rutstorlek, koordinatsystem, beräkningar, lager)</value>
+  </data>
+  <data name="StateButtonCalculationSummaryStatisticsToolTip" xml:space="preserve">
+    <value>Ändra sammanfattande statistisk (antal observationer, antal arter, vald lag)</value>
+  </data>
+  <data name="StateButtonCalculationTimeSeriesTooltip" xml:space="preserve">
+    <value>Ändra tidsintervall (år/dag/månad/vecka) eller periodicitet (månad/vecka/dag)</value>
+  </data>
+  <data name="ShowLess" xml:space="preserve">
+    <value>Visa mindre</value>
+  </data>
+  <data name="ShowMore" xml:space="preserve">
+    <value>Visa mer</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSwedishBoardOfAgriculture" xml:space="preserve">
+    <value>Jordbruksverket GeoServer</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectSwedishMarine" xml:space="preserve">
+    <value>Havs- och vattenmyndigheten</value>
+  </data>
+  <data name="DataProvidesSearchWfsLayerSelectGlobalDataOnHumanImpact" xml:space="preserve">
+    <value>Global data on human impact</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSLUGeoServer" xml:space="preserve">
+    <value>SLU GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIMetObs" xml:space="preserve">
+    <value>Met-obs (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHISnowStatistics" xml:space="preserve">
+    <value>Snöstatistik (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIPotentialEvaporation" xml:space="preserve">
+    <value>Potentiell avdunstning (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIFrostAndIce" xml:space="preserve">
+    <value>Frost- och isstatistik (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHICloudiness" xml:space="preserve">
+    <value>Molnighet (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSMHIPercipitation" xml:space="preserve">
+    <value>Nederbörd (SMHI Öppna Data)</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSGU" xml:space="preserve">
+    <value>SGU GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishMarineAndWater" xml:space="preserve">
+    <value>Havs- och vattenmyndigheten</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectMetria" xml:space="preserve">
+    <value>Metria</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectGlobalDataOnHumanImpact" xml:space="preserve">
+    <value>Global data on human impact</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishBoardOfAgriculture" xml:space="preserve">
+    <value>Jordbruksverket GeoServer</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectBalticSeaBathymetryDatabase" xml:space="preserve">
+    <value>Baltic Sea Bathymetry Database</value>
+  </data>
+  <data name="DataProvidersWmsLayerEditorSelectSwedishEnvironmentalProtectionAgency" xml:space="preserve">
+    <value>Vic Natur Metria, Naturvårdsverket</value>
+  </data>
+  <data name="DataAddWfslayerDeleteFile" xml:space="preserve">
+    <value>Ta bort filen?</value>
+  </data>
+  <data name="DataAddWfsLayerExistingFile" xml:space="preserve">
+    <value>Använd redan uppladdad fil</value>
+  </data>
+  <data name="DataAddWfsLayerFromFile" xml:space="preserve">
+    <value>Lägg till lager från fil</value>
+  </data>
+  <data name="DataAddWfsLayerFromService" xml:space="preserve">
+    <value>Skapa lager från wfs-tjänst</value>
+  </data>
+  <data name="DataAddWfsLayerNewFile" xml:space="preserve">
+    <value>Ladda upp ny fil (GeoJSON/Shape)</value>
+  </data>
+  <data name="SharedFileAlreadyExists" xml:space="preserve">
+    <value>Filen finns redan</value>
+  </data>
+  <data name="SharedLayerAlreadyExists" xml:space="preserve">
+    <value>Lagret finns redan</value>
+  </data>
+  <data name="DataAddWfsLayerMaxFilesReached" xml:space="preserve">
+    <value>Max antal filer uppladdade</value>
+  </data>
+  <data name="DataAddWfsLayerFileName" xml:space="preserve">
+    <value>Filnamn</value>
+  </data>
+  <data name="SharedFile" xml:space="preserve">
+    <value>Fil</value>
+  </data>
+  <data name="SharedMedia" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="SharedWfsService" xml:space="preserve">
+    <value>Tjänst</value>
+  </data>
+  <data name="SharedYouHaveToLogOn" xml:space="preserve">
+    <value>Du måste vara inloggad för att kunna använda denna funktion</value>
+  </data>
+  <data name="SharedServices" xml:space="preserve">
+    <value>WFS</value>
+  </data>
+  <data name="SharedUploadedFiles" xml:space="preserve">
+    <value>Egna filer</value>
+  </data>
+  <data name="DataAddWfsLayeraFileUploadForm" xml:space="preserve">
+    <value>Tillåtna filformat är geojson och shape. Geojsonfiler ska ha suffixet .geojson och shapefiler (.shp) ska tillsamman med tillhörande .dbf fil packas i en .zip-fil.</value>
+  </data>
+  <data name="FilterPolygonFromMapLayerFileUploadFormats" xml:space="preserve">
+    <value>Tillåtet filformat är geojson (suffix .geojson)</value>
+  </data>
+  <data name="FilterTemporalHelpDateDifferenceTitle" xml:space="preserve">
+    <value>Datum &amp; Datum årligen - Vad är skillnaden?</value>
+  </data>
+  <data name="FilterTemporalHelpInstructions" xml:space="preserve">
+    <value>&lt;h3&gt;Datum &amp; Datum årligen - Vad är skillnaden?&lt;/h3&gt;
+&lt;h4&gt;Datum&lt;/h4&gt;
+&lt;p&gt;
+ Med denna inställning ställer du in exakt mellan vilka datum observationerna du vill få ut är observerade/registrerade/ändrade.
+&lt;/p&gt;
+
+&lt;h4&gt;Datum årligen&lt;/h4&gt;
+&lt;p&gt;
+Med denna inställning ställer du in &lt;em&gt;årligen&lt;/em&gt; mellan vilken månad och dag observationer du vill få ut är observerade/registrerade/ändrade.&lt;br /&gt;
+T.ex. om du anger Från: 2013-02-01 Till: 2013-03-31, så kommer observationer med som observerats/registrerats/ändrats mellan 1 februari till 31 mars för alla år fram till idag.
+&lt;/p&gt;</value>
+  </data>
+  <data name="SharedInstructionsAndSupportTitle" xml:space="preserve">
+    <value>Instruktioner och hjälp</value>
+  </data>
+  <data name="LayerSidebarBaseLayers" xml:space="preserve">
+    <value>Bakgrundskartor</value>
+  </data>
+  <data name="LayerSidebarOtherLayers" xml:space="preserve">
+    <value>Datalager</value>
+  </data>
+  <data name="LayerSidebarSorting" xml:space="preserve">
+    <value>Sortera lager</value>
+  </data>
+  <data name="LayerSideBarTitle" xml:space="preserve">
+    <value>Kartlager</value>
+  </data>
+  <data name="LayerSidebarSortingTooltip" xml:space="preserve">
+    <value>Sortera genom att dra och släpp. Avsluta med att avmarkera kryssrutan.</value>
+  </data>
+  <data name="UploadFileJsonSerialaztionFaild" xml:space="preserve">
+    <value>Misslyckades att serialisera json</value>
+  </data>
+  <data name="UploafFileLayerAlreadyAdded" xml:space="preserve">
+    <value>Lagret är redan tillagt</value>
+  </data>
+  <data name="LayerExportAttributeLabel" xml:space="preserve">
+    <value>Attribut för rutnätsvärde</value>
+  </data>
+  <data name="LayerExportCellResolutionLabel" xml:space="preserve">
+    <value>Cellupplösning</value>
+  </data>
+  <data name="LayerExportGridDataTypeLabel" xml:space="preserve">
+    <value>Rutnätets datatyp</value>
+  </data>
+  <data name="LayerExportHeightLabel" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
+  <data name="LayerExportLayerLabel" xml:space="preserve">
+    <value>Lager</value>
+  </data>
+  <data name="LayerExportPickLayerError" xml:space="preserve">
+    <value>Välj ett lager</value>
+  </data>
+  <data name="LayerExportRasterResolutionLabel" xml:space="preserve">
+    <value>Rasterupplösning</value>
+  </data>
+  <data name="LayerExportRasterSizeLabel" xml:space="preserve">
+    <value>Rasterstorlek i pixlar</value>
+  </data>
+  <data name="LayerExportTitle" xml:space="preserve">
+    <value>Exportera lager</value>
+  </data>
+  <data name="LayerExportWidthLabel" xml:space="preserve">
+    <value>Bredd</value>
+  </data>
+  <data name="MapGridLayer" xml:space="preserve">
+    <value>Rutnät</value>
+  </data>
+  <data name="ResultDownloadGroupGeoJson" xml:space="preserve">
+    <value>GeoJson</value>
+  </data>
+  <data name="ResultDownloadGroupGeoTiff" xml:space="preserve">
+    <value>GeoTIFF</value>
+  </data>
+  <data name="ResultDownloadObservationsGridMap" xml:space="preserve">
+    <value>Artpoolskarta (antal observationer per kartruta)</value>
+  </data>
+  <data name="ResultDownloadSelectDownload" xml:space="preserve">
+    <value>Välj en fil att ladda ner</value>
+  </data>
+  <data name="ResultDownloadSpeciesRichnessGridMap" xml:space="preserve">
+    <value>Artpoolskarta (antal arter per kartruta)</value>
+  </data>
+  <data name="ResultViewSpeciesRichnessGridMapLayerName" xml:space="preserve">
+    <value>Artpoolskarta</value>
+  </data>
+  <data name="LayerExportRazterSize" xml:space="preserve">
+    <value>Högre upplösning medför en större bildstorlek</value>
+  </data>
+  <data name="SharedDownload" xml:space="preserve">
+    <value>Ladda ner</value>
+  </data>
+  <data name="LayerExportFormatLabel" xml:space="preserve">
+    <value>Exportformat</value>
+  </data>
+  <data name="ResultDownloadGroupGIS" xml:space="preserve">
+    <value>GIS-format</value>
+  </data>
+  <data name="ResultDownloadGroupShape" xml:space="preserve">
+    <value>ESRI Shape</value>
+  </data>
+  <data name="MapEOOLayer" xml:space="preserve">
+    <value>Utbredningsområde (EOO)</value>
+  </data>
+  <data name="MapEOOLayerConcave" xml:space="preserve">
+    <value>Utbredningsområde (Konkav)</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateAlphaValue" xml:space="preserve">
+    <value>Alfavärde</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateDescription" xml:space="preserve">
+    <value>För att kunna beräka geometrin måste du ange ett "alphavärde". Högre värden ger en mindre detaljerad polygon och vid för låga värden delas geometrin upp i flera polygoner.</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateTitle" xml:space="preserve">
+    <value>Beräkna utbredningsområde (Konkav)</value>
+  </data>
+  <data name="MapLayerSpeciesObservationGrid" xml:space="preserve">
+    <value>Förekomstarea (AOO)</value>
+  </data>
+  <data name="SharedFieldInteger" xml:space="preserve">
+    <value>Fältet får bara inehålla siffror</value>
+  </data>
+  <data name="PrintExportTitle" xml:space="preserve">
+    <value>Exportera till utskrivbar bild</value>
+  </data>
+  <data name="MapExportDpi" xml:space="preserve">
+    <value>Dpi</value>
+  </data>
+  <data name="MapExportScale" xml:space="preserve">
+    <value>Skala</value>
+  </data>
+  <data name="MapExportErrorImageToBig" xml:space="preserve">
+    <value>Den genererade bilden blir för stor. Vänligen öka skalningen eller zooma in kartan.</value>
+  </data>
+  <data name="ResultDownloadGroupImage" xml:space="preserve">
+    <value>Bild</value>
+  </data>
+  <data name="MapExportOccupancy" xml:space="preserve">
+    <value>Fyllnadsgrad</value>
+  </data>
+  <data name="SharedCoordinateSystemTooltip" xml:space="preserve">
+    <value>Koordinatsystem som används för presentation</value>
+  </data>
+  <data name="ResultViewSpeciesObservationClusterPointMap" xml:space="preserve">
+    <value>Artobservationskarta (gridbaserad)</value>
+  </data>
+  <data name="ResultClusterPointMapFetchObservationsAutomatically" xml:space="preserve">
+    <value>Hämta observationer automatiskt vid zoom &amp; panorering</value>
+  </data>
+  <data name="SharedObservations" xml:space="preserve">
+    <value>Observationer</value>
+  </data>
+  <data name="ResultClusterPointMapCoordinateSystemTooltip" xml:space="preserve">
+    <value>Koordinatsystemet som används vid beräkning av gridrutorna. Detta går att ändra under Gridstatistik.</value>
+  </data>
+  <data name="ResultClusterPointMapGridSizeTooltip" xml:space="preserve">
+    <value>Kartan delas in i gridrutor där rutorna ritas ut som gula/blå punkter. Blå punkter markerar att det är fler än 1 observation i gridrutan. Gula punkter visar att det är exakt 1 observation i gridrutan. Ju mer man zoomar in desto mindre blir rutstorleken.</value>
+  </data>
+  <data name="ResultClusterPointMapListObservations" xml:space="preserve">
+    <value>Lista observationer</value>
+  </data>
+  <data name="ResultClusterPointMapZoomToPointArea" xml:space="preserve">
+    <value>Zooma in till punktområde</value>
+  </data>
+  <data name="ResultClusterPointMapShowGridCellAs" xml:space="preserve">
+    <value>Visa gridruta som</value>
+  </data>
+  <data name="SharedPoints" xml:space="preserve">
+    <value>Punkter</value>
+  </data>
+  <data name="SharedGridCells" xml:space="preserve">
+    <value>Rutor</value>
+  </data>
+  <data name="HomeIndexDocuments" xml:space="preserve">
+    <value>&lt;div&gt;
+                &lt;table style="width:100%"&gt;
+                    &lt;tbody&gt;
+                        &lt;tr&gt;
+                            &lt;td style="text-align: center; padding:0 0 10px 0"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/analysportalen-manual-sv.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Manual - lätt&lt;/a&gt;
+                            &lt;/td&gt;
+                            &lt;td style="text-align: center; padding:0 0 10px 0"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/Analysportalen_OvningarA.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Övningar A - lätt&lt;/a&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr&gt;
+                            &lt;td style="text-align: center;"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/analysisportal_user_manual.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Manual - avancerad&lt;/a&gt;
+                            &lt;/td&gt;
+                            &lt;td style="text-align: center;"&gt;
+                                &lt;a href="http://www.slu.se/globalassets/ew/subw/lifewatch/dokument/Analysportalen_OvningarB.pdf" target="_blank" class="btn btn-sm btn-info"&gt;Övningar B - avancerad&lt;/a&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateUseCenterPoint" xml:space="preserve">
+    <value>Använd rutornas mittpunkt</value>
+  </data>
+  <data name="ResultSpeciesObservationsExceedMaxForExport" xml:space="preserve">
+    <value>Max {0} observationer är tillåtna vid export.</value>
+  </data>
+  <data name="DownloadAOOEOOForTaxonAsExcel" xml:space="preserve">
+    <value>AOO och EOO per taxon</value>
+  </data>
+  <data name="MapEOOLayerConcaveCalculateUseGridCellCornerPoints" xml:space="preserve">
+    <value>Använd rutornas hörnpunkter (långsammare)</value>
+  </data>
+  <data name="SharedSoftwareDescription" xml:space="preserve">
+    <value>Applikationsbeskrivning</value>
+  </data>
+  <data name="ExcelExportTitle" xml:space="preserve">
+    <value>Exportera till Excel</value>
+  </data>
+  <data name="SharedColumns" xml:space="preserve">
+    <value>Kolumner</value>
+  </data>
+  <data name="SharedColumnHeaders" xml:space="preserve">
+    <value>Kolumnrubriker</value>
+  </data>
+  <data name="SharedColumnHeaderTypeStandard" xml:space="preserve">
+    <value>Standard (Vetenskapligt namn, etc.)</value>
+  </data>
+  <data name="SharedColumnHeaderTypeDarwinCore" xml:space="preserve">
+    <value>Darwin Core (scientificName, etc.)</value>
+  </data>
+  <data name="SharedExtraExcelSheets" xml:space="preserve">
+    <value>Extra flikar</value>
+  </data>
+  <data name="SharedErrorMustAddAtleastOneTaxonToFilter" xml:space="preserve">
+    <value>Du måste lägga till minst ett taxon till taxafiltret.</value>
+  </data>
+  <data name="SharedProject" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="FilterRedListUseAsCurrentTaxaList" xml:space="preserve">
+    <value>Använd som aktuell taxalista</value>
+  </data>
+  <data name="FilterRedListAddToCurrentTaxaList" xml:space="preserve">
+    <value>Lägg till nuvarande taxalista</value>
+  </data>
+  <data name="FilterRedListFilterCurrentTaxaList" xml:space="preserve">
+    <value>Filtrera nuvarande taxalista</value>
+  </data>
+  <data name="FilterRedListUseAsCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Sätt taxafiltret till de taxa som matchar dina valda rödlistekriterier</value>
+  </data>
+  <data name="FilterRedListFilterCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Ta bort taxa som inte matchar dina valda rödlistekriterier från nuvarande taxalista</value>
+  </data>
+  <data name="FilterRedListAddToCurrentTaxaListTooltip" xml:space="preserve">
+    <value>Lägg till taxa som matchar dina valda rödlistekriterier till nuvarande taxalista</value>
+  </data>
+  <data name="SharedTaxaAddedToTaxaList" xml:space="preserve">
+    <value>taxa lades till i taxalistan</value>
+  </data>
+  <data name="SharedTaxaRemovedFromTaxaList" xml:space="preserve">
+    <value>taxa togs bort från taxalistan</value>
+  </data>
+  <data name="SharedNoTaxaAddedOrRemovedFromTaxaList" xml:space="preserve">
+    <value>Inga taxa lades till eller togs bort från taxalistan</value>
+  </data>
+  <data name="SharedRemoveFilter" xml:space="preserve">
+    <value>Ta bort filter</value>
+  </data>
+  <data name="SharedAddFilter" xml:space="preserve">
+    <value>Lägg till filter</value>
+  </data>
+  <data name="SharedChangeFilter" xml:space="preserve">
+    <value>Ändra filter</value>
+  </data>
+  <data name="SharedRemoveSelectedTaxa" xml:space="preserve">
+    <value>Ta bort valda taxa</value>
+  </data>
+  <data name="FilterTaxonFromSearchAddToTaxaFilter" xml:space="preserve">
+    <value>Lägg till i taxafilter</value>
+  </data>
+  <data name="FilterTaxonFromIdsAddSelectedTaxaWhenFilterNotEmpty" xml:space="preserve">
+    <value>Utöka taxafiltret med markerad taxa</value>
+  </data>
+  <data name="DataProvidersRemoveAllWmsLayers" xml:space="preserve">
+    <value>Ta bort alla bakgrundskartor</value>
+  </data>
+  <data name="DataProvidersRemoveSelectedWmsLayers" xml:space="preserve">
+    <value>Ta bort markerade bakgrundskartor</value>
+  </data>
+  <data name="DataProvidersRemoveSelectedWfsLayers" xml:space="preserve">
+    <value>Ta bort markerade datalager</value>
+  </data>
+  <data name="FilterTaxaManageTaxaFilterTemplate" xml:space="preserve">
+    <value>Hantera taxafilter ({0} valda)</value>
+  </data>
+  <data name="FilterTaxonFromIdsChooseUnderlyingSpecies" xml:space="preserve">
+    <value>Välj underliggande arter</value>
+  </data>
+  <data name="SharedPoint" xml:space="preserve">
+    <value>Punkt</value>
+  </data>
+  <data name="SharedAccuracyFilterExclude" xml:space="preserve">
+    <value>Noggrannhetsfilter (exkludera)</value>
+  </data>
+  <data name="SharedAccuracyFilterInclude" xml:space="preserve">
+    <value>Noggrannhetsfilter (inkludera)</value>
+  </data>
+  <data name="SharedAccuracyFilterMaxMeterTemplate" xml:space="preserve">
+    <value>Koordinatnoggrannhet, max {0}m</value>
+  </data>
+  <data name="SharedCoordinateAccuracy" xml:space="preserve">
+    <value>Koordinatnoggrannhet</value>
+  </data>
+  <data name="SharedGridCell" xml:space="preserve">
+    <value>Ruta</value>
+  </data>
+  <data name="QuotationReportSheetName" xml:space="preserve">
+    <value>Citering</value>
+  </data>
+  <data name="PresentationMapDownloadCoordinateSystem" xml:space="preserve">
+    <value>Nedladdning av artobservationer</value>
+  </data>
+  <data name="PresentationMapPresentationCoordinateSystem" xml:space="preserve">
+    <value>Presentation i Analysportalen</value>
+  </data>
+  <data name="StateButtonPresentationCoordinateSystem" xml:space="preserve">
+    <value>Koordinatsystem</value>
+  </data>
+  <data name="PresentationMapGridMapsCoordinateSystem" xml:space="preserve">
+    <value>Beräkning av gridkartor</value>
+  </data>
+  <data name="SharedLayerDoesntSupportCurrentCoordinateSystem" xml:space="preserve">
+    <value>Detta lager har inte stöd för ditt nuvarande valda koordinatsystem</value>
+  </data>
+  <data name="ButtonGroupSettings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="HeadMenuSettings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="HeadMenuSettingsTooltip" xml:space="preserve">
+    <value>Ändra inställningar för beräkningar och presentation</value>
+  </data>
+  <data name="SettingsReportSettings" xml:space="preserve">
+    <value>Inställningar</value>
+  </data>
+  <data name="SharedFilename" xml:space="preserve">
+    <value>Filnamn</value>
+  </data>
+  <data name="WfsLayersUploadedFiles" xml:space="preserve">
+    <value>Uppladdade filer</value>
+  </data>
+</root>

@@ -1,0 +1,113 @@
+﻿@using ArtDatabanken.WebApplication.AnalysisPortal.ViewModels.Taxon
+@using Resources
+@model TaxonSummaryViewModel
+
+
+<table class="table table-condensed white-bg">
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryIdLabel</td>
+        <td id="TaxonDetails_TaxonId"><strong>@Model.Id</strong></td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryGuidLabel</td>
+        <td id="TaxonDetails_TaxonGuid">@Model.Guid</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryValidityLabel</td>
+        <td id="TaxonDetails_Validity">@Model.Validity</td>
+    </tr>      
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryConceptDefinitionLabel</td>
+        <td id="TaxonDetails_ConceptDefinition">@Model.ConceptDefinition</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryCategoryLabel</td>
+        <td id="TaxonDetails_Category">@Model.Category</td>
+    </tr>
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryScientificNameLabel</td>
+        <td id="TaxonDetails_ScientificName">
+            <strong>
+            @if (Model.ScientificName != null)
+            {
+                <text>@Html.RenderScientificName(Model.ScientificName.Name, Model.ScientificName.Author, Model.CategorySortOrder)</text>        
+            }
+            else
+            {
+                @:-
+            }
+            </strong>
+        </td>
+    </tr>   
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySynonymsLabel</td>
+        <td id="TaxonDetails_Synonyms">
+            @if (Model.Synonyms.Count > 0) 
+            {
+                for (int i = 0; i < Model.Synonyms.Count; i++)
+                {
+                    var item = Model.Synonyms[i];
+                    if (i > 0)
+                    {
+                        <text>; </text>                        
+                    }
+                    <text>@Html.RenderScientificName(item.Name, item.Author, Model.CategorySortOrder)</text>                    
+                }
+            }
+            else
+            {
+                @:-                
+            }              
+        </td>
+    </tr>           
+                     
+    <tr>            
+        <td class="tablelabel">@Resource.TaxonSummaryCommonNamesLabel</td>
+        <td id="TaxonDetails_CommonNames">
+            @(Model.CommonName != null ? Model.CommonName.Name : "-")
+            @if (Model.OtherValidCommonNames.Count > 0)
+            {
+                <text>
+                @string.Format("({0})", string.Join(", ", Model.OtherValidCommonNames))
+                </text>
+            }
+        </td>
+    </tr>       
+                         
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryClassificationLabel</td>
+        <td id="TaxonDetails_Classification">
+            @{
+                for (int i = 0; i < Model.Classification.Count; i++)
+                {
+                    RelatedTaxonViewModel item = Model.Classification[i];
+                    <text>
+                        @Model.Classification[i].Category  
+                        <strong>@Html.RenderScientificName(item.ScientificName, null, item.SortOrder)</strong> 
+                        @string.Format("{0}", i < Model.Classification.Count - 1 ? ", " : "")
+                    </text>
+                }
+            }            
+        </td>
+    </tr>  
+
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySwedishOccurrenceLabel</td>
+        <td id="TaxonDetails_SwedishOccurrence">@Model.SwedishOccurrence</td>
+    </tr>   
+                            
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummarySwedishHistoryLabel</td>
+        <td id="TaxonDetails_SwedishHistory">@Model.SwedishHistory</td>
+    </tr> 
+
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryCreatedLabel</td>
+        <td id="TaxonDetails_CreateInformation">@Model.CreatedInformation</td>
+    </tr>
+            
+    <tr>
+        <td class="tablelabel">@Resource.TaxonSummaryUpdateInformationLabel</td>
+        <td id="TaxonDetails_UpdateInformation">@Model.UpdateInformation</td>
+    </tr>         
+</table>

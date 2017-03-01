@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="urn:WebServices.ArtDatabanken.slu.se" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:WebServices.ArtDatabanken.slu.se" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:WebServices.ArtDatabanken.slu.se/Imports">
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd0" namespace="urn:WebServices.ArtDatabanken.slu.se" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.WebService.Data" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://moneses-dev.artdata.slu.se/TaxonService/DyntaxaInternalService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ArtDatabanken.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionSpeciesFact_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionSpeciesFact" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionSpeciesFact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionSpeciesFactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetAllDyntaxaRevisionSpeciesFacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDyntaxaRevisionSpeciesFacts" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetAllDyntaxaRevisionSpeciesFacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDyntaxaRevisionSpeciesFactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateDyntaxaRevisionSpeciesFact_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDyntaxaRevisionSpeciesFact" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateDyntaxaRevisionSpeciesFact_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDyntaxaRevisionSpeciesFactResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateCompleteRevisionEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompleteRevisionEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateCompleteRevisionEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCompleteRevisionEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Ping_InputMessage">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_Ping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_StartTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_StartTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_RollbackTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_RollbackTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RollbackTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CommitTransaction_InputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransaction" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CommitTransaction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CommitTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_SetRevisionSpeciesFactPublished_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevisionSpeciesFactPublished" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_SetRevisionSpeciesFactPublished_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevisionSpeciesFactPublishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionReferenceRelation" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionReferenceRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetAllDyntaxaRevisionReferenceRelations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDyntaxaRevisionReferenceRelations" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetAllDyntaxaRevisionReferenceRelations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllDyntaxaRevisionReferenceRelationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelationById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionReferenceRelationById" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelationById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDyntaxaRevisionReferenceRelationByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_SetRevisionReferenceRelationPublished_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevisionReferenceRelationPublished" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_SetRevisionReferenceRelationPublished_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetRevisionReferenceRelationPublishedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateDyntaxaRevisionReferenceRelation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDyntaxaRevisionReferenceRelation" />
+  </wsdl:message>
+  <wsdl:message name="IDyntaxaInternalService_CreateDyntaxaRevisionReferenceRelation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateDyntaxaRevisionReferenceRelationResponse" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="IDyntaxaInternalService">
+    <wsdl:operation name="GetDyntaxaRevisionSpeciesFact">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionSpeciesFact" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionSpeciesFact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionSpeciesFactResponse" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionSpeciesFact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDyntaxaRevisionSpeciesFacts">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetAllDyntaxaRevisionSpeciesFacts" message="tns:IDyntaxaInternalService_GetAllDyntaxaRevisionSpeciesFacts_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetAllDyntaxaRevisionSpeciesFactsResponse" message="tns:IDyntaxaInternalService_GetAllDyntaxaRevisionSpeciesFacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDyntaxaRevisionSpeciesFact">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateDyntaxaRevisionSpeciesFact" message="tns:IDyntaxaInternalService_CreateDyntaxaRevisionSpeciesFact_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateDyntaxaRevisionSpeciesFactResponse" message="tns:IDyntaxaInternalService_CreateDyntaxaRevisionSpeciesFact_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCompleteRevisionEvent">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateCompleteRevisionEvent" message="tns:IDyntaxaInternalService_CreateCompleteRevisionEvent_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateCompleteRevisionEventResponse" message="tns:IDyntaxaInternalService_CreateCompleteRevisionEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/Login" message="tns:IDyntaxaInternalService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/LoginResponse" message="tns:IDyntaxaInternalService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/Logout" message="tns:IDyntaxaInternalService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/LogoutResponse" message="tns:IDyntaxaInternalService_Logout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/Ping" message="tns:IDyntaxaInternalService_Ping_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/PingResponse" message="tns:IDyntaxaInternalService_Ping_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetStatus" message="tns:IDyntaxaInternalService_GetStatus_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetStatusResponse" message="tns:IDyntaxaInternalService_GetStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/StartTransaction" message="tns:IDyntaxaInternalService_StartTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/StartTransactionResponse" message="tns:IDyntaxaInternalService_StartTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RollbackTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/RollbackTransaction" message="tns:IDyntaxaInternalService_RollbackTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/RollbackTransactionResponse" message="tns:IDyntaxaInternalService_RollbackTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitTransaction">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CommitTransaction" message="tns:IDyntaxaInternalService_CommitTransaction_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CommitTransactionResponse" message="tns:IDyntaxaInternalService_CommitTransaction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRevisionSpeciesFactPublished">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/SetRevisionSpeciesFactPublished" message="tns:IDyntaxaInternalService_SetRevisionSpeciesFactPublished_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/SetRevisionSpeciesFactPublishedResponse" message="tns:IDyntaxaInternalService_SetRevisionSpeciesFactPublished_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDyntaxaRevisionReferenceRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionReferenceRelation" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionReferenceRelationResponse" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDyntaxaRevisionReferenceRelations">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetAllDyntaxaRevisionReferenceRelations" message="tns:IDyntaxaInternalService_GetAllDyntaxaRevisionReferenceRelations_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetAllDyntaxaRevisionReferenceRelationsResponse" message="tns:IDyntaxaInternalService_GetAllDyntaxaRevisionReferenceRelations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDyntaxaRevisionReferenceRelationById">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionReferenceRelationById" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelationById_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/GetDyntaxaRevisionReferenceRelationByIdResponse" message="tns:IDyntaxaInternalService_GetDyntaxaRevisionReferenceRelationById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRevisionReferenceRelationPublished">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/SetRevisionReferenceRelationPublished" message="tns:IDyntaxaInternalService_SetRevisionReferenceRelationPublished_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/SetRevisionReferenceRelationPublishedResponse" message="tns:IDyntaxaInternalService_SetRevisionReferenceRelationPublished_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateDyntaxaRevisionReferenceRelation">
+      <wsdl:input wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateDyntaxaRevisionReferenceRelation" message="tns:IDyntaxaInternalService_CreateDyntaxaRevisionReferenceRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebServices.ArtDatabanken.slu.se/IDyntaxaInternalService/CreateDyntaxaRevisionReferenceRelationResponse" message="tns:IDyntaxaInternalService_CreateDyntaxaRevisionReferenceRelation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

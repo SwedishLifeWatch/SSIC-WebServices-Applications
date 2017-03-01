@@ -1,0 +1,213 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Resources" GeneratedClassName="DyntaxaSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DyntaxaUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dyntaxa</Value>
+    </Setting>
+    <Setting Name="DyntaxaApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dyntaxa</Value>
+    </Setting>
+    <Setting Name="LSIDString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">urn:lsid:dyntaxa.se:taxon:[TaxonId]</Value>
+    </Setting>
+    <Setting Name="UrlToGetGBIFTaxonIdByName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://api.gbif.org/v0.9/species/match?verbose=false&amp;name=[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToGetGBIFTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.gbif.org/species/[TaxonId]</Value>
+    </Setting>
+    <Setting Name="TaxonCategorySortOrderSpecies" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="UrlToGetSpeciesGatewayPhotos" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.artportalen.se/media/taxon/[TaxonId]</Value>
+    </Setting>
+    <Setting Name="UrlToGetArtDatabankenRedlistInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://artfakta.artdatabanken.se/taxon/[TaxonId]</Value>
+    </Setting>
+    <Setting Name="UrlToGetGoogleSearchResults" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.google.se/search?&amp;ie=UTF-8&amp;q=[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToGetFaunaEuropeaTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.faunaeur.org/full_results.php?id=[Id]</Value>
+    </Setting>
+    <Setting Name="UrlToUBioLinkitService" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.ubio.org/tools/linkit.php?map%5B%5D=all&amp;url=[Url]</Value>
+    </Setting>
+    <Setting Name="UrlToGetITISTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=[Id]</Value>
+    </Setting>
+    <Setting Name="UrlToGetEncyclopediaOfLifeTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.eol.org/search/[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToGetPESITaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.eu-nomen.eu/portal/taxon.php?GUID=[GUID]</Value>
+    </Setting>
+    <Setting Name="TempDirectoryName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Temp</Value>
+    </Setting>
+    <Setting Name="PathToTempDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">~/Temp/</Value>
+    </Setting>
+    <Setting Name="DyntaxaTaxonEditor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaTaxonEditor</Value>
+    </Setting>
+    <Setting Name="TaxonRevisionAdministrator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">TaxonRevisionAdministrator</Value>
+    </Setting>
+    <Setting Name="DyntaxaApplicationUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaUser</Value>
+    </Setting>
+    <Setting Name="SuperAdminRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="UserAdministrationAuthorityIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdministration</Value>
+    </Setting>
+    <Setting Name="UserGroupAdmninistationAuthorityIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserGroupAdministration</Value>
+    </Setting>
+    <Setting Name="TaxonRevisionEditor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DyntaxaRevisionTaxonEditor</Value>
+    </Setting>
+    <Setting Name="RevisionSelctionTaxonStatusCheckBoxId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">77</Value>
+    </Setting>
+    <Setting Name="RevisionSelectAllStatusCheckBoxId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="DyntaxaApplicationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">760</Value>
+    </Setting>
+    <Setting Name="UrlToGetUserAdminUpdateRolesLink" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://lampetra2-1.artdata.slu.se/UserAdmin/Role/ListUsers/715</Value>
+    </Setting>
+    <Setting Name="UserAdminTaxonEditorRoleID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1396</Value>
+    </Setting>
+    <Setting Name="AnamorphTaxonNameCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="GenusTaxonCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="DefaultLanguage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sv-SE</Value>
+    </Setting>
+    <Setting Name="CommonNameCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="UrlToArtDatabankenHomePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/artdatabanken/</Value>
+    </Setting>
+    <Setting Name="UrlToArtDatabankenServiceStatusPage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.artdatabanken.se/vaara-tjaenster/driftstatus/?st=driftstatus</Value>
+    </Setting>
+    <Setting Name="EmailAdressToDyntaxaSupport" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">dthuvudadministrator@slu.se</Value>
+    </Setting>
+    <Setting Name="DyntaxaDefaultReferenceId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1054</Value>
+    </Setting>
+    <Setting Name="DyntaxaDefaultReferenceIdMoneses" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1054</Value>
+    </Setting>
+    <Setting Name="DyntaxaUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.dyntaxa.se/</Value>
+    </Setting>
+    <Setting Name="UrlToGetUserAdminUpdateRolesLinkMoneses" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://moneses-dev.artdata.slu.se/UserAdmin/Role/ListUsers/1396</Value>
+    </Setting>
+    <Setting Name="ApprovedNameUsageId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="RemovedNameUsageId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">-1</Value>
+    </Setting>
+    <Setting Name="UrlToWormsTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.marinespecies.org/aphia.php?p=taxdetails&amp;id=[Id]</Value>
+    </Setting>
+    <Setting Name="UrlToNordicMicroalgaeTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://nordicmicroalgae.org/taxon/[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToAlgaebaseTaxonInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://algaebase.org/search/species/detail/?species_id=[Id]</Value>
+    </Setting>
+    <Setting Name="UrlToBiodiversityHeritageLibrary" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.biodiversitylibrary.org/name/[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToSwedishLifeWatchHomePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/sv/centrumbildningar-och-projekt/svenska-lifewatch/</Value>
+    </Setting>
+    <Setting Name="UrlToDyntaxaHomePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/dyntaxa/</Value>
+    </Setting>
+    <Setting Name="ApplicationContextCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationContext:</Value>
+    </Setting>
+    <Setting Name="UrlToUserAdminLampetra" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://UserAdmin.ArtDatabanken.se</Value>
+    </Setting>
+    <Setting Name="UrlToUserAdminMoneses" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://moneses-dev.artdata.slu.se/UserAdmin/</Value>
+    </Setting>
+    <Setting Name="UrlToSvenskaArtprojektetHomePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/sv/centrumbildningar-och-projekt/artdatabanken/svenska-artprojektet1/</Value>
+    </Setting>
+    <Setting Name="UrlToSLUHomePage" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelLeafColor" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelMainHeaderColor" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">42</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelTableHeaderColor" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelHeaderColor" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="UrlToDyntaxaFullVersion" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.dyntaxa.se/?mode=full</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelTableBackgroundColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelTableInfoHeaderColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">33</Value>
+    </Setting>
+    <Setting Name="UrlToDyntaxaInfo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.dyntaxa.se/Taxon/Info/[TaxonId]</Value>
+    </Setting>
+    <Setting Name="SpeciecFactExcelMainHeaderTextColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="SpeciesFactExcelHostTextColor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">31</Value>
+    </Setting>
+    <Setting Name="RedListPeriod" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="SpeciesCategorySortOrder" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">43</Value>
+    </Setting>
+    <Setting Name="SpeciesFactAuthorityIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SpeciesFact</Value>
+    </Setting>
+    <Setting Name="ApplicationTransactionContextCacheKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ApplicationTransactionContext:</Value>
+    </Setting>
+    <Setting Name="UrlToGetArtfaktaInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://artfakta.artdatabanken.se/taxon/[TaxonId]</Value>
+    </Setting>
+    <Setting Name="UrlToGetNobanisInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://www.nobanis.org/search-alien-species/?SpeciesQuery=[TaxonName]</Value>
+    </Setting>
+    <Setting Name="UrlToGetSkudInformation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.slu.se/centrumbildningar-och-projekt/skud/vaxtnamn/vaxtnamn/</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

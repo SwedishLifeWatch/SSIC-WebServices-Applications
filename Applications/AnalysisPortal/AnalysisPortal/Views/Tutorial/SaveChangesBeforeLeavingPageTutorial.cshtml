@@ -1,0 +1,82 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Save changes before leaving page";
+    Layout = "~/Views/Shared/_TutorialLayout.cshtml";
+}
+
+<h2>Save changes before leaving page</h2>
+
+<div class="infobox">
+    <p class="infotext">
+        To make it possible to save settings when a user leaves the page, you must 
+        catch the event "beforeunload" in the following way:        
+    </p>
+    <pre class="codebox"><code class="javascript">$(window).bind('beforeunload', function () {
+    ...
+});
+</code></pre>
+</div>
+
+
+<h2 style="margin-top: 20px;">Examples</h2>
+<div class="infobox">
+    <p class="infotext">
+        <strong>Example 1.</strong>        
+        Send name and born year to server using synchronous Ajax when leaving page. 
+        You must set <strong>async:false</strong> when you wan't to save settings when leaving the page.
+    </p>
+    <div>
+        Name: <input id="txtName" type="text" size="20"/>, Born year: <input id="txtBornYear" type="text" size="5"/>
+    </div>
+    <pre class="codebox"><code class="javascript">$(window).bind('beforeunload', function () {
+    var name = $('#txtName').val();
+    var bornYear = parseInt($('#txtBornYear').val());
+    if (isNaN(bornYear))
+        bornYear = 0;
+    AnalysisPortal.makeAjaxCall({
+            url: AnalysisPortal.ApplicationPath + '/Tutorial/WriteNameAndAgeToDebug',
+            params: {
+                name: name,
+                bornYear: bornYear
+            },
+            async: false
+        },
+        function (result) {
+            alert(result.msg);
+        }
+    );
+});
+</code></pre>    
+</div>
+
+
+    
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(window).bind('beforeunload', function () {
+            var name = $('#txtName').val();
+            var bornYear = parseInt($('#txtBornYear').val());
+            if (isNaN(bornYear))
+                bornYear = 0;
+            AnalysisPortal.makeAjaxCall({
+                url: AnalysisPortal.ApplicationPath + '/Tutorial/WriteNameAndAgeToDebug',
+                params: {
+                    name: name,
+                    bornYear: bornYear
+                },
+                async: false
+            },
+                function (result) {
+                    alert(result.msg);
+                }
+            );
+        });
+
+    });   
+
+</script>

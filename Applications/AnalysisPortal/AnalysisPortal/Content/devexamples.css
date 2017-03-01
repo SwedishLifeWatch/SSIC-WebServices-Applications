@@ -1,0 +1,16 @@
+﻿.infoText {
+    width: 600px;
+    margin-top: 2px;
+}     
+p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 2px;
+} 
+
+li {
+    list-style: inherit;
+}
+

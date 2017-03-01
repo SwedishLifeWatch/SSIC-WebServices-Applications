@@ -1,0 +1,90 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ArtDatabanken.WebService.Proxy.Test" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DyntaxaApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Dyntaxa</Value>
+    </Setting>
+    <Setting Name="TestPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Qwertyasdfg123</Value>
+    </Setting>
+    <Setting Name="TestUserName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">testuser</Value>
+    </Setting>
+    <Setting Name="TestRoleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="TestApplicationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestOrganizationId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PersonGenderManId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="SwedishLocaleId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">175</Value>
+    </Setting>
+    <Setting Name="TestEmailAddress" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">HejHopp@artdata.slu.se</Value>
+    </Setting>
+    <Setting Name="ComputerTimeDifference" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="ValidToDateYearIncrement" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="TestOrganizationCategoryId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestUserId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestPersonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="TestCountryISOCode" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">752</Value>
+    </Setting>
+    <Setting Name="DrumGrasshopperId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">101656</Value>
+    </Setting>
+    <Setting Name="TwiteId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">102124</Value>
+    </Setting>
+    <Setting Name="BlekingeId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">6508</Value>
+    </Setting>
+    <Setting Name="UserAdminApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">UserAdmin</Value>
+    </Setting>
+    <Setting Name="UpplandGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature13</Value>
+    </Setting>
+    <Setting Name="DalarnaGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature16</Value>
+    </Setting>
+    <Setting Name="BlekingeGUID" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet16Feature2</Value>
+    </Setting>
+    <Setting Name="PrintObsApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PrintObs</Value>
+    </Setting>
+    <Setting Name="TestTaxonId" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">2000446</Value>
+    </Setting>
+    <Setting Name="ArtportalenApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Artportalen</Value>
+    </Setting>
+    <Setting Name="VastmanlandCountyGuid" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet21Feature19</Value>
+    </Setting>
+    <Setting Name="AnalysisPortalApplicationIdentifier" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AnalysisPortal</Value>
+    </Setting>
+    <Setting Name="SodermanlandCounty" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">URN:LSID:artportalen.se:area:DataSet21Feature4</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
